@@ -1,0 +1,34 @@
+Introducción a R
+=================================
+
+Instalación de R y RStudio
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    Primero se debe instalar `R <https://www.r-project.org>`_ y después `RStudio <https://rstudio.com/products/rstudio/download/>`_. Existe una alternativa de utilizar RStudio en la nube (`RStudio Cloud <https://rstudio.cloud/>`_).
+
+
+    * Descargue :download:`aquí <Instalación de R y R Studio.pdf>` las presentaciones para instalar R y RStudio.
+
+
+    * Descargue :download:`aquí <RStudio Cloud.pdf>` las presentaciones para usar RStudio Cloud.
+
+
+Introducción al código en R
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+    * **Ver video** --- `Introducción a R <https://youtu.be/UaM5U52I-FY>`_.
+
+    * Descargue :download:`aquí </Introducción a R/1. Introducción a R.R>` el código.
+
+    * **Ver video** --- `Cargar datos a R <https://youtu.be/t2innyUSftA>`_.
+
+    * **Ver video** --- `Gráfica de los precios parte 1 <https://youtu.be/jNJK8ekuRMQ>`_.
+
+    * **Ver video** --- `Gráfica de los precios parte 2 <https://youtu.be/t9KQgYE2AWY>`_.
+
+    * **Ver video** --- `Extraer datos de Yahoo Finance <https://youtu.be/-8N_8mubc9s>`_.
+
+
+
+

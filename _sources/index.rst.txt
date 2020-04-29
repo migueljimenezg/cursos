@@ -1,0 +1,42 @@
+Material de apoyo
+=======================================
+
+          Profesor: Miguel Jiménez.
+
+          lumjimenezgo@unal.edu.co
+
+	  luisjimenez@itm.edu.co
+
+  
+.. toctree::
+    :caption: CONCEPTOS PREVIOS
+    :titlesonly:
+    :hidden:
+
+    
+    
+    Introducción a R/index
+    Portafolios de inversión/index
+
+
+.. toctree::
+    :caption: RIESGO DE MERCADO
+    :titlesonly:
+    :hidden:
+
+    
+    
+    Riesgo de mercado/index
+
+
+.. toctree::
+    :caption: PORTAFOLIOS DE INVERSIÓN
+    :titlesonly:
+    :hidden:
+
+    
+    
+    Portafolios de inversión2/index
+
+
+

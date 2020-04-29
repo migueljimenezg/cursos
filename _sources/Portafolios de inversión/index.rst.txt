@@ -1,0 +1,60 @@
+Análisis y conformación de portafolios de inversión
+======================================================
+
+    * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` archvio ``Cuatro acciones 2020.csv``.
+
+
+1. Conceptos de estadística
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. toctree::
+        :maxdepth: 2
+        :titlesonly:
+
+
+        Estadística aplicada a los activos bursátiles/Estadística aplicada a los activos bursátiles
+
+
+    * Descargue :download:`aquí <Estadística aplicada a los activos bursátiles/Estadística aplicada a los activos bursátiles.r>` el código.
+
+    * Descargue :download:`aquí <Estadística aplicada a los activos bursátiles/2. Conceptos estadísticos para portafolios de inversión V2.pdf>` las presentaciones.
+
+    * **Ver video** --- `aquí <https://youtu.be/p-AYf2oLRmg>`_.
+
+       **Ejercicios:**
+
+
+        .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+
+
+            Ejercicios - Estadística y conformación de portafolios de inversión/Ejercicios - Estadística y conformación de portafolios de inversión
+
+
+2. Volatilidad portafolios de inversión
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. toctree::
+        :maxdepth: 2
+        :titlesonly:
+    
+
+        Volatilidad portafolio de inversión/Volatilidad portafolio de inversión
+ 
+    * Descargue :download:`aquí <Volatilidad portafolio de inversión/Volatilidad portafolio de inversión.r>` el código.
+
+    * **Ver video** --- `aquí <https://youtu.be/iK1kcyl6zKU>`_.
+
+3. Conformación de portafolios de inversión
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. toctree::
+        :maxdepth: 2
+        :titlesonly:
+
+        Conformación portafolio de inversión/Conformación portafolio de inversión
+
+    * Descargue :download:`aquí <Conformación portafolio de inversión/Conformación portafolio de inversión.r>` el código.
+
+    * **Ver video** --- `aquí <https://youtu.be/QXQQQuZJK9w>`_.
