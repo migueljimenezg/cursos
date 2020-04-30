@@ -1,0 +1,11 @@
+Introducción a la Gestión del Riesgo
+==========================================
+
+
+**Lecturas**
+
+.. [#f1] **Cartilla AMV: Administración y control de riesgos financieros.**
+
+    * **Descargue** :download:`aquí <Administración y control de riesgos financieros-AMV.pdf>`
+
+

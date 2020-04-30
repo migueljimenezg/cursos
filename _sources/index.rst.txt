@@ -25,8 +25,8 @@ Material de apoyo
     :hidden:
 
     
-    
-    Riesgo de mercado/index
+    Riesgo de mercado/Introducción Gestión del Riesgo/index
+    Riesgo de mercado/VaR Delta-Normal/index
 
 
 .. toctree::
@@ -34,9 +34,9 @@ Material de apoyo
     :titlesonly:
     :hidden:
 
+    Portafolios de inversión2/Mercado financiero/index
+    Portafolios de inversión2/Trading/index.rst
     
-    
-    Portafolios de inversión2/index
 
 
 

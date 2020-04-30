@@ -19,7 +19,10 @@ Introducción al código en R
 
     * **Ver video** --- `Introducción a R <https://youtu.be/UaM5U52I-FY>`_.
 
-    * Descargue :download:`aquí </Introducción a R/1. Introducción a R.R>` el código.
+    * **Descargue** :download:`aquí </Introducción a R/1. Introducción a R.R>` el código.
+
+Cargar datos y graficarlos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     * **Ver video** --- `Cargar datos a R <https://youtu.be/t2innyUSftA>`_.
 
@@ -27,8 +30,19 @@ Introducción al código en R
 
     * **Ver video** --- `Gráfica de los precios parte 2 <https://youtu.be/t9KQgYE2AWY>`_.
 
-    * **Ver video** --- `Extraer datos de Yahoo Finance <https://youtu.be/-8N_8mubc9s>`_.
 
+
+    .. toctree::
+        :maxdepth: 2
+        :titlesonly:
+
+
+        Extraer datos de Yahoo Finance/Extraer datos de Yahoo Finance
+
+
+    * **Ver video** --- `aquí <https://youtu.be/-8N_8mubc9s>`_.
+
+    * **Descargue** :download:`aquí <Extraer datos de Yahoo Finance/Extraer datos de Yahoo Finance.r>` el código.
 
 
 

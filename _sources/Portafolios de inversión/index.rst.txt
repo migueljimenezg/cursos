@@ -1,7 +1,7 @@
 Análisis y conformación de portafolios de inversión
 ======================================================
 
-    * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` archvio ``Cuatro acciones 2020.csv``.
+    * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` archivo ``Cuatro acciones 2020.csv``.
 
 
 1. Conceptos de estadística
@@ -58,3 +58,19 @@ Análisis y conformación de portafolios de inversión
     * Descargue :download:`aquí <Conformación portafolio de inversión/Conformación portafolio de inversión.r>` el código.
 
     * **Ver video** --- `aquí <https://youtu.be/QXQQQuZJK9w>`_.
+
+
+
+
+
+**Lecturas**
+
+.. [#f1] **Capítulo 1: Fundamentos de probabilidad y estadística**. Jay L. Devore. 
+
+    * **Descargue** :download:`aquí <Estadística-Devore.pdf>` el capítulo.
+
+.. [#f2] **Artículo: Cuatro hechos estilizados de las series de rendimientos: una ilustración para Colombia**. Julio Cesar Alonso y Mauricio Alejandro Arcos.
+
+    * **Descargue** :download:`aquí <CUATRO HECHOS ESTILIZADOS DE LAS SERIES DE RENDIMIENTOS.pdf>` el artículo.
+
+   
