@@ -24,7 +24,7 @@ Introducción al código en R
 Cargar datos y graficarlos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    * **Descargue** :download:`aquí <COLCAP.csv>` el archico COLCAP.CSV.
+    * **Descargue** :download:`aquí <COLCAP.csv>` el archivo COLCAP.
 
     * **Ver video** --- `Cargar datos a R <https://youtu.be/t2innyUSftA>`_.
 
