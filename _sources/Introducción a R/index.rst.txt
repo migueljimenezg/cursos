@@ -24,11 +24,15 @@ Introducción al código en R
 Cargar datos y graficarlos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    * **Descargue** :download:`aquí <COLCAP.csv>` el archico COLCAP.CSV.
+
     * **Ver video** --- `Cargar datos a R <https://youtu.be/t2innyUSftA>`_.
 
     * **Ver video** --- `Gráfica de los precios parte 1 <https://youtu.be/jNJK8ekuRMQ>`_.
 
     * **Ver video** --- `Gráfica de los precios parte 2 <https://youtu.be/t9KQgYE2AWY>`_.
+
+    * **Ver video** --- `Descargar precios de acciones desde Investing <https://youtu.be/q0UganT3NfQ>`_.
 
 
 

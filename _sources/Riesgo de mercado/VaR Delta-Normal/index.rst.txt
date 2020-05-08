@@ -79,7 +79,7 @@ VaR varianzas-covarianzas o Delta-Normal
 **Lecturas**
 
 
-.. [#f1] **Tema: distribución normal.** Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.
+.. [#f1] **Tema: Distribución normal.** Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.
 
     * **Descargue** :download:`aquí <Distribución normal-Alonso y Berggrun.pdf>` el documentos.
 
