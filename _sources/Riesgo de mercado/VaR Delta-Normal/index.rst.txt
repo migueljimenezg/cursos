@@ -7,6 +7,10 @@ VaR varianzas-covarianzas o Delta-Normal
 
     * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` el archivo ``Cuatro acciones 2020.csv``.
 
+    * **Descargue** :download:`aquí <TRM.csv>` el archivo ``TRM.csv``.
+
+    * **Descargue** :download:`aquí <Tres acciones 2020.csv>` el archivo ``Tres acciones 2020.csv`` para resolver los ejercicios.
+
     
 
 

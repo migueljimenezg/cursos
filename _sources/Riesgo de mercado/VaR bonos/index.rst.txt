@@ -7,7 +7,7 @@ VaR bonos
 
     * **Descargue** :download:`aquí <Bono 2020.csv>` el archivo ``Bono 2020.csv``.
 
-    * **Descargue** :download:`aquí <TFIT08261125.csv>` archivo ``TFIT08261125.csv``.
+    * **Descargue** :download:`aquí <TFIT08261125.csv>` archivo ``TFIT08261125.csv`` para resolver los ejercicios.
 
 
 
