@@ -1,9 +1,13 @@
 VaR varianzas-covarianzas o Delta-Normal
 ==========================================
 
-    * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` archvio ``Cuatro acciones 2020.csv``.
-
     * **Descargue** :download:`aquí <3. VaR Varianzas-Covarianzas V2.pdf>` las presentaciones.
+
+    * **Ver video** --- `aquí <https://youtu.be/jXSmdhylFmI>`_.
+
+    * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` el archivo ``Cuatro acciones 2020.csv``.
+
+    
 
 
 
@@ -81,7 +85,7 @@ VaR varianzas-covarianzas o Delta-Normal
 
 .. [#f1] **Tema: Distribución normal.** Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.
 
-    * **Descargue** :download:`aquí <Distribución normal-Alonso y Berggrun.pdf>` el documentos.
+    * **Descargue** :download:`aquí <Distribución normal-Alonso y Berggrun.pdf>` el documento.
 
 .. [#f2] **Capítulo 2: Rendimiento y riesgo.** Medición y control de riesgos financieros. Alfonso De Lara Haro.
 
@@ -93,7 +97,7 @@ VaR varianzas-covarianzas o Delta-Normal
 
 .. [#f4] **Tema: VaR Delta-Normal.** Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.
 
-    * **Descargue** :download:`aquí <VaR Delta-Normal-Alonso y Berggrun.pdf>` el documentos.
+    * **Descargue** :download:`aquí <VaR Delta-Normal-Alonso y Berggrun.pdf>` el documento.
 
 
 

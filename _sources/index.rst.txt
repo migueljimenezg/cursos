@@ -27,6 +27,8 @@ Material de apoyo
     
     Riesgo de mercado/Introducción Gestión del Riesgo/index
     Riesgo de mercado/VaR Delta-Normal/index
+    Riesgo de mercado/VaR SH/index
+    Riesgo de mercado/VaR bonos/index
 
 
 .. toctree::

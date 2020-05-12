@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CVaR &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="VaR Simulación Histórica y CVaR" href="../index.html"/>
+        <link rel="next" title="Taller VaR Simulación Histórica y CVaR" href="../Taller VaR Simulación Histórica y CVaR/Taller VaR Simulación Histórica y CVaR.html"/>
+        <link rel="prev" title="VaR Simulación Histórica - Método no paramétrico" href="../VaR Simulación Histórica/VaR-simulación-Histórica-Jupyter.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VaR Simulación Histórica y CVaR</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Funciones para calcular el VaR por Simulación Histórica y CVaR/Funciones para calcular el VaR por Simulación Histórica y CVaR.html">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VaR Simulación Histórica/VaR-simulación-Histórica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CVaR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Taller VaR Simulación Histórica y CVaR/Taller VaR Simulación Histórica y CVaR.html">Taller VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Análisis gráfico VaR y CVaR/Análisis gráfico VaR y CVaR.html">Análisis gráfico VaR y CVaR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VaR Simulación Histórica y CVaR</a> &raquo;</li>
+        
+      <li>CVaR</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Riesgo de mercado/VaR SH/CVaR/CVaR-Jupyter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cvar">
+<h1>CVaR<a class="headerlink" href="#cvar" title="Permalink to this headline">¶</a></h1>
+<p><strong>Expected Shortfall (ES):</strong> también llamado VaR Condicional (<strong>CVaR –
+conditional VaR</strong>), <em>tail conditional expectation, conditional loss o
+expected tail loss.</em></p>
+<p>Indica la pérdida potencial más allá del VaR. El <strong>Expected Shortfall</strong>
+o CVaR es un promedio de la cola de las pérdidas (<em>tail loss</em>).</p>
+<p>Al igual que el VaR el CVaR es una función de dos parámetros: el
+horizonte de tiempo y el nivel de confianza.</p>
+<div class="section" id="importar-datos">
+<h2>Importar datos.<a class="headerlink" href="#importar-datos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="o">=</span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;Tres acciones.csv&quot;</span><span class="p">,</span><span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="matriz-de-precios">
+<h2>Matriz de precios.<a class="headerlink" href="#matriz-de-precios" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">precios</span><span class="o">=</span><span class="n">datos</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="matriz-de-rendimientos">
+<h2>Matriz de rendimientos.<a class="headerlink" href="#matriz-de-rendimientos" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">nrow(precios)-1</span></code> para cantidad de filas.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ncol(precios)</span></code> para cantidad de columnas.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos</span><span class="o">=</span><span class="nf">matrix</span><span class="p">(,</span><span class="nf">nrow</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span><span class="m">-1</span><span class="p">,</span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">)){</span>
+  <span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">diff</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">precios</span><span class="p">[,</span><span class="n">i</span><span class="p">]))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>CVaR<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>CVaR diario con un nivel de confianza del 95% <code class="docutils literal notranslate"><span class="pre">NC=0.95</span></code> ####
+Proporciones de inversión. <code class="docutils literal notranslate"><span class="pre">proporciones=c(0.25,0.4,0.35)</span></code></p>
+<p>ECO: 25%</p>
+<p>PFBCOLOM: 40%</p>
+<p>ISA: 35%</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.95</span>
+<span class="n">proporciones</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.4</span><span class="p">,</span><span class="m">0.35</span><span class="p">)</span>
+<span class="n">valor_portafolio</span><span class="o">=</span><span class="m">100000000</span>
+<span class="n">valor_mercado_acciones</span><span class="o">=</span><span class="n">proporciones</span><span class="o">*</span><span class="n">valor_portafolio</span>
+</pre></div>
+</div>
+<p>El CVaR es el promedio de los valores menores de la cola de la izquierda
+de la distribución empírica de los rendimientos. Con un nivel de
+confianza del 95%, el CVaR es el promedio del 5% de los rendimientos más
+bajos.</p>
+<p>Se tienen 2815 rendimientos por cada accion, el 5% de los rendimientos
+representa 140,75 rendimientos, se debe escoger el entero menor, es
+decir, el rendimiento 140 entre los rendimientos más bajos será el VaR
+en porcentaje y el CVaR en porcentaje será el promedio de estos
+rendimientos.</p>
+<p>Con <code class="docutils literal notranslate"><span class="pre">sort(rendimientos[,i],decreasing</span> <span class="pre">=</span> <span class="pre">T)</span></code> se está ordenando de mayor
+a menor valor cada columna de la matriz rendimientos.
+<code class="docutils literal notranslate"><span class="pre">nrow(rendimientos)*(1-NC)</span></code> calcula la cantidad de rendimientos que
+representa el 5% del total de los rendimientos y la función <code class="docutils literal notranslate"><span class="pre">floor()</span></code>
+aproxima al entero menor. En este caso se tiene el valor de 140.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tail()</span></code> extrae los valores de la parte de abajo de cada columna.
+Dentro de la función <code class="docutils literal notranslate"><span class="pre">tail()</span></code> se indicó que extraiga los 140
+rendimientos más bajos. De los valores que extrae, el VaR en porcentaje
+corresponde al primer valor y el CVaR en porcentaje es el promedio de
+los 140 rendimientos más bajos. Luego, al multiplicar por
+<code class="docutils literal notranslate"><span class="pre">valor_mercado_acciones</span></code> se obtiene el resultado en términos
+monetarios.</p>
+<p>El CVaR siempre es mayor que el VaR porque tiene en cuenta todos los
+valores de la cola y obtiene un promedio.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span><span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))))</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="n">CVaR</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1122434.60465592</li><li>1419147.26751319</li><li>1293658.09899953</li></ol></div>
+<div class="section" id="rendimientos-del-portafolio-de-inversion">
+<h2>Rendimientos del portafolio de inversión<a class="headerlink" href="#rendimientos-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_portafolio</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+  <span class="n">rendimientos_portafolio</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">sum</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">*</span><span class="n">proporciones</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cvar-portafolio-de-inversion">
+<h2>CVaR portafolio de inversión<a class="headerlink" href="#cvar-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR_portafolio</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span><span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))))</span><span class="o">*</span><span class="n">valor_portafolio</span><span class="p">)</span>
+<span class="n">CVaR_portafolio</span>
+</pre></div>
+</div>
+2841126.68189997</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Taller VaR Simulación Histórica y CVaR/Taller VaR Simulación Histórica y CVaR.html" class="btn btn-neutral float-right" title="Taller VaR Simulación Histórica y CVaR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../VaR Simulación Histórica/VaR-simulación-Histórica-Jupyter.html" class="btn btn-neutral" title="VaR Simulación Histórica - Método no paramétrico" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
