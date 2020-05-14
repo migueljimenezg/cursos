@@ -104,6 +104,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Backtesting/index.html">Backtesting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../VaR bonos/index.html">VaR bonos</a></li>
 </ul>
 <p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN</span></p>
@@ -290,7 +292,7 @@ normal dada una probabilidad o percentil.</p>
 <span class="nf">abline</span><span class="p">(</span><span class="n">v</span> <span class="o">=</span> <span class="nf">qnorm</span><span class="p">(</span><span class="m">0.99</span><span class="p">,</span> <span class="n">mean</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="n">volatilidad</span><span class="p">),</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_28_0.png"><img alt="../../../_images/output_28_0.png" src="../../../_images/output_28_0.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_28_01.png"><img alt="../../../_images/output_28_01.png" src="../../../_images/output_28_01.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="id1">
 <h2>Ejemplo distribución normal: <span class="math notranslate nohighlight">\(\mu=-1\)</span>% y <span class="math notranslate nohighlight">\(\sigma=5\)</span>%<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
@@ -392,7 +394,7 @@ normal dada una probabilidad o percentil.</p>
 <span class="nf">curve</span><span class="p">(</span><span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="n">volatilidad</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">1</span><span class="p">)),</span> <span class="n">add</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;#3b5998&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_57_0.png"><img alt="../../../_images/output_57_0.png" src="../../../_images/output_57_0.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_57_01.png"><img alt="../../../_images/output_57_01.png" src="../../../_images/output_57_01.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="grafico-distribucion-normal-con-mu-0">
 <h2>Gráfico: distribución normal con <span class="math notranslate nohighlight">\(\mu=0\)</span>.<a class="headerlink" href="#grafico-distribucion-normal-con-mu-0" title="Permalink to this headline">¶</a></h2>
@@ -404,7 +406,7 @@ normal dada una probabilidad o percentil.</p>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Diaria&quot;</span><span class="p">,</span> <span class="s">&quot;Semanal&quot;</span><span class="p">,</span> <span class="s">&quot;15 días&quot;</span><span class="p">,</span> <span class="s">&quot;Mensual&quot;</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;#3b5998&quot;</span><span class="p">,</span> <span class="s">&quot;firebrick3&quot;</span><span class="p">,</span> <span class="s">&quot;forestgreen&quot;</span><span class="p">,</span> <span class="s">&quot;black&quot;</span><span class="p">),</span> <span class="n">lty</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">bty</span> <span class="o">=</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_59_02.png"><img alt="../../../_images/output_59_02.png" src="../../../_images/output_59_02.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_59_03.png"><img alt="../../../_images/output_59_03.png" src="../../../_images/output_59_03.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="grafico-distribucion-normal-con-mu-0-y-percentiles">
 <h2>Gráfico: distribución normal con <span class="math notranslate nohighlight">\(\mu=0\)</span> y percentiles.<a class="headerlink" href="#grafico-distribucion-normal-con-mu-0-y-percentiles" title="Permalink to this headline">¶</a></h2>
@@ -420,7 +422,7 @@ normal dada una probabilidad o percentil.</p>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Diaria&quot;</span><span class="p">,</span> <span class="s">&quot;Semanal&quot;</span><span class="p">,</span> <span class="s">&quot;15 días&quot;</span><span class="p">,</span> <span class="s">&quot;Mensual&quot;</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;#3b5998&quot;</span><span class="p">,</span> <span class="s">&quot;firebrick3&quot;</span><span class="p">,</span> <span class="s">&quot;forestgreen&quot;</span><span class="p">,</span> <span class="s">&quot;black&quot;</span><span class="p">),</span> <span class="n">lty</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">bty</span> <span class="o">=</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_61_01.png"><img alt="../../../_images/output_61_01.png" src="../../../_images/output_61_01.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_61_02.png"><img alt="../../../_images/output_61_02.png" src="../../../_images/output_61_02.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="grafico-distribucion-normal-con-mu-neq0">
 <h2>Gráfico: distribución normal con <span class="math notranslate nohighlight">\(\mu\neq0\)</span>.<a class="headerlink" href="#grafico-distribucion-normal-con-mu-neq0" title="Permalink to this headline">¶</a></h2>

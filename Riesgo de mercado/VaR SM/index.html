@@ -1,0 +1,357 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VaR Simulación Monte Carlo &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../index.html"/>
+        <link rel="next" title="Método de simulación: Movimiento Browniano Geométrico (MBG)" href="MBG/Movimiento Browniano Geométrico.html"/>
+        <link rel="prev" title="Análisis gráfico VaR y CVaR" href="../VaR SH/Análisis gráfico VaR y CVaR/Análisis gráfico VaR y CVaR.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VaR Simulación Monte Carlo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="MBG/Movimiento Browniano Geométrico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VaR y CVaR para un activo por Simulación Monte Carlo/VaR y CVaR para un activo por Simulación Monte Carlo.html">VaR y CVaR para un activo por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VaR y CVaR por el método de simulación Monte Carlo/VaR y CVaR por el método de simulación Monte Carlo.html">VaR y CVaR por el método de simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Taller VaR y CVaR método simulación Monte Carlo/Taller VaR y CVaR método simulación Monte Carlo.html">Taller VaR y CVaR método de simulación Monte Carlo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>VaR Simulación Monte Carlo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Riesgo de mercado/VaR SM/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="var-simulacion-monte-carlo">
+<h1>VaR Simulación Monte Carlo<a class="headerlink" href="#var-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/94b7b727895c7e28bd92eed694f63e8e/Tres acciones.csv"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el archivo <code class="docutils literal notranslate"><span class="pre">Tres</span> <span class="pre">acciones.csv</span></code>.</p></li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/f126f76bf4e95592d92ea7106a05bece/Datos primer examen 01-2020.csv"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> archivo <code class="docutils literal notranslate"><span class="pre">Datos</span> <span class="pre">primer</span> <span class="pre">examen</span> <span class="pre">01-2020.csv</span></code>.</p></li>
+</ul>
+<p>En este método se debe realizar miles de escenarios, por ejemplo, 50.000 escenarios, también llamados iteraciones; sin embargo, se puede realizar <strong>10.000 iteraciones</strong> en caso de no tener una máquina lo suficientemente equipada. En el siguiente material, las simulaciones Monte Carlo se realizaron con 50.000 iteraciones cada una, el tiempo de espera de cada simulación fue de 15 minutos aproximadamente.</p>
+</div></blockquote>
+<div class="section" id="movimiento-browniano-geometrico">
+<h2>1. Movimiento Browniano Geométrico<a class="headerlink" href="#movimiento-browniano-geometrico" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/549e2ba089148b59c6a937d51b0e4801/7. Movimiento Browniano Geométrico.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> las presentaciones.</p></li>
+<li><p><strong>Ver video 1</strong> — <a class="reference external" href="https://youtu.be/EFEpTFfTuVQ">aquí</a>.</p></li>
+<li><p><strong>Ver video 2</strong> — <a class="reference external" href="https://youtu.be/AkpLFOB6R4I">aquí</a>.</p></li>
+<li><p><strong>Ver video 3</strong> — <a class="reference external" href="https://youtu.be/bZHyAgyiOaU">aquí</a>.</p></li>
+<li><p><strong>Ver video 4</strong> — <a class="reference external" href="https://youtu.be/w4TfWZCuiYY">aquí</a>.</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="MBG/Movimiento Browniano Geométrico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/934d343c3723bdc905d9a14cbf018357/Movimiento Browniano Geométrico.r"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el código.</p></li>
+<li><p><strong>Ver video 1</strong> — <a class="reference external" href="https://youtu.be/KQUueUflXx0">aquí</a>.</p></li>
+<li><p><strong>Ver video 2</strong> — <a class="reference external" href="https://youtu.be/yuN3Y5amVEs">aquí</a>.</p></li>
+<li><p><strong>Ver video 2</strong> — <a class="reference external" href="https://youtu.be/uljKsFMHTV4">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="var-y-cvar-por-simulacion-monte-carlo">
+<h2>2. VaR y CVaR por simulación Monte Carlo<a class="headerlink" href="#var-y-cvar-por-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/b492906930e558181b6a0aabda5ce666/8. VaR simulación Monte Carlo V4.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> las presentaciones.</p></li>
+<li><p><strong>Ver video</strong> — <a class="reference external" href="https://youtu.be/FgLFW7JedoI">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="var-y-cvar-por-simulacion-monte-carlo-para-un-activo">
+<h2>3. VaR y CVaR por simulación Monte Carlo para un activo<a class="headerlink" href="#var-y-cvar-por-simulacion-monte-carlo-para-un-activo" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="VaR y CVaR para un activo por Simulación Monte Carlo/VaR y CVaR para un activo por Simulación Monte Carlo.html">VaR y CVaR para un activo por Simulación Monte Carlo</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/e0ad81a49bbb9fce9a5bc4c88dac6c43/VaR y CVaR para un activo por Simulación Monte Carlo.r"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el código.</p></li>
+<li><p><strong>Ver video</strong> — <a class="reference external" href="https://youtu.be/xL2OJ1ClWwE">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="var-y-cvar-por-simulacion-monte-carlo-para-un-portafolio-de-inversion">
+<h2>4. VaR y CVaR por simulación Monte Carlo para un portafolio de inversión<a class="headerlink" href="#var-y-cvar-por-simulacion-monte-carlo-para-un-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="VaR y CVaR por el método de simulación Monte Carlo/VaR y CVaR por el método de simulación Monte Carlo.html">VaR y CVaR por el método de simulación Monte Carlo</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/db83caa194af7f7f9e7b2a9115a33f3c/VaR y CVaR por el método de simulación Monte Carlo.r"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el código.</p></li>
+<li><p><strong>Ver video 1</strong> — <a class="reference external" href="https://youtu.be/1OVOBfI5j6w">aquí</a>.</p></li>
+<li><p><strong>Ver video 2</strong> — <a class="reference external" href="https://youtu.be/6mRtX3PqOeg">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="taller-var-y-cvar-por-simulacion-monte-carlo">
+<h2>5. Taller VaR y CVaR por simulación Monte Carlo<a class="headerlink" href="#taller-var-y-cvar-por-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Taller VaR y CVaR método simulación Monte Carlo/Taller VaR y CVaR método simulación Monte Carlo.html">Taller VaR y CVaR método de simulación Monte Carlo</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/ad09d1acbcff8fd14d8c317e133bdc06/Taller VaR y CVaR método simulación Monte Carlo.r"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el código.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Lecturas</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets">1</span></dt>
+<dd><p><strong>Capítulo 17: Dinámica de precios y valuación de opciones.</strong> Simulación de modelos financieros. Luciano Machain.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/deaf8cbc22ad9d0bdcdaa93712cf9708/Movimiento Browniano Geométrico-Machain.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el capítulo.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f2"><span class="brackets">2</span></dt>
+<dd><p><strong>Capítulo 7: Modelo Monte Carlo.</strong> Medición y control de riesgos financieros. Alfonso De Lara Haro.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/63152910213d3c3cd1f5dba7f04fe853/VaR método Simulación Monte Carlo-De Lara Haro.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el capítulo.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f3"><span class="brackets">3</span></dt>
+<dd><p><strong>Capítulo 12: Monte Carlo estructurado.</strong> Valor en riesgo. Philippe Jorion.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/f748cafaed543250757322f992eecd3f/VaR método Simulación Monte Carlo-Jorion.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el capítulo.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="MBG/Movimiento Browniano Geométrico.html" class="btn btn-neutral float-right" title="Método de simulación: Movimiento Browniano Geométrico (MBG)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../VaR SH/Análisis gráfico VaR y CVaR/Análisis gráfico VaR y CVaR.html" class="btn btn-neutral" title="Análisis gráfico VaR y CVaR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
