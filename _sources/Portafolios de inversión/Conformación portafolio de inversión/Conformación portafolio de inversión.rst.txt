@@ -1,6 +1,5 @@
 Conformación portafolio de inversión
--------------------------------------------------------------------
-
+------------------------------------
 
 Importar datos.
 ~~~~~~~~~~~~~~~
@@ -325,9 +324,9 @@ ventas en corto. Con las ventas en corto el porcentaje sería más del
     1
 
 
-.. math::  \sum_{i=1}^nW_i=1
+.. math::  \sum_{i=1}^n w_i=1
 
-----------------------------
+-----------------------------
 
 Gráfica de proporciones de inversión portafolio N° 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -350,7 +349,7 @@ El rendimiento del portafolio de inversión es el promedio ponderado de
 cada uno de los rendimientos de las acciones por los porcentajes de las
 proporciones de inversión.
 
-.. math::  R_P=\sum_{i=1}^nW_iR_i
+.. math::  R_P=\sum_{i=1}^nw_iR_i
 
 ---------------------------------
 

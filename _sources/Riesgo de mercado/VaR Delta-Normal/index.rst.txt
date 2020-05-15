@@ -3,7 +3,7 @@ VaR varianzas-covarianzas o Delta-Normal
 
     * **Descargue** :download:`aquí <3. VaR Varianzas-Covarianzas V2.pdf>` las presentaciones.
 
-    * **Ver video** --- `aquí <https://youtu.be/jXSmdhylFmI>`_.
+    * **Ver video** --- `aquí <https://youtu.be/R1WV8w1PPqE>`_.
 
     * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` el archivo ``Cuatro acciones 2020.csv``.
 
