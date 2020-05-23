@@ -365,8 +365,9 @@ tener y después se muestra la matriz con <code class="docutils literal notransl
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../_images/output_35_0.png"><img alt="../../_images/output_35_0.png" src="../../_images/output_35_0.png" style="width: 420px; height: 420px;" /></a>
-<p>El siguiente código no tiene <code class="docutils literal notranslate"><span class="pre">layout.show(4)</span></code>, pero en R siempre se
-debe poner.</p>
+<p>Para quitar la partición a la ventana plot se debe correo el código
+<code class="docutils literal notranslate"><span class="pre">dev.off()</span></code>. Así los gráficos saldran del tamaño de la ventana y un
+solo un gráfico por ventana.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">),</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">byro</span> <span class="n">w</span><span class="o">=</span> <span class="bp">F</span><span class="p">))</span>
 <span class="nf">layout.show</span><span class="p">(</span><span class="m">4</span><span class="p">)</span>
 <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>

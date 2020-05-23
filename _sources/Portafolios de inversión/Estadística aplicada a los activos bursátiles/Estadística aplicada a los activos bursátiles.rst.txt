@@ -314,8 +314,9 @@ tener y después se muestra la matriz con ``layout.show()``.
    :height: 420px
 
 
-El siguiente código no tiene ``layout.show(4)``, pero en R siempre se
-debe poner.
+Para quitar la partición a la ventana plot se debe correo el código
+``dev.off()``. Así los gráficos saldran del tamaño de la ventana y un
+solo un gráfico por ventana.
 
 .. code:: r
 
