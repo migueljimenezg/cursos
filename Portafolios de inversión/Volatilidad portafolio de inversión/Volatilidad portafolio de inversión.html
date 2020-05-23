@@ -461,15 +461,11 @@ después vertical.</p>
     <tr><td>0.0010196809</td><td>0.0005939468</td></tr>
     <tr><td>0.0005939468</td><td>0.0008155434</td></tr>
 </tbody>
-</table><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_portafolio</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">proporciones</span><span class="o">*</span><span class="n">covarianzas</span><span class="o">*</span><span class="nf">t</span><span class="p">(</span><span class="n">proporciones</span><span class="p">)))</span>
+</table><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_portafolio</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">proporciones</span><span class="o">%*%</span><span class="n">covarianzas</span><span class="o">*</span><span class="nf">t</span><span class="p">(</span><span class="n">proporciones</span><span class="p">)))</span>
 <span class="n">volatilidad_portafolio</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">proporciones</span> <span class="o">*</span> <span class="n">covarianzas</span> <span class="o">*</span> <span class="n">t</span><span class="p">(</span><span class="n">proporciones</span><span class="p">):</span> <span class="n">arreglos</span> <span class="n">de</span> <span class="n">dimensón</span> <span class="n">no</span> <span class="n">compatibles</span>
-<span class="n">Traceback</span><span class="p">:</span>
-</pre></div>
-</div>
-<p>Volatilidad del portafolio de inversión de 4,39%.</p>
+0.0286792643385426<p>Volatilidad del portafolio de inversión de 2,87%.</p>
 </div>
 <div class="section" id="ejemplo-con-historico-de-precios">
 <h2>Ejemplo con histórico de precios<a class="headerlink" href="#ejemplo-con-historico-de-precios" title="Permalink to this headline">¶</a></h2>
@@ -589,7 +585,7 @@ multiplicación de vectores y matrices.</p>
 </pre></div>
 </div>
 0.0189655883295511<p>Se obtiene el mismo resultado que por la forma matricial. Este método se
-pude usar sólo cuando se tienen los históricos de precios.</p>
+puede usar sólo cuando se tienen los históricos de precios.</p>
 </div>
 </div>
 

@@ -250,19 +250,17 @@ Si utilizamos ``cbind``, entonces cada vector será una columna.
 
 .. code:: r
 
-    volatilidad_portafolio = sqrt(sum(proporciones*covarianzas*t(proporciones)))
+    volatilidad_portafolio = sqrt(sum(proporciones%*%covarianzas*t(proporciones)))
     volatilidad_portafolio
 
 
-::
+
+.. raw:: html
+
+    0.0286792643385426
 
 
-    Error in proporciones * covarianzas * t(proporciones): arreglos de dimensón no compatibles
-    Traceback:
-    
-
-
-Volatilidad del portafolio de inversión de 4,39%.
+Volatilidad del portafolio de inversión de 2,87%.
 
 Ejemplo con histórico de precios
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -448,4 +446,4 @@ Volatilidad del portafolio de inversión
 
 
 Se obtiene el mismo resultado que por la forma matricial. Este método se
-pude usar sólo cuando se tienen los históricos de precios.
+puede usar sólo cuando se tienen los históricos de precios.
