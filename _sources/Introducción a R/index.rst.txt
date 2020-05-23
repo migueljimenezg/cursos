@@ -32,8 +32,12 @@ Cargar datos y graficarlos
 
     * **Ver video** --- `Gráfica de los precios parte 2 <https://youtu.be/t9KQgYE2AWY>`_.
 
+Descargar y limpiar datos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     * **Ver video** --- `Descargar precios de acciones desde Investing <https://youtu.be/q0UganT3NfQ>`_.
 
+    * **Ver video** --- `Limpieza de base de datos <https://youtu.be/BJeLKCWMUz8>`_.
 
 
     .. toctree::
