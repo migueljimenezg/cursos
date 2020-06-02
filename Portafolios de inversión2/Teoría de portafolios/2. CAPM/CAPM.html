@@ -1,0 +1,680 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CAPM &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Teoría moderna de portafolios" href="../index.html"/>
+        <link rel="next" title="Indicadores de desempeño" href="../3. Indicadores de desempeño/Indicadores de desempeño.html"/>
+        <link rel="prev" title="Introducción a la teoría de portafolios" href="../1. Introducción a la teoría de portafolios/Introducción a la teoría de portafolios.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Trading/index.html">Análisis técnico</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Teoría moderna de portafolios</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../1. Introducción a la teoría de portafolios/Introducción a la teoría de portafolios.html">Introducción a la teoría de portafolios</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CAPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3. Indicadores de desempeño/Indicadores de desempeño.html">Indicadores de desempeño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4. Frontera eficiente/Frontera eficiente.html">Frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5. Línea de Mercado de Capitales (CML)/Línea de Mercado de Capitales (CML).html">Línea de Mercado de Capitales (CML)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6. Análisis frontera eficiente/Análisis frontera eficiente.html">Análisis frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño/Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño.html">Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño con datos mensuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicios-Teoría de portafolios/Ejercicios-Frontera eficiente, CAPM e indicadores de desempeño.html">Ejercicios: Frontera eficiente, CAPM e indicadores de desempeño</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Teoría moderna de portafolios</a> &raquo;</li>
+        
+      <li>CAPM</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Portafolios de inversión2/Teoría de portafolios/2. CAPM/CAPM.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="capm">
+<h1>CAPM<a class="headerlink" href="#capm" title="Permalink to this headline">¶</a></h1>
+<p>Se utilizará una base de datos con los precios de cuatro acciones y los
+puntos del índice COLCAP.</p>
+<p>La base de datos es de cinco años con frecuencia mensual. Se tienen 61
+precios para poder tener 60 rendimientos mensuales y así tener cinco
+años en rendimientos.</p>
+<p>Los precios fueron descargados de <em>Investing</em> , esta página entrega
+precios mensuales correspondientes al último día hábil del mes.</p>
+<div class="section" id="importar-datos">
+<h2>Importar datos<a class="headerlink" href="#importar-datos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;Cuatro acciones 2020 y COLCAP - mensual.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;;&quot;</span><span class="p">,</span> <span class="n">dec</span> <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="nf">tail</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 6 × 6</caption>
+<thead>
+    <tr><th></th><th scope=col>Fecha</th><th scope=col>ECO</th><th scope=col>PFAVAL</th><th scope=col>ISA</th><th scope=col>NUTRESA</th><th scope=col>COLCAP</th></tr>
+    <tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>1</th><td>mar-15</td><td>1975</td><td>1165</td><td>7430</td><td>22900</td><td>1304.62</td></tr>
+    <tr><th scope=row>2</th><td>abr-15</td><td>2030</td><td>1210</td><td>8000</td><td>24760</td><td>1396.35</td></tr>
+    <tr><th scope=row>3</th><td>may-15</td><td>1815</td><td>1280</td><td>8190</td><td>22500</td><td>1306.62</td></tr>
+    <tr><th scope=row>4</th><td>jun-15</td><td>1730</td><td>1275</td><td>7350</td><td>22900</td><td>1331.35</td></tr>
+    <tr><th scope=row>5</th><td>jul-15</td><td>1610</td><td>1240</td><td>7080</td><td>22120</td><td>1317.24</td></tr>
+    <tr><th scope=row>6</th><td>ago-15</td><td>1595</td><td>1180</td><td>6640</td><td>19900</td><td>1246.59</td></tr>
+</tbody>
+</table><table>
+<caption>A data.frame: 6 × 6</caption>
+<thead>
+    <tr><th></th><th scope=col>Fecha</th><th scope=col>ECO</th><th scope=col>PFAVAL</th><th scope=col>ISA</th><th scope=col>NUTRESA</th><th scope=col>COLCAP</th></tr>
+    <tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>56</th><td>oct-19</td><td>3040</td><td>1385</td><td>19500</td><td>25640</td><td>1633.15</td></tr>
+    <tr><th scope=row>57</th><td>nov-19</td><td>3290</td><td>1415</td><td>18980</td><td>25900</td><td>1611.92</td></tr>
+    <tr><th scope=row>58</th><td>dic-19</td><td>3315</td><td>1460</td><td>19600</td><td>25400</td><td>1662.42</td></tr>
+    <tr><th scope=row>59</th><td>ene-20</td><td>3180</td><td>1450</td><td>18800</td><td>24760</td><td>1623.83</td></tr>
+    <tr><th scope=row>60</th><td>feb-20</td><td>3105</td><td>1450</td><td>18600</td><td>23420</td><td>1549.61</td></tr>
+    <tr><th scope=row>61</th><td>mar-20</td><td>1900</td><td> 897</td><td>15480</td><td>19100</td><td>1129.18</td></tr>
+</tbody>
+</table></div>
+<div class="section" id="matriz-de-precios">
+<h2>Matriz de precios<a class="headerlink" href="#matriz-de-precios" title="Permalink to this headline">¶</a></h2>
+<p>Se tendrá un objeto para los precios de las acciones <code class="docutils literal notranslate"><span class="pre">precios</span></code> y otro
+para el mercado <code class="docutils literal notranslate"><span class="pre">COLCAP</span></code>.</p>
+<p>Los precios de las acciones están entre las columnas 2 y 5 de <code class="docutils literal notranslate"><span class="pre">datos</span></code>
+y el COLCAP está en la columna 6.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">precios</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[,</span> <span class="m">2</span><span class="o">:</span><span class="m">5</span><span class="p">]</span>
+<span class="n">precios</span> <span class="o">=</span> <span class="nf">ts</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+
+<span class="n">COLCAP</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[,</span><span class="m">6</span><span class="p">]</span>
+<span class="n">COLCAP</span> <span class="o">=</span> <span class="nf">ts</span><span class="p">(</span><span class="n">COLCAP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nombres-de-las-acciones">
+<h2>Nombres de las acciones<a class="headerlink" href="#nombres-de-las-acciones" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+<span class="n">nombres</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'ECO'</li><li>'PFAVAL'</li><li>'ISA'</li><li>'NUTRESA'</li></ol></div>
+<div class="section" id="numero-de-rendimientos">
+<h2>Número de rendimientos<a class="headerlink" href="#numero-de-rendimientos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">numero_precios</span> <span class="o">=</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="n">numero_precios</span>
+</pre></div>
+</div>
+61</div>
+<div class="section" id="matriz-de-rendimientos">
+<h2>Matriz de rendimientos<a class="headerlink" href="#matriz-de-rendimientos" title="Permalink to this headline">¶</a></h2>
+<p>Se calcularán los rendimientos aritmético o discretos.</p>
+<div class="figure align-default" id="id1">
+<img alt="1" src="../../../_images/FormulaRendimientoDiscretoAritmetico1.jpg" />
+<p class="caption"><span class="caption-text">1</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Matriz de rendimientos para las acciones <code class="docutils literal notranslate"><span class="pre">rendimientos</span></code> y matriz de
+rendimientos para el mercado <code class="docutils literal notranslate"><span class="pre">rendimientos_mercado</span></code>.</p>
+<p>En el numerador de la fórmula están las diferencias de los precios, esto
+se hará con <code class="docutils literal notranslate"><span class="pre">diff(precios)</span></code>. El denominador de la fórmula se tiene el
+precio inicial, el último rendimiento no tiene en cuenta el último
+precio. Se tienen $ n $ precios y $ n - 1$ rendimientos. Se debe
+eliminar en el denominador el último precio. Esto se hace eliminando la
+última fila con <code class="docutils literal notranslate"><span class="pre">precios[-numero_rendimientos,]</span></code> para las acciones y
+con <code class="docutils literal notranslate"><span class="pre">[-numero_rendimientos]</span></code> para el índice.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos</span> <span class="o">=</span> <span class="nf">diff</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span><span class="o">/</span><span class="n">precios</span><span class="p">[</span><span class="o">-</span><span class="n">numero_precios</span><span class="p">,]</span>
+
+<span class="n">rendimientos_mercado</span> <span class="o">=</span> <span class="nf">diff</span><span class="p">(</span><span class="n">COLCAP</span><span class="p">)</span><span class="o">/</span><span class="n">COLCAP</span><span class="p">[</span><span class="o">-</span><span class="n">numero_precios</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimientos-esperado-de-cada-accion-y-del-mercado">
+<h2>Rendimientos esperado de cada acción y del mercado<a class="headerlink" href="#rendimientos-esperado-de-cada-accion-y-del-mercado" title="Permalink to this headline">¶</a></h2>
+<p>Rendimientos esperados de las acciones <code class="docutils literal notranslate"><span class="pre">rendimientos_esperados</span></code> y
+rendimiento esperado del mercado <code class="docutils literal notranslate"><span class="pre">rendimiento_esperado_mercado</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_esperados</span> <span class="o">=</span> <span class="nf">apply</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rendimientos_esperados</span><span class="p">)</span>
+
+<span class="n">rendimiento_esperado_mercado</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">rendimientos_mercado</span><span class="p">)</span>
+<span class="n">rendimiento_esperado_mercado</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">ECO</span>       <span class="n">PFAVAL</span>          <span class="n">ISA</span>      <span class="n">NUTRESA</span>
+<span class="mf">0.005071815</span> <span class="o">-</span><span class="mf">0.001811731</span>  <span class="mf">0.014090848</span> <span class="o">-</span><span class="mf">0.001424590</span>
+</pre></div>
+</div>
+-0.000880038519399691</div>
+<div class="section" id="volatilidad-de-cada-accion-y-del-mercado">
+<h2>Volatilidad de cada acción y del mercado<a class="headerlink" href="#volatilidad-de-cada-accion-y-del-mercado" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">volatilidades</span></code> para las acciones y <code class="docutils literal notranslate"><span class="pre">volatilidad_mercado</span></code> para el
+COLCAP.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidades</span> <span class="o">=</span> <span class="nf">apply</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)</span>
+
+<span class="n">volatilidad_mercado</span> <span class="o">=</span> <span class="nf">sd</span><span class="p">(</span><span class="n">rendimientos_mercado</span><span class="p">)</span>
+<span class="n">volatilidad_mercado</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       <span class="n">ECO</span>     <span class="n">PFAVAL</span>        <span class="n">ISA</span>    <span class="n">NUTRESA</span>
+<span class="mf">0.10455790</span> <span class="mf">0.06560819</span> <span class="mf">0.06064264</span> <span class="mf">0.05643824</span>
+</pre></div>
+</div>
+0.0531652503176841</div>
+<div class="section" id="proporciones-de-inversion">
+<h2>Proporciones de inversión<a class="headerlink" href="#proporciones-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">proporciones</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.10</span><span class="p">,</span> <span class="m">0.05</span><span class="p">,</span> <span class="m">0.75</span><span class="p">,</span> <span class="m">0.10</span><span class="p">)</span>
+<span class="n">proporciones</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0.1</li><li>0.05</li><li>0.75</li><li>0.1</li></ol></div>
+<div class="section" id="rendimientos-del-portafolio-de-inversion">
+<h2>Rendimientos del portafolio de inversión<a class="headerlink" href="#rendimientos-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_portafolio</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+  <span class="n">rendimientos_portafolio</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">*</span><span class="n">proporciones</span><span class="p">)</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimiento-esperado-del-portafolio-de-inversion">
+<h2>Rendimiento esperado del portafolio de inversión<a class="headerlink" href="#rendimiento-esperado-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimiento_esperado_portafolio</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">)</span>
+<span class="n">rendimiento_esperado_portafolio</span>
+</pre></div>
+</div>
+0.010842272059957</div>
+<div class="section" id="covarianzas-entre-las-acciones-y-el-mercado">
+<h2>Covarianzas entre las acciones y el mercado<a class="headerlink" href="#covarianzas-entre-las-acciones-y-el-mercado" title="Permalink to this headline">¶</a></h2>
+<p>Se necesita la covarianza de cada acción con respecto al COLCAP.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">covarianzas_mercado</span> <span class="o">=</span> <span class="nf">cov</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span> <span class="n">rendimientos_mercado</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">covarianzas_mercado</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>               <span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ECO</span>     <span class="mf">0.003498288</span>
+<span class="n">PFAVAL</span>  <span class="mf">0.002961157</span>
+<span class="n">ISA</span>     <span class="mf">0.001968475</span>
+<span class="n">NUTRESA</span> <span class="mf">0.002277312</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="coeficientes-de-correlacion-entre-las-acciones-y-el-mercado">
+<h2>Coeficientes de correlación entre las acciones y el mercado<a class="headerlink" href="#coeficientes-de-correlacion-entre-las-acciones-y-el-mercado" title="Permalink to this headline">¶</a></h2>
+<p>Se necesita los coeficientes de correlación de cada acción con respecto
+al COLCAP.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">correlacion_mercado</span> <span class="o">=</span> <span class="nf">cor</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span> <span class="n">rendimientos_mercado</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">correlacion_mercado</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>             <span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ECO</span>     <span class="mf">0.6293191</span>
+<span class="n">PFAVAL</span>  <span class="mf">0.8489371</span>
+<span class="n">ISA</span>     <span class="mf">0.6105540</span>
+<span class="n">NUTRESA</span> <span class="mf">0.7589640</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="primera-forma-de-calcular-el-beta-de-cada-accion">
+<h2>Primera forma de calcular el Beta de cada acción<a class="headerlink" href="#primera-forma-de-calcular-el-beta-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id2">
+<img alt="1" src="../../../_images/FormulaBeta1.jpg" />
+<p class="caption"><span class="caption-text">1</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">covarianzas_mercado</span><span class="o">/</span><span class="n">volatilidad_mercado</span><span class="o">^</span><span class="m">2</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>             <span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ECO</span>     <span class="mf">1.2376558</span>
+<span class="n">PFAVAL</span>  <span class="mf">1.0476247</span>
+<span class="n">ISA</span>     <span class="mf">0.6964248</span>
+<span class="n">NUTRESA</span> <span class="mf">0.8056877</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="segunda-forma-de-calcular-el-beta-de-cada-accion">
+<h2>Segunda forma de calcular el Beta de cada acción<a class="headerlink" href="#segunda-forma-de-calcular-el-beta-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id3">
+<img alt="2" src="../../../_images/FormulaBeta2.jpg" />
+<p class="caption"><span class="caption-text">2</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">volatilidades</span><span class="o">/</span><span class="n">volatilidad_mercado</span><span class="o">*</span><span class="n">correlacion_mercado</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>             <span class="p">[,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ECO</span>     <span class="mf">1.2376558</span>
+<span class="n">PFAVAL</span>  <span class="mf">1.0476247</span>
+<span class="n">ISA</span>     <span class="mf">0.6964248</span>
+<span class="n">NUTRESA</span> <span class="mf">0.8056877</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tercera-forma-de-calcular-el-beta-de-cada-accion">
+<h2>Tercera forma de calcular el Beta de cada acción<a class="headerlink" href="#tercera-forma-de-calcular-el-beta-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<p>La línea de tendencia entre los rendimientos del mercado y los
+rendimientos de la acción se obtiene con una regresión lineal, esta
+línea tendencia es estimada por mínimo cuadrados ordinarios.</p>
+<p>En R, la función <code class="docutils literal notranslate"><span class="pre">lm</span></code> realiza la regresión lineal. Entre los
+resultados de la regresión está el intercepto y la pendiente de la línea
+recta. El coeficiente Beta es la pendiente de la línea recta.</p>
+<p><code class="docutils literal notranslate"><span class="pre">~</span></code> se obtiene con alt + 126.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regresion</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">rendimientos</span> <span class="o">~</span> <span class="n">rendimientos_mercado</span><span class="p">)</span>
+<span class="n">regresion</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Call</span><span class="p">:</span>
+<span class="n">lm</span><span class="p">(</span><span class="n">formula</span> <span class="o">=</span> <span class="n">rendimientos</span> <span class="o">~</span> <span class="n">rendimientos_mercado</span><span class="p">)</span>
+
+<span class="n">Coefficients</span><span class="p">:</span>
+                      <span class="n">ECO</span>         <span class="n">PFAVAL</span>      <span class="n">ISA</span>         <span class="n">NUTRESA</span>
+<span class="p">(</span><span class="n">Intercept</span><span class="p">)</span>            <span class="mf">0.0061610</span>  <span class="o">-</span><span class="mf">0.0008898</span>   <span class="mf">0.0147037</span>  <span class="o">-</span><span class="mf">0.0007156</span>
+<span class="n">rendimientos_mercado</span>   <span class="mf">1.2376558</span>   <span class="mf">1.0476247</span>   <span class="mf">0.6964248</span>   <span class="mf">0.8056877</span>
+</pre></div>
+</div>
+<p>La segunda fila de los coeficientes de la regresión son las pendientes
+de las líneas rectas estimadas, es decir, los coeficientes Betas de cada
+acción.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta</span> <span class="o">=</span> <span class="n">regresion</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">ECO</span>    <span class="n">PFAVAL</span>       <span class="n">ISA</span>   <span class="n">NUTRESA</span>
+<span class="mf">1.2376558</span> <span class="mf">1.0476247</span> <span class="mf">0.6964248</span> <span class="mf">0.8056877</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="primera-forma-de-calcular-el-beta-del-portafolio-de-inversion">
+<h2>Primera forma de calcular el Beta del portafolio de inversión<a class="headerlink" href="#primera-forma-de-calcular-el-beta-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id4">
+<img alt="2" src="../../../_images/FormulaBeta3.jpg" />
+<p class="caption"><span class="caption-text">2</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta_portafolio</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">proporciones</span><span class="o">*</span><span class="n">beta</span><span class="p">)</span>
+<span class="n">beta_portafolio</span>
+</pre></div>
+</div>
+0.779034222051504</div>
+<div class="section" id="segunda-forma-de-calcular-el-beta-del-portafolio-de-inversion">
+<h2>Segunda forma de calcular el Beta del portafolio de inversión<a class="headerlink" href="#segunda-forma-de-calcular-el-beta-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regresion_mercado</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">rendimientos_portafolio</span> <span class="o">~</span> <span class="n">rendimientos_mercado</span><span class="p">)</span>
+<span class="n">regresion_mercado</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Call</span><span class="p">:</span>
+<span class="n">lm</span><span class="p">(</span><span class="n">formula</span> <span class="o">=</span> <span class="n">rendimientos_portafolio</span> <span class="o">~</span> <span class="n">rendimientos_mercado</span><span class="p">)</span>
+
+<span class="n">Coefficients</span><span class="p">:</span>
+         <span class="p">(</span><span class="n">Intercept</span><span class="p">)</span>  <span class="n">rendimientos_mercado</span>
+             <span class="mf">0.01153</span>               <span class="mf">0.77903</span>
+</pre></div>
+</div>
+<p>El coeficiente Beta está en la segunda columna, en este caso no la
+segunda fila porque los coeficientes no es una matriz, es un vector. La
+matriz salió cuando se hicieron varias regresiones lineales al mismo
+tiempo como en las acciones.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta_portafolio</span> <span class="o">=</span> <span class="n">regresion_mercado</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+<span class="n">beta_portafolio</span>
+</pre></div>
+</div>
+<strong>rendimientos_mercado:</strong> 0.779034222051504</div>
+<div class="section" id="graficos">
+<h2>Gráficos<a class="headerlink" href="#graficos" title="Permalink to this headline">¶</a></h2>
+<p>Para que en el gráfico salgan puntos se indica que los rendimientos son
+numéricos con: <code class="docutils literal notranslate"><span class="pre">as.numeric(rendimientos_mercado)</span></code> y con
+<code class="docutils literal notranslate"><span class="pre">as.numeric(rendimientos[,i])</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">)){</span>
+   <span class="nf">plot</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">rendimientos_mercado</span><span class="p">),</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">]),</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos del mercado&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos de la acción&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="n">nombres</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">)</span>
+   <span class="nf">abline</span><span class="p">(</span><span class="n">regresion</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkblue&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">rendimientos_mercado</span><span class="p">),</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">),</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos del mercado&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos de la acción&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Portafolio de inversión&quot;</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">regresion_mercado</span><span class="o">$</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkblue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_57_0.png"><img alt="../../../_images/output_57_0.png" src="../../../_images/output_57_0.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_57_1.png"><img alt="../../../_images/output_57_1.png" src="../../../_images/output_57_1.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_57_2.png"><img alt="../../../_images/output_57_2.png" src="../../../_images/output_57_2.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_57_3.png"><img alt="../../../_images/output_57_3.png" src="../../../_images/output_57_3.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_57_4.png"><img alt="../../../_images/output_57_4.png" src="../../../_images/output_57_4.png" style="width: 420px; height: 420px;" /></a>
+</div>
+<div class="section" id="capm-mensual">
+<h2>CAPM mensual<a class="headerlink" href="#capm-mensual" title="Permalink to this headline">¶</a></h2>
+<p>TES colombiano a 10 años el día 30 de abril de 2020: 6,8% E.A.</p>
+<p>Como se está trabajando con rendimientos discretos, se puede utilizar la
+<span class="math notranslate nohighlight">\(R_f\)</span> en tiempo discreto.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Rf</span> <span class="o">=</span> <span class="m">0.06916</span> <span class="c1">#E.A.</span>
+<span class="n">Rf_mensual</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span> <span class="o">+</span> <span class="n">Rf</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="m">12</span><span class="p">)</span><span class="m">-1</span>    <span class="c1">#Efectivo Mensual.</span>
+<span class="n">Rf_mensual</span>
+</pre></div>
+</div>
+0.00558833124514835<div class="figure align-default" id="id5">
+<img alt="3" src="../../../_images/FormulaCAPM.jpg" />
+<p class="caption"><span class="caption-text">3</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CAPM</span> <span class="o">=</span> <span class="n">Rf_mensual</span> <span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="p">(</span><span class="n">rendimiento_esperado_mercado</span> <span class="o">-</span> <span class="n">Rf_mensual</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">CAPM</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>          <span class="n">ECO</span>        <span class="n">PFAVAL</span>           <span class="n">ISA</span>       <span class="n">NUTRESA</span>
+<span class="o">-</span><span class="mf">0.0024172844</span> <span class="o">-</span><span class="mf">0.0011880925</span>  <span class="mf">0.0010835978</span>  <span class="mf">0.0003768452</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CAPM_portafolio</span> <span class="o">=</span> <span class="n">Rf_mensual</span> <span class="o">+</span> <span class="n">beta_portafolio</span><span class="o">*</span><span class="p">(</span><span class="n">rendimiento_esperado_mercado</span> <span class="o">-</span> <span class="n">Rf_mensual</span><span class="p">)</span>
+<span class="n">CAPM_portafolio</span>
+</pre></div>
+</div>
+<strong>rendimientos_mercado:</strong> 0.000549249837682195</div>
+<div class="section" id="capm-diario">
+<h2>CAPM diario<a class="headerlink" href="#capm-diario" title="Permalink to this headline">¶</a></h2>
+<p>Se debe convertir el rendimiento esperado del mercado a diario y la tasa
+libre de riesgo a Efectiva Diaria.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Rf_diaria</span> <span class="o">=</span> <span class="p">(</span><span class="m">1</span> <span class="o">+</span> <span class="n">Rf</span><span class="p">)</span><span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="m">250</span><span class="p">)</span><span class="m">-1</span>    <span class="c1">#Efectivo Diaria.</span>
+<span class="n">Rf_diaria</span>
+</pre></div>
+</div>
+0.000267528953226348<div class="figure align-default" id="id6">
+<img alt="2" src="../../../_images/ConvertirRendimiento.jpg" />
+<p class="caption"><span class="caption-text">2</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimiento_esperado_mercado_diario</span> <span class="o">=</span> <span class="n">rendimiento_esperado_mercado</span><span class="o">/</span><span class="m">20</span>
+<span class="n">rendimiento_esperado_mercado_diario</span>
+</pre></div>
+</div>
+-4.40019259699845e-05<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CAPM_portafolio</span> <span class="o">=</span> <span class="n">Rf_diaria</span> <span class="o">+</span> <span class="n">beta_portafolio</span><span class="o">*</span><span class="p">(</span><span class="n">rendimiento_esperado_mercado_diario</span> <span class="o">-</span> <span class="n">Rf_diaria</span><span class="p">)</span>
+<span class="n">CAPM_portafolio</span>
+</pre></div>
+</div>
+<strong>rendimientos_mercado:</strong> 2.4835737106612e-05</div>
+<div class="section" id="capm-anual">
+<h2>CAPM anual<a class="headerlink" href="#capm-anual" title="Permalink to this headline">¶</a></h2>
+<p>Se debe convertir el rendimiento esperado del mercado a anual.</p>
+<div class="figure align-default" id="id7">
+<img alt="2" src="../../../_images/ConvertirRendimiento2.jpg" />
+<p class="caption"><span class="caption-text">2</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">=</span> <span class="n">rendimiento_esperado_mercado</span><span class="o">*</span><span class="m">12</span>
+<span class="n">rendimiento_esperado_mercado_anual</span>
+</pre></div>
+</div>
+-0.0105604622327963<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CAPM_portafolio</span> <span class="o">=</span> <span class="n">Rf</span> <span class="o">+</span> <span class="n">beta_portafolio</span><span class="o">*</span><span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span>
+<span class="n">CAPM_portafolio</span>
+</pre></div>
+</div>
+<strong>rendimientos_mercado:</strong> 0.00705503172288723</div>
+<div class="section" id="beta-ajustado">
+<h2>Beta ajustado<a class="headerlink" href="#beta-ajustado" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id8">
+<img alt="3" src="../../../_images/BetaAjustado.jpg" />
+<p class="caption"><span class="caption-text">3</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta_ajustado</span> <span class="o">=</span> <span class="m">2</span><span class="o">/</span><span class="m">3</span><span class="o">*</span><span class="n">beta</span> <span class="o">+</span> <span class="m">1</span><span class="o">/</span><span class="m">3</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">beta_ajustado</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">ECO</span>    <span class="n">PFAVAL</span>       <span class="n">ISA</span>   <span class="n">NUTRESA</span>
+<span class="mf">1.1584372</span> <span class="mf">1.0317498</span> <span class="mf">0.7976166</span> <span class="mf">0.8704585</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta_portafolio_ajustado</span> <span class="o">=</span> <span class="m">2</span><span class="o">/</span><span class="m">3</span><span class="o">*</span><span class="n">beta_portafolio</span> <span class="o">+</span> <span class="m">1</span><span class="o">/</span><span class="m">3</span>
+<span class="n">beta_portafolio_ajustado</span>
+</pre></div>
+</div>
+<strong>rendimientos_mercado:</strong> 0.852689481367669</div>
+<div class="section" id="capm-con-beta-ajustado">
+<h2>CAPM con beta ajustado<a class="headerlink" href="#capm-con-beta-ajustado" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CAPM</span> <span class="o">=</span> <span class="n">Rf_mensual</span> <span class="o">+</span> <span class="n">beta_ajustado</span><span class="o">*</span><span class="p">(</span><span class="n">rendimiento_esperado_mercado</span> <span class="o">-</span> <span class="n">Rf_mensual</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">CAPM</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>          <span class="n">ECO</span>        <span class="n">PFAVAL</span>           <span class="n">ISA</span>       <span class="n">NUTRESA</span>
+<span class="o">-</span><span class="mf">1.904869e-03</span> <span class="o">-</span><span class="mf">1.085408e-03</span>  <span class="mf">4.290524e-04</span> <span class="o">-</span><span class="mf">4.211603e-05</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CAPM_portafolio</span> <span class="o">=</span> <span class="n">Rf_mensual</span> <span class="o">+</span> <span class="n">beta_portafolio_ajustado</span><span class="o">*</span><span class="p">(</span><span class="n">rendimiento_esperado_mercado</span> <span class="o">-</span> <span class="n">Rf_mensual</span><span class="p">)</span>
+<span class="n">CAPM_portafolio</span>
+</pre></div>
+</div>
+<strong>rendimientos_mercado:</strong> 7.28203853215675e-05</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../3. Indicadores de desempeño/Indicadores de desempeño.html" class="btn btn-neutral float-right" title="Indicadores de desempeño" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../1. Introducción a la teoría de portafolios/Introducción a la teoría de portafolios.html" class="btn btn-neutral" title="Introducción a la teoría de portafolios" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

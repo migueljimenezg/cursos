@@ -96,6 +96,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">VaR Simulación Monte Carlo</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
@@ -111,6 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
 </ul>
 
             
@@ -425,7 +427,7 @@ la segunda columna de los datos cargados.</p>
 <span class="nf">abline</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="m">2</span><span class="p">],</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_38_0.png"><img alt="../../../_images/output_38_0.png" src="../../../_images/output_38_0.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_38_01.png"><img alt="../../../_images/output_38_01.png" src="../../../_images/output_38_01.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="isa">
 <h2>ISA<a class="headerlink" href="#isa" title="Permalink to this headline">¶</a></h2>
@@ -452,7 +454,7 @@ la tercera columna de los datos cargados.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">matplot</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">st_ISA</span><span class="p">),</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_43_0.png"><img alt="../../../_images/output_43_0.png" src="../../../_images/output_43_0.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_43_02.png"><img alt="../../../_images/output_43_02.png" src="../../../_images/output_43_02.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="grafica-de-los-precios-simulados-de-isa-con-el-paquete-fanplot">
 <h2>Gráfica de los precios simulados de ISA con el paquete <code class="docutils literal notranslate"><span class="pre">fanplot</span></code>.<a class="headerlink" href="#grafica-de-los-precios-simulados-de-isa-con-el-paquete-fanplot" title="Permalink to this headline">¶</a></h2>
@@ -592,14 +594,14 @@ la siguiente manera:</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">st</span><span class="p">[,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">],</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;gray&quot;</span><span class="p">,</span> <span class="n">breaks</span> <span class="o">=</span> <span class="m">40</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Frecuencia&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Histograma acción de ECO día 1&quot;</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_57_02.png"><img alt="../../../_images/output_57_02.png" src="../../../_images/output_57_02.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_57_03.png"><img alt="../../../_images/output_57_03.png" src="../../../_images/output_57_03.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="distribucion-precios-simulados-de-eco-dia-100">
 <h2>Distribución precios simulados de ECO día 100<a class="headerlink" href="#distribucion-precios-simulados-de-eco-dia-100" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">st</span><span class="p">[,</span><span class="n">n</span><span class="m">+1</span><span class="p">,</span><span class="m">1</span><span class="p">],</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;gray&quot;</span><span class="p">,</span> <span class="n">breaks</span> <span class="o">=</span> <span class="m">40</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Frecuencia&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Histograma acción de ECO día 100&quot;</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_59_04.png"><img alt="../../../_images/output_59_04.png" src="../../../_images/output_59_04.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_59_05.png"><img alt="../../../_images/output_59_05.png" src="../../../_images/output_59_05.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="distribuciones-precios-simulados-de-eco">
 <h2>Distribuciones precios simulados de ECO<a class="headerlink" href="#distribuciones-precios-simulados-de-eco" title="Permalink to this headline">¶</a></h2>

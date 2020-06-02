@@ -21,16 +21,6 @@ Análisis y conformación de portafolios de inversión
 
     * **Ver video** --- `aquí <https://youtu.be/p-AYf2oLRmg>`_.
 
-       **Ejercicios:**
-
-
-        .. toctree::
-            :maxdepth: 2
-            :titlesonly:
-
-
-            Ejercicios - Estadística y conformación de portafolios de inversión/Ejercicios - Estadística y conformación de portafolios de inversión
-
 
 2. Volatilidad portafolios de inversión
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -60,6 +50,15 @@ Análisis y conformación de portafolios de inversión
     * **Ver video** --- `aquí <https://youtu.be/QXQQQuZJK9w>`_.
 
 
+4. Ejercicios
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+
+
+            Ejercicios - Estadística y conformación de portafolios de inversión/Ejercicios - Estadística y conformación de portafolios de inversión
 
 
 

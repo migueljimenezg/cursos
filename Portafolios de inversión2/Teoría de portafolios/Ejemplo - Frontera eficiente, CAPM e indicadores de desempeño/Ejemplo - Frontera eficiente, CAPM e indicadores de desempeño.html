@@ -1,0 +1,1009 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño con datos mensuales &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Teoría moderna de portafolios" href="../index.html"/>
+        <link rel="next" title="Ejercicios: Frontera eficiente, CAPM e indicadores de desempeño" href="../Ejercicios-Teoría de portafolios/Ejercicios-Frontera eficiente, CAPM e indicadores de desempeño.html"/>
+        <link rel="prev" title="Análisis frontera eficiente" href="../6. Análisis frontera eficiente/Análisis frontera eficiente.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Trading/index.html">Análisis técnico</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Teoría moderna de portafolios</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../1. Introducción a la teoría de portafolios/Introducción a la teoría de portafolios.html">Introducción a la teoría de portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2. CAPM/CAPM.html">CAPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3. Indicadores de desempeño/Indicadores de desempeño.html">Indicadores de desempeño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4. Frontera eficiente/Frontera eficiente.html">Frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5. Línea de Mercado de Capitales (CML)/Línea de Mercado de Capitales (CML).html">Línea de Mercado de Capitales (CML)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6. Análisis frontera eficiente/Análisis frontera eficiente.html">Análisis frontera eficiente</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño con datos mensuales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicios-Teoría de portafolios/Ejercicios-Frontera eficiente, CAPM e indicadores de desempeño.html">Ejercicios: Frontera eficiente, CAPM e indicadores de desempeño</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Teoría moderna de portafolios</a> &raquo;</li>
+        
+      <li>Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño con datos mensuales</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Portafolios de inversión2/Teoría de portafolios/Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño/Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ejemplo-frontera-eficiente-capm-e-indicadores-de-desempeno-con-datos-mensuales">
+<h1>Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño con datos mensuales<a class="headerlink" href="#ejemplo-frontera-eficiente-capm-e-indicadores-de-desempeno-con-datos-mensuales" title="Permalink to this headline">¶</a></h1>
+<p>Descargar por medio de código, precios de <em>Yahoo Finance</em> con una
+frecuencia mensual de cada una de las acciones, descargar 61 precios (01
+de abril de 2015 hasta 30 de abril de 2020). Adicionalmente, descargar
+el histórico del índice S&amp;P 500 con las mismas fechas de las acciones.
+El S&amp;P 500 representará el mercado.</p>
+<p><strong>Acciones:</strong></p>
+<ul class="simple">
+<li><p>NFLX.</p></li>
+<li><p>AAPL.</p></li>
+<li><p>ABT.</p></li>
+<li><p>WMT.</p></li>
+<li><p>JNJ.</p></li>
+</ul>
+<p>El análisis se realizará el 01 de mayo de 2020. La tasa libre de riesgo
+del 01 de mayo de 2020 fue de 0,618% nominal anual. Esta tasa nominal se
+puede convertir a mensual dividiendo por 12 meses. Ver las tasas libres
+de riesgo de Estados Unidos:
+<a class="reference external" href="https://es.investing.com/rates-bonds/u.s.-10-year-bond-yield-historical-data">aquí</a></p>
+<p><strong>PRIMERA PARTE:</strong></p>
+<p>1.1 Anualizar los rendimientos y las volatilidades continuos mensuales
+de cada acción y el rendimiento esperado continuo mensual del mercado.</p>
+<p>Con la librería <code class="docutils literal notranslate"><span class="pre">fPortfolio</span></code> realizar lo siguiente con los
+rendimientos continuos mensuales:</p>
+<p>1.2 Graficar la frontera eficiente.</p>
+<p>1.3 Graficar las proporciones de inversión de la frontera.</p>
+<p>1.4 Hallar el portafolio de mínima varianza.</p>
+<p>1.5 Hallar el portafolio tangente a la Línea de Mercado de Capitales
+(CML).</p>
+<p>1.6 Índice de diversificación <span class="math notranslate nohighlight">\((h)\)</span> al portafolio de mínima
+varianza.</p>
+<p>1.7 Índice de diversificación <span class="math notranslate nohighlight">\((h)\)</span> al portafolio tangente a la
+Línea de Mercado de Capitales (CML).</p>
+<p>1.8 Índice de diversificación <span class="math notranslate nohighlight">\((h)\)</span> al portafolio de la Línea de
+Mercado de Capitales (CML) con un 20% en el activo libre de riesgo y 80%
+en el portafolio tangente.</p>
+<p><strong>SEGUNDA PARTE:</strong></p>
+<p>2.1 Calcular el coeficiente Beta de cada una de las acciones con los
+rendimientos mensuales en forma aritmética (discreta).</p>
+<p>2.2 Calcular el coeficiente de correlación que tiene cada acción con el
+mercado con los rendimientos mensuales en forma aritmética (discreta).</p>
+<p>Luego calcular el Beta y el rendimiento esperado <strong>anualizado</strong> por CAPM
+de lo siguientes portafolios:</p>
+<p>Para el CAPM utilizar las tasas <span class="math notranslate nohighlight">\(R_f\)</span> y <span class="math notranslate nohighlight">\(E[R_m]\)</span> en forma
+continua.</p>
+<p>2.3 Portafolio de mínima varianza.</p>
+<p>2.4 Portafolio tangente a la Línea de Mercado de Capitales (CML).</p>
+<p>2.5 Portafolio de la Línea de Mercado de Capitales (CML) con un 20% en
+el activo libre de riesgo y 80% en el portafolio tangente.</p>
+<p><strong>TERCERA PARTE:</strong></p>
+<p>Calcular los indicadores de desempeño <strong>anualizados</strong> de los siguientes
+portafolios con el histórico de precios de cinco años:</p>
+<p>3.1 Portafolio de mínima varianza.</p>
+<p>3.2 Portafolio tangente a la Línea de Mercado de Capitales (CML).</p>
+<p>3.3 Portafolio de la Línea de Mercado de Capitales (CML) con un 20% en
+el activo libre de riesgo y 80% en el portafolio tangente.</p>
+<p><strong>CUARTA PARTE:</strong></p>
+<p>Calcular lo indicadores de desempeño <strong>anualizados</strong> hallados en la
+tercera parte, pero utilizando el rendimiento CAPM como rendimiento
+esperado del portafolio: <span class="math notranslate nohighlight">\(E[R_P] = CAPM\)</span>.</p>
+<div class="section" id="importar-datos">
+<h2>Importar datos<a class="headerlink" href="#importar-datos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">quantmod</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tseries</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Los precios se descargarán con la función <code class="docutils literal notranslate"><span class="pre">get.hist.quote</span></code>. Se debe
+poner <code class="docutils literal notranslate"><span class="pre">compression</span>&#160; <span class="pre">=</span> <span class="pre">&quot;m&quot;</span></code> para que descargue la frecuencia mensual
+<code class="docutils literal notranslate"><span class="pre">&quot;m&quot;</span></code>.</p>
+<p>El histórico de precios mensuales de <em>Yahoo Finance</em> tiene las fechas
+del primero de cada mes; sin embargo, son los precios del último día de
+negociación del mes y no es necesario colocar un día de más como se hace
+cuando se descargan precios diarios.</p>
+<p>Para las acciones se descargan los precios de cierre ajustados
+<code class="docutils literal notranslate"><span class="pre">quote</span> <span class="pre">=</span> <span class="pre">&quot;AdjClose&quot;</span></code> y para el índice, los precios de cierre
+<code class="docutils literal notranslate"><span class="pre">quote</span> <span class="pre">=</span> <span class="pre">&quot;Close&quot;</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NFLX</span> <span class="o">=</span> <span class="nf">get.hist.quote</span><span class="p">(</span><span class="n">instrument</span> <span class="o">=</span> <span class="s">&quot;NFLX&quot;</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2015-04-01&quot;</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2020-04-30&quot;</span><span class="p">),</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">&quot;AdjClose&quot;</span><span class="p">,</span> <span class="n">compression</span>  <span class="o">=</span> <span class="s">&quot;m&quot;</span><span class="p">)</span>
+
+<span class="n">AAPL</span> <span class="o">=</span> <span class="nf">get.hist.quote</span><span class="p">(</span><span class="n">instrument</span> <span class="o">=</span> <span class="s">&quot;AAPL&quot;</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2015-04-01&quot;</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2020-04-30&quot;</span><span class="p">),</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">&quot;AdjClose&quot;</span><span class="p">,</span> <span class="n">compression</span>  <span class="o">=</span> <span class="s">&quot;m&quot;</span><span class="p">)</span>
+
+<span class="n">ABT</span> <span class="o">=</span> <span class="nf">get.hist.quote</span><span class="p">(</span><span class="n">instrument</span> <span class="o">=</span> <span class="s">&quot;ABT&quot;</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2015-04-01&quot;</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2020-04-30&quot;</span><span class="p">),</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">&quot;AdjClose&quot;</span><span class="p">,</span> <span class="n">compression</span>  <span class="o">=</span> <span class="s">&quot;m&quot;</span><span class="p">)</span>
+
+<span class="n">WMT</span> <span class="o">=</span> <span class="nf">get.hist.quote</span><span class="p">(</span><span class="n">instrument</span> <span class="o">=</span> <span class="s">&quot;WMT&quot;</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2015-04-01&quot;</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2020-04-30&quot;</span><span class="p">),</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">&quot;AdjClose&quot;</span><span class="p">,</span> <span class="n">compression</span>  <span class="o">=</span> <span class="s">&quot;m&quot;</span><span class="p">)</span>
+
+<span class="n">JNJ</span> <span class="o">=</span> <span class="nf">get.hist.quote</span><span class="p">(</span><span class="n">instrument</span> <span class="o">=</span> <span class="s">&quot;JNJ&quot;</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2015-04-01&quot;</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2020-04-30&quot;</span><span class="p">),</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">&quot;AdjClose&quot;</span><span class="p">,</span> <span class="n">compression</span>  <span class="o">=</span> <span class="s">&quot;m&quot;</span><span class="p">)</span>
+
+<span class="n">SP</span> <span class="o">=</span> <span class="nf">get.hist.quote</span><span class="p">(</span><span class="n">instrument</span> <span class="o">=</span> <span class="s">&quot;^GSPC&quot;</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2015-04-01&quot;</span><span class="p">),</span> <span class="n">end</span> <span class="o">=</span> <span class="nf">as.Date</span><span class="p">(</span><span class="s">&quot;2020-04-30&quot;</span><span class="p">),</span> <span class="n">quote</span> <span class="o">=</span> <span class="s">&quot;Close&quot;</span><span class="p">,</span> <span class="n">compression</span>  <span class="o">=</span> <span class="s">&quot;m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="n">series</span> <span class="n">ends</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>
+<span class="n">time</span> <span class="n">series</span> <span class="n">ends</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>
+<span class="n">time</span> <span class="n">series</span> <span class="n">ends</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>
+<span class="n">time</span> <span class="n">series</span> <span class="n">ends</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>
+<span class="n">time</span> <span class="n">series</span> <span class="n">ends</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>
+<span class="n">time</span> <span class="n">series</span> <span class="n">ends</span>   <span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">precios</span> <span class="o">=</span> <span class="nf">merge</span><span class="p">(</span><span class="n">NFLX</span><span class="p">,</span> <span class="n">AAPL</span><span class="p">,</span> <span class="n">ABT</span><span class="p">,</span> <span class="n">WMT</span><span class="p">,</span> <span class="n">JNJ</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+<span class="nf">tail</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>           <span class="n">Adjusted</span><span class="o">.</span><span class="n">NFLX</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">AAPL</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">ABT</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">WMT</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">JNJ</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>      <span class="mf">79.50000</span>      <span class="mf">114.8596</span>     <span class="mf">41.72806</span>     <span class="mf">68.67964</span>     <span class="mf">85.93224</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">01</span>      <span class="mf">89.15143</span>      <span class="mf">119.5677</span>     <span class="mf">43.91123</span>     <span class="mf">65.35342</span>     <span class="mf">86.74653</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">01</span>      <span class="mf">93.84857</span>      <span class="mf">115.5974</span>     <span class="mf">44.34493</span>     <span class="mf">62.80832</span>     <span class="mf">85.04062</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span>     <span class="mf">114.31000</span>      <span class="mf">111.7911</span>     <span class="mf">45.79959</span>     <span class="mf">63.73811</span>     <span class="mf">87.44018</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">01</span>     <span class="mf">115.03000</span>      <span class="mf">104.0681</span>     <span class="mf">41.43597</span>     <span class="mf">57.31825</span>     <span class="mf">82.00407</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">01</span>     <span class="mf">103.26000</span>      <span class="mf">102.1136</span>     <span class="mf">36.51523</span>     <span class="mf">57.80770</span>     <span class="mf">82.07746</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>           <span class="n">Adjusted</span><span class="o">.</span><span class="n">NFLX</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">AAPL</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">ABT</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">WMT</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">JNJ</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">01</span>        <span class="mf">314.66</span>      <span class="mf">265.1016</span>     <span class="mf">84.73180</span>     <span class="mf">117.5190</span>     <span class="mf">134.7448</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">01</span>        <span class="mf">323.57</span>      <span class="mf">292.1638</span>     <span class="mf">86.12995</span>     <span class="mf">117.2723</span>     <span class="mf">143.9479</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>        <span class="mf">345.09</span>      <span class="mf">307.9436</span>     <span class="mf">86.40759</span>     <span class="mf">113.4864</span>     <span class="mf">146.9083</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span>        <span class="mf">369.03</span>      <span class="mf">271.9765</span>     <span class="mf">76.70699</span>     <span class="mf">106.7361</span>     <span class="mf">132.7080</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span>        <span class="mf">375.50</span>      <span class="mf">253.6035</span>     <span class="mf">78.57910</span>     <span class="mf">112.6241</span>     <span class="mf">130.2273</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>        <span class="mf">419.85</span>      <span class="mf">293.0068</span>     <span class="mf">91.70383</span>     <span class="mf">121.0177</span>     <span class="mf">149.0071</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="numero-de-precios">
+<h2>Número de precios<a class="headerlink" href="#numero-de-precios" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>61</li><li>5</li></ol></div>
+<div class="section" id="nombres-de-las-acciones">
+<h2>Nombres de las acciones<a class="headerlink" href="#nombres-de-las-acciones" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;NFLX&quot;</span><span class="p">,</span> <span class="s">&quot;AAPL&quot;</span><span class="p">,</span> <span class="s">&quot;ABT&quot;</span><span class="p">,</span> <span class="s">&quot;WMT&quot;</span><span class="p">,</span> <span class="s">&quot;JNJ&quot;</span><span class="p">)</span>
+<span class="n">nombres</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'NFLX'</li><li>'AAPL'</li><li>'ABT'</li><li>'WMT'</li><li>'JNJ'</li></ol><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span> <span class="o">=</span> <span class="n">nombres</span> <span class="c1"># Se renombran las columnas</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_13_0.png"><img alt="../../../_images/output_13_0.png" src="../../../_images/output_13_0.png" style="width: 420px; height: 420px;" /></a>
+</div>
+<div class="section" id="matriz-de-rendimientos-continuos-mensuales">
+<h2>Matriz de rendimientos continuos mensuales<a class="headerlink" href="#matriz-de-rendimientos-continuos-mensuales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos</span> <span class="o">=</span> <span class="nf">diff</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
+
+<span class="n">rendimientos_mercado</span> <span class="o">=</span> <span class="nf">diff</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">SP</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="numero-de-rendimientos">
+<h2>Número de rendimientos<a class="headerlink" href="#numero-de-rendimientos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">numero_rendimientos</span> <span class="o">=</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span>
+<span class="n">numero_rendimientos</span>
+</pre></div>
+</div>
+60</div>
+<div class="section" id="rendimientos-esperado-de-cada-accion-continuos-mensuales">
+<h2>Rendimientos esperado de cada acción continuos mensuales<a class="headerlink" href="#rendimientos-esperado-de-cada-accion-continuos-mensuales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_esperados</span> <span class="o">=</span> <span class="nf">apply</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rendimientos_esperados</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       <span class="n">NFLX</span>        <span class="n">AAPL</span>         <span class="n">ABT</span>         <span class="n">WMT</span>         <span class="n">JNJ</span>
+<span class="mf">0.027735675</span> <span class="mf">0.015608097</span> <span class="mf">0.013123173</span> <span class="mf">0.009441396</span> <span class="mf">0.009173911</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimiento-esperado-continuo-mensual-del-mercado">
+<h2>Rendimiento esperado continuo mensual del mercado<a class="headerlink" href="#rendimiento-esperado-continuo-mensual-del-mercado" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimiento_esperado_mercado</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">rendimientos_mercado</span><span class="p">)</span>
+<span class="n">rendimiento_esperado_mercado</span>
+</pre></div>
+</div>
+0.00556623877447469</div>
+<div class="section" id="volatilidad-de-cada-accion-mensual">
+<h2>Volatilidad de cada acción mensual<a class="headerlink" href="#volatilidad-de-cada-accion-mensual" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidades</span> <span class="o">=</span> <span class="nf">apply</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">NFLX</span>       <span class="n">AAPL</span>        <span class="n">ABT</span>        <span class="n">WMT</span>        <span class="n">JNJ</span>
+<span class="mf">0.10660795</span> <span class="mf">0.07957989</span> <span class="mf">0.06137850</span> <span class="mf">0.05348962</span> <span class="mf">0.04621298</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">,</span> <span class="n">rendimientos_esperados</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Volatilidad&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Rendimiento&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">))</span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topleft&quot;</span><span class="p">,</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">precios</span><span class="p">),</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">bty</span> <span class="o">=</span> <span class="s">&quot;n&quot;</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1.5</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_24_02.png"><img alt="../../../_images/output_24_02.png" src="../../../_images/output_24_02.png" style="width: 420px; height: 420px;" /></a>
+</div>
+<div class="section" id="matriz-de-coeficientes-de-correlacion">
+<h2>Matriz de coeficientes de correlación<a class="headerlink" href="#matriz-de-coeficientes-de-correlacion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">correlacion</span> <span class="o">=</span> <span class="nf">cor</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">correlacion</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>             <span class="n">NFLX</span>      <span class="n">AAPL</span>       <span class="n">ABT</span>         <span class="n">WMT</span>         <span class="n">JNJ</span>
+<span class="n">NFLX</span>  <span class="mf">1.000000000</span> <span class="mf">0.3482053</span> <span class="mf">0.3191328</span> <span class="o">-</span><span class="mf">0.01883287</span> <span class="mf">0.009469283</span>
+<span class="n">AAPL</span>  <span class="mf">0.348205264</span> <span class="mf">1.0000000</span> <span class="mf">0.4700833</span>  <span class="mf">0.16884411</span> <span class="mf">0.384932720</span>
+<span class="n">ABT</span>   <span class="mf">0.319132848</span> <span class="mf">0.4700833</span> <span class="mf">1.0000000</span>  <span class="mf">0.11725941</span> <span class="mf">0.492859761</span>
+<span class="n">WMT</span>  <span class="o">-</span><span class="mf">0.018832869</span> <span class="mf">0.1688441</span> <span class="mf">0.1172594</span>  <span class="mf">1.00000000</span> <span class="mf">0.417730489</span>
+<span class="n">JNJ</span>   <span class="mf">0.009469283</span> <span class="mf">0.3849327</span> <span class="mf">0.4928598</span>  <span class="mf">0.41773049</span> <span class="mf">1.000000000</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="matriz-de-covarianzas">
+<h2>Matriz de covarianzas<a class="headerlink" href="#matriz-de-covarianzas" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">covarianzas</span> <span class="o">=</span> <span class="nf">cov</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">covarianzas</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>              <span class="n">NFLX</span>         <span class="n">AAPL</span>          <span class="n">ABT</span>           <span class="n">WMT</span>          <span class="n">JNJ</span>
+<span class="n">NFLX</span>  <span class="mf">1.136526e-02</span> <span class="mf">0.0029541211</span> <span class="mf">0.0020882254</span> <span class="o">-</span><span class="mf">0.0001073929</span> <span class="mf">4.665204e-05</span>
+<span class="n">AAPL</span>  <span class="mf">2.954121e-03</span> <span class="mf">0.0063329596</span> <span class="mf">0.0022961195</span>  <span class="mf">0.0007187184</span> <span class="mf">1.415638e-03</span>
+<span class="n">ABT</span>   <span class="mf">2.088225e-03</span> <span class="mf">0.0022961195</span> <span class="mf">0.0037673203</span>  <span class="mf">0.0003849758</span> <span class="mf">1.397988e-03</span>
+<span class="n">WMT</span>  <span class="o">-</span><span class="mf">1.073929e-04</span> <span class="mf">0.0007187184</span> <span class="mf">0.0003849758</span>  <span class="mf">0.0028611390</span> <span class="mf">1.032594e-03</span>
+<span class="n">JNJ</span>   <span class="mf">4.665204e-05</span> <span class="mf">0.0014156377</span> <span class="mf">0.0013979884</span>  <span class="mf">0.0010325940</span> <span class="mf">2.135639e-03</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="primera-parte">
+<h2>PRIMERA PARTE<a class="headerlink" href="#primera-parte" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="rendimientos-esperados-de-cada-accion-anualizados">
+<h2>1.1 Rendimientos esperados de cada acción anualizados<a class="headerlink" href="#rendimientos-esperados-de-cada-accion-anualizados" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_esperados_anual</span> <span class="o">=</span> <span class="n">rendimientos_esperados</span><span class="o">*</span><span class="m">12</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rendimientos_esperados_anual</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">NFLX</span>      <span class="n">AAPL</span>       <span class="n">ABT</span>       <span class="n">WMT</span>       <span class="n">JNJ</span>
+<span class="mf">0.3328281</span> <span class="mf">0.1872972</span> <span class="mf">0.1574781</span> <span class="mf">0.1132967</span> <span class="mf">0.1100869</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="volatiliades-de-cada-accion-anualizadas">
+<h2>1.1 Volatiliades de cada acción anualizadas<a class="headerlink" href="#volatiliades-de-cada-accion-anualizadas" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidades_anual</span> <span class="o">=</span> <span class="n">volatilidades</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">12</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">volatilidades_anual</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">NFLX</span>      <span class="n">AAPL</span>       <span class="n">ABT</span>       <span class="n">WMT</span>       <span class="n">JNJ</span>
+<span class="mf">0.3693008</span> <span class="mf">0.2756728</span> <span class="mf">0.2126214</span> <span class="mf">0.1852935</span> <span class="mf">0.1600864</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimiento-esperado-del-mercado-anualizado">
+<h2>1.1 Rendimiento esperado del mercado anualizado<a class="headerlink" href="#rendimiento-esperado-del-mercado-anualizado" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">=</span> <span class="n">rendimiento_esperado_mercado</span><span class="o">*</span><span class="m">12</span>
+<span class="n">rendimiento_esperado_mercado_anual</span>
+</pre></div>
+</div>
+0.0667948652936962</div>
+<div class="section" id="frontera-eficiente-de-markowitz-con-rendimientos-continuos-mensuales">
+<h2>Frontera eficiente de Markowitz con rendimientos continuos mensuales<a class="headerlink" href="#frontera-eficiente-de-markowitz-con-rendimientos-continuos-mensuales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">fPortfolio</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">frontera</span> <span class="o">=</span> <span class="nf">portfolioFrontier</span><span class="p">(</span><span class="nf">as.timeSeries</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">),</span> <span class="n">constraints</span> <span class="o">=</span> <span class="s">&quot;longOnly&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grafico-de-la-frontera-eficiente">
+<h2>1.2 Gráfico de la frontera eficiente<a class="headerlink" href="#grafico-de-la-frontera-eficiente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">frontierPlot</span><span class="p">(</span><span class="n">frontera</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">)</span>
+<span class="nf">monteCarloPoints</span><span class="p">(</span><span class="n">frontera</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="n">mcSteps</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">)</span>
+<span class="nf">minvariancePoints</span><span class="p">(</span><span class="n">frontera</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="nf">equalWeightsPoints</span><span class="p">(</span><span class="n">frontera</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_41_01.png"><img alt="../../../_images/output_41_01.png" src="../../../_images/output_41_01.png" style="width: 420px; height: 420px;" /></a>
+</div>
+<div class="section" id="graficos-de-proporciones-de-los-portafolios-de-la-frontera">
+<h2>1.3 Gráficos de proporciones de los portafolios de la frontera<a class="headerlink" href="#graficos-de-proporciones-de-los-portafolios-de-la-frontera" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">weightsPlot</span><span class="p">(</span><span class="n">frontera</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_43_01.png"><img alt="../../../_images/output_43_01.png" src="../../../_images/output_43_01.png" style="width: 420px; height: 420px;" /></a>
+</div>
+<div class="section" id="portafolio-de-minima-varianza">
+<h2>1.4 Portafolio de mínima varianza<a class="headerlink" href="#portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">minima_varianza</span> <span class="o">=</span> <span class="nf">minvariancePortfolio</span><span class="p">(</span><span class="nf">as.timeSeries</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">),</span> <span class="n">constraints</span> <span class="o">=</span> <span class="s">&quot;LongOnly&quot;</span><span class="p">)</span>
+<span class="n">minima_varianza</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Title</span><span class="p">:</span>
+ <span class="n">MV</span> <span class="n">Minimum</span> <span class="n">Variance</span> <span class="n">Portfolio</span>
+ <span class="n">Estimator</span><span class="p">:</span>         <span class="n">covEstimator</span>
+ <span class="n">Solver</span><span class="p">:</span>            <span class="n">solveRquadprog</span>
+ <span class="n">Optimize</span><span class="p">:</span>          <span class="n">minRisk</span>
+ <span class="n">Constraints</span><span class="p">:</span>       <span class="n">LongOnly</span>
+
+<span class="n">Portfolio</span> <span class="n">Weights</span><span class="p">:</span>
+  <span class="n">NFLX</span>   <span class="n">AAPL</span>    <span class="n">ABT</span>    <span class="n">WMT</span>    <span class="n">JNJ</span>
+<span class="mf">0.1039</span> <span class="mf">0.0000</span> <span class="mf">0.1346</span> <span class="mf">0.3385</span> <span class="mf">0.4229</span>
+
+<span class="n">Covariance</span> <span class="n">Risk</span> <span class="n">Budgets</span><span class="p">:</span>
+  <span class="n">NFLX</span>   <span class="n">AAPL</span>    <span class="n">ABT</span>    <span class="n">WMT</span>    <span class="n">JNJ</span>
+<span class="mf">0.1039</span> <span class="mf">0.0000</span> <span class="mf">0.1346</span> <span class="mf">0.3385</span> <span class="mf">0.4229</span>
+
+<span class="n">Target</span> <span class="n">Returns</span> <span class="ow">and</span> <span class="n">Risks</span><span class="p">:</span>
+  <span class="n">mean</span>    <span class="n">Cov</span>   <span class="n">CVaR</span>    <span class="n">VaR</span>
+<span class="mf">0.0117</span> <span class="mf">0.0380</span> <span class="mf">0.0777</span> <span class="mf">0.0759</span>
+
+<span class="n">Description</span><span class="p">:</span>
+ <span class="n">Mon</span> <span class="n">Jun</span> <span class="mi">01</span> <span class="mi">22</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">13</span> <span class="mi">2020</span> <span class="n">by</span> <span class="n">user</span><span class="p">:</span> <span class="n">migue</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="proporciones-portafolio-de-minima-varianza">
+<h2>1.4 Proporciones portafolio de mínima varianza<a class="headerlink" href="#proporciones-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p>En el portafolio de mínima varianza no se tiene en cuenta la acción
+AAPL.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">portafolio_minima_varianza</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.1039</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.1346</span><span class="p">,</span> <span class="m">0.3385</span><span class="p">,</span> <span class="m">0.4229</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimiento-esperado-mensual-portafolio-de-minima-varianza">
+<h2>1.4 Rendimiento esperado mensual portafolio de mínima varianza<a class="headerlink" href="#rendimiento-esperado-mensual-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimiento_minima_varianza</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">portafolio_minima_varianza</span><span class="o">*</span><span class="n">rendimientos_esperados</span><span class="p">)</span>
+<span class="n">rendimiento_minima_varianza</span>
+</pre></div>
+</div>
+0.0117236752833279</div>
+<div class="section" id="volatilidad-mensual-portafolio-de-minima-varianza">
+<h2>1.4 Volatilidad mensual portafolio de mínima varianza<a class="headerlink" href="#volatilidad-mensual-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_minima_varianza</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">portafolio_minima_varianza</span><span class="o">%*%</span><span class="n">covarianzas</span><span class="o">*</span><span class="nf">t</span><span class="p">(</span><span class="n">portafolio_minima_varianza</span><span class="p">)))</span>
+<span class="n">volatilidad_minima_varianza</span>
+</pre></div>
+</div>
+0.0380203711536767</div>
+<div class="section" id="activo-libre-de-riesgo">
+<h2>Activo libre de riesgo<a class="headerlink" href="#activo-libre-de-riesgo" title="Permalink to this headline">¶</a></h2>
+<p>Tasa libre de riesgo a 10 años de los bonos del Tesoro de Estados
+Unidos.</p>
+<p>Tasa nominal de 0,618% para el 01 de mayo de 2020.</p>
+<p>Se debe covertir a continua con <span class="math notranslate nohighlight">\(log(1 + tasa)\)</span> y después a
+mensual.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Rf</span> <span class="o">=</span> <span class="m">0.00618</span> <span class="c1">#Anual.</span>
+<span class="n">Rf</span> <span class="o">=</span> <span class="nf">log</span><span class="p">(</span><span class="m">1</span> <span class="o">+</span> <span class="n">Rf</span><span class="p">)</span>  <span class="c1">#Continua anual</span>
+<span class="n">Rf_mensual</span> <span class="o">=</span> <span class="nf">log</span><span class="p">(</span><span class="m">1</span> <span class="o">+</span> <span class="n">Rf</span><span class="o">/</span><span class="m">12</span><span class="p">)</span>  <span class="c1">#Continua mensual</span>
+<span class="n">Rf_mensual</span>
+</pre></div>
+</div>
+0.000513283423645149<p>Se agrega en las especificaciones la tasa libre de riesgo continua
+mensual.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">especificaciones</span> <span class="o">=</span> <span class="nf">portfolioSpec</span><span class="p">()</span>
+  <span class="nf">`setRiskFreeRate&lt;-`</span><span class="p">(</span><span class="n">especificaciones</span><span class="p">,</span> <span class="n">Rf_mensual</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Model</span> <span class="n">List</span><span class="p">:</span>
+ <span class="n">Type</span><span class="p">:</span>                      <span class="n">MV</span>
+ <span class="n">Optimize</span><span class="p">:</span>                  <span class="n">minRisk</span>
+ <span class="n">Estimator</span><span class="p">:</span>                 <span class="n">covEstimator</span>
+ <span class="n">Params</span><span class="p">:</span>                    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">Portfolio</span> <span class="n">List</span><span class="p">:</span>
+ <span class="n">Target</span> <span class="n">Weights</span><span class="p">:</span>            <span class="n">NULL</span>
+ <span class="n">Target</span> <span class="n">Return</span><span class="p">:</span>             <span class="n">NULL</span>
+ <span class="n">Target</span> <span class="n">Risk</span><span class="p">:</span>               <span class="n">NULL</span>
+ <span class="n">Risk</span><span class="o">-</span><span class="n">Free</span> <span class="n">Rate</span><span class="p">:</span>            <span class="mf">0.000513283423645149</span>
+ <span class="n">Number</span> <span class="n">of</span> <span class="n">Frontier</span> <span class="n">Points</span><span class="p">:</span> <span class="mi">50</span>
+
+<span class="n">Optim</span> <span class="n">List</span><span class="p">:</span>
+ <span class="n">Solver</span><span class="p">:</span>                    <span class="n">solveRquadprog</span>
+ <span class="n">Objective</span><span class="p">:</span>                 <span class="n">portfolioObjective</span> <span class="n">portfolioReturn</span> <span class="n">portfolioRisk</span>
+ <span class="n">Options</span><span class="p">:</span>                   <span class="n">meq</span> <span class="o">=</span> <span class="mi">2</span>
+ <span class="n">Trace</span><span class="p">:</span>                     <span class="n">FALSE</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grafico-de-la-frontera-eficiente-con-linea-de-mercado-de-capitales-cml">
+<h2>Gráfico de la frontera eficiente con Línea de Mercado de Capitales (CML).<a class="headerlink" href="#grafico-de-la-frontera-eficiente-con-linea-de-mercado-de-capitales-cml" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">frontierPlot</span><span class="p">(</span><span class="n">frontera</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">)</span>
+<span class="nf">monteCarloPoints</span><span class="p">(</span><span class="n">frontera</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">,</span> <span class="n">mcSteps</span> <span class="o">=</span> <span class="m">500</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">)</span>
+<span class="nf">minvariancePoints</span><span class="p">(</span><span class="n">frontera</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="nf">equalWeightsPoints</span><span class="p">(</span><span class="n">frontera</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="nf">tangencyLines</span><span class="p">(</span><span class="n">frontera</span><span class="p">)</span>
+<span class="nf">tangencyPoints</span><span class="p">(</span><span class="n">frontera</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;green&quot;</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">pch</span> <span class="o">=</span> <span class="m">19</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_59_02.png"><img alt="../../../_images/output_59_02.png" src="../../../_images/output_59_02.png" style="width: 420px; height: 420px;" /></a>
+</div>
+<div class="section" id="portafolio-tangente">
+<h2>1.5 Portafolio tangente<a class="headerlink" href="#portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">portafolio_tangente</span> <span class="o">=</span> <span class="nf">tangencyPortfolio</span><span class="p">(</span><span class="nf">as.timeSeries</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">),</span> <span class="n">spec</span> <span class="o">=</span> <span class="n">especificaciones</span><span class="p">,</span> <span class="n">constraints</span> <span class="o">=</span> <span class="s">&quot;LongOnly&quot;</span><span class="p">)</span>
+<span class="n">portafolio_tangente</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Title</span><span class="p">:</span>
+ <span class="n">MV</span> <span class="n">Tangency</span> <span class="n">Portfolio</span>
+ <span class="n">Estimator</span><span class="p">:</span>         <span class="n">covEstimator</span>
+ <span class="n">Solver</span><span class="p">:</span>            <span class="n">solveRquadprog</span>
+ <span class="n">Optimize</span><span class="p">:</span>          <span class="n">minRisk</span>
+ <span class="n">Constraints</span><span class="p">:</span>       <span class="n">LongOnly</span>
+
+<span class="n">Portfolio</span> <span class="n">Weights</span><span class="p">:</span>
+  <span class="n">NFLX</span>   <span class="n">AAPL</span>    <span class="n">ABT</span>    <span class="n">WMT</span>    <span class="n">JNJ</span>
+<span class="mf">0.2698</span> <span class="mf">0.0382</span> <span class="mf">0.1245</span> <span class="mf">0.2911</span> <span class="mf">0.2764</span>
+
+<span class="n">Covariance</span> <span class="n">Risk</span> <span class="n">Budgets</span><span class="p">:</span>
+  <span class="n">NFLX</span>   <span class="n">AAPL</span>    <span class="n">ABT</span>    <span class="n">WMT</span>    <span class="n">JNJ</span>
+<span class="mf">0.4990</span> <span class="mf">0.0397</span> <span class="mf">0.1090</span> <span class="mf">0.1832</span> <span class="mf">0.1691</span>
+
+<span class="n">Target</span> <span class="n">Returns</span> <span class="ow">and</span> <span class="n">Risks</span><span class="p">:</span>
+  <span class="n">mean</span>    <span class="n">Cov</span>   <span class="n">CVaR</span>    <span class="n">VaR</span>
+<span class="mf">0.0150</span> <span class="mf">0.0430</span> <span class="mf">0.0636</span> <span class="mf">0.0552</span>
+
+<span class="n">Description</span><span class="p">:</span>
+ <span class="n">Mon</span> <span class="n">Jun</span> <span class="mi">01</span> <span class="mi">22</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mi">43</span> <span class="mi">2020</span> <span class="n">by</span> <span class="n">user</span><span class="p">:</span> <span class="n">migue</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="proporciones-portafolio-tangente">
+<h2>1.5 Proporciones portafolio tangente<a class="headerlink" href="#proporciones-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">portafolio_tangente</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.2698</span><span class="p">,</span> <span class="m">0.0382</span><span class="p">,</span> <span class="m">0.1245</span><span class="p">,</span> <span class="m">0.2911</span><span class="p">,</span> <span class="m">0.2764</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimiento-esperado-mensual-portafolio-tangente">
+<h2>1.5 Rendimiento esperado mensual portafolio tangente<a class="headerlink" href="#rendimiento-esperado-mensual-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimiento_tangente</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">portafolio_tangente</span><span class="o">*</span><span class="n">rendimientos_esperados</span><span class="p">)</span>
+<span class="n">rendimiento_tangente</span>
+</pre></div>
+</div>
+0.0149972088129714</div>
+<div class="section" id="volatilidad-mensual-portafolio-tangente">
+<h2>1.5 Volatilidad mensual portafolio tangente<a class="headerlink" href="#volatilidad-mensual-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_tangente</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">portafolio_tangente</span><span class="o">%*%</span><span class="n">covarianzas</span><span class="o">*</span><span class="nf">t</span><span class="p">(</span><span class="n">portafolio_tangente</span><span class="p">)))</span>
+<span class="n">volatilidad_tangente</span>
+</pre></div>
+</div>
+0.0430094688203144</div>
+<div class="section" id="indicador-de-diversificacion-portafolio-de-minima-varianza">
+<h2>1.6 Indicador de diversificación portafolio de mínima varianza<a class="headerlink" href="#indicador-de-diversificacion-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p>En el portafolio de mínima varianza no se tiene en cuenta la segunda
+acción que es AAPL. Solo se suman las volatilidades de la primera acción
+y de la tercera a la quinta.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">h_minima_varianza</span> <span class="o">=</span> <span class="m">1</span> <span class="o">-</span> <span class="n">volatilidad_minima_varianza</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">+</span><span class="n">volatilidades</span><span class="p">[</span><span class="m">3</span><span class="o">:</span><span class="m">5</span><span class="p">])</span>
+<span class="n">h_minima_varianza</span>
+</pre></div>
+</div>
+0.920939946192197</div>
+<div class="section" id="indicador-de-diversificacion-portafolio-tangente">
+<h2>1.7 Indicador de diversificación portafolio tangente<a class="headerlink" href="#indicador-de-diversificacion-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p>En el portafolio tangente tiene participación todas las acciones.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">h_tangente</span> <span class="o">=</span> <span class="m">1</span> <span class="o">-</span> <span class="n">volatilidad_tangente</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)</span>
+<span class="n">h_tangente</span>
+</pre></div>
+</div>
+0.876149392901354</div>
+<div class="section" id="portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente">
+<h2>Portafolio 20% en el activo libre de riesgo y 80% en el portafolio tangente<a class="headerlink" href="#portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">proporciones_CML</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.20</span><span class="p">,</span> <span class="m">0.80</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimiento-esperado-mensual-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente">
+<h2>Rendimiento esperado mensual portafolio 20% en el activo libre de riesgo y 80% en el portafolio tangente<a class="headerlink" href="#rendimiento-esperado-mensual-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimiento_CML</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">proporciones_CML</span><span class="o">*</span><span class="nf">c</span><span class="p">(</span><span class="n">Rf_mensual</span><span class="p">,</span> <span class="n">rendimiento_tangente</span><span class="p">))</span>
+<span class="n">rendimiento_CML</span>
+</pre></div>
+</div>
+0.0121004237351061</div>
+<div class="section" id="volatilidad-mensual-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente">
+<h2>Volatilidad mensual portafolio 20% en el activo libre de riesgo y 80% en el portafolio tangente<a class="headerlink" href="#volatilidad-mensual-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p>El activo libre de riesgo tiene una volatilidad de cero, por tanto, la
+volatilidad del portafolio es igual a la proporción invertida en el
+portafolio tangente, 80%, por la volatilidad del portafolio tangente.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_CML</span> <span class="o">=</span> <span class="n">proporciones_CML</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">*</span><span class="n">volatilidad_tangente</span>
+<span class="n">volatilidad_CML</span>
+</pre></div>
+</div>
+0.0344075750562515</div>
+<div class="section" id="indicador-de-diversificacion-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente">
+<h2>1.8 Indicador de diversificación portafolio 20% en el activo libre de riesgo y 80% en el portafolio tangente<a class="headerlink" href="#indicador-de-diversificacion-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">h_CML</span> <span class="o">=</span> <span class="m">1</span> <span class="o">-</span> <span class="n">volatilidad_CML</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)</span>
+<span class="n">h_CML</span>
+</pre></div>
+</div>
+0.900919514321083</div>
+<hr class="docutils" />
+<div class="section" id="segunda-parte">
+<h2>SEGUNDA PARTE<a class="headerlink" href="#segunda-parte" title="Permalink to this headline">¶</a></h2>
+<p>Para calcular los coeficientes Betas se deben hallar los rendimientos en
+forma artimética (discreta).</p>
+<p>El nombre de los siguientes objetos terminará en <code class="docutils literal notranslate"><span class="pre">_2</span></code> para no
+sobrescribir los valores anteriormente calculados.</p>
+</div>
+<div class="section" id="rendimientos-de-la-accion-y-del-mercado-en-forma-aritmetica-discreta">
+<h2>Rendimientos de la acción y del mercado en forma aritmética (discreta)<a class="headerlink" href="#rendimientos-de-la-accion-y-del-mercado-en-forma-aritmetica-discreta" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[Rendimiento = \frac{Precio_{Final}-Precio_{Inicial}}{Precio_{Inicial}}\]</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_2</span> <span class="o">=</span> <span class="nf">diff</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span><span class="o">/</span><span class="n">precios</span><span class="p">[</span><span class="o">-</span><span class="n">numero_rendimientos</span><span class="p">,]</span>
+
+<span class="n">rendimientos_mercado_2</span> <span class="o">=</span> <span class="nf">diff</span><span class="p">(</span><span class="n">SP</span><span class="p">)</span><span class="o">/</span><span class="n">SP</span><span class="p">[</span><span class="o">-</span><span class="n">numero_rendimientos</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">rendimientos_2</span><span class="p">)</span> <span class="o">=</span> <span class="n">nombres</span> <span class="c1"># Se renombran las columnas</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">rendimientos_2</span><span class="p">)</span>
+<span class="nf">tail</span><span class="p">(</span><span class="n">rendimientos_2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                   <span class="n">NFLX</span>        <span class="n">AAPL</span>          <span class="n">ABT</span>         <span class="n">WMT</span>           <span class="n">JNJ</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.108258816</span>  <span class="mf">0.03937670</span>  <span class="mf">0.049717808</span> <span class="o">-</span><span class="mf">0.05089598</span>  <span class="mf">0.0093870384</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.050050245</span> <span class="o">-</span><span class="mf">0.03434644</span>  <span class="mf">0.009780171</span> <span class="o">-</span><span class="mf">0.04052159</span> <span class="o">-</span><span class="mf">0.0200599434</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.178999443</span> <span class="o">-</span><span class="mf">0.03404789</span>  <span class="mf">0.031761547</span>  <span class="mf">0.01458766</span>  <span class="mf">0.0274422932</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.006259245</span> <span class="o">-</span><span class="mf">0.07421170</span> <span class="o">-</span><span class="mf">0.105309966</span> <span class="o">-</span><span class="mf">0.11200376</span> <span class="o">-</span><span class="mf">0.0662907617</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">01</span> <span class="o">-</span><span class="mf">0.113984087</span> <span class="o">-</span><span class="mf">0.01914043</span> <span class="o">-</span><span class="mf">0.134758737</span>  <span class="mf">0.00846683</span>  <span class="mf">0.0008942163</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.047241144</span>  <span class="mf">0.07698747</span>  <span class="mf">0.102231968</span> <span class="o">-</span><span class="mf">0.13277413</span>  <span class="mf">0.0760170799</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                 <span class="n">NFLX</span>        <span class="n">AAPL</span>           <span class="n">ABT</span>          <span class="n">WMT</span>         <span class="n">JNJ</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">01</span> <span class="mf">0.06885637</span>  <span class="mf">0.09965430</span> <span class="o">-</span><span class="mf">0.0007175189</span> <span class="o">-</span><span class="mf">0.012109775</span>  <span class="mf">0.02014535</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">01</span> <span class="mf">0.08660141</span>  <span class="mf">0.06918620</span>  <span class="mf">0.0254400131</span>  <span class="mf">0.015366495</span>  <span class="mf">0.03963940</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">01</span> <span class="mf">0.02753655</span>  <span class="mf">0.09262699</span>  <span class="mf">0.0162330871</span> <span class="o">-</span><span class="mf">0.002103754</span>  <span class="mf">0.06393363</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="mf">0.06236051</span>  <span class="mf">0.05124245</span>  <span class="mf">0.0032131667</span> <span class="o">-</span><span class="mf">0.033359432</span>  <span class="mf">0.02015178</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="mf">0.06487278</span> <span class="o">-</span><span class="mf">0.13224329</span> <span class="o">-</span><span class="mf">0.1264631637</span> <span class="o">-</span><span class="mf">0.063242924</span> <span class="o">-</span><span class="mf">0.10700472</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="mf">0.10563298</span>  <span class="mf">0.13447924</span>  <span class="mf">0.1431207991</span>  <span class="mf">0.069358533</span>  <span class="mf">0.12603296</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">rendimientos_mercado_2</span><span class="p">)</span>
+<span class="nf">tail</span><span class="p">(</span><span class="n">rendimientos_mercado_2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                 <span class="n">Close</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.01038246</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">01</span> <span class="o">-</span><span class="mf">0.02146264</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.01935983</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">01</span> <span class="o">-</span><span class="mf">0.06675863</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">01</span> <span class="o">-</span><span class="mf">0.02716105</span>
+<span class="mi">2015</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.07662457</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                  <span class="n">Close</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.020022672</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.032926005</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.027795160</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">-</span><span class="mf">0.001630748</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">-</span><span class="mf">0.091834749</span>
+<span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>  <span class="mf">0.112565745</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="beta-de-cada-accion">
+<h2>2.1 Beta de cada acción<a class="headerlink" href="#beta-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regresion</span> <span class="o">=</span> <span class="nf">lm</span><span class="p">(</span><span class="n">rendimientos_2</span> <span class="o">~</span> <span class="n">rendimientos_mercado_2</span><span class="p">)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">regresion</span><span class="o">$</span><span class="n">coefficients</span><span class="p">[</span><span class="m">2</span><span class="p">,]</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">NFLX</span>      <span class="n">AAPL</span>       <span class="n">ABT</span>       <span class="n">WMT</span>       <span class="n">JNJ</span>
+<span class="mf">1.1028404</span> <span class="mf">1.2488198</span> <span class="mf">1.1470148</span> <span class="mf">0.4386940</span> <span class="mf">0.8171155</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="correlacion-de-cada-accion-con-el-mercado">
+<h2>2.2 Correlación de cada acción con el mercado<a class="headerlink" href="#correlacion-de-cada-accion-con-el-mercado" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cor</span><span class="p">(</span><span class="n">rendimientos_2</span><span class="p">,</span> <span class="n">rendimientos_mercado_2</span><span class="p">)</span>
+</pre></div>
+</div>
+<table>
+<caption>A matrix: 5 × 1 of type dbl</caption>
+<thead>
+    <tr><th></th><th scope=col>Close</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>NFLX</th><td>0.4101695</td></tr>
+    <tr><th scope=row>AAPL</th><td>0.6093306</td></tr>
+    <tr><th scope=row>ABT</th><td>0.7201432</td></tr>
+    <tr><th scope=row>WMT</th><td>0.3153198</td></tr>
+    <tr><th scope=row>JNJ</th><td>0.6864567</td></tr>
+</tbody>
+</table></div>
+<div class="section" id="beta-portafolio-de-minima-varianza">
+<h2>2.4 Beta portafolio de mínima varianza<a class="headerlink" href="#beta-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta_minima_varianza</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">portafolio_minima_varianza</span><span class="o">*</span><span class="n">beta</span><span class="p">)</span>
+<span class="n">beta_minima_varianza</span>
+</pre></div>
+</div>
+0.763029355132167</div>
+<div class="section" id="capm-anualizado-portafolio-de-minima-varianza">
+<h2>2.4 CAPM anualizado portafolio de mínima varianza<a class="headerlink" href="#capm-anualizado-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CAPM_minima_varianza</span> <span class="o">=</span> <span class="n">Rf</span> <span class="o">+</span> <span class="n">beta_minima_varianza</span><span class="o">*</span><span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span>
+<span class="n">CAPM_minima_varianza</span>
+</pre></div>
+</div>
+0.0524264148956379</div>
+<div class="section" id="beta-portafolio-tangente">
+<h2>2.5 Beta portafolio tangente<a class="headerlink" href="#beta-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta_tangente</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">portafolio_tangente</span><span class="o">*</span><span class="n">beta</span><span class="p">)</span>
+<span class="n">beta_tangente</span>
+</pre></div>
+</div>
+0.841609136591656</div>
+<div class="section" id="capm-anualizado-portafolio-tangente">
+<h2>2.5 CAPM anualizado portafolio tangente<a class="headerlink" href="#capm-anualizado-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CAPM_tangente</span> <span class="o">=</span> <span class="n">Rf</span> <span class="o">+</span> <span class="n">beta_tangente</span><span class="o">*</span><span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span>
+<span class="n">CAPM_tangente</span>
+</pre></div>
+</div>
+0.05719101218498</div>
+<div class="section" id="beta-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente">
+<h2>2.6 Beta portafolio 20% en el activo libre de riesgo y 80% en el portafolio tangente<a class="headerlink" href="#beta-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p>Los activos libres de riesgo tienen coeficiente Beta igual a cero.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">beta_CML</span> <span class="o">=</span> <span class="n">proporciones_CML</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">*</span><span class="n">beta_tangente</span>
+<span class="n">beta_CML</span>
+</pre></div>
+</div>
+0.673287309273325</div>
+<div class="section" id="capm-anualizado-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente">
+<h2>2.6 CAPM anualizado portafolio 20% en el activo libre de riesgo y 80% en el portafolio tangente<a class="headerlink" href="#capm-anualizado-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CAPM_CML</span> <span class="o">=</span> <span class="n">Rf</span> <span class="o">+</span> <span class="n">beta_CML</span><span class="o">*</span><span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span>
+<span class="n">CAPM_CML</span>
+</pre></div>
+</div>
+0.0469850061706786</div>
+<hr class="docutils" />
+<div class="section" id="tercera-parte">
+<h2>TERCERA PARTE<a class="headerlink" href="#tercera-parte" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="indicadores-de-desempeno-anualizado-portafolio-de-minima-varianza">
+<h2>3.1 Indicadores de desempeño anualizado portafolio de mínima varianza<a class="headerlink" href="#indicadores-de-desempeno-anualizado-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sharpe_minima_varianza</span> <span class="o">=</span> <span class="p">(</span><span class="n">rendimiento_minima_varianza</span><span class="o">*</span><span class="m">12</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">volatilidad_minima_varianza</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
+<span class="n">sharpe_minima_varianza</span>
+</pre></div>
+</div>
+1.02138614024888<p><strong>* Ratio de Treynor:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">treynor_minima_varianza</span> <span class="o">=</span>  <span class="p">(</span><span class="n">rendimiento_minima_varianza</span><span class="o">*</span><span class="m">12</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="n">beta_minima_varianza</span>
+<span class="n">treynor_minima_varianza</span>
+</pre></div>
+</div>
+0.176301370820996<p><strong>* Alfa de Jensen:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">jensen_minima_varianza</span> <span class="o">=</span> <span class="p">(</span><span class="n">rendimiento_minima_varianza</span><span class="o">*</span><span class="m">12</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">*</span><span class="n">beta_minima_varianza</span>
+<span class="n">jensen_minima_varianza</span>
+</pre></div>
+</div>
+0.0882576885042966</div>
+<div class="section" id="indicadores-de-desempeno-portafolio-tangente">
+<h2>3.2 Indicadores de desempeño portafolio tangente<a class="headerlink" href="#indicadores-de-desempeno-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sharpe_tangente</span> <span class="o">=</span> <span class="p">(</span><span class="n">rendimiento_tangente</span><span class="o">*</span><span class="m">12</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">volatilidad_tangente</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
+<span class="n">sharpe_tangente</span>
+</pre></div>
+</div>
+1.16656481251476<p><strong>* Ratio de Treynor:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">treynor_tangente</span> <span class="o">=</span>  <span class="p">(</span><span class="n">rendimiento_tangente</span><span class="o">*</span><span class="m">12</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="n">beta_tangente</span>
+<span class="n">treynor_tangente</span>
+</pre></div>
+</div>
+0.206515728127739<p><strong>* Alfa de Jensen:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">jensen_tangente</span> <span class="o">=</span> <span class="p">(</span><span class="n">rendimiento_tangente</span><span class="o">*</span><span class="m">12</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">*</span><span class="n">beta_tangente</span>
+<span class="n">jensen_tangente</span>
+</pre></div>
+</div>
+0.122775493570677</div>
+<div class="section" id="indicadores-de-desempeno-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente">
+<h2>3.3 Indicadores de desempeño portafolio 20% en el activo libre de riesgo y 80% en el portafolio tangente<a class="headerlink" href="#indicadores-de-desempeno-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sharpe_CML</span> <span class="o">=</span> <span class="p">(</span><span class="n">rendimiento_CML</span><span class="o">*</span><span class="m">12</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">volatilidad_CML</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
+<span class="n">sharpe_CML</span>
+</pre></div>
+</div>
+1.16656215958749<p><strong>* Ratio de Treynor:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">treynor_CML</span> <span class="o">=</span>  <span class="p">(</span><span class="n">rendimiento_CML</span><span class="o">*</span><span class="m">12</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="n">beta_CML</span>
+<span class="n">treynor_CML</span>
+</pre></div>
+</div>
+0.206515258482846<p><strong>* Alfa de Jensen:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">jensen_CML</span> <span class="o">=</span> <span class="p">(</span><span class="n">rendimiento_CML</span><span class="o">*</span><span class="m">12</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">*</span><span class="n">beta_CML</span>
+<span class="n">jensen_CML</span>
+</pre></div>
+</div>
+0.0982200786505952</div>
+<div class="section" id="cuarta-parte">
+<h2>CUARTA PARTE<a class="headerlink" href="#cuarta-parte" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="indicadores-de-desempeno-anualizado-portafolio-de-minima-varianza-con-capm">
+<h2>Indicadores de desempeño anualizado portafolio de mínima varianza con CAPM<a class="headerlink" href="#indicadores-de-desempeno-anualizado-portafolio-de-minima-varianza-con-capm" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sharpe_minima_varianza_CAPM</span> <span class="o">=</span> <span class="p">(</span><span class="n">CAPM_minima_varianza</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">volatilidad_minima_varianza</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
+<span class="n">sharpe_minima_varianza_CAPM</span>
+</pre></div>
+</div>
+0.351276950493083<p><strong>* Ratio de Treynor:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">treynor_minima_varianza_CAPM</span> <span class="o">=</span>  <span class="p">(</span><span class="n">CAPM_minima_varianza</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="n">beta_minima_varianza</span>
+<span class="n">treynor_minima_varianza_CAPM</span>
+</pre></div>
+</div>
+0.0606338831802233<p><strong>* Alfa de Jensen:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">jensen_minima_varianza_CAPM</span> <span class="o">=</span> <span class="p">(</span><span class="n">CAPM_minima_varianza</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">*</span><span class="n">beta_minima_varianza</span>
+<span class="n">jensen_minima_varianza_CAPM</span>
+</pre></div>
+</div>
+0<p>Si se utiliza el CAPM como rendimiento del portafolio, el alfa de Jensen
+siempre es cero porque este indicador mide el exceso de rendimiento que
+entrega el portafolio por encima del riesgo en función del riesgo
+sistemático <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+</div>
+<div class="section" id="indicadores-de-desempeno-portafolio-tangente-con-capm">
+<h2>Indicadores de desempeño portafolio tangente con CAPM<a class="headerlink" href="#indicadores-de-desempeno-portafolio-tangente-con-capm" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sharpe_tangente_CAPM</span> <span class="o">=</span> <span class="p">(</span><span class="n">CAPM_tangente</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">volatilidad_tangente</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
+<span class="n">sharpe_tangente_CAPM</span>
+</pre></div>
+</div>
+0.342508317431528<p><strong>* Ratio de Treynor:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">treynor_tangente_CAPM</span> <span class="o">=</span>  <span class="p">(</span><span class="n">CAPM_tangente</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="n">beta_tangente</span>
+<span class="n">treynor_tangente_CAPM</span>
+</pre></div>
+</div>
+0.0606338831802233<p><strong>* Alfa de Jensen:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">jensen_tangente_CAPM</span> <span class="o">=</span> <span class="p">(</span><span class="n">CAPM_tangente</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">*</span><span class="n">beta_tangente</span>
+<span class="n">jensen_tangente_CAPM</span>
+</pre></div>
+</div>
+0</div>
+<div class="section" id="indicadores-de-desempeno-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente-con-capm">
+<h2>Indicadores de desempeño portafolio 20% en el activo libre de riesgo y 80% en el portafolio tangente con CAPM<a class="headerlink" href="#indicadores-de-desempeno-portafolio-20-en-el-activo-libre-de-riesgo-y-80-en-el-portafolio-tangente-con-capm" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sharpe_CML_CAPM</span> <span class="o">=</span> <span class="p">(</span><span class="n">CAPM_CML</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">volatilidad_CML</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
+<span class="n">sharpe_CML_CAPM</span>
+</pre></div>
+</div>
+0.342508317431529<p><strong>* Ratio de Treynor:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">treynor_CML_CAPM</span> <span class="o">=</span>  <span class="p">(</span><span class="n">CAPM_CML</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">/</span><span class="n">beta_CML</span>
+<span class="n">treynor_CML_CAPM</span>
+</pre></div>
+</div>
+0.0606338831802233<p><strong>* Alfa de Jensen:</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">jensen_CML_CAPM</span> <span class="o">=</span> <span class="p">(</span><span class="n">CAPM_CML</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">rendimiento_esperado_mercado_anual</span> <span class="o">-</span> <span class="n">Rf</span><span class="p">)</span><span class="o">*</span><span class="n">beta_CML</span>
+<span class="n">jensen_CML_CAPM</span>
+</pre></div>
+</div>
+0</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Ejercicios-Teoría de portafolios/Ejercicios-Frontera eficiente, CAPM e indicadores de desempeño.html" class="btn btn-neutral float-right" title="Ejercicios: Frontera eficiente, CAPM e indicadores de desempeño" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../6. Análisis frontera eficiente/Análisis frontera eficiente.html" class="btn btn-neutral" title="Análisis frontera eficiente" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

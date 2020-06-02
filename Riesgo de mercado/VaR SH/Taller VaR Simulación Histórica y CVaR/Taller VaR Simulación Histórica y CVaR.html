@@ -96,6 +96,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">VaR Simulación Histórica y CVaR</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Funciones para calcular el VaR por Simulación Histórica y CVaR/Funciones para calcular el VaR por Simulación Histórica y CVaR.html">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VaR Simulación Histórica/VaR-simulación-Histórica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
@@ -112,6 +113,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
 </ul>
 
             
@@ -182,33 +184,89 @@
 <p>Utilizar el archivo Datos primer examen 01-2020.csv para resolver el
 taller.</p>
 <div class="section" id="importar-datos">
-<h2>Importar datos.<a class="headerlink" href="#importar-datos" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="o">=</span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;Datos primer examen 01-2020.csv&quot;</span><span class="p">,</span><span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;;&quot;</span><span class="p">)</span>
+<h2>Importar datos<a class="headerlink" href="#importar-datos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;Datos primer examen 01-2020.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;;&quot;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="nf">tail</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</pre></div>
 </div>
+<table>
+<caption>A data.frame: 6 × 5</caption>
+<thead>
+    <tr><th></th><th scope=col>Fecha</th><th scope=col>ECO</th><th scope=col>ISA</th><th scope=col>NUTRESA</th><th scope=col>PFBCOLOM</th></tr>
+    <tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>1</th><td>31/01/2010</td><td>2415</td><td>12280</td><td>19977.2</td><td>20825.2</td></tr>
+    <tr><th scope=row>2</th><td>07/02/2010</td><td>2480</td><td>12540</td><td>20535.4</td><td>21024.5</td></tr>
+    <tr><th scope=row>3</th><td>14/02/2010</td><td>2495</td><td>12740</td><td>20635.1</td><td>21921.3</td></tr>
+    <tr><th scope=row>4</th><td>21/02/2010</td><td>2560</td><td>12880</td><td>20455.6</td><td>22140.5</td></tr>
+    <tr><th scope=row>5</th><td>28/02/2010</td><td>2625</td><td>12700</td><td>20834.5</td><td>21941.2</td></tr>
+    <tr><th scope=row>6</th><td>07/03/2010</td><td>2680</td><td>12600</td><td>20734.8</td><td>21961.1</td></tr>
+</tbody>
+</table><table>
+<caption>A data.frame: 6 × 5</caption>
+<thead>
+    <tr><th></th><th scope=col>Fecha</th><th scope=col>ECO</th><th scope=col>ISA</th><th scope=col>NUTRESA</th><th scope=col>PFBCOLOM</th></tr>
+    <tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>517</th><td>22/12/2019</td><td>3340</td><td>19380</td><td>25100</td><td>45800</td></tr>
+    <tr><th scope=row>518</th><td>29/12/2019</td><td>3380</td><td>20300</td><td>25280</td><td>45180</td></tr>
+    <tr><th scope=row>519</th><td>05/01/2020</td><td>3400</td><td>19660</td><td>25140</td><td>44380</td></tr>
+    <tr><th scope=row>520</th><td>12/01/2020</td><td>3385</td><td>19520</td><td>25180</td><td>45880</td></tr>
+    <tr><th scope=row>521</th><td>19/01/2020</td><td>3290</td><td>19380</td><td>25220</td><td>45800</td></tr>
+    <tr><th scope=row>522</th><td>26/01/2020</td><td>3180</td><td>18800</td><td>24760</td><td>44700</td></tr>
+</tbody>
+</table></div>
 <div class="section" id="matriz-de-precios">
-<h2>Matriz de precios.<a class="headerlink" href="#matriz-de-precios" title="Permalink to this headline">¶</a></h2>
+<h2>Matriz de precios<a class="headerlink" href="#matriz-de-precios" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">precios</span><span class="o">=</span><span class="n">datos</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+<span class="n">precios</span> <span class="o">=</span> <span class="nf">ts</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="nombres-de-las-acciones">
+<h2>Nombres de las acciones<a class="headerlink" href="#nombres-de-las-acciones" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span> <span class="o">=</span> <span class="nf">colnames</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+<span class="n">nombres</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'ECO'</li><li>'ISA'</li><li>'NUTRESA'</li><li>'PFBCOLOM'</li></ol></div>
 <div class="section" id="matriz-de-rendimientos">
-<h2>Matriz de rendimientos.<a class="headerlink" href="#matriz-de-rendimientos" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos</span><span class="o">=</span><span class="nf">matrix</span><span class="p">(,</span><span class="nf">nrow</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span><span class="m">-1</span><span class="p">,</span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">)){</span>
-  <span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">diff</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">precios</span><span class="p">[,</span><span class="n">i</span><span class="p">]))</span>
-<span class="p">}</span>
+<h2>Matriz de rendimientos<a class="headerlink" href="#matriz-de-rendimientos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos</span> <span class="o">=</span> <span class="nf">diff</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="cantidad-de-acciones">
+<h2>Cantidad de acciones<a class="headerlink" href="#cantidad-de-acciones" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">acciones</span> <span class="o">=</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+<span class="n">acciones</span>
+</pre></div>
+</div>
+4</div>
+<div class="section" id="cantidad-de-rendimientos">
+<h2>Cantidad de rendimientos<a class="headerlink" href="#cantidad-de-rendimientos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">numero_rendimientos</span> <span class="o">=</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span>
+<span class="n">numero_rendimientos</span>
+</pre></div>
+</div>
+521</div>
 <div class="section" id="portafolio-de-inversion">
-<h2>Portafolio de inversión.<a class="headerlink" href="#portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<h2>Portafolio de inversión<a class="headerlink" href="#portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
 <p>El portafolio de inversión está valorado en mil millones de pesos.</p>
 <p>Se tiene invertido la misma proporción en cada acción.</p>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">proporciones</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.25</span><span class="p">)</span>
-<span class="n">valor_portafolio</span><span class="o">=</span><span class="m">1000000000</span>
-<span class="n">valor_mercado_acciones</span><span class="o">=</span><span class="n">proporciones</span><span class="o">*</span><span class="n">valor_portafolio</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">proporciones</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.25</span><span class="p">,</span> <span class="m">0.25</span><span class="p">,</span> <span class="m">0.25</span><span class="p">,</span> <span class="m">0.25</span><span class="p">)</span>
+<span class="n">valor_portafolio</span> <span class="o">=</span> <span class="m">1000000000</span>
+<span class="n">valor_mercado_acciones</span> <span class="o">=</span> <span class="n">proporciones</span><span class="o">*</span><span class="n">valor_portafolio</span>
 <span class="n">valor_mercado_acciones</span>
 </pre></div>
 </div>
@@ -220,22 +278,25 @@ taller.</p>
 <ol class=list-inline><li>2.5e+08</li><li>2.5e+08</li><li>2.5e+08</li><li>2.5e+08</li></ol></div>
 <div class="section" id="var-simulacion-historica-y-cvar-en-terminos-porcentuales">
 <h2>VaR Simulación Histórica y CVaR en términos porcentuales<a class="headerlink" href="#var-simulacion-historica-y-cvar-en-terminos-porcentuales" title="Permalink to this headline">¶</a></h2>
-<p>Nivel de confianza del 99% <code class="docutils literal notranslate"><span class="pre">NC=0.99</span></code></p>
-<p>Horizonte de tiempo: semanal <code class="docutils literal notranslate"><span class="pre">t=1</span></code>. En este método no se puede escalar
-el tiempo, es decir, si la frecuencia de los rendimientos es semanal, el
-VaR y CVaR quedan semanales. Para otros horizontes de tiempo se debe
-utilizar otra base de datos con frecuencia en el tiempo distinta. Por
-tanto, no se utiliza en el código <code class="docutils literal notranslate"><span class="pre">t=1</span></code>.</p>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.99</span>
+<p>Nivel de confianza del 99% <code class="docutils literal notranslate"><span class="pre">NC</span> <span class="pre">=</span> <span class="pre">0.99</span></code></p>
+<p>Horizonte de tiempo: semanal <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">1</span></code>. En este método no se puede
+escalar el tiempo, es decir, si la frecuencia de los rendimientos es
+semanal, el VaR y CVaR quedan semanales. Para otros horizontes de tiempo
+se debe utilizar otra base de datos con frecuencia en el tiempo
+distinta. Por tanto, no se utiliza en el código <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="var-individuales">
 <h2>VaR individuales<a class="headerlink" href="#var-individuales" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_individuales_SH_percentil</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_individuales_SH_percentil</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span>
 <span class="p">}</span>
+
 <span class="n">VaR_individuales_SH_percentil</span>
 </pre></div>
 </div>
@@ -247,10 +308,13 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 <ol class=list-inline><li>0.100017529037464</li><li>0.0747062638979077</li><li>0.0623792449456534</li><li>0.0746798926612424</li></ol></div>
 <div class="section" id="cvar-individuales">
 <h2>CVaR individuales<a class="headerlink" href="#cvar-individuales" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span><span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)))))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)))))</span>
 <span class="p">}</span>
+
 <span class="n">CVaR</span>
 </pre></div>
 </div>
@@ -261,24 +325,26 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </style>
 <ol class=list-inline><li>0.131734096471733</li><li>0.104054311101083</li><li>0.0763919471659559</li><li>0.0898571003585143</li></ol></div>
 <div class="section" id="rendimientos-del-portafolio-de-inversion">
-<h2>Rendimientos del portafolio de inversión.<a class="headerlink" href="#rendimientos-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_portafolio</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">rendimientos_portafolio</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">sum</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">*</span><span class="n">proporciones</span><span class="p">)</span>
+<h2>Rendimientos del portafolio de inversión<a class="headerlink" href="#rendimientos-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_portafolio</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">numero_rendimientos</span><span class="p">){</span>
+
+  <span class="n">rendimientos_portafolio</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">*</span><span class="n">proporciones</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="var-portafolio-de-inversion">
 <h2>VaR portafolio de inversión<a class="headerlink" href="#var-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_portafolio_SH_percentil</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_portafolio_SH_percentil</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span>
 <span class="n">VaR_portafolio_SH_percentil</span>
 </pre></div>
 </div>
 <strong>1%:</strong> 0.0570097464552412</div>
 <div class="section" id="cvar-portafolio-de-inversion">
 <h2>CVaR portafolio de inversión<a class="headerlink" href="#cvar-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR_portafolio</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span><span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)))))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR_portafolio</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">)))))</span>
 <span class="n">CVaR_portafolio</span>
 </pre></div>
 </div>
@@ -288,12 +354,17 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-var-semanal-de-la-accion-de-eco">
 <h2>1. Con un nivel de confianza del 99%, ¿cuál es el VaR semanal de la acción de ECO?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-var-semanal-de-la-accion-de-eco" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.99</span>
-<span class="n">VaR_individuales_SH_percentil</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
+
+<span class="n">VaR_individuales_SH_percentil</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span>
 <span class="p">}</span>
+
 <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+
 <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -302,13 +373,17 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-95-cual-es-el-var-semanal-de-la-accion-de-eco">
 <h2>2. Con un nivel de confianza del 95%, ¿cuál es el VaR semanal de la acción de ECO?<a class="headerlink" href="#con-un-nivel-de-confianza-del-95-cual-es-el-var-semanal-de-la-accion-de-eco" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.95</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.95</span>
 
-<span class="n">VaR_individuales_SH_percentil</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span>
+<span class="n">VaR_individuales_SH_percentil</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span>
 <span class="p">}</span>
+
 <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
+
 <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -317,13 +392,17 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-var-semanal-de-la-accion-de-nutresa">
 <h2>3. Con un nivel de confianza del 99%, ¿cuál es el VaR semanal de la acción de Nutresa?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-var-semanal-de-la-accion-de-nutresa" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.99</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
 
-<span class="n">VaR_individuales_SH_percentil</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span>
+<span class="n">VaR_individuales_SH_percentil</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span>
 <span class="p">}</span>
+
 <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="m">3</span><span class="p">]</span>
+
 <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -332,13 +411,17 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-95-cual-es-el-var-semanal-de-la-accion-de-nutresa">
 <h2>4. Con un nivel de confianza del 95%, ¿cuál es el VaR semanal de la acción de Nutresa?<a class="headerlink" href="#con-un-nivel-de-confianza-del-95-cual-es-el-var-semanal-de-la-accion-de-nutresa" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.95</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.95</span>
 
-<span class="n">VaR_individuales_SH_percentil</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span>
+<span class="n">VaR_individuales_SH_percentil</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span>
 <span class="p">}</span>
+
 <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="m">3</span><span class="p">]</span>
+
 <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="m">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -347,13 +430,17 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-cvar-semanal-de-la-accion-de-isa">
 <h2>5. Con un nivel de confianza del 99%, ¿cuál es el CVaR semanal de la acción de ISA?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-cvar-semanal-de-la-accion-de-isa" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.99</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
 
-<span class="n">CVaR</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span><span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)))))</span>
+<span class="n">CVaR</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">)))))</span>
 <span class="p">}</span>
+
 <span class="n">CVaR</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+
 <span class="n">CVaR</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -362,13 +449,17 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-95-cual-es-el-cvar-semanal-de-la-accion-de-isa">
 <h2>6. Con un nivel de confianza del 95%, ¿cuál es el CVaR semanal de la acción de ISA?<a class="headerlink" href="#con-un-nivel-de-confianza-del-95-cual-es-el-cvar-semanal-de-la-accion-de-isa" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.95</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.95</span>
 
-<span class="n">CVaR</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span><span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)))))</span>
+<span class="n">CVaR</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">)))))</span>
 <span class="p">}</span>
+
 <span class="n">CVaR</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
+
 <span class="n">CVaR</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -377,9 +468,9 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-var-semanal-del-portafolio-de-inversion">
 <h2>7. Con un nivel de confianza del 99%, ¿cuál es el VaR semanal del portafolio de inversión?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-var-semanal-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.99</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
 
-<span class="n">VaR_portafolio_SH_percentil</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span>
+<span class="n">VaR_portafolio_SH_percentil</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span>
 <span class="n">VaR_portafolio_SH_percentil</span>
 <span class="n">VaR_portafolio_SH_percentil</span><span class="o">*</span><span class="n">valor_portafolio</span>
 </pre></div>
@@ -389,9 +480,9 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-95-cual-es-el-var-semanal-del-portafolio-de-inversion">
 <h2>8. Con un nivel de confianza del 95%, ¿cuál es el VaR semanal del portafolio de inversión?<a class="headerlink" href="#con-un-nivel-de-confianza-del-95-cual-es-el-var-semanal-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.95</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.95</span>
 
-<span class="n">VaR_portafolio_SH_percentil</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span>
+<span class="n">VaR_portafolio_SH_percentil</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span>
 <span class="n">VaR_portafolio_SH_percentil</span>
 <span class="n">VaR_portafolio_SH_percentil</span><span class="o">*</span><span class="n">valor_portafolio</span>
 </pre></div>
@@ -401,9 +492,9 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-cvar-semanal-del-portafolio-de-inversion">
 <h2>9. Con un nivel de confianza del 99%, ¿cuál es el CVaR semanal del portafolio de inversión?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-cvar-semanal-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.99</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
 
-<span class="n">CVaR_portafolio</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span><span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)))))</span>
+<span class="n">CVaR_portafolio</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">)))))</span>
 <span class="n">CVaR_portafolio</span>
 <span class="n">CVaR_portafolio</span><span class="o">*</span><span class="n">valor_portafolio</span>
 </pre></div>
@@ -413,16 +504,18 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-beneficio-por-diversificacion-semanal-del-portafolio-de-inversion">
 <h2>10. Con un nivel de confianza del 99%, ¿cuál es el Beneficio por Diversificación semanal del portafolio de inversión?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-beneficio-por-diversificacion-semanal-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.99</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
 
 <span class="n">VaR_individuales_SH_percentil</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 <span class="p">}</span>
 
-<span class="n">VaR_portafolio_SH_percentil</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span><span class="o">*</span><span class="n">valor_portafolio</span>
+<span class="n">VaR_portafolio_SH_percentil</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span><span class="o">*</span><span class="n">valor_portafolio</span>
 
-<span class="n">BD</span><span class="o">=</span><span class="nf">sum</span><span class="p">(</span><span class="n">VaR_individuales_SH_percentil</span><span class="p">)</span><span class="o">-</span><span class="n">VaR_portafolio_SH_percentil</span>
+<span class="n">BD</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">VaR_individuales_SH_percentil</span><span class="p">)</span> <span class="o">-</span> <span class="n">VaR_portafolio_SH_percentil</span>
 <span class="n">BD</span>
 </pre></div>
 </div>
@@ -430,16 +523,18 @@ tanto, no se utiliza en el código <code class="docutils literal notranslate"><s
 </div>
 <div class="section" id="con-un-nivel-de-confianza-del-95-cual-es-el-beneficio-por-diversificacion-semanal-del-portafolio-de-inversion">
 <h2>11. Con un nivel de confianza del 95%, ¿cuál es el Beneficio por Diversificación semanal del portafolio de inversión?<a class="headerlink" href="#con-un-nivel-de-confianza-del-95-cual-es-el-beneficio-por-diversificacion-semanal-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span><span class="o">=</span><span class="m">0.95</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.95</span>
 
 <span class="n">VaR_individuales_SH_percentil</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
-<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
-  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+  <span class="n">VaR_individuales_SH_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 <span class="p">}</span>
 
-<span class="n">VaR_portafolio_SH_percentil</span><span class="o">=</span><span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))</span><span class="o">*</span><span class="n">valor_portafolio</span>
+<span class="n">VaR_portafolio_SH_percentil</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">,</span> <span class="m">1</span> <span class="o">-</span> <span class="n">NC</span><span class="p">))</span><span class="o">*</span><span class="n">valor_portafolio</span>
 
-<span class="n">BD</span><span class="o">=</span><span class="nf">sum</span><span class="p">(</span><span class="n">VaR_individuales_SH_percentil</span><span class="p">)</span><span class="o">-</span><span class="n">VaR_portafolio_SH_percentil</span>
+<span class="n">BD</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">VaR_individuales_SH_percentil</span><span class="p">)</span> <span class="o">-</span> <span class="n">VaR_portafolio_SH_percentil</span>
 <span class="n">BD</span>
 </pre></div>
 </div>

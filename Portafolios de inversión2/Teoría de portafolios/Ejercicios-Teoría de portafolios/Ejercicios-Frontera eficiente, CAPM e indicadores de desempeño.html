@@ -1,0 +1,490 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ejercicios: Frontera eficiente, CAPM e indicadores de desempeño &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Teoría moderna de portafolios" href="../index.html"/>
+        <link rel="prev" title="Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño con datos mensuales" href="../Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño/Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Trading/index.html">Análisis técnico</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Teoría moderna de portafolios</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../1. Introducción a la teoría de portafolios/Introducción a la teoría de portafolios.html">Introducción a la teoría de portafolios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../2. CAPM/CAPM.html">CAPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../3. Indicadores de desempeño/Indicadores de desempeño.html">Indicadores de desempeño</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../4. Frontera eficiente/Frontera eficiente.html">Frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../5. Línea de Mercado de Capitales (CML)/Línea de Mercado de Capitales (CML).html">Línea de Mercado de Capitales (CML)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../6. Análisis frontera eficiente/Análisis frontera eficiente.html">Análisis frontera eficiente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño/Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño.html">Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño con datos mensuales</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ejercicios: Frontera eficiente, CAPM e indicadores de desempeño</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Teoría moderna de portafolios</a> &raquo;</li>
+        
+      <li>Ejercicios: Frontera eficiente, CAPM e indicadores de desempeño</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Portafolios de inversión2/Teoría de portafolios/Ejercicios-Teoría de portafolios/Ejercicios-Frontera eficiente, CAPM e indicadores de desempeño.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ejercicios-frontera-eficiente-capm-e-indicadores-de-desempeno">
+<h1>Ejercicios: Frontera eficiente, CAPM e indicadores de desempeño<a class="headerlink" href="#ejercicios-frontera-eficiente-capm-e-indicadores-de-desempeno" title="Permalink to this headline">¶</a></h1>
+<p>Resolver este taller con el archivo
+<code class="docutils literal notranslate"><span class="pre">Datos</span> <span class="pre">ejercicio</span> <span class="pre">Teoría</span> <span class="pre">de</span> <span class="pre">portafolios.csv</span></code>.</p>
+<p>Utilice tasa libre de riesgo de 5,5% E.A.</p>
+<div class="section" id="primera-parte">
+<h2>PRIMERA PARTE<a class="headerlink" href="#primera-parte" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="rendimientos-esperado-de-cada-accion-continuos-mensuales">
+<h2>Rendimientos esperado de cada acción continuos mensuales<a class="headerlink" href="#rendimientos-esperado-de-cada-accion-continuos-mensuales" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CNEC: 1.007131e-02</p></li>
+<li><p>BVC: 2.118700e-03</p></li>
+<li><p>BOGOTA: -9.636595e-04</p></li>
+<li><p>PFDAVVNDA: 1.326436e-05</p></li>
+</ul>
+</div>
+<div class="section" id="rendimiento-esperado-continuo-mensual-del-mercado">
+<h2>Rendimiento esperado continuo mensual del mercado<a class="headerlink" href="#rendimiento-esperado-continuo-mensual-del-mercado" title="Permalink to this headline">¶</a></h2>
+<p>-0.0033525069912824</p>
+</div>
+<div class="section" id="volatilidad-de-cada-accion-mensual">
+<h2>Volatilidad de cada acción mensual<a class="headerlink" href="#volatilidad-de-cada-accion-mensual" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CNEC: 0.07785916</p></li>
+<li><p>BVC: 0.06129406</p></li>
+<li><p>BOGOTA: 0.05054781</p></li>
+<li><p>PFDAVVNDA: 0.07298923</p></li>
+</ul>
+</div>
+<div class="section" id="volatilidad-del-mercado">
+<h2>Volatilidad del mercado<a class="headerlink" href="#volatilidad-del-mercado" title="Permalink to this headline">¶</a></h2>
+<p>0.0564108951765092</p>
+</div>
+<div class="section" id="grafico-de-cada-accion">
+<h2>Gráfico de cada acción<a class="headerlink" href="#grafico-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id2">
+<img alt="1" src="../../../_images/grafico1Ejemplo.jpg" />
+<p class="caption"><span class="caption-text">1</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="segunda-parte">
+<h2>SEGUNDA PARTE<a class="headerlink" href="#segunda-parte" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="grafico-de-la-frontera-eficiente">
+<h2>Gráfico de la frontera eficiente<a class="headerlink" href="#grafico-de-la-frontera-eficiente" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id3">
+<img alt="2" src="../../../_images/grafico2Ejemplo.jpg" />
+<p class="caption"><span class="caption-text">2</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="graficos-de-proporciones-de-los-portafolios-de-la-frontera">
+<h2>Gráficos de proporciones de los portafolios de la frontera<a class="headerlink" href="#graficos-de-proporciones-de-los-portafolios-de-la-frontera" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id4">
+<img alt="3" src="../../../_images/grafico3Ejemplo.jpg" />
+<p class="caption"><span class="caption-text">3</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="proporciones-portafolio-de-minima-varianza">
+<h2>Proporciones portafolio de mínima varianza<a class="headerlink" href="#proporciones-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p>portafolio_minima_varianza = c(0.1675, 0.3309, 0.4975, 0.0041)</p>
+</div>
+<div class="section" id="rendimiento-esperado-mensual-portafolio-de-minima-varianza">
+<h2>Rendimiento esperado mensual portafolio de mínima varianza<a class="headerlink" href="#rendimiento-esperado-mensual-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p>0.00190865660957934</p>
+</div>
+<div class="section" id="volatilidad-mensual-portafolio-de-minima-varianza">
+<h2>Volatilidad mensual portafolio de mínima varianza<a class="headerlink" href="#volatilidad-mensual-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p>0.0382094644885987</p>
+</div>
+<div class="section" id="indicador-de-diversificacion-portafolio-de-minima-varianza">
+<h2>Indicador de diversificación portafolio de mínima varianza<a class="headerlink" href="#indicador-de-diversificacion-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p>0.798580613640103</p>
+</div>
+<div class="section" id="grafico-de-la-frontera-eficiente-con-linea-de-mercado-de-capitales-cml">
+<h2>Gráfico de la frontera eficiente con Línea de Mercado de Capitales (CML).<a class="headerlink" href="#grafico-de-la-frontera-eficiente-con-linea-de-mercado-de-capitales-cml" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id5">
+<img alt="4" src="../../../_images/grafico4Ejemplo.jpg" />
+<p class="caption"><span class="caption-text">4</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="proporciones-portafolio-tangente">
+<h2>Proporciones portafolio tangente<a class="headerlink" href="#proporciones-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p>portafolio_tangente = c(0.8253, 0.1747, 0, 0)</p>
+</div>
+<div class="section" id="rendimiento-esperado-mensual-portafolio-tangente">
+<h2>Rendimiento esperado mensual portafolio tangente<a class="headerlink" href="#rendimiento-esperado-mensual-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p>0.00868199170694267</p>
+</div>
+<div class="section" id="volatilidad-mensual-portafolio-tangente">
+<h2>Volatilidad mensual portafolio tangente<a class="headerlink" href="#volatilidad-mensual-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p>0.066245461455453</p>
+</div>
+<div class="section" id="indicador-de-diversificacion-portafolio-tangente">
+<h2>Indicador de diversificación portafolio tangente<a class="headerlink" href="#indicador-de-diversificacion-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p>0.747819116810307</p>
+</div>
+<div class="section" id="tercera-parte">
+<h2>TERCERA PARTE<a class="headerlink" href="#tercera-parte" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="beta-de-cada-accion">
+<h2>Beta de cada acción<a class="headerlink" href="#beta-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CNEC: 0.2653824</p></li>
+<li><p>BVC: 0.4125461</p></li>
+<li><p>BOGOTA: 0.6668507</p></li>
+<li><p>PFDAVVNDA: 1.3544043</p></li>
+</ul>
+</div>
+<div class="section" id="correlacion-de-cada-accion-con-el-mercado">
+<h2>Correlación de cada acción con el mercado<a class="headerlink" href="#correlacion-de-cada-accion-con-el-mercado" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CNEC: 0.1809216</p></li>
+<li><p>BVC: 0.3485608</p></li>
+<li><p>BOGOTA: 0.6748284</p></li>
+<li><p>PFDAVVNDA: 0.9115367</p></li>
+</ul>
+</div>
+<div class="section" id="rendimientos-esperados-de-cada-accion-anualizados">
+<h2>Rendimientos esperados de cada acción anualizados<a class="headerlink" href="#rendimientos-esperados-de-cada-accion-anualizados" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CNEC: 0.1208557586</p></li>
+<li><p>BVC: 0.0254244015</p></li>
+<li><p>BOGOTA: -0.0115639142</p></li>
+<li><p>PFDAVVNDA: 0.0001591723</p></li>
+</ul>
+</div>
+<div class="section" id="volatiliades-de-cada-accion-anualizadas">
+<h2>Volatiliades de cada acción anualizadas<a class="headerlink" href="#volatiliades-de-cada-accion-anualizadas" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CNEC: 0.2697120</p></li>
+<li><p>BVC: 0.2123289</p></li>
+<li><p>BOGOTA: 0.1751027</p></li>
+<li><p>PFDAVVNDA: 0.2528421</p></li>
+</ul>
+</div>
+<div class="section" id="rendimiento-esperado-del-mercado-anualizado">
+<h2>Rendimiento esperado del mercado anualizado<a class="headerlink" href="#rendimiento-esperado-del-mercado-anualizado" title="Permalink to this headline">¶</a></h2>
+<p>-0.0402300838953888</p>
+</div>
+<div class="section" id="beta-portafolio-de-minima-varianza">
+<h2>Beta portafolio de mínima varianza<a class="headerlink" href="#beta-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p>0.518274370918227</p>
+</div>
+<div class="section" id="capm-anualizado-portafolio-de-minima-varianza">
+<h2>CAPM anualizado portafolio de mínima varianza<a class="headerlink" href="#capm-anualizado-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p>-0.0182079899570793</p>
+</div>
+<div class="section" id="beta-portafolio-tangente">
+<h2>Beta portafolio tangente<a class="headerlink" href="#beta-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p>0.291091894247199</p>
+</div>
+<div class="section" id="capm-anualizado-portafolio-tangente">
+<h2>CAPM anualizado portafolio tangente<a class="headerlink" href="#capm-anualizado-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p>-0.00782233982689301</p>
+</div>
+<div class="section" id="cuarta-parte">
+<h2>CUARTA PARTE<a class="headerlink" href="#cuarta-parte" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="indicadores-de-desempeno-anualizado-portafolio-de-minima-varianza">
+<h2>Indicadores de desempeño anualizado portafolio de mínima varianza<a class="headerlink" href="#indicadores-de-desempeno-anualizado-portafolio-de-minima-varianza" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<p>0.131601359472983</p>
+<p><strong>* Ratio de Treynor:</strong></p>
+<p>0.0336095127635217</p>
+<p><strong>* Alfa de Jensen:</strong></p>
+<p>0.0411118692720314</p>
+</div>
+<div class="section" id="indicadores-de-desempeno-portafolio-tangente">
+<h2>Indicadores de desempeño portafolio tangente<a class="headerlink" href="#indicadores-de-desempeno-portafolio-tangente" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<p>0.430096460890975</p>
+<p><strong>* Ratio de Treynor:</strong></p>
+<p>0.339064646605809</p>
+<p><strong>* Alfa de Jensen:</strong></p>
+<p>0.112006240310205</p>
+</div>
+<div class="section" id="quinta-parte-portafolio-especifico">
+<h2>QUINTA PARTE: Portafolio específico<a class="headerlink" href="#quinta-parte-portafolio-especifico" title="Permalink to this headline">¶</a></h2>
+<p>Analizar con los indicadores de desempeño anualizados el siguiente
+portafolio de inversión:</p>
+<p>Proporciones de inversión:</p>
+<ul class="simple">
+<li><p><strong>CNEC:</strong> 40%.</p></li>
+<li><p><strong>BVC:</strong> 30%.</p></li>
+<li><p><strong>BOGOTA:</strong> 10%.</p></li>
+<li><p><strong>PFDAVVNDA:</strong> 20%.</p></li>
+</ul>
+</div>
+<div class="section" id="rendimiento-esperado-anualizado-portafolio-especifico">
+<h2>Rendimiento esperado anualizado portafolio específico<a class="headerlink" href="#rendimiento-esperado-anualizado-portafolio-especifico" title="Permalink to this headline">¶</a></h2>
+<p>0.0548450669169162</p>
+</div>
+<div class="section" id="volatilidad-anualizada-portafolio-especifico">
+<h2>Volatilidad anualizada portafolio específico<a class="headerlink" href="#volatilidad-anualizada-portafolio-especifico" title="Permalink to this headline">¶</a></h2>
+<p>0.153678441716471</p>
+</div>
+<div class="section" id="beta-portafolio-especifico">
+<h2>Beta portafolio específico<a class="headerlink" href="#beta-portafolio-especifico" title="Permalink to this headline">¶</a></h2>
+<p>0.567482725099159</p>
+</div>
+<div class="section" id="capm-portafolio-especifico">
+<h2>CAPM portafolio específico<a class="headerlink" href="#capm-portafolio-especifico" title="Permalink to this headline">¶</a></h2>
+<p>-0.0204575505635757</p>
+</div>
+<div class="section" id="indicadores-de-desempeno-anualizado-portafolio-especifico">
+<h2>Indicadores de desempeño anualizado portafolio específico<a class="headerlink" href="#indicadores-de-desempeno-anualizado-portafolio-especifico" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<p>0.321191028065039</p>
+<p><strong>* Ratio de Treynor:</strong></p>
+<p>0.0869808621535071</p>
+<p><strong>* Alfa de Jensen:</strong></p>
+<p>0.075302617480492</p>
+</div>
+<div class="section" id="id1">
+<h2>Indicadores de desempeño portafolio tangente<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>* Ratio de Sharpe:</strong></p>
+<p>0.321191028065039</p>
+<p><strong>* Ratio de Treynor:</strong></p>
+<p>0.0869808621535071</p>
+<p><strong>* Alfa de Jensen:</strong></p>
+<p>0.075302617480492</p>
+</div>
+<div class="section" id="grafico-de-las-acciones-del-mercado-portafolio-minima-varianza-portafolio-tangente-y-portafolio-especifico">
+<h2>Gráfico de las acciones, del mercado, portafolio mínima varianza, portafolio tangente y portafolio específico<a class="headerlink" href="#grafico-de-las-acciones-del-mercado-portafolio-minima-varianza-portafolio-tangente-y-portafolio-especifico" title="Permalink to this headline">¶</a></h2>
+<p>Valores anualizados</p>
+<div class="figure align-default" id="id6">
+<img alt="5" src="../../../_images/grafico5Ejemplo.jpg" />
+<p class="caption"><span class="caption-text">5</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño/Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño.html" class="btn btn-neutral" title="Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño con datos mensuales" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

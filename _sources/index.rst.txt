@@ -27,6 +27,7 @@ Material de apoyo
     
     Riesgo de mercado/Introducción Gestión del Riesgo/index
     Riesgo de mercado/VaR Delta-Normal/index
+    Riesgo de mercado/Volatilidad no constante/index
     Riesgo de mercado/VaR SH/index
     Riesgo de mercado/VaR SM/index
     Riesgo de mercado/Backtesting/index
@@ -40,6 +41,7 @@ Material de apoyo
 
     Portafolios de inversión2/Mercado financiero/index
     Portafolios de inversión2/Trading/index.rst
+    Portafolios de inversión2/Teoría de portafolios/index.rst
     
 
 

@@ -96,6 +96,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">VaR Simulación Histórica y CVaR</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../VaR Simulación Histórica/VaR-simulación-Histórica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
@@ -112,6 +113,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
 </ul>
 
             
@@ -180,7 +182,7 @@
   <div class="section" id="funciones-para-calcular-el-var-por-simulacion-historica-y-cvar">
 <h1>Funciones para calcular el VaR por Simulación Histórica y CVaR<a class="headerlink" href="#funciones-para-calcular-el-var-por-simulacion-historica-y-cvar" title="Permalink to this headline">¶</a></h1>
 <p>Se crea un vector con los valores enteros entre el cero y el 10:</p>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
 <span class="n">vector</span>
 </pre></div>
 </div>
@@ -198,31 +200,31 @@ menores.</p>
 </div>
 <div class="section" id="percentil-del-1">
 <h2>Percentil del 1%<a class="headerlink" href="#percentil-del-1" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">0.01</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">0.01</span><span class="p">)</span>
 </pre></div>
 </div>
 <strong>1%:</strong> 0.1</div>
 <div class="section" id="percentil-del-5">
 <h2>Percentil del 5%<a class="headerlink" href="#percentil-del-5" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">0.05</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
 </pre></div>
 </div>
 <strong>5%:</strong> 0.5</div>
 <div class="section" id="percentil-del-10">
 <h2>Percentil del 10%<a class="headerlink" href="#percentil-del-10" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">0.10</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">0.10</span><span class="p">)</span>
 </pre></div>
 </div>
 <strong>10%:</strong> 1</div>
 <div class="section" id="percentil-del-30">
 <h2>Percentil del 30%<a class="headerlink" href="#percentil-del-30" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">0.30</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">0.30</span><span class="p">)</span>
 </pre></div>
 </div>
 <strong>30%:</strong> 3</div>
 <div class="section" id="percentil-del-100">
 <h2>Percentil del 100%<a class="headerlink" href="#percentil-del-100" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">quantile</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <strong>100%:</strong> 10</div>
@@ -235,7 +237,7 @@ parte superior y el 10 es el último valor de la parte inferior.</p>
 </div>
 <div class="section" id="extraer-los-ultimos-10-valores-de-la-parte-inferior-del-vector">
 <h2>Extraer los últimos 10 valores de la parte inferior del vector:<a class="headerlink" href="#extraer-los-ultimos-10-valores-de-la-parte-inferior-del-vector" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <style>
@@ -246,13 +248,13 @@ parte superior y el 10 es el último valor de la parte inferior.</p>
 <ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>10</li></ol></div>
 <div class="section" id="extraer-el-ultimo-valor-de-la-parte-inferior-del-vector">
 <h2>Extraer el último valor de la parte inferior del vector:<a class="headerlink" href="#extraer-el-ultimo-valor-de-la-parte-inferior-del-vector" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
 10</div>
 <div class="section" id="extraer-los-dos-ultimos-valores-de-la-parte-inferior-del-vector">
 <h2>Extraer los dos últimos valores de la parte inferior del vector:<a class="headerlink" href="#extraer-los-dos-ultimos-valores-de-la-parte-inferior-del-vector" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <style>
@@ -263,7 +265,7 @@ parte superior y el 10 es el último valor de la parte inferior.</p>
 <ol class=list-inline><li>9</li><li>10</li></ol></div>
 <div class="section" id="extraer-los-ultimos-cuatro-valores-de-la-parte-inferior-del-vector">
 <h2>Extraer los últimos cuatro valores de la parte inferior del vector:<a class="headerlink" href="#extraer-los-ultimos-cuatro-valores-de-la-parte-inferior-del-vector" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
 </pre></div>
 </div>
 <style>
@@ -279,13 +281,13 @@ superior de los vectores o matrices.</p>
 </div>
 <div class="section" id="extraer-el-primer-valor-de-la-parte-superior-del-vector">
 <h2>Extraer el primer valor de la parte superior del vector:<a class="headerlink" href="#extraer-el-primer-valor-de-la-parte-superior-del-vector" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
 0</div>
 <div class="section" id="extraer-los-tres-primeros-valores-de-la-parte-superior-del-vector">
 <h2>Extraer los tres primeros valores de la parte superior del vector:<a class="headerlink" href="#extraer-los-tres-primeros-valores-de-la-parte-superior-del-vector" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
 </pre></div>
 </div>
 <style>
@@ -298,13 +300,13 @@ superior de los vectores o matrices.</p>
 <h2>Combinar <code class="docutils literal notranslate"><span class="pre">head()</span></code> y <code class="docutils literal notranslate"><span class="pre">tail()</span></code><a class="headerlink" href="#combinar-head-y-tail" title="Permalink to this headline">¶</a></h2>
 <p><strong>De los últimos cinco valores de la parte inferior del vector, extraer
 el valor de la parte de arriba:</strong></p>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">5</span><span class="p">),</span><span class="m">1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> <span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
 6</div>
 <div class="section" id="de-los-ultimos-cinco-valores-de-la-parte-inferior-del-vector-extraer-los-dos-valores-de-la-parte-de-arriba">
 <h2>De los últimos cinco valores de la parte inferior del vector, extraer los dos valores de la parte de arriba:<a class="headerlink" href="#de-los-ultimos-cinco-valores-de-la-parte-inferior-del-vector-extraer-los-dos-valores-de-la-parte-de-arriba" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="m">5</span><span class="p">),</span><span class="m">2</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> <span class="m">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <style>
@@ -320,7 +322,7 @@ los vectores o matrices.</p>
 </div>
 <div class="section" id="ordenar-de-mayor-a-menor-el-vector">
 <h2>Ordenar de mayor a menor el vector:<a class="headerlink" href="#ordenar-de-mayor-a-menor-el-vector" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sort</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span><span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sort</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
 </pre></div>
 </div>
 <style>

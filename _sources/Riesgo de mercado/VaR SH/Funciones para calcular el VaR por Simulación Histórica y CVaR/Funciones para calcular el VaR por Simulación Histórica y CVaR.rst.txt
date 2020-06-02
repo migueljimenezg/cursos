@@ -5,7 +5,7 @@ Se crea un vector con los valores enteros entre el cero y el 10:
 
 .. code:: r
 
-    vector=c(0:10)
+    vector = c(0:10)
     vector
 
 
@@ -35,7 +35,7 @@ Percentil del 1%
 
 .. code:: r
 
-    quantile(vector,0.01)
+    quantile(vector, 0.01)
 
 
 
@@ -49,7 +49,7 @@ Percentil del 5%
 
 .. code:: r
 
-    quantile(vector,0.05)
+    quantile(vector, 0.05)
 
 
 
@@ -63,7 +63,7 @@ Percentil del 10%
 
 .. code:: r
 
-    quantile(vector,0.10)
+    quantile(vector, 0.10)
 
 
 
@@ -77,7 +77,7 @@ Percentil del 30%
 
 .. code:: r
 
-    quantile(vector,0.30)
+    quantile(vector, 0.30)
 
 
 
@@ -91,7 +91,7 @@ Percentil del 100%
 
 .. code:: r
 
-    quantile(vector,1)
+    quantile(vector, 1)
 
 
 
@@ -113,7 +113,7 @@ Extraer los últimos 10 valores de la parte inferior del vector:
 
 .. code:: r
 
-    tail(vector,10)
+    tail(vector, 10)
 
 
 
@@ -133,7 +133,7 @@ Extraer el último valor de la parte inferior del vector:
 
 .. code:: r
 
-    tail(vector,1)
+    tail(vector, 1)
 
 
 
@@ -147,7 +147,7 @@ Extraer los dos últimos valores de la parte inferior del vector:
 
 .. code:: r
 
-    tail(vector,2)
+    tail(vector, 2)
 
 
 
@@ -167,7 +167,7 @@ Extraer los últimos cuatro valores de la parte inferior del vector:
 
 .. code:: r
 
-    tail(vector,4)
+    tail(vector, 4)
 
 
 
@@ -193,7 +193,7 @@ Extraer el primer valor de la parte superior del vector:
 
 .. code:: r
 
-    head(vector,1)
+    head(vector, 1)
 
 
 
@@ -207,7 +207,7 @@ Extraer los tres primeros valores de la parte superior del vector:
 
 .. code:: r
 
-    head(vector,3)
+    head(vector, 3)
 
 
 
@@ -230,7 +230,7 @@ el valor de la parte de arriba:**
 
 .. code:: r
 
-    head(tail(vector,5),1)
+    head(tail(vector, 5), 1)
 
 
 
@@ -244,7 +244,7 @@ De los últimos cinco valores de la parte inferior del vector, extraer los dos v
 
 .. code:: r
 
-    head(tail(vector,5),2)
+    head(tail(vector, 5), 2)
 
 
 
@@ -270,7 +270,7 @@ Ordenar de mayor a menor el vector:
 
 .. code:: r
 
-    sort(vector,decreasing = T)
+    sort(vector, decreasing = T)
 
 
 

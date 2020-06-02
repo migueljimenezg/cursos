@@ -1,0 +1,298 @@
+Ejercicios: Frontera eficiente, CAPM e indicadores de desempeño
+---------------------------------------------------------------
+
+Resolver este taller con el archivo
+``Datos ejercicio Teoría de portafolios.csv``.
+
+Utilice tasa libre de riesgo de 5,5% E.A.
+
+PRIMERA PARTE
+~~~~~~~~~~~~~
+
+Rendimientos esperado de cada acción continuos mensuales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  CNEC: 1.007131e-02
+
+-  BVC: 2.118700e-03
+
+-  BOGOTA: -9.636595e-04
+
+-  PFDAVVNDA: 1.326436e-05
+
+Rendimiento esperado continuo mensual del mercado
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-0.0033525069912824
+
+Volatilidad de cada acción mensual
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  CNEC: 0.07785916
+
+-  BVC: 0.06129406
+
+-  BOGOTA: 0.05054781
+
+-  PFDAVVNDA: 0.07298923
+
+Volatilidad del mercado
+~~~~~~~~~~~~~~~~~~~~~~~
+
+0.0564108951765092
+
+Gráfico de cada acción
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: grafico1Ejemplo.jpg
+   :alt: 1
+
+   1
+
+SEGUNDA PARTE
+~~~~~~~~~~~~~
+
+Gráfico de la frontera eficiente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: grafico2Ejemplo.jpg
+   :alt: 2
+
+   2
+
+Gráficos de proporciones de los portafolios de la frontera
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: grafico3Ejemplo.jpg
+   :alt: 3
+
+   3
+
+Proporciones portafolio de mínima varianza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+portafolio_minima_varianza = c(0.1675, 0.3309, 0.4975, 0.0041)
+
+Rendimiento esperado mensual portafolio de mínima varianza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.00190865660957934
+
+Volatilidad mensual portafolio de mínima varianza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.0382094644885987
+
+Indicador de diversificación portafolio de mínima varianza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.798580613640103
+
+Gráfico de la frontera eficiente con Línea de Mercado de Capitales (CML).
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: grafico4Ejemplo.jpg
+   :alt: 4
+
+   4
+
+Proporciones portafolio tangente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+portafolio_tangente = c(0.8253, 0.1747, 0, 0)
+
+Rendimiento esperado mensual portafolio tangente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.00868199170694267
+
+Volatilidad mensual portafolio tangente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.066245461455453
+
+Indicador de diversificación portafolio tangente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.747819116810307
+
+TERCERA PARTE
+~~~~~~~~~~~~~
+
+Beta de cada acción
+~~~~~~~~~~~~~~~~~~~
+
+-  CNEC: 0.2653824
+
+-  BVC: 0.4125461
+
+-  BOGOTA: 0.6668507
+
+-  PFDAVVNDA: 1.3544043
+
+Correlación de cada acción con el mercado
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  CNEC: 0.1809216
+
+-  BVC: 0.3485608
+
+-  BOGOTA: 0.6748284
+
+-  PFDAVVNDA: 0.9115367
+
+Rendimientos esperados de cada acción anualizados
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  CNEC: 0.1208557586
+
+-  BVC: 0.0254244015
+
+-  BOGOTA: -0.0115639142
+
+-  PFDAVVNDA: 0.0001591723
+
+Volatiliades de cada acción anualizadas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  CNEC: 0.2697120
+
+-  BVC: 0.2123289
+
+-  BOGOTA: 0.1751027
+
+-  PFDAVVNDA: 0.2528421
+
+Rendimiento esperado del mercado anualizado
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-0.0402300838953888
+
+Beta portafolio de mínima varianza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.518274370918227
+
+CAPM anualizado portafolio de mínima varianza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-0.0182079899570793
+
+Beta portafolio tangente
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.291091894247199
+
+CAPM anualizado portafolio tangente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-0.00782233982689301
+
+CUARTA PARTE
+~~~~~~~~~~~~
+
+Indicadores de desempeño anualizado portafolio de mínima varianza
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**\* Ratio de Sharpe:**
+
+0.131601359472983
+
+**\* Ratio de Treynor:**
+
+0.0336095127635217
+
+**\* Alfa de Jensen:**
+
+0.0411118692720314
+
+Indicadores de desempeño portafolio tangente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**\* Ratio de Sharpe:**
+
+0.430096460890975
+
+**\* Ratio de Treynor:**
+
+0.339064646605809
+
+**\* Alfa de Jensen:**
+
+0.112006240310205
+
+QUINTA PARTE: Portafolio específico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Analizar con los indicadores de desempeño anualizados el siguiente
+portafolio de inversión:
+
+Proporciones de inversión:
+
+-  **CNEC:** 40%.
+
+-  **BVC:** 30%.
+
+-  **BOGOTA:** 10%.
+
+-  **PFDAVVNDA:** 20%.
+
+Rendimiento esperado anualizado portafolio específico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.0548450669169162
+
+Volatilidad anualizada portafolio específico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.153678441716471
+
+Beta portafolio específico
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+0.567482725099159
+
+CAPM portafolio específico
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-0.0204575505635757
+
+Indicadores de desempeño anualizado portafolio específico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**\* Ratio de Sharpe:**
+
+0.321191028065039
+
+**\* Ratio de Treynor:**
+
+0.0869808621535071
+
+**\* Alfa de Jensen:**
+
+0.075302617480492
+
+Indicadores de desempeño portafolio tangente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**\* Ratio de Sharpe:**
+
+0.321191028065039
+
+**\* Ratio de Treynor:**
+
+0.0869808621535071
+
+**\* Alfa de Jensen:**
+
+0.075302617480492
+
+Gráfico de las acciones, del mercado, portafolio mínima varianza, portafolio tangente y portafolio específico
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Valores anualizados
+
+.. figure:: grafico5Ejemplo.jpg
+   :alt: 5
+
+   5
