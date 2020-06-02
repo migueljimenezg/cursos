@@ -198,5 +198,28 @@ Teoría moderna de portafolios
     * **Descargue** :download:`aquí <Ejercicios-Teoría de portafolios/Datos ejercicio Teoría de portafolios.csv>` el archivo ``Datos ejercicio Teoría de portafolios.csv`` para resolver los ejercicios.
 
         
+**Lecturas**
+
+
+.. [#f1] **Guía de estudio: Administración de portafolios** AMV.
+
+    * **Descargue** :download:`aquí <Guía-Administración-de-Portafolios.pdf>` la guía.
+
+.. [#f2] **Tema: Teoría de portafolios.** Inversiones en renta variable: fundamentos y aplicaciones al mercado accionario colombiano. Diego A. Agudelo R.
+
+    * **Descargue** :download:`aquí <Teoría de portafolios-Diego A. Agudelo R.pdf>` el documento.
+
+.. [#f3] **Tema: CAPM.** Inversiones en renta variable: fundamentos y aplicaciones al mercado accionario colombiano. Diego A. Agudelo R.
+
+    * **Descargue** :download:`aquí <CAPM-Diego A. Agudelo R.pdf>` el documento.
+
+.. [#f4] **Chapter 7: Portfolio Evaluation** EQUITY MARKETS AND PORTFOLIO ANALYSIS. R. Stafford Johnson.
+
+    * **Descargue** :download:`aquí <Teoría de portafolio-R. Stafford Johnson.pdf>` el capítulo..
+
+.. [#f5] **Chapter 8: Portfolio Selection—Markowitz Model** EQUITY MARKETS AND PORTFOLIO ANALYSIS. R. Stafford Johnson.
+
+    * **Descargue** :download:`aquí <Modelo de Markowitz-R. Stafford Johnson.pdf>` el capítulo.
+
 
 
