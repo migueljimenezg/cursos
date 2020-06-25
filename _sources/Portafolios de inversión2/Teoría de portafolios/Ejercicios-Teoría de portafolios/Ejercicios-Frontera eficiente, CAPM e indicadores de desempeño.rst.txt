@@ -86,7 +86,7 @@ Volatilidad mensual portafolio de mínima varianza
 Indicador de diversificación portafolio de mínima varianza
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-0.798580613640103
+0.854545559963839
 
 Gráfico de la frontera eficiente con Línea de Mercado de Capitales (CML).
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -114,7 +114,7 @@ Volatilidad mensual portafolio tangente
 Indicador de diversificación portafolio tangente
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-0.747819116810307
+0.523938708831851
 
 TERCERA PARTE
 ~~~~~~~~~~~~~
