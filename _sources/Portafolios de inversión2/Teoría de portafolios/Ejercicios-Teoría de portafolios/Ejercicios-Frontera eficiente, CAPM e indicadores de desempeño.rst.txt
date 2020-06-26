@@ -122,24 +122,24 @@ TERCERA PARTE
 Beta de cada acción
 ~~~~~~~~~~~~~~~~~~~
 
--  CNEC: 0.2653824
+-  CNEC: 0.2868795
 
--  BVC: 0.4125461
+-  BVC: 0.3483531
 
--  BOGOTA: 0.6668507
+-  BOGOTA: 0.6082726
 
--  PFDAVVNDA: 1.3544043
+-  PFDAVVNDA: 1.1805136
 
 Correlación de cada acción con el mercado
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  CNEC: 0.1809216
+-  CNEC: 0.1881048
 
--  BVC: 0.3485608
+-  BVC: 0.2988960
 
--  BOGOTA: 0.6748284
+-  BOGOTA: 0.6409658
 
--  PFDAVVNDA: 0.9115367
+-  PFDAVVNDA: 0.8886090
 
 Rendimientos esperados de cada acción anualizados
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
