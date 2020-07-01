@@ -171,22 +171,22 @@ Rendimiento esperado del mercado anualizado
 Beta portafolio de mínima varianza
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-0.518274370918227
+0.470778065070764
 
 CAPM anualizado portafolio de mínima varianza
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--0.0182079899570793
+0.00939550721734154
 
 Beta portafolio tangente
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-0.291091894247199
+0.297618898470248
 
 CAPM anualizado portafolio tangente
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--0.00782233982689301
+0.025632789597346
 
 CUARTA PARTE
 ~~~~~~~~~~~~
@@ -196,30 +196,30 @@ Indicadores de desempeño anualizado portafolio de mínima varianza
 
 **\* Ratio de Sharpe:**
 
-0.131601359472983
+-0.231463794995356
 
 **\* Ratio de Treynor:**
 
-0.0336095127635217
+-0.065077134824607
 
 **\* Alfa de Jensen:**
 
-0.0411118692720314
+0.0135083720976105
 
 Indicadores de desempeño portafolio tangente
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **\* Ratio de Sharpe:**
 
-0.430096460890975
+0.220685509228509
 
 **\* Ratio de Treynor:**
 
-0.339064646605809
+0.170161014020233
 
 **\* Alfa de Jensen:**
 
-0.112006240310205
+0.078551110885966
 
 QUINTA PARTE: Portafolio específico
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -250,42 +250,27 @@ Volatilidad anualizada portafolio específico
 Beta portafolio específico
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-0.567482725099159
+0.516187685332373
 
 CAPM portafolio específico
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--0.0204575505635757
+0.00513740848984204
 
 Indicadores de desempeño anualizado portafolio específico
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **\* Ratio de Sharpe:**
 
-0.321191028065039
+0.00848720207153599
 
 **\* Ratio de Treynor:**
 
-0.0869808621535071
+0.00252679408275037
 
 **\* Alfa de Jensen:**
 
-0.075302617480492
-
-Indicadores de desempeño portafolio tangente
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**\* Ratio de Sharpe:**
-
-0.321191028065039
-
-**\* Ratio de Treynor:**
-
-0.0869808621535071
-
-**\* Alfa de Jensen:**
-
-0.075302617480492
+0.0497076584270742
 
 Gráfico de las acciones, del mercado, portafolio mínima varianza, portafolio tangente y portafolio específico
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
