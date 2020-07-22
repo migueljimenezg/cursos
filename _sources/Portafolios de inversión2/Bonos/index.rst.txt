@@ -5,12 +5,27 @@ Bonos
 
     * **Ver video** --- `aquí <https://youtu.be/4mCTUPLTs0s>`_.
 
+
 1. Valoración de bonos de la BVC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     * **Ver video** --- `aquí <https://youtu.be/80GCOyyCRMA>`_.
         
     * **Descargue** :download:`aquí <../../Riesgo de mercado/VaR bonos/Valoración Bonos.xlsx>` el archivo de Excel ``Valoración Bonos``.
+
+
+2. Ejercicios valoración TES
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+
+
+            Ejercicios - valoración de bonos BVC V2/Ejercicios - valoración de bonos BVC V2.rst
+
+    
+
 
 
 **Lecturas**
@@ -23,4 +38,9 @@ Bonos
 .. [#f2] **Capítulo 7: Bonos.** Inversiones. Kolb.
 
     * **Descargue** :download:`aquí <Capítulo 7-Bonos-Inversiones-Kolb.pdf>` el capítulo.
+
+
+.. [#f3] **Tema: Bonos.** BBVA.
+
+    * **Descargue** :download:`aquí <Bonos-BBVA.pdf>` el documento.
 
