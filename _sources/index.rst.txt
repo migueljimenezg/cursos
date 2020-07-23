@@ -9,10 +9,11 @@ Material de apoyo
 
   
 .. toctree::
-    :caption: CONCEPTOS PREVIOS
+    :maxdepth: 2
+    :caption: CONCEPTOS PREVIOS:
     :titlesonly:
     :hidden:
-
+    
     
     
     Introducción a R/index
@@ -20,7 +21,7 @@ Material de apoyo
 
 
 .. toctree::
-    :caption: RIESGO DE MERCADO
+    :caption: RIESGO DE MERCADO:
     :titlesonly:
     :hidden:
 
@@ -35,9 +36,12 @@ Material de apoyo
 
 
 .. toctree::
-    :caption: PORTAFOLIOS DE INVERSIÓN
+    :caption: PORTAFOLIOS DE INVERSIÓN:
     :titlesonly:
     :hidden:
+
+
+
 
     Portafolios de inversión2/Mercado financiero/index
     Portafolios de inversión2/Trading/index.rst
