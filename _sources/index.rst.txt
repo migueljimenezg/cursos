@@ -18,6 +18,8 @@ Material de apoyo
     
     Introducción a R/index
     Portafolios de inversión/index
+    Tasas de interés/index
+    Portafolios de inversión2/Trading/index.rst
 
 
 .. toctree::
@@ -40,14 +42,19 @@ Material de apoyo
     :titlesonly:
     :hidden:
 
-
-
-
     Portafolios de inversión2/Mercado financiero/index
-    Portafolios de inversión2/Trading/index.rst
     Portafolios de inversión2/Teoría de portafolios/index.rst
     Portafolios de inversión2/Bonos/index.rst
     
+
+.. toctree::
+    :caption: DERIVADOS FINANCIEROS:
+    :titlesonly:
+    :hidden:
+
+    Derivados financieros/Forward/index
+    Derivados financieros/Swap/index
+
     
 
 
