@@ -53,5 +53,3 @@ Descargar datos de Yahoo Finance desde R
 
     * **Descargue** :download:`aquí <Extraer datos de Yahoo Finance/Extraer datos de Yahoo Finance.r>` el código.
 
-
-

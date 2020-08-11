@@ -3,6 +3,9 @@ Introducción a la Gestión del Riesgo
 
 El objetivo de esta sección es introducir los temas relacionados a la gestión del riesgo y a los tipos de riesgos financieros.
 
+    * **Descargue** :download:`aquí <1. Introducción Gestión del Riesgo.pdf>` las presentaciones.
+
+
 **Lecturas**
 
 .. [#f1] **Cartilla AMV: Administración y control de riesgos financieros.**
