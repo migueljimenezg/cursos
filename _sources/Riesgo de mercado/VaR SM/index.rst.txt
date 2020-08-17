@@ -38,7 +38,7 @@ VaR Simulación Monte Carlo
 
     * **Ver video 2** --- `aquí <https://youtu.be/yuN3Y5amVEs>`_.
 
-    * **Ver video 2** --- `aquí <https://youtu.be/uljKsFMHTV4>`_.
+    * **Ver video 3** --- `aquí <https://youtu.be/uljKsFMHTV4>`_.
 
 
 2. VaR y CVaR por simulación Monte Carlo

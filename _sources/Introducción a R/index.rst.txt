@@ -19,7 +19,7 @@ Introducción al código en R
 
     * **Ver video** --- `Introducción a R <https://youtu.be/UaM5U52I-FY>`_.
 
-    * **Descargue** :download:`aquí </Introducción a R/1. Introducción a R.R>` el código.
+    * **Descargue** :download:`aquí <1. Introducción a R.R>` el código.
 
 Cargar datos y graficarlos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -31,6 +31,8 @@ Cargar datos y graficarlos
     * **Ver video** --- `Gráfica de los precios parte 1 <https://youtu.be/jNJK8ekuRMQ>`_.
 
     * **Ver video** --- `Gráfica de los precios parte 2 <https://youtu.be/t9KQgYE2AWY>`_.
+
+    * **Descargue** :download:`aquí <2. Cargar datos a R.R>` el código.
 
 Descargar y limpiar datos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

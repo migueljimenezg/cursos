@@ -205,7 +205,7 @@ La acción de ECO tiene un precio 2.220 COP, PFAVAL de 955 COP, ISA de
 Número de acciones portafolio N° 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sopongamos que se en el portafolio de inversión se realizaron las
+Supongamos que se en el portafolio de inversión se realizaron las
 siguientes compras:
 
 ECO: 150.000 acciones.
