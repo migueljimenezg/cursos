@@ -10,7 +10,7 @@ Swap
 
     * **Descargue** :download:`aquí <3. Tasas Forward V2.pdf>` las presentaciones.
 
-        * **Ver video** --- `aquí <https://youtu.be/aQQ049UtSKM>`_.
+        * **Ver video** --- `aquí <https://youtu.be/PVOEYnS8350>`_.
 
 
     **1.2. Tasas libres de riesgo:**
@@ -48,9 +48,9 @@ Swap
 
         * **Ver video: swap IRS.** --- `aquí <https://youtu.be/myCpe0tJcwM>`_.
 
-        * **Ver video: fórmulas valoración swap IRS.** --- `aquí <https://youtu.be/0ly8g9ZZwWo>`_.
+        * **Ver video: fórmulas valoración swap IRS.** --- `aquí <https://youtu.be/Hd35Ed91c7c>`_.
 
-        * **Ver video: valoración swap IRS.** --- `aquí <https://youtu.be/cxtsxrgFGG0>`_.
+        * **Ver video: valoración swap IRS.** --- `aquí <https://youtu.be/BNXGZIwKg7U>`_.
 
         * **Ver video: swap CCS.** --- `aquí <https://youtu.be/SXXnJgqj-2o>`_.
 

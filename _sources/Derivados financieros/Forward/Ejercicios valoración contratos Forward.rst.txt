@@ -1,6 +1,8 @@
 Ejercicios valoración contratos Forward
 ---------------------------------------
 
+Aplicar base de 365 días.
+
 Ejercicio No. 1
 ~~~~~~~~~~~~~~~
 
@@ -25,7 +27,7 @@ TRM: $3.600,54.
 
 :math:`R_d` (1 mes): 2,363% E.A.
 
-:math:`R_f` (1 mes): 0,16625% anual.
+:math:`R_f` (1 mes): 0,16625% E.A.
 
 **c.** Calcule el precio unitario con cobertura si en el día de
 liquidación del contrato la TRM es de $3.754,51.
@@ -118,4 +120,4 @@ liquidación del contrato la tasa de cambio EUR/COP es de $4.001,57.
 
 **4.a.** K = $4.164,28.
 
-**4.b.** - $4.131,74.
+**4.b.** $4.131,74.
