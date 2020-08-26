@@ -5,6 +5,12 @@ VaR varianzas-covarianzas o Delta-Normal
 
     * **Ver video** --- `aquí <https://youtu.be/R1WV8w1PPqE>`_.
 
+
+
+
+
+    * **Descargue** :download:`aquí <Distribución normal/COLCAP.csv>` el archivo ``COLCAP.csv``.
+
     * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` el archivo ``Cuatro acciones 2020.csv``.
 
     * **Descargue** :download:`aquí <TRM.csv>` el archivo ``TRM.csv``.
@@ -29,6 +35,8 @@ VaR varianzas-covarianzas o Delta-Normal
     * Descargue :download:`aquí <Distribución normal/Distribución normal.r>` el código.
 
     * **Ver video** --- `aquí <https://youtu.be/UxL4HIZUJtI>`_.
+
+
 
 
 2. Cálculo del VaR sin promedios y con promedios
