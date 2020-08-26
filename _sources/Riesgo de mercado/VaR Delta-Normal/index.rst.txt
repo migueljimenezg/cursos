@@ -5,10 +5,6 @@ VaR varianzas-covarianzas o Delta-Normal
 
     * **Ver video** --- `aquí <https://youtu.be/R1WV8w1PPqE>`_.
 
-
-
-
-
     * **Descargue** :download:`aquí <Distribución normal/COLCAP.csv>` el archivo ``COLCAP.csv``.
 
     * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` el archivo ``Cuatro acciones 2020.csv``.
