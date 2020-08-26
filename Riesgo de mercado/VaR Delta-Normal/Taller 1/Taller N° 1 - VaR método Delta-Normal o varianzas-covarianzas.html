@@ -121,6 +121,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Forward/index.html">Forward</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Futuros/index.html">Futuros</a></li>
 </ul>
 
             
@@ -250,23 +251,19 @@ el 21 de abril de 2020.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">precios</span> <span class="o">=</span> <span class="nf">ts</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
 </pre></div>
 </div>
-<table>
-<caption>A matrix: 6 × 5 of type dbl</caption>
-<thead>
-    <tr><th scope=col>Adjusted.FB</th><th scope=col>Adjusted.KO</th><th scope=col>Adjusted.K</th><th scope=col>Adjusted.F</th><th scope=col>Adjusted.MCD</th></tr>
-</thead>
-<tbody>
-    <tr><td>155.39</td><td>39.97908</td><td>58.67940</td><td> 9.572072</td><td>150.2097</td></tr>
-    <tr><td>156.11</td><td>40.64431</td><td>58.91181</td><td> 9.827681</td><td>152.7620</td></tr>
-    <tr><td>155.10</td><td>41.45009</td><td>60.36206</td><td> 9.986334</td><td>154.0287</td></tr>
-    <tr><td>159.34</td><td>41.59999</td><td>60.01810</td><td>10.003963</td><td>156.1430</td></tr>
-    <tr><td>157.20</td><td>41.15026</td><td>59.72060</td><td> 9.854123</td><td>153.5716</td></tr>
-    <tr><td>157.93</td><td>41.06593</td><td>59.94373</td><td> 9.915821</td><td>153.5525</td></tr>
-</tbody>
-</table><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">Adjusted</span><span class="o">.</span><span class="n">FB</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">KO</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">K</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">F</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">MCD</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,]</span>      <span class="mf">155.39</span>    <span class="mf">39.61916</span>   <span class="mf">58.16813</span>   <span class="mf">9.572072</span>     <span class="mf">149.2148</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,]</span>      <span class="mf">156.11</span>    <span class="mf">40.27839</span>   <span class="mf">58.39851</span>   <span class="mf">9.827681</span>     <span class="mf">151.7503</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,]</span>      <span class="mf">155.10</span>    <span class="mf">41.07690</span>   <span class="mf">59.83614</span>   <span class="mf">9.986334</span>     <span class="mf">153.0085</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,]</span>      <span class="mf">159.34</span>    <span class="mf">41.22546</span>   <span class="mf">59.49516</span>  <span class="mf">10.003963</span>     <span class="mf">155.1088</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,]</span>      <span class="mf">157.20</span>    <span class="mf">40.77978</span>   <span class="mf">59.20026</span>   <span class="mf">9.854123</span>     <span class="mf">152.5544</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,]</span>      <span class="mf">157.93</span>    <span class="mf">40.69621</span>   <span class="mf">59.42144</span>   <span class="mf">9.915821</span>     <span class="mf">152.5355</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dim</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
 </pre></div>
 </div>
 <style>
@@ -310,7 +307,7 @@ el 21 de abril de 2020.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>170.800003</li><li>45.380001</li><li>65.519997</li><li>4.77</li><li>177.580002</li></ol></div>
+<ol class=list-inline><li>170.800003</li><li>44.971439</li><li>64.949127</li><li>4.77</li><li>176.403854</li></ol></div>
 <div class="section" id="numero-de-acciones-del-portafolio-de-inversion">
 <h2>Número de acciones del portafolio de inversión.<a class="headerlink" href="#numero-de-acciones-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">numero_acciones</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2000</span><span class="p">,</span> <span class="m">5000</span><span class="p">,</span> <span class="m">2000</span><span class="p">,</span> <span class="m">10000</span><span class="p">,</span> <span class="m">1000</span><span class="p">)</span>
@@ -334,14 +331,14 @@ el 21 de abril de 2020.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>341600.006</li><li>226900.005</li><li>131039.994</li><li>47700</li><li>177580.002</li></ol></div>
+<ol class=list-inline><li>341600.006</li><li>224857.195</li><li>129898.254</li><li>47700</li><li>176403.854</li></ol></div>
 <div class="section" id="valor-de-mercado-del-portafolio-de-inversion">
 <h2>Valor de mercado del portafolio de inversión.<a class="headerlink" href="#valor-de-mercado-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">valor_portafolio</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">valor_mercado_acciones</span><span class="p">)</span>
 <span class="n">valor_portafolio</span>
 </pre></div>
 </div>
-924820.007</div>
+920459.309</div>
 <div class="section" id="proporciones-de-inversion">
 <h2>Proporciones de inversión.<a class="headerlink" href="#proporciones-de-inversion" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">proporciones</span> <span class="o">=</span> <span class="n">valor_mercado_acciones</span><span class="o">/</span><span class="n">valor_portafolio</span>
@@ -353,72 +350,62 @@ el 21 de abril de 2020.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0.369369178234052</li><li>0.245345043665345</li><li>0.141692429887062</li><li>0.0515776039001717</li><li>0.192015744313369</li></ol><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">proporciones</span><span class="p">)</span>
+<ol class=list-inline><li>0.371119073553745</li><li>0.244288034029758</li><li>0.141123298694348</li><li>0.0518219540327339</li><li>0.191647639689415</li></ol><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">proporciones</span><span class="p">)</span>
 </pre></div>
 </div>
 1</div>
 <div class="section" id="mu-rendimiento-esperado-de-cada-accion">
 <h2><span class="math notranslate nohighlight">\(\mu:\)</span> Rendimiento esperado de cada acción.<a class="headerlink" href="#mu-rendimiento-esperado-de-cada-accion" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_esperados</span> <span class="o">=</span> <span class="nf">apply</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">mean</span><span class="p">)</span>
-<span class="n">rendimientos_esperados</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">rendimientos_esperados</span><span class="p">)</span>
 </pre></div>
 </div>
-<style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>Adjusted.FB</dt><dd>0.000182892107457737</dd><dt>Adjusted.KO</dt><dd>0.000245096874340001</dd><dt>Adjusted.K</dt><dd>0.000213281718456249</dd><dt>Adjusted.F</dt><dd>-0.00134720190920034</dd><dt>Adjusted.MCD</dt><dd>0.000323770015717806</dd></dl></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">FB</span>   <span class="n">Adjusted</span><span class="o">.</span><span class="n">KO</span>    <span class="n">Adjusted</span><span class="o">.</span><span class="n">K</span>    <span class="n">Adjusted</span><span class="o">.</span><span class="n">F</span>  <span class="n">Adjusted</span><span class="o">.</span><span class="n">MCD</span>
+<span class="mf">0.0001828921</span>  <span class="mf">0.0002450962</span>  <span class="mf">0.0002132818</span> <span class="o">-</span><span class="mf">0.0013472019</span>  <span class="mf">0.0003237701</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="sigma-volatilidad-de-cada-accion">
 <h2><span class="math notranslate nohighlight">\(\sigma:\)</span>Volatilidad de cada acción.<a class="headerlink" href="#sigma-volatilidad-de-cada-accion" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidades</span> <span class="o">=</span> <span class="nf">apply</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">sd</span><span class="p">)</span>
-<span class="n">volatilidades</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)</span>
 </pre></div>
 </div>
-<style>
-.dl-inline {width: auto; margin:0; padding: 0}
-.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-</style><dl class=dl-inline><dt>Adjusted.FB</dt><dd>0.0241525297957338</dd><dt>Adjusted.KO</dt><dd>0.0156387694263754</dd><dt>Adjusted.K</dt><dd>0.0174954301099754</dd><dt>Adjusted.F</dt><dd>0.0241075471398262</dd><dt>Adjusted.MCD</dt><dd>0.0188911968226452</dd></dl></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Adjusted</span><span class="o">.</span><span class="n">FB</span>  <span class="n">Adjusted</span><span class="o">.</span><span class="n">KO</span>   <span class="n">Adjusted</span><span class="o">.</span><span class="n">K</span>   <span class="n">Adjusted</span><span class="o">.</span><span class="n">F</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">MCD</span>
+ <span class="mf">0.02415253</span>   <span class="mf">0.01563877</span>   <span class="mf">0.01749543</span>   <span class="mf">0.02410755</span>   <span class="mf">0.01889120</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="matriz-varianzas-covarianzas">
 <h2>Matriz varianzas-covarianzas.<a class="headerlink" href="#matriz-varianzas-covarianzas" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">covarianzas</span> <span class="o">=</span> <span class="nf">cov</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span>
-<span class="n">covarianzas</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">covarianzas</span><span class="p">)</span>
 </pre></div>
 </div>
-<table>
-<caption>A matrix: 5 × 5 of type dbl</caption>
-<thead>
-    <tr><th></th><th scope=col>Adjusted.FB</th><th scope=col>Adjusted.KO</th><th scope=col>Adjusted.K</th><th scope=col>Adjusted.F</th><th scope=col>Adjusted.MCD</th></tr>
-</thead>
-<tbody>
-    <tr><th scope=row>Adjusted.FB</th><td>5.833447e-04</td><td>0.0001283637</td><td>6.003727e-05</td><td>2.767284e-04</td><td>2.073810e-04</td></tr>
-    <tr><th scope=row>Adjusted.KO</th><td>1.283637e-04</td><td>0.0002445711</td><td>1.304013e-04</td><td>1.783455e-04</td><td>1.617992e-04</td></tr>
-    <tr><th scope=row>Adjusted.K</th><td>6.003727e-05</td><td>0.0001304013</td><td>3.060901e-04</td><td>9.705181e-05</td><td>8.338019e-05</td></tr>
-    <tr><th scope=row>Adjusted.F</th><td>2.767284e-04</td><td>0.0001783455</td><td>9.705181e-05</td><td>5.811738e-04</td><td>2.592786e-04</td></tr>
-    <tr><th scope=row>Adjusted.MCD</th><td>2.073810e-04</td><td>0.0001617992</td><td>8.338019e-05</td><td>2.592786e-04</td><td>3.568773e-04</td></tr>
-</tbody>
-</table></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>              <span class="n">Adjusted</span><span class="o">.</span><span class="n">FB</span>  <span class="n">Adjusted</span><span class="o">.</span><span class="n">KO</span>   <span class="n">Adjusted</span><span class="o">.</span><span class="n">K</span>   <span class="n">Adjusted</span><span class="o">.</span><span class="n">F</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">MCD</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">FB</span>  <span class="mf">5.833447e-04</span> <span class="mf">0.0001283637</span> <span class="mf">6.003732e-05</span> <span class="mf">2.767284e-04</span> <span class="mf">2.073812e-04</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">KO</span>  <span class="mf">1.283637e-04</span> <span class="mf">0.0002445710</span> <span class="mf">1.304011e-04</span> <span class="mf">1.783455e-04</span> <span class="mf">1.617992e-04</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">K</span>   <span class="mf">6.003732e-05</span> <span class="mf">0.0001304011</span> <span class="mf">3.060901e-04</span> <span class="mf">9.705185e-05</span> <span class="mf">8.338021e-05</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">F</span>   <span class="mf">2.767284e-04</span> <span class="mf">0.0001783455</span> <span class="mf">9.705185e-05</span> <span class="mf">5.811738e-04</span> <span class="mf">2.592786e-04</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">MCD</span> <span class="mf">2.073812e-04</span> <span class="mf">0.0001617992</span> <span class="mf">8.338021e-05</span> <span class="mf">2.592786e-04</span> <span class="mf">3.568773e-04</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="coeficientes-de-correlacion">
 <h2>Coeficientes de correlación.<a class="headerlink" href="#coeficientes-de-correlacion" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">correlaciones</span> <span class="o">=</span> <span class="nf">cor</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span>
-<span class="n">correlaciones</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">correlaciones</span><span class="p">)</span>
 </pre></div>
 </div>
-<table>
-<caption>A matrix: 5 × 5 of type dbl</caption>
-<thead>
-    <tr><th></th><th scope=col>Adjusted.FB</th><th scope=col>Adjusted.KO</th><th scope=col>Adjusted.K</th><th scope=col>Adjusted.F</th><th scope=col>Adjusted.MCD</th></tr>
-</thead>
-<tbody>
-    <tr><th scope=row>Adjusted.FB</th><td>1.0000000</td><td>0.3398419</td><td>0.1420802</td><td>0.4752675</td><td>0.4545136</td></tr>
-    <tr><th scope=row>Adjusted.KO</th><td>0.3398419</td><td>1.0000000</td><td>0.4766006</td><td>0.4730496</td><td>0.5476642</td></tr>
-    <tr><th scope=row>Adjusted.K</th><td>0.1420802</td><td>0.4766006</td><td>1.0000000</td><td>0.2301050</td><td>0.2522777</td></tr>
-    <tr><th scope=row>Adjusted.F</th><td>0.4752675</td><td>0.4730496</td><td>0.2301050</td><td>1.0000000</td><td>0.5693170</td></tr>
-    <tr><th scope=row>Adjusted.MCD</th><td>0.4545136</td><td>0.5476642</td><td>0.2522777</td><td>0.5693170</td><td>1.0000000</td></tr>
-</tbody>
-</table></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>             <span class="n">Adjusted</span><span class="o">.</span><span class="n">FB</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">KO</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">K</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">F</span> <span class="n">Adjusted</span><span class="o">.</span><span class="n">MCD</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">FB</span>    <span class="mf">1.0000000</span>   <span class="mf">0.3398420</span>  <span class="mf">0.1420804</span>  <span class="mf">0.4752675</span>    <span class="mf">0.4545139</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">KO</span>    <span class="mf">0.3398420</span>   <span class="mf">1.0000000</span>  <span class="mf">0.4766003</span>  <span class="mf">0.4730496</span>    <span class="mf">0.5476644</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">K</span>     <span class="mf">0.1420804</span>   <span class="mf">0.4766003</span>  <span class="mf">1.0000000</span>  <span class="mf">0.2301051</span>    <span class="mf">0.2522777</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">F</span>     <span class="mf">0.4752675</span>   <span class="mf">0.4730496</span>  <span class="mf">0.2301051</span>  <span class="mf">1.0000000</span>    <span class="mf">0.5693170</span>
+<span class="n">Adjusted</span><span class="o">.</span><span class="n">MCD</span>   <span class="mf">0.4545139</span>   <span class="mf">0.5476644</span>  <span class="mf">0.2522777</span>  <span class="mf">0.5693170</span>    <span class="mf">1.0000000</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="rendimientos-del-portafolio-de-inversion">
 <h2>Rendimientos del portafolio de inversión.<a class="headerlink" href="#rendimientos-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos_portafolio</span><span class="o">=</span><span class="nf">vector</span><span class="p">()</span>
@@ -437,21 +424,21 @@ el 21 de abril de 2020.</p>
 <span class="n">rendimiento_esperado_portafolio</span>
 </pre></div>
 </div>
-0.000150591909821015</div>
+0.000150083000310905</div>
 <div class="section" id="volatilidad-del-portafolio-de-inversion">
 <h2>Volatilidad del portafolio de inversión<a class="headerlink" href="#volatilidad-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_portafolio</span> <span class="o">=</span> <span class="nf">sd</span><span class="p">(</span><span class="n">rendimientos_portafolio</span><span class="p">)</span>
 <span class="n">volatilidad_portafolio</span>
 </pre></div>
 </div>
-0.0149861836259204</div>
+0.0150049023025908</div>
 <div class="section" id="volatilidad-del-portafolio-a-partir-de-la-matriz-de-varianzas-covarianzas">
 <h2>Volatilidad del portafolio a partir de la matriz de varianzas-covarianzas<a class="headerlink" href="#volatilidad-del-portafolio-a-partir-de-la-matriz-de-varianzas-covarianzas" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_portafolio</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">proporciones</span><span class="p">)</span><span class="o">%*%</span><span class="n">covarianzas</span><span class="o">*</span><span class="n">proporciones</span><span class="p">))</span>
 <span class="n">volatilidad_portafolio</span>
 </pre></div>
 </div>
-0.0149861836259204</div>
+0.0150049023025908</div>
 <div class="section" id="preguntas">
 <h2>Preguntas<a class="headerlink" href="#preguntas" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -494,7 +481,7 @@ el 21 de abril de 2020.</p>
 <span class="n">VaR_individuales_sin_promedios</span><span class="p">[</span><span class="m">5</span><span class="p">]</span>
 </pre></div>
 </div>
-<strong>Adjusted.MCD:</strong> 17450.7135496633</div>
+<strong>Adjusted.MCD:</strong> 17335.132992473</div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-var-sin-promedios-semanal-de-la-accion-de-k-en-terminos-monetarios">
 <h2>4. Con un nivel de confianza del 99%, ¿Cuál es el VaR (sin promedios) semanal de la acción de K en términos monetarios?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-var-sin-promedios-semanal-de-la-accion-de-k-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
@@ -505,7 +492,7 @@ el 21 de abril de 2020.</p>
 <span class="n">VaR_individuales_sin_promedios</span><span class="p">[</span><span class="m">3</span><span class="p">]</span>
 </pre></div>
 </div>
-<strong>Adjusted.K:</strong> 11925.8172108399</div>
+<strong>Adjusted.K:</strong> 11821.9082393174</div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-var-sin-promedios-semanal-del-portafolio-de-inversion-en-terminos-monetarios">
 <h2>5. Con un nivel de confianza del 99%, ¿Cuál es el VaR (sin promedios) semanal del portafolio de inversión en términos monetarios?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-var-sin-promedios-semanal-del-portafolio-de-inversion-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
@@ -516,7 +503,7 @@ el 21 de abril de 2020.</p>
 <span class="n">VaR_portafolio_sin_promedios</span>
 </pre></div>
 </div>
-72095.4615456764</div>
+71845.1451728881</div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-var-sin-promedios-diario-de-la-accion-f-en-terminos-monetarios">
 <h2>6. Con un nivel de confianza del 99%, ¿Cuál es el VaR (sin promedios) diario de la acción F en términos monetarios?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-var-sin-promedios-diario-de-la-accion-f-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
@@ -538,7 +525,7 @@ el 21 de abril de 2020.</p>
 <span class="n">VaR_individuales_sin_promedios</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
 </pre></div>
 </div>
-<strong>Adjusted.KO:</strong> 8254.89854784487</div>
+<strong>Adjusted.KO:</strong> 8180.57684795557</div>
 <div class="section" id="con-un-nivel-de-confianza-del-97-5-cual-es-el-var-sin-promedios-diario-del-portafolio-de-inversion-en-terminos-monetarios">
 <h2>8. Con un nivel de confianza del 97,5%, ¿Cuál es el VaR (sin promedios) diario del portafolio de inversión en términos monetarios?<a class="headerlink" href="#con-un-nivel-de-confianza-del-97-5-cual-es-el-var-sin-promedios-diario-del-portafolio-de-inversion-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.975</span>
@@ -549,7 +536,7 @@ el 21 de abril de 2020.</p>
 <span class="n">VaR_portafolio_sin_promedios</span>
 </pre></div>
 </div>
-32242.0705770709</div>
+32130.1256919837</div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-var-con-promedios-mensual-de-la-accion-ko-en-terminos-monetarios">
 <h2>9. Con un nivel de confianza del 99%, ¿Cuál es el VaR (con promedios) mensual de la acción KO en términos monetarios?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-var-con-promedios-mensual-de-la-accion-ko-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
@@ -560,7 +547,7 @@ el 21 de abril de 2020.</p>
 <span class="n">VaR_individuales_con_promedios</span><span class="p">[</span><span class="m">2</span><span class="p">]</span>
 </pre></div>
 </div>
-<strong>Adjusted.KO:</strong> 18180.4518902793</div>
+<strong>Adjusted.KO:</strong> 18016.7676540538</div>
 <div class="section" id="con-un-nivel-de-confianza-del-95-cual-es-el-var-con-promedios-mensual-de-la-accion-f-en-terminos-monetarios">
 <h2>10. Con un nivel de confianza del 95%, ¿Cuál es el VaR (con promedios) mensual de la acción F en términos monetarios?<a class="headerlink" href="#con-un-nivel-de-confianza-del-95-cual-es-el-var-con-promedios-mensual-de-la-accion-f-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.95</span>
@@ -582,7 +569,7 @@ el 21 de abril de 2020.</p>
 <span class="n">VaR_portafolio_con_promedios</span>
 </pre></div>
 </div>
-99847.268555128</div>
+99509.7001373678</div>
 <div class="section" id="con-un-nivel-de-confianza-del-98-cual-es-el-var-con-promedios-mensual-del-portafolio-de-inversion-en-terminos-monetarios">
 <h2>12. Con un nivel de confianza del 98%, ¿Cuál es el VaR (con promedios) mensual del portafolio de inversión en términos monetarios?<a class="headerlink" href="#con-un-nivel-de-confianza-del-98-cual-es-el-var-con-promedios-mensual-del-portafolio-de-inversion-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.98</span>
@@ -593,7 +580,7 @@ el 21 de abril de 2020.</p>
 <span class="n">VaR_portafolio_con_promedios</span>
 </pre></div>
 </div>
-99847.268555128</div>
+99509.7001373678</div>
 <div class="section" id="con-un-nivel-de-confianza-del-99-cual-es-el-beneficios-por-diversificacion-bd-diario-del-portafolio-de-inversion-en-terminos-monetarios">
 <h2>13. Con un nivel de confianza del 99%, ¿Cuál es el Beneficios por Diversificación (BD) diario del portafolio de inversión en términos monetarios?<a class="headerlink" href="#con-un-nivel-de-confianza-del-99-cual-es-el-beneficios-por-diversificacion-bd-diario-del-portafolio-de-inversion-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
 <p><strong>Nota: usar el método de VaR (sin promedios).</strong></p>
@@ -611,7 +598,7 @@ el 21 de abril de 2020.</p>
 <span class="n">BD_sin_promedios</span>
 </pre></div>
 </div>
-11019.0923148587</div>
+10958.5567987463</div>
 <div class="section" id="id1">
 <h2>14. Con un nivel de confianza del 99%, ¿Cuál es el Beneficios por Diversificación (BD) diario del portafolio de inversión en términos monetarios?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Nota: usar el método de VaR (con promedios).</strong></p>
@@ -629,7 +616,7 @@ el 21 de abril de 2020.</p>
 <span class="n">BD_con_promedios</span>
 </pre></div>
 </div>
-10985.3150146617</div>
+10925.0841289928</div>
 <div class="section" id="graficos">
 <h2>Gráficos<a class="headerlink" href="#graficos" title="Permalink to this headline">¶</a></h2>
 </div>

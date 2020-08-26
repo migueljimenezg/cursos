@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ejercicios coberturas con Futuros &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../index.html"/>
+        <link rel="up" title="Futuros" href="index.html"/>
+        <link rel="prev" title="Ejercicios operaciones con Futuros BVC" href="Ejercicios operaciones con Futuros BVC.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Swap/index.html">Swap</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Futuros</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Ejercicios operaciones con Futuros BVC.html">Ejercicios operaciones con Futuros BVC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ejercicios coberturas con Futuros</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Futuros</a> &raquo;</li>
+        
+      <li>Ejercicios coberturas con Futuros</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Derivados financieros/Futuros/Ejercicios coberturas con Futuros.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ejercicios-coberturas-con-futuros">
+<h1>Ejercicios coberturas con Futuros<a class="headerlink" href="#ejercicios-coberturas-con-futuros" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Un exportador recibirá un pago por valor de 60.000 USD el 7 de abril.</p></li>
+</ol>
+<p>Actualmente en la BVC se tienen los siguientes Futuros sobre divisas:</p>
+<p>TRMH21F con precio de 2.903,31, TRMJ21F con precio de 2.934,70 y TRSH21F con precio de 2.904,70.</p>
+<p>Si el precio de los Futuros disminuye un 4% para el 7 de abril, ¿cuál es el valor de la compensación si la empresa hubiera realizado la cobertura con Futuros desde el día de hoy hasta el 7 de abril?</p>
+<p><strong>Respuesta: $5.869.400.</strong></p>
+<ol class="arabic simple" start="2">
+<li><p>Suponga que estamos en septiembre de 2020. Una empresa debe pagar la cuota de un préstamo en dólares la primera semana de noviembre de 2020 por valor de 21.000 USD. Para mitigar el riesgo cambiario asociado a este préstamo, decide cubrir la compra de los dólares para el pago de la cuota utilizando los Futuros de la BVC. La siguiente tabla muestra los futuros disponibles.</p></li>
+</ol>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>NEMOTÉCNICO</strong></p></th>
+<th class="head"><p><strong>PRECIO FUTURO</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TRMH21F</p></td>
+<td><p>$ 3.106,50</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRMU20F</p></td>
+<td><p>$ 3.068,83</p></td>
+</tr>
+<tr class="row-even"><td><p>TRMV20F</p></td>
+<td><p>$ 3.072,48</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRMX20F</p></td>
+<td><p>$ 3.086,93</p></td>
+</tr>
+<tr class="row-even"><td><p>TRMZ20F</p></td>
+<td><p>$ 3.081,58</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRSU20F</p></td>
+<td><p>$ 3.070,93</p></td>
+</tr>
+<tr class="row-even"><td><p>TRSV20F</p></td>
+<td><p>$ 3.073,05</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRSX20F</p></td>
+<td><p>$ 3.078,63</p></td>
+</tr>
+<tr class="row-even"><td><p>TRSZ20F</p></td>
+<td><p>$ 3.082,13</p></td>
+</tr>
+</tbody>
+</table>
+<p>La cobertura con los futuros se realizará por la cantidad que más se aproxime a los 21.000 USD.</p>
+<p>Para obtener un mejor precio con cobertura, los coberturistas en largo buscan precios bajos en los Futuros, en cambio, los coberturistas en corto buscan precios altos.</p>
+<p>Determine el precio con cobertura después de costos de transacción.</p>
+<p>Los precios de mercado para la primera semana de noviembre son los siguientes: precio spot (TRM) de $3.150 y precios Futuros:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>NEMOTÉCNICO</strong></p></th>
+<th class="head"><p><strong>PRECIO FUTURO</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TRMH21F</p></td>
+<td><p>$ 3.200,54</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRMX20F</p></td>
+<td><p>$ 3.128,40</p></td>
+</tr>
+<tr class="row-even"><td><p>TRMZ20F</p></td>
+<td><p>$ 3.057,00</p></td>
+</tr>
+<tr class="row-odd"><td><p>TRSX20F</p></td>
+<td><p>$ 3.147,98</p></td>
+</tr>
+<tr class="row-even"><td><p>TRSZ20F</p></td>
+<td><p>$ 3.100,63</p></td>
+</tr>
+</tbody>
+</table>
+<p>Suponga comisión variable de 0,3% sobre el nominal, IVA del 19% sobre el total de la comisión.</p>
+<p><strong>Respuesta: $3.105,12.</strong></p>
+<ol class="arabic simple" start="3">
+<li><p>Un inversionista posee 200.000 acciones de una empresa del sector tecnológico, ante el temor de una disminución del precio de la acción para dentro de un mes, desea realizar una cobertura. Sin embargo, en la bolsa no cuenta con Futuros sobre esta acción, aunque existen Futuros sobre acción de otra empresa del mismo sector (acción X). De esta forma, el inversionista realizará la cobertura tomado de base los siguientes datos históricos hasta el día de hoy:</p></li>
+</ol>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 36%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Date</strong></p></th>
+<th class="head"><p><strong>Precio acción</strong></p></th>
+<th class="head"><p><strong>Futuro acción X</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>01/10/2019</p></td>
+<td><p>31,785</p></td>
+<td><p>43,43</p></td>
+</tr>
+<tr class="row-odd"><td><p>02/11/2019</p></td>
+<td><p>30,980</p></td>
+<td><p>43,63</p></td>
+</tr>
+<tr class="row-even"><td><p>01/12/2019</p></td>
+<td><p>31,035</p></td>
+<td><p>45,33</p></td>
+</tr>
+<tr class="row-odd"><td><p>01/01/2020</p></td>
+<td><p>26,605</p></td>
+<td><p>41,21</p></td>
+</tr>
+<tr class="row-even"><td><p>01/02/2020</p></td>
+<td><p>28,490</p></td>
+<td><p>44,80</p></td>
+</tr>
+<tr class="row-odd"><td><p>01/03/2020</p></td>
+<td><p>32,145</p></td>
+<td><p>46,39</p></td>
+</tr>
+<tr class="row-even"><td><p>01/04/2020</p></td>
+<td><p>32,150</p></td>
+<td><p>43,13</p></td>
+</tr>
+<tr class="row-odd"><td><p>02/05/2020</p></td>
+<td><p>33,835</p></td>
+<td><p>42,92</p></td>
+</tr>
+<tr class="row-even"><td><p>01/06/2020</p></td>
+<td><p>33,170</p></td>
+<td><p>42,91</p></td>
+</tr>
+<tr class="row-odd"><td><p>01/07/2020</p></td>
+<td><p>34,660</p></td>
+<td><p>42,62</p></td>
+</tr>
+<tr class="row-even"><td><p>01/08/2020</p></td>
+<td><p>38,095</p></td>
+<td><p>42,35</p></td>
+</tr>
+<tr class="row-odd"><td><p>01/09/2020</p></td>
+<td><p>38,185</p></td>
+<td><p>40,12</p></td>
+</tr>
+</tbody>
+</table>
+<p>Los Futuros sobre la acción X tienen un tamaño del contrato de 1.000 acciones y una garantía del 15%.</p>
+<p>Si al finalizar la cobertura el precio de los Futuros sobre la acción X caen a 35,18, determine la razón de cobertura óptima (h*), el número de contratos óptimos (N*), la compensación al cerrar la cobertura y el valor en la cuenta de margen.</p>
+<p><strong>Respuestas:</strong></p>
+<p><strong>h* = 61,37%.</strong></p>
+<p><strong>N* = 123.</strong></p>
+<p><strong>Compensación = $607.620.</strong></p>
+<p><strong>Valor cuenta de margen al final = $5.542.380.</strong></p>
+<ol class="arabic simple" start="4">
+<li><p>Suponga que usted desea cubrir una compra planeada de 20.000 barriles de petróleo crudo liviano. La compra se llevará a cabo dentro de 5 meses. Usted ha estimado el siguiente modelo de regresión: <span class="math notranslate nohighlight">\(\Delta S=0,003+1,109\Delta F\)</span> en donde <span class="math notranslate nohighlight">\(\Delta S\)</span> es el cambio en el precio del petróleo del grado que usted desea comprar y <span class="math notranslate nohighlight">\(\Delta F\)</span> es el cambio en el precio del Futuro de petróleo crudo WTI (tamaño 1.000 barriles por contrato).</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>¿Cuál es el número de contratos que minimiza el riesgo de su cobertura, debe usted comprar o vender Futuros?</p></li>
+</ol>
+<p>Suponga que cuando inicialmente se establece la cobertura S=$21,40/barril y F=$19,93/barril. Durante los próximos 5 meses los precios cambian así:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 69%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>T</strong></p></th>
+<th class="head"><p><strong>Meses restantes para la cobertura</strong></p></th>
+<th class="head"><p><strong>F</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>5</p></td>
+<td><p>$19,93</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>4</p></td>
+<td><p>$20,04</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>$20,95</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>$21,09</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>0</p></td>
+<td><p>$22,35=FT</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="loweralpha simple" start="2">
+<li><p>¿Cuál es finalmente su utilidad o pérdida en el contrato de Futuros? Si ST=$23,82/barril a la fecha de compra del petróleo. ¿Cuál es el precio efectivo final de compra para los 20.000 barriles? Considere conjuntamente el precio que usted paga por el petróleo y la ganancia o pérdida en el contrato de Futuros. Tenga en cuenta que <span class="math notranslate nohighlight">\(ST \neq FT\)</span> porque el tipo de petróleo que usted compra no es el mismo que el subyacente del contrato de Futuros.</p></li>
+<li><p>¿Cuál fue la base original para su grado de petróleo? ¿Cuál es la base final? Suponga que ST = $24,50/barril (en lugar de $23,82/barril que se asumieron anteriormente). ¿Cuál será el precio final efectivo para la compra de los 20.000 barriles?</p></li>
+<li><p>Discuta la diferencia de sus respuestas anteriores según el significado del riesgo de la base.</p></li>
+</ol>
+<p><strong>Respuestas:</strong></p>
+<p><strong>h* = 110,90%.</strong></p>
+<p><strong>a.    22 contratos en largo.</strong></p>
+<p><strong>b.    Se gana 53.240 USD por la compensación en los Futuros WTI.</strong></p>
+<blockquote>
+<div><p><strong>Precio con cobertura de 21,158 USD cuando ST=$23,82/barril.</strong></p>
+</div></blockquote>
+<p><strong>c.    Base inicial de 1,470 USD y base final de 21,400 USD con ST=$23,82/barril.</strong></p>
+<blockquote>
+<div><p><strong>Con ST = $24,50/barril el precio con cobertura es de 21,838 USD.</strong></p>
+</div></blockquote>
+<p><strong>d.    ¿?</strong></p>
+<ol class="arabic simple" start="5">
+<li><p>El 1 de julio un inversionista posee 50.000 acciones de una empresa. El precio de mercado es de US$30 por acción. El inversionista desea cubrirse de los movimientos del mercado en el próximo mes, para lo cual decide usar el contrato de Futuros E-MiniS&amp;P-500 para septiembre. El valor actual del índice es 1.500 y cada contrato se liquida a US$50. El coeficiente Beta para la acción es de 1,3. ¿Cuál debe ser la estrategia del inversionista?</p></li>
+</ol>
+<p><strong>Respuesta: cobertura del portafolio de inversión con 26 contratos en corto en el Futuro E-MiniS&amp;P-500.</strong></p>
+<ol class="arabic simple" start="6">
+<li><p>Es 16 de julio. Una empresa tiene un portafolio de inversión de acciones valorada en 100 millones de dólares. El Beta del portafolio de inversión es de 1,2. La empresa desearía utilizar el contrato de Futuros de diciembre del CME sobre el S&amp;P 500 para reducir el Beta del portafolio hasta 0,5 durante el período que va desde el 16 de julio hasta el 16 de noviembre. El Futuro sobre el índice actualmente vale 1.000 y cada contrato es sobre 250 veces en dólares.</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p>¿Cuál posición debe tomar la empresa?</p></li>
+<li><p>Suponga que la empresa cambia de idea y decide incrementar el Beta del portafolio desde 1,2 hasta 1,5. ¿Cuál deberá ser la posición a tomar en Futuros?</p></li>
+</ol>
+<p><strong>Respuestas:</strong></p>
+<p><strong>a)    Posición en corto en 280 contratos en el Futuro S&amp;P500 para realizar cobertura del portafolio de inversión y disminuir el Beta de 1,2 a 0,5 hasta el 16 de noviembre.</strong></p>
+<p><strong>b)    Posición en largo en 120 contratos en el Futuro S&amp;P500 para aumentar el riesgo del portafolio de inversión y aumentar el Beta de 1,2 hasta 1,5 hasta el 16 de noviembre.</strong></p>
+<ol class="arabic simple" start="7">
+<li><p>Un fondo de inversión administra el siguiente portafolio: 250 millones de dólares en acciones de KO y 300 millones de dólares en acciones de AAPL. El Beta de KO es de 0,80 y de AAPL de 1,52. El administrador del fondo considera que para el próximo mes (abril) el mercado tendrá un alza, por lo que desea utilizar los contratos de Futuros E-mini S&amp;P 500 para aumentar la beta del portafolio a 1,8.</p></li>
+</ol>
+<p>Actualmente (marzo), los contratos de Futuros E-mini S&amp;P 500 con vencimiento en diciembre se encuentran en 2.137, el índice en 2.144,01 y la tasa libre de riesgo con vigencia de un mes a 3,20% E.A.</p>
+<p>Para los siguientes valores de los futuros y el índice para el mes de abril, determine el total de la posición.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>FT (abril)</strong></p></td>
+<td><p>2.050,00</p></td>
+<td><p>2.010,00</p></td>
+<td><p>2.137,00</p></td>
+<td><p>2.200,00</p></td>
+<td><p>2.300,00</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ST (abril)</strong></p></td>
+<td><p>2.010,00</p></td>
+<td><p>2.025,00</p></td>
+<td><p>2.144,01</p></td>
+<td><p>2.219,00</p></td>
+<td><p>2.287,00</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Respuestas</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 16%" />
+<col style="width: 15%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>FT (abril)</strong></p></td>
+<td><p>2.050,00</p></td>
+<td><p>2.010,00</p></td>
+<td><p>2.137,00</p></td>
+<td><p>2.200,00</p></td>
+<td><p>2.300,00</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ST (abril)</strong></p></td>
+<td><p>2.010,00</p></td>
+<td><p>2.025,00</p></td>
+<td><p>2.144,01</p></td>
+<td><p>2.219,00</p></td>
+<td><p>2.287,00</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Compensación largo en Futuros</strong></p></td>
+<td><p>-$13.593.750,00</p></td>
+<td><p>-$19.843.750,00</p></td>
+<td><p>$0,00</p></td>
+<td><p>$9.843.750,00</p></td>
+<td><p>$25.468.750,00</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Rentabilidad S&amp;P 500</strong></p></td>
+<td><p>-6,25044%</p></td>
+<td><p>-5,55%</p></td>
+<td><p>0,00%</p></td>
+<td><p>3,50%</p></td>
+<td><p>6,67%</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Rentabilidad portafolio</strong></p></td>
+<td><p>-7,50572%</p></td>
+<td><p>-6,67%</p></td>
+<td><p>-0,05%</p></td>
+<td><p>4,12%</p></td>
+<td><p>7,90%</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Valor portafolio</strong></p></td>
+<td><p>$508.718.527,83</p></td>
+<td><p>$513.308.058,66</p></td>
+<td><p>$549.721.396,28</p></td>
+<td><p>$572.665.990,76</p></td>
+<td><p>$593.471.863,86</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>TOTAL POSICIÓN</strong></p></td>
+<td><p><strong>$495.124.777,83</strong></p></td>
+<td><p><strong>$493.464.308,66</strong></p></td>
+<td><p><strong>$549.721.396,28</strong></p></td>
+<td><p><strong>$582.509.740,76</strong></p></td>
+<td><p><strong>$618.940.613,86</strong></p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="8">
+<li><p>Un administrador de un portafolio de inversión espera que el mercado tenga una tendencia bajista hasta dentro de tres meses, por lo que realiza cobertura con Futuros. El portafolio de inversión está valorado en 3.700 millones de pesos y tiene un coeficiente Beta de 1,8 con respecto al índice COLCAP. El Futuro COLCAP con vencimiento a tres meses tiene un precio de 1.525. Calcule la cantidad de contratos en el Futuro COLCAP que necesita el administrador para cubrir el 100% del portafolio de inversión. ¿Qué posición tomará para cubrir el portafolio de inversión?</p></li>
+</ol>
+<p><strong>Respuesta: tomará posición en corto en 175 contratos en el Futuro COLCAP.</strong></p>
+<ol class="arabic simple" start="9">
+<li><p>Un inversionista desea cubrir la venta de unas acciones que compró el año pasado. Dentro de un mes espera vender 108.000 acciones de Ecopetrol en el mercado spot, el precio actual de la acción es de $2.985 y del precio Futuro de Ecopetrol con vencimiento a tres meses es de $2.993. Determine el efectivo que tendría el inversionista si logra vender las acciones dentro de un mes a $2.690 y cierra la posición en los Futuros a un precio de $2.700.</p></li>
+</ol>
+<p><strong>Respuesta: de la venta de las acciones en el mercado spot y con la compensación en los Futuros, tendría en efectivo $322.164.000.</strong></p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Ejercicios operaciones con Futuros BVC.html" class="btn btn-neutral" title="Ejercicios operaciones con Futuros BVC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

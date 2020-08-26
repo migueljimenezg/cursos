@@ -95,28 +95,19 @@ Matriz de precios.
 
 .. code:: r
 
-    head(precios)
+    print(head(precios))
 
 
+.. parsed-literal::
 
-.. raw:: html
-
-    <table>
-    <caption>A matrix: 6 × 5 of type dbl</caption>
-    <thead>
-    	<tr><th scope=col>Adjusted.FB</th><th scope=col>Adjusted.KO</th><th scope=col>Adjusted.K</th><th scope=col>Adjusted.F</th><th scope=col>Adjusted.MCD</th></tr>
-    </thead>
-    <tbody>
-    	<tr><td>155.39</td><td>39.97908</td><td>58.67940</td><td> 9.572072</td><td>150.2097</td></tr>
-    	<tr><td>156.11</td><td>40.64431</td><td>58.91181</td><td> 9.827681</td><td>152.7620</td></tr>
-    	<tr><td>155.10</td><td>41.45009</td><td>60.36206</td><td> 9.986334</td><td>154.0287</td></tr>
-    	<tr><td>159.34</td><td>41.59999</td><td>60.01810</td><td>10.003963</td><td>156.1430</td></tr>
-    	<tr><td>157.20</td><td>41.15026</td><td>59.72060</td><td> 9.854123</td><td>153.5716</td></tr>
-    	<tr><td>157.93</td><td>41.06593</td><td>59.94373</td><td> 9.915821</td><td>153.5525</td></tr>
-    </tbody>
-    </table>
+         Adjusted.FB Adjusted.KO Adjusted.K Adjusted.F Adjusted.MCD
+    [1,]      155.39    39.61916   58.16813   9.572072     149.2148
+    [2,]      156.11    40.27839   58.39851   9.827681     151.7503
+    [3,]      155.10    41.07690   59.83614   9.986334     153.0085
+    [4,]      159.34    41.22546   59.49516  10.003963     155.1088
+    [5,]      157.20    40.77978   59.20026   9.854123     152.5544
+    [6,]      157.93    40.69621   59.42144   9.915821     152.5355
     
-
 
 .. code:: r
 
@@ -196,7 +187,7 @@ Hay 517 rendimientos por acción.
     .list-inline>li {display: inline-block}
     .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
     </style>
-    <ol class=list-inline><li>170.800003</li><li>45.380001</li><li>65.519997</li><li>4.77</li><li>177.580002</li></ol>
+    <ol class=list-inline><li>170.800003</li><li>44.971439</li><li>64.949127</li><li>4.77</li><li>176.403854</li></ol>
     
 
 
@@ -238,7 +229,7 @@ Valor de mercado de cada acción.
     .list-inline>li {display: inline-block}
     .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
     </style>
-    <ol class=list-inline><li>341600.006</li><li>226900.005</li><li>131039.994</li><li>47700</li><li>177580.002</li></ol>
+    <ol class=list-inline><li>341600.006</li><li>224857.195</li><li>129898.254</li><li>47700</li><li>176403.854</li></ol>
     
 
 
@@ -254,7 +245,7 @@ Valor de mercado del portafolio de inversión.
 
 .. raw:: html
 
-    924820.007
+    920459.309
 
 
 Proporciones de inversión.
@@ -274,7 +265,7 @@ Proporciones de inversión.
     .list-inline>li {display: inline-block}
     .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
     </style>
-    <ol class=list-inline><li>0.369369178234052</li><li>0.245345043665345</li><li>0.141692429887062</li><li>0.0515776039001717</li><li>0.192015744313369</li></ol>
+    <ol class=list-inline><li>0.371119073553745</li><li>0.244288034029758</li><li>0.141123298694348</li><li>0.0518219540327339</li><li>0.191647639689415</li></ol>
     
 
 
@@ -295,20 +286,14 @@ Proporciones de inversión.
 .. code:: r
 
     rendimientos_esperados = apply(rendimientos,2,mean)
-    rendimientos_esperados
+    print(rendimientos_esperados)
 
 
+.. parsed-literal::
 
-.. raw:: html
-
-    <style>
-    .dl-inline {width: auto; margin:0; padding: 0}
-    .dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-    .dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-    .dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-    </style><dl class=dl-inline><dt>Adjusted.FB</dt><dd>0.000182892107457737</dd><dt>Adjusted.KO</dt><dd>0.000245096874340001</dd><dt>Adjusted.K</dt><dd>0.000213281718456249</dd><dt>Adjusted.F</dt><dd>-0.00134720190920034</dd><dt>Adjusted.MCD</dt><dd>0.000323770015717806</dd></dl>
+      Adjusted.FB   Adjusted.KO    Adjusted.K    Adjusted.F  Adjusted.MCD 
+     0.0001828921  0.0002450962  0.0002132818 -0.0013472019  0.0003237701 
     
-
 
 :math:`\sigma:`\ Volatilidad de cada acción.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -316,20 +301,14 @@ Proporciones de inversión.
 .. code:: r
 
     volatilidades = apply(rendimientos,2,sd)
-    volatilidades
+    print(volatilidades)
 
 
+.. parsed-literal::
 
-.. raw:: html
-
-    <style>
-    .dl-inline {width: auto; margin:0; padding: 0}
-    .dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
-    .dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
-    .dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
-    </style><dl class=dl-inline><dt>Adjusted.FB</dt><dd>0.0241525297957338</dd><dt>Adjusted.KO</dt><dd>0.0156387694263754</dd><dt>Adjusted.K</dt><dd>0.0174954301099754</dd><dt>Adjusted.F</dt><dd>0.0241075471398262</dd><dt>Adjusted.MCD</dt><dd>0.0188911968226452</dd></dl>
+     Adjusted.FB  Adjusted.KO   Adjusted.K   Adjusted.F Adjusted.MCD 
+      0.02415253   0.01563877   0.01749543   0.02410755   0.01889120 
     
-
 
 Matriz varianzas-covarianzas.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -337,27 +316,18 @@ Matriz varianzas-covarianzas.
 .. code:: r
 
     covarianzas = cov(rendimientos)
-    covarianzas
+    print(covarianzas)
 
 
+.. parsed-literal::
 
-.. raw:: html
-
-    <table>
-    <caption>A matrix: 5 × 5 of type dbl</caption>
-    <thead>
-    	<tr><th></th><th scope=col>Adjusted.FB</th><th scope=col>Adjusted.KO</th><th scope=col>Adjusted.K</th><th scope=col>Adjusted.F</th><th scope=col>Adjusted.MCD</th></tr>
-    </thead>
-    <tbody>
-    	<tr><th scope=row>Adjusted.FB</th><td>5.833447e-04</td><td>0.0001283637</td><td>6.003727e-05</td><td>2.767284e-04</td><td>2.073810e-04</td></tr>
-    	<tr><th scope=row>Adjusted.KO</th><td>1.283637e-04</td><td>0.0002445711</td><td>1.304013e-04</td><td>1.783455e-04</td><td>1.617992e-04</td></tr>
-    	<tr><th scope=row>Adjusted.K</th><td>6.003727e-05</td><td>0.0001304013</td><td>3.060901e-04</td><td>9.705181e-05</td><td>8.338019e-05</td></tr>
-    	<tr><th scope=row>Adjusted.F</th><td>2.767284e-04</td><td>0.0001783455</td><td>9.705181e-05</td><td>5.811738e-04</td><td>2.592786e-04</td></tr>
-    	<tr><th scope=row>Adjusted.MCD</th><td>2.073810e-04</td><td>0.0001617992</td><td>8.338019e-05</td><td>2.592786e-04</td><td>3.568773e-04</td></tr>
-    </tbody>
-    </table>
+                  Adjusted.FB  Adjusted.KO   Adjusted.K   Adjusted.F Adjusted.MCD
+    Adjusted.FB  5.833447e-04 0.0001283637 6.003732e-05 2.767284e-04 2.073812e-04
+    Adjusted.KO  1.283637e-04 0.0002445710 1.304011e-04 1.783455e-04 1.617992e-04
+    Adjusted.K   6.003732e-05 0.0001304011 3.060901e-04 9.705185e-05 8.338021e-05
+    Adjusted.F   2.767284e-04 0.0001783455 9.705185e-05 5.811738e-04 2.592786e-04
+    Adjusted.MCD 2.073812e-04 0.0001617992 8.338021e-05 2.592786e-04 3.568773e-04
     
-
 
 Coeficientes de correlación.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -365,27 +335,18 @@ Coeficientes de correlación.
 .. code:: r
 
     correlaciones = cor(rendimientos)
-    correlaciones
+    print(correlaciones)
 
 
+.. parsed-literal::
 
-.. raw:: html
-
-    <table>
-    <caption>A matrix: 5 × 5 of type dbl</caption>
-    <thead>
-    	<tr><th></th><th scope=col>Adjusted.FB</th><th scope=col>Adjusted.KO</th><th scope=col>Adjusted.K</th><th scope=col>Adjusted.F</th><th scope=col>Adjusted.MCD</th></tr>
-    </thead>
-    <tbody>
-    	<tr><th scope=row>Adjusted.FB</th><td>1.0000000</td><td>0.3398419</td><td>0.1420802</td><td>0.4752675</td><td>0.4545136</td></tr>
-    	<tr><th scope=row>Adjusted.KO</th><td>0.3398419</td><td>1.0000000</td><td>0.4766006</td><td>0.4730496</td><td>0.5476642</td></tr>
-    	<tr><th scope=row>Adjusted.K</th><td>0.1420802</td><td>0.4766006</td><td>1.0000000</td><td>0.2301050</td><td>0.2522777</td></tr>
-    	<tr><th scope=row>Adjusted.F</th><td>0.4752675</td><td>0.4730496</td><td>0.2301050</td><td>1.0000000</td><td>0.5693170</td></tr>
-    	<tr><th scope=row>Adjusted.MCD</th><td>0.4545136</td><td>0.5476642</td><td>0.2522777</td><td>0.5693170</td><td>1.0000000</td></tr>
-    </tbody>
-    </table>
+                 Adjusted.FB Adjusted.KO Adjusted.K Adjusted.F Adjusted.MCD
+    Adjusted.FB    1.0000000   0.3398420  0.1420804  0.4752675    0.4545139
+    Adjusted.KO    0.3398420   1.0000000  0.4766003  0.4730496    0.5476644
+    Adjusted.K     0.1420804   0.4766003  1.0000000  0.2301051    0.2522777
+    Adjusted.F     0.4752675   0.4730496  0.2301051  1.0000000    0.5693170
+    Adjusted.MCD   0.4545139   0.5476644  0.2522777  0.5693170    1.0000000
     
-
 
 Rendimientos del portafolio de inversión.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -412,7 +373,7 @@ Rendimiento esperado del portafolio de inversión
 
 .. raw:: html
 
-    0.000150591909821015
+    0.000150083000310905
 
 
 Volatilidad del portafolio de inversión
@@ -427,7 +388,7 @@ Volatilidad del portafolio de inversión
 
 .. raw:: html
 
-    0.0149861836259204
+    0.0150049023025908
 
 
 Volatilidad del portafolio a partir de la matriz de varianzas-covarianzas
@@ -442,7 +403,7 @@ Volatilidad del portafolio a partir de la matriz de varianzas-covarianzas
 
 .. raw:: html
 
-    0.0149861836259204
+    0.0150049023025908
 
 
 Preguntas
@@ -515,7 +476,7 @@ Preguntas
 
 .. raw:: html
 
-    <strong>Adjusted.MCD:</strong> 17450.7135496633
+    <strong>Adjusted.MCD:</strong> 17335.132992473
 
 
 4. Con un nivel de confianza del 99%, ¿Cuál es el VaR (sin promedios) semanal de la acción de K en términos monetarios?
@@ -535,7 +496,7 @@ Preguntas
 
 .. raw:: html
 
-    <strong>Adjusted.K:</strong> 11925.8172108399
+    <strong>Adjusted.K:</strong> 11821.9082393174
 
 
 5. Con un nivel de confianza del 99%, ¿Cuál es el VaR (sin promedios) semanal del portafolio de inversión en términos monetarios?
@@ -555,7 +516,7 @@ Preguntas
 
 .. raw:: html
 
-    72095.4615456764
+    71845.1451728881
 
 
 6. Con un nivel de confianza del 99%, ¿Cuál es el VaR (sin promedios) diario de la acción F en términos monetarios?
@@ -595,7 +556,7 @@ Preguntas
 
 .. raw:: html
 
-    <strong>Adjusted.KO:</strong> 8254.89854784487
+    <strong>Adjusted.KO:</strong> 8180.57684795557
 
 
 8. Con un nivel de confianza del 97,5%, ¿Cuál es el VaR (sin promedios) diario del portafolio de inversión en términos monetarios?
@@ -615,7 +576,7 @@ Preguntas
 
 .. raw:: html
 
-    32242.0705770709
+    32130.1256919837
 
 
 9. Con un nivel de confianza del 99%, ¿Cuál es el VaR (con promedios) mensual de la acción KO en términos monetarios?
@@ -635,7 +596,7 @@ Preguntas
 
 .. raw:: html
 
-    <strong>Adjusted.KO:</strong> 18180.4518902793
+    <strong>Adjusted.KO:</strong> 18016.7676540538
 
 
 10. Con un nivel de confianza del 95%, ¿Cuál es el VaR (con promedios) mensual de la acción F en términos monetarios?
@@ -675,7 +636,7 @@ Preguntas
 
 .. raw:: html
 
-    99847.268555128
+    99509.7001373678
 
 
 12. Con un nivel de confianza del 98%, ¿Cuál es el VaR (con promedios) mensual del portafolio de inversión en términos monetarios?
@@ -695,7 +656,7 @@ Preguntas
 
 .. raw:: html
 
-    99847.268555128
+    99509.7001373678
 
 
 13. Con un nivel de confianza del 99%, ¿Cuál es el Beneficios por Diversificación (BD) diario del portafolio de inversión en términos monetarios?
@@ -723,7 +684,7 @@ Preguntas
 
 .. raw:: html
 
-    11019.0923148587
+    10958.5567987463
 
 
 14. Con un nivel de confianza del 99%, ¿Cuál es el Beneficios por Diversificación (BD) diario del portafolio de inversión en términos monetarios?
@@ -751,7 +712,7 @@ Preguntas
 
 .. raw:: html
 
-    10985.3150146617
+    10925.0841289928
 
 
 Gráficos

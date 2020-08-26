@@ -27,6 +27,8 @@ La tasa cupón también se llama tasa facial.
 
     * **Ver video: Ejemplos valoración de Bonos** --- `aquí <https://youtu.be/XkgElMRQoF0>`_.
 
+    * **Descargue** :download:`aquí <1. Valoración de bonos.xlsx>` archivo de Excel.
+
 
 
 2. Principios de los bonos
@@ -52,6 +54,8 @@ La sensibilidad de los bonos (cinco principios) se miden con la Duración, Durac
     En el siguiente video se explican varias formas para calcular la Duración, Duración Modificada y Convexidad en Excel.
 
     * **Ver video: Ejemplos Duración y Convexidad** --- `aquí <https://youtu.be/f5RlZe48TGg>`_.
+
+    * **Descargue** :download:`aquí <2. Duración y Convexidad.xlsx>` archivo de Excel.
 
 
 2. Ejercicios valoración TES
