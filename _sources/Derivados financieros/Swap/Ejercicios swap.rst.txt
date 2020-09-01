@@ -144,7 +144,7 @@ y en las tasas FRA y una base de 360.
 
 En la posición de la entidad financiera el valor del swap es positivo,
 por tanto, se incurre en una pérdida porque la contraparte no cumplirá
-con los pagos faltantes en el swap. La pérdida es 73.476 USD que es el
+con los pagos faltantes en el swap. La pérdida es 25.000 USD que es el
 valor del swap para la entidad financiera.
 
 Ejercicio No. 5
@@ -210,6 +210,6 @@ descuento y en las tasas FRA y una base de 360.
 
 **Respuesta:**
 
-S = 0,8619% semestral.
+S = 0,8619% trimestral.
 
 S = 3,4476% nominal.
