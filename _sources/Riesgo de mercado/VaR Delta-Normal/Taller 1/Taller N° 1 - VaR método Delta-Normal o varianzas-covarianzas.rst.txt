@@ -579,7 +579,7 @@ Preguntas
     32130.1256919837
 
 
-9. Con un nivel de confianza del 99%, ¿Cuál es el VaR (con promedios) mensual de la acción KO en términos monetarios?
+9. Con un nivel de confianza del 99%, ¿Cuál es el VaR (con promedios) semanal de la acción KO en términos monetarios?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: r

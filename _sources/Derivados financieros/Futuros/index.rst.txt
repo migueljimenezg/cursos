@@ -28,6 +28,11 @@ Se explicará la estandarización de los Futuros de la Bolsa de Valores de Colom
 
         * **Ver video: Cuenta de Margen** --- `aquí <https://youtu.be/3N36hZyhLas>`_.
 
+        * **Ver video: Coberturas portafolios de inversión** --- `aquí <https://youtu.be/6bNHtK2QCaA>`_.
+
+
+        * **Descargue** :download:`aquí <ninjatrader_futures_contract_details.pdf>` márgenes de NinjaTrader.
+
 
     .. toctree::
             :maxdepth: 2
@@ -42,11 +47,11 @@ Se explicará la estandarización de los Futuros de la Bolsa de Valores de Colom
 
 Se explicarán las coberturas con los Futuros:
 
-        * Cobertura directa: cuando el activo subyacente del Futuro es el mismo que el activo a cubrir.
+        * **Cobertura directa:** cuando el activo subyacente del Futuro es el mismo que el activo a cubrir.
 
-        * Cobertura cruzada: cuando el activo subyacente del Futuro no es el mismo que el activo a cubrir.
+        * **Cobertura cruzada:** cuando el activo subyacente del Futuro no es el mismo que el activo a cubrir.
 
-        * Cobertura para portafolios de inversión: es también una cobertura cruzada donde se usan los Futuros sobre índices bursátiles para cubrir las inversiones en portafolios de inversión.
+        * **Cobertura para portafolios de inversión:** es también una cobertura cruzada donde se usan los Futuros sobre índices bursátiles para cubrir las inversiones en portafolios de inversión.
 
 
     * **Descargue** :download:`aquí <6. Coberturas con futuros V5.pdf>` las presentaciones.

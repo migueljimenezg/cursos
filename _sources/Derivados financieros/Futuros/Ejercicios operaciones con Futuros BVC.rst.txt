@@ -11,7 +11,7 @@ Ejercicios operaciones con Futuros BVC
 
 3.	Calcule el nominal de la siguiente operación: 15 contratos en el Futuro COLCAP con vencimiento en diciembre. El precio del Futuro actualmente está en 1.200. Se exige una garantía de 6,4% para los contratos COLCAP.
 
-**Respuesta: $400.000.000.**
+**Respuesta: $450.000.000.**
 
 4.	Calcule la garantía de la siguiente operación: 15 contratos en el Futuro COS con vencimiento en diciembre. El precio del Futuro actualmente está en 1.180. Se exige una garantía de 6,4% para los contratos COLCAP.
 
