@@ -1,0 +1,13 @@
+Regresión lineal
+======================================================
+
+
+    .. toctree::
+        :maxdepth: 2
+        :titlesonly:
+
+
+        Regresión lineal simple/Regresión lineal simple
+        Regresión polinómica simple/Regresión polinómica simple
+	Regresión lineal múltiple/Regresión lineal múltiple
+	Regresión polinómica múltiple/Regresión polinómica múltiple

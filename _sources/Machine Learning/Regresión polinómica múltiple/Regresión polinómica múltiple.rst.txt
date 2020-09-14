@@ -1,0 +1,701 @@
+Regresión polinómica múltiple
+-----------------------------
+
+Importar librerías
+~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import pandas as pd
+
+Importar datos
+~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    datos = pd.read_csv("vivienda.csv", sep = ";", decimal = ",")
+
+.. code:: ipython3
+
+    datos.head()
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Períodos</th>
+          <th>Trimestre</th>
+          <th>IPVN</th>
+          <th>ICCV</th>
+          <th>ELIC</th>
+          <th>Cesantes Medellín</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>2010</td>
+          <td>I</td>
+          <td>0.29</td>
+          <td>1.179337</td>
+          <td>250907</td>
+          <td>238.343333</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>2010</td>
+          <td>II</td>
+          <td>2.02</td>
+          <td>1.003269</td>
+          <td>367528</td>
+          <td>233.409667</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>2010</td>
+          <td>III</td>
+          <td>2.80</td>
+          <td>-0.559164</td>
+          <td>582280</td>
+          <td>218.040667</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>2010</td>
+          <td>IV</td>
+          <td>0.62</td>
+          <td>0.680330</td>
+          <td>518969</td>
+          <td>196.604000</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>2011</td>
+          <td>I</td>
+          <td>4.03</td>
+          <td>3.595829</td>
+          <td>575597</td>
+          <td>218.884333</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+.. code:: ipython3
+
+    datos.dtypes
+
+
+
+
+.. parsed-literal::
+
+    Períodos               int64
+    Trimestre             object
+    IPVN                 float64
+    ICCV                 float64
+    ELIC                   int64
+    Cesantes Medellín    float64
+    dtype: object
+
+
+
+.. code:: ipython3
+
+    datos.describe()
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Períodos</th>
+          <th>IPVN</th>
+          <th>ICCV</th>
+          <th>ELIC</th>
+          <th>Cesantes Medellín</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>count</th>
+          <td>40.000000</td>
+          <td>40.000000</td>
+          <td>40.000000</td>
+          <td>40.000000</td>
+          <td>40.000000</td>
+        </tr>
+        <tr>
+          <th>mean</th>
+          <td>2014.500000</td>
+          <td>2.077243</td>
+          <td>1.094636</td>
+          <td>568054.550000</td>
+          <td>203.471985</td>
+        </tr>
+        <tr>
+          <th>std</th>
+          <td>2.908872</td>
+          <td>1.006100</td>
+          <td>1.258208</td>
+          <td>148336.569819</td>
+          <td>26.313283</td>
+        </tr>
+        <tr>
+          <th>min</th>
+          <td>2010.000000</td>
+          <td>-0.040000</td>
+          <td>-0.559164</td>
+          <td>250907.000000</td>
+          <td>160.823333</td>
+        </tr>
+        <tr>
+          <th>25%</th>
+          <td>2012.000000</td>
+          <td>1.497500</td>
+          <td>0.191634</td>
+          <td>466532.500000</td>
+          <td>182.172917</td>
+        </tr>
+        <tr>
+          <th>50%</th>
+          <td>2014.500000</td>
+          <td>2.015000</td>
+          <td>0.697474</td>
+          <td>565444.500000</td>
+          <td>200.982167</td>
+        </tr>
+        <tr>
+          <th>75%</th>
+          <td>2017.000000</td>
+          <td>2.747500</td>
+          <td>1.699518</td>
+          <td>655019.750000</td>
+          <td>227.542833</td>
+        </tr>
+        <tr>
+          <th>max</th>
+          <td>2019.000000</td>
+          <td>4.030000</td>
+          <td>4.587157</td>
+          <td>867661.000000</td>
+          <td>256.285743</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+.. code:: ipython3
+
+    import seaborn as sns
+    sns.pairplot(datos.iloc[:, [2,3,4,5]]);
+
+
+
+.. image:: output_8_0.png
+
+
+.. code:: ipython3
+
+    datos.iloc[:, [2,3,4,5]].corr()
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>IPVN</th>
+          <th>ICCV</th>
+          <th>ELIC</th>
+          <th>Cesantes Medellín</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>IPVN</th>
+          <td>1.000000</td>
+          <td>0.085235</td>
+          <td>0.015497</td>
+          <td>0.018437</td>
+        </tr>
+        <tr>
+          <th>ICCV</th>
+          <td>0.085235</td>
+          <td>1.000000</td>
+          <td>-0.164221</td>
+          <td>0.374222</td>
+        </tr>
+        <tr>
+          <th>ELIC</th>
+          <td>0.015497</td>
+          <td>-0.164221</td>
+          <td>1.000000</td>
+          <td>-0.124441</td>
+        </tr>
+        <tr>
+          <th>Cesantes Medellín</th>
+          <td>0.018437</td>
+          <td>0.374222</td>
+          <td>-0.124441</td>
+          <td>1.000000</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+Variables independientes
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    X = datos.iloc[:, [2,3,4]]
+    print(X)
+
+
+.. parsed-literal::
+
+            IPVN      ICCV    ELIC
+    0   0.290000  1.179337  250907
+    1   2.020000  1.003269  367528
+    2   2.800000 -0.559164  582280
+    3   0.620000  0.680330  518969
+    4   4.030000  3.595829  575597
+    5   2.730000  1.461668  779419
+    6  -0.040000  1.002804  738700
+    7   2.420000  0.532248  795930
+    8   1.240000  3.170000  710783
+    9   3.400000  0.140000  842512
+    10  1.370000 -0.443952  404698
+    11  0.590000  2.564172  571959
+    12  3.440000  1.684288  633715
+    13  1.650000 -0.086708  558930
+    14  3.520000  0.561489  497390
+    15  1.230000  2.726601  432199
+    16  1.760000  1.648361  614857
+    17  2.020000  0.337426  465565
+    18  1.230000 -0.358177  748441
+    19  2.690000  0.396358  466855
+    20  2.960000  3.272982  481359
+    21  1.540000  0.714617  867661
+    22  2.650000  1.745207  638503
+    23  2.010000  0.619684  519836
+    24  2.440000  3.549918  317698
+    25  2.970000  0.820894  523887
+    26  1.090000  0.086524  720152
+    27  1.580000 -0.317867  460075
+    28  2.614048  4.587157  551039
+    29  2.925466  0.053004  506279
+    30  1.852295  0.394175  637570
+    31  2.453555  0.814623  447592
+    32  1.599082  2.265125  290418
+    33  3.592138  1.072388  689789
+    34  1.635650  0.057230  624633
+    35  3.962521  0.307578  478363
+    36  0.681115  1.758036  643430
+    37  2.391691  0.394821  422456
+    38  1.588361  0.146487  717507
+    39  1.543818  0.206683  626701
+    
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (40, 3)
+
+
+
+Variable dependiente
+~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    y = datos.iloc[:, [5]]
+    print(y)
+
+
+.. parsed-literal::
+
+        Cesantes Medellín
+    0          238.343333
+    1          233.409667
+    2          218.040667
+    3          196.604000
+    4          218.884333
+    5          203.375667
+    6          192.057667
+    7          175.695667
+    8          228.121333
+    9          224.308667
+    10         200.924333
+    11         186.908000
+    12         243.700000
+    13         191.203333
+    14         175.510667
+    15         169.288333
+    16         201.040000
+    17         169.807333
+    18         172.106000
+    19         173.449000
+    20         215.383000
+    21         184.982000
+    22         176.775667
+    23         160.823333
+    24         238.406000
+    25         174.609333
+    26         187.434333
+    27         170.308667
+    28         230.529667
+    29         183.972000
+    30         211.015000
+    31         188.541667
+    32         248.515667
+    33         230.691000
+    34         213.001667
+    35         186.147333
+    36         256.285743
+    37         236.421000
+    38         227.350000
+    39         204.908333
+    
+
+.. code:: ipython3
+
+    y.shape
+
+
+
+
+.. parsed-literal::
+
+    (40, 1)
+
+
+
+Conjunto de entrenamiento y conjunto de testing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Seleccionar uno de los tres:
+
+1. Últimos valores
+^^^^^^^^^^^^^^^^^^
+
+.. code:: ipython3
+
+    def TimeSeriesTrainTestSplit(x, y, test_size):
+        
+            test_index = int(len(X)*(1-test_size))
+        
+            X_train = X.iloc[:test_index]
+            y_train = y.iloc[:test_index]
+            X_test = X.iloc[test_index:]
+            y_test = y.iloc[test_index:]
+            return X_train, y_train, X_test, y_test
+        
+    X_train, y_train, X_test, y_test = TimeSeriesTrainTestSplit(X,y, 0.2)
+
+2. Aleatorio
+^^^^^^^^^^^^
+
+.. code:: ipython3
+
+    # from sklearn.model_selection import train_test_split
+    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3)
+
+3. Sin conjunto de entrenamientos ni de test
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code:: ipython3
+
+    # X_train = X.iloc[:,:]
+    # y_train = y.iloc[:,:]
+
+Estandarización de variables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from sklearn.preprocessing import StandardScaler
+
+.. code:: ipython3
+
+    scaler_X = StandardScaler()
+    X_train = scaler_X.fit_transform(X_train)
+    X_test = scaler_X.transform(X_test)
+    
+    scaler_y = StandardScaler()
+    y_train = scaler_y.fit_transform(y_train)
+    y_test = scaler_y.transform(y_test)
+
+Transformación al grado del polinomio
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from sklearn.preprocessing import PolynomialFeatures
+
+.. code:: ipython3
+
+    poly = PolynomialFeatures(degree = 3)
+
+.. code:: ipython3
+
+    X_train_poly = poly.fit_transform(X_train)
+    X_test_poly = poly.fit_transform(X_test)
+
+Ajuste del modelo de Regresión polinómica con el conjunto de entrenamiento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from sklearn import linear_model
+
+.. code:: ipython3
+
+    poly_regression = linear_model.LinearRegression()
+
+.. code:: ipython3
+
+    poly_regression.fit(X_train_poly, y_train)
+
+
+
+
+.. parsed-literal::
+
+    LinearRegression()
+
+
+
+.. code:: ipython3
+
+    y_pred_train_poly = poly_regression.predict(X_train_poly)
+    y_pred_test_poly = poly_regression.predict(X_test_poly)
+
+$ R^2 $ y MSE
+~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from sklearn.metrics import mean_squared_error, r2_score
+
+.. code:: ipython3
+
+    r2_score(y_train, y_pred_train_poly)
+
+
+
+
+.. parsed-literal::
+
+    0.669850598381083
+
+
+
+.. code:: ipython3
+
+    mean_squared_error(y_train, y_pred_train_poly)
+
+
+
+
+.. parsed-literal::
+
+    0.330149401618917
+
+
+
+.. code:: ipython3
+
+    r2_score(y_test, y_pred_test_poly)
+
+
+
+
+.. parsed-literal::
+
+    -1.2480514660901263
+
+
+
+.. code:: ipython3
+
+    mean_squared_error(y_test, y_pred_test_poly)
+
+
+
+
+.. parsed-literal::
+
+    1.8323325907903287
+
+
+
+Construir el modelo óptimo de RLM utilizando la Eliminación hacia atrás
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    import statsmodels.api as sm
+
+.. code:: ipython3
+
+    modelo = sm.OLS(endog = y_train, exog = X_train_poly).fit()
+    print(modelo.summary())
+
+
+.. parsed-literal::
+
+                                OLS Regression Results                            
+    ==============================================================================
+    Dep. Variable:                      y   R-squared:                       0.670
+    Model:                            OLS   Adj. R-squared:                  0.147
+    Method:                 Least Squares   F-statistic:                     1.281
+    Date:                Mon, 14 Sep 2020   Prob (F-statistic):              0.336
+    Time:                        09:10:17   Log-Likelihood:                -27.675
+    No. Observations:                  32   AIC:                             95.35
+    Df Residuals:                      12   BIC:                             124.7
+    Df Model:                          19                                         
+    Covariance Type:            nonrobust                                         
+    ==============================================================================
+                     coef    std err          t      P>|t|      [0.025      0.975]
+    ------------------------------------------------------------------------------
+    const         -0.2341      0.473     -0.495      0.629      -1.264       0.796
+    x1            -0.3252      0.669     -0.486      0.636      -1.782       1.132
+    x2             0.6324      0.710      0.890      0.391      -0.915       2.180
+    x3             0.4995      0.648      0.770      0.456      -0.913       1.912
+    x4            -0.0004      0.231     -0.002      0.999      -0.504       0.503
+    x5            -0.0833      0.388     -0.215      0.834      -0.929       0.762
+    x6             0.1146      0.356      0.322      0.753      -0.660       0.890
+    x7             0.1302      0.364      0.357      0.727      -0.664       0.924
+    x8             0.2187      0.410      0.533      0.603      -0.675       1.112
+    x9             0.2490      0.305      0.817      0.430      -0.415       0.913
+    x10            0.2001      0.239      0.838      0.418      -0.320       0.720
+    x11           -0.3547      0.345     -1.027      0.325      -1.107       0.398
+    x12            0.2519      0.278      0.906      0.383      -0.354       0.858
+    x13            0.3549      0.409      0.868      0.402      -0.536       1.245
+    x14           -0.4103      0.492     -0.834      0.420      -1.481       0.661
+    x15           -0.0737      0.346     -0.213      0.835      -0.828       0.681
+    x16           -0.0996      0.225     -0.443      0.665      -0.589       0.390
+    x17            0.0928      0.378      0.245      0.810      -0.732       0.917
+    x18            0.0475      0.402      0.118      0.908      -0.828       0.923
+    x19           -0.3311      0.256     -1.292      0.221      -0.890       0.227
+    ==============================================================================
+    Omnibus:                        3.279   Durbin-Watson:                   1.253
+    Prob(Omnibus):                  0.194   Jarque-Bera (JB):                2.096
+    Skew:                           0.601   Prob(JB):                        0.351
+    Kurtosis:                       3.358   Cond. No.                         29.8
+    ==============================================================================
+    
+    Notes:
+    [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+    
+
+Parámetros del modelo
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    modelo.params
+
+
+
+
+.. parsed-literal::
+
+    array([-2.34077143e-01, -3.25229260e-01,  6.32370637e-01,  4.99539363e-01,
+           -4.37706425e-04, -8.33487127e-02,  1.14602591e-01,  1.30203103e-01,
+            2.18730367e-01,  2.48954262e-01,  2.00070208e-01, -3.54693346e-01,
+            2.51943193e-01,  3.54877005e-01, -4.10278503e-01, -7.36859715e-02,
+           -9.96047752e-02,  9.28271025e-02,  4.75368581e-02, -3.31075490e-01])
+
+
+
+Gráfico de Residuales
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    plt.stem(y_pred_train_poly, y_pred_train_poly - y_train, use_line_collection=True);
+
+
+
+.. image:: output_48_0.png
+
+
+.. code:: ipython3
+
+    plt.stem(y_pred_test_poly, y_pred_test_poly - y_test, use_line_collection=True);
+
+
+
+.. image:: output_49_0.png
+
