@@ -17,7 +17,6 @@ Se explicará la estandarización de los Futuros de la Bolsa de Valores de Colom
 
         * **Ver video: Concepto Futuros** --- `aquí <https://youtu.be/feDNUZRoVIU>`_.
 
-
         * **Ver video: Estandarización de los Futuros BVC parte 1** --- `aquí <https://youtu.be/Q4uV4zC6c5Q>`_.
 
         * **Ver video: Estandarización de los Futuros BVC parte 2** --- `aquí <https://youtu.be/E08iKFxX9l8>`_.
@@ -28,10 +27,6 @@ Se explicará la estandarización de los Futuros de la Bolsa de Valores de Colom
 
         * **Ver video: Cuenta de Margen** --- `aquí <https://youtu.be/3N36hZyhLas>`_.
 
-        * **Ver video: Coberturas portafolios de inversión** --- `aquí <https://youtu.be/6bNHtK2QCaA>`_.
-
-
-        * **Descargue** :download:`aquí <ninjatrader_futures_contract_details.pdf>` márgenes de NinjaTrader.
 
 
     .. toctree::
@@ -40,6 +35,34 @@ Se explicará la estandarización de los Futuros de la Bolsa de Valores de Colom
 
 
             Ejercicios operaciones con Futuros BVC.rst
+
+
+
+
+
+Futuros BVC
+---------------
+
+
+        * **Futuros TRM - TRS ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_TRM?action=dummy>`_.
+
+        * **Futuros sobre acciones ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_Acciones?action=dummy>`_.
+
+        * **Futuros COLCAP ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_COLCAP?action=dummy>`_.
+
+        * **Futuros TES ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_TES?action=dummy>`_.
+
+        * **Garantías actualizadas (2020) ---> BVC.**
+
+            * **Descargue** :download:`aquí <Garantías BVC-17-09-2020.pdf>` el documento de la CRCC.
+
+        * **Haircuts para garantías (2020) ---> BVC.**
+ 
+            * **Descargue** :download:`aquí <Haircut para garantías (2020).pdf>` el documento de la CRCC.
+
+
+
+
 
  
 2. Coberturas con Futuros
@@ -56,7 +79,7 @@ Se explicarán las coberturas con los Futuros:
 
     * **Descargue** :download:`aquí <6. Coberturas con futuros V5.pdf>` las presentaciones.
 
-        * **Ver video: Cobertura en Corto Futuros** --- `aquí <https://youtu.be/CvWMiTKSPaQ>`_.
+        * **Ver video: Cobertura en Corto Futuros** --- `aquí <https://youtu.be/vQoV38GWGFE>`_.
 
         * **Ver video: Cobertura en Largo Futuros** --- `aquí <https://youtu.be/CvWMiTKSPaQ>`_.
 
@@ -64,6 +87,10 @@ Se explicarán las coberturas con los Futuros:
 
         * **Ver video: Cobertura cruzada** --- `aquí <https://youtu.be/PH_znbCWrOU>`_.
 
+        * **Ver video: Coberturas portafolios de inversión** --- `aquí <https://youtu.be/6bNHtK2QCaA>`_.
+
+
+        * **Descargue** :download:`aquí <ninjatrader_futures_contract_details.pdf>` márgenes de NinjaTrader.
 
     .. toctree::
             :maxdepth: 2
@@ -71,6 +98,45 @@ Se explicarán las coberturas con los Futuros:
 
 
             Ejercicios coberturas con Futuros.rst
+
+
+
+**Lecturas**
+
+
+.. [#f1] **Capítulo 6:** Guía de estudio AMV: Derivados Financieros.
+
+    * **Descargue** :download:`aquí <Cap.6. Negociación-AMV.pdf>` el capítulo.
+
+
+.. [#f2] **BVC: Futuros de Tasa de Cambio. 
+
+    * **Descargue** :download:`aquí <Descripción específica sobre propósito Futuros TRM.pdf>` el documento.
+
+
+.. [#f2] **BVC: Futuros de TRM.**
+
+    * **Descargue** :download:`aquí <Futuro_TRM BVC.pdf>` el documento.
+
+
+.. [#f3] **BVC: Futuros sobre acciones.** 
+
+    * **Descargue** :download:`aquí <Futuros estandarizados sobre acciones.pdf>` el documento.
+
+
+.. [#f4] **BVC: Futuros de TES.** 
+
+    * **Descargue** :download:`aquí <Futuros de TES.pdf>` el documento.
+
+
+.. [#f5] **Capítulo 2: Mecánica de los Mercados de Futuros.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
+
+    * **Descargue** :download:`aquí <Cap. 2. Futuros-Hull.pdf>` el capítulo.
+
+
+.. [#f6] **Capítulo 3: Estrategias de cobertura con contratos de futuros.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
+
+    * **Descargue** :download:`aquí <Cap. 3. Coberturas futuros-Hull.pdf>` el capítulo.
 
 
 
