@@ -100,6 +100,22 @@ Se explicarán las coberturas con los Futuros:
             Ejercicios coberturas con Futuros.rst
 
 
+Ejemplos en Excel
+---------------------
+
+        * **Ejemplos operaciones con Futuros:**
+ 
+            * **Descargue** :download:`aquí <1. Ejemplos operaciones con Futuros.xlsx>` el archivo de Excel.
+
+        * **Coberturas con Futuros:**
+ 
+            * **Descargue** :download:`aquí <2. Coberturas con Futuros.xlsx>` el archivo de Excel.
+
+        * **Cuentas de Margen:**
+ 
+            * **Descargue** :download:`aquí <3. Cuenta de Margen Futuros BVC y CME.xlsx>` el archivo de Excel.
+
+
 
 **Lecturas**
 
@@ -109,32 +125,32 @@ Se explicarán las coberturas con los Futuros:
     * **Descargue** :download:`aquí <Cap.6. Negociación-AMV.pdf>` el capítulo.
 
 
-.. [#f2] **BVC: Futuros de Tasa de Cambio. 
+.. [#f2] **BVC: Futuros de Tasa de Cambio.** 
 
     * **Descargue** :download:`aquí <Descripción específica sobre propósito Futuros TRM.pdf>` el documento.
 
 
-.. [#f2] **BVC: Futuros de TRM.**
+.. [#f3] **BVC: Futuros de TRM.**
 
     * **Descargue** :download:`aquí <Futuro_TRM BVC.pdf>` el documento.
 
 
-.. [#f3] **BVC: Futuros sobre acciones.** 
+.. [#f4] **BVC: Futuros sobre acciones.** 
 
     * **Descargue** :download:`aquí <Futuros estandarizados sobre acciones.pdf>` el documento.
 
 
-.. [#f4] **BVC: Futuros de TES.** 
+.. [#f5] **BVC: Futuros de TES.** 
 
     * **Descargue** :download:`aquí <Futuros de TES.pdf>` el documento.
 
 
-.. [#f5] **Capítulo 2: Mecánica de los Mercados de Futuros.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
+.. [#f6] **Capítulo 2: Mecánica de los Mercados de Futuros.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
     * **Descargue** :download:`aquí <Cap. 2. Futuros-Hull.pdf>` el capítulo.
 
 
-.. [#f6] **Capítulo 3: Estrategias de cobertura con contratos de futuros.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
+.. [#f7] **Capítulo 3: Estrategias de cobertura con contratos de futuros.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
     * **Descargue** :download:`aquí <Cap. 3. Coberturas futuros-Hull.pdf>` el capítulo.
 
