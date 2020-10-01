@@ -218,6 +218,11 @@ Este método de valoración de opciones aplica sólo para opciones europeas.
     * **Descargue** :download:`aquí <5. Valoración de opciones.pdf>` el documento.
 
 
+.. [#f10] **Capítulo 17: Dinámica de precios y valuación de opciones.** Simulación de modelos financieros. Luciano Machain.
+
+    * **Descargue** :download:`aquí <Movimiento Browniano Geométrico-Machain.pdf>` el capítulo.
+
+
 
 
 
