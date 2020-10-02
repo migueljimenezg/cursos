@@ -77,13 +77,15 @@ Se explicarán las coberturas con los Futuros:
         * **Cobertura para portafolios de inversión:** es también una cobertura cruzada donde se usan los Futuros sobre índices bursátiles para cubrir las inversiones en portafolios de inversión.
 
 
-    * **Descargue** :download:`aquí <6. Coberturas con futuros V5.pdf>` las presentaciones.
+    * **Descargue** :download:`aquí <6. Coberturas con futuros V6.pdf>` las presentaciones.
 
         * **Ver video: Cobertura en Corto Futuros** --- `aquí <https://youtu.be/vQoV38GWGFE>`_.
 
         * **Ver video: Cobertura en Largo Futuros** --- `aquí <https://youtu.be/CvWMiTKSPaQ>`_.
 
         * **Ver video: Riesgo de base** --- `aquí <https://youtu.be/BzMKq36MDYk>`_.
+
+        * **Ver video: Resumen riesgo de base** --- `aquí <https://youtu.be/lbGXkqGwVjM>`_.
 
         * **Ver video: Cobertura cruzada** --- `aquí <https://youtu.be/PH_znbCWrOU>`_.
 
