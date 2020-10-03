@@ -36,7 +36,7 @@
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Cursos  documentation" href="../../index.html"/>
-        <link rel="next" title="Ejercicios propiedades de las opciones y coberturas con opciones" href="Ejercicios propiedades de las opciones y coberturas con opciones.html"/>
+        <link rel="next" title="Valoración de opciones por el método de Simulación Monte Carlo" href="Valoración de opciones por el método de Simulación Monte Carlo/Valoración de opciones por el método de Simulación Monte Carlo.html"/>
         <link rel="prev" title="Ejercicios coberturas con Futuros" href="../Futuros/Ejercicios coberturas con Futuros.html"/> 
 
   
@@ -115,10 +115,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../Swap/index.html">Swap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Futuros/index.html">Futuros</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Opciones</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Ejercicios propiedades de las opciones y coberturas con opciones.html">Ejercicios propiedades de las opciones y coberturas con opciones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Riesgo de mercado/VaR SM/MBG/Movimiento Browniano Geométrico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Valoración de opciones por el método de Simulación Monte Carlo/Valoración de opciones por el método de Simulación Monte Carlo.html">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Simulación de cobertura con opciones/Simulación de cobertura con opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ejercicios propiedades, coberturas y valoración de opciones por SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ejercicios valoración de opciones.html">Ejercicios valoración de opciones</a></li>
 </ul>
 </li>
 </ul>
@@ -221,22 +222,34 @@
 </li>
 </ul>
 </div></blockquote>
-<div class="section" id="ejercicios-propiedades-de-las-opciones-y-coberturas-con-opciones">
-<h3>Ejercicios propiedades de las opciones y coberturas con opciones<a class="headerlink" href="#ejercicios-propiedades-de-las-opciones-y-coberturas-con-opciones" title="Permalink to this headline">¶</a></h3>
-<blockquote>
-<div><div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Ejercicios propiedades de las opciones y coberturas con opciones.html">Ejercicios propiedades de las opciones y coberturas con opciones</a></li>
-</ul>
 </div>
+<div class="section" id="estrategias-con-opciones">
+<h2>2. Estrategias con opciones<a class="headerlink" href="#estrategias-con-opciones" title="Permalink to this headline">¶</a></h2>
+<p>Estas estrategias consisten en portafolios de opciones. Los portafolios de opciones son la combinación de dos o más posiciones en las opciones.</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/28a9252a44d905b93ecbf6a0d96c68b4/9. Estrategias de negociación con opciones V3.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> las presentaciones.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Ver video: Estrategias con opciones</strong> — <a class="reference external" href="https://youtu.be/ZTbR8dk7Tig">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/5716357186712033fbd5241467e62279/Opciones Corficolombiana.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> Opciones de Corficolombiana.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Ver video: Opciones Corficolombiana</strong> — <a class="reference external" href="https://youtu.be/y-Smtws4EVs">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
 </div></blockquote>
 </div>
-</div>
 <div class="section" id="valoracion-de-opciones-por-el-metodo-de-simulacion-monte-carlo">
-<h2>2. Valoración de opciones por el método de Simulación Monte Carlo<a class="headerlink" href="#valoracion-de-opciones-por-el-metodo-de-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h2>
+<h2>3. Valoración de opciones por el método de Simulación Monte Carlo<a class="headerlink" href="#valoracion-de-opciones-por-el-metodo-de-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h2>
 <p>Este método de valoración sólo aplica para las opciones europeas. Se modela el precio del activo subyacente con el proceso estocástico de Movimiento Browniano Geométrico (MBG).</p>
 <div class="section" id="movimiento-browniano-geometrico-mbg">
-<h3>2.1. Movimiento Browniano Geométrico (MBG)<a class="headerlink" href="#movimiento-browniano-geometrico-mbg" title="Permalink to this headline">¶</a></h3>
+<h3>3.1. Movimiento Browniano Geométrico (MBG)<a class="headerlink" href="#movimiento-browniano-geometrico-mbg" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul>
 <li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/f442ee8ec17887a2efbe836960ebca42/Tres acciones.csv"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el archivo <code class="docutils literal notranslate"><span class="pre">Tres</span> <span class="pre">acciones.csv</span></code>.</p></li>
@@ -270,7 +283,7 @@
 </div></blockquote>
 </div>
 <div class="section" id="metodo-de-simulacion-monte-carlo-para-valorar-opciones-europeas">
-<h3>2.2. Método de Simulación Monte Carlo para valorar opciones europeas<a class="headerlink" href="#metodo-de-simulacion-monte-carlo-para-valorar-opciones-europeas" title="Permalink to this headline">¶</a></h3>
+<h3>3.2. Método de Simulación Monte Carlo para valorar opciones europeas<a class="headerlink" href="#metodo-de-simulacion-monte-carlo-para-valorar-opciones-europeas" title="Permalink to this headline">¶</a></h3>
 <p>El drift para valorar opciones debe ser la tasa libre de riesgo para activos sin ingresos o la devaluación implícita para divisas.</p>
 <blockquote>
 <div><ul class="simple">
@@ -293,7 +306,7 @@
 </div></blockquote>
 </div>
 <div class="section" id="simulacion-de-estrategias-de-cobertura-con-opciones">
-<h3>2.3. Simulación de estrategias de cobertura con opciones<a class="headerlink" href="#simulacion-de-estrategias-de-cobertura-con-opciones" title="Permalink to this headline">¶</a></h3>
+<h3>3.3. Simulación de estrategias de cobertura con opciones<a class="headerlink" href="#simulacion-de-estrategias-de-cobertura-con-opciones" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><div class="toctree-wrapper compound">
 <ul>
@@ -311,28 +324,19 @@
 </ul>
 </div></blockquote>
 </div>
+<div class="section" id="ejercicios-propiedades-coberturas-y-valoracion-de-opciones-por-smc">
+<h3>Ejercicios propiedades, coberturas y valoración de opciones por SMC<a class="headerlink" href="#ejercicios-propiedades-coberturas-y-valoracion-de-opciones-por-smc" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Ejercicios propiedades, coberturas y valoración de opciones por SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+</ul>
 </div>
-<div class="section" id="estrategias-con-opciones">
-<h2>3. Estrategias con opciones<a class="headerlink" href="#estrategias-con-opciones" title="Permalink to this headline">¶</a></h2>
-<p>Estas estrategias consisten en portafolios de opciones. Los portafolios de opciones son la combinación de dos o más posiciones en las opciones.</p>
-<blockquote>
-<div><ul>
-<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/28a9252a44d905b93ecbf6a0d96c68b4/9. Estrategias de negociación con opciones V3.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> las presentaciones.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><strong>Ver video: Estrategias con opciones</strong> — <a class="reference external" href="https://youtu.be/ZTbR8dk7Tig">aquí</a>.</p></li>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/080e5e0866f01bf496871b8a43f22543/TRM 2020 (ejercicios).csv"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el archivo <code class="docutils literal notranslate"><span class="pre">TRM</span> <span class="pre">2020</span> <span class="pre">(ejercicios).csv</span></code>.</p></li>
 </ul>
 </div></blockquote>
-</li>
-<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/5716357186712033fbd5241467e62279/Opciones Corficolombiana.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> Opciones de Corficolombiana.</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><strong>Ver video: Opciones Corficolombiana</strong> — <a class="reference external" href="https://youtu.be/y-Smtws4EVs">aquí</a>.</p></li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-</div></blockquote>
+</div>
 </div>
 <div class="section" id="valoracion-de-opciones-por-el-metodo-de-arboles-binomiales">
 <h2>4. Valoración de opciones por el método de Árboles Binomiales<a class="headerlink" href="#valoracion-de-opciones-por-el-metodo-de-arboles-binomiales" title="Permalink to this headline">¶</a></h2>
@@ -358,10 +362,20 @@
 <blockquote>
 <div><ul class="simple">
 <li><p><strong>Ver video: Black-Scholes</strong> — <a class="reference external" href="https://youtu.be/eRyn8HKOtzM">aquí</a>.</p></li>
+<li><p><strong>Ver video: The Midas Formula</strong> — <a class="reference external" href="https://www.dailymotion.com/video/x225si7">aquí</a>.</p></li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
+</div></blockquote>
+<div class="section" id="ejercicios-valoracion-de-opciones">
+<h3>Ejercicios valoración de opciones<a class="headerlink" href="#ejercicios-valoracion-de-opciones" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Ejercicios valoración de opciones.html">Ejercicios valoración de opciones</a></li>
+</ul>
+</div>
 </div></blockquote>
 <p><strong>Lecturas</strong></p>
 <dl class="footnote brackets">
@@ -428,6 +442,7 @@
 </dl>
 </div>
 </div>
+</div>
 
 
            </div>
@@ -439,7 +454,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Ejercicios propiedades de las opciones y coberturas con opciones.html" class="btn btn-neutral float-right" title="Ejercicios propiedades de las opciones y coberturas con opciones" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Valoración de opciones por el método de Simulación Monte Carlo/Valoración de opciones por el método de Simulación Monte Carlo.html" class="btn btn-neutral float-right" title="Valoración de opciones por el método de Simulación Monte Carlo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../Futuros/Ejercicios coberturas con Futuros.html" class="btn btn-neutral" title="Ejercicios coberturas con Futuros" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

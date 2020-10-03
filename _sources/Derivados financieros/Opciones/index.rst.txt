@@ -36,25 +36,32 @@ Se explicará la mecánica de las opciones financieras, las coberturas (aseguram
 
 
 
-Ejercicios propiedades de las opciones y coberturas con opciones
-------------------------------------------------------------------------------
-
-    .. toctree::
-            :maxdepth: 2
-            :titlesonly:
-
-
-            Ejercicios propiedades de las opciones y coberturas con opciones.rst
 
 
 
-2. Valoración de opciones por el método de Simulación Monte Carlo
+2. Estrategias con opciones
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Estas estrategias consisten en portafolios de opciones. Los portafolios de opciones son la combinación de dos o más posiciones en las opciones.
+
+
+    * **Descargue** :download:`aquí <9. Estrategias de negociación con opciones V3.pdf>` las presentaciones.
+
+        * **Ver video: Estrategias con opciones** --- `aquí <https://youtu.be/ZTbR8dk7Tig>`_.
+
+    * **Descargue** :download:`aquí <Opciones Corficolombiana.pdf>` Opciones de Corficolombiana.
+
+        * **Ver video: Opciones Corficolombiana** --- `aquí <https://youtu.be/y-Smtws4EVs>`_.
+
+
+
+3. Valoración de opciones por el método de Simulación Monte Carlo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Este método de valoración sólo aplica para las opciones europeas. Se modela el precio del activo subyacente con el proceso estocástico de Movimiento Browniano Geométrico (MBG).
 
 
-2.1. Movimiento Browniano Geométrico (MBG)
+3.1. Movimiento Browniano Geométrico (MBG)
 ---------------------------------------
 
     * **Descargue** :download:`aquí <../../Riesgo de mercado/VaR SM/Tres acciones.csv>` el archivo ``Tres acciones.csv``.
@@ -90,7 +97,7 @@ Este método de valoración sólo aplica para las opciones europeas. Se modela e
         * **Ver video 3** --- `aquí <https://youtu.be/uljKsFMHTV4>`_.
 
 
-2.2. Método de Simulación Monte Carlo para valorar opciones europeas
+3.2. Método de Simulación Monte Carlo para valorar opciones europeas
 ------------------------------------------------------------------------------
 
 El drift para valorar opciones debe ser la tasa libre de riesgo para activos sin ingresos o la devaluación implícita para divisas.
@@ -114,7 +121,7 @@ El drift para valorar opciones debe ser la tasa libre de riesgo para activos sin
 
 
 
-2.3. Simulación de estrategias de cobertura con opciones
+3.3. Simulación de estrategias de cobertura con opciones
 ------------------------------------------------------------------------------
 
 
@@ -131,20 +138,19 @@ El drift para valorar opciones debe ser la tasa libre de riesgo para activos sin
         * **Ver video:** --- `aquí <https://youtu.be/8U6brTCjreI>`_.
 
 
-3. Estrategias con opciones
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Estas estrategias consisten en portafolios de opciones. Los portafolios de opciones son la combinación de dos o más posiciones en las opciones.
+Ejercicios propiedades, coberturas y valoración de opciones por SMC
+------------------------------------------------------------------------------
+
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
 
 
-    * **Descargue** :download:`aquí <9. Estrategias de negociación con opciones V3.pdf>` las presentaciones.
+            Ejercicios propiedades, coberturas y valoración de opciones por SMC.rst
 
-        * **Ver video: Estrategias con opciones** --- `aquí <https://youtu.be/ZTbR8dk7Tig>`_.
 
-    * **Descargue** :download:`aquí <Opciones Corficolombiana.pdf>` Opciones de Corficolombiana.
-
-        * **Ver video: Opciones Corficolombiana** --- `aquí <https://youtu.be/y-Smtws4EVs>`_.
-
+    * **Descargue** :download:`aquí <TRM 2020 (ejercicios).csv>` el archivo ``TRM 2020 (ejercicios).csv``.
 
 
 4. Valoración de opciones por el método de Árboles Binomiales
@@ -167,6 +173,20 @@ Este método de valoración de opciones aplica sólo para opciones europeas.
     * **Descargue** :download:`aquí <11. Modelo Black – Scholes V4.pdf>` las presentaciones.
 
         * **Ver video: Black-Scholes** --- `aquí <https://youtu.be/eRyn8HKOtzM>`_.
+
+        * **Ver video: The Midas Formula** --- `aquí <https://www.dailymotion.com/video/x225si7>`_.
+
+
+
+Ejercicios valoración de opciones
+------------------------------------------------------------------------------
+
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+
+
+            Ejercicios valoración de opciones.rst
 
 
 
