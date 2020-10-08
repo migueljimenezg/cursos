@@ -105,7 +105,7 @@ Si al finalizar la cobertura el precio de los Futuros sobre la acción X caen a 
 
 **Compensación = $607.620.**
 
-**Valor cuenta de margen al final = $5.542.380.**
+**Valor cuenta de margen al final = $1.347.834.**
 
 
 4.	Suponga que usted desea cubrir una compra planeada de 20.000 barriles de petróleo crudo liviano. La compra se llevará a cabo dentro de 5 meses. Usted ha estimado el siguiente modelo de regresión: :math:`\Delta S=0,003+1,109\Delta F` en donde :math:`\Delta S` es el cambio en el precio del petróleo del grado que usted desea comprar y :math:`\Delta F` es el cambio en el precio del Futuro de petróleo crudo WTI (tamaño 1.000 barriles por contrato). 

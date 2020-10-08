@@ -49,6 +49,8 @@ Estas estrategias consisten en portafolios de opciones. Los portafolios de opcio
 
         * **Ver video: Estrategias con opciones** --- `aquí <https://youtu.be/ZTbR8dk7Tig>`_.
 
+        * **Descargue** :download:`aquí <Estrategias de negociación con opciones V2.xlsx>` archivo de Excel.
+
     * **Descargue** :download:`aquí <Opciones Corficolombiana.pdf>` Opciones de Corficolombiana.
 
         * **Ver video: Opciones Corficolombiana** --- `aquí <https://youtu.be/y-Smtws4EVs>`_.
