@@ -48,7 +48,7 @@ Futuros BVC
 
         * **Futuros sobre acciones ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_Acciones?action=dummy>`_.
 
-        * **Futuros COLCAP ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_COLCAP?action=dummy>`_.
+        * **Futuros sobre el índice COLCAP (Futuros COLCAP reemplazados por Futuros COS) ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_COLCAP?action=dummy>`_.
 
         * **Futuros TES ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_TES?action=dummy>`_.
 

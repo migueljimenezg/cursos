@@ -11,3 +11,4 @@ Regresión lineal
         Regresión polinómica simple/Regresión polinómica simple
 	Regresión lineal múltiple/Regresión lineal múltiple
 	Regresión polinómica múltiple/Regresión polinómica múltiple
+        Regresión_lineal_múltiple_con_escalamiento_variables
