@@ -22,7 +22,7 @@ Suponga la siguiente estructura de tasas de interés:
 
 **Respuesta:**
 
-S = 0,074% trimestral.
+S = 0,74% trimestral.
 
 S = 2,962% nominal.
 
@@ -210,6 +210,6 @@ descuento y en las tasas FRA y una base de 360.
 
 **Respuesta:**
 
-S = 0,8619% trimestral.
+S = 0,8619% trimestral
 
 S = 3,4476% nominal.
