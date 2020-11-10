@@ -287,8 +287,8 @@ Prueba de Kupiec VaR Simulación Monte Carlo (NC = 95% y H = 250)
 VaR Simulación Monte Carlo se acepta para las acciones ECO e ISA y se
 rechaza para PFBCOLOM.**
 
-Rendimientos mensuales simulados para Backtesting del portafolio (NC = 95% y H = 250)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Rendimientos diarios simulados para Backtesting del portafolio (NC = 95% y H = 250)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: r
 
@@ -766,8 +766,8 @@ Prueba de Kupiec VaR Simulación Monte Carlo (NC = 99% y H = 500)
 VaR Simulación Monte Carlo se acepta para las acciones ECO e ISA y se
 rechaza para PFBCOLOM.**
 
-Rendimientos mensuales simulados para Backtesting del portafolio (NC = 99% y H = 500)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Rendimientos diarios simulados para Backtesting del portafolio (NC = 99% y H = 500)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: r
 
