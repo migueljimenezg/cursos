@@ -114,8 +114,8 @@ Para la simulación utilice el siguiente valor semilla ``set.seed(1)`` .
 
 **Respuesta:**
 
-**Call: $ 126.934974452858.**
+**Call: $ 126.056384838074.**
 
-**Put: $ 98.9143205975464.**
+**Put: $ 98.22669363277.**
 
 
