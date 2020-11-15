@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ejercicios: valoración de bonos BVC &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="VaR bonos" href="../index.html"/>
+        <link rel="next" title="Mercado financiero" href="../../../Portafolios de inversión2/Mercado financiero/index.html"/>
+        <link rel="prev" title="VaR Bonos" href="../VaR bonos/VaR Bonos.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VaR bonos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Duración y Duración Modificada/Duración y duración modificada en bonos.html">Duración y duración modificada en bonos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VaR bonos/VaR Bonos.html">VaR Bonos</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ejercicios: valoración de bonos BVC</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En contrucción:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine Learning/index.html">Regresión lineal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VaR bonos</a> &raquo;</li>
+        
+      <li>Ejercicios: valoración de bonos BVC</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Riesgo de mercado/VaR bonos/Ejercicios - VaR bonos/Ejercicios - valoración de bonos BVC.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ejercicios-valoracion-de-bonos-bvc">
+<h1>Ejercicios: valoración de bonos BVC<a class="headerlink" href="#ejercicios-valoracion-de-bonos-bvc" title="Permalink to this headline">¶</a></h1>
+<p>Realice el procedimiento para resolver las siguientes preguntas.</p>
+<p>Para el procedimiento utilice una base de 365 días.</p>
+<div class="section" id="para-el-siguiente-tes-de-la-bvc-calcule-lo-siguiente">
+<h2>1. Para el siguiente TES de la BVC calcule lo siguiente:<a class="headerlink" href="#para-el-siguiente-tes-de-la-bvc-calcule-lo-siguiente" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id3">
+<img alt="1" src="../../../_images/Bono2025-21.jpg" />
+<p class="caption"><span class="caption-text">1</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id4">
+<img alt="2" src="../../../_images/Bono20251.jpg" />
+<p class="caption"><span class="caption-text">2</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="cuantos-dias-falta-para-el-siguiente-cupon">
+<h2>1.1. ¿Cuántos días falta para el siguiente cupón?<a class="headerlink" href="#cuantos-dias-falta-para-el-siguiente-cupon" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>199 días.</p>
+</div>
+<div class="section" id="cual-es-el-precio-sucio-del-tes-realice-el-procedimientos-descontando-cada-flujo-de-caja">
+<h2>1.2. ¿Cuál es el precio sucio del TES? Realice el procedimientos descontando cada flujo de caja.<a class="headerlink" href="#cual-es-el-precio-sucio-del-tes-realice-el-procedimientos-descontando-cada-flujo-de-caja" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>107,557</p>
+</div>
+<div class="section" id="cual-es-el-precio-limpio-del-tes-realice-el-procedimiento-con-la-formula-precio-de-excel">
+<h2>1.4. ¿Cuál es el precio limpio del TES? Realice el procedimiento con la fórmula PRECIO de Excel.<a class="headerlink" href="#cual-es-el-precio-limpio-del-tes-realice-el-procedimiento-con-la-formula-precio-de-excel" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>104,713</p>
+</div>
+<div class="section" id="cuantos-dias-han-transcurrido-desde-el-pago-del-ultimo-cupon">
+<h2>1.5. ¿Cuántos días han transcurrido desde el pago del último cupón?<a class="headerlink" href="#cuantos-dias-han-transcurrido-desde-el-pago-del-ultimo-cupon" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>166 días.</p>
+</div>
+<div class="section" id="cual-es-el-valor-del-cupon-corrido">
+<h2>1.6. ¿Cuál es el valor del cupón corrido?<a class="headerlink" href="#cual-es-el-valor-del-cupon-corrido" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>2,84.</p>
+</div>
+<div class="section" id="cual-es-la-duracion-del-tes">
+<h2>1.7. ¿Cuál es la duración del TES?<a class="headerlink" href="#cual-es-la-duracion-del-tes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>4,752 años.</p>
+</div>
+<div class="section" id="cual-es-la-duracion-del-tes-utilice-la-formula-duracion-de-excel">
+<h2>1.8. ¿Cuál es la duración del TES? Utilice la fórmula DURACIÓN de Excel.<a class="headerlink" href="#cual-es-la-duracion-del-tes-utilice-la-formula-duracion-de-excel" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>4,750 años.</p>
+</div>
+<div class="section" id="cual-es-la-duracion-modificada-del-tes">
+<h2>1.9 ¿Cuál es la Duración Modificada del TES?<a class="headerlink" href="#cual-es-la-duracion-modificada-del-tes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>4,515</p>
+</div>
+<div class="section" id="cual-es-la-duracion-modificada-del-tes-utilice-la-formula-duracion-modif-de-excel">
+<h2>1.10 ¿Cuál es la Duración Modificada del TES? Utilice la fórmula DURACION.MODIF de Excel.<a class="headerlink" href="#cual-es-la-duracion-modificada-del-tes-utilice-la-formula-duracion-modif-de-excel" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>4,514</p>
+</div>
+<div class="section" id="con-el-archivo-tfit08261125-csv-que-contiene-el-historico-del-rendimiento-del-tes-realice-el-procedimiento-con-codigo-de-r-para-responder-las-siguientes-preguntas">
+<h2>2. Con el archivo TFIT08261125.csv que contiene el histórico del rendimiento del TES, realice el procedimiento con código de R para responder las siguientes preguntas:<a class="headerlink" href="#con-el-archivo-tfit08261125-csv-que-contiene-el-historico-del-rendimiento-del-tes-realice-el-procedimiento-con-codigo-de-r-para-responder-las-siguientes-preguntas" title="Permalink to this headline">¶</a></h2>
+<p>El precio sucio del TES es de 107,557 y la cantidad de negociación fue
+de cinco mil millones de pesos.</p>
+</div>
+<div class="section" id="cual-es-la-volatilidad-diaria-del-tes">
+<h2>2.1. ¿Cuál es la volatilidad diaria del TES?<a class="headerlink" href="#cual-es-la-volatilidad-diaria-del-tes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>0,1486651700296%.</p>
+</div>
+<div class="section" id="id1">
+<h2>2.2. ¿Cuál es la Duración del TES?<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>4,75023673480455</p>
+</div>
+<div class="section" id="id2">
+<h2>2.3. ¿Cuál es la Duración Modificada del TES?<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>4,51371791600585</p>
+</div>
+<div class="section" id="cual-es-el-var-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-95-en-terminos-porcentuales">
+<h2>2.4. ¿Cuál es el VaR paramétrico diario del TES con un nivel de confianza del 95% en términos porcentuales?<a class="headerlink" href="#cual-es-el-var-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-95-en-terminos-porcentuales" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>1,18716089741661%</p>
+</div>
+<div class="section" id="cual-es-el-var-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-95-en-terminos-monetarios">
+<h2>2.5. ¿Cuál es el VaR paramétrico diario del TES con un nivel de confianza del 95% en términos monetarios?<a class="headerlink" href="#cual-es-el-var-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-95-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>$59.358.044,8708306</p>
+</div>
+<div class="section" id="cual-es-el-var-no-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-95-en-terminos-porcentuales">
+<h2>2.6. ¿Cuál es el VaR no paramétrico diario del TES con un nivel de confianza del 95% en términos porcentuales?<a class="headerlink" href="#cual-es-el-var-no-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-95-en-terminos-porcentuales" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>0,446643401260493%</p>
+</div>
+<div class="section" id="cual-es-el-var-no-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-95-en-terminos-monetarios">
+<h2>2.7. ¿Cuál es el VaR no paramétrico diario del TES con un nivel de confianza del 95% en términos monetarios?<a class="headerlink" href="#cual-es-el-var-no-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-95-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>$22.332.170,0630246</p>
+</div>
+<div class="section" id="cual-es-el-var-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-99-en-terminos-monetarios">
+<h2>2.8. ¿Cuál es el VaR paramétrico diario del TES con un nivel de confianza del 99% en términos monetarios?<a class="headerlink" href="#cual-es-el-var-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-99-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>$83.951.215,6157052</p>
+</div>
+<div class="section" id="cual-es-el-var-no-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-99-en-terminos-monetarios">
+<h2>2.9. ¿Cuál es el VaR no paramétrico diario del TES con un nivel de confianza del 99% en términos monetarios?<a class="headerlink" href="#cual-es-el-var-no-parametrico-diario-del-tes-con-un-nivel-de-confianza-del-99-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>$107.291.512,694097</p>
+</div>
+<div class="section" id="cual-es-el-var-parametrico-para-10-dia-del-tes-con-un-nivel-de-confianza-del-99-en-terminos-monetarios">
+<h2>2.10. ¿Cuál es el VaR paramétrico para 10 día del TES con un nivel de confianza del 99% en términos monetarios?<a class="headerlink" href="#cual-es-el-var-parametrico-para-10-dia-del-tes-con-un-nivel-de-confianza-del-99-en-terminos-monetarios" title="Permalink to this headline">¶</a></h2>
+<p><strong>Respuesta:</strong></p>
+<p>$265.477.053,685523</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../Portafolios de inversión2/Mercado financiero/index.html" class="btn btn-neutral float-right" title="Mercado financiero" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../VaR bonos/VaR Bonos.html" class="btn btn-neutral" title="VaR Bonos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

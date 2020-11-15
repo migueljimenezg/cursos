@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Futuros &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../index.html"/>
+        <link rel="next" title="Ejercicios operaciones con Futuros BVC" href="Ejercicios operaciones con Futuros BVC.html"/>
+        <link rel="prev" title="Ejercicios swap" href="../Swap/Ejercicios swap.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Swap/index.html">Swap</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Futuros</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Ejercicios operaciones con Futuros BVC.html">Ejercicios operaciones con Futuros BVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ejercicios coberturas con Futuros.html">Ejercicios coberturas con Futuros</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En contrucción:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Machine Learning/index.html">Regresión lineal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Futuros</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Derivados financieros/Futuros/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="futuros">
+<h1>Futuros<a class="headerlink" href="#futuros" title="Permalink to this headline">¶</a></h1>
+<p>Los Futuros financieros son contratos derivados estandarizados por las bolsas de valores. Cada bolsa de valores estandariza estos contratos indicando el tipo de activo subyacente (divisa, acciones, materias primas, tasas de interés, energía, índices, etc), la cantidad de subyacente por cada contrato (Q), método de liquidación (financiera o con entrega), fecha de vencimiento (mes y día), entre otros. Las Cámaras de Riesgo de Contraparte indican las garantías para cada contrato Futuros. Con estas garantías se elimina el riesgo de contraparte, de esta manera, la Cámara se convierte en la contraparte de cada una de las partes.</p>
+<p>En esta sección se explicará la estandarización de los Futuros, se mostrarán algunos ejemplos de operaciones con Futuros y la forma de realizar coberturas con estos derivados: coberturas directas, coberturas cruzadas y coberturas para portafolios de inversión.</p>
+<div class="section" id="introduccion-a-los-futuros">
+<h2>1. Introducción a los Futuros<a class="headerlink" href="#introduccion-a-los-futuros" title="Permalink to this headline">¶</a></h2>
+<p>Se explicará la estandarización de los Futuros de la Bolsa de Valores de Colombia, las fórmulas de las compensaciones, algunos Futuros del CME y Cuenta de Margen.</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/d3d669e5f917d4b82b9e2e6ca3bb3969/5. Futuros V11.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> las presentaciones.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Ver video: Concepto Futuros</strong> — <a class="reference external" href="https://youtu.be/feDNUZRoVIU">aquí</a>.</p></li>
+<li><p><strong>Ver video: Estandarización de los Futuros BVC parte 1</strong> — <a class="reference external" href="https://youtu.be/Q4uV4zC6c5Q">aquí</a>.</p></li>
+<li><p><strong>Ver video: Estandarización de los Futuros BVC parte 2</strong> — <a class="reference external" href="https://youtu.be/E08iKFxX9l8">aquí</a>.</p></li>
+<li><p><strong>Ver video: Compensaciones en Futuros</strong> — <a class="reference external" href="https://youtu.be/ZJvbpHMTsFo">aquí</a>.</p></li>
+<li><p><strong>Ver video: Ejemplos Futuros sobre tasas</strong> — <a class="reference external" href="https://youtu.be/egFTSohhP5M">aquí</a>.</p></li>
+<li><p><strong>Ver video: Cuenta de Margen</strong> — <a class="reference external" href="https://youtu.be/3N36hZyhLas">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Ejercicios operaciones con Futuros BVC.html">Ejercicios operaciones con Futuros BVC</a></li>
+</ul>
+</div>
+</div></blockquote>
+<div class="section" id="futuros-bvc">
+<h3>Futuros BVC<a class="headerlink" href="#futuros-bvc" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p><strong>Futuros TRM - TRS —&gt; BVC</strong> — <a class="reference external" href="https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_TRM?action=dummy">aquí</a>.</p></li>
+<li><p><strong>Futuros sobre acciones —&gt; BVC</strong> — <a class="reference external" href="https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_Acciones?action=dummy">aquí</a>.</p></li>
+<li><p><strong>Futuros sobre el índice COLCAP (Futuros COLCAP reemplazados por Futuros COS) —&gt; BVC</strong> — <a class="reference external" href="https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_COLCAP?action=dummy">aquí</a>.</p></li>
+<li><p><strong>Futuros TES —&gt; BVC</strong> — <a class="reference external" href="https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_TES?action=dummy">aquí</a>.</p></li>
+<li><p><strong>Garantías actualizadas (2020) —&gt; BVC.</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/05936f79a1e2cc18704a6b7f2caf57f1/Garantías BVC-17-09-2020.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el documento de la CRCC.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Haircuts para garantías (2020) —&gt; BVC.</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/bd552fd529bbd881b7f9e8f0f294aa1b/Haircut para garantías (2020).pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el documento de la CRCC.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="coberturas-con-futuros">
+<h2>2. Coberturas con Futuros<a class="headerlink" href="#coberturas-con-futuros" title="Permalink to this headline">¶</a></h2>
+<p>Se explicarán las coberturas con los Futuros:</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p><strong>Cobertura directa:</strong> cuando el activo subyacente del Futuro es el mismo que el activo a cubrir.</p></li>
+<li><p><strong>Cobertura cruzada:</strong> cuando el activo subyacente del Futuro no es el mismo que el activo a cubrir.</p></li>
+<li><p><strong>Cobertura para portafolios de inversión:</strong> es también una cobertura cruzada donde se usan los Futuros sobre índices bursátiles para cubrir las inversiones en portafolios de inversión.</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/93cbfccffe1f954804980e45fd46dfb4/6. Coberturas con futuros V6.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> las presentaciones.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Ver video: Cobertura en Corto Futuros</strong> — <a class="reference external" href="https://youtu.be/vQoV38GWGFE">aquí</a>.</p></li>
+<li><p><strong>Ver video: Cobertura en Largo Futuros</strong> — <a class="reference external" href="https://youtu.be/CvWMiTKSPaQ">aquí</a>.</p></li>
+<li><p><strong>Ver video: Riesgo de base</strong> — <a class="reference external" href="https://youtu.be/BzMKq36MDYk">aquí</a>.</p></li>
+<li><p><strong>Ver video: Resumen riesgo de base</strong> — <a class="reference external" href="https://youtu.be/lbGXkqGwVjM">aquí</a>.</p></li>
+<li><p><strong>Ver video: Cobertura cruzada</strong> — <a class="reference external" href="https://youtu.be/PH_znbCWrOU">aquí</a>.</p></li>
+<li><p><strong>Ver video: Coberturas portafolios de inversión</strong> — <a class="reference external" href="https://youtu.be/6bNHtK2QCaA">aquí</a>.</p></li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/b4915690aed3f14c03901dbc1bbeb01a/ninjatrader_futures_contract_details.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> márgenes de NinjaTrader.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Ejercicios coberturas con Futuros.html">Ejercicios coberturas con Futuros</a></li>
+</ul>
+</div>
+</div></blockquote>
+<div class="section" id="ejemplos-en-excel">
+<h3>Ejemplos en Excel<a class="headerlink" href="#ejemplos-en-excel" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p><strong>Ejemplos operaciones con Futuros:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/49ae94e0927fac79f1bb57e5d9a68a34/1. Ejemplos operaciones con Futuros.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el archivo de Excel.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Coberturas con Futuros:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/6038d644f51b8af36e528d6ce0f7621a/2. Coberturas con Futuros.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el archivo de Excel.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Cuentas de Margen:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/e4b6f84e3db730360c0cc4cfef27c19f/3. Cuenta de Margen Futuros BVC y CME.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el archivo de Excel.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Ejemplos Futuros:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/ef53dc13db68577613938f9375b79ee6/4. Ejemplos Futuros.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el archivo de Excel.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>Lecturas</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets">1</span></dt>
+<dd><p><strong>Capítulo 6:</strong> Guía de estudio AMV: Derivados Financieros.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/9f439165e345e7cba530e9f275b67105/Cap.6. Negociación-AMV.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el capítulo.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f2"><span class="brackets">2</span></dt>
+<dd><p><strong>BVC: Futuros de Tasa de Cambio.</strong></p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/f871d64671145173367eaa8048b2ef36/Descripción específica sobre propósito Futuros TRM.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el documento.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f3"><span class="brackets">3</span></dt>
+<dd><p><strong>BVC: Futuros de TRM.</strong></p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/0d1f7ea52a4a4528a39a1312386131c4/Futuro_TRM BVC.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el documento.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f4"><span class="brackets">4</span></dt>
+<dd><p><strong>BVC: Futuros sobre acciones.</strong></p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/f0e55df0112ff962e5de611caf2837f0/Futuros estandarizados sobre acciones.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el documento.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f5"><span class="brackets">5</span></dt>
+<dd><p><strong>BVC: Futuros de TES.</strong></p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/4c8792cb8499448bcfd56bb6b3735651/Futuros de TES.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el documento.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f6"><span class="brackets">6</span></dt>
+<dd><p><strong>Capítulo 2: Mecánica de los Mercados de Futuros.</strong> Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/26ab504b76f05f61a7bdc55aec37d81c/Cap. 2. Futuros-Hull.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el capítulo.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f7"><span class="brackets">7</span></dt>
+<dd><p><strong>Capítulo 3: Estrategias de cobertura con contratos de futuros.</strong> Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/6b736f5fb78502c19b1ddc39f51dbb36/Cap. 3. Coberturas futuros-Hull.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el capítulo.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Ejercicios operaciones con Futuros BVC.html" class="btn btn-neutral float-right" title="Ejercicios operaciones con Futuros BVC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Swap/Ejercicios swap.html" class="btn btn-neutral" title="Ejercicios swap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

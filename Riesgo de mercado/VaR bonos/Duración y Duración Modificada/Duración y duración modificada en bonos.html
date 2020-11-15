@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Duración y duración modificada en bonos &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="VaR bonos" href="../index.html"/>
+        <link rel="next" title="VaR Bonos" href="../VaR bonos/VaR Bonos.html"/>
+        <link rel="prev" title="VaR bonos" href="../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VaR bonos</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Duración y duración modificada en bonos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VaR bonos/VaR Bonos.html">VaR Bonos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicios - VaR bonos/Ejercicios - valoración de bonos BVC.html">Ejercicios: valoración de bonos BVC</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En contrucción:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine Learning/index.html">Regresión lineal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VaR bonos</a> &raquo;</li>
+        
+      <li>Duración y duración modificada en bonos</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Riesgo de mercado/VaR bonos/Duración y Duración Modificada/Duración y duración modificada en bonos.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="duracion-y-duracion-modificada-en-bonos">
+<h1>Duración y duración modificada en bonos<a class="headerlink" href="#duracion-y-duracion-modificada-en-bonos" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="duracion">
+<h2>Duración<a class="headerlink" href="#duracion" title="Permalink to this headline">¶</a></h2>
+<p>Resume todos los factores que afectan la sensibilidad del precio del
+bono a los cambios en las tasas de interés.</p>
+<p>Calcula el valor actual de cada uno de los flujos de efectivo y pondera
+cada uno por el tiempo hasta que se reciba. Todos estos flujos de
+efectivo ponderados se suman y la suma se divide entre el precio actual
+del bono.</p>
+<p>Los bonos con duraciones más altas son muy sensibles a los cambios en
+las tasas de interés.</p>
+<p>Depende de tres variables:</p>
+<ol class="arabic simple">
+<li><p>Tiempo hasta el vencimiento.</p></li>
+<li><p>Tasa cupón.</p></li>
+<li><p>Rendimiento.</p></li>
+</ol>
+<div class="figure align-default" id="id5">
+<img alt="1" src="../../../_images/FormulaDuracion.jpg" />
+<p class="caption"><span class="caption-text">1</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>También tiene el nombre de Duración de Macaulay.</p>
+<p><span class="math notranslate nohighlight">\(P:\)</span> Precio del bono.</p>
+<p><span class="math notranslate nohighlight">\(C_t:\)</span> Flujo de efectivo proveniente del bono que ocurre en el
+momento <span class="math notranslate nohighlight">\(t\)</span> (Cupón).</p>
+<p><span class="math notranslate nohighlight">\(TIR:\)</span> Rendimiento.</p>
+<p><span class="math notranslate nohighlight">\(t:\)</span> Tiempo medido desde el presente hasta que se haga un pago.</p>
+</div>
+<div class="section" id="duracion-modificada">
+<h2>Duración Modificada<a class="headerlink" href="#duracion-modificada" title="Permalink to this headline">¶</a></h2>
+<p>Mide la sensibilidad del precio del bono con respecto a los cambios en
+el rendimiento, es decir, mide la sensibilidad de este tipo de activo
+financiero ante las variaciones de los tipos de interés.</p>
+<p>A diferencia de la duración de Macaulay, que se mide en años, la
+Duración Modificada es un porcentaje que indica la variación que se
+produce en el precio de mercado de un activo financiero por cada punto
+de variación en los tipos de interés.</p>
+<div class="figure align-default" id="id6">
+<img alt="2" src="../../../_images/FormulaDuracionM.jpg" />
+<p class="caption"><span class="caption-text">2</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p><span class="math notranslate nohighlight">\(∆P:\)</span> Variación en el precio del bono.</p>
+<p><span class="math notranslate nohighlight">\(D:\)</span> Duración.</p>
+<p><span class="math notranslate nohighlight">\(∆:\)</span> Cambio en la tasa de interés.</p>
+<p><span class="math notranslate nohighlight">\(TIR:\)</span> Rendimiento.</p>
+<p><span class="math notranslate nohighlight">\(P:\)</span> Precio del bono.</p>
+<p>Instalar el paquete <code class="docutils literal notranslate"><span class="pre">jrvFinance</span></code> con el siguiente código:
+<code class="docutils literal notranslate"><span class="pre">install.packages(&quot;jrvFinance&quot;)</span></code></p>
+<p>Despúes llamar la librería con el siguiente código:
+<code class="docutils literal notranslate"><span class="pre">library(jrvFinance)</span></code></p>
+<p>Se utiliza la función <code class="docutils literal notranslate"><span class="pre">bond.durations()</span></code> con la siguiente información:</p>
+<p><code class="docutils literal notranslate"><span class="pre">settle</span></code>: día de liquidación.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mature</span></code>: día de vencimiento.</p>
+<p><code class="docutils literal notranslate"><span class="pre">coupon</span></code>: tasa cupón en decimales.</p>
+<p><code class="docutils literal notranslate"><span class="pre">freq</span></code>: <code class="docutils literal notranslate"><span class="pre">1</span></code> si el bono un cupón al año, <code class="docutils literal notranslate"><span class="pre">2</span></code> si paga dos veces,
+hasta <code class="docutils literal notranslate"><span class="pre">12</span></code> veces.</p>
+<p><code class="docutils literal notranslate"><span class="pre">yield</span></code>: rendimiento del bono en decimales.</p>
+<p><code class="docutils literal notranslate"><span class="pre">convention</span></code>: <code class="docutils literal notranslate"><span class="pre">&quot;ACT/ACT&quot;</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">modified</span></code>: <code class="docutils literal notranslate"><span class="pre">F</span></code> para calcular duración o <code class="docutils literal notranslate"><span class="pre">T</span></code> para calcular
+duración modificada.</p>
+<p><code class="docutils literal notranslate"><span class="pre">redemption_value</span></code>: <code class="docutils literal notranslate"><span class="pre">100</span></code> para bonos con nominal de 100.</p>
+<p><code class="docutils literal notranslate"><span class="pre">bond.durations(settle,</span> <span class="pre">mature,</span> <span class="pre">coupon,</span> <span class="pre">freq,</span> <span class="pre">yield,</span> <span class="pre">convention,</span> <span class="pre">modified,</span> <span class="pre">redemption_value)</span></code></p>
+</div>
+<div class="section" id="ejemplo-1-bono">
+<h2>Ejemplo 1: Bono<a class="headerlink" href="#ejemplo-1-bono" title="Permalink to this headline">¶</a></h2>
+<p><strong>Referencia:</strong>
+<a class="reference external" href="https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/enlinea/rentafija?com.tibco.ps.pagesvc.renderParams.sub5d9e2b27_11de9ed172b_-73dc7f000001=action%3DdetalleView%26org.springframework.web.portlet.mvc.ImplicitModel%3Dtrue%26">TFIT10040522</a></p>
+<p><strong>Precio sucio:</strong> 109,435 (Este valor no es necesario tenerlo en cuenta
+en el código, porque se calcula automáticamente con los siguientes
+datos).</p>
+<p><strong>Rendimiento:</strong> 5,4%.</p>
+<p><strong>Nominal:</strong> 100.</p>
+<p><strong>Tasa cupón:</strong> 7%.</p>
+<p><strong>Frecuencia cupón:</strong> Anual.</p>
+<p><strong>Día de liquidación:</strong> 2020-04-01.</p>
+<p><strong>Día de vencimiento:</strong> 2022-05-04.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">jrvFinance</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">Warning</span> <span class="n">message</span><span class="p">:</span>
+<span class="s2">&quot;package &#39;jrvFinance&#39; was built under R version 3.6.3&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Duración<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">duracion</span> <span class="o">=</span> <span class="nf">bond.durations</span><span class="p">(</span><span class="n">settle</span> <span class="o">=</span> <span class="s">&quot;2020-04-01&quot;</span><span class="p">,</span> <span class="n">mature</span> <span class="o">=</span> <span class="s">&quot;2022-05-04&quot;</span><span class="p">,</span> <span class="n">coupon</span> <span class="o">=</span> <span class="m">0.07</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">yield</span> <span class="o">=</span> <span class="m">0.054</span><span class="p">,</span> <span class="n">convention</span> <span class="o">=</span> <span class="s">&quot;ACT/ACT&quot;</span><span class="p">,</span> <span class="n">modified</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">redemption_value</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>
+<span class="n">duracion</span>
+</pre></div>
+</div>
+1.90244395260519</div>
+<div class="section" id="id2">
+<h2>Duración modificada<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">duracion_modificada</span> <span class="o">=</span> <span class="nf">bond.durations</span><span class="p">(</span><span class="n">settle</span> <span class="o">=</span> <span class="s">&quot;2020-04-01&quot;</span><span class="p">,</span> <span class="n">mature</span> <span class="o">=</span> <span class="s">&quot;2022-05-04&quot;</span><span class="p">,</span> <span class="n">coupon</span> <span class="o">=</span> <span class="m">0.07</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">yield</span> <span class="o">=</span> <span class="m">0.0534</span><span class="p">,</span> <span class="n">convention</span> <span class="o">=</span> <span class="s">&quot;ACT/ACT&quot;</span><span class="p">,</span> <span class="n">modified</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">redemption_value</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>
+<span class="n">duracion_modificada</span>
+</pre></div>
+</div>
+1.80615455897856</div>
+<div class="section" id="ejemplo-2-bono">
+<h2>Ejemplo 2: Bono<a class="headerlink" href="#ejemplo-2-bono" title="Permalink to this headline">¶</a></h2>
+<p><strong>Referencia:</strong>
+<a class="reference external" href="https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/enlinea/rentafija?com.tibco.ps.pagesvc.renderParams.sub5d9e2b27_11de9ed172b_-73dc7f000001=action%3DdetalleView%26org.springframework.web.portlet.mvc.ImplicitModel%3Dtrue%26">TFIT16280428</a></p>
+<p><strong>Precio sucio:</strong> 98,381 (Este valor no es necesario tenerlo en cuenta
+en el código, porque se calcula automáticamente con los siguientes
+datos).</p>
+<p><strong>Rendimiento:</strong> 7,2%.</p>
+<p><strong>Nominal:</strong> 100.</p>
+<p><strong>Tasa cupón:</strong> 6%.</p>
+<p><strong>Frecuencia cupón:</strong> Anual.</p>
+<p><strong>Día de liquidación:</strong> 2020-04-01.</p>
+<p><strong>Día de vencimiento:</strong> 2028-04-28.</p>
+</div>
+<div class="section" id="id3">
+<h2>Duración<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">duracion</span> <span class="o">=</span> <span class="nf">bond.durations</span><span class="p">(</span><span class="n">settle</span> <span class="o">=</span> <span class="s">&quot;2020-04-01&quot;</span><span class="p">,</span> <span class="n">mature</span> <span class="o">=</span> <span class="s">&quot;2028-04-28&quot;</span><span class="p">,</span> <span class="n">coupon</span> <span class="o">=</span> <span class="m">0.06</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span><span class="n">yield</span> <span class="o">=</span> <span class="m">0.072</span><span class="p">,</span> <span class="n">convention</span> <span class="o">=</span> <span class="s">&quot;ACT/ACT&quot;</span><span class="p">,</span> <span class="n">modified</span> <span class="o">=</span> <span class="bp">F</span><span class="p">,</span> <span class="n">redemption_value</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>
+<span class="n">duracion</span>
+</pre></div>
+</div>
+6.1995550793882</div>
+<div class="section" id="id4">
+<h2>Duración modificada<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">duracion_modificada</span> <span class="o">=</span> <span class="nf">bond.durations</span><span class="p">(</span><span class="n">settle</span> <span class="o">=</span> <span class="s">&quot;2020-04-01&quot;</span><span class="p">,</span> <span class="n">mature</span> <span class="o">=</span> <span class="s">&quot;2028-04-28&quot;</span><span class="p">,</span> <span class="n">coupon</span> <span class="o">=</span> <span class="m">0.06</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">yield</span> <span class="o">=</span> <span class="m">0.072</span><span class="p">,</span> <span class="n">convention</span> <span class="o">=</span> <span class="s">&quot;ACT/ACT&quot;</span><span class="p">,</span> <span class="n">modified</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">redemption_value</span> <span class="o">=</span> <span class="m">100</span><span class="p">)</span>
+<span class="n">duracion_modificada</span>
+</pre></div>
+</div>
+5.7831670516681</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../VaR bonos/VaR Bonos.html" class="btn btn-neutral float-right" title="VaR Bonos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="VaR bonos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

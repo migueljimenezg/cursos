@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VaR Simulación Histórica y CVaR &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../index.html"/>
+        <link rel="next" title="Funciones para calcular el VaR por Simulación Histórica y CVaR" href="Funciones para calcular el VaR por Simulación Histórica y CVaR/Funciones para calcular el VaR por Simulación Histórica y CVaR.html"/>
+        <link rel="prev" title="Ejercicios volatilidades dinámicas" href="../Volatilidad no constante/Ejercicios-volatilidades dinámicas/Ejercicios volatilidades dinámicas.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VaR Simulación Histórica y CVaR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Funciones para calcular el VaR por Simulación Histórica y CVaR/Funciones para calcular el VaR por Simulación Histórica y CVaR.html">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VaR Simulación Histórica/VaR-simulación-Histórica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CVaR/CVaR-Jupyter.html">CVaR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Taller VaR Simulación Histórica y CVaR/Taller VaR Simulación Histórica y CVaR.html">Taller VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Análisis gráfico VaR y CVaR/Análisis gráfico VaR y CVaR.html">Análisis gráfico VaR y CVaR</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Derivados financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Derivados financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Derivados financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Derivados financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En contrucción:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Machine Learning/index.html">Regresión lineal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>VaR Simulación Histórica y CVaR</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Riesgo de mercado/VaR SH/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="var-simulacion-historica-y-cvar">
+<h1>VaR Simulación Histórica y CVaR<a class="headerlink" href="#var-simulacion-historica-y-cvar" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/be0c85acd91fd9d1738a6916028acb91/6. VaR simulación histórica y CVaR.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> las presentaciones.</p></li>
+<li><p><strong>Ver video</strong> — <a class="reference external" href="https://youtu.be/zT6f9_eJjvI">aquí</a>.</p></li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/122827eea5f049515c1332fb896c3227/Tres acciones.csv"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el archivo <code class="docutils literal notranslate"><span class="pre">Tres</span> <span class="pre">acciones.csv</span></code>.</p></li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/ada3f7a8c6cc2347a362ffd0f6d73857/Datos primer examen 01-2020.csv"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> archivo <code class="docutils literal notranslate"><span class="pre">Datos</span> <span class="pre">primer</span> <span class="pre">examen</span> <span class="pre">01-2020.csv</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="funciones-para-calcular-el-var-por-simulacion-historica-y-cvar">
+<h2>1. Funciones para calcular el VaR por Simulación Histórica y CVaR<a class="headerlink" href="#funciones-para-calcular-el-var-por-simulacion-historica-y-cvar" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Funciones para calcular el VaR por Simulación Histórica y CVaR/Funciones para calcular el VaR por Simulación Histórica y CVaR.html">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/196b5425f81ddd435c3c8e9e45d3292f/Funciones para calcular el VaR por Simulación Histórica y CVaR.r"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el código.</p></li>
+<li><p><strong>Ver video</strong> — <a class="reference external" href="https://youtu.be/G80wemG5cF4">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="var-simulacion-historica">
+<h2>2. VaR Simulación Histórica<a class="headerlink" href="#var-simulacion-historica" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="VaR Simulación Histórica/VaR-simulación-Histórica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/a02f8eeea782d25f359867d5126e7187/VaR-simulación-Histórica-Jupyter.r"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el código.</p></li>
+<li><p><strong>Ver video</strong> — <a class="reference external" href="https://youtu.be/7_tUk8JHoMU">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="cvar">
+<h2>3. CVaR<a class="headerlink" href="#cvar" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="CVaR/CVaR-Jupyter.html">CVaR</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/e21d828452cecdb675d30e0c743c0b78/CVaR-Jupyter.r"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el código.</p></li>
+<li><p><strong>Ver video</strong> — <a class="reference external" href="https://youtu.be/9dmTtC6Rs9A">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="taller-var-simulacion-historica-y-cvar">
+<h2>4. Taller VaR Simulación Histórica y CVaR<a class="headerlink" href="#taller-var-simulacion-historica-y-cvar" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Taller VaR Simulación Histórica y CVaR/Taller VaR Simulación Histórica y CVaR.html">Taller VaR Simulación Histórica y CVaR</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/8ce7c062c3186327b6f98cd2567aa548/Taller VaR Simulación Histórica y CVaR.r"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el código.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="analisis-grafico-var-y-cvar">
+<h2>5. Análisis gráfico VaR y CVaR<a class="headerlink" href="#analisis-grafico-var-y-cvar" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Análisis gráfico VaR y CVaR/Análisis gráfico VaR y CVaR.html">Análisis gráfico VaR y CVaR</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/84f0264def0b7cd7472aeafdc84a2f77/Análisis gráfico VaR y CVaR.r"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el código.</p></li>
+<li><p><strong>Ver video</strong> — <a class="reference external" href="https://youtu.be/FDs7WMPoWBs">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Lecturas</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets">1</span></dt>
+<dd><p><strong>Tema: VaR Simulación Histórica.</strong> Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/1674f1b2dea82f13de1ca62a317b6dc8/VaR Simulación Histórica-Alonso y Berggrun.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el documento.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f2"><span class="brackets">2</span></dt>
+<dd><p><strong>Tema: VaR Simulación Histórica.</strong> Valor en riesgo. Philippe Jorion.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/ec5790b55beb0d27fc161d64f11b614a/VaR Simulación Histórica-Jorion.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el documento.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f3"><span class="brackets">3</span></dt>
+<dd><p><strong>Riesgo de Mercado:</strong> BBVA.</p>
+<ul class="simple">
+<li><p><strong>Ver</strong> <a class="reference download external" download="" href="https://accionistaseinversores.bbva.com/microsites/pilarIII2015/es/5/mi.html"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> página del BBVA.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Funciones para calcular el VaR por Simulación Histórica y CVaR/Funciones para calcular el VaR por Simulación Histórica y CVaR.html" class="btn btn-neutral float-right" title="Funciones para calcular el VaR por Simulación Histórica y CVaR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Volatilidad no constante/Ejercicios-volatilidades dinámicas/Ejercicios volatilidades dinámicas.html" class="btn btn-neutral" title="Ejercicios volatilidades dinámicas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

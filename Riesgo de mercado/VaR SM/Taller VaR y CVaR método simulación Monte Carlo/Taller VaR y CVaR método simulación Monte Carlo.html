@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Taller VaR y CVaR método de simulación Monte Carlo &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="VaR Simulación Monte Carlo" href="../index.html"/>
+        <link rel="next" title="Backtesting" href="../../Backtesting/index.html"/>
+        <link rel="prev" title="VaR y CVaR por el método de simulación Monte Carlo" href="../VaR y CVaR por el método de simulación Monte Carlo/VaR y CVaR por el método de simulación Monte Carlo.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">VaR Simulación Monte Carlo</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../MBG/Movimiento Browniano Geométrico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VaR y CVaR para un activo por Simulación Monte Carlo/VaR y CVaR para un activo por Simulación Monte Carlo.html">VaR y CVaR para un activo por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../VaR y CVaR por el método de simulación Monte Carlo/VaR y CVaR por el método de simulación Monte Carlo.html">VaR y CVaR por el método de simulación Monte Carlo</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Taller VaR y CVaR método de simulación Monte Carlo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En contrucción:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine Learning/index.html">Regresión lineal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">VaR Simulación Monte Carlo</a> &raquo;</li>
+        
+      <li>Taller VaR y CVaR método de simulación Monte Carlo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Riesgo de mercado/VaR SM/Taller VaR y CVaR método simulación Monte Carlo/Taller VaR y CVaR método simulación Monte Carlo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="taller-var-y-cvar-metodo-de-simulacion-monte-carlo">
+<h1>Taller VaR y CVaR método de simulación Monte Carlo<a class="headerlink" href="#taller-var-y-cvar-metodo-de-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="importar-datos">
+<h2>Importar datos.<a class="headerlink" href="#importar-datos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;Datos primer examen 01-2020.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="matriz-de-precios">
+<h2>Matriz de precios.<a class="headerlink" href="#matriz-de-precios" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">precios</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="matriz-de-rendimientos">
+<h2>Matriz de rendimientos.<a class="headerlink" href="#matriz-de-rendimientos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(,</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span><span class="m">-1</span><span class="p">,</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">)){</span>
+
+  <span class="n">rendimientos</span><span class="p">[,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">diff</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">precios</span><span class="p">[,</span><span class="n">i</span><span class="p">]))</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="s-0-precio-actual-de-cada-accion">
+<h2><span class="math notranslate nohighlight">\(S_0:\)</span>Precio actual de cada acción.<a class="headerlink" href="#s-0-precio-actual-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nf">tail</span><span class="p">(</span><span class="n">precios</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>3180</li><li>18800</li><li>24760</li><li>44700</li></ol></div>
+<div class="section" id="numero-de-acciones-del-portafolio-de-inversion">
+<h2>Número de acciones del portafolio de inversión.<a class="headerlink" href="#numero-de-acciones-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">numero_acciones</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">180000</span><span class="p">,</span><span class="m">5000</span><span class="p">,</span><span class="m">12000</span><span class="p">,</span><span class="m">20000</span><span class="p">)</span>
+<span class="n">numero_acciones</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>180000</li><li>5000</li><li>12000</li><li>20000</li></ol></div>
+<div class="section" id="valor-de-mercado-de-cada-accion">
+<h2>Valor de mercado de cada acción.<a class="headerlink" href="#valor-de-mercado-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">valor_mercado_acciones</span> <span class="o">=</span> <span class="n">numero_acciones</span><span class="o">*</span><span class="n">s</span>
+<span class="n">valor_mercado_acciones</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>572400000</li><li>9.4e+07</li><li>297120000</li><li>8.94e+08</li></ol></div>
+<div class="section" id="valor-de-mercado-del-portafolio-de-inversion">
+<h2>Valor de mercado del portafolio de inversión.<a class="headerlink" href="#valor-de-mercado-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">valor_portafolio</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">valor_mercado_acciones</span><span class="p">)</span>
+<span class="n">valor_portafolio</span>
+</pre></div>
+</div>
+1857520000</div>
+<div class="section" id="proporciones-de-inversion">
+<h2>Proporciones de inversión.<a class="headerlink" href="#proporciones-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">proporciones</span> <span class="o">=</span> <span class="n">valor_mercado_acciones</span><span class="o">/</span><span class="n">valor_portafolio</span>
+<span class="n">proporciones</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0.308152805891727</li><li>0.0506051078857832</li><li>0.159955209095999</li><li>0.481286877126491</li></ol></div>
+<div class="section" id="mu-rendimiento-esperado-de-cada-accion">
+<h2><span class="math notranslate nohighlight">\(\mu:\)</span> Rendimiento esperado de cada acción<a class="headerlink" href="#mu-rendimiento-esperado-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="nf">apply</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="n">mu</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0.00052818024892044</li><li>0.000817437518458556</li><li>0.000411972791855423</li><li>0.00146604550819807</li></ol></div>
+<div class="section" id="sigma-volatilidad-de-cada-accion">
+<h2><span class="math notranslate nohighlight">\(\sigma:\)</span>Volatilidad de cada acción<a class="headerlink" href="#sigma-volatilidad-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidades</span> <span class="o">=</span> <span class="nf">apply</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span>
+<span class="n">volatilidades</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0.0384381803599016</li><li>0.030438809306807</li><li>0.0239949256781827</li><li>0.0292898506777494</li></ol></div>
+<div class="section" id="matriz-de-coeficientes-de-correlacion">
+<h2>Matriz de coeficientes de correlación<a class="headerlink" href="#matriz-de-coeficientes-de-correlacion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">correlacion</span> <span class="o">=</span> <span class="nf">cor</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span>
+<span class="n">correlacion</span>
+</pre></div>
+</div>
+<table>
+<caption>A matrix: 4 × 4 of type dbl</caption>
+<tbody>
+    <tr><td>1.0000000</td><td>0.3150607</td><td>0.2960306</td><td>0.3571087</td></tr>
+    <tr><td>0.3150607</td><td>1.0000000</td><td>0.4015795</td><td>0.3706462</td></tr>
+    <tr><td>0.2960306</td><td>0.4015795</td><td>1.0000000</td><td>0.3298657</td></tr>
+    <tr><td>0.3571087</td><td>0.3706462</td><td>0.3298657</td><td>1.0000000</td></tr>
+</tbody>
+</table></div>
+<div class="section" id="descomposicion-de-cholesky">
+<h2>Descomposición de Cholesky<a class="headerlink" href="#descomposicion-de-cholesky" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">cholesky</span> <span class="o">=</span> <span class="nf">chol</span><span class="p">(</span><span class="n">correlacion</span><span class="p">)</span>
+<span class="n">cholesky</span>
+</pre></div>
+</div>
+<table>
+<caption>A matrix: 4 × 4 of type dbl</caption>
+<tbody>
+    <tr><td>1</td><td>0.3150607</td><td>0.2960306</td><td>0.3571087</td></tr>
+    <tr><td>0</td><td>0.9490715</td><td>0.3248564</td><td>0.2719872</td></tr>
+    <tr><td>0</td><td>0.0000000</td><td>0.8982395</td><td>0.1511777</td></tr>
+    <tr><td>0</td><td>0.0000000</td><td>0.0000000</td><td>0.8807052</td></tr>
+</tbody>
+</table></div>
+<div class="section" id="preguntas">
+<h2>Preguntas<a class="headerlink" href="#preguntas" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cual-es-el-var-y-cvar-semanal-con-un-nivel-de-confianza-del-90-de-cada-una-de-las-acciones-y-del-portafolio-de-inversion">
+<h2>¿Cuál es el VaR y CVaR semanal con un nivel de confianza del 90% de cada una de las acciones y del portafolio de inversión?<a class="headerlink" href="#cual-es-el-var-y-cvar-semanal-con-un-nivel-de-confianza-del-90-de-cada-una-de-las-acciones-y-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<p>La frecuencia temporal de los rendimientos es semanal. Se usará
+<code class="docutils literal notranslate"><span class="pre">dt=1/5</span></code> porque se recomienda que <span class="math notranslate nohighlight">\(\Delta t\)</span> sea pequeño. Así se
+podrá realizar saltos diarios en el tiempo debido a que una semana tiene
+cinco días bursátiles.</p>
+<p>Así con saltos diarios de tiempo, para el <strong>VaR semanal</strong>, <code class="docutils literal notranslate"><span class="pre">n=5</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="m">5</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">5</span>
+<span class="n">NC</span> <span class="o">=</span> <span class="m">0.90</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="simulacion-de-precios-diarios">
+<h2>SImulación de precios diarios<a class="headerlink" href="#simulacion-de-precios-diarios" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iteraciones</span> <span class="o">=</span> <span class="m">50000</span>
+
+<span class="n">st</span> <span class="o">=</span> <span class="nf">array</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">iteraciones</span><span class="p">,</span> <span class="n">n</span><span class="m">+1</span><span class="p">,</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)))</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+    <span class="n">st</span><span class="p">[,</span><span class="m">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># Con este for se está almacenando el precio actual de cada acción en la columna 1 de las matrices del array.</span>
+<span class="p">}</span>
+
+<span class="n">aleatorio_corr</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">k</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">)){</span>
+
+    <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">iteraciones</span><span class="p">){</span>
+
+
+    <span class="nf">for</span><span class="p">(</span><span class="n">j</span> <span class="n">in</span> <span class="m">2</span><span class="o">:</span><span class="p">(</span><span class="n">n</span><span class="m">+1</span><span class="p">)){</span>
+
+    <span class="n">aleatorio</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
+    <span class="n">aleatorio_corr</span> <span class="o">=</span> <span class="nf">colSums</span><span class="p">(</span><span class="n">aleatorio</span><span class="o">*</span><span class="n">cholesky</span><span class="p">)</span>
+
+    <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="m">-1</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="nf">exp</span><span class="p">((</span><span class="n">mu</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">-</span><span class="n">volatilidades</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="o">/</span><span class="m">2</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="o">+</span><span class="n">volatilidades</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">aleatorio_corr</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimientos-semanales-simulados-de-cada-accion">
+<h2>Rendimientos semanales simulados de cada acción<a class="headerlink" href="#rendimientos-semanales-simulados-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<p>El array <code class="docutils literal notranslate"><span class="pre">st</span></code>tiene seis columnas (<code class="docutils literal notranslate"><span class="pre">n+1</span></code>), la última columna tiene
+los precios simulados para una semana. Con esta columna se calcularán
+los rendimientos <strong>semanales</strong> simulados.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rend</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(,</span><span class="n">iteraciones</span><span class="p">,</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">))</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+    <span class="n">rend</span><span class="p">[,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">st</span><span class="p">[,</span><span class="n">n</span><span class="m">+1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="m">-1</span> <span class="c1">#Rendimientos semanales simulados de cada acción.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimientos-semanales-simulados-del-portafolio-de-inversion">
+<h2>Rendimientos semanales simulados del portafolio de inversión<a class="headerlink" href="#rendimientos-semanales-simulados-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rend_port</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+    <span class="n">rend_port</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">rend</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">*</span><span class="n">proporciones</span><span class="p">)</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="var-semanal-individuales">
+<h2>VaR semanal individuales<a class="headerlink" href="#var-semanal-individuales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_individuales_SM_percentil</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+  <span class="n">VaR_individuales_SM_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rend</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="p">}</span>
+<span class="n">VaR_individuales_SM_percentil</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>27250682.5694049</li><li>3580028.41405506</li><li>8942544.84875934</li><li>32208722.325042</li></ol></div>
+<div class="section" id="var-semanal-del-portafolio-de-inversion">
+<h2>VaR semanal del portafolio de inversión<a class="headerlink" href="#var-semanal-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_portafolio_SM_percentil</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rend_port</span><span class="p">,</span> <span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_portafolio</span><span class="p">)</span>
+<span class="n">VaR_portafolio_SM_percentil</span>
+</pre></div>
+</div>
+<strong>10%:</strong> 43906650.7840915</div>
+<div class="section" id="cvar-semanal-individuales">
+<h2>CVaR semanal individuales<a class="headerlink" href="#cvar-semanal-individuales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rend</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rend</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))))</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="n">CVaR</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>37265944.1349686</li><li>4850952.504194</li><li>12231487.8941014</li><li>43807904.8354661</li></ol></div>
+<div class="section" id="cvar-semanal-del-portafolio-de-inversion">
+<h2>CVaR semanal del portafolio de inversión<a class="headerlink" href="#cvar-semanal-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR_portafolio</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rend_port</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rend</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))))</span><span class="o">*</span><span class="n">valor_portafolio</span><span class="p">)</span>
+<span class="n">CVaR_portafolio</span>
+</pre></div>
+</div>
+481061.470750188</div>
+<div class="section" id="cual-es-el-var-y-cvar-mensual-con-un-nivel-de-confianza-del-95-de-cada-una-de-las-acciones-y-del-portafolio-de-inversion">
+<h2>¿Cuál es el VaR y CVaR mensual con un nivel de confianza del 95% de cada una de las acciones y del portafolio de inversión?<a class="headerlink" href="#cual-es-el-var-y-cvar-mensual-con-un-nivel-de-confianza-del-95-de-cada-una-de-las-acciones-y-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<p>La frecuencia temporal de los rendimientos es semanal. Se usará
+<code class="docutils literal notranslate"><span class="pre">dt=1/5</span></code> porque se recomienda que <span class="math notranslate nohighlight">\(\Delta t\)</span> sea pequeño. Así se
+podrá realizar saltos diarios en el tiempo debido a que una semana tiene
+cinco días bursátiles.</p>
+<p>Así con saltos diarios de tiempo, para el <strong>VaR mensual</strong>, <code class="docutils literal notranslate"><span class="pre">n=20</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="m">20</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">5</span>
+<span class="n">NC</span> <span class="o">=</span> <span class="m">0.95</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">iteraciones</span> <span class="o">=</span> <span class="m">50000</span>
+
+<span class="n">st</span> <span class="o">=</span> <span class="nf">array</span><span class="p">(</span><span class="n">dim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">iteraciones</span><span class="p">,</span> <span class="n">n</span><span class="m">+1</span><span class="p">,</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)))</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+    <span class="n">st</span><span class="p">[,</span><span class="m">1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1"># Con esto for se está almacenando el precio actual de cada acción en la columna 1 de las matrices del array.</span>
+<span class="p">}</span>
+
+<span class="n">aleatorio_corr</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">k</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">)){</span>
+
+    <span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">iteraciones</span><span class="p">){</span>
+
+
+    <span class="nf">for</span><span class="p">(</span><span class="n">j</span> <span class="n">in</span> <span class="m">2</span><span class="o">:</span><span class="p">(</span><span class="n">n</span><span class="m">+1</span><span class="p">)){</span>
+
+    <span class="n">aleatorio</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
+    <span class="n">aleatorio_corr</span> <span class="o">=</span> <span class="nf">colSums</span><span class="p">(</span><span class="n">aleatorio</span><span class="o">*</span><span class="n">cholesky</span><span class="p">)</span>
+
+    <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="m">-1</span><span class="p">,</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="nf">exp</span><span class="p">((</span><span class="n">mu</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">-</span><span class="n">volatilidades</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="o">/</span><span class="m">2</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="o">+</span><span class="n">volatilidades</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="n">aleatorio_corr</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimientos-mensuales-simulados-de-cada-accion">
+<h2>Rendimientos mensuales simulados de cada acción<a class="headerlink" href="#rendimientos-mensuales-simulados-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<p>El array <code class="docutils literal notranslate"><span class="pre">st</span></code>tiene 21 columanas (<code class="docutils literal notranslate"><span class="pre">n+1</span></code>), la última columna tiene
+los precios simulados para un mes. Con esta columna se calcularán los
+rendimientos <strong>mensuales</strong> simulados.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rend</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(,</span> <span class="n">iteraciones</span><span class="p">,</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">))</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+    <span class="n">rend</span><span class="p">[,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">st</span><span class="p">[,</span><span class="n">n</span><span class="m">+1</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="m">-1</span> <span class="c1">#Rendimientos mensuales simulados de cada acción.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimientos-mensuales-simulados-del-portafolio-de-inversion">
+<h2>Rendimientos mensuales simulados del portafolio de inversión<a class="headerlink" href="#rendimientos-mensuales-simulados-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rend_port</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+    <span class="n">rend_port</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">rend</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">*</span><span class="n">proporciones</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="var-mensual-individuales">
+<h2>VaR mensual individuales<a class="headerlink" href="#var-mensual-individuales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_individuales_SM_percentil</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+  <span class="n">VaR_individuales_SM_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rend</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="n">VaR_individuales_SM_percentil</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>68425768.9393525</li><li>8715863.30371035</li><li>22371602.2623771</li><li>78647023.9143117</li></ol></div>
+<div class="section" id="var-mensual-del-portafolio-de-inversion">
+<h2>VaR mensual del portafolio de inversión<a class="headerlink" href="#var-mensual-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_portafolio_SM_percentil</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rend_port</span><span class="p">,</span> <span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_portafolio</span><span class="p">)</span>
+<span class="n">VaR_portafolio_SM_percentil</span>
+</pre></div>
+</div>
+<strong>5%:</strong> 109628306.897354</div>
+<div class="section" id="cvar-mensual-individuales">
+<h2>CVaR mensual individuales<a class="headerlink" href="#cvar-mensual-individuales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rend</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rend</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))))</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="n">CVaR</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>84333805.7509863</li><li>10876579.5113407</li><li>27763643.9843417</li><li>98184468.4514079</li></ol></div>
+<div class="section" id="cvar-mensual-del-portafolio-de-inversion">
+<h2>CVaR mensual del portafolio de inversión<a class="headerlink" href="#cvar-mensual-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR_portafolio</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rend_port</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rend</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))))</span><span class="o">*</span><span class="n">valor_portafolio</span><span class="p">)</span>
+<span class="n">CVaR_portafolio</span>
+</pre></div>
+</div>
+6043185.3876385</div>
+<div class="section" id="cual-es-el-var-y-cvar-diario-con-un-nivel-de-confianza-del-99-de-cada-una-de-las-acciones-y-del-portafolio-de-inversion">
+<h2>¿Cuál es el VaR y CVaR diario con un nivel de confianza del 99% de cada una de las acciones y del portafolio de inversión?<a class="headerlink" href="#cual-es-el-var-y-cvar-diario-con-un-nivel-de-confianza-del-99-de-cada-una-de-las-acciones-y-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<p><strong>Como anteriormente se hallaron los precios simulados para 20 días (un
+mes), no es necesario volverlos a calcularlos porque solo se necesitan
+los precios simulados del día uno para obtener los rendimientos
+simulados diarios. Estos valores están en la columna 2 del array
+``st``.</strong></p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">NC</span> <span class="o">=</span> <span class="m">0.99</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimientos-diarios-simulados-de-cada-accion">
+<h2>Rendimientos diarios simulados de cada acción<a class="headerlink" href="#rendimientos-diarios-simulados-de-cada-accion" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">st[,2,i]</span></code>son los precios simulados de cada acción para el día uno.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rend</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(,</span> <span class="n">iteraciones</span><span class="p">,</span> <span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">))</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+    <span class="n">rend</span><span class="p">[,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">st</span><span class="p">[,</span><span class="m">2</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="m">-1</span> <span class="c1">#Rendimientos simulados de cada acción para el día 1.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimientos-diarios-simulados-del-portafolio-de-inversion">
+<h2>Rendimientos diarios simulados del portafolio de inversión<a class="headerlink" href="#rendimientos-diarios-simulados-del-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rend_port</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+    <span class="n">rend_port</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">rend</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">*</span><span class="n">proporciones</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="var-diario-individuales">
+<h2>VaR diario individuales<a class="headerlink" href="#var-diario-individuales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_individuales_SM_percentil</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+  <span class="n">VaR_individuales_SM_percentil</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rend</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="p">}</span>
+<span class="n">VaR_individuales_SM_percentil</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>22434687.8014924</li><li>2919082.71606842</li><li>7386222.59359142</li><li>26246899.3793198</li></ol></div>
+<div class="section" id="var-diario-portafolio-de-inversion">
+<h2>VaR diario portafolio de inversión<a class="headerlink" href="#var-diario-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">VaR_portafolio_SM_percentil</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">quantile</span><span class="p">(</span><span class="n">rend_port</span><span class="p">,</span> <span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">)</span><span class="o">*</span><span class="n">valor_portafolio</span><span class="p">)</span>
+<span class="n">VaR_portafolio_SM_percentil</span>
+</pre></div>
+</div>
+<strong>1%:</strong> 36446602.6033561</div>
+<div class="section" id="cvar-diario-individuales">
+<h2>CVaR diario individuales<a class="headerlink" href="#cvar-diario-individuales" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="nf">ncol</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)){</span>
+
+  <span class="n">CVaR</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rend</span><span class="p">[,</span><span class="n">i</span><span class="p">],</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rend</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))))</span><span class="o">*</span><span class="n">valor_mercado_acciones</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="n">CVaR</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>25585202.4378887</li><li>3353496.1402176</li><li>8392179.62141718</li><li>29944435.6810667</li></ol></div>
+<div class="section" id="cvar-diario-portafolio-de-inversion">
+<h2>CVaR diario portafolio de inversión<a class="headerlink" href="#cvar-diario-portafolio-de-inversion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">CVaR_portafolio</span> <span class="o">=</span> <span class="nf">abs</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="nf">sort</span><span class="p">(</span><span class="n">rend_port</span><span class="p">,</span> <span class="n">decreasing</span> <span class="o">=</span> <span class="bp">T</span><span class="p">),</span> <span class="nf">floor</span><span class="p">(</span><span class="nf">nrow</span><span class="p">(</span><span class="n">rend</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">NC</span><span class="p">))))</span><span class="o">*</span><span class="n">valor_portafolio</span><span class="p">)</span>
+<span class="n">CVaR_portafolio</span>
+</pre></div>
+</div>
+1322962.98293428</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Backtesting/index.html" class="btn btn-neutral float-right" title="Backtesting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../VaR y CVaR por el método de simulación Monte Carlo/VaR y CVaR por el método de simulación Monte Carlo.html" class="btn btn-neutral" title="VaR y CVaR por el método de simulación Monte Carlo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Swap &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../index.html"/>
+        <link rel="next" title="Ejercicios tasas FRA" href="Ejercicios tasas FRA.html"/>
+        <link rel="prev" title="Ejercicios valoración contratos Forward" href="../Forward/Ejercicios valoración contratos Forward.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Forward/index.html">Forward</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Swap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Ejercicios tasas FRA.html">Ejercicios tasas FRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ejercicios swap.html">Ejercicios swap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En contrucción:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Machine Learning/index.html">Regresión lineal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Swap</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Derivados financieros/Swap/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="swap">
+<h1>Swap<a class="headerlink" href="#swap" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tasas-forward-o-tasas-fra">
+<h2>1. Tasas Forward o tasas FRA<a class="headerlink" href="#tasas-forward-o-tasas-fra" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><strong>1.1. Conceptos:</strong></p>
+<ul>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/8866711a6b62297650875f217bd27ab3/3. Tasas Forward V2.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> las presentaciones.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Ver video</strong> — <a class="reference external" href="https://youtu.be/PVOEYnS8350">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>1.2. Tasas libres de riesgo:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Ver video</strong> — <a class="reference external" href="https://youtu.be/MBKXaLFj1_U">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>TES Banco de la República:</strong> — <a class="reference external" href="https://www.banrep.gov.co/es/estadisticas/tes">aquí</a>.</p></li>
+<li><p><strong>IBR Banco de la República:</strong> — <a class="reference external" href="https://www.banrep.gov.co/es/estadisticas/indicador-bancario-referencia-ibr">aquí</a>.</p></li>
+<li><p><strong>Tasas FED:</strong> — <a class="reference external" href="https://www.treasury.gov/resource-center/data-chart-center/interest-rates/pages/TextView.aspx?data=yieldYear&amp;year=2020">aquí</a>.</p></li>
+<li><p><strong>Bonos del Estado - Investing:</strong> — <a class="reference external" href="https://es.investing.com/rates-bonds/uk-government-bonds?maturity_from=40&amp;maturity_to=310">aquí</a>.</p></li>
+<li><p><strong>Tasas LIBOR:</strong> — <a class="reference external" href="https://www.theice.com/marketdata/reports/170">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ejercicios-tasas-fra">
+<h2>2. Ejercicios tasas FRA<a class="headerlink" href="#ejercicios-tasas-fra" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Ejercicios tasas FRA.html">Ejercicios tasas FRA</a></li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h2>3. Swap<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><strong>3.1. Conceptos:</strong></p>
+<ul>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/80e7abe9f5e1e1a7b8f44fa172f5c330/4. SWAP V4.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> las presentaciones.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Ver video: swap IRS.</strong> — <a class="reference external" href="https://youtu.be/myCpe0tJcwM">aquí</a>.</p></li>
+<li><p><strong>Ver video: fórmulas valoración swap IRS.</strong> — <a class="reference external" href="https://youtu.be/Hd35Ed91c7c">aquí</a>.</p></li>
+<li><p><strong>Ver video: valoración swap IRS.</strong> — <a class="reference external" href="https://youtu.be/BNXGZIwKg7U">aquí</a>.</p></li>
+<li><p><strong>Ver video: swap CCS.</strong> — <a class="reference external" href="https://youtu.be/SXXnJgqj-2o">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>3.2. Ejemplos swap:</strong></p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/c1e77bd95e5dc71eeae06195b59dc204/Ejemplos swap IRS y swap CCS.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el archivo de Excel.</p></li>
+</ul>
+<p><strong>3.3. Contratos swaps en el mercado colombiano:</strong></p>
+<ul class="simple">
+<li><p><strong>Bancolombia</strong> — <a class="reference external" href="https://www.grupobancolombia.com/wps/portal/empresas/productos-servicios/derivados/swaps/tasa-de-cambio">aquí</a>.</p></li>
+<li><p><strong>BBVA</strong> — <a class="reference external" href="https://www.bbva.com/es/que-es-un-swap/">aquí</a>.</p></li>
+<li><p><strong>Corficolombiana</strong> — <a class="reference external" href="https://www.corficolombiana.com/swap">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="superintendencia-financiera-de-colombia-circular-basica-contable-y-financiera">
+<h2>4. Superintendencia Financiera de Colombia (Circular Básica Contable y Financiera)<a class="headerlink" href="#superintendencia-financiera-de-colombia-circular-basica-contable-y-financiera" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><strong>4.1. Capítulo XVIII: Valoración y Contabilización de Derivados.</strong> — <a class="reference download internal" download="" href="../../_downloads/94505c41ebf3c2c1d8028279be804294/cap18derivados.doc"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a></p>
+<p><strong>4.2. Anexo 03 del capítulo XVIII.</strong> — <a class="reference download internal" download="" href="../../_downloads/674e571cf56a562143ab41805c656118/Anexo 3. Valoración estándar de operaciones con derivados.doc"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Ver video: Anexo 03.</strong> — <a class="reference external" href="https://youtu.be/V6GBbiRMgks">aquí</a>.</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="ejercicios-swap">
+<h2>5. Ejercicios swap<a class="headerlink" href="#ejercicios-swap" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Ejercicios swap.html">Ejercicios swap</a></li>
+</ul>
+</div>
+</div></blockquote>
+<p><strong>Lecturas</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="f1"><span class="brackets">1</span></dt>
+<dd><p><strong>Tasas FRA y swap.</strong> Guía de estudio AMV: Derivados Financieros.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/deeebcf692a94dd6c40d6fd75079af52/Tasas FRA y swap. Derivados-AMV.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el documento.</p></li>
+</ul>
+</dd>
+<dt class="label" id="f2"><span class="brackets">2</span></dt>
+<dd><p><strong>Capítulo 7: Swap.</strong> Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/c4f55995b5249fb71ca1c51f33f3891a/Cap. 7. Swap-Hull.pdf"><code class="xref download docutils literal notranslate"><span class="pre">aquí</span></code></a> el capítulo.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Ejercicios tasas FRA.html" class="btn btn-neutral float-right" title="Ejercicios tasas FRA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Forward/Ejercicios valoración contratos Forward.html" class="btn btn-neutral" title="Ejercicios valoración contratos Forward" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Valoración de opciones por el método de Simulación Monte Carlo &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Opciones" href="../index.html"/>
+        <link rel="next" title="Simulación de cobertura con opciones" href="../Simulación de cobertura con opciones/Simulación de cobertura con opciones.html"/>
+        <link rel="prev" title="Opciones" href="../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo de mercado/VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Opciones</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Riesgo de mercado/VaR SM/MBG/Movimiento Browniano Geométrico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Simulación de cobertura con opciones/Simulación de cobertura con opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicios propiedades, coberturas y valoración de opciones por SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicios valoración de opciones.html">Ejercicios valoración de opciones</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">En contrucción:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine Learning/index.html">Regresión lineal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Opciones</a> &raquo;</li>
+        
+      <li>Valoración de opciones por el método de Simulación Monte Carlo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Derivados financieros/Opciones/Valoración de opciones por el método de Simulación Monte Carlo/Valoración de opciones por el método de Simulación Monte Carlo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="valoracion-de-opciones-por-el-metodo-de-simulacion-monte-carlo">
+<h1>Valoración de opciones por el método de Simulación Monte Carlo<a class="headerlink" href="#valoracion-de-opciones-por-el-metodo-de-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="importar-datos">
+<h2>Importar datos.<a class="headerlink" href="#importar-datos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;TRM diaria febrero 2020.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&quot;;&quot;</span><span class="p">,</span> <span class="n">dec</span> <span class="o">=</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 6 × 2</caption>
+<thead>
+    <tr><th></th><th scope=col>Fecha</th><th scope=col>TRM</th></tr>
+    <tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>1</th><td>20/04/2018</td><td>2724.47</td></tr>
+    <tr><th scope=row>2</th><td>23/04/2018</td><td>2757.96</td></tr>
+    <tr><th scope=row>3</th><td>24/04/2018</td><td>2799.45</td></tr>
+    <tr><th scope=row>4</th><td>25/04/2018</td><td>2785.22</td></tr>
+    <tr><th scope=row>5</th><td>26/04/2018</td><td>2820.29</td></tr>
+    <tr><th scope=row>6</th><td>27/04/2018</td><td>2812.83</td></tr>
+</tbody>
+</table></div>
+<div class="section" id="vector-de-precios">
+<h2>Vector de precios.<a class="headerlink" href="#vector-de-precios" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">precios</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+<span class="n">precios</span> <span class="o">=</span> <span class="nf">ts</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rendimientos-continuos">
+<h2>Rendimientos continuos<a class="headerlink" href="#rendimientos-continuos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos</span> <span class="o">=</span> <span class="nf">diff</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="grafico-de-los-precios">
+<h2>Gráfico de los precios<a class="headerlink" href="#grafico-de-los-precios" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">precios</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Precio&quot;</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_9_01.png"><img alt="../../../_images/output_9_01.png" src="../../../_images/output_9_01.png" style="width: 420px; height: 420px;" /></a>
+</div>
+<div class="section" id="grafico-de-los-rendimientos">
+<h2>Gráfico de los rendimientos<a class="headerlink" href="#grafico-de-los-rendimientos" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Rendimientos&quot;</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;h&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_11_01.png"><img alt="../../../_images/output_11_01.png" src="../../../_images/output_11_01.png" style="width: 420px; height: 420px;" /></a>
+</div>
+<div class="section" id="s-0">
+<h2><span class="math notranslate nohighlight">\(S_0:\)</span><a class="headerlink" href="#s-0" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nf">tail</span><span class="p">(</span><span class="n">precios</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+3401.56</div>
+<div class="section" id="mu-rendimiento-esperado">
+<h2><span class="math notranslate nohighlight">\(\mu:\)</span> Rendimiento esperado<a class="headerlink" href="#mu-rendimiento-esperado" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span> <span class="c1">#diario</span>
+<span class="n">mu</span>
+</pre></div>
+</div>
+0.000504455082133001</div>
+<div class="section" id="sigma-volatilidad">
+<h2><span class="math notranslate nohighlight">\(\sigma:\)</span>Volatilidad<a class="headerlink" href="#sigma-volatilidad" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad</span> <span class="o">=</span> <span class="nf">sd</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span> <span class="c1">#diaria</span>
+<span class="n">volatilidad</span>
+</pre></div>
+</div>
+0.00641517094088037</div>
+<div class="section" id="simulacion-del-precio-del-activo-subyacente-neutral-al-riesgo">
+<h2>Simulación del precio del activo subyacente (neutral al riesgo)<a class="headerlink" href="#simulacion-del-precio-del-activo-subyacente-neutral-al-riesgo" title="Permalink to this headline">¶</a></h2>
+<p>La modelación se realiza con las tasas libres de riesgo <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[S_{t+\Delta t}=S_t e^{[(r- \frac{\sigma ^2}{2})\Delta t+\sigma\epsilon \sqrt{\Delta t}]}\]</div>
+<hr class="docutils" />
+<p>Cuando el activo subyacente es una divisa se usa <span class="math notranslate nohighlight">\(r - r_f\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[S_{t+\Delta t}=S_t e^{[(r - r_{f} - \frac{\sigma ^2}{2})\Delta t+\sigma\epsilon \sqrt{\Delta t}]}\]</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="valoracion-de-opciones-europeas-por-simulacion-monte-carlo">
+<h2>Valoración de opciones europeas por Simulación Monte Carlo<a class="headerlink" href="#valoracion-de-opciones-europeas-por-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[Prima Call = Máx[S_T - K; 0]e^{-rT}\]</div>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[Prima Call_{divisas} = Máx[S_T - K; 0]e^{-(r - r_f)T}\]</div>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[Prima Put = Máx[K - S_T; 0]e^{-rT}\]</div>
+<hr class="docutils" />
+<div class="math notranslate nohighlight">
+\[Prima Put_{divisas} = Máx[K - S_T; 0]e^{-(r - r_f)T}\]</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="valoracion-de-una-opcion-europea-sobre-divisas-con-vencimiento-a-un-mes">
+<h2>Valoración de una opción europea sobre divisas con vencimiento a un mes.<a class="headerlink" href="#valoracion-de-una-opcion-europea-sobre-divisas-con-vencimiento-a-un-mes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tasas libres de riesgo</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="m">0.018</span> <span class="c1"># E.A. (Colombia)</span>
+
+<span class="n">rf</span> <span class="o">=</span> <span class="m">0.003</span> <span class="c1"># Nominal (USA)</span>
+
+<span class="c1"># Con el modelo Black-Scholes se trabaja con tasas continuas:</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="nf">log</span><span class="p">(</span><span class="m">1</span><span class="o">+</span><span class="n">r</span><span class="p">)</span> <span class="c1"># C.C.A.</span>
+
+<span class="n">rf</span> <span class="o">=</span> <span class="nf">log</span><span class="p">(</span><span class="m">1</span><span class="o">+</span><span class="n">rf</span><span class="o">/</span><span class="m">12</span><span class="p">)</span><span class="o">*</span><span class="m">12</span> <span class="c1"># C.C.A.</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="bp">T</span> <span class="o">=</span> <span class="m">30</span> <span class="c1"># 1 mes</span>
+<span class="n">k</span> <span class="o">=</span> <span class="m">3450</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="m">1</span> <span class="c1"># saltos diarios</span>
+<span class="n">iteraciones</span> <span class="o">=</span> <span class="m">10000</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="c1"># Valor semilla para la simulación. Con esto siempre se obtendrá el mismo valor.</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulación del precio del activo subyacente con un mundo neutral al riesgo</span>
+
+<span class="n">st_prima</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(,</span> <span class="n">iteraciones</span><span class="p">,</span> <span class="bp">T</span><span class="m">+1</span><span class="p">)</span>
+
+<span class="n">st_prima</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">iteraciones</span><span class="p">){</span>
+
+    <span class="nf">for</span><span class="p">(</span><span class="n">j</span> <span class="n">in</span> <span class="m">2</span><span class="o">:</span><span class="p">(</span><span class="bp">T</span><span class="m">+1</span><span class="p">)){</span>
+
+   <span class="n">st_prima</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">st_prima</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="m">-1</span><span class="p">]</span><span class="o">*</span><span class="nf">exp</span><span class="p">((</span><span class="n">r</span><span class="o">/</span><span class="m">360</span><span class="o">-</span><span class="n">rf</span><span class="o">/</span><span class="m">360</span><span class="o">-</span><span class="n">volatilidad</span><span class="o">^</span><span class="m">2</span><span class="o">/</span><span class="m">2</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="o">+</span><span class="n">volatilidad</span><span class="o">*</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span><span class="o">*</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>
+
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">compensacionesCall</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+<span class="n">compensacionesPut</span> <span class="o">=</span> <span class="nf">vector</span><span class="p">()</span>
+
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">iteraciones</span><span class="p">){</span>
+
+    <span class="n">compensacionesCall</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">st_prima</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="bp">T</span><span class="m">+1</span><span class="p">]</span><span class="o">-</span><span class="n">k</span><span class="p">,</span><span class="m">0</span><span class="p">)</span><span class="o">*</span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">rf</span><span class="p">)</span><span class="o">*</span><span class="m">1</span><span class="o">/</span><span class="m">12</span><span class="p">)</span>
+
+    <span class="n">compensacionesPut</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="n">st_prima</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="bp">T</span><span class="m">+1</span><span class="p">],</span><span class="m">0</span><span class="p">)</span><span class="o">*</span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="n">rf</span><span class="p">)</span><span class="o">*</span><span class="m">1</span><span class="o">/</span><span class="m">12</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">primaCall</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">compensacionesCall</span><span class="p">)</span>
+<span class="n">primaCall</span>
+</pre></div>
+</div>
+28.6308069043686<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">primaPut</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">compensacionesPut</span><span class="p">)</span>
+<span class="n">primaPut</span>
+</pre></div>
+</div>
+73.1041559547008<p>Prima opción Call europea: <span class="math notranslate nohighlight">\(28,63 COP\)</span>.</p>
+<p>Prima opción Put europea: <span class="math notranslate nohighlight">\(73,10 COP\)</span>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">compensacionesCall</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;gray&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Compensación&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Frecuencia&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Compensaciones Call&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_37_0.png"><img alt="../../../_images/output_37_0.png" src="../../../_images/output_37_0.png" style="width: 420px; height: 420px;" /></a>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">compensacionesPut</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;gray&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Compensación&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Frecuencia&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Compensaciones Put&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_38_0.png"><img alt="../../../_images/output_38_0.png" src="../../../_images/output_38_0.png" style="width: 420px; height: 420px;" /></a>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Simulación de cobertura con opciones/Simulación de cobertura con opciones.html" class="btn btn-neutral float-right" title="Simulación de cobertura con opciones" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Opciones" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

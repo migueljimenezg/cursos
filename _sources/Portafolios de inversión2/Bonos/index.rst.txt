@@ -58,7 +58,7 @@ La sensibilidad de los bonos (cinco principios) se miden con la Duración, Durac
     * **Descargue** :download:`aquí <2. Duración y Convexidad.xlsx>` archivo de Excel.
 
 
-4. Ejercicios valoración TES
+2. Ejercicios valoración TES
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::
@@ -69,7 +69,7 @@ La sensibilidad de los bonos (cinco principios) se miden con la Duración, Durac
             Ejercicios - valoración de bonos BVC V2/Ejercicios - valoración de bonos BVC V2.rst
 
 
-5. Ejercicios Bonos
+3. Ejercicios Bonos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. toctree::

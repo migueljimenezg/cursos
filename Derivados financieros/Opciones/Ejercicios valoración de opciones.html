@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ejercicios valoración de opciones &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../index.html"/>
+        <link rel="up" title="Opciones" href="index.html"/>
+        <link rel="next" title="Regresión lineal" href="../../Machine Learning/index.html"/>
+        <link rel="prev" title="Ejercicios propiedades, coberturas y valoración de opciones por SMC" href="Ejercicios propiedades, coberturas y valoración de opciones por SMC.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Opciones</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Riesgo de mercado/VaR SM/MBG/Movimiento Browniano Geométrico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Valoración de opciones por el método de Simulación Monte Carlo/Valoración de opciones por el método de Simulación Monte Carlo.html">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Simulación de cobertura con opciones/Simulación de cobertura con opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ejercicios propiedades, coberturas y valoración de opciones por SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ejercicios valoración de opciones</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">En contrucción:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Machine Learning/index.html">Regresión lineal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Opciones</a> &raquo;</li>
+        
+      <li>Ejercicios valoración de opciones</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Derivados financieros/Opciones/Ejercicios valoración de opciones.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ejercicios-valoracion-de-opciones">
+<h1>Ejercicios valoración de opciones<a class="headerlink" href="#ejercicios-valoracion-de-opciones" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Valore la siguiente opción Put Americana con seis pasos: precio strike de $1.700 y vencimiento en seis meses. El activo subyacente tiene un precio actual de $1.950 con una volatilidad continua anual de 50%. La tasa libre de riesgo continua anual es de 8%.</p></li>
+</ol>
+<p>¿En qué momentos en el tiempo se ejerce la opción?</p>
+<p>Nota: Suponga inversionistas racionales.</p>
+<p><strong>Respuesta: En el cuarto, quinto y sexto mes.</strong></p>
+<div class="figure align-default" id="id1">
+<img alt="1" src="../../_images/ÁrbolBinomial.JPG" />
+<p class="caption"><span class="caption-text">Árbol Binomial</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Realice la valoración de las opciones Call y Put por los siguientes métodos:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Árboles binomiales (Americanas) con 500 pasos.</p></li>
+<li><p>Árboles binomiales (europeas) con 500 pasos.</p></li>
+<li><p>Black-Scholes.</p></li>
+</ul>
+</div></blockquote>
+<p>El precio actual del activo subyacente es de $3.800, la volatilidad anual es de 15%, tasa libre de riesgo local de 2% C.C.A. y tasa libre de riesgo extranjera de 0,35% C.C.A.</p>
+<p>Las opciones tienen un vencimiento de tres meses y precio strike de $3.770.</p>
+<p><strong>Respuesta:</strong></p>
+<p><strong>Call (Americana): $ 137,10. Árboles binomiales.</strong></p>
+<p><strong>Put (Americana): $92,55. Árboles binomiales.</strong></p>
+<p><strong>Call (europea): $137,10. Árboles binomiales.</strong></p>
+<p><strong>Put (europea): $91,62. Árboles binomiales.</strong></p>
+<p><strong>Call (europea): $137,09. Black-Scholes.</strong></p>
+<p><strong>Put (europea): $91,61. Black-Scholes.</strong></p>
+<ol class="arabic simple" start="3">
+<li><p>En la Bolsa de Valores se realizó una transacción de una opción Call sobre la TRM, la prima de la transacción fue de $100. El precio strike de la opción es de $3.820 y el vencimiento es de seis meses. Actualmente la TRM está en $3.800, la tasa libre de riesgo es de 2% C.C.A. y tasa libre de riesgo extranjera de 0,35% C.C.A. Con esta información, ¿Cuál es la volatilidad implícita del activo subyacente?</p></li>
+</ol>
+<p>Nota: utilice el método de Black-Scholes.</p>
+<p><strong>Respuesta: 8,82% Anual.</strong></p>
+<ol class="arabic simple" start="4">
+<li><p>De acuerdo con las transacciones registradas en la Bolsa de Valores, la volatilidad implícita para la TRM es de 10% anual. Las transacciones fueron opciones con vencimiento a seis meses. Con esta información se procede a valorar por el método de Black-Scholes la siguiente opción:</p></li>
+</ol>
+<p>Opción Put con vencimiento a seis meses y precio strike de $3.820. La TRM es de $3.800, tasa libre de riesgo es de 2% C.C.A. y tasa libre de riesgo extranjera de 0,35% C.C.A.</p>
+<p><strong>Respuesta:</strong></p>
+<p><strong>Put: $101,24.</strong></p>
+<ol class="arabic simple" start="5">
+<li><p>Evalúe las siguientes estrategias de cobertura para cubrir 300.000 USD con una razón de cobertura del 90%:</p></li>
+</ol>
+<p><strong>Cobertura para compradores:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Estrategia Call con <span class="math notranslate nohighlight">\(K_1\)</span></p></li>
+<li><p>Estrategia Call con <span class="math notranslate nohighlight">\(K_2\)</span></p></li>
+<li><p>Estrategia Bull Call Spread.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Cobertura para vendedores:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Estrategia Put con <span class="math notranslate nohighlight">\(K_1\)</span></p></li>
+<li><p>Estrategia Put con <span class="math notranslate nohighlight">\(K_2\)</span></p></li>
+<li><p>Estrategia Bear Call Spread.</p></li>
+</ul>
+</div></blockquote>
+<p>Las opciones son del tipo europea y los precios strike son: <span class="math notranslate nohighlight">\(K_1\)</span> de $3.500 y <span class="math notranslate nohighlight">\(K_2\)</span> de $3.600.</p>
+<p>Realizar la valoración por el método de Black-Scholes con una tasa libre de riesgo local de 1,80% C.C.A y tasa libre de riesgo extranjera de 0,30% C.C.A. La TRM actual es de $3.500 y tiene una volatilidad anual de 12,17%.</p>
+<p>Si el precio de la TRM al día de terminación de la cobertura es de $3.800, calcule los precios con cobertura después de primas y el total de primas que se paga o recibe en cada estrategia.</p>
+<p><strong>Respuesta:</strong></p>
+<p><strong>Cobertura para compradores:</strong></p>
+<blockquote>
+<div><ul>
+<li><p>Estrategia Call con <span class="math notranslate nohighlight">\(K_1\)</span></p>
+<blockquote>
+<div><p>Primas: - $13.830.941.</p>
+<p>Precio cobertura: $3.576,10.</p>
+</div></blockquote>
+</li>
+<li><p>Estrategia Call con <span class="math notranslate nohighlight">\(K_2\)</span></p>
+<blockquote>
+<div><p>Primas: - $4.289.395.</p>
+<p>Precio cobertura: $3.634,30.</p>
+</div></blockquote>
+</li>
+<li><p>Estrategia Bull Call Spread:</p>
+<blockquote>
+<div><p>Primas: - $9.541.547.</p>
+<p>Precio cobertura: $3.741,81.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p><strong>Cobertura para vendedores:</strong></p>
+<blockquote>
+<div><ul>
+<li><p>Estrategia Put con <span class="math notranslate nohighlight">\(K_1\)</span></p>
+<blockquote>
+<div><p>Primas: - $12.650.724.</p>
+<p>Precio cobertura: $3.757,83.</p>
+</div></blockquote>
+</li>
+<li><p>Estrategia Put con <span class="math notranslate nohighlight">\(K_2\)</span></p>
+<blockquote>
+<div><p>Primas: - $30.068.708.</p>
+<p>Precio cobertura: $3.699,77.</p>
+</div></blockquote>
+</li>
+<li><p>Estrategia Bear Call Spread:</p>
+<blockquote>
+<div><p>Primas: $9.541.547.</p>
+<p>Precio cobertura: $3.361,81.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Machine Learning/index.html" class="btn btn-neutral float-right" title="Regresión lineal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Ejercicios propiedades, coberturas y valoración de opciones por SMC.html" class="btn btn-neutral" title="Ejercicios propiedades, coberturas y valoración de opciones por SMC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

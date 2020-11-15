@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ejercicios swap &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../index.html"/>
+        <link rel="up" title="Swap" href="index.html"/>
+        <link rel="next" title="Futuros" href="../Futuros/index.html"/>
+        <link rel="prev" title="Ejercicios tasas FRA" href="Ejercicios tasas FRA.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducción a R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tasas de interés/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+<p class="caption"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Introducción Gestión del Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Volatilidad no constante/index.html">Volatilidades dinámicas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SH/index.html">VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR SM/index.html">VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/Backtesting/index.html">Backtesting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo de mercado/VaR bonos/index.html">VaR bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Mercado financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Teoría de portafolios/index.html">Teoría moderna de portafolios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios de inversión2/Bonos/index.html">Bonos</a></li>
+</ul>
+<p class="caption"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Forward/index.html">Forward</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Swap</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Ejercicios tasas FRA.html">Ejercicios tasas FRA</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ejercicios swap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption"><span class="caption-text">En contrucción:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Machine Learning/index.html">Regresión lineal</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Swap</a> &raquo;</li>
+        
+      <li>Ejercicios swap</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Derivados financieros/Swap/Ejercicios swap.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ejercicios-swap">
+<h1>Ejercicios swap<a class="headerlink" href="#ejercicios-swap" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ejercicio-no-1">
+<h2>Ejercicio No. 1<a class="headerlink" href="#ejercicio-no-1" title="Permalink to this headline">¶</a></h2>
+<p>Se contrata un Swap IRS por un año con pagos trimestrales sobre un valor
+nocional de $500.000, pagando tasa fija.</p>
+<p>Suponga la siguiente estructura de tasas de interés:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Años</strong></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(r_t\)</span> [Nominal]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0,25</p></td>
+<td><p>2,0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,50</p></td>
+<td><p>2,4%</p></td>
+</tr>
+<tr class="row-even"><td><p>0,75</p></td>
+<td><p>2,8%</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>3,0%</p></td>
+</tr>
+</tbody>
+</table>
+<p>¿Cuál debería ser la tasa fija del Swap?</p>
+<p><strong>Respuesta:</strong></p>
+<p>S = 0,74% trimestral.</p>
+<p>S = 2,962% nominal.</p>
+<p>Suponga que inmediatamente después del primer pago en el Swap se tiene
+la siguiente estructura de tasas de interés:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Años</strong></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(r_t\)</span> [Nominal]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0,25</p></td>
+<td><p>3,0%</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,50</p></td>
+<td><p>3,3%</p></td>
+</tr>
+<tr class="row-even"><td><p>0,75</p></td>
+<td><p>3,5%</p></td>
+</tr>
+</tbody>
+</table>
+<p>¿Cuál es el valor de la posición en el Swap tres meses después de
+contratar el Swap?</p>
+<p>Nota: realice los cálculos con tasas nominales simples y en las tasas de
+descuento en las tasas FRA y una base de 360.</p>
+<p><strong>Respuestas:</strong></p>
+<p><span class="math notranslate nohighlight">\(V_{Fija}\)</span> = 10.924,70.</p>
+<p><span class="math notranslate nohighlight">\(V_{Variable}\)</span> = 12.789,28.</p>
+<p><span class="math notranslate nohighlight">\(V_{Swap}\)</span> = 1.864,58.</p>
+</div>
+<div class="section" id="ejercicio-no-2">
+<h2>Ejercicio No. 2<a class="headerlink" href="#ejercicio-no-2" title="Permalink to this headline">¶</a></h2>
+<p>Una empresa ha emitido un bono a tasa variable por 5 millones de USD con
+un valor facial (tasa cupón) de LIBOR a 6 meses más 100 pbp semestrales
+(puntos básicos porcentuales, 1 pbp = 1 punto básico = 0,01%, así que
+100 pbp = 1%) con vencimiento en un año. La empresa está preocupada por
+el incremento en las tasas de interés, por tanto, desea protegerse en
+contra de este riesgo de mercado. ¿Cómo se podría hacer esta cobertura
+con swaps?</p>
+<p>Suponga la siguiente estructura de tasas de interés:</p>
+<p>Tasas LIBOR:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Años</strong></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(r_t\)</span> [Nominal]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0,50</p></td>
+<td><p>0,30%</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0,38%</p></td>
+</tr>
+</tbody>
+</table>
+<p>Suponga que la tasa LIBOR a 6 meses en el momento en que se realiza el
+swap es de 0,3% nominal y la LIBOR a 12 meses es de 0,38% nominal y que
+6 meses después, la tasa LIBOR a 6 meses incrementa a 0,5% nominal. ¿Qué
+tan efectiva fue la estrategia de gestión del riesgo?</p>
+<p>Nota: realice los cálculos con tasas nominales simples en las tasas de
+descuento y en las tasas FRA y una base de 360.</p>
+<p><strong>Respuesta:</strong></p>
+<p>La empresa puede entrar en un swap pagando tasa fija y recibir tasa
+variable, y así convertir los pagos en tasa variable en pagos en tasa
+fija.</p>
+<p>Para una cobertura completa, la empresa debe entrar en un swap de un año
+con un valor nocional de 5.000.000 USD, con pagos semestrales, con LIBOR
+6 meses como tasa flotante.</p>
+<p>S = 1,190% semestral.</p>
+<p>S = 2,380% nominal.</p>
+<p>Los intereses de la deuda del año suman 120.000 USD y los dos pagos en
+el swap suman 118.978 USD. Con el swap se pagan menos intereses en 1.022
+USD.</p>
+</div>
+<div class="section" id="ejercicio-no-3">
+<h2>Ejercicio No. 3<a class="headerlink" href="#ejercicio-no-3" title="Permalink to this headline">¶</a></h2>
+<p>Una entidad financiera realizó un swap CCS a 10 años con la empresa X.
+La entidad financiera recibe del swap 5% E.A. sobre un nocional de 3.500
+millones de COP y paga 2% E.A. sobre un nocional de 1 millón de USD. Los
+intercambios se realizan una vez al año. Suponga que la empresa X se
+declara en quiebra y entra en default al final del año 6 justo antes del
+intercambio de este año, la tasa de cambio USD/COP de ese momento es de
+$3.600 por dólar. ¿Cuál es la pérdida para la institución financiera?
+Suponga que las estructuras de tasas de interés en las dos monedas
+tienen una curva plana del 5% E.A. para los pesos colombianos y del 2%
+E.A. para los dólares, es decir, estas son las tasas libres de riesgo
+para todos los vencimientos en cada moneda.</p>
+<p>Nota: realice los cálculos con tasas efectivas en las tasas de descuento
+y en las tasas FRA y una base de 360.</p>
+<p><strong>Respuesta:</strong></p>
+<p>En la posición de la entidad financiera el valor del swap es positivo,
+por tanto, se incurre en una pérdida porque la contraparte no cumplirá
+con los pagos faltantes en el swap. La pérdida es 3 millones de COP que
+es el valor del swap para la entidad financiera.</p>
+</div>
+<div class="section" id="ejercicio-no-4">
+<h2>Ejercicio No. 4<a class="headerlink" href="#ejercicio-no-4" title="Permalink to this headline">¶</a></h2>
+<p>Una entidad financiera realizó un swap IRS con la empresa Y. La entidad
+financiera recibe el 3% NASV y paga tasa LIBOR 6M sobre un capital de 5
+millones de USD durante cinco años. Los pagos se realizan semestrales
+con la tasa efectiva semestral. Suponga que la empresa Y entra en
+default en la sexta fecha de pago (fin del año 3), cuando las tasas de
+interés LIBOR es de 3% anual con capitalización semestral para todos los
+vencimientos. La tasa LIBOR 6M del período anterior fue de 2% anual con
+capitalización semestral. ¿Cuál es la pérdida para la entidad
+financiera?</p>
+<p>Nota: realice los cálculos con tasas efectivas en las tasas de descuento
+y en las tasas FRA y una base de 360.</p>
+<p><strong>Respuesta:</strong></p>
+<p>En la posición de la entidad financiera el valor del swap es positivo,
+por tanto, se incurre en una pérdida porque la contraparte no cumplirá
+con los pagos faltantes en el swap. La pérdida es 25.000 USD que es el
+valor del swap para la entidad financiera.</p>
+</div>
+<div class="section" id="ejercicio-no-5">
+<h2>Ejercicio No. 5<a class="headerlink" href="#ejercicio-no-5" title="Permalink to this headline">¶</a></h2>
+<p>Una empresa negoció un swap sobre divisas en el cual recibe un 4% en JPY
+y paga 6% sobre USD anualmente. Los nominales son 1.000 millones de JPY
+y 10 millones de USD. El swap tiene un plazo vigente de dos años y la
+tasa de cambio actual es de 115 USD/JPY. Las tasas spot anualizadas con
+capitalización continua son 0,5% y 0,8% en JPY para uno y dos años,
+respectivamente y las tasas spot anualizadas con capitalización continua
+para USD son del 2% para uno y 2,5% para dos años. ¿Cuál es el valor
+actual del swap para la empresa en USD?</p>
+<p>Nota: realice los cálculos con tasas compuestas continuas en las tasas
+de descuento y en las tasas FRA y una base de 360.</p>
+<p><strong>Respuesta:</strong></p>
+<p>Valor del swap de -1.425.126 USD.</p>
+</div>
+<div class="section" id="ejercicio-no-6">
+<h2>Ejercicio No. 6<a class="headerlink" href="#ejercicio-no-6" title="Permalink to this headline">¶</a></h2>
+<p>Una empresa colombiana tiene un préstamo en USD contratado con una
+entidad internacional. En el préstamo tiene que pagar cada 90 días LIBOR
+3M sobre un principal de 10 millones de USD por el siguiente año (faltan
+4 pagos).</p>
+<p>Una entidad financiera ofrece hacer la cobertura sobre la tasa de cambio
+y sobre la tasa de interés para todos los pagos por medio de un swap
+donde la empresa pague tasa fija en COP y reciba LIBOR 3M en USD. El
+principal en USD es de 10 millones y 35.000 millones en COP. La tasa de
+cambio USD/COP actual es de 3.500 por dólar. ¿Cuál debería ser la tasa
+fija para un intercambio justo en el swap?</p>
+<p>Las tasas de interés en las dos monedas se muestran a continuación:</p>
+<p>Tasas de interés COP:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Meses</strong></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(r_{dt}\)</span> [Nominal]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2,50%</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>2,80%</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>3,10%</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>3,50%</p></td>
+</tr>
+</tbody>
+</table>
+<p>LIBOR USD:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Meses</strong></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(r_{ft}\)</span> [Nominal]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>0,32%</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>0,35%</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>0,38%</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>0,40%</p></td>
+</tr>
+</tbody>
+</table>
+<p>Nota: realice los cálculos con tasas nominales simples en las tasas de
+descuento y en las tasas FRA y una base de 360.</p>
+<p><strong>Respuesta:</strong></p>
+<p>S = 0,8619% trimestral</p>
+<p>S = 3,4476% nominal.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Futuros/index.html" class="btn btn-neutral float-right" title="Futuros" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Ejercicios tasas FRA.html" class="btn btn-neutral" title="Ejercicios tasas FRA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
