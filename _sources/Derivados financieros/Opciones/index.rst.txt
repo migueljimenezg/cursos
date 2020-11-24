@@ -178,6 +178,10 @@ Este método de valoración de opciones aplica sólo para opciones europeas.
 
         * **Ver video: The Midas Formula** --- `aquí <https://www.dailymotion.com/video/x225si7>`_.
 
+    * **Descargue** :download:`aquí <Ejemplos - Black - Scholes.xlsx>` ejemplo en Excel de Black-Scholes
+
+    * **Descargue** :download:`aquí <DG201.xls>` la macro de Excel **DerivaGem** para valorar opciones por Árboles Binomiales y Black-Scholes.
+
 
 
 Ejercicios valoración de opciones
