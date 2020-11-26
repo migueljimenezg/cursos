@@ -184,6 +184,16 @@ Este método de valoración de opciones aplica sólo para opciones europeas.
 
 
 
+Ejemplos en Excel valoración de opciones
+------------------------------------------------------------------------------
+
+        * **Ejemplos Árboles Binomiales y Black-Scholes:**
+ 
+            * **Descargue** :download:`aquí <Ejemplos valoración de opciones por AB y BS.xlsx>` el archivo de Excel.
+
+
+
+
 Ejercicios valoración de opciones
 ------------------------------------------------------------------------------
 

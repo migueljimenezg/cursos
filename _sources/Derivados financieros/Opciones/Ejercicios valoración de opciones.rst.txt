@@ -76,7 +76,7 @@ Opción Put con vencimiento a seis meses y precio strike de $3.820. La TRM es de
 
 Las opciones son del tipo europea y los precios strike son: :math:`K_1` de $3.500 y :math:`K_2` de $3.600.
 
-Realizar la valoración por el método de Black-Scholes con una tasa libre de riesgo local de 1,80% C.C.A y tasa libre de riesgo extranjera de 0,30% C.C.A. La TRM actual es de $3.500 y tiene una volatilidad anual de 12,17%.
+Realizar la valoración por el método de Black-Scholes con una tasa libre de riesgo local de 1,80% C.C.A y tasa libre de riesgo extranjera de 0,30% C.C.A. La TRM actual es de $3.500 y tiene una volatilidad continua anual de 12,17%.
 
 Si el precio de la TRM al día de terminación de la cobertura es de $3.800, calcule los precios con cobertura después de primas y el total de primas que se paga o recibe en cada estrategia.
 
@@ -121,7 +121,7 @@ Si el precio de la TRM al día de terminación de la cobertura es de $3.800, cal
     
 	Primas: $9.541.547.
 
-	Precio cobertura: $3.361,81.
+	Precio cobertura: $3.741,81.
 
 
 
