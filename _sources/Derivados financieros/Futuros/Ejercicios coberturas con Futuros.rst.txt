@@ -9,6 +9,8 @@ TRMH21F con precio de 2.903,31, TRMJ21F con precio de 2.934,70 y TRSH21F con pre
 
 Si el precio de los Futuros disminuye un 4% para el 7 de abril, ¿cuál es el valor de la compensación si la empresa hubiera realizado la cobertura con Futuros desde el día de hoy hasta el 7 de abril?
 
+Nota: seleccionar los contratos en los Futuros para que la razón de cobertura sea lo más aproximada al 100%.
+
 **Respuesta: $5.869.400.**
 
 2.	Suponga que estamos en septiembre de 2020. Una empresa debe pagar la cuota de un préstamo en dólares la primera semana de noviembre de 2020 por valor de 21.000 USD. Para mitigar el riesgo cambiario asociado a este préstamo, decide cubrir la compra de los dólares para el pago de la cuota utilizando los Futuros de la BVC. La siguiente tabla muestra los futuros disponibles.
@@ -147,9 +149,8 @@ d.	Discuta la diferencia de sus respuestas anteriores según el significado del 
 
 	**Precio con cobertura de 21,158 USD cuando ST=$23,82/barril.**
 
-**c.	Base inicial de 1,470 USD y base final de 21,400 USD con ST=$23,82/barril.**
+**c.	Base inicial de 1,470 USD. Con ST=$24,50/barril, base final de 2,15 y precio con cobertura de 21,838 USD.**
 
-	**Con ST = $24,50/barril el precio con cobertura es de 21,838 USD.**
 
 **d.	¿?**
 
@@ -185,6 +186,7 @@ Para los siguientes valores de los futuros y el índice para el mes de abril, de
 |**ST (abril)**	|2.010,00	|2.025,00	|2.144,01	|2.219,00	|2.287,00|
 +---------------+---------------+---------------+---------------+---------------+--------+
 
+Nota: aproxime el número de contratos en los Futuros al entero más próximo.
 
 **Respuestas**
 
@@ -202,7 +204,7 @@ Para los siguientes valores de los futuros y el índice para el mes de abril, de
 +----------------------------------+--------------------+--------------------+--------------------+---------------------+--------------------+
 |**Valor portafolio**	           |$508.718.527,83     |$513.308.058,66     |$549.721.396,28     |$572.665.990,76      |$593.471.863,86     |
 +----------------------------------+--------------------+--------------------+--------------------+---------------------+--------------------+
-|**TOTAL POSICIÓN**	           |**$495.124.777,83** |**$493.464.308,66** |**$549.721.396,28** |**$582.509.740,76**  |**$618.940.613,86** |
+|**TOTAL POSICIÓN**	           |**$495.120.427,83** |**$493.457.958,66** |**$549.721.396,28** |**$582.512.890,76**  |**$618.948.763,86** |
 +----------------------------------+--------------------+--------------------+--------------------+---------------------+--------------------+
 
 
