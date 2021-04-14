@@ -28,6 +28,15 @@ Se explicará la estandarización de los Futuros de la Bolsa de Valores de Colom
         * **Ver video: Cuenta de Margen** --- `aquí <https://youtu.be/3N36hZyhLas>`_.
 
 
+    * **Ejemplos operaciones con Futuros:** descargue :download:`aquí <1. Ejemplos operaciones con Futuros.xlsx>` el archivo de Excel.
+
+        	* **Ver video** --- `aquí <https://youtu.be/d6lL8MJpy88>`_.
+
+
+
+    * **Ejemplos de cuentas de Margen:** descargue :download:`aquí <3. Cuenta de Margen Futuros BVC y CME.xlsx>` el archivo de Excel.
+
+        	* **Ver video** --- `aquí <https://youtu.be/CvXu4QUYuvE>`_.
 
     .. toctree::
             :maxdepth: 2
@@ -92,7 +101,11 @@ Se explicarán las coberturas con los Futuros:
         * **Ver video: Coberturas portafolios de inversión** --- `aquí <https://youtu.be/6bNHtK2QCaA>`_.
 
 
-        * **Descargue** :download:`aquí <ninjatrader_futures_contract_details.pdf>` márgenes de NinjaTrader.
+    * **Descargue** :download:`aquí <ninjatrader_futures_contract_details.pdf>` márgenes de NinjaTrader.
+
+    * **Ejemplos coberturas con Futuros:** descargue :download:`aquí <2. Coberturas con Futuros.xlsx>` el archivo de Excel.
+
+        	* **Ver video** --- `aquí <https://youtu.be/3IbI400siBc>`_.
 
     .. toctree::
             :maxdepth: 2
@@ -102,24 +115,13 @@ Se explicarán las coberturas con los Futuros:
             Ejercicios coberturas con Futuros.rst
 
 
-Ejemplos en Excel
+Más ejemplos
 ---------------------
 
-        * **Ejemplos operaciones con Futuros:**
- 
-            * **Descargue** :download:`aquí <1. Ejemplos operaciones con Futuros.xlsx>` el archivo de Excel.
 
-        * **Coberturas con Futuros:**
- 
-            * **Descargue** :download:`aquí <2. Coberturas con Futuros.xlsx>` el archivo de Excel.
+        * **Ejemplos Futuros:** descargue :download:`aquí <4. Ejemplos Futuros.xlsx>` el archivo de Excel.
 
-        * **Cuentas de Margen:**
- 
-            * **Descargue** :download:`aquí <3. Cuenta de Margen Futuros BVC y CME.xlsx>` el archivo de Excel.
-
-        * **Ejemplos Futuros:**
- 
-            * **Descargue** :download:`aquí <4. Ejemplos Futuros.xlsx>` el archivo de Excel.
+        	* **Ver video** --- `aquí <https://youtu.be/Untn0ryJgXU>`_.
 
 
 
