@@ -28,15 +28,17 @@ Se explicará la estandarización de los Futuros de la Bolsa de Valores de Colom
         * **Ver video: Cuenta de Margen** --- `aquí <https://youtu.be/3N36hZyhLas>`_.
 
 
-    * **Ejemplos operaciones con Futuros:** descargue :download:`aquí <1. Ejemplos operaciones con Futuros.xlsx>` el archivo de Excel.
+.. seealso:: **Ejemplos operaciones con Futuros:** :download:`aquí <1. Ejemplos operaciones con Futuros.xlsx>` archivo de Excel.
 
-        	* **Ver video** --- `aquí <https://youtu.be/d6lL8MJpy88>`_.
+             * **Ver video** --- `aquí <https://youtu.be/d6lL8MJpy88>`_.     
+
+             **Ejemplos de cuentas de Margen:** :download:`aquí <3. Cuenta de Margen Futuros BVC y CME.xlsx>` archivo de Excel.
+
+             * **Ver video** --- `aquí <https://youtu.be/CvXu4QUYuvE>`_.  
 
 
+__________________________________________________________________________
 
-    * **Ejemplos de cuentas de Margen:** descargue :download:`aquí <3. Cuenta de Margen Futuros BVC y CME.xlsx>` el archivo de Excel.
-
-        	* **Ver video** --- `aquí <https://youtu.be/CvXu4QUYuvE>`_.
 
     .. toctree::
             :maxdepth: 2
@@ -46,8 +48,7 @@ Se explicará la estandarización de los Futuros de la Bolsa de Valores de Colom
             Ejercicios operaciones con Futuros BVC.rst
 
 
-
-
+__________________________________________________________________________
 
 Futuros BVC
 ---------------
@@ -57,17 +58,13 @@ Futuros BVC
 
         * **Futuros sobre acciones ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_Acciones?action=dummy>`_.
 
-        * **Futuros sobre el índice COLCAP (Futuros COLCAP reemplazados por Futuros COS) ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_COLCAP?action=dummy>`_.
+        * **Futuros sobre el índice COLCAP ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_COLCAP?action=dummy>`_.
 
         * **Futuros TES ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_TES?action=dummy>`_.
 
-        * **Garantías actualizadas (2020) ---> BVC.**
+        * **Garantías actualizadas (2020) ---> BVC.** --- :download:`aquí <Garantías BVC-17-09-2020.pdf>` documento de la CRCC.
 
-            * **Descargue** :download:`aquí <Garantías BVC-17-09-2020.pdf>` el documento de la CRCC.
-
-        * **Haircuts para garantías (2020) ---> BVC.**
- 
-            * **Descargue** :download:`aquí <Haircut para garantías (2020).pdf>` el documento de la CRCC.
+        * **Haircuts para garantías (2020) ---> BVC.** --- :download:`aquí <Haircut para garantías (2020).pdf>` documento de la CRCC.
 
 
 
@@ -101,11 +98,20 @@ Se explicarán las coberturas con los Futuros:
         * **Ver video: Coberturas portafolios de inversión** --- `aquí <https://youtu.be/6bNHtK2QCaA>`_.
 
 
-    * **Descargue** :download:`aquí <ninjatrader_futures_contract_details.pdf>` márgenes de NinjaTrader.
+    * **Márgenes de NinjaTrader:** --- :download:`aquí <ninjatrader_futures_contract_details.pdf>` documento.
 
-    * **Ejemplos coberturas con Futuros:** descargue :download:`aquí <2. Coberturas con Futuros.xlsx>` el archivo de Excel.
 
-        	* **Ver video** --- `aquí <https://youtu.be/3IbI400siBc>`_.
+.. seealso:: **Ejemplos coberturas con Futuros:** :download:`aquí <2. Coberturas con Futuros.xlsx>` archivo de Excel.
+
+             * **Ver video** --- `aquí <https://youtu.be/3IbI400siBc>`_.   
+             
+             **Ejemplos Futuros:** :download:`aquí <4. Ejemplos Futuros.xlsx>` archivo de Excel.
+
+             * **Ver video** --- `aquí <https://youtu.be/Untn0ryJgXU>`_.   
+
+
+__________________________________________________________________________
+
 
     .. toctree::
             :maxdepth: 2
@@ -115,15 +121,7 @@ Se explicarán las coberturas con los Futuros:
             Ejercicios coberturas con Futuros.rst
 
 
-Más ejemplos
----------------------
-
-
-        * **Ejemplos Futuros:** descargue :download:`aquí <4. Ejemplos Futuros.xlsx>` el archivo de Excel.
-
-        	* **Ver video** --- `aquí <https://youtu.be/Untn0ryJgXU>`_.
-
-
+__________________________________________________________________________
 
 **Lecturas**
 

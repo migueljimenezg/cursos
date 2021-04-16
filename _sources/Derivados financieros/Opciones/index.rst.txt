@@ -56,7 +56,10 @@ Estas estrategias consisten en portafolios de opciones. Los portafolios de opcio
         * **Ver video: Opciones Corficolombiana** --- `aquí <https://youtu.be/y-Smtws4EVs>`_.
 
 
+.. seealso:: **Ejemplos en Excel de Opciones sin valoración:** :download:`aquí <Ejemplos en Excel-Opciones sin valoración.xlsx>` archivo de Excel.
 
+             * **Ver video** --- `aquí <https://youtu.be/NaU_YO_o8AM>`_.   
+             
 3. Valoración de opciones por el método de Simulación Monte Carlo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -141,8 +144,7 @@ El drift para valorar opciones debe ser la tasa libre de riesgo para activos sin
 
 
 
-Ejercicios propiedades, coberturas y valoración de opciones por SMC
-------------------------------------------------------------------------------
+__________________________________________________________________________
 
     .. toctree::
             :maxdepth: 2
@@ -152,7 +154,9 @@ Ejercicios propiedades, coberturas y valoración de opciones por SMC
             Ejercicios propiedades, coberturas y valoración de opciones por SMC.rst
 
 
-    * **Descargue** :download:`aquí <TRM 2020 (ejercicios).csv>` el archivo ``TRM 2020 (ejercicios).csv``.
+            * **Descargue** :download:`aquí <TRM 2020 (ejercicios).csv>` el archivo ``TRM 2020 (ejercicios).csv``.
+
+__________________________________________________________________________
 
 
 4. Valoración de opciones por el método de Árboles Binomiales
@@ -180,22 +184,25 @@ Este método de valoración de opciones aplica sólo para opciones europeas.
 
     * **Descargue** :download:`aquí <Ejemplos - Black - Scholes.xlsx>` ejemplo en Excel de Black-Scholes
 
-    * **Descargue** :download:`aquí <DG201.xls>` la macro de Excel **DerivaGem** para valorar opciones por Árboles Binomiales y Black-Scholes.
+__________________________________________________________________________
+
+
+    * **Macro de Excel DerivaGem:** :download:`aquí <DG201.xls>` para valorar opciones por Árboles Binomiales y Black-Scholes.
+
+__________________________________________________________________________
 
 
 
-Ejemplos en Excel valoración de opciones
-------------------------------------------------------------------------------
+.. seealso:: **Ejemplos Árboles Binomiales y Black-Scholes con DerivaGem:** :download:`aquí <Ejemplos valoración de opciones por AB y BS.xlsx>` archivo de Excel.
 
-        * **Ejemplos Árboles Binomiales y Black-Scholes:**
- 
-            * **Descargue** :download:`aquí <Ejemplos valoración de opciones por AB y BS.xlsx>` el archivo de Excel.
+             * **Ver video** --- `aquí <https://youtu.be/6YuIKo3Do5I>`_.
+
+             **Ejemplos en Excel de Opciones con valoración:** :download:`aquí <Ejemplos en Excel-Opciones con valoración.xlsx>` archivo de Excel.
+
+             * **Ver video** --- `aquí <https://youtu.be/mRS3KfPpXj0>`_.
 
 
-
-
-Ejercicios valoración de opciones
-------------------------------------------------------------------------------
+__________________________________________________________________________
 
     .. toctree::
             :maxdepth: 2
@@ -204,6 +211,8 @@ Ejercicios valoración de opciones
 
             Ejercicios valoración de opciones.rst
 
+
+__________________________________________________________________________
 
 
 **Lecturas**
