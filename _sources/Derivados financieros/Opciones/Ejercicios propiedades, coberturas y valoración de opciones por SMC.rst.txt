@@ -106,7 +106,7 @@ b.	¿Cómo cambian los resultados de los dos ejercicios anteriores si el precio 
 III.	Valoración de opciones por SMC
 ----------------------------------------------------
 
-7.	Realice la valoración de las siguientes opciones europeas por el método de Simulación Monte Carlo (SMC), utilice el archivo ``TRM 2020 (ejercicios).csv`` :
+7.	Realice la valoración de las siguientes opciones europeas por el método de Simulación Monte Carlo (SMC), utilice el archivo :download:`TRM 2020 (ejercicios) <TRM 2020 (ejercicios).csv>`
 
 Opciones Call y Put ATM con vencimiento en seis meses (180 días con una base de 360). La tasa libre de riesgo local vigente para seis meses es de 2% E.A. y la tasa libre de riesgo extranjera vigente para seis es de 0,31% nominal.
 
