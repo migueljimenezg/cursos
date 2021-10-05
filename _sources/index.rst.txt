@@ -23,31 +23,6 @@ Material de apoyo
 
 
 .. toctree::
-    :caption: RIESGO DE MERCADO:
-    :titlesonly:
-    :hidden:
-
-    
-    Riesgo de mercado/Introducción Gestión del Riesgo/index
-    Riesgo de mercado/VaR Delta-Normal/index
-    Riesgo de mercado/Volatilidad no constante/index
-    Riesgo de mercado/VaR SH/index
-    Riesgo de mercado/VaR SM/index
-    Riesgo de mercado/Backtesting/index
-    Riesgo de mercado/VaR bonos/index
-
-
-.. toctree::
-    :caption: PORTAFOLIOS DE INVERSIÓN:
-    :titlesonly:
-    :hidden:
-
-    Portafolios de inversión2/Mercado financiero/index
-    Portafolios de inversión2/Teoría de portafolios/index.rst
-    Portafolios de inversión2/Bonos/index.rst
-    
-
-.. toctree::
     :caption: DERIVADOS FINANCIEROS:
     :titlesonly:
     :hidden:
@@ -59,12 +34,35 @@ Material de apoyo
 
 
 .. toctree::
-    :maxdepth: 2
-    :caption: En contrucción:
+    :caption: ADMINISTRACIÓN FINANCIERA:
     :titlesonly:
     :hidden:
 
-    Machine Learning/index
+    Administración financiera/index
+
+
+.. toctree::
+    :caption: RIESGO DE MERCADO:
+    :titlesonly:
+    :hidden:
+
+    
+    Riesgo de mercado/index
+
+
+
+.. toctree::
+    :caption: PORTAFOLIOS DE INVERSIÓN:
+    :titlesonly:
+    :hidden:
+
+    Portafolios de inversión2/index
+
+    
+
+
+
+
 
     
 
