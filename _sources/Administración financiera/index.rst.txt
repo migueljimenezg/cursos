@@ -17,8 +17,8 @@ Se explicarán los conceptos de Interés Simple e Interés Compuesto. Por últim
         * **Ver video: Valor Presente y Valor Futuro** --- `aquí <https://youtu.be/-1Tn7cy8xj4>`_.
 
 .. image:: VPyVF.png
-   :width: 420px
-   :height: 420px
+   :width: 600px
+   :height: 600px
 
 
 2. Anualidades
@@ -36,12 +36,12 @@ Las Anualidades son una serie uniforme de pagos que ocurren con la misma frecuen
     	* **Descargue** :download:`aquí <Introducción matemáticas financieras/Ejemplos de Anualidades.xlsx>` el archivo de Excel.
 
 .. image:: Anualidades.png
-   :width: 420px
-   :height: 420px
+   :width: 600px
+   :height: 600px
 
 .. image:: Anualidades2.png
-   :width: 420px
-   :height: 420px
+   :width: 600px
+   :height: 600px
 
 
 3. Tasas nominales, efectivas y anticipadas
@@ -51,6 +51,10 @@ Se explicarán las equivalencias entre las tasas nominales, efectivas y anticipa
 
     * **Descargue** :download:`aquí <Introducción matemáticas financieras/3. Tasas nominales, efectivas y anticipadas.pdf>` las presentaciones de tasas nominales, efectivas y anticipadas.
 
+        * **Ver video: Tasas nominales, efectivas y equivalentes** --- `aquí <https://youtu.be/jLUUnS1r6GI>`_.
+
+        * **Ver video: Tasas anticipadas y resumen de fórmulas** --- `aquí <https://youtu.be/-XjhCSONu_4>`_.
+
 
 4. Criterios de decisión
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -59,10 +63,14 @@ Existen muchas métricas que evalúan las inversiones, pero en esta sección só
 
     * **Descargue** :download:`aquí <Introducción matemáticas financieras/4. Criterios de decisión.pdf>` las presentaciones de criterios de decisión.
 
+        * **Ver video: Criterios de decisión: VPN y TIR** --- `aquí <https://youtu.be/E4gTN3jAD28>`_.
+
+    	* **Descargue** :download:`aquí <Introducción matemáticas financieras/VPN y TIR.xlsx>` el archivo de Excel sobre VPN y TIR.
+
 
 .. image:: VPNTIR.png
-   :width: 420px
-   :height: 420px
+   :width: 600px
+   :height: 600px
 
 
 
@@ -83,27 +91,42 @@ Ejercicios
 
 ________________________________________________________________________________________
 
+Resumen de fórmulas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: resumen1.png
+   :width: 800px
+   :height: 800px
+
+.. image:: resumen2.png
+   :width: 800px
+   :height: 800px
+
+.. image:: resumen3.png
+   :width: 800px
+   :height: 800px
+________________________________________________________________________________________
 
 Lecturas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: Sullivan.png
-   :width: 420px
-   :height: 420px
+   :width: 200px
+   :height: 200px
 
     
 * **Descargue** :download:`aquí <Introducción matemáticas financieras/Ingeniería económica de demargoo.pdf>` el libro.
 
 .. image:: Meza.png
-   :width: 420px
-   :height: 420px
+   :width: 200px
+   :height: 200px
 
     
 * **Descargue** :download:`aquí <Introducción matemáticas financieras/Matematicas Financieras Aplicadas (2012).pdf>` el libro.
 
 .. image:: Blank.png
-   :width: 420px
-   :height: 420px
+   :width: 200px
+   :height: 200px
 
     
 * **Descargue** :download:`aquí <Introducción matemáticas financieras/Leland Blank_ Anthony Tarquin_ - Ingeniería económica (6a. ed.) (2007).pdf>` el libro.
