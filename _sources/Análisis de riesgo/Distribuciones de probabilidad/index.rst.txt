@@ -1,0 +1,33 @@
+Distribuciones de probabilidad
+==========================================
+
+En esta sección se explicarán las distribuciones de probabilidad más usadas en la gestión de riesgo en los proyectos de inversión. Se aplicarán algunas distribuciones de probabilidad continuas y discretas.
+Cuando se realiza una simulación Monte Carlo, las variables seguirán el comportamiento de estas distribuciones de probabilidad y así se generarán valores aleatorios.
+
+
+
+**Descargue** :download:`aquí <3. Distribuciones de probabilidad.pdf>` las presentaciones de distribuciones de probabilidad.
+
+
+**Descargue** :download:`aquí <Distribuciones de probabilidad.xlsx>` el achivo de Excel con las distribuciones de probabilidad.
+
+
+Lecturas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
