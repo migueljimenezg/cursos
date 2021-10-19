@@ -9,13 +9,20 @@ Cuando se realiza una simulación Monte Carlo, las variables seguirán el compor
 **Descargue** :download:`aquí <3. Distribuciones de probabilidad.pdf>` las presentaciones de distribuciones de probabilidad.
 
 
-**Descargue** :download:`aquí <Distribuciones de probabilidad.xlsx>` el achivo de Excel con las distribuciones de probabilidad.
+**Descargue** :download:`aquí <Ejemplos distribuciones de probabilidad.xlsx>` el achivo de Excel con ejemplos de las distribuciones de probabilidad continua.
 
 
 Lecturas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. [#f1] **Capítulo 5: Distribuciones de probabilidad discreta.** Simulación de modelos financieros. Luciano Machain. Primera edición.
 
+    * **Descargue** :download:`aquí <Cap. 5-Distribuciones de probabilidad discreta-Machain.pdf>` el capítulo.
+
+
+.. [#f2] **Capítulo 6: Distribuciones de probabilidad continua.** Simulación de modelos financieros. Luciano Machain. Primera edición.
+
+    * **Descargue** :download:`aquí <Cap. 6-Distribuciones de probabilidad continua-Machain.pdf>` el capítulo.
 
 
 
