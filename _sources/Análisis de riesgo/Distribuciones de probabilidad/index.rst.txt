@@ -15,6 +15,9 @@ Cuando se realiza una simulación Monte Carlo, las variables seguirán el compor
 **Descargue** :download:`aquí <Ejemplo distribución triangular.xlsx>` el achivo de Excel con ejemplo de distribución triangular.
 
 
+**Descargue** :download:`aquí <Ejemplo distribución discreta.xlsx>` el achivo de Excel con ejemplo de distribución discreta (empírica).
+
+
 **Descargue** :download:`aquí <Ejemplos distribuciones discretas.xlsx>` el achivo de Excel con con ejemplos de distribuciones discretas.
 
 
