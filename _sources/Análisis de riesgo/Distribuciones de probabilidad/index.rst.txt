@@ -12,13 +12,21 @@ Cuando se realiza una simulación Monte Carlo, las variables seguirán el compor
 **Descargue** :download:`aquí <Ejemplos distribuciones de probabilidad.xlsx>` el achivo de Excel con ejemplos de las distribuciones de probabilidad continua.
 
 
-**Descargue** :download:`aquí <Ejemplo distribución triangular.xlsx>` el achivo de Excel con con ejemplo de distribución triangular.
+**Descargue** :download:`aquí <Ejemplo distribución triangular.xlsx>` el achivo de Excel con ejemplo de distribución triangular.
 
 
 **Descargue** :download:`aquí <Ejemplos distribuciones discretas.xlsx>` el achivo de Excel con con ejemplos de distribuciones discretas.
 
 
 **Descargue** :download:`aquí <Uso de distribuciones de probabilidad.xlsx>` el achivo de Excel con usos de distribuciones de probabilidad.
+
+
+
+Generación de números aleatorios:
+------------------------------------------------------------------------------
+
+**Descargue** :download:`aquí <4. Generación de números aleatorios.pdf>` las presentaciones generación de números aleatorios.
+
 
 
 Lecturas

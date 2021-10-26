@@ -8,4 +8,5 @@ Análisis de Riesgo
             Introducción Gestión del Riesgo/index
             Estadística/index
             Distribuciones de probabilidad/index
+	    Análisis de sensibilidad tradicional/index
             
