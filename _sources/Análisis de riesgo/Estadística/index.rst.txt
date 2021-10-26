@@ -39,12 +39,12 @@ Lecturas
 
 .. [#f1] **Capítulo 3: Conceptos elementales de estadística.** Simulación de modelos financieros. Luciano Machain. Primera edición.
 
-    * **Descargue** :download:`aquí <Cap. 3-Conceptos elementales de estadística-Machain.pdf>` el capítulo.
+
 
 
 .. [#f2] **Capítulo 4: Medidas de posición y dispersión.** Simulación de modelos financieros. Luciano Machain. Primera edición.
 
-    * **Descargue** :download:`aquí <Cap. 4-Medidas de posición y dispersión-Machain.pdf>` el capítulo.
+
 
 
 

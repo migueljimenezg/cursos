@@ -63,7 +63,7 @@ Lectura
 
 .. [#f1] **Capítulo 8: Análisis de sensibilidad tradicional.** Simulación de modelos financieros. Luciano Machain. Primera edición.
 
-    * **Descargue** :download:`aquí <Cap. 8-Análisis de sensibilidad tradicional-Machain.pdf>` el capítulo.
+
 
 
 

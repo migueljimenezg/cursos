@@ -24,8 +24,6 @@ Este curso está enfocado a cuantificar el riesgo en los proyectos de inversión
 
 .. [#f1] **Capítulo 2: Introducción al proceso de decisión bajo condiciones de riesgo e incertidumbre.** Simulación de modelos financieros. Luciano Machain. Primera edición.
 
-    * **Descargue** :download:`aquí <Cap. 2-Introducción-Machain.pdf>` el capítulo.
-
 
 
 

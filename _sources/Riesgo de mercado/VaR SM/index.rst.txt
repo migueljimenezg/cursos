@@ -101,15 +101,13 @@ VaR Simulación Monte Carlo
 
 .. [#f1] **Capítulo 17: Dinámica de precios y valuación de opciones.** Simulación de modelos financieros. Luciano Machain.
 
-    * **Descargue** :download:`aquí <Movimiento Browniano Geométrico-Machain.pdf>` el capítulo.
 
 .. [#f2] **Capítulo 7: Modelo Monte Carlo.** Medición y control de riesgos financieros. Alfonso De Lara Haro.
 
-    * **Descargue** :download:`aquí <VaR método Simulación Monte Carlo-De Lara Haro.pdf>` el capítulo.
 
 .. [#f3] **Capítulo 12: Monte Carlo estructurado.** Valor en riesgo. Philippe Jorion.
 
-    * **Descargue** :download:`aquí <VaR método Simulación Monte Carlo-Jorion.pdf>` el capítulo.
+
 
 
 

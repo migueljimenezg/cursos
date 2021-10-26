@@ -102,7 +102,6 @@ Swap
 
 .. [#f2] **Capítulo 7: Swap.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 7. Swap-Hull.pdf>` el capítulo.
 
 
 

@@ -71,7 +71,7 @@ VaR bonos
 
 .. [#f1] **Tema: VaR bonos.** Medición y control de riesgos financieros. Alfonso De Lara Haro.
 
-    * **Descargue** :download:`aquí <VaR Bonos-De Lara Haro.pdf>` el documento.
+
 
 .. [#f2] **Tema: Bonos.** BBVA.
 

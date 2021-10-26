@@ -67,23 +67,23 @@ Análisis y conformación de portafolios de inversión
 
 .. [#f1] **Tema: Conceptos de estadística.** Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.
 
-    * **Descargue** :download:`aquí <Conceptos de estadística-Alonso y Berggrun.pdf>` el documento.
+
 
 .. [#f2] **Tema: Rendimientos.** Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.
 
-    * **Descargue** :download:`aquí <Rendimientos-Alonso y Berggrun.pdf>` el documento.
+
 
 .. [#f3] **Tema: Volatilidad histórica.** Medición y control de riesgos financieros. Alfonso De Lara Haro.
 
-    * **Descargue** :download:`aquí <Volatilidad-De Lara Haro.pdf>` el documento.
+
 
 .. [#f4] **Artículo: Cuatro hechos estilizados de las series de rendimientos: una ilustración para Colombia**. Julio Cesar Alonso y Mauricio Alejandro Arcos.
 
-    * **Descargue** :download:`aquí <CUATRO HECHOS ESTILIZADOS DE LAS SERIES DE RENDIMIENTOS.pdf>` el artículo.
+
 
 .. [#f5] **Capítulo 1: Fundamentos de probabilidad y estadística**. Jay L. Devore. 
 
-    * **Descargue** :download:`aquí <Estadística-Devore.pdf>` el capítulo.
+ 
 
 
 

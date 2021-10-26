@@ -140,7 +140,6 @@ Backtesting
 
 .. [#f1] **Capítulo 7: Pruebas de Backtesting.** Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.
 
-    * **Descargue** :download:`aquí <Backtesting-Alonso y Berggrun.pdf>` el capítulo.
 
 
 

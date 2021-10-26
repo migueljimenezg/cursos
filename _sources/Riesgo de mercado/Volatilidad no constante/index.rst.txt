@@ -59,13 +59,16 @@ Volatilidades dinámicas
             Ejercicios-volatilidades dinámicas/Ejercicios volatilidades dinámicas.rst
 
 
+**Lecturas**
+
+
 .. [#f1] **Capítulo 3: La volatilidad.** Medición y control de riesgos financieros. Alfonso De Lara Haro.
 
-    * **Descargue** :download:`aquí <Volatilidades-De Lara Haro.pdf>` el capítulo.
+
 
 .. [#f2] **Tema: Volatilidad EWMA y GARCH** Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.
 
-    * **Descargue** :download:`aquí <Volatilidad-Alonso y Berggrun.pdf>` el documento.
+
 
 
 

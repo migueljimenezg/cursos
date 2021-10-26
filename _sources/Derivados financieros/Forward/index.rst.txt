@@ -70,7 +70,7 @@ Forward
 
 .. [#f2] **Capítulo 1: Introducción.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 1. Introducción-Hull.pdf>` el capítulo.
+
 
 
 .. [#f3] **Capítulo 4 (parcial): Formación de precio de derivados con subyacente financiero.** Guía de estudio AMV: Derivados Financieros.
@@ -79,7 +79,7 @@ Forward
 
 .. [#f4] **Capítulo 5: Determinación de precios a plazo y de futuros.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 5. Precios a plazo-Hull.pdf>` el capítulo.
+
 
 
 

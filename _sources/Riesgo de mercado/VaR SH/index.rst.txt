@@ -94,11 +94,11 @@ VaR Simulación Histórica y CVaR
 
 .. [#f1] **Tema: VaR Simulación Histórica.** Introducción al análisis de riesgo financiero. Julio Cesar Alonso y Luis Berggrun.
 
-    * **Descargue** :download:`aquí <VaR Simulación Histórica-Alonso y Berggrun.pdf>` el documento.
+
 
 .. [#f2] **Tema: VaR Simulación Histórica.** Valor en riesgo. Philippe Jorion.
 
-    * **Descargue** :download:`aquí <VaR Simulación Histórica-Jorion.pdf>` el documento.
+
 
 .. [#f3] **Riesgo de Mercado:** BBVA.
 

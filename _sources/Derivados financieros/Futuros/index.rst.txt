@@ -153,12 +153,12 @@ __________________________________________________________________________
 
 .. [#f6] **Capítulo 2: Mecánica de los Mercados de Futuros.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 2. Futuros-Hull.pdf>` el capítulo.
+
 
 
 .. [#f7] **Capítulo 3: Estrategias de cobertura con contratos de futuros.** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 3. Coberturas futuros-Hull.pdf>` el capítulo.
+
 
 
 

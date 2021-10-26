@@ -115,42 +115,40 @@ Lecturas
    :height: 200px
 
     
-* **Descargue** :download:`aquí <Introducción matemáticas financieras/Ingeniería económica de demargoo.pdf>` el libro.
 
 .. image:: Meza.png
    :width: 200px
    :height: 200px
 
     
-* **Descargue** :download:`aquí <Introducción matemáticas financieras/Matematicas Financieras Aplicadas (2012).pdf>` el libro.
+
 
 .. image:: Blank.png
    :width: 200px
    :height: 200px
 
     
-* **Descargue** :download:`aquí <Introducción matemáticas financieras/Leland Blank_ Anthony Tarquin_ - Ingeniería económica (6a. ed.) (2007).pdf>` el libro.
+
 
 
 .. [#f1] **Capítulo 3: Relaciones dinero-tiempo y sus equivalencias.** Ingeniería Económica de DeGarmo. Sullivan, Wicks y Luxhoj. Duodécima edición.
 
-    * **Descargue** :download:`aquí <Introducción matemáticas financieras/Cap. 3-Relaciones dinero-tiempo-Sullivan.pdf>` el capítulo.
 
 .. [#f2] **Capítulo 5: Anualidades o series uniformes.** Matemáticas financieras aplicadas. Meza. Cuarta edición.
 
-    * **Descargue** :download:`aquí <Introducción matemáticas financieras/Capítulo 5 Anualidades o series uniformes-Meza.pdf>` el capítulo.
+
 
 .. [#f3] **Sección 3.16 Tasas de interés nominal y efectiva.** Ingeniería Económica de DeGarmo. Sullivan, Wicks y Luxhoj. Duodécima edición.
 
-    * **Descargue** :download:`aquí <Introducción matemáticas financieras/Sección 3.16 Tasas de interés nominal y efectiva-Sullivan.pdf>` la sección.
+
 
 .. [#f4] **Capítulo 4: Tasas de interés.** Matemáticas financieras aplicadas. Meza. Cuarta edición.
 
-    * **Descargue** :download:`aquí <Introducción matemáticas financieras/Capítulo 4 Tasas de interés-Meza.pdf>` el capítulo.
+
 
 .. [#f5] **Capítulo 8: Evaluación de alternativas de inversión.** Matemáticas financieras aplicadas. Meza. Cuarta edición.
 
-    * **Descargue** :download:`aquí <Introducción matemáticas financieras/Capítulo 8 Evaluación de alternativas de inversión-Meza.pdf>` el capítulo.
+
 
 
 

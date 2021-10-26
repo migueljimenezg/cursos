@@ -220,7 +220,6 @@ __________________________________________________________________________
 
 .. [#f1] **Capítulo 8: Mecánica de las opciones** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 8. Opciones-Hull.pdf>` el capítulo.
 
 
 .. [#f2] **BVC: Opciones sobre acciones.** 
@@ -235,12 +234,12 @@ __________________________________________________________________________
 
 .. [#f4] **Capítulo 9: Propiedades de las opciones sobre acciones** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 9. Propiedades Opciones-Hull.pdf>` el capítulo.
+
 
 
 .. [#f5] **Capítulo 10: Estrategias de negociación que incluyen opciones** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 10. Estrategias Opciones-Hull.pdf>` el capítulo.
+
 
 
 .. [#f6] **BVC: Estrategias de opciones.** 
@@ -250,12 +249,12 @@ __________________________________________________________________________
 
 .. [#f7] **Capítulo 11: Introducción a los árboles binomiales** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 11. Árboles Binomiales-Hull.pdf>` el capítulo.
+
 
 
 .. [#f8] **Capítulo 12: Valuación de opciones sobre acciones: modelo Black-Scholes** Introducción a los mercados de futuros y opciones. John C. Hull. Sexta edición.
 
-    * **Descargue** :download:`aquí <Cap. 12. Black-Scholes-Hull.pdf>` el capítulo.
+
 
 
 .. [#f9] **BVC: Valoración de opciones.** 
@@ -265,7 +264,6 @@ __________________________________________________________________________
 
 .. [#f10] **Capítulo 17: Dinámica de precios y valuación de opciones.** Simulación de modelos financieros. Luciano Machain.
 
-    * **Descargue** :download:`aquí <Movimiento Browniano Geométrico-Machain.pdf>` el capítulo.
 
 
 
