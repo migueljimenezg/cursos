@@ -1,0 +1,97 @@
+Estados Financieros
+===================================================
+
+Los estados financieros son informes períodos que muestran la situación del negocio y los resultados obtenidos durante el período de estudio.
+
+En esta sección se explicarán dos estados financieros: Balance General y Estado de Resultado.
+
+Con la implementación de las NIIF el Balance General se denomina Estado de Situación Financiera y el Estado de Resultados cambió a Estados de Resultados Integrales. El Estado de Resultados también es llamado PyG (Estado de Pérdidas y Ganancias).
+
+
+
+
+1. Balance General
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+El Balance General muestra el estado de la situación financiera de una empresa en una fecha específica. No es acumulativo, es una foto instantánea.
+
+La ecuación contable es Activos = Pasivos + Patrimonio. Esto muestra que los Activos con financiados con Deudas (Pasivos) y Capital propio (Patrimonio o Equity).
+
+
+Primero, se mostrará la evolución de un Balance General y se explicarán cómo se registran los eventos contables y cómo afectan las cuentas del Balance General.
+
+    * **Descargue** :download:`aquí <5. Ejemplo evolución Balance General.pdf>` las presentaciones sobre un ejemplo de evolución de un Balance General.
+
+        * **Ver video: Ejemplo evolución Balance General.** --- `aquí <https://youtu.be/tYNOjrKhprc>`_.
+
+
+En el siguiente material se explican los conceptos relacionados con el Balance General.
+
+
+    * **Descargue** :download:`aquí <6. Balance General.pdf>` las presentaciones sobre Balance General.
+
+        * **Ver video: Balance General - Activos.** --- `aquí <https://youtu.be/V2CHP9oHFwY>`_.
+
+        * **Ver video: Balance General - Pasivos y Patrimonio.** --- `aquí <https://youtu.be/RnCDBvlTqbw>`_.
+
+        * **Ver video: Balance General - Análisis.** --- `aquí <https://youtu.be/ybdYSn_Zdeo>`_.
+
+
+
+2. Estado de Resultados
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Presenta las ventas, los costos y gastos causados en un período en particular. El resultado final es la Utilidad Neta. Es el resultado acumulado de un período de tiempo a diferencia del Balance General que es el estado actual.
+La Utilidad Neta no es un flujo de efectivo, no es el efectivo de la empresa debido a que no muestra los cobros y los pagos, muestra ingresos y gastos. Por último, no muestra el capital de trabajo.
+
+
+    * **Descargue** :download:`aquí <7. Estado de Resultados.pdf>` las presentaciones sobre Estado de Resultados.
+
+        * **Ver video: Estado de Resultados parte 1.** --- `aquí <https://youtu.be/9S-WownY2bc>`_.
+
+        * **Ver video: Estado de Resultados parte 2.**
+
+
+
+3. Cuentas de tratamiento especial
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * **Descargue** :download:`aquí <8. Cuentas de tratamiento especial.pdf>` las presentaciones sobre cuentas de tratamiento especial.
+
+
+4. Ejemplo evolución Balance General y Estado de Resultados
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+El siguiente material muestra la evolución de un Balance General y el Estado de Resultados. Se explican cuáles cuentas están relacionadas con el Estado de Resultados. 
+El objetivo de este ejemplo es explicar las posibles cuentas que van a registrarse en el Estado de Resultados y el efecto que tienen en el Balance General.
+
+
+    * **Descargue** :download:`aquí <9. Evolución Balance General y Estado de Resultados.pdf>` las presentaciones sobre ejemplo evolución Balance General y Estado de Resultados.
+
+        * **Ver video: Evolución Balance General y Estado de Resultados parte 1.** --- `aquí <https://youtu.be/qA-rNbddj7k>`_.
+
+        * **Ver video: Evolución Balance General y Estado de Resultados parte 2.** --- `aquí <https://youtu.be/pXQZWcVR9yE>`_.
+
+        * **Ver video: Evolución Balance General y Estado de Resultados parte 3.** 
+
+
+_______________________________________________________________________________________________________________________
+
+El Decreto 2649 de 1993 tiene unos principios o normas de contabilidad, en el siguiente material extrajo algunos apartados que nos pueden interesar para comprender mejor los Estados Financieros.
+
+
+    * **Descargue** :download:`aquí <10. Decreto 2649 de 1993.pdf>` las presentaciones sobre el Decreto 2649 de 1993.
+
+_______________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
