@@ -49,7 +49,8 @@ La Utilidad Neta no es un flujo de efectivo, no es el efectivo de la empresa deb
 
         * **Ver video: Estado de Resultados parte 1.** --- `aquí <https://youtu.be/9S-WownY2bc>`_.
 
-        * **Ver video: Estado de Resultados parte 2.**
+        * **Ver video: Estado de Resultados parte 2.** --- `aquí <https://youtu.be/nCPzp-sJYcE>`_.
+
 
 
 
@@ -73,7 +74,8 @@ El objetivo de este ejemplo es explicar las posibles cuentas que van a registrar
 
         * **Ver video: Evolución Balance General y Estado de Resultados parte 2.** --- `aquí <https://youtu.be/pXQZWcVR9yE>`_.
 
-        * **Ver video: Evolución Balance General y Estado de Resultados parte 3.** 
+        * **Ver video: Evolución Balance General y Estado de Resultados parte 3.** --- `aquí <https://youtu.be/D4O4er-DOHE>`_.
+
 
 
 _______________________________________________________________________________________________________________________
@@ -85,13 +87,54 @@ El Decreto 2649 de 1993 tiene unos principios o normas de contabilidad, en el si
 
 _______________________________________________________________________________________________________________________
 
+5. Estados Financieros reportados en Supersociedades
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cada año, las empresas en Colombia deben reportar los Estados Financieros ante la Superintendencia de Sociedades (Supersociedades). En el siguiente link se pueden descargar los Estados Financieros anuales desde el año 2017 --- `aquí <https://siis.ia.supersociedades.gov.co/#/massivereports>`_.
+
+
+En Supersociedades se pueden descargar tres tipos de Estados Financieros:
+
+    * **1. Estados financieros individuales:** son los preparados por una entidad que NO tiene inversiones en asociadas, subordinadas o en negocios conjuntos.
+
+    * **2. Estados financieros separados:** son los preparados por una entidad que SÍ tiene inversiones en asociadas, subordinadas o en negocios conjuntos.
+
+    * **3. Estados financieros consolidados:** son los que presenta una entidad controladora y sus subsidiarias, como si se tratara de una sola entidad contable.
 
 
 
+6. Análisis de la industria del comercio de vehículos automotores nuevos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Con los Estados Financieros de Supersociedades se realizó el siguiente análisis:
 
 
+    * **Descargue** :download:`aquí <11. Análisis BG - comercio de vehículos automotores nuevos.pdf>` las presentaciones sobre análisis del Balance General de la industria.
 
 
+    * **Descargue** :download:`aquí <12. Análisis PyG - comercio de vehículos automotores nuevos.pdf>` las presentaciones sobre análisis del Estado de Resultados de la industria.
+
+
+    * **Descargue** :download:`aquí <Análisis Estados Financieros Concesionarios.xlsx>` el archivo de Excel sobre análisis de la industria.
+
+
+Adicionalmente, se realizó un análisis a la empresa Mazda que pertenece a la industria del comercio de vehículos automotores nuevos.
+
+
+    * **Descargue** :download:`aquí <13. Análisis Estados Financieros Mazda.pdf>` las presentaciones sobre análisis de la empresa Mazda.
+
+    * **Descargue** :download:`aquí <Análisis Estados Financieros Mazda.xlsx>` el archivo de Excel sobre análisis de la empresa Mazda.
+
+
+7. Informes Financieros públicos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Algunas empresas S.A. están obligadas a reportar informes financieros cada tres meses. Estos informes tienen los Estados Financieros y las notas de los Estados Financieros de forma detallada. El siguiente ejemplo es del Grupo Familia.
+
+   
+    * **Descargue** :download:`aquí <Estados-Financieros-Consolidados-2020.pdf>` el Informe Financiero del Grupo Familia para diciembre del 2020.
+
+
+    * **Descargue** :download:`aquí <14. Ejemplo Estados Financieros Grupo Familia.pdf>` las presentaciones sobre el informe financiero del Grupo Familia 2020.
 
 
 
