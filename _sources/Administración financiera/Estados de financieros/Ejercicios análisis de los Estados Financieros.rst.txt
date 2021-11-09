@@ -105,7 +105,7 @@ Los cálculos se realizan con los Estados Financieros del Euro Supermercados.
 		• Que la empresa no tiene activos de operación.
 
 
-9.	¿Qué significa que el KTNO aumente para el siguiente año?
+9.	¿Qué significa que el KTNO aumente para el siguiente año? (Única respuesta).
 
 		• Que la empresa necesitó más fondos, ya sea porque bajó la financiación a corto, aumentaron los Activos corrientes, o ambas situaciones.
 
@@ -168,9 +168,9 @@ Los cálculos se realizan con los Estados Financieros del Euro Supermercados.
 		+===========================+===================+
 		| **Valores iniciales**     | $ 326.459.104     | 
 		+---------------------------+-------------------+
-		| **Cambio absoluto**       | $ 343.133.091     | 
+		| **Valor hallado**         | $ 343.133.091     | 
 		+---------------------------+-------------------+
-		| **Cambio relativo**       | 5,11%             |
+		| **% cambio**              | 5,11%             |
 		+---------------------------+-------------------+
 
 
@@ -183,9 +183,9 @@ Los cálculos se realizan con los Estados Financieros del Euro Supermercados.
 		+===========================+===================+
 		| **Valores iniciales**     | $ 73.350.136      | 
 		+---------------------------+-------------------+
-		| **Cambio absoluto**       | $ 90.024.123      | 
+		| **Valor hallado**         | $ 90.024.123      | 
 		+---------------------------+-------------------+
-		| **Cambio relativo**       | 22,73%            |
+		| **% cambio**              | 22,73%            |
 		+---------------------------+-------------------+
 
 
@@ -198,9 +198,9 @@ Los cálculos se realizan con los Estados Financieros del Euro Supermercados.
 		+===========================+===================+
 		| **Valores iniciales**     | $ 414.219.785     | 
 		+---------------------------+-------------------+
-		| **Cambio absoluto**       | $ 397.545.798     | 
+		| **Valor hallado**         | $ 397.545.798     | 
 		+---------------------------+-------------------+
-		| **Cambio relativo**       | -4,03%            |
+		| **% cambio**              | -4,03%            |
 		+---------------------------+-------------------+
 
 
@@ -231,9 +231,9 @@ Los cálculos se realizan con los Estados Financieros del Euro Supermercados.
 		+===========================+===================+
 		| **Valores iniciales**     | $ 6.916.845       | 
 		+---------------------------+-------------------+
-		| **Cambio absoluto**       | $ 14.865.034      | 
+		| **Valor hallado**         | $ 14.865.034      | 
 		+---------------------------+-------------------+
-		| **Cambio relativo**       | 114,91%           |
+		| **% cambio**              | 114,91%           |
 		+---------------------------+-------------------+
 
 21.	Para obtener una Utilidad Neta igual a cero en el año 2020, ¿cuál debería ser el margen bruto?
@@ -245,9 +245,9 @@ Los cálculos se realizan con los Estados Financieros del Euro Supermercados.
 		+===========================+===================+
 		| **Valores iniciales**     | 21,19%            | 
 		+---------------------------+-------------------+
-		| **Cambio absoluto**       | 19,3%             | 
+		| **Valor hallado**         | 19,3%             | 
 		+---------------------------+-------------------+
-		| **Cambio relativo**       | -9,06%            |
+		| **% cambio**              | -9,06%            |
 		+---------------------------+-------------------+
 
 
@@ -260,9 +260,9 @@ Los cálculos se realizan con los Estados Financieros del Euro Supermercados.
 		+===========================+===================+
 		| **Valores iniciales**     | 4,03%             | 
 		+---------------------------+-------------------+
-		| **Cambio absoluto**       | 2,1%              | 
+		| **Valor hallado**         | 2,1%              | 
 		+---------------------------+-------------------+
-		| **Cambio relativo**       | -47,67%           |
+		| **% cambio**              | -47,67%           |
 		+---------------------------+-------------------+
 
 

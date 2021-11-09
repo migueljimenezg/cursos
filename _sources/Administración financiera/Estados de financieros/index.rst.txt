@@ -125,6 +125,11 @@ Adicionalmente, se realizó un análisis a la empresa Mazda que pertenece a la i
     * **Descargue** :download:`aquí <Análisis Estados Financieros Mazda.xlsx>` el archivo de Excel sobre análisis de la empresa Mazda.
 
 
+    * **Descargue** :download:`aquí <Análisis de sensibilidad Mazda.xlsx>` el archivo de Excel con el análisis de sensibilidad usando Buscar Objetivo.
+
+        * **Ver video: Análisis de sensibilidad Estado de Resultados con Buscar Objetivo.** --- `aquí <https://youtu.be/E90x5nLcvME>`_.
+
+
 7. Informes Financieros públicos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
