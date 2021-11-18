@@ -1,0 +1,27 @@
+KTNO
+===================================================
+
+Capital de trabajo neto operativo -- KTNO
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+El KTNO son los fondos que las compañías necesitan para la operación. Las empresas tienen activos operativos (Activos corrientes) que son financiados por pasivos espontáneos (Pasivos corrientes). Lo que no alcanzan a financiar
+estos pasivos espontáneos es el KTNO, esto ocurre cuando el KTNO es positivo; sin embargo, cuando el KTNO es negativo, son más los pasivos espontáneos que los activos operativos, no siempre es un problema de liquidez, pero sí es
+una forma agresiva de administrar las finanzas de corto plazo de la compañía.
+
+El KTNO podría ser visto como un costo de oportunidad, cuando el KTNO es positivo, la compañía necesita fondos adicionales debido a que los pasivos espontáneos no están financiando totalmente los activos de operación, por tanto,
+debe utilizar otros fondos (deudas o capital propio) en la operación.  
+
+
+
+    * **Descargue** :download:`aquí <15. Capital de Trabajo Neto Operativo (KTNO) y FM.pdf>` las presentaciones sobre el Capital de trabajo neto operativo (KTNO).
+
+        * **Descargue** :download:`aquí <Almacenes Éxito-KTNO y FM.xlsx>` el archivo de Excel para calcular el KTNO y el FM.
+
+
+        * **Ver video: KTNO.** --- `aquí <https://youtu.be/woM5q11heGc>`_.
+
+
+        * **Ver video: Ejemplo KTNO.** --- `aquí <https://youtu.be/lJXdgnXkcjQ>`_.
+
+
+        * **Ver video: Fondo de Maniobra (FM).** --- `aquí <https://youtu.be/RdUcmLQLSXs>`_.

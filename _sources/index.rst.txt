@@ -40,6 +40,7 @@ Material de apoyo
 
     Administración financiera/Introducción matemáticas financieras/index
     Administración financiera/Estados de financieros/index
+    Administración financiera/KTNO/index
 
 
 .. toctree::
