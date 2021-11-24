@@ -34,6 +34,7 @@ Material de apoyo
 
 
 .. toctree::
+    :maxdepth: 2
     :caption: ADMINISTRACIÓN FINANCIERA:
     :titlesonly:
     :hidden:
@@ -41,6 +42,7 @@ Material de apoyo
     Administración financiera/Introducción matemáticas financieras/index
     Administración financiera/Estados de financieros/index
     Administración financiera/KTNO/index
+    Administración financiera/Análisis vertical y horizontal/index
 
 
 .. toctree::
