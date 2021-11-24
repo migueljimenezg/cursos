@@ -13,13 +13,12 @@ Material de apoyo
     :caption: CONCEPTOS PREVIOS:
     :titlesonly:
     :hidden:
-    
-    
-    
+       
     Introducción a R/index
     Portafolios de inversión/index
     Tasas de interés/index
     Portafolios de inversión2/Trading/index.rst
+
 
 
 .. toctree::
@@ -34,7 +33,6 @@ Material de apoyo
 
 
 .. toctree::
-    :maxdepth: 2
     :caption: ADMINISTRACIÓN FINANCIERA:
     :titlesonly:
     :hidden:
