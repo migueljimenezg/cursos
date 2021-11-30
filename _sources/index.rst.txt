@@ -41,6 +41,7 @@ Material de apoyo
     Administración financiera/Estados de financieros/index
     Administración financiera/KTNO/index
     Administración financiera/Análisis vertical y horizontal/index
+    Administración financiera/Indicadores Financieros/index  
 
 
 .. toctree::

@@ -1,0 +1,45 @@
+Indicadores Financieros
+===================================================
+
+Los indicadores financieros, o también llamados razones o ratios, miden numéricamente la relación entre dos cuentas de los Estados Financieros.
+Existen indicadores que se relacionan solo con cuentas del Balance General, otros con solo cuentas del Estado de Resultados, e indicadores que miden relaciones entre el Balance General y el Estado de Resultados.
+Los resultados de los indicadores por sí solo no indican situaciones favorables o desfavorables, pero si se hacen comparaciones, el analista puede determinar los puntos fuertes y los puntos por mejorar dentro de la compañía.
+Esta comparación se puede hacer con el histórico de la compañía, donde se muestra la tendencia de los indicadores; también, se puede comparar con una empresa benchmark o con los indicadores de la industria para concluir la posición de
+la compañía con respecto a otras; finalmente, el analista puede comparar los resultados de los indicadores con las metas internas de la compañía y hacer un seguimiento.
+
+Los principales indicadores financieros que se pueden calcular con los Estados Financieros son:
+
+* Actividad.
+
+* Liquidez.
+
+* Endeudamiento.
+
+* Rentabilidad.
+
+* Valoración.
+
+
+    * **Descargue** :download:`aquí <17. Indicadores Financieros.pdf>` las presentaciones sobre Indicadores Financieros.
+
+        * **Ver video: Indicadores Financieros.** --- `aquí <>`_.
+
+
+1. Indicadores de Actividad
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+El objetivo es medir la velocidad con que los Activos rotan en un período dentro de la empresa, esta rotación es el tiempo promedio en que se demoran los Activos en recuperarse.
+Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos Operacionales y el Costo de Ventas en el Estado de Resultados.
+
+
+
+    * **Descargue** :download:`aquí <18. Indicadores de Actividad.pdf>` las presentaciones sobre Indicadores de Actividad.
+
+
+        * **Ver video: Indicadores de Actividad.** --- `aquí <>`_.
+
+
+        * **Descargue** :download:`aquí <Indicadores de Actividad-D1-20 Mission.xlsx>` el archivo de Excel con Indicadores de Actividad.
+
+
+        * **Ver video: Ejemplo Indicadores de Actividad.** --- `aquí <>`_.
