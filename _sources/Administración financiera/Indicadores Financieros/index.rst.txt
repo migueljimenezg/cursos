@@ -22,7 +22,7 @@ Los principales indicadores financieros que se pueden calcular con los Estados F
 
     * **Descargue** :download:`aquí <17. Indicadores Financieros.pdf>` las presentaciones sobre Indicadores Financieros.
 
-        * **Ver video: Indicadores Financieros.** --- `aquí <>`_.
+        * **Ver video: Indicadores Financieros.** --- `aquí <https://youtu.be/w8ZC_VzDbE0>`_.
 
 
 1. Indicadores de Actividad
@@ -36,10 +36,10 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
     * **Descargue** :download:`aquí <18. Indicadores de Actividad.pdf>` las presentaciones sobre Indicadores de Actividad.
 
 
-        * **Ver video: Indicadores de Actividad.** --- `aquí <>`_.
+        * **Ver video: Indicadores de Actividad.** --- `aquí <https://youtu.be/OTwST74lLSA>`_.
 
 
         * **Descargue** :download:`aquí <Indicadores de Actividad-D1-20 Mission.xlsx>` el archivo de Excel con Indicadores de Actividad.
 
 
-        * **Ver video: Ejemplo Indicadores de Actividad.** --- `aquí <>`_.
+        * **Ver video: Ejemplo Indicadores de Actividad.** --- `aquí <https://youtu.be/oYhOjVHtiVw>`_.
