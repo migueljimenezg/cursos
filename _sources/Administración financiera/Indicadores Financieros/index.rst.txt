@@ -43,3 +43,17 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
 
 
         * **Ver video: Ejemplo Indicadores de Actividad.** --- `aquí <https://youtu.be/oYhOjVHtiVw>`_.
+
+
+2. Ejercicios análisis vertical, horizontal e indicadores de actividad
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+ 
+            Ejercicios análisis vertical, horizontal e indicadores de actividad
+
+
+    * **Descargue** :download:`aquí <Estados Financieros HERMECO.xlsx>` el archivo de Excel con los Estados Financieros de HERMECO.
