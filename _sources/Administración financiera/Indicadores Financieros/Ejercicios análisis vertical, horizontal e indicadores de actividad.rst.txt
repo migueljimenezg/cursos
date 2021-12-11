@@ -120,9 +120,9 @@ Los cálculos se realizan con los Estados Financieros de la empresa C.I. HERMECO
 
 15.	Seleccione la respuesta correcta:
 
-	•	La rotación de los Activos Fijos (AF) del año 2020 son de 1,6 y la rotación del Activo total es 15,4, la diferencia se debe a que los AF son el 81% sobre el total de Activos y los Activos corrientes representan el 11%.
+	•	La rotación de los Activos Fijos (AF) del año 2020 son de 15,4 y la rotación del Activo total de 1,6, la diferencia se debe a que el promedio de los AF son el 10% sobre el promedio del total de Activos y el promedio de los Activos corrientes representan el 80%.
 
-	•	La rotación de los Activos Fijos (AF) del año 2020 son de 15,4 y la rotación del Activo total de 1,6, la diferencia se debe a que los AF son el 11% sobre el total de Activos y los Activos corrientes representan el 81%.
+	•	La rotación de los Activos Fijos (AF) del año 2020 son de 1,6 y la rotación del Activo total es 15,4, la diferencia se debe a que el promedio del AF son el 80% sobre el promedio del total de Activos y el promedio de los Activos corrientes representan el 10%.
 
 	•	La rotación de los Activos Fijos (AF) del año 2020 son de 15,4 y la rotación del Activo total de 1,6, la diferencia se debe a que la empresa es intensiva en Propiedad, planta y equipo y no en Inventarios.
 
