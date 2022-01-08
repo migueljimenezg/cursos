@@ -57,3 +57,48 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
 
 
     * **Descargue** :download:`aquí <Estados Financieros HERMECO.xlsx>` el archivo de Excel con los Estados Financieros de HERMECO.
+
+
+
+3. Indicadores de Liquidez
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Estos indicadores miden la capacidad de la compañía para cumplir con sus deudas de corto plazo. Estos indicadores solo utilizan cuentas del Balance General y no se utilizan promedios.
+
+
+    * **Descargue** :download:`aquí <19. Indicadores de Liquidez.pdf>` las presentaciones sobre Indicadores de Liquidez.
+
+
+
+4. Indicadores de Endeudamiento
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Miden la capacidad de la compañía para atender las obligaciones de largo plazo, es decir, son indicadores de Solvencia.
+
+
+    * **Descargue** :download:`aquí <20. Indicadores de Endeudamiento.pdf>` las presentaciones sobre Indicadores de Endeudamiento.
+
+
+5. Indicadores de Rentabilidad
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Miden el rendimiento obtenido por la empresa durante un período. Sirven para monitorear la efectividad de la compañía para controlar los costos y gastos, es decir, la forma en que convierte las ventas en utilidades.
+Cuando se relacionan cuentas del Balance General y del Estado de Resultados se aconseja utilizar un promedio entre cuentas del Balance General.
+
+
+    * **Descargue** :download:`aquí <21. Indicadores de Rentabilidad.pdf>` las presentaciones sobre Indicadores de Rentabilidad.
+
+
+.. important::
+    El siguiente archivo tiene un ejemplo de los indicadores de liquidez, endeudamiento y rentabilidad sobre la compañía H&M.
+    
+    * **Descargue** :download:`aquí <Indicadores liquidez-endeuda-renta-H&M.xlsx>` el archivo de Excel con el ejemplo.
+
+
+
+
+.. important::
+    .. toctree::
+            :titlesonly:
+ 
+            Resumen fórmulas Indicadores Financieros

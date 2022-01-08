@@ -67,7 +67,7 @@ Este método de valoración sólo aplica para las opciones europeas. Se modela e
 
 
 3.1. Movimiento Browniano Geométrico (MBG)
----------------------------------------
+-----------------------------------------------------
 
     * **Descargue** :download:`aquí <../../Riesgo de mercado/VaR SM/Tres acciones.csv>` el archivo ``Tres acciones.csv``.
 

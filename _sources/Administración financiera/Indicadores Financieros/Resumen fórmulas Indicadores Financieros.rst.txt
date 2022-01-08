@@ -1,0 +1,85 @@
+Resumen fórmulas Indicadores Financieros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Indicadores de Actividad:**
+
+.. math::  RotaciónActivos = \frac{Ventas}{Promedio Activos Totales} 
+
+.. math::  RotaciónActivosFijos = \frac{Ventas}{Promedio Activos Fijos} 
+
+.. math::  RotaciónInventario = \frac{Costos de Ventas}{Promedio Inventarios corrientes} 
+
+.. math::  DíasInventario = \frac{365}{RotaciónInventario} 
+
+.. math::  RotaciónCxC = \frac{Ventas}{Promedio CxC} 
+
+.. math::  DíasCxC = \frac{365}{RotaciónCxC} 
+
+.. math::  RotaciónCxP = \frac{Compras}{Promedio CxP} 
+
+.. math::  DíasCxP = \frac{365}{RotaciónCxP} 
+
+:math:`compras = Costos de ventas + Inventario Final - Inventario Inicial`
+
+:math:`Inventario Final = InventarioCorriente_t`
+
+:math:`Inventario Inicial = InventarioCorriente_{t-1}`
+
+.. math::  CicloConversiónEfectivo = DíasInventario+DíasCxC-DíasCxP 
+
+.. math::  CicloOperación = CicloConversiónEfectivo+DíasCxP 
+
+.. math::  RotaciónKTNO = \frac{Ventas}{Promedio KTNO} 
+
+También llamado productividad del KTNO. Se utilizan solo cuentas
+corrientes del Balance General.
+
+:math:`KTNO = Activos Corrientes – Pasivos Corrientes`
+
+:math:`KTNO = Efectivo + CxC + Inventario + Otras CxC – CxP – Otras CxP`
+
+**Indicadores de Endeudamiento:**
+
+.. math::  NivelEndeudamiento = \frac{Pasivo Total}{Activo Total} 
+
+.. math::  NivelEndeudamiento = \frac{Total Deuda}{Activo Total} 
+
+:math:`Total Deuda = pasivos con terceros = obligaciones que devengan intereses`
+
+:math:`Total Deuda = PasivosFinancierosCorrientes + PasivosFinancierosNoCorrientes`
+
+.. math::  Ratio Deuda−Capital = \frac{Total Deuda}{Total Deuda + Patrimonio} 
+
+.. math::  Ratio Deuda−Equity = \frac{Total Deuda}{Patrimonio} 
+
+.. math::  ApalancamientoFinanciero = \frac{Promedio Activo Total}{Promedio Patrimonio} 
+
+.. math::  CoberturaIntereses = \frac{EBIT}{Intereses} 
+
+.. math::  ImpactoCargaFinanciera = \frac{Intereses}{Ventas} 
+
+**Indicadores de Rentabilidad:**
+
+.. math::  MargenBruto = \frac{Ventas}{Utilidad Bruta} 
+
+.. math::  MargenOperacional = \frac{Ventas}{EBIT} 
+
+.. math::  MargenEBITDA = \frac{Ventas}{EBITDA} 
+
+.. math::  MargenNeto = \frac{Ventas}{UtilidadNeta} 
+
+.. math::  ROAOperacional = \frac{EBIT}{Promedio Activos Totales} 
+
+.. math::  ROA = \frac{Utilidad Neta}{Promedio Activos Totales} 
+
+.. math::  ROE = \frac{Utilidad Neta}{Promedio Patrimonio} 
+
+**DuPont:**
+
+.. math::  ROE = ROAxApalancamientoFinanciero 
+
+.. math::  ROE = MargenNetoxRotaciónActivosxApalancamientoFinanciero 
+
+.. math::  ROE = \frac{Utilidad Neta}{Ventas}x\frac{Ventas}{Activos Totales}x\frac{Activos Totales}{Patrimonio} 
+
+Utilizar promedios con las cuentas del Balance General
