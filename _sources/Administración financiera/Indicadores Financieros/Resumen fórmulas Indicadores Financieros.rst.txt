@@ -19,7 +19,7 @@ Resumen fórmulas Indicadores Financieros
 
 .. math::  DíasCxP = \frac{365}{RotaciónCxP} 
 
-:math:`compras = Costos de ventas + Inventario Final - Inventario Inicial`
+:math:`compras = Costos Ventas + Inventario Final - Inventario Inicial`
 
 :math:`Inventario Final = InventarioCorriente_t`
 
@@ -76,10 +76,10 @@ corrientes del Balance General.
 
 **DuPont:**
 
-.. math::  ROE = ROAxApalancamientoFinanciero 
+.. math::  ROE = ROA \times ApalancamientoFinanciero 
 
-.. math::  ROE = MargenNetoxRotaciónActivosxApalancamientoFinanciero 
+.. math::  ROE = MargenNeto \times RotaciónActivos \times ApalancamientoFinanciero 
 
-.. math::  ROE = \frac{Utilidad Neta}{Ventas}x\frac{Ventas}{Activos Totales}x\frac{Activos Totales}{Patrimonio} 
+.. math::  ROE = \frac{Utilidad Neta}{Ventas} \times \frac{Ventas}{Activos Totales} \times \frac{Activos Totales}{Patrimonio} 
 
 Utilizar promedios con las cuentas del Balance General
