@@ -44,17 +44,18 @@ corrientes del Balance General.
 
 .. math::  NivelEndeudamiento = \frac{Total Deuda}{Activo Total} 
 
-:math:`Total Deuda = pasivos con terceros = obligaciones que devengan intereses`
+Total Deuda son los pasivos con terceros, es decir, obligaciones que
+devengan intereses
 
 :math:`Total Deuda = PasivosFinancierosCorrientes + PasivosFinancierosNoCorrientes`
 
-.. math::  Ratio Deuda−Capital = \frac{Total Deuda}{Total Deuda + Patrimonio} 
+.. math::  ApalancamientoFinanciero = \frac{Promedio Pasivo Total}{Promedio Patrimonio} 
 
-.. math::  Ratio Deuda−Equity = \frac{Total Deuda}{Patrimonio} 
-
-.. math::  ApalancamientoFinanciero = \frac{Promedio Activo Total}{Promedio Patrimonio} 
+.. math::  ApalancamientoFinanciero = \frac{Promedio Total Deuda}{Promedio Patrimonio} 
 
 .. math::  CoberturaIntereses = \frac{EBIT}{Intereses} 
+
+.. math::  CoberturaIntereses = \frac{EBITDA}{Intereses} 
 
 .. math::  ImpactoCargaFinanciera = \frac{Intereses}{Ventas} 
 
@@ -76,10 +77,14 @@ corrientes del Balance General.
 
 **DuPont:**
 
-.. math::  ROE = ROA \times ApalancamientoFinanciero 
+.. math::  ROE = ROA \times Multiplicador Capital 
 
-.. math::  ROE = MargenNeto \times RotaciónActivos \times ApalancamientoFinanciero 
+:math:`Multiplicador Capital = 1 + ApalancamientoFinanciero`
 
-.. math::  ROE = \frac{Utilidad Neta}{Ventas} \times \frac{Ventas}{Activos Totales} \times \frac{Activos Totales}{Patrimonio} 
+:math:`Multiplicador Capital = 1 + \frac{Promedio Pasivo Total}{Promedio Patrimonio}`
 
-Utilizar promedios con las cuentas del Balance General
+:math:`Multiplicador Capital = \frac{Promedio Activo Total}{Promedio Patrimonio}`
+
+.. math::  ROE = MargenNeto \times Rotación Activos \times Multiplicador Capital 
+
+.. math::  ROE = \frac{Utilidad Neta}{Ventas} \times \frac{Ventas}{Prom. Activos Totales} \times \frac{Prom. Activos Totales}{Prom. Patrimonio} 
