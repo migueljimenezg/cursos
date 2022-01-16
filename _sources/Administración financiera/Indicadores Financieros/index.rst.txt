@@ -68,6 +68,9 @@ Estos indicadores miden la capacidad de la compañía para cumplir con sus deuda
 
     * **Descargue** :download:`aquí <19. Indicadores de Liquidez.pdf>` las presentaciones sobre Indicadores de Liquidez.
 
+        * **Ver video: Indicadores de Liquidez.** --- `aquí <https://youtu.be/s0BkKg2YkoY>`_.
+
+        * **Ver video: Ejemplo Indicadores de Liquidez.** --- `aquí <https://youtu.be/HQC0k94UwoE>`_.
 
 
 4. Indicadores de Endeudamiento
@@ -78,6 +81,10 @@ Miden la capacidad de la compañía para atender las obligaciones de largo plazo
 
     * **Descargue** :download:`aquí <20. Indicadores de Endeudamiento.pdf>` las presentaciones sobre Indicadores de Endeudamiento.
 
+        * **Ver video: Indicadores de Endeudamiento.** --- `aquí <https://youtu.be/WoRzigKQ2mY>`_.
+
+        * **Ver video: Ejemplo Indicadores de Endeudamiento.** --- `aquí <https://youtu.be/--n90A8CwVM>`_.
+
 
 5. Indicadores de Rentabilidad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -87,6 +94,10 @@ Cuando se relacionan cuentas del Balance General y del Estado de Resultados se a
 
 
     * **Descargue** :download:`aquí <21. Indicadores de Rentabilidad.pdf>` las presentaciones sobre Indicadores de Rentabilidad.
+
+        * **Ver video: Indicadores de Rentabilidad.** --- `aquí <https://youtu.be/4dnDD1fkCBg>`_.
+
+        * **Ver video: Ejemplo Indicadores de Rentabilidad.** --- `aquí <https://youtu.be/xWwPUGnrdeQ>`_.
 
 
 .. important::
