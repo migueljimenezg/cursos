@@ -103,9 +103,7 @@ Cuando se relacionan cuentas del Balance General y del Estado de Resultados se a
 .. important::
     El siguiente archivo tiene un ejemplo de los indicadores de liquidez, endeudamiento y rentabilidad sobre la compañía H&M.
     
-    * **Descargue** :download:`aquí <Indicadores liquidez-endeuda-renta-H&M.xlsx>` el archivo de Excel con el ejemplo.
-
-
+    **Descargue** :download:`aquí <Indicadores liquidez-endeuda-renta-H&M.xlsx>` el archivo de Excel con el ejemplo.
 
 
 .. important::
@@ -113,3 +111,18 @@ Cuando se relacionan cuentas del Balance General y del Estado de Resultados se a
             :titlesonly:
  
             Resumen fórmulas Indicadores Financieros
+
+.. important::
+    Este es un ejemplo del Análisis Financiero aplicado a la compañía KIMBERLY CLARK ANTIOQUIA.
+    
+    **Descargue** :download:`aquí <22. Análisis Financiero KIMBERLY CLARK ANTIOQUIA.pdf>` las diapositivas del Análisis Financiero.
+
+    **Descargue** :download:`aquí <Análisis Financiero KIMBERLY CLARK.xlsx>` el archivo de Excel con el ejemplo.
+
+    **Ver video: Análisis Financiero KIMBERLY CLARK ANTIOQUIA.** --- `aquí <https://youtu.be/qIJPaGvIH1E>`_.
+
+
+
+
+
+
