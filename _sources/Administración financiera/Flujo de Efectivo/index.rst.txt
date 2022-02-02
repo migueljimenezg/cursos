@@ -31,10 +31,10 @@ Flujo de Efectivo
         * **Ver video: Flujo de Efectivo - Método Directo.** --- `aquí <https://youtu.be/V8MkdYTARKM>`_.
 
 
-        * **Ver video: Flujo de Efectivo - Método Indirecto.** --- `aquí <https://youtu.be/6UpSc4P1aTA>`_.
+        * **Ver video: Método Indirecto - Flujo de Efectivo.** --- `aquí <https://youtu.be/t_cEm9PxXpk>`_.
 
 
-        * **Ver video: Ejemplo Flujo de Efectivo Método Indirecto.** --- `aquí <https://youtu.be/x3PbL0XbuE0>`_.
+        * **Ver video: Ejemplo Método Indirecto   Flujo de Efectivo.** --- `aquí <https://youtu.be/gwqEoHYtBzM>`_.
 
 
         * **Descargue** :download:`aquí <Ejemplo Flujo de Efectivo H&M.xlsx>` el archivo de Excel con el Método Indirecto aplicado a las tiendas H&M.
