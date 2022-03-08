@@ -1,7 +1,9 @@
 Introducción a las Matemáticas Financieras
 ===================================================
 
-Esta sección es solo una introducción a las operaciones con las Matemáticas Financieras.
+Esta sección es solo una introducción a las operaciones con las Matemáticas Financieras. :download:
+
+**Presentación del curso:** :download:`aquí <0. Administración Financiera 01-2022.pdf>` 
 
 
 1. Tasas de interés, Valor Presente (P) y Valor Futuro (F)
