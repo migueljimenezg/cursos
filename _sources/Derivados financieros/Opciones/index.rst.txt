@@ -150,11 +150,10 @@ __________________________________________________________________________
             :maxdepth: 2
             :titlesonly:
 
-
             Ejercicios propiedades, coberturas y valoración de opciones por SMC.rst
 
 
-            * **Descargue** :download:`aquí <TRM 2020 (ejercicios).csv>` el archivo ``TRM 2020 (ejercicios).csv``.
+    * **Descargue** :download:`aquí <TRM 2020 (ejercicios).csv>` el archivo ``TRM 2020 (ejercicios).csv``.
 
 __________________________________________________________________________
 

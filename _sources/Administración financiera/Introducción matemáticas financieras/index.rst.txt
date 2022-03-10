@@ -1,7 +1,8 @@
 Introducción a las Matemáticas Financieras
 ===================================================
 
-Esta sección es solo una introducción a las operaciones con las Matemáticas Financieras. :download:
+Esta sección es solo una introducción a las operaciones con las Matemáticas Financieras.
+
 
 **Presentación del curso:** :download:`aquí <0. Administración Financiera 01-2022.pdf>` 
 

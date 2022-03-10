@@ -1,6 +1,10 @@
 Forward
 ==========================================
 
+**Presentación del curso:** :download:`aquí <0. Presentación Futuros y opciones 01-2022.pdf>` 
+
+
+
     **1.1. Conceptos:**
 
     * **Descargue** :download:`aquí <1. Forward V6.pdf>` las presentaciones.
