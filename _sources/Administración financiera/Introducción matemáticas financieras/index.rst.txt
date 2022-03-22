@@ -92,6 +92,9 @@ Ejercicios
             Ejercicios matemáticas financieras.rst
 
 
+    * **Descargue** :download:`aquí <SOLUCIÓN-Ejercicios introducción a las Matemáticas Financieras.xlsx>` la solución de los ejercicios.
+
+
 ________________________________________________________________________________________
 
 Resumen de fórmulas
