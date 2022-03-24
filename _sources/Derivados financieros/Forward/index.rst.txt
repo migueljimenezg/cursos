@@ -64,6 +64,9 @@ Forward
             Ejercicios valoración contratos Forward.rst
 
 
+* **Descargue** :download:`aquí <Taller – Valoración contratos Forward (solución).xlsx>` la solución de los ejercicios Forward.
+
+
 **Lecturas**
 
 

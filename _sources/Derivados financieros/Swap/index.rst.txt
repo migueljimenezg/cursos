@@ -27,6 +27,16 @@ Swap
 
     * **Tasas LIBOR:** --- `aquí <https://www.theice.com/marketdata/reports/170>`_.
 
+
+.. important::
+    **La tasa LIBOR fue reemplazada por la tasa SOFR:**
+
+    * **Ver video de Bancolombia:** --- `aquí <https://www.youtube.com/watch?v=NdDbznDlBVA>`_.
+
+    * **Tasa SOFR:** --- `aquí <https://www.newyorkfed.org/markets/reference-rates/sofr>`_.
+
+
+
  
 2. Ejercicios tasas FRA
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -37,6 +47,9 @@ Swap
 
 
             Ejercicios tasas FRA.rst
+
+
+* **Descargue** :download:`aquí <Ejercicios tasas FRA.xlsx>` la solución de los ejercicios tasas FRA.
 
 
 3. Swap
@@ -90,6 +103,7 @@ Swap
             Ejercicios swap.rst
 
 
+* **Descargue** :download:`aquí <Ejercicios swap.xlsx>` la solución de los ejercicios Swap.
 
 
 **Lecturas**
