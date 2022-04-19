@@ -7,6 +7,9 @@ Esta sección es solo una introducción a las operaciones con las Matemáticas F
 **Presentación del curso:** :download:`aquí <0. Administración Financiera 01-2022.pdf>` 
 
 
+**Cómo funciona la máquina económica, por Ray Dalio** --- `aquí <https://www.youtube.com/watch?v=npoNbXXS4oQ>`_.
+
+
 1. Tasas de interés, Valor Presente (P) y Valor Futuro (F)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
