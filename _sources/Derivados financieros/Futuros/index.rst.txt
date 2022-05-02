@@ -54,14 +54,6 @@ Futuros BVC
 ---------------
 
 
-        * **Futuros TRM - TRS ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_TRM?action=dummy>`_.
-
-        * **Futuros sobre acciones ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_Acciones?action=dummy>`_.
-
-        * **Futuros sobre el índice COLCAP ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_COLCAP?action=dummy>`_.
-
-        * **Futuros TES ---> BVC** --- `aquí <https://www.bvc.com.co/pps/tibco/portalbvc/Home/Mercados/descripciongeneral/Derivados/Futuro_TES?action=dummy>`_.
-
         * **Garantías actualizadas (2020) ---> BVC.** --- :download:`aquí <Garantías BVC-17-09-2020.pdf>` documento de la CRCC.
 
         * **Haircuts para garantías (2020) ---> BVC.** --- :download:`aquí <Haircut para garantías (2020).pdf>` documento de la CRCC.
