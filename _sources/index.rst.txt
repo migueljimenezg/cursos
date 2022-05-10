@@ -5,17 +5,7 @@ Material de apoyo
 
           lumjimenezgo@unal.edu.co
 
-
-
-.. toctree::
-    :maxdepth: 2
-    :caption: MODELACIÓN EN PYTHON:
-    :titlesonly:
-    :hidden:
-       
-    Modelación en Python/Caracterización de las series de tiempo/index
-    Modelación en Python/Modelos autorregresivos/index
-    Modelación en Python/Deep Learning para pronóstico/index
+	 
 
   
 .. toctree::
