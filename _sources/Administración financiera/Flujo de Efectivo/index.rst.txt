@@ -25,19 +25,31 @@ Flujo de Efectivo
 **Descargue** :download:`aquí <23. Flujo de Efectivo.pdf>` las presentaciones sobre Flujo de Efectivo.
 
 
-        * **Ver video: Introducción al Flujo de Efectivo.** --- `aquí <https://youtu.be/2Kf-4DazhLo>`_.
-
-
-        * **Ver video: Flujo de Efectivo - Método Directo.** --- `aquí <https://youtu.be/V8MkdYTARKM>`_.
-
-
-        * **Ver video: Método Indirecto - Flujo de Efectivo.** --- `aquí <https://youtu.be/t_cEm9PxXpk>`_.
-
-
-        * **Ver video: Ejemplo Método Indirecto   Flujo de Efectivo.** --- `aquí <https://youtu.be/gwqEoHYtBzM>`_.
-
-
         * **Descargue** :download:`aquí <Ejemplo Flujo de Efectivo H&M.xlsx>` el archivo de Excel con el Método Indirecto aplicado a las tiendas H&M.
+
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/2Kf-4DazhLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/V8MkdYTARKM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/t_cEm9PxXpk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/gwqEoHYtBzM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 
 .. important::

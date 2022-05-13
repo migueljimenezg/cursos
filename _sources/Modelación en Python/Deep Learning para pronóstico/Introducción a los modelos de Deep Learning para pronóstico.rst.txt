@@ -1,0 +1,706 @@
+Introducción a los modelos de Deep Learning para pronóstico
+-----------------------------------------------------------
+
+**Split serie de tiempo (sequence) en muestras (samples):**
+
+Se crea función para partir ( *split* ) los datos en muestras (
+*samples* ):
+
+============ =============
+X            y
+============ =============
+sample input sample output
+sample input sample output
+sample input sample output
+============ =============
+
+sequence = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+::
+
+   X,           y
+   [1, 2, 3], [4]
+   [2, 3, 4], [5]
+   [3, 4, 5], [6]
+   ...
+
+.. code:: ipython3
+
+    import numpy as np
+
+.. code:: ipython3
+
+    def split_sequence(sequence, n_steps):
+        X, y = list(), list()
+        for i in range(len(sequence)):
+            end_ix = i + n_steps
+            if end_ix > len(sequence)-1:
+                break
+            seq_x, seq_y = sequence[i:end_ix], sequence[end_ix]
+            X.append(seq_x)
+            y.append(seq_y)
+        return np.array(X), np.array(y)
+
+.. code:: ipython3
+
+    timeSerie = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+.. code:: ipython3
+
+    n_steps = 3
+
+.. code:: ipython3
+
+    split_sequence(timeSerie, n_steps)
+
+
+
+
+.. parsed-literal::
+
+    (array([[1, 2, 3],
+            [2, 3, 4],
+            [3, 4, 5],
+            [4, 5, 6],
+            [5, 6, 7],
+            [6, 7, 8],
+            [7, 8, 9]]),
+     array([ 4,  5,  6,  7,  8,  9, 10]))
+
+
+
+.. code:: ipython3
+
+    X, y = split_sequence(timeSerie, n_steps)
+    for i in range(len(X)):
+        print(X[i], y[i])
+
+
+.. parsed-literal::
+
+    [1 2 3] 4
+    [2 3 4] 5
+    [3 4 5] 6
+    [4 5 6] 7
+    [5 6 7] 8
+    [6 7 8] 9
+    [7 8 9] 10
+    
+
+Con el ejemplo anterior hay 7 muestras ( *samples* ).
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (7, 3)
+
+
+
+.. code:: ipython3
+
+    y.shape
+
+
+
+
+.. parsed-literal::
+
+    (7,)
+
+
+
+Datos en 3D para los modelos LSTM y CNN
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los datos deben estar organizados en ``[samples, timesteps, features]``.
+
+-  **Samples:** una secuencia es una muestra ( *sample* ). Ejemplo de
+   una muestra: ``[1 2] 3``.
+
+-  **Time Steps:** es un punto de observación en la muestra ( *sample*
+   ). Por tanto, varios *time step* son una muestra ( *sample* ).
+
+-  **Features:** Es una observación en un *time step*. Un *time step* se
+   compone de una o más *Features*.
+
+Anteriormente se tenían 7 muestras, cada muestra con 3 *time steps* y
+cada *time step* con 1 *Feature* : ``[1 2 3] 4``, es decir,
+``[7, 3, 1]``.
+
+Cuando se define la capa de entrada en la red LSTM, el modelo asume que
+se tienen una o varias muestras y solo se debe especificar el número de
+*time steps* y el número de *Features*. Esto se especifica en el
+argumento ``input_shape=(time step, Feature)``.
+
+Hasta ahora X está en 2D: ``(7, 3)``, se debe convertir en 3D. Se
+necesita que sea ``(7, 3, 1)``. Esto se hace con
+``X = X.reshape((7, 3, 1))``, donde 7 corresponde a las columnas de X y
+3 a las filas, entonces se puede hacer de la siguiente manera usando
+``X.shape[0]`` para el número de columnas y ``X.shape[1]`` para el
+número de filas.
+
+.. code:: ipython3
+
+    X
+
+
+
+
+.. parsed-literal::
+
+    array([[1, 2, 3],
+           [2, 3, 4],
+           [3, 4, 5],
+           [4, 5, 6],
+           [5, 6, 7],
+           [6, 7, 8],
+           [7, 8, 9]])
+
+
+
+.. code:: ipython3
+
+    X = X.reshape((X.shape[0], X.shape[1], 1))
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (7, 3, 1)
+
+
+
+MLP ( *Multilayer Perceptrons* ) para pronóstico de series de tiempo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Un simple MLP es una sola capa oculta para *input* y una capa para el
+*output* para predecir.
+
+En este modelo los datos de entrada tienen que estar en 2D:
+``[samples, features]``.
+
+**Importar librerías:**
+
+.. code:: ipython3
+
+    import numpy as np
+    from keras.models import Sequential
+    from keras.layers import Dense
+
+**Función para partir los datos en 2D, es decir, en muestras:**
+
+.. code:: ipython3
+
+    def split_sequence(sequence, n_steps):
+        X, y = list(), list()
+        for i in range(len(sequence)):
+            end_ix = i + n_steps
+            if end_ix > len(sequence)-1:
+                break
+            seq_x, seq_y = sequence[i:end_ix], sequence[end_ix]
+            X.append(seq_x)
+            y.append(seq_y)
+        return np.array(X), np.array(y)
+
+**Serie de tiempo (datos):**
+
+.. code:: ipython3
+
+    timeSerie = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+**Partir los datos en 2D con la función antes definida (crear las
+muestras):**
+
+.. code:: ipython3
+
+    n_steps = 3
+    X, y = split_sequence(timeSerie, n_steps)
+
+.. code:: ipython3
+
+    X
+
+
+
+
+.. parsed-literal::
+
+    array([[1, 2, 3],
+           [2, 3, 4],
+           [3, 4, 5],
+           [4, 5, 6],
+           [5, 6, 7],
+           [6, 7, 8],
+           [7, 8, 9]])
+
+
+
+**Definir el modelo MLP:**
+
+Primera capa oculata con 100 unidades y capa de salida con una unidad
+para predecir un solo valor.
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dense(100, activation='relu', input_dim=n_steps))
+    model.add(Dense(1))
+    model.compile(optimizer='adam', loss='mse')
+
+**Ajuste del modelo MLP:**
+
+.. code:: ipython3
+
+    model.fit(X, y, epochs=2000, verbose=0)
+
+
+
+
+.. parsed-literal::
+
+    <tensorflow.python.keras.callbacks.History at 0x21a6ee935e0>
+
+
+
+**Predicción:**
+
+Predicción del siguiente valor por fuera de la muestra al ingresar la
+secuencia ``[8, 9, 10]`` como entrada. Se espera que el modelo haga la
+predicción de ``[11]``.
+
+La función ``.predict()`` exige que los datos de entrada para predecir
+tenga la forma de una muestra, es decir, ``[1, time step]``.
+
+.. code:: ipython3
+
+    x_input = np.array([8, 9, 10])
+    x_input = x_input.reshape((1, n_steps)) # 2D: 1 fila y 3 columnas.
+    yhat = model.predict(x_input, verbose=0)
+    yhat
+
+
+
+
+.. parsed-literal::
+
+    array([[10.999008]], dtype=float32)
+
+
+
+LSTM para pronóstico de series de tiempo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Vanilla LSTM:** Tiene una sola capa con unidades de LSTM.
+
+La dimensión de cada muestra de entrada se especifica en el argumento
+``input_shape`` cuando se define la primera capa oculta.
+
+Los datos de entrada tienen que estar en 3D:
+``[samples, timesteps, features]``. Anteriomente se mostró la forma de
+cambiar la dimensión de los datos de entrada de 2D a 3D así:
+``X = X.reshape((X.shape[0], X.shape[1], 1))`` donde las Features se
+especificó como 1. Ahora se puede cambiar el código a lo siguiente:
+
+``n_features = 1 X = X.reshape((X.shape[0], X.shape[1], n_features))``
+
+**Importar librerías:**
+
+.. code:: ipython3
+
+    import numpy as np
+    from keras.models import Sequential
+    from keras.layers import Dense
+    from keras.layers import LSTM
+
+**Función para partir los datos en 2D, es decir, en muestras:**
+
+.. code:: ipython3
+
+    def split_sequence(sequence, n_steps):
+        X, y = list(), list()
+        for i in range(len(sequence)):
+            end_ix = i + n_steps
+            if end_ix > len(sequence)-1:
+                break
+            seq_x, seq_y = sequence[i:end_ix], sequence[end_ix]
+            X.append(seq_x)
+            y.append(seq_y)
+        return np.array(X), np.array(y)
+
+**Serie de tiempo (datos):**
+
+.. code:: ipython3
+
+    timeSerie = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+**Partir los datos en 2D con la función antes definida (crear las
+muestras):**
+
+.. code:: ipython3
+
+    n_steps = 3
+    X, y = split_sequence(timeSerie, n_steps)
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (7, 3)
+
+
+
+**Cambiar la dimensión de 2D a 3D:**
+
+.. code:: ipython3
+
+    n_features = 1
+    X = X.reshape((X.shape[0], X.shape[1], n_features))
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (7, 3, 1)
+
+
+
+**Definir el modelo LSTM:**
+
+Primera capa oculata con 50 unidades y capa de salida con una unidad
+para predecir un solo valor.
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(LSTM(50, activation='relu', input_shape=(n_steps, n_features)))
+    model.add(Dense(1))
+    model.compile(optimizer='adam', loss='mse')
+
+**Ajuste del modelo LSTM:**
+
+.. code:: ipython3
+
+    model.fit(X, y, epochs=200, verbose=0)
+
+
+
+
+.. parsed-literal::
+
+    <tensorflow.python.keras.callbacks.History at 0x21a703178b0>
+
+
+
+**Predicción:**
+
+Predicción del siguiente valor por fuera de la muestra al ingresar la
+secuencia ``[8, 9, 10]`` como entrada. Se espera que el modelo haga la
+predicción de ``[11]``.
+
+.. code:: ipython3
+
+    x_input = np.array([8, 9, 10])
+    x_input = x_input.reshape((1, n_steps, n_features)) # 3D: 1 fila, 3 columnas, 1 Feature.
+    yhat = model.predict(x_input, verbose=0)
+    yhat
+
+
+
+
+.. parsed-literal::
+
+    array([[12.4446]], dtype=float32)
+
+
+
+.. code:: ipython3
+
+    yhat.shape
+
+
+
+
+.. parsed-literal::
+
+    (1, 1)
+
+
+
+LSTM multi capa ( *Stacked LSTM model* ):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Este modelo se adicional capas una encima de la otra.
+
+El LSTM require que los datos de entra esté en 3D, pero la salida de la
+LSTM se produce en 2D. Por tanto, se puede configurar
+``return sequences=True`` para obtener una salida en 3D de la capa
+oculta LSTM como entrada de la siguiente capa oculta LSTM
+
+**Importar librerías:**
+
+.. code:: ipython3
+
+    import numpy as np
+    from keras.models import Sequential
+    from keras.layers import Dense
+    from keras.layers import LSTM
+
+**Función para partir los datos en 2D, es decir, en muestras:**
+
+.. code:: ipython3
+
+    def split_sequence(sequence, n_steps):
+        X, y = list(), list()
+        for i in range(len(sequence)):
+            end_ix = i + n_steps
+            if end_ix > len(sequence)-1:
+                break
+            seq_x, seq_y = sequence[i:end_ix], sequence[end_ix]
+            X.append(seq_x)
+            y.append(seq_y)
+        return np.array(X), np.array(y)
+
+**Serie de tiempo (datos):**
+
+.. code:: ipython3
+
+    timeSerie = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+**Partir los datos en 2D con la función antes definida (crear las
+muestras):**
+
+.. code:: ipython3
+
+    n_steps = 3
+    X, y = split_sequence(timeSerie, n_steps)
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (7, 3)
+
+
+
+**Cambiar la dimensión de 2D a 3D:**
+
+.. code:: ipython3
+
+    n_features = 1
+    X = X.reshape((X.shape[0], X.shape[1], n_features))
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (7, 3, 1)
+
+
+
+**Definir el modelo LSTM:**
+
+Primera capa oculata con 50 unidades y capa de salida con una unidad
+para predecir un solo valor.
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(LSTM(50, activation='relu', return_sequences=True, input_shape=(n_steps, n_features))) # Primera capa oculta LSTM.
+    model.add(LSTM(50, activation='relu')) # Segunda capa oculta LSTM.
+    model.add(Dense(1))
+    model.compile(optimizer='adam', loss='mse')
+
+**Ajuste del modelo LSTM:**
+
+.. code:: ipython3
+
+    model.fit(X, y, epochs=200, verbose=0)
+
+
+
+
+.. parsed-literal::
+
+    <tensorflow.python.keras.callbacks.History at 0x21a72d42e80>
+
+
+
+**Predicción:**
+
+Predicción del siguiente valor por fuera de la muestra al ingresar la
+secuencia ``[8, 9, 10]`` como entrada. Se espera que el modelo haga la
+predicción de ``[11]``.
+
+.. code:: ipython3
+
+    x_input = np.array([8, 9, 10])
+    x_input = x_input.reshape((1, n_steps, n_features)) # 3D: 1 fila, 3 columnas, 1 Feature.
+    yhat = model.predict(x_input, verbose=0)
+    yhat
+
+
+
+
+.. parsed-literal::
+
+    array([[10.31719]], dtype=float32)
+
+
+
+Bidirectional LSTM
+~~~~~~~~~~~~~~~~~~
+
+LSTM Bidireccional permite que el modelo aprenda la secuencia de entrada
+y la secuencia de salida.
+
+**Importar librerías:**
+
+.. code:: ipython3
+
+    import numpy as np
+    from keras.models import Sequential
+    from keras.layers import Dense
+    from keras.layers import LSTM
+    from keras.layers import Bidirectional
+
+**Función para partir los datos en 2D, es decir, en muestras:**
+
+.. code:: ipython3
+
+    def split_sequence(sequence, n_steps):
+        X, y = list(), list()
+        for i in range(len(sequence)):
+            end_ix = i + n_steps
+            if end_ix > len(sequence)-1:
+                break
+            seq_x, seq_y = sequence[i:end_ix], sequence[end_ix]
+            X.append(seq_x)
+            y.append(seq_y)
+        return np.array(X), np.array(y)
+
+**Serie de tiempo (datos):**
+
+.. code:: ipython3
+
+    timeSerie = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+**Partir los datos en 2D con la función antes definida (crear las
+muestras):**
+
+.. code:: ipython3
+
+    n_steps = 3
+    X, y = split_sequence(timeSerie, n_steps)
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (7, 3)
+
+
+
+**Cambiar la dimensión de 2D a 3D:**
+
+.. code:: ipython3
+
+    n_features = 1
+    X = X.reshape((X.shape[0], X.shape[1], n_features))
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (7, 3, 1)
+
+
+
+**Definir el modelo LSTM:**
+
+Primera capa oculata con 50 unidades y capa de salida con una unidad
+para predecir un solo valor.
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Bidirectional(LSTM(50, activation='relu'), input_shape=(n_steps, n_features)))
+    model.add(Dense(1))
+    model.compile(optimizer='adam', loss='mse')
+
+**Ajuste del modelo LSTM:**
+
+.. code:: ipython3
+
+    model.fit(X, y, epochs=200, verbose=0)
+
+
+
+
+.. parsed-literal::
+
+    <tensorflow.python.keras.callbacks.History at 0x21a72d42dc0>
+
+
+
+**Predicción:**
+
+Predicción del siguiente valor por fuera de la muestra al ingresar la
+secuencia ``[8, 9, 10]`` como entrada. Se espera que el modelo haga la
+predicción de ``[11]``.
+
+.. code:: ipython3
+
+    x_input = np.array([8, 9, 10])
+    x_input = x_input.reshape((1, n_steps, n_features)) # 3D: 1 fila, 3 columnas, 1 Feature.
+    yhat = model.predict(x_input, verbose=0)
+    yhat
+
+
+
+
+.. parsed-literal::
+
+    array([[12.07001]], dtype=float32)
+
+

@@ -1,0 +1,758 @@
+ARIMA: autoregresivo integrado de medias móviles
+------------------------------------------------
+
+Para series de tiempo no estacionarias.
+
+La parte de integrado en ARIMA significa que se usará el número de
+diferencias no estacionales que debemos examinar para establecer
+estacionariedad. Los datos se transformará para que sean estacionarios.
+Esta transformación será con las diferencias :math:`\Delta x_t`.
+
+ARIMA(p,d,q)
+~~~~~~~~~~~~
+
+-  :math:`p`: Componente autoregresiva del modelo :math:`(AR)`.
+
+-  :math:`d`: orden de integración. Es el número de veces que se debe
+   integrar la serie de tiempo para obtener la estacionariedad.
+
+-  :math:`q`: Componente de medias móviles :math:`(MA)`.
+
+Los modelos ARIMA(p,d,q) son un modelo ARMA(p,q) aplicado a una nueva
+serie de tiempo generada mediante la integración, es decir, por las
+diferencias y que esta nueva serie de tiempo es estacionaria.
+
+Se empezará con el modelo ARIMA(1,1,1), luego se analizan los residuos,
+si no son Ruido Blanco, se evalúan modelos más complejos.
+
+Recordar que por cada integración se perderá una observación.
+
+:math:`ARIMA(p,0,q)= ARMA(p,q)`
+
+ARIMA(1,1,1)
+~~~~~~~~~~~~
+
+.. math::  \Delta x_t = c+\varphi_1 \Delta x_{t-1}+\theta_1 \epsilon_{t-1}+\epsilon_t 
+
+.. math::  \Delta x_t = x_t - x_{t-1} 
+
+.. code:: ipython3
+
+    import pandas as pd
+
+.. code:: ipython3
+
+    datos = pd.read_csv('Precio.csv', sep=';', decimal=',')
+
+.. code:: ipython3
+
+    datos.Fecha = pd.to_datetime(datos.Fecha, dayfirst = True)
+    datos.set_index('Fecha', inplace=True)
+
+ARIMA(1,1,1)
+~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from statsmodels.tsa.arima_model import ARIMA
+
+.. code:: ipython3
+
+    import warnings
+    warnings.filterwarnings("ignore")
+
+.. code:: ipython3
+
+    model_ar_1_i_1_ma_1 = ARIMA(datos.Precio, order=(1,1,1))
+    results_ar_1_i_1_ma_1 = model_ar_1_i_1_ma_1.fit()
+    results_ar_1_i_1_ma_1.summary()
+
+
+
+
+.. raw:: html
+
+    <table class="simpletable">
+    <caption>ARIMA Model Results</caption>
+    <tr>
+      <th>Dep. Variable:</th>     <td>D.Precio</td>     <th>  No. Observations:  </th>    <td>5816</td>   
+    </tr>
+    <tr>
+      <th>Model:</th>          <td>ARIMA(1, 1, 1)</td>  <th>  Log Likelihood     </th> <td>-27010.235</td>
+    </tr>
+    <tr>
+      <th>Method:</th>             <td>css-mle</td>     <th>  S.D. of innovations</th>   <td>25.158</td>  
+    </tr>
+    <tr>
+      <th>Date:</th>          <td>Thu, 15 Jul 2021</td> <th>  AIC                </th>  <td>54028.469</td>
+    </tr>
+    <tr>
+      <th>Time:</th>              <td>05:54:51</td>     <th>  BIC                </th>  <td>54055.143</td>
+    </tr>
+    <tr>
+      <th>Sample:</th>                <td>1</td>        <th>  HQIC               </th>  <td>54037.747</td>
+    </tr>
+    <tr>
+      <th></th>                       <td> </td>        <th>                     </th>      <td> </td>    
+    </tr>
+    </table>
+    <table class="simpletable">
+    <tr>
+             <td></td>           <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+    </tr>
+    <tr>
+      <th>const</th>          <td>    0.0408</td> <td>    0.364</td> <td>    0.112</td> <td> 0.911</td> <td>   -0.672</td> <td>    0.753</td>
+    </tr>
+    <tr>
+      <th>ar.L1.D.Precio</th> <td>   -0.2638</td> <td>    0.059</td> <td>   -4.472</td> <td> 0.000</td> <td>   -0.379</td> <td>   -0.148</td>
+    </tr>
+    <tr>
+      <th>ma.L1.D.Precio</th> <td>    0.3930</td> <td>    0.056</td> <td>    7.080</td> <td> 0.000</td> <td>    0.284</td> <td>    0.502</td>
+    </tr>
+    </table>
+    <table class="simpletable">
+    <caption>Roots</caption>
+    <tr>
+        <td></td>   <th>            Real</th>  <th>         Imaginary</th> <th>         Modulus</th>  <th>        Frequency</th>
+    </tr>
+    <tr>
+      <th>AR.1</th> <td>          -3.7903</td> <td>          +0.0000j</td> <td>           3.7903</td> <td>           0.5000</td>
+    </tr>
+    <tr>
+      <th>MA.1</th> <td>          -2.5443</td> <td>          +0.0000j</td> <td>           2.5443</td> <td>           0.5000</td>
+    </tr>
+    </table>
+
+
+
+Residuales del ARIMA(1,1,1)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    import statsmodels.graphics.tsaplots as sgt
+    import matplotlib.pyplot as plt
+
+.. code:: ipython3
+
+    residuos_ARIAM111 = results_ar_1_i_1_ma_1.resid
+    sgt.plot_acf(residuos_ARIAM111, zero = False, lags = 40)
+    plt.title("ACF Of Residuals for ARIMA(1,1,1)",size=20)
+    plt.show()
+
+
+
+.. image:: output_19_0.png
+
+
+.. code:: ipython3
+
+    sgt.plot_acf(residuos_ARIAM111, zero = False, lags = 40)
+    plt.title("ACF Of Residuals for ARIMA(1,1,1)",size=20)
+    plt.show()
+
+
+
+.. image:: output_20_0.png
+
+
+Evaluación de varios modelos de ARIMA
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Primero se deben calcular todos los modelos y escoger los que tienen
+todos los coeficientes significativos. Este paso no se ha realizado, se
+evaluarán unos modelos que estamos suponiendo que tienen todos los
+coeficientes significativos.
+
+.. code:: ipython3
+
+    model_ar_1_i_1_ma_2 = ARIMA(datos.Precio, order=(1,1,2))
+    results_ar_1_i_1_ma_2 = model_ar_1_i_1_ma_2.fit()
+    model_ar_1_i_1_ma_3 = ARIMA(datos.Precio, order=(1,1,3))
+    results_ar_1_i_1_ma_3 = model_ar_1_i_1_ma_3.fit()
+    model_ar_2_i_1_ma_1 = ARIMA(datos.Precio, order=(2,1,1))
+    results_ar_2_i_1_ma_1 = model_ar_2_i_1_ma_1.fit()
+    model_ar_3_i_1_ma_1 = ARIMA(datos.Precio, order=(3,1,1))
+    results_ar_3_i_1_ma_1 = model_ar_3_i_1_ma_1.fit()
+    model_ar_3_i_1_ma_2 = ARIMA(datos.Precio, order=(3,1,2))
+    results_ar_3_i_1_ma_2 = model_ar_3_i_1_ma_2.fit(start_ar_lags=5)
+
+.. code:: ipython3
+
+    print("ARIMA(1,1,1):  \t LL = ", results_ar_1_i_1_ma_1.llf, "\t AIC = ", results_ar_1_i_1_ma_1.aic)
+    print("ARIMA(1,1,2):  \t LL = ", results_ar_1_i_1_ma_2.llf, "\t AIC = ", results_ar_1_i_1_ma_2.aic)
+    print("ARIMA(1,1,3):  \t LL = ", results_ar_1_i_1_ma_3.llf, "\t AIC = ", results_ar_1_i_1_ma_3.aic)
+    print("ARIMA(2,1,1):  \t LL = ", results_ar_2_i_1_ma_1.llf, "\t AIC = ", results_ar_2_i_1_ma_1.aic)
+    print("ARIMA(3,1,1):  \t LL = ", results_ar_3_i_1_ma_1.llf, "\t AIC = ", results_ar_3_i_1_ma_1.aic)
+    print("ARIMA(3,1,2):  \t LL = ", results_ar_3_i_1_ma_2.llf, "\t AIC = ", results_ar_3_i_1_ma_2.aic)
+
+
+.. parsed-literal::
+
+    ARIMA(1,1,1):  	 LL =  -27010.234621625288 	 AIC =  54028.469243250576
+    ARIMA(1,1,2):  	 LL =  -26970.45408581454 	 AIC =  53950.90817162908
+    ARIMA(1,1,3):  	 LL =  -26951.814421818075 	 AIC =  53915.62884363615
+    ARIMA(2,1,1):  	 LL =  -26960.455943244346 	 AIC =  53930.91188648869
+    ARIMA(3,1,1):  	 LL =  -26954.471631818797 	 AIC =  53920.94326363759
+    ARIMA(3,1,2):  	 LL =  -26954.419566101034 	 AIC =  53922.83913220207
+    
+
+De los modelos evaluados, el mejor es el ARIMA(1,1,3) por tener mayor
+Log-Verosimilitud y menor AIC.
+
+LLR Test
+~~~~~~~~
+
+Sin embargo, los modelos ARIMA(1,1,1) y ARIMA(1,1,2) están anidados al
+modelo ARIMA(1,1,3), se hará comparación si el modelo ARIMA(1,1,3) es
+mejor que los dos anteriores.
+
+.. code:: ipython3
+
+    def LLR_test(mod_1, mod_2, DF = 1):
+        L1 = mod_1.llf
+        L2 = mod_2.llf
+        LR = (2*(L2-L1))    
+        p = chi2.sf(LR, DF).round(3)
+        return p
+
+.. code:: ipython3
+
+    from scipy.stats.distributions import chi2 
+
+.. code:: ipython3
+
+    print("\nLLR test p-value = " + str(LLR_test(results_ar_1_i_1_ma_2, results_ar_1_i_1_ma_3)))
+
+
+.. parsed-literal::
+
+    
+    LLR test p-value = 0.0
+    
+
+.. code:: ipython3
+
+    print("\nLLR test p-value = " + str(LLR_test(results_ar_1_i_1_ma_1, results_ar_1_i_1_ma_3, DF = 2)))
+
+
+.. parsed-literal::
+
+    
+    LLR test p-value = 0.0
+    
+
+El modelo ARIMA(1,1,3) si es mejor que los dos modelos que están
+anidados con este.
+
+Residuales del modelo ARIMA(1,1,3)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    residuales_ARIMA_113 = results_ar_1_i_1_ma_3.resid
+    sgt.plot_acf(residuales_ARIMA_113, zero = False, lags = 40)
+    plt.title("ACF Of Residuals for ARIMA(1,1,3)", size=20)
+    plt.show()
+
+
+
+.. image:: output_34_0.png
+
+
+Se podría evaluar modelos más complejos hasta el ARIMA(7,1,7).
+
+.. code:: ipython3
+
+    model_ar_5_i_1_ma_5 = ARIMA(datos.Precio, order=(5,1,5))
+    results_ar_5_i_1_ma_5 = model_ar_5_i_1_ma_5.fit(start_ar_lags=11)
+    results_ar_5_i_1_ma_5.summary()
+
+
+
+
+.. raw:: html
+
+    <table class="simpletable">
+    <caption>ARIMA Model Results</caption>
+    <tr>
+      <th>Dep. Variable:</th>     <td>D.Precio</td>     <th>  No. Observations:  </th>    <td>5816</td>   
+    </tr>
+    <tr>
+      <th>Model:</th>          <td>ARIMA(5, 1, 5)</td>  <th>  Log Likelihood     </th> <td>-26878.553</td>
+    </tr>
+    <tr>
+      <th>Method:</th>             <td>css-mle</td>     <th>  S.D. of innovations</th>   <td>24.593</td>  
+    </tr>
+    <tr>
+      <th>Date:</th>          <td>Thu, 15 Jul 2021</td> <th>  AIC                </th>  <td>53781.106</td>
+    </tr>
+    <tr>
+      <th>Time:</th>              <td>05:55:02</td>     <th>  BIC                </th>  <td>53861.127</td>
+    </tr>
+    <tr>
+      <th>Sample:</th>                <td>1</td>        <th>  HQIC               </th>  <td>53808.939</td>
+    </tr>
+    <tr>
+      <th></th>                       <td> </td>        <th>                     </th>      <td> </td>    
+    </tr>
+    </table>
+    <table class="simpletable">
+    <tr>
+             <td></td>           <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+    </tr>
+    <tr>
+      <th>const</th>          <td>    0.0411</td> <td>    0.332</td> <td>    0.124</td> <td> 0.901</td> <td>   -0.609</td> <td>    0.692</td>
+    </tr>
+    <tr>
+      <th>ar.L1.D.Precio</th> <td>   -0.3205</td> <td>    0.042</td> <td>   -7.665</td> <td> 0.000</td> <td>   -0.402</td> <td>   -0.239</td>
+    </tr>
+    <tr>
+      <th>ar.L2.D.Precio</th> <td>   -0.2270</td> <td>    0.033</td> <td>   -6.855</td> <td> 0.000</td> <td>   -0.292</td> <td>   -0.162</td>
+    </tr>
+    <tr>
+      <th>ar.L3.D.Precio</th> <td>   -0.4506</td> <td>    0.030</td> <td>  -15.195</td> <td> 0.000</td> <td>   -0.509</td> <td>   -0.393</td>
+    </tr>
+    <tr>
+      <th>ar.L4.D.Precio</th> <td>   -0.3947</td> <td>    0.034</td> <td>  -11.511</td> <td> 0.000</td> <td>   -0.462</td> <td>   -0.327</td>
+    </tr>
+    <tr>
+      <th>ar.L5.D.Precio</th> <td>   -0.6894</td> <td>    0.032</td> <td>  -21.787</td> <td> 0.000</td> <td>   -0.751</td> <td>   -0.627</td>
+    </tr>
+    <tr>
+      <th>ma.L1.D.Precio</th> <td>    0.4184</td> <td>    0.040</td> <td>   10.561</td> <td> 0.000</td> <td>    0.341</td> <td>    0.496</td>
+    </tr>
+    <tr>
+      <th>ma.L2.D.Precio</th> <td>    0.1603</td> <td>    0.029</td> <td>    5.588</td> <td> 0.000</td> <td>    0.104</td> <td>    0.216</td>
+    </tr>
+    <tr>
+      <th>ma.L3.D.Precio</th> <td>    0.3645</td> <td>    0.027</td> <td>   13.655</td> <td> 0.000</td> <td>    0.312</td> <td>    0.417</td>
+    </tr>
+    <tr>
+      <th>ma.L4.D.Precio</th> <td>    0.4863</td> <td>    0.030</td> <td>   16.124</td> <td> 0.000</td> <td>    0.427</td> <td>    0.545</td>
+    </tr>
+    <tr>
+      <th>ma.L5.D.Precio</th> <td>    0.7429</td> <td>    0.029</td> <td>   25.497</td> <td> 0.000</td> <td>    0.686</td> <td>    0.800</td>
+    </tr>
+    </table>
+    <table class="simpletable">
+    <caption>Roots</caption>
+    <tr>
+        <td></td>   <th>            Real</th>  <th>         Imaginary</th> <th>         Modulus</th>  <th>        Frequency</th>
+    </tr>
+    <tr>
+      <th>AR.1</th> <td>           0.6833</td> <td>          -0.7607j</td> <td>           1.0225</td> <td>          -0.1335</td>
+    </tr>
+    <tr>
+      <th>AR.2</th> <td>           0.6833</td> <td>          +0.7607j</td> <td>           1.0225</td> <td>           0.1335</td>
+    </tr>
+    <tr>
+      <th>AR.3</th> <td>          -1.0478</td> <td>          -0.0000j</td> <td>           1.0478</td> <td>          -0.5000</td>
+    </tr>
+    <tr>
+      <th>AR.4</th> <td>          -0.4456</td> <td>          -1.0609j</td> <td>           1.1506</td> <td>          -0.3133</td>
+    </tr>
+    <tr>
+      <th>AR.5</th> <td>          -0.4456</td> <td>          +1.0609j</td> <td>           1.1506</td> <td>           0.3133</td>
+    </tr>
+    <tr>
+      <th>MA.1</th> <td>           0.6951</td> <td>          -0.7411j</td> <td>           1.0161</td> <td>          -0.1301</td>
+    </tr>
+    <tr>
+      <th>MA.2</th> <td>           0.6951</td> <td>          +0.7411j</td> <td>           1.0161</td> <td>           0.1301</td>
+    </tr>
+    <tr>
+      <th>MA.3</th> <td>          -1.0380</td> <td>          -0.0000j</td> <td>           1.0380</td> <td>          -0.5000</td>
+    </tr>
+    <tr>
+      <th>MA.4</th> <td>          -0.5034</td> <td>          -1.0013j</td> <td>           1.1207</td> <td>          -0.3241</td>
+    </tr>
+    <tr>
+      <th>MA.5</th> <td>          -0.5034</td> <td>          +1.0013j</td> <td>           1.1207</td> <td>           0.3241</td>
+    </tr>
+    </table>
+
+
+
+.. code:: ipython3
+
+    print("\nLLR test p-value = " + str(LLR_test(results_ar_1_i_1_ma_3, results_ar_5_i_1_ma_5)))
+
+
+.. parsed-literal::
+
+    
+    LLR test p-value = 0.0
+    
+
+El ARIMA(5,1,5) es mejor que el ARIMA(1,1,3)
+
+Residuales del modelo ARIMA(5,1,5)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    residuales_ARIMA_515 = results_ar_5_i_1_ma_5.resid
+    sgt.plot_acf(residuales_ARIMA_515, zero = False, lags = 40)
+    plt.title("ACF Of Residuals for ARIMA(5,1,5)", size=20)
+    plt.show()
+
+
+
+.. image:: output_40_0.png
+
+
+Integración :math:`d`
+~~~~~~~~~~~~~~~~~~~~~
+
+Se calculará la primer diferencia de los precios y se hará la prueba D-F
+para determinar si la nueva serie de tiempo es estacionaria o no.
+
+Primera diferencia
+~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    datos['delta_prices']=datos.Precio.diff(1)
+
+.. code:: ipython3
+
+    datos.head()
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Precio</th>
+          <th>delta_prices</th>
+        </tr>
+        <tr>
+          <th>Fecha</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>2003-03-01</th>
+          <td>72.412500</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>2003-03-02</th>
+          <td>72.837083</td>
+          <td>0.424583</td>
+        </tr>
+        <tr>
+          <th>2003-03-03</th>
+          <td>70.103750</td>
+          <td>-2.733333</td>
+        </tr>
+        <tr>
+          <th>2003-03-04</th>
+          <td>70.770417</td>
+          <td>0.666667</td>
+        </tr>
+        <tr>
+          <th>2003-03-05</th>
+          <td>69.153750</td>
+          <td>-1.616667</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+.. code:: ipython3
+
+    import statsmodels.tsa.stattools as sts
+
+.. code:: ipython3
+
+    sts.adfuller(datos.delta_prices[1:])
+
+
+
+
+.. parsed-literal::
+
+    (-14.940985509998315,
+     1.3227142701322909e-27,
+     34,
+     5781,
+     {'1%': -3.431481673763484,
+      '5%': -2.8620400923019074,
+      '10%': -2.5670361971807805},
+     53352.0028917936)
+
+
+
+.. code:: ipython3
+
+    sgt.plot_acf(datos.delta_prices[1:], zero = False, lags = 40)
+    plt.title("ACF Of Delta Prices", size=20)
+    plt.show()
+
+
+
+.. image:: output_48_0.png
+
+
+.. code:: ipython3
+
+    sgt.plot_pacf(datos.delta_prices[1:], lags = 40, alpha = 0.05, zero = False , method = ('ols'))
+    plt.title("Partial Autocorrelation Function for Delta Prices",size=20)
+    plt.show()
+
+
+
+.. image:: output_49_0.png
+
+
+A continuación se mostrará una prueba de que una ARMA(1,1) sobre la
+primera diferencia de la serie de tiempo es igual a una ARIMA(1,1) sobre
+la serie de tiempo.
+
+.. code:: ipython3
+
+    model_delta_ar_1_i_1_ma_1 = ARIMA(datos.delta_prices[1:], order=(1,0,1))
+    results_delta_ar_1_i_1_ma_1 = model_delta_ar_1_i_1_ma_1.fit()
+    results_delta_ar_1_i_1_ma_1.summary()
+
+
+
+
+.. raw:: html
+
+    <table class="simpletable">
+    <caption>ARMA Model Results</caption>
+    <tr>
+      <th>Dep. Variable:</th>   <td>delta_prices</td>   <th>  No. Observations:  </th>    <td>5816</td>   
+    </tr>
+    <tr>
+      <th>Model:</th>            <td>ARMA(1, 1)</td>    <th>  Log Likelihood     </th> <td>-27010.235</td>
+    </tr>
+    <tr>
+      <th>Method:</th>             <td>css-mle</td>     <th>  S.D. of innovations</th>   <td>25.158</td>  
+    </tr>
+    <tr>
+      <th>Date:</th>          <td>Thu, 15 Jul 2021</td> <th>  AIC                </th>  <td>54028.469</td>
+    </tr>
+    <tr>
+      <th>Time:</th>              <td>05:55:05</td>     <th>  BIC                </th>  <td>54055.143</td>
+    </tr>
+    <tr>
+      <th>Sample:</th>                <td>0</td>        <th>  HQIC               </th>  <td>54037.747</td>
+    </tr>
+    <tr>
+      <th></th>                       <td> </td>        <th>                     </th>      <td> </td>    
+    </tr>
+    </table>
+    <table class="simpletable">
+    <tr>
+               <td></td>             <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+    </tr>
+    <tr>
+      <th>const</th>              <td>    0.0408</td> <td>    0.364</td> <td>    0.112</td> <td> 0.911</td> <td>   -0.672</td> <td>    0.753</td>
+    </tr>
+    <tr>
+      <th>ar.L1.delta_prices</th> <td>   -0.2638</td> <td>    0.059</td> <td>   -4.472</td> <td> 0.000</td> <td>   -0.379</td> <td>   -0.148</td>
+    </tr>
+    <tr>
+      <th>ma.L1.delta_prices</th> <td>    0.3930</td> <td>    0.056</td> <td>    7.080</td> <td> 0.000</td> <td>    0.284</td> <td>    0.502</td>
+    </tr>
+    </table>
+    <table class="simpletable">
+    <caption>Roots</caption>
+    <tr>
+        <td></td>   <th>            Real</th>  <th>         Imaginary</th> <th>         Modulus</th>  <th>        Frequency</th>
+    </tr>
+    <tr>
+      <th>AR.1</th> <td>          -3.7903</td> <td>          +0.0000j</td> <td>           3.7903</td> <td>           0.5000</td>
+    </tr>
+    <tr>
+      <th>MA.1</th> <td>          -2.5443</td> <td>          +0.0000j</td> <td>           2.5443</td> <td>           0.5000</td>
+    </tr>
+    </table>
+
+
+
+.. code:: ipython3
+
+    model_ar_1_i_1_ma_1 = ARIMA(datos.Precio, order=(1,1,1))
+    results_ar_1_i_1_ma_1 = model_ar_1_i_1_ma_1.fit()
+    results_ar_1_i_1_ma_1.summary()
+
+
+
+
+.. raw:: html
+
+    <table class="simpletable">
+    <caption>ARIMA Model Results</caption>
+    <tr>
+      <th>Dep. Variable:</th>     <td>D.Precio</td>     <th>  No. Observations:  </th>    <td>5816</td>   
+    </tr>
+    <tr>
+      <th>Model:</th>          <td>ARIMA(1, 1, 1)</td>  <th>  Log Likelihood     </th> <td>-27010.235</td>
+    </tr>
+    <tr>
+      <th>Method:</th>             <td>css-mle</td>     <th>  S.D. of innovations</th>   <td>25.158</td>  
+    </tr>
+    <tr>
+      <th>Date:</th>          <td>Thu, 15 Jul 2021</td> <th>  AIC                </th>  <td>54028.469</td>
+    </tr>
+    <tr>
+      <th>Time:</th>              <td>05:55:06</td>     <th>  BIC                </th>  <td>54055.143</td>
+    </tr>
+    <tr>
+      <th>Sample:</th>                <td>1</td>        <th>  HQIC               </th>  <td>54037.747</td>
+    </tr>
+    <tr>
+      <th></th>                       <td> </td>        <th>                     </th>      <td> </td>    
+    </tr>
+    </table>
+    <table class="simpletable">
+    <tr>
+             <td></td>           <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+    </tr>
+    <tr>
+      <th>const</th>          <td>    0.0408</td> <td>    0.364</td> <td>    0.112</td> <td> 0.911</td> <td>   -0.672</td> <td>    0.753</td>
+    </tr>
+    <tr>
+      <th>ar.L1.D.Precio</th> <td>   -0.2638</td> <td>    0.059</td> <td>   -4.472</td> <td> 0.000</td> <td>   -0.379</td> <td>   -0.148</td>
+    </tr>
+    <tr>
+      <th>ma.L1.D.Precio</th> <td>    0.3930</td> <td>    0.056</td> <td>    7.080</td> <td> 0.000</td> <td>    0.284</td> <td>    0.502</td>
+    </tr>
+    </table>
+    <table class="simpletable">
+    <caption>Roots</caption>
+    <tr>
+        <td></td>   <th>            Real</th>  <th>         Imaginary</th> <th>         Modulus</th>  <th>        Frequency</th>
+    </tr>
+    <tr>
+      <th>AR.1</th> <td>          -3.7903</td> <td>          +0.0000j</td> <td>           3.7903</td> <td>           0.5000</td>
+    </tr>
+    <tr>
+      <th>MA.1</th> <td>          -2.5443</td> <td>          +0.0000j</td> <td>           2.5443</td> <td>           0.5000</td>
+    </tr>
+    </table>
+
+
+
+SARIMA(p,d,q)(P,D,Q,s)
+~~~~~~~~~~~~~~~~~~~~~~
+
+**SARIMA-Seasonal Autoregressive Integrated Moving Averages**
+
+.. code:: ipython3
+
+    from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+.. code:: ipython3
+
+    model_sarima = SARIMAX(datos.Precio, order=(1,0,1), seasonal_order = (2,0,1,2))
+    results_sarima = model_sarima.fit()
+    results_sarima.summary()
+
+
+
+
+.. raw:: html
+
+    <table class="simpletable">
+    <caption>SARIMAX Results</caption>
+    <tr>
+      <th>Dep. Variable:</th>              <td>Precio</td>             <th>  No. Observations:  </th>    <td>5817</td>   
+    </tr>
+    <tr>
+      <th>Model:</th>           <td>SARIMAX(1, 0, 1)x(2, 0, 1, 2)</td> <th>  Log Likelihood     </th> <td>-26974.805</td>
+    </tr>
+    <tr>
+      <th>Date:</th>                  <td>Thu, 15 Jul 2021</td>        <th>  AIC                </th>  <td>53961.610</td>
+    </tr>
+    <tr>
+      <th>Time:</th>                      <td>05:55:09</td>            <th>  BIC                </th>  <td>54001.621</td>
+    </tr>
+    <tr>
+      <th>Sample:</th>                        <td>0</td>               <th>  HQIC               </th>  <td>53975.526</td>
+    </tr>
+    <tr>
+      <th></th>                            <td> - 5817</td>            <th>                     </th>      <td> </td>    
+    </tr>
+    <tr>
+      <th>Covariance Type:</th>              <td>opg</td>              <th>                     </th>      <td> </td>    
+    </tr>
+    </table>
+    <table class="simpletable">
+    <tr>
+         <td></td>        <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+    </tr>
+    <tr>
+      <th>ar.L1</th>   <td>    0.9949</td> <td>    0.001</td> <td> 1319.143</td> <td> 0.000</td> <td>    0.993</td> <td>    0.996</td>
+    </tr>
+    <tr>
+      <th>ma.L1</th>   <td>    0.1061</td> <td>    0.003</td> <td>   40.096</td> <td> 0.000</td> <td>    0.101</td> <td>    0.111</td>
+    </tr>
+    <tr>
+      <th>ar.S.L2</th> <td>    0.8309</td> <td>    0.020</td> <td>   42.567</td> <td> 0.000</td> <td>    0.793</td> <td>    0.869</td>
+    </tr>
+    <tr>
+      <th>ar.S.L4</th> <td>    0.0987</td> <td>    0.004</td> <td>   22.085</td> <td> 0.000</td> <td>    0.090</td> <td>    0.108</td>
+    </tr>
+    <tr>
+      <th>ma.S.L2</th> <td>   -0.9498</td> <td>    0.019</td> <td>  -48.766</td> <td> 0.000</td> <td>   -0.988</td> <td>   -0.912</td>
+    </tr>
+    <tr>
+      <th>sigma2</th>  <td>  623.3489</td> <td>    1.583</td> <td>  393.688</td> <td> 0.000</td> <td>  620.246</td> <td>  626.452</td>
+    </tr>
+    </table>
+    <table class="simpletable">
+    <tr>
+      <th>Ljung-Box (Q):</th>          <td>442.39</td> <th>  Jarque-Bera (JB):  </th> <td>19183877.49</td>
+    </tr>
+    <tr>
+      <th>Prob(Q):</th>                 <td>0.00</td>  <th>  Prob(JB):          </th>    <td>0.00</td>    
+    </tr>
+    <tr>
+      <th>Heteroskedasticity (H):</th>  <td>34.65</td> <th>  Skew:              </th>    <td>-6.00</td>   
+    </tr>
+    <tr>
+      <th>Prob(H) (two-sided):</th>     <td>0.00</td>  <th>  Kurtosis:          </th>   <td>284.08</td>   
+    </tr>
+    </table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+
+
+
+.. code:: ipython3
+
+    residuales_SARIMA = results_sarima.resid
+    sgt.plot_acf(residuales_SARIMA, zero = False, lags = 40)
+    plt.title("ACF Of Residuals for SARIMA", size=20)
+    plt.show()
+
+
+
+.. image:: output_57_0.png
+

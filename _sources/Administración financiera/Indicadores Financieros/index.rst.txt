@@ -25,6 +25,13 @@ Los principales indicadores financieros que se pueden calcular con los Estados F
         * **Ver video: Indicadores Financieros.** --- `aquí <https://youtu.be/w8ZC_VzDbE0>`_.
 
 
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/w8ZC_VzDbE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
 1. Indicadores de Actividad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -36,13 +43,18 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
     * **Descargue** :download:`aquí <18. Indicadores de Actividad.pdf>` las presentaciones sobre Indicadores de Actividad.
 
 
-        * **Ver video: Indicadores de Actividad.** --- `aquí <https://youtu.be/OTwST74lLSA>`_.
-
-
         * **Descargue** :download:`aquí <Indicadores de Actividad-D1-20 Mission.xlsx>` el archivo de Excel con Indicadores de Actividad.
 
+.. raw:: html
 
-        * **Ver video: Ejemplo Indicadores de Actividad.** --- `aquí <https://youtu.be/oYhOjVHtiVw>`_.
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/OTwST74lLSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/oYhOjVHtiVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 
 2. Ejercicios análisis vertical, horizontal e indicadores de actividad
@@ -68,9 +80,16 @@ Estos indicadores miden la capacidad de la compañía para cumplir con sus deuda
 
     * **Descargue** :download:`aquí <19. Indicadores de Liquidez.pdf>` las presentaciones sobre Indicadores de Liquidez.
 
-        * **Ver video: Indicadores de Liquidez.** --- `aquí <https://youtu.be/s0BkKg2YkoY>`_.
 
-        * **Ver video: Ejemplo Indicadores de Liquidez.** --- `aquí <https://youtu.be/HQC0k94UwoE>`_.
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/s0BkKg2YkoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/HQC0k94UwoE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 4. Indicadores de Endeudamiento
@@ -81,9 +100,17 @@ Miden la capacidad de la compañía para atender las obligaciones de largo plazo
 
     * **Descargue** :download:`aquí <20. Indicadores de Endeudamiento.pdf>` las presentaciones sobre Indicadores de Endeudamiento.
 
-        * **Ver video: Indicadores de Endeudamiento.** --- `aquí <https://youtu.be/WoRzigKQ2mY>`_.
 
-        * **Ver video: Ejemplo Indicadores de Endeudamiento.** --- `aquí <https://youtu.be/--n90A8CwVM>`_.
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/WoRzigKQ2mY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/--n90A8CwVM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 
 5. Indicadores de Rentabilidad
@@ -95,9 +122,15 @@ Cuando se relacionan cuentas del Balance General y del Estado de Resultados se a
 
     * **Descargue** :download:`aquí <21. Indicadores de Rentabilidad.pdf>` las presentaciones sobre Indicadores de Rentabilidad.
 
-        * **Ver video: Indicadores de Rentabilidad.** --- `aquí <https://youtu.be/lXQDAd8KBds>`_.
+.. raw:: html
+ 
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/lXQDAd8KBds" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        * **Ver video: Ejemplo Indicadores de Rentabilidad.** --- `aquí <https://youtu.be/xWwPUGnrdeQ>`_.
+
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/xWwPUGnrdeQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 .. important::
@@ -119,7 +152,11 @@ Cuando se relacionan cuentas del Balance General y del Estado de Resultados se a
 
     **Descargue** :download:`aquí <Análisis Financiero KIMBERLY CLARK.xlsx>` el archivo de Excel con el ejemplo.
 
-    **Ver video: Análisis Financiero KIMBERLY CLARK ANTIOQUIA.** --- `aquí <https://youtu.be/qIJPaGvIH1E>`_.
+    .. raw:: html
+
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/qIJPaGvIH1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 
 

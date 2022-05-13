@@ -18,13 +18,21 @@ debe utilizar otros fondos (deudas o capital propio) en la operación.
         * **Descargue** :download:`aquí <Almacenes Éxito-KTNO y FM.xlsx>` el archivo de Excel para calcular el KTNO y el FM.
 
 
-        * **Ver video: KTNO.** --- `aquí <https://youtu.be/woM5q11heGc>`_.
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/woM5q11heGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-        * **Ver video: Ejemplo KTNO.** --- `aquí <https://youtu.be/lJXdgnXkcjQ>`_.
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/lJXdgnXkcjQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-        * **Ver video: Fondo de Maniobra (FM).** --- `aquí <https://youtu.be/RdUcmLQLSXs>`_.
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/RdUcmLQLSXs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-        * **Ver video: Administración del KTNO.** --- `aquí <https://youtu.be/8a8YCgnSzRQ>`_.
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/8a8YCgnSzRQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -21,9 +21,12 @@ Finalmente, el analista debe concluir relacionando el análisis vertical con el 
 
         * **Descargue** :download:`aquí <Análisis vertical y horizontal.xlsx>` el archivo de Excel para el análisis vertical y horizotal sobre Mazda.
 
+.. raw:: html
 
-        * **Ver video: Análisis vertical.** --- `aquí <https://youtu.be/xLBGNyuy9s8>`_.
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/xLBGNyuy9s8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+.. raw:: html
 
-        * **Ver video: Análisis horizontal.** --- `aquí <https://youtu.be/XPDVyIbbjVQ>`_.
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/XPDVyIbbjVQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
