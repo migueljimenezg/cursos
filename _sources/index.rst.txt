@@ -18,18 +18,6 @@ Material de apoyo
     Modelación en Python/Deep Learning para pronóstico/index
 
   
-.. toctree::
-    :maxdepth: 2
-    :caption: CONCEPTOS PREVIOS:
-    :titlesonly:
-    :hidden:
-       
-    Introducción a R/index
-    Portafolios de inversión/index
-    Tasas de interés/index
-    Portafolios de inversión2/Trading/index.rst
-
-
 
 .. toctree::
     :caption: DERIVADOS FINANCIEROS:
@@ -79,6 +67,18 @@ Material de apoyo
     :hidden:
 
     Portafolios de inversión2/index
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: CONCEPTOS PREVIOS:
+    :titlesonly:
+    :hidden:
+       
+    Introducción a R/index
+    Portafolios de inversión/index
+    Tasas de interés/index
+    Portafolios de inversión2/Trading/index.rst
 
     
 
