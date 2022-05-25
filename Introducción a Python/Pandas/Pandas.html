@@ -1,0 +1,931 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pandas &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../index.html"/>
+        <link rel="up" title="Introducción a Python" href="../index.html"/>
+        <link rel="next" title="NumPy" href="../NumPy/NumPy.html"/>
+        <link rel="prev" title="Introducción a Python" href="../Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">INTRODUCCIÓN A PYTHON:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Introducción a Python</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python.html">Introducción a Python</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../NumPy/NumPy.html">NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Matplotlib/Matplotlib.html">Matplotlib</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Modelaci%C3%B3n%20en%20Python/Caracterizaci%C3%B3n%20de%20las%20series%20de%20tiempo/index.html">Caracterización de las series de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Modelaci%C3%B3n%20en%20Python/Modelos%20autorregresivos/index.html">ARIMA: autoregresivo integrado de medias móviles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Modelaci%C3%B3n%20en%20Python/Deep%20Learning%20para%20pron%C3%B3stico/index.html">Deep Learning para pronóstico</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Derivados%20financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Derivados%20financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Derivados%20financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Derivados%20financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Introducción a Python</a> &raquo;</li>
+        
+      <li>Pandas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Introducción a Python/Pandas/Pandas.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pandas">
+<h1>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h1>
+<p>Pandas es una librería para manipulación y análisis de datos.</p>
+<p>Instalación: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code></p>
+<p>Las librerías se importan en Python con <code class="docutils literal notranslate"><span class="pre">import</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+</pre></div>
+</div>
+<p>Con pandas podemos convertir variables en <code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">Frames</span></code>. Estos son un
+conjunto de vectores con un index asociado. Cada columna tiene un nombre
+al igual que las filas.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Usualmente cada librería se importa y se le asigna un alias para que sea
+más fácil de usar, por ejemplo, pandas se importa como <code class="docutils literal notranslate"><span class="pre">pd</span></code>. Para
+utilizar pandas ya no sería necesario escribir la palabra <code class="docutils literal notranslate"><span class="pre">panda</span></code>, en
+su lugar se escribe <code class="docutils literal notranslate"><span class="pre">pd</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="pandas-series">
+<h2>Pandas Series:<a class="headerlink" href="#pandas-series" title="Permalink to this headline">¶</a></h2>
+<p>Un <code class="docutils literal notranslate"><span class="pre">Panda</span> <span class="pre">Series</span></code> es un matriz unidimensional que contiene cualquier
+tipo de datos, es decir, es una colummna en un tabla.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>    <span class="mi">28</span>
+<span class="mi">1</span>    <span class="mi">25</span>
+<span class="mi">2</span>    <span class="mi">10</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>Si no se especifica, el index aparecerá desde el valor del cero <code class="docutils literal notranslate"><span class="pre">[0]</span></code>.
+Para acceder al primer valor se usa lo siguiente:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">28</span>
+</pre></div>
+</div>
+<p>El segundo elemento se puede extraer así:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">25</span>
+</pre></div>
+</div>
+<p>Para que el index tenga un nombre se usa el argumento <code class="docutils literal notranslate"><span class="pre">index</span> <span class="pre">=</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Primera fila&quot;</span><span class="p">,</span> <span class="s2">&quot;Segunda fila&quot;</span><span class="p">,</span> <span class="s2">&quot;Tercera fila&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Primera</span> <span class="n">fila</span>    <span class="mi">28</span>
+<span class="n">Segunda</span> <span class="n">fila</span>    <span class="mi">25</span>
+<span class="n">Tercera</span> <span class="n">fila</span>    <span class="mi">10</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p>Con estas etiquetas creadas en el index se puede acceder a los elementos
+por el nombre del index así:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie</span><span class="p">[</span><span class="s2">&quot;Tercera fila&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dataframes">
+<h2>DataFrames:<a class="headerlink" href="#dataframes" title="Permalink to this headline">¶</a></h2>
+<p>Las <code class="docutils literal notranslate"><span class="pre">Series</span></code> son una columna de una tabla, un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> es una
+tabla completa de 2 dimensiones.</p>
+<p><strong>Dataframe:</strong> Es una estructura bidimensional mutable de datos con los
+ejes etiquetados donde:</p>
+<ul class="simple">
+<li><p>Cada fila representa una observación diferente.</p></li>
+<li><p>Cada columna representa una variable diferente.</p></li>
+</ul>
+<p>Vamos a crear un DataFrame de 5 filas y 2 columnas a partir de un
+diccionario.</p>
+<p>Para ello, primero creamos un diccionario donde las claves serán los
+nombres de las columnas y los valores serán listas, con tantos elementos
+como número de filas queramos.</p>
+<p>Finalmente, convertimos ese diccionario a DataDrame con la función
+<code class="docutils literal notranslate"><span class="pre">DataFrame()</span></code> de <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">x</span>   <span class="n">y</span>
+<span class="mi">0</span>  <span class="mi">1</span>   <span class="mi">2</span>
+<span class="mi">1</span>  <span class="mi">2</span>   <span class="mi">4</span>
+<span class="mi">2</span>  <span class="mi">3</span>   <span class="mi">6</span>
+<span class="mi">3</span>  <span class="mi">4</span>   <span class="mi">8</span>
+<span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">10</span>
+</pre></div>
+</div>
+<p>Ahora vamos a crear un DataFrame a partir de una lista de listas.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">51</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">54</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>  <span class="c1"># Esta es la lista de listas</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">51</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">54</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="mi">0</span>   <span class="mi">1</span>   <span class="mi">2</span>
+<span class="mi">0</span>  <span class="mi">51</span>  <span class="mi">21</span>  <span class="mi">54</span>
+<span class="mi">1</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>
+</pre></div>
+</div>
+<p>Podemos crear también el DataFrame a partir de una lista de lista
+indicando el nombre de las columnas con <code class="docutils literal notranslate"><span class="pre">columns</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mi">51</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">54</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">x</span>   <span class="n">y</span>   <span class="n">z</span>
+<span class="mi">0</span>  <span class="mi">51</span>  <span class="mi">21</span>  <span class="mi">54</span>
+<span class="mi">1</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+</pre></div>
+</div>
+<p>Para asignar los nombres a las filas lo hacemos con ´index´.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">51</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">54</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Observación 1&quot;</span><span class="p">,</span> <span class="s2">&quot;Observación 2&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                <span class="n">x</span>   <span class="n">y</span>   <span class="n">z</span>
+<span class="n">Observación</span> <span class="mi">1</span>  <span class="mi">51</span>  <span class="mi">21</span>  <span class="mi">54</span>
+<span class="n">Observación</span> <span class="mi">2</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>
+</pre></div>
+</div>
+<p><strong>Dimensiones del DataFrame:</strong></p>
+<p>Con el método <code class="docutils literal notranslate"><span class="pre">.shape</span></code> podemos calcular las dimensiones (número de
+filas y columnas) del DataFrame.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Con el método <code class="docutils literal notranslate"><span class="pre">.size</span></code> calculamos el número total de elementos que
+tiene el DataFrame (número de filas por número de columnas).</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+</pre></div>
+</div>
+<p>Finalmente, con el método <code class="docutils literal notranslate"><span class="pre">.ndim</span></code> calculamos el número de dimensiones
+que tiene el DataDrame, siempre valdrá 2, pues consta de filas y
+columnas.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subdataframes">
+<h2>SubDataFrames:<a class="headerlink" href="#subdataframes" title="Permalink to this headline">¶</a></h2>
+<p>Dado un DataFrame, un subDataFrame es la selección de unas filas y
+columnas en particular.</p>
+<p><strong>Columnas:</strong></p>
+<p>Dado un DataFrame, podemos seleccionar una columna en particular de
+diversas formas:</p>
+<ul class="simple">
+<li><p>Indicando el nombre de la columna entre corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code></p></li>
+<li><p>Con el método <code class="docutils literal notranslate"><span class="pre">.columns[]</span></code></p></li>
+<li><p>Con el método <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> (por nombre o etiqueta).</p></li>
+<li><p>Con el método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> (por posición).</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alicia&quot;</span><span class="p">,</span> <span class="s2">&quot;Bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;Diana&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">34</span><span class="p">],</span>
+    <span class="s2">&quot;Pet&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
+    <span class="s2">&quot;Height&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">157</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">164</span><span class="p">],</span>
+    <span class="s2">&quot;Birthday&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Mayo&quot;</span><span class="p">,</span> <span class="s2">&quot;Junio&quot;</span><span class="p">,</span> <span class="s2">&quot;Agosto&quot;</span><span class="p">,</span> <span class="s2">&quot;Diciembre&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;obs1&quot;</span><span class="p">,</span> <span class="s2">&quot;obs2&quot;</span><span class="p">,</span> <span class="s2">&quot;obs3&quot;</span><span class="p">,</span> <span class="s2">&quot;obs4&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>  <span class="n">Height</span>   <span class="n">Birthday</span>
+<span class="n">obs1</span>  <span class="n">Alicia</span>   <span class="mi">22</span>   <span class="kc">True</span>     <span class="mi">157</span>       <span class="n">Mayo</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>     <span class="mi">190</span>      <span class="n">Junio</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>  <span class="kc">False</span>     <span class="mi">175</span>     <span class="n">Agosto</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>   <span class="kc">True</span>     <span class="mi">164</span>  <span class="n">Diciembre</span>
+</pre></div>
+</div>
+<p><strong>Selección de una columna por nombre:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obs1</span>    <span class="mi">22</span>
+<span class="n">obs2</span>    <span class="mi">28</span>
+<span class="n">obs3</span>    <span class="mi">19</span>
+<span class="n">obs4</span>    <span class="mi">34</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Age</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p><strong>Selección de una columna con ``.columns[]``:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obs1</span>    <span class="mi">22</span>
+<span class="n">obs2</span>    <span class="mi">28</span>
+<span class="n">obs3</span>    <span class="mi">19</span>
+<span class="n">obs4</span>    <span class="mi">34</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Age</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p><strong>Selección de una columna con ``.loc[]``:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">.loc[filas:columnas]</span></code>, el símbolo <code class="docutils literal notranslate"><span class="pre">:</span></code> indica todas las filas o
+todas las columnas.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obs1</span>    <span class="mi">22</span>
+<span class="n">obs2</span>    <span class="mi">28</span>
+<span class="n">obs3</span>    <span class="mi">19</span>
+<span class="n">obs4</span>    <span class="mi">34</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Age</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p><strong>Selección de una columna con ``.iloc[]``:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">obs1</span>    <span class="mi">22</span>
+<span class="n">obs2</span>    <span class="mi">28</span>
+<span class="n">obs3</span>    <span class="mi">19</span>
+<span class="n">obs4</span>    <span class="mi">34</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Age</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
+</pre></div>
+</div>
+<p><strong>Selección de varias columnas por nombre:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>
+<span class="n">obs1</span>  <span class="n">Alicia</span>   <span class="mi">22</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>
+</pre></div>
+</div>
+<p><strong>Selección de varias columnas con ``.columns[]``:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>
+<span class="n">obs1</span>  <span class="n">Alicia</span>   <span class="mi">22</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>
+</pre></div>
+</div>
+<p>Otra forma: podemos usar el string <code class="docutils literal notranslate"><span class="pre">:</span></code> para seleccionar varias
+columnas que están seguidas.</p>
+<p>Note que con <code class="docutils literal notranslate"><span class="pre">[0:3]</span></code> se seleccionar las columnas desde las <code class="docutils literal notranslate"><span class="pre">0</span></code> hasta
+la <code class="docutils literal notranslate"><span class="pre">2</span></code>, no toma la columna <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>
+<span class="n">obs1</span>  <span class="n">Alicia</span>   <span class="mi">22</span>   <span class="kc">True</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>  <span class="kc">False</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>   <span class="kc">True</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]])</span>  <span class="c1"># No selecciona la columna 4, solo hasta la 3</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Pet</span>  <span class="n">Height</span>
+<span class="n">obs1</span>   <span class="kc">True</span>     <span class="mi">157</span>
+<span class="n">obs2</span>  <span class="kc">False</span>     <span class="mi">190</span>
+<span class="n">obs3</span>  <span class="kc">False</span>     <span class="mi">175</span>
+<span class="n">obs4</span>   <span class="kc">True</span>     <span class="mi">164</span>
+</pre></div>
+</div>
+<p><strong>Selección de varias columnas con ``.loc[]``:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>
+<span class="n">obs1</span>  <span class="n">Alicia</span>   <span class="mi">22</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>
+</pre></div>
+</div>
+<p>Otra forma:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Name&quot;</span><span class="p">:</span><span class="s2">&quot;Height&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>  <span class="n">Height</span>
+<span class="n">obs1</span>  <span class="n">Alicia</span>   <span class="mi">22</span>   <span class="kc">True</span>     <span class="mi">157</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>     <span class="mi">190</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>  <span class="kc">False</span>     <span class="mi">175</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>   <span class="kc">True</span>     <span class="mi">164</span>
+</pre></div>
+</div>
+<p><strong>Selección de varias columnas con ``.iloc[]``:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>
+<span class="n">obs1</span>  <span class="n">Alicia</span>   <span class="mi">22</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># No selecciona la columna 4</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>  <span class="n">Height</span>
+<span class="n">obs1</span>  <span class="n">Alicia</span>   <span class="mi">22</span>   <span class="kc">True</span>     <span class="mi">157</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>     <span class="mi">190</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>  <span class="kc">False</span>     <span class="mi">175</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>   <span class="kc">True</span>     <span class="mi">164</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>  <span class="c1"># Si selecciona la columna 4</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>  <span class="n">Height</span>   <span class="n">Birthday</span>
+<span class="n">obs1</span>  <span class="n">Alicia</span>   <span class="mi">22</span>   <span class="kc">True</span>     <span class="mi">157</span>       <span class="n">Mayo</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>     <span class="mi">190</span>      <span class="n">Junio</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>  <span class="kc">False</span>     <span class="mi">175</span>     <span class="n">Agosto</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>   <span class="kc">True</span>     <span class="mi">164</span>  <span class="n">Diciembre</span>
+</pre></div>
+</div>
+<p><strong>Filas:</strong></p>
+<p>Dado un DataFrame, podemos seleccionar una fila en particular de
+diversas formas:</p>
+<ul class="simple">
+<li><p>Con el método <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> (por nombre o etiqueta).</p></li>
+<li><p>Con el método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> (por posición).</p></li>
+</ul>
+<p><strong>Selección de filas con ``.loc[]``:</strong></p>
+<p>Una fila:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;obs1&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>        <span class="n">Alicia</span>
+<span class="n">Age</span>             <span class="mi">22</span>
+<span class="n">Pet</span>           <span class="kc">True</span>
+<span class="n">Height</span>         <span class="mi">157</span>
+<span class="n">Birthday</span>      <span class="n">Mayo</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">obs1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p>Varias filas:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;obs2&quot;</span><span class="p">,</span> <span class="s2">&quot;obs3&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>  <span class="n">Height</span> <span class="n">Birthday</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>     <span class="mi">190</span>    <span class="n">Junio</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>  <span class="kc">False</span>     <span class="mi">175</span>   <span class="n">Agosto</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;obs2&quot;</span><span class="p">:</span><span class="s2">&quot;obs4&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>  <span class="n">Height</span>   <span class="n">Birthday</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>     <span class="mi">190</span>      <span class="n">Junio</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>  <span class="kc">False</span>     <span class="mi">175</span>     <span class="n">Agosto</span>
+<span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>   <span class="kc">True</span>     <span class="mi">164</span>  <span class="n">Diciembre</span>
+</pre></div>
+</div>
+<p><strong>Selección de filas con ``.iloc[]``:</strong></p>
+<p>Una fila:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>  <span class="n">Height</span> <span class="n">Birthday</span>
+<span class="n">obs2</span>  <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>     <span class="mi">190</span>    <span class="n">Junio</span>
+</pre></div>
+</div>
+<p>Varias filas:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>  <span class="n">Height</span> <span class="n">Birthday</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>     <span class="mi">190</span>    <span class="n">Junio</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>  <span class="kc">False</span>     <span class="mi">175</span>   <span class="n">Agosto</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># No toma la fila 3</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span>  <span class="n">Age</span>    <span class="n">Pet</span>  <span class="n">Height</span> <span class="n">Birthday</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>   <span class="mi">28</span>  <span class="kc">False</span>     <span class="mi">190</span>    <span class="n">Junio</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="mi">19</span>  <span class="kc">False</span>     <span class="mi">175</span>   <span class="n">Agosto</span>
+</pre></div>
+</div>
+<p><strong>Filas y columnas:</strong></p>
+<p>Para seleccionar un elemento en concreto, hay que indicar la fila y la
+columna y lo podemos hacer de dos formas:</p>
+<ul class="simple">
+<li><p>Con el método <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> (por nombre o etiqueta).</p></li>
+<li><p>Con el método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> (por índice).</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;obs2&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">28</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">28</span>
+</pre></div>
+</div>
+<p>Si queremos seleccionar un subconjunto de filas y columnas, podemos
+utilizar los dos métodos anteriores.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;obs2&quot;</span><span class="p">:</span><span class="s2">&quot;obs3&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Birthday&quot;</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span> <span class="n">Birthday</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>    <span class="n">Junio</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="n">Agosto</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>        <span class="n">Name</span> <span class="n">Birthday</span>
+<span class="n">obs2</span>    <span class="n">Bill</span>    <span class="n">Junio</span>
+<span class="n">obs3</span>  <span class="n">Carlos</span>   <span class="n">Agosto</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cargar-archivos-con-pandas">
+<h2>Cargar archivos con Pandas:<a class="headerlink" href="#cargar-archivos-con-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Para archivos con formato csv se usa <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>.</p>
+<p>Guarde el archivo en el formato
+<code class="docutils literal notranslate"><span class="pre">CSV</span> <span class="pre">UTF-8</span> <span class="pre">(delimitado</span> <span class="pre">por</span> <span class="pre">comas)</span> <span class="pre">(*.csv)</span></code></p>
+<div class="figure align-default" id="id1">
+<img alt="GuardarArchivos" src="../../_images/GuardarArchivos.JPG" />
+<p class="caption"><span class="caption-text">GuardarArchivos</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;DatosCafe.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<pre class="literal-block">  Unnamed: 0 PrecioInterno PrecioInternacional  Producción Exportaciones  0     ene-00        371375              130,12         658           517
+1     feb-00        354297              124,72         740           642
+2     mar-00        360016              119,51         592           404
+3     abr-00        347538              112,67        1055           731
+4     may-00        353750              110,31        1114           615
+
+       TRM     EUR
+0  1923,57    1916
+1  1950,64  1878,5
+2  1956,25    1875
+3  1986,77    1832
+4  2055,69  1971,5</pre>
+<p>Los decimales están separados por <code class="docutils literal notranslate"><span class="pre">,</span></code>. Agregar <code class="docutils literal notranslate"><span class="pre">decimal</span> <span class="pre">=</span> <span class="pre">&quot;,&quot;</span></code></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;DatosCafe.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="literal-block">    Unnamed: 0  PrecioInterno  PrecioInternacional  Producción  Exportaciones  0       ene-00      371375.00               130.12         658         517.00
+1       feb-00      354297.00               124.72         740         642.00
+2       mar-00      360016.00               119.51         592         404.00
+3       abr-00      347538.00               112.67        1055         731.00
+4       may-00      353750.00               110.31        1114         615.00
+..         ...            ...                  ...         ...            ...
+259     ago-21     1704806.45               228.95         915        1130.97
+260     sep-21     1712138.00               248.61        1209        1089.83
+261     oct-21     1784935.48               270.27        1012         986.83
+262     nov-21     1999655.17               291.93        1131        1135.45
+263     dic-21     2116483.87               302.82        1385        1167.18
+
+         TRM     EUR
+0    1923.57  1916.0
+1    1950.64  1878.5
+2    1956.25  1875.0
+3    1986.77  1832.0
+4    2055.69  1971.5
+..       ...     ...
+259  3887.68  4447.0
+260  3820.28  4407.0
+261  3771.68  4344.0
+262  3900.51  4526.0
+263  3967.77  4622.0
+
+[264 rows x 7 columns]</pre>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">DataFrame</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">264</span>
+</pre></div>
+</div>
+<p><strong>Primera fila del DataFrame:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Unnamed</span><span class="p">:</span> <span class="mi">0</span>              <span class="n">ene</span><span class="o">-</span><span class="mi">00</span>
+<span class="n">PrecioInterno</span>           <span class="mi">371375</span>
+<span class="n">PrecioInternacional</span>     <span class="mf">130.12</span>
+<span class="n">Producción</span>                 <span class="mi">658</span>
+<span class="n">Exportaciones</span>              <span class="mi">517</span>
+<span class="n">TRM</span>                    <span class="mf">1923.57</span>
+<span class="n">EUR</span>                       <span class="mi">1916</span>
+<span class="n">Name</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
+</pre></div>
+</div>
+<p><strong>Tres filas específicas del DataFrame:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+</pre></div>
+</div>
+<pre class="literal-block">  Unnamed: 0  PrecioInterno  PrecioInternacional  Producción  Exportaciones  1     feb-00       354297.0               124.72         740          642.0
+3     abr-00       347538.0               112.67        1055          731.0
+4     may-00       353750.0               110.31        1114          615.0
+
+       TRM     EUR
+1  1950.64  1878.5
+3  1986.77  1832.0
+4  2055.69  1971.5</pre>
+</div>
+<div class="section" id="analisis-de-dataframes-con-pandas">
+<h2>Análisis de DataFrames con Pandas:<a class="headerlink" href="#analisis-de-dataframes-con-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Para visualizar las primeras 5 filas del DataFrame usamos <code class="docutils literal notranslate"><span class="pre">head()</span></code>
+así:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<pre class="literal-block">  Unnamed: 0  PrecioInterno  PrecioInternacional  Producción  Exportaciones  0     ene-00       371375.0               130.12         658          517.0
+1     feb-00       354297.0               124.72         740          642.0
+2     mar-00       360016.0               119.51         592          404.0
+3     abr-00       347538.0               112.67        1055          731.0
+4     may-00       353750.0               110.31        1114          615.0
+
+       TRM     EUR
+0  1923.57  1916.0
+1  1950.64  1878.5
+2  1956.25  1875.0
+3  1986.77  1832.0
+4  2055.69  1971.5</pre>
+<p>Para las primeras 11 filas:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+</pre></div>
+</div>
+<pre class="literal-block">   Unnamed: 0  PrecioInterno  PrecioInternacional  Producción  Exportaciones  0      ene-00       371375.0               130.12         658          517.0
+1      feb-00       354297.0               124.72         740          642.0
+2      mar-00       360016.0               119.51         592          404.0
+3      abr-00       347538.0               112.67        1055          731.0
+4      may-00       353750.0               110.31        1114          615.0
+5      jun-00       341688.0               100.30        1092          869.0
+6      jul-00       345190.0               101.67         811          721.0
+7      ago-00       330113.0                91.87         436          938.0
+8      sep-00       330000.0                89.97         501          674.0
+9      oct-00       330000.0                90.25         940          831.0
+10     nov-00       330000.0                84.01        1366         1200.0
+
+        TRM     EUR
+0   1923.57  1916.0
+1   1950.64  1878.5
+2   1956.25  1875.0
+3   1986.77  1832.0
+4   2055.69  1971.5
+5   2120.17  2053.5
+6   2161.34  2014.5
+7   2187.38  1970.5
+8   2213.76  1954.0
+9   2176.61  1815.0
+10  2136.63  1889.0</pre>
+<p>De la misma manera se puede visualizar las últimas filas, pero con
+<code class="docutils literal notranslate"><span class="pre">tail()</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+<pre class="literal-block">    Unnamed: 0  PrecioInterno  PrecioInternacional  Producción  Exportaciones  259     ago-21     1704806.45               228.95         915        1130.97
+260     sep-21     1712138.00               248.61        1209        1089.83
+261     oct-21     1784935.48               270.27        1012         986.83
+262     nov-21     1999655.17               291.93        1131        1135.45
+263     dic-21     2116483.87               302.82        1385        1167.18
+
+         TRM     EUR
+259  3887.68  4447.0
+260  3820.28  4407.0
+261  3771.68  4344.0
+262  3900.51  4526.0
+263  3967.77  4622.0</pre>
+<p>Para conocer la información por cada columna del DataFrame se usa
+<code class="docutils literal notranslate"><span class="pre">info()</span></code>. Muestra la cantidad de datos por columna, si hay datos vacío
+y el tipo de dato.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 264 entries, 0 to 263
+Data columns (total 7 columns):
+ #   Column               Non-Null Count  Dtype
+---  ------               --------------  -----
+ 0   Unnamed: 0           264 non-null    object
+ 1   PrecioInterno        264 non-null    float64
+ 2   PrecioInternacional  264 non-null    float64
+ 3   Producción           264 non-null    int64
+ 4   Exportaciones        264 non-null    float64
+ 5   TRM                  264 non-null    float64
+ 6   EUR                  264 non-null    float64
+dtypes: float64(5), int64(1), object(1)
+memory usage: 14.6+ KB
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../NumPy/NumPy.html" class="btn btn-neutral float-right" title="NumPy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python.html" class="btn btn-neutral" title="Introducción a Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

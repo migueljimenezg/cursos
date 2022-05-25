@@ -6,6 +6,15 @@ Material de apoyo
           lumjimenezgo@unal.edu.co
 
 
+.. toctree::
+    :maxdepth: 2
+    :caption: INTRODUCCIÓN A PYTHON:
+    :titlesonly:
+    :hidden:
+       
+    Introducción a Python/index
+
+
 
 .. toctree::
     :maxdepth: 2
