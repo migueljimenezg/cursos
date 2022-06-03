@@ -43,7 +43,7 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
     * **Descargue** :download:`aquí <18. Indicadores de Actividad.pdf>` las presentaciones sobre Indicadores de Actividad.
 
 
-        * **Descargue** :download:`aquí <Indicadores de Actividad-D1-20 Mission.xlsx>` el archivo de Excel con Indicadores de Actividad.
+        * **Descargue** :download:`aquí <Indicadores de Actividad-D1-20 Mission.xlsx>` el archivo de Excel con Indicadores de Actividad (D1 y 20 Mission).
 
 .. raw:: html
 
@@ -137,6 +137,22 @@ Cuando se relacionan cuentas del Balance General y del Estado de Resultados se a
     El siguiente archivo tiene un ejemplo de los indicadores de liquidez, endeudamiento y rentabilidad sobre la compañía H&M.
     
     **Descargue** :download:`aquí <Indicadores liquidez-endeuda-renta-H&M.xlsx>` el archivo de Excel con el ejemplo.
+
+
+
+Ejercicios indicadores de liquidez, rentabilidad y endeudamiento
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+ 
+            Ejercicios indicadores de liquidez, rentabilidad y endeudamiento
+
+
+    * **Descargue** :download:`aquí <../Estados de financieros/Estados Financieros-Supermercado Euro 2019-2020.xlsx>` el archivo de Excel con los Estados Financieros de supermercados EURO.
+
 
 
 .. important::
