@@ -85,6 +85,7 @@ Material de apoyo
     :hidden:
        
     Introducción a R/index
+    ggplot2/index.rst
     Portafolios de inversión/index
     Tasas de interés/index
     Portafolios de inversión2/Trading/index.rst
