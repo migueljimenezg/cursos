@@ -8,12 +8,13 @@ Material de apoyo
 
 .. toctree::
     :maxdepth: 2
-    :caption: INTRODUCCIÓN A PYTHON:
+    :caption: MACHINE LEARNING PARA FINANZAS:
     :titlesonly:
     :hidden:
-       
+     
+    Machine Learning para Finanzas/Introducción al Machine Learning/Proyectos de Machine Learning  
     Machine Learning para Finanzas/Introducción a Python/index
-    Machine Learning para Finanzas/Introducción al Machine Learning/Proyectos de Machine Learning
+
 
 
 .. toctree::
