@@ -12,8 +12,8 @@ Material de apoyo
     :titlesonly:
     :hidden:
        
-    Introducción a Python/index
-
+    Machine Learning para Finanzas/Introducción a Python/index
+    Machine Learning para Finanzas/Introducción al Machine Learning/Proyectos de Machine Learning
 
 
 .. toctree::
