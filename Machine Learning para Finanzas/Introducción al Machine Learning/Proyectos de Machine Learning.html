@@ -255,74 +255,29 @@ networks, etc.</p></li>
 </div>
 <div class="section" id="tipos-de-problemas">
 <h2>Tipos de problemas:<a class="headerlink" href="#tipos-de-problemas" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><strong>Datos sin etiquetas:</strong></p></li>
-</ul>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 37%" />
-<col style="width: 15%" />
-<col style="width: 22%" />
-<col style="width: 26%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>ID cliente</p></th>
-<th class="head"><p>Edad</p></th>
-<th class="head"><p>Género</p></th>
-<th class="head"><p>Salario</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>50</p></td>
-<td><p>F</p></td>
-<td><p>1000</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>18</p></td>
-<td><p>M</p></td>
-<td><p>800</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>44</p></td>
-<td><p>F</p></td>
-<td><p>2000</p></td>
-</tr>
-<tr class="row-odd"><td><p>4</p></td>
-<td><p>60</p></td>
-<td><p>M</p></td>
-<td><p>1500</p></td>
-</tr>
-<tr class="row-even"><td><p>5</p></td>
-<td><p>32</p></td>
-<td><p>M</p></td>
-<td><p>1200</p></td>
-</tr>
-<tr class="row-odd"><td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="row-even"><td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="row-odd"><td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-<td><p>.</p></td>
-</tr>
-<tr class="row-even"><td><p>100000</p></td>
-<td><p>32</p></td>
-<td><p>M</p></td>
-<td><p>1850</p></td>
-</tr>
-</tbody>
-</table>
-<ul class="simple">
-<li><p><strong>Datos con etiquetas (labels):</strong></p></li>
-</ul>
+<p>El Machine Learning se enfoca en aprender desde los datos para descubrir
+patrones ocultos o predecir eventos futuros. Existen dos enfoques
+principales en el Machine Learning: Aprendizaje supervisado (supervised
+learning) y aprendizaje no supervisado (unsupervised learning). La
+principal diferencia entre estos dos enfoques es que en uno se utilizan
+las etiquetas (labels) para predecir y en el otro no.</p>
+</div>
+<div class="section" id="aprendizaje-supervisado">
+<h2>Aprendizaje supervisado:<a class="headerlink" href="#aprendizaje-supervisado" title="Permalink to this headline">¶</a></h2>
+<p>Este enfoque de Machine Learning requiere una etiqueta que contenga un
+resultado esperado para cada observación, es decir, para cada fila del
+data set. Con el data set los algoritmos aprenden de los datos y de las
+etiquetas y se usan para clasificación o predecir resultados
+(regresión).</p>
+<p><strong>Clasificación:</strong></p>
+<p>La clasificación es un conjunto de métodos del aprendizaje supervisado
+que tiene como objetivo asignar una etiqueta de clase discreta elegida a
+un conjunto limitado de opciones, que pueden ser dos o más. En muchos
+casos se usan las siguientes etiquetas: <code class="docutils literal notranslate"><span class="pre">Si</span></code>, <code class="docutils literal notranslate"><span class="pre">No</span></code> para referirse al
+<code class="docutils literal notranslate"><span class="pre">1</span></code> y al <code class="docutils literal notranslate"><span class="pre">0</span></code>, respectivamente; también se puede utilizar
+<code class="docutils literal notranslate"><span class="pre">positivo</span></code> para indicar el valor de <code class="docutils literal notranslate"><span class="pre">1</span></code> o <code class="docutils literal notranslate"><span class="pre">negativo</span></code> para el valor
+del <code class="docutils literal notranslate"><span class="pre">0</span></code>. No necesariamente deben ser etiquetas de buenos o malo o de
+claro u oscuro.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 30%" />
@@ -396,6 +351,12 @@ networks, etc.</p></li>
 </tr>
 </tbody>
 </table>
+<p><strong>Regresión:</strong></p>
+<p>La regresión es una técnica de aprendizaje supervisado que trata de
+capturar la relación entre dos o más variables. En estos problemas
+tenemos variables independientes con las cuales queremos predecir una
+variable dependiente. En estos casos se usan variables continuas y
+discretas.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 26%" />
@@ -469,26 +430,7 @@ networks, etc.</p></li>
 </tr>
 </tbody>
 </table>
-<div class="figure align-default" id="id3">
-<img alt="Supervised-Unsupervised" src="../../_images/Supervised-Unsupervised.jpg" />
-<p class="caption"><span class="caption-text">Supervised-Unsupervised</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id4">
-<img alt="Classification (Raschka, 2022)" src="../../_images/Classification.JPG" />
-<p class="caption"><span class="caption-text">Classification (Raschka, 2022)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id5">
-<img alt="Regression (Raschka, 2022)" src="../../_images/Regression.JPG" />
-<p class="caption"><span class="caption-text">Regression (Raschka, 2022)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id6">
-<img alt="Clustering (Raschka, 2022)" src="../../_images/Clustering.JPG" />
-<p class="caption"><span class="caption-text">Clustering (Raschka, 2022)</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="algoritmos-de-aprendizaje-supervisado">
-<h2>Algoritmos de aprendizaje supervisado:<a class="headerlink" href="#algoritmos-de-aprendizaje-supervisado" title="Permalink to this headline">¶</a></h2>
-<p>Supervised Learning.</p>
+<p><strong>Algoritmos de aprendizaje supervisado:</strong></p>
 <ul class="simple">
 <li><p>k-Nearest Neighbors.</p></li>
 <li><p>Linear Regression.</p></li>
@@ -498,9 +440,81 @@ networks, etc.</p></li>
 <li><p>Neural networks*.</p></li>
 </ul>
 </div>
-<div class="section" id="algoritmos-de-aprendizaje-sin-supervision">
-<h2>Algoritmos de aprendizaje sin supervisión:<a class="headerlink" href="#algoritmos-de-aprendizaje-sin-supervision" title="Permalink to this headline">¶</a></h2>
-<p>Unsupervised Learning.</p>
+<div class="section" id="aprendizaje-no-supervisado">
+<h2>Aprendizaje no supervisado:<a class="headerlink" href="#aprendizaje-no-supervisado" title="Permalink to this headline">¶</a></h2>
+<p>El aprendizaje no supervisado es un conjunto de técnicas que se enfocan
+en encontrar patrones ocultos. En estos métodos no se requieren datos
+etiquetados. El objetivo es encontrar estructuras subyacentes en los
+datos, simplificar y comprimir el conjunto de datos, o agrupas los datos
+según similitudes inherentes.</p>
+<p>Una tarea común del aprendizaje no supervisado es el agrupamiento
+(clustering), que es un método para agrupar puntos de datos en grupos
+(clusters) para que los objetos que son similares entre sí se asignen a
+un grupo y se asegure de que los cluster sean significativamente
+diferentes.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 15%" />
+<col style="width: 22%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ID cliente</p></th>
+<th class="head"><p>Edad</p></th>
+<th class="head"><p>Género</p></th>
+<th class="head"><p>Salario</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>50</p></td>
+<td><p>F</p></td>
+<td><p>1000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>18</p></td>
+<td><p>M</p></td>
+<td><p>800</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>44</p></td>
+<td><p>F</p></td>
+<td><p>2000</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>60</p></td>
+<td><p>M</p></td>
+<td><p>1500</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>32</p></td>
+<td><p>M</p></td>
+<td><p>1200</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-even"><td><p>100000</p></td>
+<td><p>32</p></td>
+<td><p>M</p></td>
+<td><p>1850</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Algoritmos de aprendizaje no supervisado:</strong></p>
 <ul class="simple">
 <li><p><strong>Clustering:</strong></p>
 <ul>
@@ -517,6 +531,29 @@ Analysis-PCA).</p></li>
 </ul>
 </li>
 </ul>
+<div class="figure align-default" id="id3">
+<img alt="Classification (Raschka, 2022)" src="../../_images/Classification.JPG" />
+<p class="caption"><span class="caption-text">Classification (Raschka, 2022)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id4">
+<img alt="Regression (Raschka, 2022)" src="../../_images/Regression.JPG" />
+<p class="caption"><span class="caption-text">Regression (Raschka, 2022)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id5">
+<img alt="Clustering (Raschka, 2022)" src="../../_images/Clustering.JPG" />
+<p class="caption"><span class="caption-text">Clustering (Raschka, 2022)</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="paso-a-paso-en-los-procesos-de-machine-learning-ml">
+<h2>Paso a paso en los procesos de Machine Learning (ML):<a class="headerlink" href="#paso-a-paso-en-los-procesos-de-machine-learning-ml" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id6">
+<img alt="Pasos-Machine-Learning" src="../../_images/Pasos-Machine-Learning.jpg" />
+<p class="caption"><span class="caption-text">Pasos-Machine-Learning</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id7">
+<img alt="Steps-ML" src="../../_images/Steps-ML.JPG" />
+<p class="caption"><span class="caption-text">Steps-ML</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="conjunto-de-entrenamiento-y-conjunto-de-prueba">
 <h2>Conjunto de entrenamiento y conjunto de prueba:<a class="headerlink" href="#conjunto-de-entrenamiento-y-conjunto-de-prueba" title="Permalink to this headline">¶</a></h2>
@@ -540,13 +577,13 @@ de test es alto, significa que el modelo está sobreajustado
 20% para test; sin embargo, esto depende del tamaño del data set, por
 ejemplo, con millones de datos, tener 1% en test es más que suficiente
 para estimar el error de generalización.</p>
-<div class="figure align-default" id="id7">
-<img alt="DataSet" src="../../_images/DataSet.png" />
-<p class="caption"><span class="caption-text">DataSet</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
 <div class="figure align-default" id="id8">
+<img alt="DataSet" src="../../_images/DataSet.png" />
+<p class="caption"><span class="caption-text">DataSet</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id9">
 <img alt="DataSetSplit" src="../../_images/DataSetSplit.jpeg" />
-<p class="caption"><span class="caption-text">DataSetSplit</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">DataSetSplit</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="seleccion-del-modelo">
@@ -593,24 +630,13 @@ desviación absoluta.</p>
 <p>Existen muchas más métricas para medir el desempeño de los modelos de
 Machine Learning y cada técnica tiene sus propias métricas, por ejemplo
 para los problemas de clasificación se usa la matriz de confusión.</p>
-<div class="figure align-default" id="id9">
-<img alt="Matriz-Confusion" src="../../_images/Matriz-Confusion.jpeg" />
-<p class="caption"><span class="caption-text">Matriz-Confusion</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="resumen">
-<h2>Resumen:<a class="headerlink" href="#resumen" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="id10">
-<img alt="Pasos-Machine-Learning" src="../../_images/Pasos-Machine-Learning.jpg" />
-<p class="caption"><span class="caption-text">Pasos-Machine-Learning</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<img alt="Matriz-Confusion" src="../../_images/Matriz-Confusion.jpeg" />
+<p class="caption"><span class="caption-text">Matriz-Confusion</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id11">
-<img alt="Steps-ML" src="../../_images/Steps-ML.JPG" />
-<p class="caption"><span class="caption-text">Steps-ML</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id12">
 <img alt="Deep_Machine_Learning" src="../../_images/Deep_Machine_Learning.png" />
-<p class="caption"><span class="caption-text">Deep_Machine_Learning</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Deep_Machine_Learning</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

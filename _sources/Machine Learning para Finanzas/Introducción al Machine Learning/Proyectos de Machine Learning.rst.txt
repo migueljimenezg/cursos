@@ -72,23 +72,32 @@ Automatizar cada paso en lo posible.
 Tipos de problemas:
 ~~~~~~~~~~~~~~~~~~~
 
--  **Datos sin etiquetas:**
+El Machine Learning se enfoca en aprender desde los datos para descubrir
+patrones ocultos o predecir eventos futuros. Existen dos enfoques
+principales en el Machine Learning: Aprendizaje supervisado (supervised
+learning) y aprendizaje no supervisado (unsupervised learning). La
+principal diferencia entre estos dos enfoques es que en uno se utilizan
+las etiquetas (labels) para predecir y en el otro no.
 
-========== ==== ====== =======
-ID cliente Edad Género Salario
-========== ==== ====== =======
-1          50   F      1000
-2          18   M      800
-3          44   F      2000
-4          60   M      1500
-5          32   M      1200
-.          .    .      .
-.          .    .      .
-.          .    .      .
-100000     32   M      1850
-========== ==== ====== =======
+Aprendizaje supervisado:
+~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **Datos con etiquetas (labels):**
+Este enfoque de Machine Learning requiere una etiqueta que contenga un
+resultado esperado para cada observación, es decir, para cada fila del
+data set. Con el data set los algoritmos aprenden de los datos y de las
+etiquetas y se usan para clasificación o predecir resultados
+(regresión).
+
+**Clasificación:**
+
+La clasificación es un conjunto de métodos del aprendizaje supervisado
+que tiene como objetivo asignar una etiqueta de clase discreta elegida a
+un conjunto limitado de opciones, que pueden ser dos o más. En muchos
+casos se usan las siguientes etiquetas: ``Si``, ``No`` para referirse al
+``1`` y al ``0``, respectivamente; también se puede utilizar
+``positivo`` para indicar el valor de ``1`` o ``negativo`` para el valor
+del ``0``. No necesariamente deben ser etiquetas de buenos o malo o de
+claro u oscuro.
 
 ========== ==== ====== ======= ======
 ID cliente Edad Género Salario ¿Pagó?
@@ -104,6 +113,14 @@ ID cliente Edad Género Salario ¿Pagó?
 100000     32   M      1850    Si
 ========== ==== ====== ======= ======
 
+**Regresión:**
+
+La regresión es una técnica de aprendizaje supervisado que trata de
+capturar la relación entre dos o más variables. En estos problemas
+tenemos variables independientes con las cuales queremos predecir una
+variable dependiente. En estos casos se usan variables continuas y
+discretas.
+
 ========== ==== ====== ======= ============
 ID cliente Edad Género Salario Valor compra
 ========== ==== ====== ======= ============
@@ -118,10 +135,65 @@ ID cliente Edad Género Salario Valor compra
 100000     32   M      1850    200
 ========== ==== ====== ======= ============
 
-.. figure:: Supervised-Unsupervised.jpg
-   :alt: Supervised-Unsupervised
+**Algoritmos de aprendizaje supervisado:**
 
-   Supervised-Unsupervised
+-  k-Nearest Neighbors.
+
+-  Linear Regression.
+
+-  Logistic Regression.
+
+-  Support Vector Machines (SVMs).
+
+-  Decision Trees and Random Forests.
+
+-  Neural networks*.
+
+Aprendizaje no supervisado:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El aprendizaje no supervisado es un conjunto de técnicas que se enfocan
+en encontrar patrones ocultos. En estos métodos no se requieren datos
+etiquetados. El objetivo es encontrar estructuras subyacentes en los
+datos, simplificar y comprimir el conjunto de datos, o agrupas los datos
+según similitudes inherentes.
+
+Una tarea común del aprendizaje no supervisado es el agrupamiento
+(clustering), que es un método para agrupar puntos de datos en grupos
+(clusters) para que los objetos que son similares entre sí se asignen a
+un grupo y se asegure de que los cluster sean significativamente
+diferentes.
+
+========== ==== ====== =======
+ID cliente Edad Género Salario
+========== ==== ====== =======
+1          50   F      1000
+2          18   M      800
+3          44   F      2000
+4          60   M      1500
+5          32   M      1200
+.          .    .      .
+.          .    .      .
+.          .    .      .
+100000     32   M      1850
+========== ==== ====== =======
+
+**Algoritmos de aprendizaje no supervisado:**
+
+-  **Clustering:**
+
+   -  K-Means.
+
+   -  DBSCAN.
+
+   -  Hierarchical Cluster Analysis (HCA).
+
+-  **Reducción de dimensionalidad:**
+
+   -  Análisis de Componentes Principales (Principal Component
+      Analysis-PCA).
+
+   -  Kernel PCA.
 
 .. figure:: Classification.JPG
    :alt: Classification (Raschka, 2022)
@@ -138,42 +210,18 @@ ID cliente Edad Género Salario Valor compra
 
    Clustering (Raschka, 2022)
 
-Algoritmos de aprendizaje supervisado:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Paso a paso en los procesos de Machine Learning (ML):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Supervised Learning.
+.. figure:: Pasos-Machine-Learning.jpg
+   :alt: Pasos-Machine-Learning
 
--  k-Nearest Neighbors.
+   Pasos-Machine-Learning
 
--  Linear Regression.
+.. figure:: Steps-ML.JPG
+   :alt: Steps-ML
 
--  Logistic Regression.
-
--  Support Vector Machines (SVMs).
-
--  Decision Trees and Random Forests.
-
--  Neural networks*.
-
-Algoritmos de aprendizaje sin supervisión:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Unsupervised Learning.
-
--  **Clustering:**
-
-   -  K-Means.
-
-   -  DBSCAN.
-
-   -  Hierarchical Cluster Analysis (HCA).
-
--  **Reducción de dimensionalidad:**
-
-   -  Análisis de Componentes Principales (Principal Component
-      Analysis-PCA).
-
-   -  Kernel PCA.
+   Steps-ML
 
 Conjunto de entrenamiento y conjunto de prueba:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -271,19 +319,6 @@ para los problemas de clasificación se usa la matriz de confusión.
    :alt: Matriz-Confusion
 
    Matriz-Confusion
-
-Resumen:
-~~~~~~~~
-
-.. figure:: Pasos-Machine-Learning.jpg
-   :alt: Pasos-Machine-Learning
-
-   Pasos-Machine-Learning
-
-.. figure:: Steps-ML.JPG
-   :alt: Steps-ML
-
-   Steps-ML
 
 .. figure:: Deep_Machine_Learning.png
    :alt: Deep_Machine_Learning
