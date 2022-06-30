@@ -93,7 +93,6 @@
             
               <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING PARA FINANZAS:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20al%20Machine%20Learning/Proyectos%20de%20Machine%20Learning.html">Proyectos de Machine Learning</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Introducción a Python</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python.html">Introducción a Python</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Pandas</a></li>
@@ -101,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Matplotlib/Matplotlib.html">Matplotlib</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
 <ul>
@@ -436,7 +436,7 @@ diversas formas:</p>
 <span class="n">Name</span><span class="p">:</span> <span class="n">Age</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
 </pre></div>
 </div>
-<p><strong>Selección de una columna con ``.columns[]``:</strong></p>
+<p><strong>Selección de una columna con</strong> <code class="docutils literal notranslate"><span class="pre">.columns[]</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 </pre></div>
 </div>
@@ -447,7 +447,7 @@ diversas formas:</p>
 <span class="n">Name</span><span class="p">:</span> <span class="n">Age</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
 </pre></div>
 </div>
-<p><strong>Selección de una columna con ``.loc[]``:</strong></p>
+<p><strong>Selección de una columna con</strong> <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>:</p>
 <p><code class="docutils literal notranslate"><span class="pre">.loc[filas:columnas]</span></code>, el símbolo <code class="docutils literal notranslate"><span class="pre">:</span></code> indica todas las filas o
 todas las columnas.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]</span>
@@ -460,7 +460,7 @@ todas las columnas.</p>
 <span class="n">Name</span><span class="p">:</span> <span class="n">Age</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
 </pre></div>
 </div>
-<p><strong>Selección de una columna con ``.iloc[]``:</strong></p>
+<p><strong>Selección de una columna con</strong> <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -482,7 +482,7 @@ todas las columnas.</p>
 <span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>
 </pre></div>
 </div>
-<p><strong>Selección de varias columnas con ``.columns[]``:</strong></p>
+<p><strong>Selección de varias columnas con</strong> <code class="docutils literal notranslate"><span class="pre">.columns[]</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]])</span>
 </pre></div>
 </div>
@@ -517,7 +517,7 @@ la <code class="docutils literal notranslate"><span class="pre">2</span></code>,
 <span class="n">obs4</span>   <span class="kc">True</span>     <span class="mi">164</span>
 </pre></div>
 </div>
-<p><strong>Selección de varias columnas con ``.loc[]``:</strong></p>
+<p><strong>Selección de varias columnas con</strong> <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]])</span>
 </pre></div>
 </div>
@@ -539,7 +539,7 @@ la <code class="docutils literal notranslate"><span class="pre">2</span></code>,
 <span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>   <span class="kc">True</span>     <span class="mi">164</span>
 </pre></div>
 </div>
-<p><strong>Selección de varias columnas con ``.iloc[]``:</strong></p>
+<p><strong>Selección de varias columnas con</strong> <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 </pre></div>
 </div>
@@ -577,7 +577,7 @@ diversas formas:</p>
 <li><p>Con el método <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> (por nombre o etiqueta).</p></li>
 <li><p>Con el método <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> (por posición).</p></li>
 </ul>
-<p><strong>Selección de filas con ``.loc[]``:</strong></p>
+<p><strong>Selección de filas con</strong> <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>:</p>
 <p>Una fila:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;obs1&quot;</span><span class="p">])</span>
 </pre></div>
@@ -608,7 +608,7 @@ diversas formas:</p>
 <span class="n">obs4</span>   <span class="n">Diana</span>   <span class="mi">34</span>   <span class="kc">True</span>     <span class="mi">164</span>  <span class="n">Diciembre</span>
 </pre></div>
 </div>
-<p><strong>Selección de filas con ``.iloc[]``:</strong></p>
+<p><strong>Selección de filas con</strong> <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>:</p>
 <p>Una fila:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">]])</span>
 </pre></div>
@@ -744,13 +744,13 @@ utilizar los dos métodos anteriores.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Unnamed</span><span class="p">:</span> <span class="mi">0</span>              <span class="n">ene</span><span class="o">-</span><span class="mi">00</span>
-<span class="n">PrecioInterno</span>           <span class="mi">371375</span>
-<span class="n">PrecioInternacional</span>     <span class="mf">130.12</span>
-<span class="n">Producción</span>                 <span class="mi">658</span>
-<span class="n">Exportaciones</span>              <span class="mi">517</span>
-<span class="n">TRM</span>                    <span class="mf">1923.57</span>
-<span class="n">EUR</span>                       <span class="mi">1916</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Unnamed</span><span class="p">:</span> <span class="mi">0</span>               <span class="n">ene</span><span class="o">-</span><span class="mi">00</span>
+<span class="n">PrecioInterno</span>          <span class="mf">371375.0</span>
+<span class="n">PrecioInternacional</span>      <span class="mf">130.12</span>
+<span class="n">Producción</span>                  <span class="mi">658</span>
+<span class="n">Exportaciones</span>             <span class="mf">517.0</span>
+<span class="n">TRM</span>                     <span class="mf">1923.57</span>
+<span class="n">EUR</span>                      <span class="mf">1916.0</span>
 <span class="n">Name</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="nb">object</span>
 </pre></div>
 </div>

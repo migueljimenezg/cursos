@@ -1,0 +1,59 @@
+Introducción al Machine Learning
+==========================================================
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Proyectos de Machine Learning/Proyectos de Machine Learning
+   Preprocesamiento de datos/Preprocesamiento de datos
+
+
+Clasificación:
+^^^^^^^^^^^^^^^^^^^^
+
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Regresión Logística/Regresión Logística
+   Support Vector Machines/Support Vector Machines
+   SVM - código/SVM - código
+   Árboles de decisión/Árboles de decisión
+   Árboles de clasificación - código/Árboles de clasificación - código
+   Práctica - clasificación/Práctica - clasificación
+
+
+
+.. important::
+    Archivos para trabajar esta sesión:
+
+    * **Descargue** :download:`creditos_otorgados_a_microempresarios <creditos_otorgados_a_microempresarios.csv>`
+
+    * **Descargue** :download:`Clasificación.csv <Clasificación.csv>`
+
+    * **Descargue** :download:`Clasificación-2.csv <Clasificación-2.csv>`
+
+    * **Descargue** :download:`Social_Network_Ads.csv <Social_Network_Ads.csv>` para la práctica.
+
+
+Bibliografía:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: Gerón.JPG
+   :width: 200px
+   :height: 200px
+
+    
+
+.. image:: Raschka.JPG
+   :width: 200px
+   :height: 200px
+
+    
+
+
+.. image:: Pajankar.JPG
+   :width: 200px
+   :height: 200px

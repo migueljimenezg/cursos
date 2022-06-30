@@ -358,7 +358,7 @@ diversas formas:
 
 
 
-**Selección de una columna con ``.columns[]``:**
+**Selección de una columna con** ``.columns[]``:
 
 .. code:: ipython3
 
@@ -377,7 +377,7 @@ diversas formas:
 
 
 
-**Selección de una columna con ``.loc[]``:**
+**Selección de una columna con** ``.loc[]``:
 
 ``.loc[filas:columnas]``, el símbolo ``:`` indica todas las filas o
 todas las columnas.
@@ -399,7 +399,7 @@ todas las columnas.
 
 
 
-**Selección de una columna con ``.iloc[]``:**
+**Selección de una columna con** ``.iloc[]``:
 
 .. code:: ipython3
 
@@ -431,7 +431,7 @@ todas las columnas.
     obs4   Diana   34
     
 
-**Selección de varias columnas con ``.columns[]``:**
+**Selección de varias columnas con** ``.columns[]``:
 
 .. code:: ipython3
 
@@ -481,7 +481,7 @@ la ``2``, no toma la columna ``3``.
     obs4   True     164
     
 
-**Selección de varias columnas con ``.loc[]``:**
+**Selección de varias columnas con** ``.loc[]``:
 
 .. code:: ipython3
 
@@ -513,7 +513,7 @@ Otra forma:
     obs4   Diana   34   True     164
     
 
-**Selección de varias columnas con ``.iloc[]``:**
+**Selección de varias columnas con** ``.iloc[]``:
 
 .. code:: ipython3
 
@@ -566,7 +566,7 @@ diversas formas:
 
 -  Con el método ``.iloc[]`` (por posición).
 
-**Selección de filas con ``.loc[]``:**
+**Selección de filas con** ``.loc[]``:
 
 Una fila:
 
@@ -612,7 +612,7 @@ Varias filas:
     obs4   Diana   34   True     164  Diciembre
     
 
-**Selección de filas con ``.iloc[]``:**
+**Selección de filas con** ``.iloc[]``:
 
 Una fila:
 
@@ -821,13 +821,13 @@ Los decimales están separados por ``,``. Agregar ``decimal = ","``
 
 .. parsed-literal::
 
-    Unnamed: 0              ene-00
-    PrecioInterno           371375
-    PrecioInternacional     130.12
-    Producción                 658
-    Exportaciones              517
-    TRM                    1923.57
-    EUR                       1916
+    Unnamed: 0               ene-00
+    PrecioInterno          371375.0
+    PrecioInternacional      130.12
+    Producción                  658
+    Exportaciones             517.0
+    TRM                     1923.57
+    EUR                      1916.0
     Name: 0, dtype: object
 
 
