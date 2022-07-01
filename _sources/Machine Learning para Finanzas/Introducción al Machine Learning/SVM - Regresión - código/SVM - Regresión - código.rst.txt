@@ -1,0 +1,486 @@
+SVM - Regresión - código
+------------------------
+
+**Importar librerías:**
+
+.. code:: ipython3
+
+    import pandas as pd
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+**Importar datos:**
+
+.. code:: ipython3
+
+    df = pd.read_csv("regresion.csv", sep=";", decimal=",")
+    print(df.head())
+
+
+.. parsed-literal::
+
+          X     y
+    0   9.0  44.7
+    1  10.1  78.0
+    2  11.6  83.0
+    3   9.1  80.0
+    4   9.7  77.0
+    
+
+**Visualización de los datos:**
+
+.. code:: ipython3
+
+    plt.scatter(df["X"], df["y"])
+    plt.xlabel("X")
+    plt.ylabel("y")
+
+
+
+
+.. parsed-literal::
+
+    Text(0, 0.5, 'y')
+
+
+
+
+.. image:: output_6_1.png
+
+
+**Ajuste del modelo:**
+
+.. code:: ipython3
+
+    X = df[["X"]]
+    print(X.head())
+
+
+.. parsed-literal::
+
+          X
+    0   9.0
+    1  10.1
+    2  11.6
+    3   9.1
+    4   9.7
+    
+
+.. code:: ipython3
+
+    y = df["y"]
+    print(y.head())
+
+
+.. parsed-literal::
+
+    0    44.7
+    1    78.0
+    2    83.0
+    3    80.0
+    4    77.0
+    Name: y, dtype: float64
+    
+
+**Regresión lineal:**
+
+.. code:: ipython3
+
+    from sklearn.svm import SVR
+
+.. code:: ipython3
+
+    svm_reg = SVR(kernel="linear")
+
+.. code:: ipython3
+
+    svm_reg.fit(X, y)
+    y_pred = svm_reg.predict(X)
+
+Evaluación del desempeño:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from sklearn.metrics import r2_score, mean_squared_error
+
+.. code:: ipython3
+
+    r2_score(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    0.025315275959217898
+
+
+
+.. code:: ipython3
+
+    mean_squared_error(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    1030.9657295221316
+
+
+
+.. code:: ipython3
+
+    plt.scatter(X, y)
+    plt.scatter(X.values, y_pred, color="darkred")
+
+
+
+
+.. parsed-literal::
+
+    <matplotlib.collections.PathCollection at 0x1cd413c8820>
+
+
+
+
+.. image:: output_18_1.png
+
+
+**Regresión no lineal:**
+
+**Kernel: RBF:**
+
+.. code:: ipython3
+
+    svm_reg = SVR(kernel="rbf")
+
+.. code:: ipython3
+
+    svm_reg.fit(X, y)
+    y_pred = svm_reg.predict(X)
+
+.. code:: ipython3
+
+    r2_score(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    0.33146083387157166
+
+
+
+.. code:: ipython3
+
+    mean_squared_error(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    707.1424760452836
+
+
+
+.. code:: ipython3
+
+    plt.scatter(X, y)
+    plt.scatter(X.values, y_pred, color="darkred")
+
+
+
+
+.. parsed-literal::
+
+    <matplotlib.collections.PathCollection at 0x1cd4143cb80>
+
+
+
+
+.. image:: output_25_1.png
+
+
+**Kernel: Polinómica:**
+
+.. code:: ipython3
+
+    svm_reg = SVR(kernel="poly", degree=4)
+
+.. code:: ipython3
+
+    svm_reg.fit(X, y)
+    y_pred = svm_reg.predict(X)
+
+.. code:: ipython3
+
+    r2_score(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    -0.11184886055676602
+
+
+
+.. code:: ipython3
+
+    mean_squared_error(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    1176.0501045816075
+
+
+
+.. code:: ipython3
+
+    plt.scatter(X, y)
+    plt.scatter(X.values, y_pred, color="darkred")
+
+
+
+
+.. parsed-literal::
+
+    <matplotlib.collections.PathCollection at 0x1cd414aea60>
+
+
+
+
+.. image:: output_31_1.png
+
+
+Regularización del modelo:
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El mejor modelo fue el del kernel RBF.
+
+Se cambiará el hiperparámetro: ``epsilon``
+
+.. code:: ipython3
+
+    svm_reg = SVR(kernel="rbf", epsilon=0.5)
+
+.. code:: ipython3
+
+    svm_reg.fit(X, y)
+    y_pred = svm_reg.predict(X)
+
+.. code:: ipython3
+
+    r2_score(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    0.3331817646255232
+
+
+
+.. code:: ipython3
+
+    mean_squared_error(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    705.3221739656027
+
+
+
+.. code:: ipython3
+
+    plt.scatter(X, y)
+    plt.scatter(X.values, y_pred, color="darkred")
+
+
+
+
+.. parsed-literal::
+
+    <matplotlib.collections.PathCollection at 0x1cd41521640>
+
+
+
+
+.. image:: output_38_1.png
+
+
+Se cambiará el hiperparámetro: ``gamma``
+
+.. code:: ipython3
+
+    svm_reg = SVR(kernel="rbf", gamma=0.5)
+
+.. code:: ipython3
+
+    svm_reg.fit(X, y)
+    y_pred = svm_reg.predict(X)
+
+.. code:: ipython3
+
+    r2_score(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    0.30117215778379613
+
+
+
+.. code:: ipython3
+
+    mean_squared_error(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    739.1801044895215
+
+
+
+.. code:: ipython3
+
+    plt.scatter(X, y)
+    plt.scatter(X.values, y_pred, color="darkred")
+
+
+
+
+.. parsed-literal::
+
+    <matplotlib.collections.PathCollection at 0x1cd41591820>
+
+
+
+
+.. image:: output_44_1.png
+
+
+Se cambiará el hiperparámetro: ``C``
+
+.. code:: ipython3
+
+    svm_reg = SVR(kernel="rbf", C=50)
+
+.. code:: ipython3
+
+    svm_reg.fit(X, y)
+    y_pred = svm_reg.predict(X)
+
+.. code:: ipython3
+
+    r2_score(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    0.5592769445039655
+
+
+
+.. code:: ipython3
+
+    mean_squared_error(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    466.1716298815007
+
+
+
+.. code:: ipython3
+
+    plt.scatter(X, y)
+    plt.scatter(X.values, y_pred, color="darkred")
+
+
+
+
+.. parsed-literal::
+
+    <matplotlib.collections.PathCollection at 0x1cd416044c0>
+
+
+
+
+.. image:: output_50_1.png
+
+
+Se cambiarán los hiperparámetros: ``epsilon``, ``gamma`` y ``C``.
+
+.. code:: ipython3
+
+    svm_reg = SVR(kernel="rbf", epsilon=0.5, gamma=0.7, C=50)
+
+.. code:: ipython3
+
+    svm_reg.fit(X, y)
+    y_pred = svm_reg.predict(X)
+
+.. code:: ipython3
+
+    r2_score(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    0.5655477014368502
+
+
+
+.. code:: ipython3
+
+    mean_squared_error(y, y_pred)
+
+
+
+
+.. parsed-literal::
+
+    459.5387820113037
+
+
+
+.. code:: ipython3
+
+    plt.scatter(X, y)
+    plt.scatter(X.values, y_pred, color="darkred")
+
+
+
+
+.. parsed-literal::
+
+    <matplotlib.collections.PathCollection at 0x1cd41666e50>
+
+
+
+
+.. image:: output_56_1.png
+

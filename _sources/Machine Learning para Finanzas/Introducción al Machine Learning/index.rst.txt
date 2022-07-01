@@ -24,6 +24,20 @@ Clasificación:
    Árboles de clasificación - código/Árboles de clasificación - código
    Práctica - clasificación/Práctica - clasificación
 
+Regresión:
+^^^^^^^^^^^^^^^^^^^^
+
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Regresión Lineal/Regresión Lineal
+   SVM - Regresión/SVM - Regresión
+   SVM - Regresión - código/SVM - Regresión - código
+   Árboles de decisión - Regresión/Árboles de decisión - Regresión
+   Árboles de decisión - Regresión - código/Árboles de decisión - Regresión - código
+
 
 
 .. important::
@@ -35,7 +49,10 @@ Clasificación:
 
     * **Descargue** :download:`Clasificación-2.csv <Clasificación-2.csv>`
 
-    * **Descargue** :download:`Social_Network_Ads.csv <Social_Network_Ads.csv>` para la práctica.
+    * **Descargue** :download:`Social_Network_Ads.csv <Social_Network_Ads.csv>` para la práctica de clasificación.
+
+    * **Descargue** :download:`regresion.csv <regresion.csv>`
+
 
 
 Bibliografía:

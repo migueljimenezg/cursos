@@ -1,0 +1,127 @@
+SVM - Regresión
+---------------
+
+El algoritmo de SVM admite regresión lineal y no lineal. Para usar SVM
+en regresión el objetivo se invierte que en clasificación: en lugar de
+intentar encajar la calle (margen) más grande posible entre dos clases
+mientras se limitas las infracciones al margen, SVM Regression intenta
+encajar tantas observaciones como sea posible en la calle mientras
+limita el margen.
+
+El ancho de la calle está controlado por el hiperparámetro
+:math:`\epsilon`. Entre mayor sea :math:`\epsilon`, mayor es el margen.
+
+Agregar más observaciones dentro del margen no afecta las predicciones
+del modelo, por tanto, se dice que el modelo es insensible a
+:math:`\epsilon`.
+
+Agregar más instancias de entrenamiento dentro del margen no afecta las
+predicciones del modelo; por lo tanto, se dice que el modelo es
+insensible a ϵ. Puede utilizar la clase LinearSVR de Scikit-Learn para
+realizar una regresión SVM lineal. El siguiente código produce el modelo
+representado a la izquierda en la Figura 5-10 (primero se deben escalar
+y centrar los datos de entrenamiento):
+
+Optimización de hiperparámetros:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Epsilon:**
+
+Este hiperparámetro no lo encontramos en clasificación.
+
+Por defecto es ``epsilon = 0.1``.
+
+**Kernel:**
+
+``kernel =``: ``"linear", "poly", "rbf", "sigmoid", "precomputed"``
+
+Para ``"poly"`` los grados se cambian con ``degree =``, por defecto es
+``3``
+
+**Parámetro C:**
+
+``C =``: por defecto es ``1``. Con valores de C grandes hay poca
+regularización y con valores pequeños de C hay más fuerza de
+regularización.
+
+**Gamma:**
+
+``gamma =`` puede cambiar la forma de la campana. Un valor bajo ajustará
+libremente el conjunto de datos, mientras que un valor más alto ajustará
+exactamente al conjunto de datos, lo que provocaría un ajuste excesivo
+(sobreajuste).
+
+:math:`\gamma` es un parámetro que varía de 0 a 1. Valores altos de
+:math:`\gamma` se ejecutará perfectamente al conjunto de datos y el
+modelo se sobreajustará.
+
+Un valor de gamma pequeño hace que la curva en forma de campana sea más
+estrecha, el límite de decisión termina siendo más suave. Si el modelo
+se sobreajusta, este parámetro se debe reducir; si es insuficiente, debe
+aumentarlo (similar al hiperparámetro ``C``.
+
+Código en Python:
+~~~~~~~~~~~~~~~~~
+
+**Regresión lineal:**
+
+Se utiliza la clase ``LinearSVR`` de ``Scikit-Learn`` para realizar una
+regresión SVM lineal
+
+``from sklearn.svm import LinearSVR``
+
+Luego se crea un objeto regresor con la función ``LinearSVR()``, el cual
+lo llamaremos ``svm_reg`` así:
+
+``svm_reg = LinearSVR()``
+
+Por defecto ``epsilon`` es igual a 0. El valor de este parámetro depende
+de la escala de la variable objetivo :math:`y`.
+
+El ajuste del modelo se hace con la función ``.fit()`` así:
+
+``svm_reg.fit(X, y)``
+
+Por último, se realiza la predicción con el modelo ajustado usando la
+función ``.predict()``, los valores predichos los llamaremos ``y_pred``:
+
+``y_pred = svm_reg.predict(X)``
+
+**Regresión no lineal:**
+
+Para la regresión no lineal se usa el kernel trick. Se utiliza la clase
+``SVR`` de ``Scikit-Learn``.
+
+``from sklearn.svm import SVR``
+
+``svm_reg = SVR()``
+
+``svm_reg.fit(X, y)``
+
+Por defecto usa el ``kernel = "rbf"``. Al igual que en clasificación
+utiliza los siguientes kernels:
+
+``"linear", "poly", "rbf", "sigmoid", "precomputed"``
+
+Note que también se puede utilizar la regresión lineal con el kernel
+``"linear"``.
+
+Evaluación del desempeño:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las métricas más usadas para evaluar el desempeño de una regresión son
+el :math:`R^2`, MSE y RMSE. Recuerde que RMSE es la raíz cuadrada de
+MSE, así que con una de estas dos últimas métricas es suficiente, lo más
+común es utilizar el MSE.
+
+Se deben importar los módulos: ``r2_score`` y ``mean_squared_error``
+así:
+
+``from sklearn.metrics import r2_score, mean_squared_error``
+
+La aplicación de estas dos métricas de desempeño se hace ingresando la
+variable :math:`y` real y la :math:`y` pronosticada:
+
+``r2_score(y, y_pred)``
+
+``mean_squared_error(y, y_pred)``

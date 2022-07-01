@@ -221,29 +221,11 @@ Modelo sobre ajustado.
 
     feature_names = df.columns.values[0:2]
     plt.figure(figsize=(15, 10))
-    tree.plot_tree(clf, feature_names=feature_names, filled=True)
+    tree.plot_tree(clf, feature_names=feature_names, filled=True);
 
 
 
-
-.. parsed-literal::
-
-    [Text(0.6, 0.9166666666666666, 'X2 <= 0.163\ngini = 0.495\nsamples = 40\nvalue = [18, 22]'),
-     Text(0.4, 0.75, 'X1 <= -1.437\ngini = 0.34\nsamples = 23\nvalue = [18, 5]'),
-     Text(0.2, 0.5833333333333334, 'gini = 0.0\nsamples = 3\nvalue = [0, 3]'),
-     Text(0.6, 0.5833333333333334, 'X1 <= -0.475\ngini = 0.18\nsamples = 20\nvalue = [18, 2]'),
-     Text(0.4, 0.4166666666666667, 'X1 <= -1.165\ngini = 0.48\nsamples = 5\nvalue = [3, 2]'),
-     Text(0.2, 0.25, 'gini = 0.0\nsamples = 2\nvalue = [2, 0]'),
-     Text(0.6, 0.25, 'X2 <= -1.056\ngini = 0.444\nsamples = 3\nvalue = [1, 2]'),
-     Text(0.4, 0.08333333333333333, 'gini = 0.0\nsamples = 1\nvalue = [1, 0]'),
-     Text(0.8, 0.08333333333333333, 'gini = 0.0\nsamples = 2\nvalue = [0, 2]'),
-     Text(0.8, 0.4166666666666667, 'gini = 0.0\nsamples = 15\nvalue = [15, 0]'),
-     Text(0.8, 0.75, 'gini = 0.0\nsamples = 17\nvalue = [0, 17]')]
-
-
-
-
-.. image:: output_25_1.png
+.. image:: output_25_0.png
 
 
 Regularización
@@ -310,21 +292,9 @@ Cambiaremos ``max_depth`` que por defecto es ``None``.
 .. code:: ipython3
 
     plt.figure(figsize=(10, 5))
-    tree.plot_tree(clf, feature_names=feature_names, filled=True)
+    tree.plot_tree(clf, feature_names=feature_names, filled=True);
 
 
 
-
-.. parsed-literal::
-
-    [Text(0.6, 0.8333333333333334, 'X2 <= 0.163\ngini = 0.495\nsamples = 40\nvalue = [18, 22]'),
-     Text(0.4, 0.5, 'X1 <= -1.437\ngini = 0.34\nsamples = 23\nvalue = [18, 5]'),
-     Text(0.2, 0.16666666666666666, 'gini = 0.0\nsamples = 3\nvalue = [0, 3]'),
-     Text(0.6, 0.16666666666666666, 'gini = 0.18\nsamples = 20\nvalue = [18, 2]'),
-     Text(0.8, 0.5, 'gini = 0.0\nsamples = 17\nvalue = [0, 17]')]
-
-
-
-
-.. image:: output_30_1.png
+.. image:: output_30_0.png
 

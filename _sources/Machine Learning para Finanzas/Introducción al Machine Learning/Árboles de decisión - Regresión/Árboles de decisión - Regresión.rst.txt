@@ -1,0 +1,96 @@
+Árboles de decisión - Regresión
+-------------------------------
+
+Los árboles de decisión también son capaces de realizar tareas de
+regresión. La principal diferencia con clasificación es que, en lugar de
+predecir una clase en cada nodo, predice un valor. En lugar de tratar de
+dividir el conjunto de entrenamiento de una manera que minimice la
+impureza, ahora intenta dividir el conjunto de entrenamiento de una
+manera que minimice el MSE.
+
+Este método trata de pronosticar cada región como el valor promedio de
+las observaciones en cada región. El algoritmo divide cad región de una
+manera que hace que la mayoría de las observaciones de entrenamiento se
+acercen lo más posible a ese valor predicho.
+
+Observe cómo el valor pronosticado para cada región es siempre el valor
+objetivo promedio de las instancias en esa región. El algoritmo divide
+cada región de una manera que hace que la mayoría de las instancias de
+entrenamiento se acerquen lo más posible a ese valor predicho.
+
+Al igual que para las tareas de clasificación, los árboles de decisión
+tienden a sobreajustarse cuando se trata de tareas de regresión. Sin
+ninguna regularización (es decir, usando los hiperparámetros
+predeterminados), obtiene un modelo entrenado con sobreajuste. Para
+solucionar este problema se podría cambiar el valor de
+``min_samples_leaf``.
+
+Los árboles de decisión son simples de entender e interpretar, fáciles
+de usar, versátiles y poderosos, pero recuerde que este método crea
+límites de decisión ortogonales (todas las divisiones son
+perpendiculares a un eje), esto hace que el modelo sea inestable, lo que
+los hace sensibles a la rotación del conjunto de entrenamiento. En
+términos más generales, el principal problema de los árboles de decisión
+es que son muy sensibles a las pequeñas variaciones en los datos de
+entrenamiento.
+
+Código:
+~~~~~~~
+
+En ``Python`` se debe importar el módulo ``DecisionTreeRegressor``:
+
+``from sklearn.tree import DecisionTreeRegressor``
+
+Luego se crea un objeto regresor con la función
+``DecisionTreeRegressor()``, el cual lo llamaremos ``tree_reg`` así:
+
+``tree_reg = DecisionTreeRegressor()``
+
+El ajuste del modelo se hace con la función ``.fit()`` así:
+
+``tree_reg.fit(X,y)``
+
+Por último, se realiza la predicción con el modelo ajustado usando la
+función ``.predict()``, los valores predichos los llamaremos ``y_pred``:
+
+``y_pred = tree_reg.predict(X)``
+
+Optimización de hiperparámetros:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como ya se ha probalo, el método de árboles de decisión tiende al
+sobreajuste si no se cambiar los valores por defecto que trae el
+algoritmo. Para evitar el sobre ajuste podemos probar cambiando los
+siguientes hiperparámetros.
+
+``max_depth``: por defecto es ``None``. Es la profundidad máxima del
+árbol. Si es Ninguno, los nodos se expanden hasta que todas las hojas
+sean puras o hasta que todas las hojas contengan menos de
+min_samples_split samples.
+
+``min_samples_leaf``: por defecto es 1. Es el número mínimo de muestras
+requeridas para estar en un nodo hoja. Un punto de división a cualquier
+profundidad solo se considerará si deja al menos min_samples_leaf
+muestras de entrenamiento en cada una de las ramas izquierda y derecha.
+Esto puede tener el efecto de suavizar el modelo, especialmente en
+regresión.
+
+Evaluación del desempeño:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Las métricas más usadas para evaluar el desempeño de una regresión son
+el :math:`R^2`, MSE y RMSE. Recuerde que RMSE es la raíz cuadrada de
+MSE, así que con una de estas dos últimas métricas es suficiente, lo más
+común es utilizar el MSE.
+
+Se deben importar los módulos: ``r2_score`` y ``mean_squared_error``
+así:
+
+``from sklearn.metrics import r2_score, mean_squared_error``
+
+La aplicación de estas dos métricas de desempeño se hace ingresando la
+variable :math:`y` real y la :math:`y` pronosticada:
+
+``r2_score(y, y_pred)``
+
+``mean_squared_error(y, y_pred)``

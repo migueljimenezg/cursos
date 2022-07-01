@@ -103,6 +103,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../%C3%81rboles%20de%20decisi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Árboles de clasificación - código</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Pr%C3%A1ctica%20-%20clasificaci%C3%B3n/Pr%C3%A1ctica%20-%20clasificaci%C3%B3n.html">Práctica - clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Regresi%C3%B3n%20Lineal/Regresi%C3%B3n%20Lineal.html">Regresión Lineal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SVM%20-%20Regresi%C3%B3n/SVM%20-%20Regresi%C3%B3n.html">SVM - Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SVM%20-%20Regresi%C3%B3n%20-%20c%C3%B3digo/SVM%20-%20Regresi%C3%B3n%20-%20c%C3%B3digo.html">SVM - Regresión - código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%C3%81rboles%20de%20decisi%C3%B3n%20-%20Regresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20-%20Regresi%C3%B3n.html">Árboles de decisión - Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%C3%81rboles%20de%20decisi%C3%B3n%20-%20Regresi%C3%B3n%20-%20c%C3%B3digo/%C3%81rboles%20de%20decisi%C3%B3n%20-%20Regresi%C3%B3n%20-%20c%C3%B3digo.html">Árboles de decisión - Regresión - código</a></li>
 </ul>
 </li>
 </ul>
@@ -242,7 +247,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_6_1.png" src="../../../_images/output_6_1.png" />
+<img alt="../../../_images/output_6_11.png" src="../../../_images/output_6_11.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="s2">&quot;X2&quot;</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
@@ -365,21 +370,10 @@
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_names</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
-<pre class="literal-block">[Text(0.6, 0.9166666666666666, 'X2 &lt;= 0.163ngini = 0.495nsamples = 40nvalue = [18, 22]'),
- Text(0.4, 0.75, 'X1 &lt;= -1.437ngini = 0.34nsamples = 23nvalue = [18, 5]'),
- Text(0.2, 0.5833333333333334, 'gini = 0.0nsamples = 3nvalue = [0, 3]'),
- Text(0.6, 0.5833333333333334, 'X1 &lt;= -0.475ngini = 0.18nsamples = 20nvalue = [18, 2]'),
- Text(0.4, 0.4166666666666667, 'X1 &lt;= -1.165ngini = 0.48nsamples = 5nvalue = [3, 2]'),
- Text(0.2, 0.25, 'gini = 0.0nsamples = 2nvalue = [2, 0]'),
- Text(0.6, 0.25, 'X2 &lt;= -1.056ngini = 0.444nsamples = 3nvalue = [1, 2]'),
- Text(0.4, 0.08333333333333333, 'gini = 0.0nsamples = 1nvalue = [1, 0]'),
- Text(0.8, 0.08333333333333333, 'gini = 0.0nsamples = 2nvalue = [0, 2]'),
- Text(0.8, 0.4166666666666667, 'gini = 0.0nsamples = 15nvalue = [15, 0]'),
- Text(0.8, 0.75, 'gini = 0.0nsamples = 17nvalue = [0, 17]')]</pre>
-<img alt="../../../_images/output_25_12.png" src="../../../_images/output_25_12.png" />
+<img alt="../../../_images/output_25_0.png" src="../../../_images/output_25_0.png" />
 </div>
 <div class="section" id="regularizacion">
 <h2>Regularización<a class="headerlink" href="#regularizacion" title="Permalink to this headline">¶</a></h2>
@@ -425,15 +419,10 @@
 <em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.</pre>
 <img alt="../../../_images/output_29_11.png" src="../../../_images/output_29_11.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">plot_tree</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
-<pre class="literal-block">[Text(0.6, 0.8333333333333334, 'X2 &lt;= 0.163ngini = 0.495nsamples = 40nvalue = [18, 22]'),
- Text(0.4, 0.5, 'X1 &lt;= -1.437ngini = 0.34nsamples = 23nvalue = [18, 5]'),
- Text(0.2, 0.16666666666666666, 'gini = 0.0nsamples = 3nvalue = [0, 3]'),
- Text(0.6, 0.16666666666666666, 'gini = 0.18nsamples = 20nvalue = [18, 2]'),
- Text(0.8, 0.5, 'gini = 0.0nsamples = 17nvalue = [0, 17]')]</pre>
-<img alt="../../../_images/output_30_1.png" src="../../../_images/output_30_1.png" />
+<img alt="../../../_images/output_30_0.png" src="../../../_images/output_30_0.png" />
 </div>
 </div>
 
