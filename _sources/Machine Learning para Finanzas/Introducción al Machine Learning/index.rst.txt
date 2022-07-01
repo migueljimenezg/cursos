@@ -1,6 +1,21 @@
 Introducción al Machine Learning
 ==========================================================
 
+Profesor invitado:
+^^^^^^^^^^^^^^^^^^^^
+
+Germán G. Creamer `link <https://www.creamer-co.com/>`_.
+
+Contenido del curso: :download:`Machine Learning in Finance <Machine Learning in Finance.rar>`
+
+
+
+
+
+Introducción:
+^^^^^^^^^^^^^^^^^^^^
+
+
 .. toctree::
    :maxdepth: 1
    :titlesonly:
