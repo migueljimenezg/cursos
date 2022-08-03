@@ -91,10 +91,15 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING PARA FINANZAS:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning%20para%20Finanzas/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning%20para%20Finanzas/Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEEP LEARNING:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Deep%20Learning/Gradiente%20descendente/index.html">Gradiente descendente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Deep%20Learning/Redes%20Neuronales%20Artificiales/index.html">Redes Neuronales Artificiales</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
 <ul>
@@ -360,7 +365,7 @@ promedios.</p>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="s">&quot;VaR sin promedios&quot;</span><span class="p">,</span><span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_24_03.png"><img alt="../../../_images/output_24_03.png" src="../../../_images/output_24_03.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_24_05.png"><img alt="../../../_images/output_24_05.png" src="../../../_images/output_24_05.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">rendimientos_backtesting</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Ventana Backtesting&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;PFBCOLOM&quot;</span><span class="p">)</span>
 <span class="nf">lines</span><span class="p">(</span><span class="o">-</span><span class="n">VaR_sin_promedios</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="s">&quot;VaR sin promedios&quot;</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
@@ -372,7 +377,7 @@ promedios.</p>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="s">&quot;VaR sin promedios&quot;</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_26_0.png"><img alt="../../../_images/output_26_0.png" src="../../../_images/output_26_0.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_26_01.png"><img alt="../../../_images/output_26_01.png" src="../../../_images/output_26_01.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">rendimientos_backtesting</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Ventana Backtesting&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;ECO&quot;</span><span class="p">)</span>
 <span class="nf">lines</span><span class="p">(</span><span class="o">-</span><span class="n">VaR_con_promedios</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="s">&quot;VaR con promedios&quot;</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
@@ -390,7 +395,7 @@ promedios.</p>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="s">&quot;VaR con promedios&quot;</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_29_03.png"><img alt="../../../_images/output_29_03.png" src="../../../_images/output_29_03.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_29_04.png"><img alt="../../../_images/output_29_04.png" src="../../../_images/output_29_04.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="excepciones-var-delta-normal-nc-95-y-h-250">
 <h2>Excepciones VaR Delta-Normal (NC = 95% y H = 250)<a class="headerlink" href="#excepciones-var-delta-normal-nc-95-y-h-250" title="Permalink to this headline">¶</a></h2>
@@ -676,13 +681,13 @@ el principio del Backtesting (<strong>Ventana para Backtesting</strong>).</p>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="s">&quot;VaR sin promedios&quot;</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_56_01.png"><img alt="../../../_images/output_56_01.png" src="../../../_images/output_56_01.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_56_02.png"><img alt="../../../_images/output_56_02.png" src="../../../_images/output_56_02.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">rendimientos_backtesting</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Ventana Backtesting&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;PFBCOLOM&quot;</span><span class="p">)</span>
 <span class="nf">lines</span><span class="p">(</span><span class="o">-</span><span class="n">VaR_sin_promedios</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="s">&quot;VaR sin promedios&quot;</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_57_02.png"><img alt="../../../_images/output_57_02.png" src="../../../_images/output_57_02.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_57_04.png"><img alt="../../../_images/output_57_04.png" src="../../../_images/output_57_04.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">rendimientos_backtesting</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Ventana Backtesting&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;ISA&quot;</span><span class="p">)</span>
 <span class="nf">lines</span><span class="p">(</span><span class="o">-</span><span class="n">VaR_sin_promedios</span><span class="p">[,</span><span class="m">3</span><span class="p">],</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>
 <span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="s">&quot;VaR sin promedios&quot;</span><span class="p">,</span> <span class="n">lty</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">)</span>

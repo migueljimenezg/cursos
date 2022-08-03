@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Perceptrón multicapa &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Redes Neuronales Artificiales" href="../index.html"/>
+        <link rel="next" title="Funciones de activación" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html"/>
+        <link rel="prev" title="Introducción Redes Neuronales Artificiales" href="../Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEEP LEARNING:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Gradiente%20descendente/index.html">Gradiente descendente</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Redes Neuronales Artificiales</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Caracterizaci%C3%B3n%20de%20las%20series%20de%20tiempo/index.html">Caracterización de las series de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Modelos%20autorregresivos/index.html">ARIMA: autoregresivo integrado de medias móviles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Deep%20Learning%20para%20pron%C3%B3stico/index.html">Deep Learning para pronóstico</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Redes Neuronales Artificiales</a> &raquo;</li>
+        
+      <li>Perceptrón multicapa</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Deep Learning/Redes Neuronales Artificiales/Perceptrón multicapa/Perceptrón multicapa.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="perceptron-multicapa">
+<h1>Perceptrón multicapa<a class="headerlink" href="#perceptron-multicapa" title="Permalink to this headline">¶</a></h1>
+<p>El perceptrón multicapa <strong>(MLP - Multilayer Perceptron)</strong> se compone de
+una capa de entrada <strong>(input layer)</strong>, una o más capas de neuronas,
+denominadas capas ocultas <strong>(hidden layers).</strong> Las capas cercanas a la
+capa de entrada generalmente se denominan capas inferiores <strong>(lower
+layers)</strong>, y las cercanas a las salidas se denominan capas superiores
+<strong>(upper layers)</strong>.</p>
+<p>Un MLP se compone de una capa de entrada (de paso), una o más capas de
+TLU, denominadas capas ocultas, y una capa final de TLU denominada capa
+de salida (siguiente figura). Las capas cercanas a la capa de entrada
+generalmente se denominan capas inferiores, y las cercanas a las salidas
+generalmente se denominan capas superiores. Cada capa, excepto la capa
+de salida incluye una neurona de bias y está completamente conectada a
+la siguiente capa.</p>
+<div class="figure align-default" id="id1">
+<img alt="MLP" src="../../../_images/MLP_.JPG" />
+<p class="caption"><span class="caption-text">MLP</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>La señal fluye solo en una dirección (de las entradas a las salidas),
+por lo que esta arquitectura es un ejemplo de una red neuronal
+<strong>feedforward (FNN).</strong></p>
+<p>Cuando una RNA contiene una pila profunda de capas ocultas, se denomina
+red neuronal profunda <strong>(deep neural network - DNN).</strong> El <strong>Deep
+Learning</strong> se enfoca en el campo del aprendizaje profundo que contiene
+modelos de pilas profundas, incluso, algunos relacionan al Deep Learning
+con las redes neuronales más simples.</p>
+<p>En 1986 se introdujo un algoritmo para entrenar los MLP llamado
+propagación hacia atrás <strong>(backpropagation)</strong> que todavía se usa en la
+actualidad.</p>
+<div class="section" id="backpropagation">
+<h2>Backpropagation:<a class="headerlink" href="#backpropagation" title="Permalink to this headline">¶</a></h2>
+<p>El entrenamiento de la RNA por medio del backpropagation utiliza la
+técnica del gradiente descendente <strong>(Gradient Descent)</strong> el cual es una
+técnica eficiente para calcular los gradientes automáticamente en solo
+dos pasadas por la red: una llamada <strong>forward pass</strong> y otra <strong>backward
+pass.</strong></p>
+<p>El backpropagation calcula el gradiente del error de la RNA con respecto
+a cada parámetro del modelo. En otras palabras, puede averiguar cómo se
+debe ajustar cada peso de conexión y cada término de bias para reducir
+el error. Una vez que tiene estos gradientes, simplemente realiza un
+paso de gradiente descendente regular y todo el proceso se repite hasta
+que la red converge a la solución.</p>
+<p><strong>Proceso del backpropagation:</strong></p>
+<ul class="simple">
+<li><p>Maneja un mini lote a la vez (por ejemplo, que contiene 32 instancias
+cada uno) y pasa por el conjunto de entrenamiento completo varias
+veces. Cada paso se llama una época.</p></li>
+<li><p>Cada mini lote se pasa a la capa de entrada de la red, que lo envía a
+la primera capa oculta. Luego, el algoritmo calcula la salida de
+todas las neuronas en esta capa (para cada instancia en el mini
+lote). El resultado se pasa a la siguiente capa, su salida se calcula
+y se pasa a la siguiente capa, y así sucesivamente hasta que
+obtengamos la salida de la última capa, la capa de salida. Este es el
+<strong>forward pass</strong>: es exactamente como hacer predicciones, excepto que
+todos los resultados intermedios se conservan ya que son necesarios
+para el <strong>backward pass.</strong></p></li>
+<li><p>A continuación, el algoritmo mide el error de salida de la red (es
+decir, utiliza una función de pérdida <strong>(Loss Funtion)</strong> que compara
+la salida deseada y la salida real de la red y devuelve alguna medida
+del error, por ejemplo, el MSE.</p></li>
+<li><p>Luego calcula cuánto contribuyó cada conexión de salida al error.
+Esto se hace analíticamente aplicando la regla de la cadena, lo que
+hace que este paso sea rápido y preciso.</p></li>
+<li><p>Luego, el algoritmo mide cuánto de estas contribuciones de error
+provienen de cada conexión en la capa inferior, nuevamente usando la
+regla de la cadena, trabajando backward pass hasta que el algoritmo
+llega a la capa de entrada. Como se explicó anteriormente, este paso
+inverso mide de manera eficiente el gradiente de error en todos los
+pesos de conexión en la red al propagar el gradiente de error hacia
+atrás a través de la red (de ahí el nombre del algoritmo
+backpropagation).</p></li>
+<li><p>Finalmente, el algoritmo realiza un paso de gradiente descendente
+para ajustar todos los pesos de conexión en la red, utilizando los
+gradientes de error que acaba de calcular.</p></li>
+</ul>
+<p>En resumen, para cada instancia de entrenamiento, el algoritmo de
+backpropagation primero hace una predicción (forward pass) y mide el
+error, luego pasa por cada capa en sentido inverso para medir la
+contribución de error de cada conexión (backward pass), y finalmente
+modifica los pesos de conexión para reducir el error <strong>(Gradient Descent
+step).</strong></p>
+<p>Es importante inicializar aleatoriamente todos los pesos de conexión de
+las capas ocultas, de lo contrario, el entrenamiento fallará. Por
+ejemplo, si inicializa todos los pesos y bias en cero, todas las
+neuronas en una capa determinada serán perfectamente idénticas y, por lo
+tanto, el backpropagation las afectará exactamente de la misma manera,
+por lo que permanecerán idénticas. En otras palabras, a pesar de tener
+cientos de neuronas por capa, tu modelo actuará como si tuviera solo una
+neurona por capa, en cambio, si inicializa aleatoriamente los pesos,
+rompe la simetría y permite que el backpropagation entrene a un equipo
+diverso de neuronas.</p>
+</div>
+<div class="section" id="ejemplo-mlp">
+<h2>Ejemplo MLP:<a class="headerlink" href="#ejemplo-mlp" title="Permalink to this headline">¶</a></h2>
+<p>Se hará un ejemplo de clasificación binaria con función de activación
+sigmoide en la capa oculta y la capa de salida no tendrá función de
+activación.</p>
+<p>Se tendrá el supuesto de que los pesos ya se hallaron con el método del
+gradiente descendente.</p>
+<div class="figure align-default" id="id2">
+<img alt="EjemploRNA" src="../../../_images/EjemploRNA.jpg" />
+<p class="caption"><span class="caption-text">EjemploRNA</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_circles</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_18_0.png" src="../../../_images/output_18_0.png" />
+<p><strong>Pesos hallados con gradiente descendente:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">W_1</span></code>: Pesos de la neurona 1 para X1, X2 y bias.</p>
+<p><code class="docutils literal notranslate"><span class="pre">W_2</span></code>: Pesos de la neurona 2 para X1, X2 y bias.</p>
+<p><code class="docutils literal notranslate"><span class="pre">W_3</span></code>: Pesos de la neurona 3 para X1, X2 y bias.</p>
+<p><code class="docutils literal notranslate"><span class="pre">W_out</span></code>: Pesos de la neurona de salida para los resultados de la
+nuerona 1 y 2, y para bias.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_1</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">4.559541</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2554122</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.599874</span><span class="p">]</span>
+<span class="n">W_2</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">3.6836078</span><span class="p">,</span> <span class="mf">3.8130093</span><span class="p">,</span> <span class="mf">2.7966402</span><span class="p">]</span>
+<span class="n">W_3</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.2270935</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.357733</span><span class="p">,</span> <span class="mf">2.4618955</span><span class="p">]</span>
+<span class="n">W_out</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.6436539</span><span class="p">,</span> <span class="mf">1.5664514</span><span class="p">,</span> <span class="mf">1.6613054</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.7469823</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Neurona 1:</strong></p>
+<div class="math notranslate nohighlight">
+\[neurona_1 = \frac{1}{1+exp^{\left(-\left(X_1W_{1_{X_1}}+X_2W_{1_{X_2}}+bias_1\right)\right)}}\]</div>
+<p>Donde,</p>
+<p><span class="math notranslate nohighlight">\(W_{1_{X_1}}\)</span>: es el peso de la neurona 1 para la variable
+<span class="math notranslate nohighlight">\(X_1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(W_{1_{X_2}}\)</span>: es el peso de la neurona 1 para la variable
+<span class="math notranslate nohighlight">\(X_2\)</span>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neuron_1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">W_1</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">neuron_1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Aporte de la neurona 1 a la clasificación&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_26_0.png" src="../../../_images/output_26_0.png" />
+<p><strong>Neurona 2:</strong></p>
+<div class="math notranslate nohighlight">
+\[neurona_2 = \frac{1}{1+exp^{\left(-\left(X_1W_{2_{X_1}}+X_2W_{2_{X_2}}+bias_2\right)\right)}}\]</div>
+<p>Donde,</p>
+<p><span class="math notranslate nohighlight">\(W_{2_{X_1}}\)</span>: es el peso de la neurona 2 para la variable
+<span class="math notranslate nohighlight">\(X_1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(W_{2_{X_2}}\)</span>: es el peso de la neurona 2 para la variable
+<span class="math notranslate nohighlight">\(X_2\)</span>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neuron_2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">W_2</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">neuron_2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Aporte de la neurona 2 a la clasificación&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_31_0.png" src="../../../_images/output_31_0.png" />
+<p><strong>Neurona 3:</strong></p>
+<div class="math notranslate nohighlight">
+\[neurona_3 = \frac{1}{1+exp^{\left(-\left(X_1W_{3_{X_1}}+X_2W_{3_{X_2}}+bias_3\right)\right)}}\]</div>
+<p>Donde,</p>
+<p><span class="math notranslate nohighlight">\(W_{3_{X_1}}\)</span>: es el peso de la neurona 3 para la variable
+<span class="math notranslate nohighlight">\(X_1\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(W_{3_{X_2}}\)</span>: es el peso de la neurona 3 para la variable
+<span class="math notranslate nohighlight">\(X_2\)</span>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">neuron_3</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">W_3</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">neuron_3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Aporte de la neurona 3 a la clasificación&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_36_01.png" src="../../../_images/output_36_01.png" />
+<p><strong>Neurona output:</strong></p>
+<div class="math notranslate nohighlight">
+\[output = neurona_1 W_{31} + neurona_2 W_{32} + neurona_3 W_{33} + bias_{out}\]</div>
+<p>Donde,</p>
+<p><span class="math notranslate nohighlight">\(W_{31}\)</span>: es el peso de la neurona output para la entrada de la
+neurona 1.</p>
+<p><span class="math notranslate nohighlight">\(W_{32}\)</span>: es el peso de la neurona output para la entrada de la
+neurona 2.</p>
+<p><span class="math notranslate nohighlight">\(W_{33}\)</span>: es el peso de la neurona output para la entrada de la
+neurona 3.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">neuron_1</span> <span class="o">*</span> <span class="n">W_out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">neuron_2</span> <span class="o">*</span> <span class="n">W_out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">neuron_3</span> <span class="o">*</span> <span class="n">W_out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">W_out</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">output</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Resultado final&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_41_02.png" src="../../../_images/output_41_02.png" />
+<p><strong>Redondeo del resultado para obtener salidas 0 y 1:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">output2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Resultado final&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_44_01.png" src="../../../_images/output_44_01.png" />
+<p><strong>Predicción:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_new</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">neuron_1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">X_new</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X_new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">W_1</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
+<span class="n">neuron_2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">X_new</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X_new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">W_2</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
+<span class="n">neuron_3</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">X_new</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X_new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_3</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">W_3</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">neuron_1</span> <span class="o">*</span> <span class="n">W_out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">neuron_2</span> <span class="o">*</span> <span class="n">W_out</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">neuron_3</span> <span class="o">*</span> <span class="n">W_out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">W_out</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">output</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.1465074365132875</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejercicio">
+<h2>Ejercicio:<a class="headerlink" href="#ejercicio" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://playground.tensorflow.org/#activation=tanh&amp;batchSize=1&amp;dataset=spiral&amp;regDataset=reg-plane&amp;learningRate=0.03&amp;regularizationRate=0&amp;noise=0&amp;networkShape=4,2&amp;seed=0.35527&amp;showTestData=false&amp;discretize=false&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false">TensorFlow
+Playground</a></p>
+<ul class="simple">
+<li><p>Note que las neuronas de la primera capa oculta aprenden patrones
+simples, mientras que las neuronas de la segunda capa oculta aprenden
+a combinar los patrones simples de la primera capa oculta en patrones
+más complejos. En general, entre más capas tenga, más complejos
+pueden ser los patrones.</p></li>
+<li><p>¿Es posible encontrar la solución de manera más rápida cambiando la
+función de activación?</p></li>
+<li><p>¿Cómo son la forma de los límites con la función ReLU?</p></li>
+<li><p>Cambie la arquitectura de la red con una sola capa oculta de 3
+neuronas. A veces en el entrenamiento el modelo se atasca en un
+mínimo local. Antes de hacer esto reinicar la red con el botón de
+Reset.</p></li>
+<li><p>¿Qué pasa si ahora la red solo tiene dos neuronas en la capa oculta?
+¿El model0 tendrá suficientes parámetros?</p></li>
+<li><p>Ahora aumente a ocho neuronas en la capa oculta. Tenga en cuenta que
+ahora es consistentemente rápido y nunca se atasca. Esto destaca un
+hallazgo importante en la teoría de redes neuronales: las redes
+neuronales grandes casi nunca se atascan en mínimos locales, e
+incluso cuando lo hacen, estos óptimos locales son casi tan buenos
+como el óptimo global. Sin embargo, aún pueden quedarse atascados en
+mesetas largas durante mucho tiempo.</p></li>
+<li><p>Selecciona el conjunto de datos en espiral y cambie la arquitectura
+de la red para tener cuatro capas ocultas con ocho neuronas cada una.
+El entrenamiento conllevará más tiempo y se podría estancar durante
+largos períodos de tiempo. Note también que las neuronas de las capas
+más altas (a la derecha) tienden a evolucionar más rápido que las
+neuronas de las capar más bajas (a la izquierda). Este comportamiento
+se llama <strong>vanishing gradients</strong>, esto significa que existe un riesgo
+que desaparezcan los gradientes en las redes profundas. Esto es un
+tema importante en las estructuras modernas de las RNA (Deep
+Learning).</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html" class="btn btn-neutral float-right" title="Funciones de activación" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html" class="btn btn-neutral" title="Introducción Redes Neuronales Artificiales" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

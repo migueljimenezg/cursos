@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Gradiente descendente &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Gradiente descendente" href="../index.html"/>
+        <link rel="next" title="Ejemplo gradiente descendente" href="../Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html"/>
+        <link rel="prev" title="Gradiente descendente" href="../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEEP LEARNING:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Gradiente descendente</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Redes%20Neuronales%20Artificiales/index.html">Redes Neuronales Artificiales</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Caracterizaci%C3%B3n%20de%20las%20series%20de%20tiempo/index.html">Caracterización de las series de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Modelos%20autorregresivos/index.html">ARIMA: autoregresivo integrado de medias móviles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Deep%20Learning%20para%20pron%C3%B3stico/index.html">Deep Learning para pronóstico</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Gradiente descendente</a> &raquo;</li>
+        
+      <li>Gradiente descendente</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Deep Learning/Gradiente descendente/Gradiente descendente/Gradiente descendente.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gradiente-descendente">
+<h1>Gradiente descendente<a class="headerlink" href="#gradiente-descendente" title="Permalink to this headline">¶</a></h1>
+<p>El método del gradiente descendente (Gradient Descent) es un algoritmo
+de optimización capaz de minimizar la función de costo. Este algoritmo
+trabaja de forma iterativa y en cada paso ajusta los parámetros.</p>
+<p>El Gradient Descent mide el gradiente local de la función de costos (que
+podría ser el MSE) con respecto al vector de parámetros y se de forma
+iterativa va en la dirección del gradiente descendente (dirección
+opuesta del gradiente). Cuando el gradiente es cero, posiblemente se ha
+logrado descender en la función hasta llegar al mínimo global.</p>
+<p>Este método comienza con unos valores aleatorios para los parámetros,
+luego los mejora gradualmente, dando un pequeño paso a la vez, en cada
+paso intenta disminuir la función de costo (descender en la función),
+por último, el algoritmo converge en el mínimo.</p>
+<div class="figure align-default" id="id1">
+<img alt="Gradient_Descent" src="../../../_images/Gradient_Descent.jpg" />
+<p class="caption"><span class="caption-text">Gradient_Descent</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Un parámetro importante en Gradient Descent es el tamaño de los pasos,
+determinado por el hiperparámetro de <strong>tasa de aprendizaje.</strong> Si la tasa
+de aprendizaje es demasiado pequeña, el algoritmo tendrá que pasar por
+muchas iteraciones para converger, lo que llevará mucho tiempo (Figura
+de la izquierda). Por otro lado, si la tasa de aprendizaje es demasiado
+alta, es posible que salte al otro lado del valle, posiblemente incluso
+más alto de lo que estaba antes. Esto podría hacer que el algoritmo
+diverja, con valores cada vez mayores, y no pueda encontrar una buena
+solución (Figura de la derecha).</p>
+<div class="figure align-default" id="id2">
+<img alt="LearningRate" src="../../../_images/LearningRate.jpg" />
+<p class="caption"><span class="caption-text">LearningRate</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>El principal desafío para el descenso del gradiente está en encontrar el
+mínimo global en funciones de costos irregulares. Esto hace difícil
+llegar al mínimo global y el algoritmo podría estancarse en un mínimo
+local. Por último, en algunos tramos de la función de costo el algoritmo
+podría tener grandes saltos y en otros pequeños avances.</p>
+<div class="figure align-default" id="id3">
+<img alt="Irregular" src="../../../_images/Irregular.jpg" />
+<p class="caption"><span class="caption-text">Irregular</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>El mínimo de una función es un punto donde la derivada es 0, por lo que
+todo lo que se tiene que hacer es encontrar todos los puntos donde la
+derivada tiende a 0 y verificar cuál de estos puntos de la función tiene
+el valor más bajo.</p>
+<p>Por otro lado, se recomienda que al usar Gradient Descente asegurarse
+que todas las variables tengan la misma escala. De lo contrario, el
+algoritmo podría demorarse en converger.</p>
+<div class="figure align-default" id="id4">
+<img alt="EscalaVariables" src="../../../_images/EscalaVariables.jpg" />
+<p class="caption"><span class="caption-text">EscalaVariables</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="descenso-de-gradiente-por-lotes">
+<h2>Descenso de gradiente por lotes:<a class="headerlink" href="#descenso-de-gradiente-por-lotes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Batch Gradient Descent</strong></p>
+<p>El algoritmo del descenso del gradiente calcula la derivada parcial de
+la función de costo con respecto a cada uno de los parámetros del
+modelo. Estos parámetros son los pesos <span class="math notranslate nohighlight">\(W\)</span>.</p>
+<p><strong>Función de costo:</strong></p>
+<div class="math notranslate nohighlight">
+\[MSE = \frac{\sum_{i=1}^N\left(W^TX^{(i)}-y_i\right)^2}{N}\]</div>
+<p>Donde,</p>
+<p><span class="math notranslate nohighlight">\(N\)</span>: cantidad de observaciones en el conjunto de entrenamiento.</p>
+<p><span class="math notranslate nohighlight">\(W^T\)</span>: es el vector de parámetros a ajustar para estimar
+<span class="math notranslate nohighlight">\(\hat{y}\)</span>. Son los pesos.</p>
+<p>$:raw-latex:<cite>hat{y}</cite> = W<sup>TX</sup>{(i)} $</p>
+<p>El descenso del gradiente en cada iteración cambia los valores de
+<span class="math notranslate nohighlight">\(W^T\)</span> con el objetivo de minimizar la función de costo, MSE. En
+cada paso calcula la siguiente derivada parcial.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial}{\partial W_j} MSE(W)\]</div>
+<p>Aplicando la Regla de la Cadena:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial}{\partial W_j} MSE(W) = \frac{2}{N}\sum_{i=1}^N\left(W^TX^{(i)}-y_i\right)X_j^{(i)}\]</div>
+<p>La fórmula anterior contiene la cantidad de observaciones del conjunto
+de entrenamiento, <span class="math notranslate nohighlight">\(N\)</span>, esto implica que en cada paso del gradiente
+descendente realiza los cálculos sobre todo el conjunto completo de
+entrenamiento, es decir, utiliza el <strong>lote completo</strong> en cada iteración.</p>
+<p>Una vez se calcula la derivada parcial, es decir los gradientes para
+cada variable, el gradiente descendente lo que hace es ir en la
+dirección opuesta con el fin de ir cuesta a abajo. Esto significa
+cambiar el signo del gradiente.</p>
+<p>En cada iteración los parámetros (<span class="math notranslate nohighlight">\(W\)</span>) son ajustados, este ajuste
+depende del valor del paso anterior menos la derivada parcial calculada
+anteriormente multiplicada por la <strong>tasa de aprendizaje</strong> <span class="math notranslate nohighlight">\(\eta\)</span>.
+Esta tasa de aprendizaje determina el tamaño del paso cuesta abajo.</p>
+<div class="math notranslate nohighlight">
+\[W^{(nextStep)}=W-\eta\times\frac{\partial}{\partial W_j} MSE(W)\]</div>
+<p><strong>Resumen de los pasos:</strong></p>
+<ol class="arabic simple">
+<li><p>Para un lote (batch) de muestras del conjunto de entrenamiento
+<span class="math notranslate nohighlight">\((X)\)</span>, ejecute el modelo para obtener las predicciones
+<span class="math notranslate nohighlight">\((y_{pred})\)</span>. Esto se conoce como paso hacia adelante -
+<strong>forward pass.</strong></p></li>
+<li><p>Calcule la pérdida del modelo en el lote, una medida del desajuste
+entre <span class="math notranslate nohighlight">\(y_{pred}\)</span> y <span class="math notranslate nohighlight">\(y_{true}\)</span>.</p></li>
+<li><p>Calcule el gradiente de la pérdida (función de costos) con respecto a
+los parámetros del modelo. Esto se conoce como paso hacia atrás -
+<strong>backward pass.</strong></p></li>
+<li><p>Mueva los parámetros un poco en la dirección opuesta del gradiente
+para reducir un poco la pérdida en el lote, por ejemplo, reducir los
+parámetros esta cantidad <span class="math notranslate nohighlight">\(-\eta\times Gradiente\)</span>. El término
+<span class="math notranslate nohighlight">\(\eta\)</span> es un escalar y es la “velocidad” del proceso del
+gradiente descendente, se le conoce como <strong>tasa de aprendizaje.</strong></p></li>
+</ol>
+<p>Para este método llamado <strong>Batch Gradient Descent</strong>, en el primer paso
+no se selecciona un lote (batch), sino todo el conjunto de entrenamiento
+completo. El método siguiente llamado <strong>Stochastic Gradient Descent</strong>
+utiliza en cada cálculo del gradiente un lote aleatorio. Por último, el
+método <strong>Mini-batch Gradient Descent</strong> realiza los cálculos en pequeños
+conjuntos aleatorios de instancias llamados mini lotes.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">X</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Conjunto de entrenamiento&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_20_0.png" src="../../../_images/output_20_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">]</span>
+<span class="n">X_b</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span>        <span class="p">,</span> <span class="mf">0.22719949</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span>        <span class="p">,</span> <span class="mf">1.7911041</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span>        <span class="p">,</span> <span class="mf">1.29808728</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span>        <span class="p">,</span> <span class="mf">0.03710574</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span>        <span class="p">,</span> <span class="mf">0.66187395</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># learning rate</span>
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">4.07207348</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">2.98176001</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">W</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Ajuste del modelo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_24_01.png" src="../../../_images/output_24_01.png" />
+<p>La solución anterior tiene una solución analítica proporcionada por el
+método de mínimos cuadrados correspondiente a un modelo de regresión
+lineal:</p>
+<div class="math notranslate nohighlight">
+\[\hat{W} = \left(X^TX\right)^{-1}X^Ty\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">W_best</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">4.08307932</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">2.97228924</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p><strong>¿Qué pasaría si cambiamos el número de iteraciones y la tasa de
+aprendizaje?</strong></p>
+<div class="math notranslate nohighlight">
+\[\eta = 0.1\]</div>
+<div class="math notranslate nohighlight">
+\[iteraciones = 1000\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># learning rate</span>
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="n">Ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_iterations</span><span class="p">])</span>  <span class="c1"># variable para almacenar los pesos</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+    <span class="n">Ws</span><span class="p">[:,</span> <span class="n">iteration</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># variable para almacenar los pesos</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">4.08307932</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">2.97228924</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">W_best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución de los pesos W en las 1000 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$W_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$W_2$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_32_01.png" src="../../../_images/output_32_01.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución del ajuste del modelo en las 100 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_33_01.png" src="../../../_images/output_33_01.png" />
+<p><strong>Tasa de aprendizaje pequeña:</strong></p>
+<div class="math notranslate nohighlight">
+\[\eta = 0.005\]</div>
+<div class="math notranslate nohighlight">
+\[iteraciones = 1000\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="mf">0.005</span>  <span class="c1"># learning rate</span>
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="n">Ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_iterations</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+    <span class="n">Ws</span><span class="p">[:,</span> <span class="n">iteration</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">W_best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución de los pesos W en las 50 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$W_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$W_2$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_36_0.png" src="../../../_images/output_36_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución del ajuste del modelo en las 1000 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_37_0.png" src="../../../_images/output_37_0.png" />
+<p><strong>Tasa de aprendizaje grande:</strong></p>
+<div class="math notranslate nohighlight">
+\[\eta = 0.5\]</div>
+<div class="math notranslate nohighlight">
+\[iteraciones = 5\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># learning rate</span>
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="n">Ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_iterations</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+    <span class="n">Ws</span><span class="p">[:,</span> <span class="n">iteration</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">W_best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución de los pesos W en las 5 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$W_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$W_2$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_40_0.png" src="../../../_images/output_40_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución del ajuste del modelo en las 5 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_41_01.png" src="../../../_images/output_41_01.png" />
+<p>En la anterior figura, el algoritmo diverge, salta por todos lados y, de
+hecho, se aleja más y más de la solución en cada paso.</p>
+<p>Una solución simple es establecer un número muy grande de iteraciones
+pero interrumpir el algoritmo cuando el vector de gradientes se vuelve
+pequeño.</p>
+<p>Cuando la función de costo es convexa y su pendiente no cambia
+abruptamente (como es el caso de la función de costo MSE), el gradiente
+descendente por lotes con una tasa de aprendizaje fija eventualmente
+convergerá a la solución óptima, pero es posible que tenga que esperar.</p>
+</div>
+<div class="section" id="gradiente-descendente-estocastico">
+<h2>Gradiente Descendente Estocástico:<a class="headerlink" href="#gradiente-descendente-estocastico" title="Permalink to this headline">¶</a></h2>
+<p><strong>Stochastic Gradient Descent - SGD</strong></p>
+<p>El principal problema con Batch Gradient Descent es el hecho de que
+utiliza todo el conjunto de entrenamiento para calcular los gradientes
+en cada paso, lo que lo hace muy lento cuando el conjunto de
+entrenamiento es grande. En el extremo opuesto, Stochastic Gradient
+Descent elige una instancia aleatoria en el conjunto de entrenamiento en
+cada paso y calcula los gradientes basándose únicamente en esa única
+instancia.</p>
+<p>Trabajar en una sola instancia a la vez hace que el algoritmo sea mucho
+más rápido porque tiene muy pocos datos para manipular en cada
+iteración. También hace posible entrenar en grandes conjuntos de
+entrenamiento, ya que solo una instancia necesita estar en la memoria en
+cada iteración. Por otro lado, debido a su naturaleza estocástica (es
+decir, aleatoria), este algoritmo es mucho menos regular que el
+gradiente descendente por lotes: en lugar de disminuir suavemente hasta
+llegar al mínimo, rebotará hacia arriba y hacia abajo, disminuyendo solo
+en promedio. Con el tiempo, terminará muy cerca del mínimo, pero una vez
+que llegue allí, continuará rebotando, sin asentarse nunca. Entonces,
+una vez que el algoritmo se detiene, los valores finales de los
+parámetros son buenos, pero no óptimos.</p>
+<p>El término estocástico se refiere al hecho de que cada lote de datos se
+extrae al azar (estocástico es un sinónimo científico de aleatorio).</p>
+<div class="figure align-default" id="id5">
+<img alt="SGD" src="../../../_images/SGD.jpg" />
+<p class="caption"><span class="caption-text">SGD</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Cuando la función de costo es muy irregular, el Stochastic Gradient
+Descent puede ayudar al algoritmo a saltar fuera de los mínimos locales,
+tiene más posibilidades de encontrar el mínimo global que Batch Gradient
+Descent. Por lo tanto, la aleatoriedad es buena para escapar de los
+óptimos locales, pero mala porque significa que el algoritmo nunca puede
+establecerse en el mínimo. Una solución a este dilema es reducir
+gradualmente la tasa de aprendizaje. Los pasos comienzan grandes (lo que
+ayuda a progresar rápidamente y escapar de los mínimos locales), luego
+se vuelven cada vez más pequeños, lo que permite que el algoritmo se
+asiente en el mínimo global.</p>
+<p>La función que determina la tasa de aprendizaje en cada iteración se
+denomina programa de aprendizaje <strong>(learning schedule)</strong>. Si la tasa de
+aprendizaje se reduce demasiado rápido, es posible que se quede atascado
+en un mínimo local o incluso quede congelado a la mitad del mínimo. Si
+la tasa de aprendizaje se reduce demasiado lenta, puede saltar alrededor
+del mínimo durante mucho tiempo y terminar con una solución subóptima si
+detiene el entrenamiento demasiado pronto.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t0</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">50</span>  <span class="c1"># learning schedule hyperparameters</span>
+
+
+<span class="k">def</span> <span class="nf">learning_schedule</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t0</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">t1</span><span class="p">)</span>
+
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+        <span class="n">random_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>  <span class="c1"># Selecciona un index aleatoriamente</span>
+        <span class="n">xi</span> <span class="o">=</span> <span class="n">X_b</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Selecciona una sola observación o instancia para X</span>
+        <span class="n">yi</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Selecciona una sola observación o instancia para y</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">xi</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">xi</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">yi</span><span class="p">)</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">learning_schedule</span><span class="p">(</span><span class="n">epoch</span> <span class="o">*</span> <span class="n">n_iterations</span> <span class="o">+</span> <span class="n">iteration</span><span class="p">)</span>  <span class="c1"># Tasa de aprendizaje que cambia</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">4.07802069</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">2.99277323</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>En este código las iteraciones se están iterando varias veces
+controladas por <code class="docutils literal notranslate"><span class="pre">epoch</span></code>, es decir, se está iterando por rondas de 100
+iteraciones (<code class="docutils literal notranslate"><span class="pre">n_iterations</span> <span class="pre">=</span> <span class="pre">100</span></code>). Cada ronda se llama <strong>epoch</strong>.</p>
+<p>Mientras el código de Batch Gradient Descent iteró 1000 veces a través
+del todo el conjunto de entrenamiento, el código del Stochastic Gradient
+Descent pasa por el conjunto de entrenamiento 50 veces
+(<code class="docutils literal notranslate"><span class="pre">n_epochs</span> <span class="pre">=</span> <span class="pre">50</span></code>) y llega a una buena solución.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Almacenando la tasa de aprendizaje y los pesos:</span>
+
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t0</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">50</span>  <span class="c1"># learning schedule hyperparameters</span>
+
+
+<span class="k">def</span> <span class="nf">learning_schedule</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t0</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">t1</span><span class="p">)</span>
+
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="n">Ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">])</span>
+<span class="n">etas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+        <span class="n">random_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">xi</span> <span class="o">=</span> <span class="n">X_b</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">yi</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">xi</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">xi</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">yi</span><span class="p">)</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">learning_schedule</span><span class="p">(</span><span class="n">epoch</span> <span class="o">*</span> <span class="n">n_iterations</span> <span class="o">+</span> <span class="n">iteration</span><span class="p">)</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+    <span class="n">Ws</span><span class="p">[:,</span> <span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">etas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">),</span> <span class="n">etas</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">),</span> <span class="n">etas</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución de la tasa de aprendizaje $\eta$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$\eta$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_55_0.png" src="../../../_images/output_55_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">W_best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución de los pesos W en las 50 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$W_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$W_2$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_56_0.png" src="../../../_images/output_56_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución del ajuste del modelo en las 510 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_57_0.png" src="../../../_images/output_57_0.png" />
+<p>Tenga en cuenta que dado que las instancias se eligen al azar, algunas
+instancias pueden elegirse varias veces por epoch, mientras que otras
+pueden no elegirse en absoluto.</p>
+<p>Cuando se usa Stochastic Gradient Descent (SGD), las instancias de
+entrenamiento deben ser independientes e idénticamente distribuidas
+(IID) para garantizar que los parámetros se acerquen al óptimo global,
+en promedio. Una forma sencilla de garantizar esto es barajar (shuffle)
+las instancias durante el entrenamiento (por ejemplo, elegir cada
+instancia al azar o barajar el conjunto de entrenamiento al comienzo de
+cada epoch). Si no mezcla las instancias, por ejemplo, si las instancias
+están ordenadas por etiqueta, entonces SGD comenzará optimizando para
+una etiqueta, luego la siguiente, y así sucesivamente, y no se
+establecerá cerca del mínimo global.</p>
+</div>
+<div class="section" id="descenso-de-gradiente-de-mini-lotes">
+<h2>Descenso de gradiente de mini lotes:<a class="headerlink" href="#descenso-de-gradiente-de-mini-lotes" title="Permalink to this headline">¶</a></h2>
+<p><strong>Mini-batch Gradient Descent</strong></p>
+<p>En cada paso, en lugar de calcular los gradientes basados en el conjunto
+de entrenamiento completo (como en Batch GD) o en una sola instancia
+(como en Stochastic GD), Mini- batch GD calcula los gradientes en
+pequeños conjuntos aleatorios de instancias llamados mini lotes
+(Mini-batch).</p>
+<p>La principal ventaja de Minibatch GD sobre Stochastic GD es que puede
+obtener un aumento de rendimiento a partir de la optimización de
+hardware de las operaciones matriciales, especialmente cuando se
+utilizan GPU. Como resultado, Minibatch GD terminará caminando un poco
+más cerca del mínimo que Stochastic GD, pero puede ser más difícil
+escapar de los mínimos locales.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t0</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">50</span>  <span class="c1"># learning schedule hyperparameters</span>
+
+
+<span class="k">def</span> <span class="nf">learning_schedule</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t0</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">t1</span><span class="p">)</span>
+
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="n">Ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">])</span>
+<span class="n">etas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+        <span class="n">random_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">batch_size</span><span class="p">)</span>
+        <span class="n">xi</span> <span class="o">=</span> <span class="n">X_b</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+        <span class="n">yi</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">xi</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">xi</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">yi</span><span class="p">)</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">learning_schedule</span><span class="p">(</span><span class="n">epoch</span> <span class="o">*</span> <span class="n">n_iterations</span> <span class="o">+</span> <span class="n">iteration</span><span class="p">)</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+    <span class="n">Ws</span><span class="p">[:,</span> <span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">etas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">W_best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución de los pesos W en las 50 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$W_1$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$W_2$&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_64_0.png" src="../../../_images/output_64_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">X</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución del ajuste del modelo en las 510 iteraciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_65_0.png" src="../../../_images/output_65_0.png" />
+<p>La siguiente figura muestra las rutas tomadas por los tres algoritmos de
+descenso de gradiente en el espacio de parámetros durante el
+entrenamiento. Todos terminan cerca del mínimo, pero el camino de Batch
+GD en realidad se detiene en el mínimo, mientras que Stochastic GD y
+Mini-batch GD continúan caminando. Sin embargo, no olvide que Batch GD
+toma mucho tiempo para dar cada paso, y Stochastic GD y Mini-batch GD
+también alcanzarían el mínimo si usara un buen programa de aprendizaje.</p>
+<div class="figure align-default" id="id6">
+<img alt="3GD" src="../../../_images/3GD.jpg" />
+<p class="caption"><span class="caption-text">3GD</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>Finalmente, existen múltiples variantes de GD, por ejemplo, GD de
+momentum, Adagrad, RMSprop, Adam, AdaMax, entre otros. Estas variantes
+se conocen como métodos de optimización u optimizadores.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html" class="btn btn-neutral float-right" title="Ejemplo gradiente descendente" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Gradiente descendente" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

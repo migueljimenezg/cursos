@@ -1,0 +1,706 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Regresión Lineal &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Introducción al Machine Learning" href="../index.html"/>
+        <link rel="next" title="SVM - Regresión" href="../SVM%20-%20Regresi%C3%B3n/SVM%20-%20Regresi%C3%B3n.html"/>
+        <link rel="prev" title="Práctica - clasificación" href="../Pr%C3%A1ctica%20-%20clasificaci%C3%B3n/Pr%C3%A1ctica%20-%20clasificaci%C3%B3n.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Introducción al Machine Learning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Proyectos%20de%20Machine%20Learning/Proyectos%20de%20Machine%20Learning.html">Proyectos de Machine Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Preprocesamiento%20de%20datos/Preprocesamiento%20de%20datos.html">Preprocesamiento de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Regresi%C3%B3n%20Log%C3%ADstica/Regresi%C3%B3n%20Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Support%20Vector%20Machines/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SVM%20-%20c%C3%B3digo/SVM%20-%20c%C3%B3digo.html">SVM - código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%C3%81rboles%20de%20decisi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%C3%81rboles%20de%20clasificaci%C3%B3n%20-%20c%C3%B3digo/%C3%81rboles%20de%20clasificaci%C3%B3n%20-%20c%C3%B3digo.html">Árboles de clasificación - código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Pr%C3%A1ctica%20-%20clasificaci%C3%B3n/Pr%C3%A1ctica%20-%20clasificaci%C3%B3n.html">Práctica - clasificación</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Regresión Lineal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SVM%20-%20Regresi%C3%B3n/SVM%20-%20Regresi%C3%B3n.html">SVM - Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SVM%20-%20Regresi%C3%B3n%20-%20c%C3%B3digo/SVM%20-%20Regresi%C3%B3n%20-%20c%C3%B3digo.html">SVM - Regresión - código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%C3%81rboles%20de%20decisi%C3%B3n%20-%20Regresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20-%20Regresi%C3%B3n.html">Árboles de decisión - Regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../%C3%81rboles%20de%20decisi%C3%B3n%20-%20Regresi%C3%B3n%20-%20c%C3%B3digo/%C3%81rboles%20de%20decisi%C3%B3n%20-%20Regresi%C3%B3n%20-%20c%C3%B3digo.html">Árboles de decisión - Regresión - código</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEEP LEARNING:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Deep%20Learning/Gradiente%20descendente/index.html">Gradiente descendente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Deep%20Learning/Redes%20Neuronales%20Artificiales/index.html">Redes Neuronales Artificiales</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Caracterizaci%C3%B3n%20de%20las%20series%20de%20tiempo/index.html">Caracterización de las series de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Modelos%20autorregresivos/index.html">ARIMA: autoregresivo integrado de medias móviles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Deep%20Learning%20para%20pron%C3%B3stico/index.html">Deep Learning para pronóstico</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Introducción al Machine Learning</a> &raquo;</li>
+        
+      <li>Regresión Lineal</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Machine Learning/Introducción al Machine Learning/Regresión Lineal/Regresión Lineal.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="regresion-lineal">
+<h1>Regresión Lineal<a class="headerlink" href="#regresion-lineal" title="Permalink to this headline">¶</a></h1>
+<p>Con la regresión lineal se busca modelar la relación entre una o
+múltiples variables independientes (<span class="math notranslate nohighlight">\(X_i\)</span>) y una variable
+dependiente (<span class="math notranslate nohighlight">\(y\)</span>). También se puede predecir resultados en una
+escala continua.</p>
+<p>De forma <strong>univariada</strong> se modela la relación entre una característica
+simple (una sola variable explicativa <span class="math notranslate nohighlight">\(X\)</span>) y una respuesta de
+valor continua (variable dependiente <span class="math notranslate nohighlight">\(y\)</span>). La relación lineal se
+define con la siguiente ecuación:</p>
+<div class="math notranslate nohighlight">
+\[y = \beta_0+\beta_1X\]</div>
+<p><span class="math notranslate nohighlight">\(y\)</span>: variable dependiente o de respuesta. También llamada variable
+regresora.</p>
+<p><span class="math notranslate nohighlight">\(X\)</span>: variable independiente.</p>
+<p>Esta es la ecuación de una línea recta de la forma pendiente-intercepto.
+La variable aleatoria <span class="math notranslate nohighlight">\(y\)</span> es una función lineal de <span class="math notranslate nohighlight">\(X\)</span> con
+términos independientes <span class="math notranslate nohighlight">\(\beta_0\)</span> y pendiente <span class="math notranslate nohighlight">\(\beta_1\)</span>.
+Estos dos parámetros son los que se deben estimar en la regresión lineal
+para describir la relación entre las variables <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(y\)</span>.
+Dicho de otra forma, con la regresión lineal se busca la recta de mejor
+ajuste por medio de la búsqueda de los pesos óptimos (<span class="math notranslate nohighlight">\(\beta_0\)</span> y
+<span class="math notranslate nohighlight">\(\beta_1\)</span>).</p>
+<p>Las regresiones lineales hacen parte del aprendizaje automático
+supervisado.</p>
+<div class="section" id="codigo-para-regresion-lineal">
+<h2>Código para Regresión Lineal:<a class="headerlink" href="#codigo-para-regresion-lineal" title="Permalink to this headline">¶</a></h2>
+<p>Se usará <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> en Python para implementar la Regresión
+Lineal:</p>
+<p>En <code class="docutils literal notranslate"><span class="pre">Python</span></code> se debe importar el módulo <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">LinearRegression</span></code></p>
+<p>Luego se crea un objeto regresor indicando con la función
+<code class="docutils literal notranslate"><span class="pre">LinearRegression()</span></code>, el cual lo llamaremos <code class="docutils literal notranslate"><span class="pre">lin_reg</span></code> así:</p>
+<p><code class="docutils literal notranslate"><span class="pre">lin_reg</span> <span class="pre">=</span> <span class="pre">LinearRegression()</span></code></p>
+<p>El ajuste del modelo se hace con la función <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> así:</p>
+<p><code class="docutils literal notranslate"><span class="pre">lin_reg.fit(X,</span> <span class="pre">y)</span></code></p>
+<p>Los parámetros estimados se visualizan con:</p>
+<p><code class="docutils literal notranslate"><span class="pre">lin_reg.intercept_</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">lin_reg.coef_</span></code></p>
+<p>Por último, se realiza la predicción con el modelo ajustado usando la
+función <code class="docutils literal notranslate"><span class="pre">.predict()</span></code>, los valores predichos los llamaremos <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">y_pred</span> <span class="pre">=</span> <span class="pre">lin_reg.predict(X)</span></code></p>
+<p><strong>Importar librerías:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p><strong>Importar datos:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;regresion.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">X</span>     <span class="n">y</span>
+<span class="mi">0</span>   <span class="mf">9.0</span>  <span class="mf">44.7</span>
+<span class="mi">1</span>  <span class="mf">10.1</span>  <span class="mf">78.0</span>
+<span class="mi">2</span>  <span class="mf">11.6</span>  <span class="mf">83.0</span>
+<span class="mi">3</span>   <span class="mf">9.1</span>  <span class="mf">80.0</span>
+<span class="mi">4</span>   <span class="mf">9.7</span>  <span class="mf">77.0</span>
+</pre></div>
+</div>
+<p><strong>Visualización de los datos:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_10_1.png" src="../../../_images/output_10_1.png" />
+<p><strong>Ajuste del modelo:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;X&quot;</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">X</span>
+<span class="mi">0</span>   <span class="mf">9.0</span>
+<span class="mi">1</span>  <span class="mf">10.1</span>
+<span class="mi">2</span>  <span class="mf">11.6</span>
+<span class="mi">3</span>   <span class="mf">9.1</span>
+<span class="mi">4</span>   <span class="mf">9.7</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>    <span class="mf">44.7</span>
+<span class="mi">1</span>    <span class="mf">78.0</span>
+<span class="mi">2</span>    <span class="mf">83.0</span>
+<span class="mi">3</span>    <span class="mf">80.0</span>
+<span class="mi">4</span>    <span class="mf">77.0</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lin_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_reg</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">109.62572542151227</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_reg</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">4.8413394</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">66.05367086</span> <span class="mf">60.72819752</span> <span class="mf">53.46618843</span> <span class="mf">65.56953692</span> <span class="mf">62.66473328</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span> <span class="n">at</span> <span class="mh">0x1ca53e9ac70</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_19_1.png" src="../../../_images/output_19_1.png" />
+</div>
+<div class="section" id="evaluacion-del-desempeno">
+<h2>Evaluación del desempeño:<a class="headerlink" href="#evaluacion-del-desempeno" title="Permalink to this headline">¶</a></h2>
+<p>Las métricas más usadas para evaluar el desempeño de una regresión son
+el <span class="math notranslate nohighlight">\(R^2\)</span>, MSE y RMSE. Recuerde que RMSE es la raíz cuadrada de
+MSE, así que con una de estas dos últimas métricas es suficiente, lo más
+común es utilizar el MSE.</p>
+<p>Se deben importar los módulos: <code class="docutils literal notranslate"><span class="pre">r2_score</span></code> y <code class="docutils literal notranslate"><span class="pre">mean_squared_error</span></code>
+así:</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">r2_score,</span> <span class="pre">mean_squared_error</span></code></p>
+<p>La aplicación de estas dos métricas de desempeño se hace ingresando la
+variable <span class="math notranslate nohighlight">\(y\)</span> real y la <span class="math notranslate nohighlight">\(y\)</span> pronosticada:</p>
+<p><code class="docutils literal notranslate"><span class="pre">r2_score(y,</span> <span class="pre">y_pred)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">mean_squared_error(y,</span> <span class="pre">y_pred)</span></code></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_squared_error</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.09061023513640842</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">961.9004578893185</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="regresion-polinomica">
+<h2>Regresión Polinómica:<a class="headerlink" href="#regresion-polinomica" title="Permalink to this headline">¶</a></h2>
+<p>Se usa la clase <code class="docutils literal notranslate"><span class="pre">PolynomialFeatures</span></code> de <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code> para
+transformar los datos de entrenamiento.</p>
+<p>Para un polinomio de grado 2, cada variable del conjunto de
+entrenamiento se eleva al cuadrado y se transforma en una sola variable.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poly_features</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span>
+    <span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>  <span class="c1"># Convertir las variables en polinomio de grado 2.</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_poly</span> <span class="o">=</span> <span class="n">poly_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># Transformación de las variables.</span>
+</pre></div>
+</div>
+<p>Con las variables transformadas se vuelve a utilizar el código de la
+regresión lineal:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lin_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">57.26317261</span> <span class="mf">44.20950062</span> <span class="mf">42.46285455</span> <span class="mf">55.66483885</span> <span class="mf">47.80370879</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.607048646135817</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">415.6414573974035</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">PathCollection</span> <span class="n">at</span> <span class="mh">0x1ca53f12b80</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_37_1.png" src="../../../_images/output_37_1.png" />
+</div>
+<div class="section" id="regularizacion-para-regresion">
+<h2>Regularización para regresión:<a class="headerlink" href="#regularizacion-para-regresion" title="Permalink to this headline">¶</a></h2>
+<p>La regularización aborta el problema del sobreajuste y lo hace
+reduciendo los valores de los parámetros del modelo para inducir una
+penalización contra la complejidad.</p>
+</div>
+<div class="section" id="regresion-ridge">
+<h2>Regresión Ridge:<a class="headerlink" href="#regresion-ridge" title="Permalink to this headline">¶</a></h2>
+<p>La regresión Ridge, también llamada penalización <span class="math notranslate nohighlight">\(L2\)</span>. La
+penalización se realiza agregando <span class="math notranslate nohighlight">\(\alpha\sum_{i=1}^n{w_i^2}\)</span> a la
+función de costos, que en este caso podría ser la función de mínimos
+cuadrados o la función del MSE.</p>
+<p>Si se aumenta el hiperparámetro <span class="math notranslate nohighlight">\(alpha\)</span>, se aumenta la fuerza de
+regularización y los pesos disminuyen volviendo la curva más plana.
+Tenga en cuante que el intercepto <span class="math notranslate nohighlight">\(w_0\)</span> no se regulariza.</p>
+<p>Es importante escalar los datos antes de realizar la regresión Ridge, ya
+que es sensible a la escala de las entidades de entrada. Esto es cierto
+para la mayoría de los modelos regularizados.</p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.linear_model</span> <span class="pre">import</span> <span class="pre">Ridge</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ridge_reg</span> <span class="pre">=</span> <span class="pre">Ridge(alpha=1,</span> <span class="pre">solver=&quot;cholesky&quot;)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ridge_reg.fit(X,</span> <span class="pre">y)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">y_pred</span> <span class="pre">=</span> <span class="pre">ridge_reg.predict(X)</span></code></p>
+<p><strong>Escalado de variables:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">[:</span><span class="mi">10</span><span class="p">,]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="o">-</span><span class="mf">0.63167125</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.08769549</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.65408965</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.58221891</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.28550486</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.40682794</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.38440954</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">1.59368415</span><span class="p">]</span>
+ <span class="p">[</span> <span class="mf">0.20901857</span><span class="p">]</span>
+ <span class="p">[</span><span class="o">-</span><span class="mf">0.18660017</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Transformamos la variable <span class="math notranslate nohighlight">\(X\)</span> escalada en un polinomio de grado 2.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poly_features</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span>
+    <span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>  <span class="c1"># Convertir las variables en polinomio de grado 2.</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_poly</span> <span class="o">=</span> <span class="n">poly_features</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># Transformación de las variables.</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Ridge</span>
+</pre></div>
+</div>
+<p><span class="math notranslate nohighlight">\(\alpha=200\)</span></p>
+<p>Para valores altos de <span class="math notranslate nohighlight">\(\alpha\)</span>, la curva se vuelve plana.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge_reg</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">ridge_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">ridge_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">56.77465056</span> <span class="mf">48.27006652</span> <span class="mf">48.3944526</span>  <span class="mf">55.70095409</span> <span class="mf">50.52109563</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.5500490903859909</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">475.93232594865617</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">PathCollection</span> <span class="n">at</span> <span class="mh">0x1ca543ed520</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_56_1.png" src="../../../_images/output_56_1.png" />
+</div>
+<div class="section" id="regresion-lasso">
+<h2>Regresión Lasso:<a class="headerlink" href="#regresion-lasso" title="Permalink to this headline">¶</a></h2>
+<p>Regresión Lasso (Least Absolute Shrinkage and Selection Operator
+Regression) es otra versión regularizada de la regresión lineal: al
+igual que la regresión Ridge, agrega un término de regularización a la
+función de costo, pero usa la penalización <span class="math notranslate nohighlight">\(L1\)</span> que es
+<span class="math notranslate nohighlight">\(\alpha\sum_{i=1}^n{|w_i|}\)</span></p>
+<p>Una característica importante de Lasso Regression es que tiende a
+eliminar los pesos de las variables menos importantes (es decir,
+establecerlas en cero). En otras palabras, Lasso Regression realiza
+automáticamente la selección de variables y genera un modelo disperso
+(es decir, con pocos pesos de variables distintos de cero).</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Lasso</span>
+</pre></div>
+</div>
+<p><span class="math notranslate nohighlight">\(\alpha=10\)</span></p>
+<p>Para valores altos de <span class="math notranslate nohighlight">\(\alpha\)</span>, la curva se vuelve plana.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lasso_reg</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">lasso_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">lasso_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">53.9927972</span>  <span class="mf">49.0570819</span>  <span class="mf">52.81694463</span> <span class="mf">53.27511162</span> <span class="mf">50.09873172</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.45048543293700205</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">581.2450657546549</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">PathCollection</span> <span class="n">at</span> <span class="mh">0x1ca54459220</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_65_1.png" src="../../../_images/output_65_1.png" />
+</div>
+<div class="section" id="elastic-net">
+<h2>Elastic Net:<a class="headerlink" href="#elastic-net" title="Permalink to this headline">¶</a></h2>
+<p>Elastic Net es un término medio entre Ridge Regression y Lasso
+Regression. El término de regularización es una combinación simple de
+los términos de regularización de Ridge y Lasso.</p>
+<p>Agrega lo siguiente a la función de costos:
+<span class="math notranslate nohighlight">\(r\alpha\sum_{i=1}^n{|w_i|}+\left(1-t\right)/2\sum_{i=1}^n{w_i^2}\)</span></p>
+<p>Ridge es un buen valor predeterminado, pero si sospecha que solo unas
+pocas variables son útiles, debe preferir Lasso o Elastic Net porque
+tienden a reducir el peso de las funciones inútiles a cero.</p>
+<p>En general, se prefiere Elastic Net sobre Lasso porque Lasso puede
+comportarse de manera errática cuando la cantidad de variables es mayor
+que la cantidad de instancias de entrenamiento o cuando varias variables
+están fuertemente correlacionadas.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">ElasticNet</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elastic_net</span> <span class="o">=</span> <span class="n">ElasticNet</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">l1_ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elastic_net</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">elastic_net</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">53.9927972</span>  <span class="mf">49.0570819</span>  <span class="mf">52.81694463</span> <span class="mf">53.27511162</span> <span class="mf">50.09873172</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.45048543293700205</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">581.2450657546549</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">collections</span><span class="o">.</span><span class="n">PathCollection</span> <span class="n">at</span> <span class="mh">0x1ca544c1940</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_76_1.png" src="../../../_images/output_76_1.png" />
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../SVM%20-%20Regresi%C3%B3n/SVM%20-%20Regresi%C3%B3n.html" class="btn btn-neutral float-right" title="SVM - Regresión" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Pr%C3%A1ctica%20-%20clasificaci%C3%B3n/Pr%C3%A1ctica%20-%20clasificaci%C3%B3n.html" class="btn btn-neutral" title="Práctica - clasificación" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

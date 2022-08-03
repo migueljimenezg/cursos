@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ejemplo gradiente descendente &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Gradiente descendente" href="../index.html"/>
+        <link rel="next" title="Redes Neuronales Artificiales" href="../../Redes%20Neuronales%20Artificiales/index.html"/>
+        <link rel="prev" title="Gradiente descendente" href="../Gradiente%20descendente/Gradiente%20descendente.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEEP LEARNING:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Gradiente descendente</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Ejemplo gradiente descendente</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../Redes%20Neuronales%20Artificiales/index.html">Redes Neuronales Artificiales</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Caracterizaci%C3%B3n%20de%20las%20series%20de%20tiempo/index.html">Caracterización de las series de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Modelos%20autorregresivos/index.html">ARIMA: autoregresivo integrado de medias móviles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Deep%20Learning%20para%20pron%C3%B3stico/index.html">Deep Learning para pronóstico</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Gradiente descendente</a> &raquo;</li>
+        
+      <li>Ejemplo gradiente descendente</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Deep Learning/Gradiente descendente/Ejemplo gradiente descendente/Ejemplo gradiente descendente.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ejemplo-gradiente-descendente">
+<h1>Ejemplo gradiente descendente<a class="headerlink" href="#ejemplo-gradiente-descendente" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<p><strong>Importar datos:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;DatosCafe.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<pre class="literal-block">    Fecha  PrecioInterno  PrecioInternacional  Producción  Exportaciones  0  ene-00       371375.0               130.12         658          517.0
+1  feb-00       354297.0               124.72         740          642.0
+2  mar-00       360016.0               119.51         592          404.0
+3  abr-00       347538.0               112.67        1055          731.0
+4  may-00       353750.0               110.31        1114          615.0
+
+       TRM     EUR
+0  1923.57  1916.0
+1  1950.64  1878.5
+2  1956.25  1875.0
+3  1986.77  1832.0
+4  2055.69  1971.5</pre>
+<p><strong>Modelo:</strong></p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = w_0+w_1\times Producción + w_2\times EUR\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Exportaciones&quot;</span><span class="p">]]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Producción&quot;</span><span class="p">,</span> <span class="s2">&quot;EUR&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">Exportaciones</span>
+<span class="mi">0</span>          <span class="mf">517.0</span>
+<span class="mi">1</span>          <span class="mf">642.0</span>
+<span class="mi">2</span>          <span class="mf">404.0</span>
+<span class="mi">3</span>          <span class="mf">731.0</span>
+<span class="mi">4</span>          <span class="mf">615.0</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">Producción</span>     <span class="n">EUR</span>
+<span class="mi">0</span>         <span class="mi">658</span>  <span class="mf">1916.0</span>
+<span class="mi">1</span>         <span class="mi">740</span>  <span class="mf">1878.5</span>
+<span class="mi">2</span>         <span class="mi">592</span>  <span class="mf">1875.0</span>
+<span class="mi">3</span>        <span class="mi">1055</span>  <span class="mf">1832.0</span>
+<span class="mi">4</span>        <span class="mi">1114</span>  <span class="mf">1971.5</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">N</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">264</span>
+</pre></div>
+</div>
+<p><strong>Normalización de los datos:</strong></p>
+<div class="math notranslate nohighlight">
+\[x_i = \frac{x_i-\overline{x}}{\sigma_x}\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">-=</span> <span class="n">mean</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">/=</span> <span class="n">std</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">Producción</span>       <span class="n">EUR</span>
+<span class="mi">0</span>   <span class="o">-</span><span class="mf">1.169135</span> <span class="o">-</span><span class="mf">1.681368</span>
+<span class="mi">1</span>   <span class="o">-</span><span class="mf">0.861422</span> <span class="o">-</span><span class="mf">1.739874</span>
+<span class="mi">2</span>   <span class="o">-</span><span class="mf">1.416807</span> <span class="o">-</span><span class="mf">1.745334</span>
+<span class="mi">3</span>    <span class="mf">0.320649</span> <span class="o">-</span><span class="mf">1.812420</span>
+<span class="mi">4</span>    <span class="mf">0.542052</span> <span class="o">-</span><span class="mf">1.594781</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">X</span><span class="p">[</span><span class="s2">&quot;Producción&quot;</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="s2">&quot;EUR&quot;</span><span class="p">]]</span>
+<span class="n">X_b</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span>        <span class="p">,</span> <span class="o">-</span><span class="mf">1.16913522</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.68136846</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span>        <span class="p">,</span> <span class="o">-</span><span class="mf">0.86142167</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.73987376</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span>        <span class="p">,</span> <span class="o">-</span><span class="mf">1.4168071</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.74533426</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span>        <span class="p">,</span>  <span class="mf">0.32064866</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.81242033</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span>        <span class="p">,</span>  <span class="mf">0.54205231</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.59478062</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p><strong>Solución analítica de mínimos cuadrados:</strong></p>
+<div class="math notranslate nohighlight">
+\[\hat{W} = \left(X^TX\right)^{-1}X^Ty\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_best</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">W_best</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">891.61310606</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">162.80146402</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">43.15212569</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\hat{y} = 891,6+162,8\times Producción + 43,2\times EUR\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MSE_best</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W_best</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="n">N</span>
+<span class="n">MSE_best</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mf">14712.15294164</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Batch Gradient Descent:</strong></p>
+<div class="math notranslate nohighlight">
+\[\eta = 0.01\]</div>
+<div class="math notranslate nohighlight">
+\[iteraciones = 1000\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eta</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># learning rate</span>
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="n">Ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_iterations</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">N</span> <span class="o">*</span> <span class="n">X_b</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+    <span class="n">Ws</span><span class="p">[:,</span> <span class="n">iteration</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span>
+    <span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">W_best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;W0&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;W1&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;W3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_23_0.png" src="../../../_images/output_23_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ws</span><span class="o">.</span><span class="n">T</span><span class="p">)):</span>
+    <span class="n">MSE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ws</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Exportaciones&quot;</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ws</span><span class="o">.</span><span class="n">T</span><span class="p">)),</span> <span class="n">MSE</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución Loss Funtion por cada epoch&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$Epoch$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$MSE$&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_24_0.png" src="../../../_images/output_24_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">14712.15294184477</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">999</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ws</span><span class="p">[:,</span> <span class="n">MSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">))]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mf">891.61310456</span><span class="p">,</span> <span class="mf">162.80105211</span><span class="p">,</span>  <span class="mf">43.15253759</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_best</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">891.61310606</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">162.80146402</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">43.15212569</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p><strong>Stochastic Gradient Descent:</strong></p>
+<div class="math notranslate nohighlight">
+\[epoch = 50\]</div>
+<div class="math notranslate nohighlight">
+\[iteraciones = 100\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t0</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">50</span>  <span class="c1"># learning schedule hyperparameters</span>
+
+
+<span class="k">def</span> <span class="nf">learning_schedule</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t0</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">t1</span><span class="p">)</span>
+
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="n">Ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">])</span>
+<span class="n">etas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+        <span class="n">random_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+        <span class="n">xi</span> <span class="o">=</span> <span class="n">X_b</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">yi</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">xi</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">xi</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">yi</span><span class="p">)</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">learning_schedule</span><span class="p">(</span><span class="n">epoch</span> <span class="o">*</span> <span class="n">n_iterations</span> <span class="o">+</span> <span class="n">iteration</span><span class="p">)</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+    <span class="n">Ws</span><span class="p">[:,</span> <span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">etas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span>
+    <span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">W_best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;W0&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;W1&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;W3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_32_0.png" src="../../../_images/output_32_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ws</span><span class="o">.</span><span class="n">T</span><span class="p">)):</span>
+    <span class="n">MSE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ws</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Exportaciones&quot;</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ws</span><span class="o">.</span><span class="n">T</span><span class="p">)),</span> <span class="n">MSE</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución Loss Funtion por cada epoch&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$Epoch$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$MSE$&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_33_0.png" src="../../../_images/output_33_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">14720.40460653393</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">35</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ws</span><span class="p">[:,</span> <span class="n">MSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">))]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mf">893.82562008</span><span class="p">,</span> <span class="mf">164.58969864</span><span class="p">,</span>  <span class="mf">41.58632143</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_best</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">891.61310606</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">162.80146402</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">43.15212569</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p><strong>Mini-batch Gradient Descent</strong></p>
+<div class="math notranslate nohighlight">
+\[batch = 12\]</div>
+<div class="math notranslate nohighlight">
+\[epoch = 50\]</div>
+<div class="math notranslate nohighlight">
+\[iteraciones = 1000\]</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t0</span><span class="p">,</span> <span class="n">t1</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">50</span>  <span class="c1"># learning schedule hyperparameters</span>
+
+
+<span class="k">def</span> <span class="nf">learning_schedule</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t0</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">t1</span><span class="p">)</span>
+
+
+<span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># random initialization</span>
+<span class="n">Ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">])</span>
+<span class="n">etas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+        <span class="n">random_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">batch_size</span><span class="p">)</span>
+        <span class="n">xi</span> <span class="o">=</span> <span class="n">X_b</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+        <span class="n">yi</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="n">batch_size</span><span class="p">]</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">xi</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">xi</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output</span> <span class="o">-</span> <span class="n">yi</span><span class="p">)</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="n">learning_schedule</span><span class="p">(</span><span class="n">epoch</span> <span class="o">*</span> <span class="n">n_iterations</span> <span class="o">+</span> <span class="n">iteration</span><span class="p">)</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+    <span class="n">Ws</span><span class="p">[:,</span> <span class="n">epoch</span><span class="p">]</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">etas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&quot;3d&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span>
+    <span class="n">Ws</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">Ws</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">scatter3D</span><span class="p">(</span><span class="n">W_best</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">W_best</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;W0&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;W1&quot;</span><span class="p">)</span>
+<span class="n">axes</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;W3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_41_0.png" src="../../../_images/output_41_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ws</span><span class="o">.</span><span class="n">T</span><span class="p">)):</span>
+    <span class="n">MSE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">X_b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Ws</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Exportaciones&quot;</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Ws</span><span class="o">.</span><span class="n">T</span><span class="p">)),</span> <span class="n">MSE</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución Loss Funtion por cada epoch&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$Epoch$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$MSE$&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_42_0.png" src="../../../_images/output_42_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">14713.751965552769</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">30</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ws</span><span class="p">[:,</span> <span class="n">MSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">))]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mf">892.38703663</span><span class="p">,</span> <span class="mf">163.89630097</span><span class="p">,</span>  <span class="mf">42.64354964</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W_best</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">891.61310606</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">162.80146402</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">43.15212569</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Redes%20Neuronales%20Artificiales/index.html" class="btn btn-neutral float-right" title="Redes Neuronales Artificiales" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Gradiente%20descendente/Gradiente%20descendente.html" class="btn btn-neutral" title="Gradiente descendente" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

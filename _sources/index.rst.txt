@@ -8,13 +8,21 @@ Material de apoyo
 
 .. toctree::
     :maxdepth: 2
-    :caption: MACHINE LEARNING PARA FINANZAS:
+    :caption: MACHINE LEARNING:
     :titlesonly:
     :hidden:
      
-    Machine Learning para Finanzas/Introducción a Python/index
-    Machine Learning para Finanzas/Introducción al Machine Learning/index
+    Machine Learning/Introducción a Python/index
+    Machine Learning/Introducción al Machine Learning/index
 
+.. toctree::
+    :maxdepth: 2
+    :caption: DEEP LEARNING:
+    :titlesonly:
+    :hidden:
+
+    Deep Learning/Gradiente descendente/index
+    Deep Learning/Redes Neuronales Artificiales/index
 
 
 .. toctree::
