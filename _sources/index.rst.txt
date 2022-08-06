@@ -14,15 +14,8 @@ Material de apoyo
      
     Machine Learning/Introducción a Python/index
     Machine Learning/Introducción al Machine Learning/index
+    Machine Learning/Deep Learning/index
 
-.. toctree::
-    :maxdepth: 2
-    :caption: DEEP LEARNING:
-    :titlesonly:
-    :hidden:
-
-    Deep Learning/Gradiente descendente/index
-    Deep Learning/Redes Neuronales Artificiales/index
 
 
 .. toctree::

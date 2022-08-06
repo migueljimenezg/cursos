@@ -95,11 +95,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">DEEP LEARNING:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../Deep%20Learning/Gradiente%20descendente/index.html">Gradiente descendente</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../Deep%20Learning/Redes%20Neuronales%20Artificiales/index.html">Redes Neuronales Artificiales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/index.html">Deep Learning</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
 <ul>
@@ -463,7 +459,7 @@ la segunda columna de los datos cargados.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">matplot</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">st_PFB</span><span class="p">),</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_36_04.png"><img alt="../../../_images/output_36_04.png" src="../../../_images/output_36_04.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_36_02.png"><img alt="../../../_images/output_36_02.png" src="../../../_images/output_36_02.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="grafica-de-los-precios-simulados-de-pfbcolom-con-el-paquete-fanplot">
 <h2>Gráfica de los precios simulados de PFBCOLOM con el paquete <code class="docutils literal notranslate"><span class="pre">fanplot</span></code>.<a class="headerlink" href="#grafica-de-los-precios-simulados-de-pfbcolom-con-el-paquete-fanplot" title="Permalink to this headline">¶</a></h2>
@@ -471,7 +467,7 @@ la segunda columna de los datos cargados.</p>
 <span class="nf">abline</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="m">2</span><span class="p">],</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_38_02.png"><img alt="../../../_images/output_38_02.png" src="../../../_images/output_38_02.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_38_03.png"><img alt="../../../_images/output_38_03.png" src="../../../_images/output_38_03.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="isa">
 <h2>ISA<a class="headerlink" href="#isa" title="Permalink to this headline">¶</a></h2>
@@ -498,7 +494,7 @@ la tercera columna de los datos cargados.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">matplot</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="n">st_ISA</span><span class="p">),</span> <span class="n">t</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_43_03.png"><img alt="../../../_images/output_43_03.png" src="../../../_images/output_43_03.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_43_04.png"><img alt="../../../_images/output_43_04.png" src="../../../_images/output_43_04.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="grafica-de-los-precios-simulados-de-isa-con-el-paquete-fanplot">
 <h2>Gráfica de los precios simulados de ISA con el paquete <code class="docutils literal notranslate"><span class="pre">fanplot</span></code>.<a class="headerlink" href="#grafica-de-los-precios-simulados-de-isa-con-el-paquete-fanplot" title="Permalink to this headline">¶</a></h2>
@@ -638,7 +634,7 @@ la siguiente manera:</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">st</span><span class="p">[,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">],</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;gray&quot;</span><span class="p">,</span> <span class="n">breaks</span> <span class="o">=</span> <span class="m">40</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Rendimientos&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Frecuencia&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Histograma acción de ECO día 1&quot;</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_57_06.png"><img alt="../../../_images/output_57_06.png" src="../../../_images/output_57_06.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_57_05.png"><img alt="../../../_images/output_57_05.png" src="../../../_images/output_57_05.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="distribucion-precios-simulados-de-eco-dia-100">
 <h2>Distribución precios simulados de ECO día 100<a class="headerlink" href="#distribucion-precios-simulados-de-eco-dia-100" title="Permalink to this headline">¶</a></h2>
@@ -658,7 +654,7 @@ la siguiente manera:</p>
 <span class="nf">legend</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;topright&quot;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;1 día&quot;</span><span class="p">,</span><span class="s">&quot;5 días&quot;</span><span class="p">,</span><span class="s">&quot;20 días&quot;</span><span class="p">,</span><span class="s">&quot;80 días&quot;</span><span class="p">,</span><span class="s">&quot;100 días&quot;</span><span class="p">),</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;gray55&quot;</span><span class="p">,</span><span class="s">&quot;darkgreen&quot;</span><span class="p">,</span><span class="s">&quot;darkblue&quot;</span><span class="p">,</span><span class="s">&quot;brown&quot;</span><span class="p">,</span><span class="s">&quot;black&quot;</span><span class="p">),</span> <span class="n">lwd</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">bty</span> <span class="o">=</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_61_03.png"><img alt="../../../_images/output_61_03.png" src="../../../_images/output_61_03.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_61_04.png"><img alt="../../../_images/output_61_04.png" src="../../../_images/output_61_04.png" style="width: 420px; height: 420px;" /></a>
 </div>
 </div>
 
