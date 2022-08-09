@@ -1,0 +1,331 @@
+RNA en Keras para regresión
+---------------------------
+
+Los problemas de regresión usan las mismas arquitecturas de las redes
+neuronales artificiales que en los problemas de clasificación, pero los
+únicos tres cambios principales son los siguientes:
+
+-  **Output layer:** se usa una única neurona en la capa de salida.
+
+-  **Función de activación en Output layer:** generalmente no se agrega
+   una función de activación en la capa de salida, se deja por defecto
+   la que trae Keras que es la función de activación lineal. Esto se
+   hace para que el valor de salida que será la predicción no tenga
+   ningún límite; sin embargo, en algunos casos donde la predicción solo
+   puede tomar valores positivos se agrega la función de activación
+   ``"relu"``.
+
+-  **Función de pérdida y métrica de error:** la métrica más usada es
+   ``"mse"`` o ``"mae"`` si el conjunto de entrenamiento presenta muchos
+   valores atípicos.
+
+.. code:: ipython3
+
+    import pandas as pd
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+.. code:: ipython3
+
+    df = pd.read_csv("regresion.csv", sep=";", decimal=",")
+    print(df.head())
+
+
+.. parsed-literal::
+
+          X     y
+    0   9.0  44.7
+    1  10.1  78.0
+    2  11.6  83.0
+    3   9.1  80.0
+    4   9.7  77.0
+    
+
+.. code:: ipython3
+
+    plt.scatter(df["X"], df["y"])
+    plt.xlabel("X")
+    plt.ylabel("y");
+
+
+
+.. image:: output_4_0.png
+
+
+.. code:: ipython3
+
+    X = df[["X"]]
+    print(X.head())
+
+
+.. parsed-literal::
+
+          X
+    0   9.0
+    1  10.1
+    2  11.6
+    3   9.1
+    4   9.7
+    
+
+.. code:: ipython3
+
+    X.shape[0]
+
+
+
+
+.. parsed-literal::
+
+    300
+
+
+
+.. code:: ipython3
+
+    y = df["y"]
+    print(y.head())
+
+
+.. parsed-literal::
+
+    0    44.7
+    1    78.0
+    2    83.0
+    3    80.0
+    4    77.0
+    Name: y, dtype: float64
+    
+
+Conjunto de train y test:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Como la base de datos es muy pequeña el test será del 0,5%.
+
+.. code:: ipython3
+
+    from sklearn.model_selection import train_test_split
+
+.. code:: ipython3
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.005, random_state=0
+    )
+
+.. code:: ipython3
+
+    X.shape
+
+
+
+
+.. parsed-literal::
+
+    (300, 1)
+
+
+
+.. code:: ipython3
+
+    X_train.shape
+
+
+
+
+.. parsed-literal::
+
+    (298, 1)
+
+
+
+.. code:: ipython3
+
+    y_train.shape
+
+
+
+
+.. parsed-literal::
+
+    (298,)
+
+
+
+Estandarización de las variables:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from sklearn.preprocessing import StandardScaler
+
+.. code:: ipython3
+
+    sc = StandardScaler()
+    sc.fit(X_train)
+    X_train = sc.transform(X_train)
+    X_test = sc.transform(X_test)
+
+.. code:: ipython3
+
+    X_train[0:5]
+
+
+
+
+.. parsed-literal::
+
+    array([[ 1.11354157],
+           [ 2.55522341],
+           [ 0.6164099 ],
+           [-0.2784271 ],
+           [-1.72010893]])
+
+
+
+.. code:: ipython3
+
+    X_test[0:5]
+
+
+
+
+.. parsed-literal::
+
+    array([[0.3181309 ],
+           [2.25694441]])
+
+
+
+.. code:: ipython3
+
+    plt.scatter(X_train, y_train)
+    plt.xlabel("X_train")
+    plt.ylabel("y_train");
+
+
+
+.. image:: output_20_0.png
+
+
+.. code:: ipython3
+
+    plt.scatter(X_test, y_test)
+    plt.xlabel("X_test")
+    plt.ylabel("y_test");
+
+
+
+.. image:: output_21_0.png
+
+
+Arquitectura de la red:
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from keras.models import Sequential
+    from keras.layers import Dense
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dense(3, activation="relu", input_shape=(X.shape[1],)))
+    model.add(Dense(1))
+    model.compile(loss="mse", optimizer="sgd")
+    history = model.fit(
+        X_train,
+        y_train,
+        validation_data=(X_test, y_test),
+        epochs=200,
+        batch_size=10,
+        verbose=0,
+    )
+
+Evaluación del desempeño:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    model.evaluate(X_test, y_test)
+
+
+.. parsed-literal::
+
+    1/1 [==============================] - 0s 15ms/step - loss: 1478.4849
+    
+
+
+
+.. parsed-literal::
+
+    1478.48486328125
+
+
+
+.. code:: ipython3
+
+    plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
+    plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
+    plt.xlabel("epoch")
+    plt.ylabel("Loss")
+    plt.legend();
+
+
+
+.. image:: output_27_0.png
+
+
+.. code:: ipython3
+
+    y_pred = model.predict(X_test)
+    y_pred[0:5]
+
+
+.. parsed-literal::
+
+    1/1 [==============================] - 0s 60ms/step
+    
+
+
+
+.. parsed-literal::
+
+    array([[59.93222],
+           [59.93222]], dtype=float32)
+
+
+
+.. code:: ipython3
+
+    y_pred = model.predict(X_train)
+    y_pred[0:5]
+
+
+.. parsed-literal::
+
+    10/10 [==============================] - 0s 808us/step
+    
+
+
+
+.. parsed-literal::
+
+    array([[59.93222],
+           [59.93222],
+           [59.93222],
+           [59.93222],
+           [59.93222]], dtype=float32)
+
+
+
+.. code:: ipython3
+
+    plt.scatter(X_train, y_train)
+    plt.scatter(X_train, y_pred, color="darkred");
+
+
+
+.. image:: output_30_0.png
+
+
+**¿Cómo cambia el resultado si no hace el escalado de variables?**

@@ -97,7 +97,7 @@ los pesos :math:`W`.
 
 Aplicando la Regla de la Cadena:
 
-.. math::  \frac{\partial}{\partial W} MSE(W) = \frac{2}{N}\sum_{i=1}^m\left(WX_{i}+b-y_{i}\right)X_i 
+.. math::  \frac{\partial}{\partial W} MSE(W) = \frac{2}{m}\sum_{i=1}^m\left(WX_{i}+b-y_{i}\right)X_i 
 
 El gradiente descendente en cada iteración cambia los valores de
 :math:`W` con el objetivo de minimizar la función de costo, MSE.

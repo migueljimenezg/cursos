@@ -182,7 +182,35 @@ Donde,
 La función sigmoide tiene forma de :math:`S` y la salida oscila entre
 :math:`0` y :math:`1`.
 
-Más adelante se explicarán otras funciones de activación.
+Para la función de activación lineal (linear) el algoritmo de gradiente
+descendente utiliza las siguientes fórmulas en cada iteración para
+actualizar los pesos en el backward pass:
+
+.. math::  W^{(nextStep)}=W-\eta\times\frac{\partial}{\partial W} MSE(W)  
+
+Donde,
+
+.. math::  \frac{\partial}{\partial W} MSE(W) = \frac{2}{m}\sum_{i=1}^m\left(WX_{i}+b-y_{i}\right)X_i 
+
+Para cualquier función de activación podemos modificar las fórmulas
+agregando la derivada de la función de activación.
+
+.. math::  \frac{\partial}{\partial W} MSE(W) = \frac{2}{m}\sum_{i=1}^m\left(WX_{i}+b-y_{i}\right)X_i\times \frac{\partial g(z)}{\partial z} 
+
+Donde,
+
+:math:`g(z)`: es la función de activación que se está usando en la
+neurona.
+
+Por ejemplo, para la función de activación Sigmoide, su derivada es:
+
+.. math::  \frac{\partial \sigma(z)}{\partial z} = \sigma(z)(1-\sigma(z)) 
+
+Así que en la actualización de los pesos la fórmula quedaría:
+
+.. math::  \frac{\partial}{\partial W} MSE(W) = \frac{2}{m}\sum_{i=1}^m\left(WX_{i}+b-y_{i}\right)X_i\times \sigma(z)(1-\sigma(z)) 
+
+Luego se explicarán otras funciones de activación.
 
 Cerca de la década de 1970 los investigadores esperaban mucho más de los
 perceptrones, y algunos estaban tan decepcionados que abandonaron las

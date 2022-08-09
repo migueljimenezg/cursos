@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RNA para clasificación y regresión &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Deep Learning" href="../index.html"/>
+        <link rel="next" title="División del dataset" href="../Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html"/>
+        <link rel="prev" title="Funciones de activación" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Deep Learning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicio%20RNA%20clasificaci%C3%B3n%20binaria/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Caracterizaci%C3%B3n%20de%20las%20series%20de%20tiempo/index.html">Caracterización de las series de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Modelos%20autorregresivos/index.html">ARIMA: autoregresivo integrado de medias móviles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Deep%20Learning%20para%20pron%C3%B3stico/index.html">Deep Learning para pronóstico</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Deep Learning</a> &raquo;</li>
+        
+      <li>RNA para clasificación y regresión</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Machine Learning/Deep Learning/RNA para clasificación y regresión/RNA para clasificación y regresión.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rna-para-clasificacion-y-regresion">
+<h1>RNA para clasificación y regresión<a class="headerlink" href="#rna-para-clasificacion-y-regresion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rna-para-clasificacion">
+<h2>RNA para clasificación<a class="headerlink" href="#rna-para-clasificacion" title="Permalink to this headline">¶</a></h2>
+<p>La arquitectura MLP también se pueden utilizar para tareas de
+clasificación.</p>
+<p>Para problemas de clasificación binaria, solo se necesita una sola
+neurona de salida usando la función de activación sigmoide. La salida
+será un número entre <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(1\)</span>, que podría interpretarse
+como la probabilidad estimada de la clase positiva. La probabilidad de
+la clase negativa es igual a uno menos este número.</p>
+<p>Para problemas de clasificación binaria multietiqueta, se utiliza una
+neurona de salida para cada clase positiva. En este caso las
+probabilidades de salida no necesariamente suman <span class="math notranslate nohighlight">\(1\)</span>. Esto genera
+que el modelo genere cualquier combinación de etiquetas.</p>
+<p>Si cada observación solo puede pertenecer a una sola clase, por ejemplo,
+clases del <span class="math notranslate nohighlight">\(0\)</span> al <span class="math notranslate nohighlight">\(9\)</span> para clasificación de imágenes con
+dígitos, entonces se necesita una neurona de salida por cada clase y se
+debe usar la función de activación <strong>sotfmax</strong> para toda la capa de
+salida. Esta función garantiza que todas las probabilidades estimadas
+estén entre <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(1\)</span> y que sumen <span class="math notranslate nohighlight">\(1\)</span>, lo cual es
+obligatorio si las clases son excluyentes. Esto se llama clasificación
+multiclase.</p>
+<p>Con softmax se genera una distribución de probabilidad sobre las N
+clases de salida.</p>
+</div>
+<div class="section" id="tipos-de-problemas-de-clasificacion">
+<h2>Tipos de problemas de clasificación:<a class="headerlink" href="#tipos-de-problemas-de-clasificacion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Clasificación binaria:</strong> una tarea de clasificación en la que cada
+muestra de entrada debe clasificarse en dos categorías exclusivas.</p></li>
+<li><p><strong>Clases:</strong> un conjunto de etiquetas posibles para elegir en un
+problema de clasificación. Por ejemplo, al clasificar imágenes de
+gatos y perros, “perro” y “gato” son las dos clases.</p></li>
+<li><p><strong>Clasificación multiclase:</strong> una tarea de clasificación en la que
+cada muestra de entrada debe categorizarse en más de dos categorías:
+por ejemplo, clasificar dígitos escritos a mano.</p></li>
+<li><p><strong>Clasificación multietiqueta:</strong> una tarea de clasificación en la que
+a cada muestra de entrada se le pueden asignar varias etiquetas. Por
+ejemplo, una imagen determinada puede contener tanto un gato como un
+perro y debe anotarse tanto con la etiqueta “gato” como con la
+etiqueta “perro”. El número de etiquetas por imagen suele ser
+variable.</p></li>
+</ul>
+<p><strong>Clasificación binaria:</strong></p>
+<div class="figure align-default" id="id1">
+<img alt="Binary" src="../../../_images/Binary.jpg" />
+<p class="caption"><span class="caption-text">Binary</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Clasificación multiclase:</strong></p>
+<div class="figure align-default" id="id2">
+<img alt="Multiclass" src="../../../_images/Multiclass.jpg" />
+<p class="caption"><span class="caption-text">Multiclass</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>La siguiente tabla resumen una arquitectura típica de un MLP para
+clasificación:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Hiperparámetro</p></th>
+<th class="head"><p>Clasificación
+binaria</p></th>
+<th class="head"><p>Clasificación
+multibinaria</p></th>
+<th class="head"><p>Clasificación
+multiclase</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p># input neurons</p></td>
+<td><p>Una por cada
+variable</p></td>
+<td><p>Una por cada
+variable</p></td>
+<td><p>Una por cada
+variable</p></td>
+</tr>
+<tr class="row-odd"><td><p># hidden layers</p></td>
+<td><p>Depende del
+problema, pero
+podría ser
+entre 1 y 5</p></td>
+<td><p>Depende del
+problema, pero
+podría ser
+entre 1 y 5</p></td>
+<td><p>Depende del
+problema, pero
+podría ser
+entre 1 y 5</p></td>
+</tr>
+<tr class="row-even"><td><p># de output
+neurons</p></td>
+<td><p>1</p></td>
+<td><p>1 por etiqueta</p></td>
+<td><p>1 por clase</p></td>
+</tr>
+<tr class="row-odd"><td><p>Output
+activation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;softmax&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Loss funtion</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;binary_</span>
+<span class="pre">crossentropy&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;binary_</span>
+<span class="pre">crossentropy&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;categorical_</span>
+<span class="pre">crossentropy&quot;</span></code>
+o
+<code class="docutils literal notranslate"><span class="pre">&quot;spar</span>
+<span class="pre">se_categorical_</span>
+<span class="pre">crossentropy&quot;</span></code>
+etiquetas con
+enteros</p></td>
+</tr>
+<tr class="row-odd"><td><p>Metricas de
+error</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;accuracy&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;accuracy&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;accuracy&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="rna-para-regresion">
+<h2>RNA para Regresión:<a class="headerlink" href="#rna-para-regresion" title="Permalink to this headline">¶</a></h2>
+<p>Consiste en predecir un valor continuo en lugar de una etiqueta
+discreta.</p>
+<p>Si se desea predecir un solo valor, solo se necestia una única neurona
+de salida, su salida será el valor predicho.</p>
+<p>En la regresión multivarada, donde se predicen varios valores a la vez,
+se necesita una neurona de salida por cada dimensión de salida, por
+ejemplo, se necesitan dos salidas si la predicción es el ancho y el
+largo al mismo tiempo.</p>
+<p>En general, al construir un MLP para regresión, no se desea utilizar
+<strong>ninguna función de activación</strong> para las neuronas de salida, por lo
+que son libres de generar cualquier rango de valores.</p>
+<p>Si se desea garantizar que la salida sea siempre positiva, se puede usar
+la función de activación <strong>ReLU</strong> en la capa de salida. También se
+podría usar la función de activación <strong>softplus.</strong></p>
+<p>Si se desea garantizar que las predicciones se encuentran dentro de un
+rago de valores dado, se puede usar la función sigmoide o la tangente
+hiperbólica y luego escalar las variables al rando apropiado: de
+<span class="math notranslate nohighlight">\(0\)</span> a <span class="math notranslate nohighlight">\(1\)</span> para la función sigmoide y de <span class="math notranslate nohighlight">\(-1\)</span> a
+<span class="math notranslate nohighlight">\(1\)</span> para la tangente hiperbólica.</p>
+<p>La función de pérdida <strong>(loss function)</strong> que se usa durante el
+entrenamiento suele ser el error cuadrático medio <strong>(Mean Squared
+Error-MSE)</strong>, pero si hay presencia de valores atípicos en el conjunto
+de entrenamiento, es posible preferir una el error absoluto medio
+<strong>(Mean Absolute Error - MAE).</strong></p>
+<p>Una buena práctica generalizada es realizar una normalización a las
+variables de entrada.</p>
+<p>La siguiente tabla resumen una arquitectura típica de un MLP para
+regresión:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Hiperparámetro</p></th>
+<th class="head"><p>Valor típico</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p># input neurons</p></td>
+<td><p>Una por cada variable</p></td>
+</tr>
+<tr class="row-odd"><td><p># hidden layers</p></td>
+<td><p>Depende del problema, pero podría
+ser entre 1 y 5</p></td>
+</tr>
+<tr class="row-even"><td><p># neurons por hidden layer</p></td>
+<td><p>Depende del problema, pero podía
+ser entre 10 y 100</p></td>
+</tr>
+<tr class="row-odd"><td><p># de output neurons</p></td>
+<td><p>Una por cada dimensión de
+predicción</p></td>
+</tr>
+<tr class="row-even"><td><p>Hidden activation</p></td>
+<td><p>Comunmente <code class="docutils literal notranslate"><span class="pre">&quot;relu&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Output activation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code> o para outputs
+positivos: <code class="docutils literal notranslate"><span class="pre">&quot;relu&quot;</span></code> o
+<code class="docutils literal notranslate"><span class="pre">&quot;softplus&quot;</span></code>. Outputs
+limitados: <code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code> o
+<code class="docutils literal notranslate"><span class="pre">&quot;tanh&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Loss funtion</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;mse&quot;</span></code> o <code class="docutils literal notranslate"><span class="pre">&quot;mae&quot;</span></code> para
+outliers</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html" class="btn btn-neutral float-right" title="División del dataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html" class="btn btn-neutral" title="Funciones de activación" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

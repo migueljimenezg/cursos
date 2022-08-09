@@ -1,0 +1,1468 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RNA en Keras para clasificación &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Deep Learning" href="../index.html"/>
+        <link rel="next" title="RNA en Keras para clasificación multiclase" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html"/>
+        <link rel="prev" title="Escalado de variables" href="../Escalado%20de%20variables/Escalado%20de%20variables.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Deep Learning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicio%20RNA%20clasificaci%C3%B3n%20binaria/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Caracterizaci%C3%B3n%20de%20las%20series%20de%20tiempo/index.html">Caracterización de las series de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Modelos%20autorregresivos/index.html">ARIMA: autoregresivo integrado de medias móviles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Deep%20Learning%20para%20pron%C3%B3stico/index.html">Deep Learning para pronóstico</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Deep Learning</a> &raquo;</li>
+        
+      <li>RNA en Keras para clasificación</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Machine Learning/Deep Learning/RNA en Keras para clasificación/RNA en Keras para clasificación.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rna-en-keras-para-clasificacion">
+<h1>RNA en Keras para clasificación<a class="headerlink" href="#rna-en-keras-para-clasificacion" title="Permalink to this headline">¶</a></h1>
+<p>La manera más sencilla de construir una red neuronal artificial es con
+el modelo <code class="docutils literal notranslate"><span class="pre">Sequential</span></code> de Keras, con el cual podemos apilar las capas.
+Es básicamente una lista de Python. Cada capa se agrega con el método
+<code class="docutils literal notranslate"><span class="pre">add()</span></code>, que es similar al método <code class="docutils literal notranslate"><span class="pre">append()</span></code> de una lista de Python.</p>
+<p>Después de crear la arquitectura de la RNA con el argumento <code class="docutils literal notranslate"><span class="pre">add()</span></code> se
+realizan los siguientes pasos:</p>
+<ul class="simple">
+<li><p>Compilar el modelo: <code class="docutils literal notranslate"><span class="pre">compile()</span></code>. Principalmente se especifica la
+función de costo <code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">=</span></code>, el optimizador para el Gradiente
+Descente con <code class="docutils literal notranslate"><span class="pre">optimizer</span> <span class="pre">=</span></code> y las métricas adicionales para evaluar
+el error con <code class="docutils literal notranslate"><span class="pre">metrics</span> <span class="pre">=</span></code>.</p></li>
+<li><p>Ajuste del modelo: <code class="docutils literal notranslate"><span class="pre">fit()</span></code>. Se pasa a la RNA el conjunto de datos
+para entrenar la red, se especifica la cantidad de <code class="docutils literal notranslate"><span class="pre">epochs</span> <span class="pre">=</span></code>, el
+tamaño del batch, entre otros.</p></li>
+<li><p>Evaluación del modelo: <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>. Se muestra la métrica de
+error.</p></li>
+<li><p>Predicción del modelo: <code class="docutils literal notranslate"><span class="pre">predict()</span></code>. Es el último paso.</p></li>
+</ul>
+<p>Crearemos una red neuronal capaz de clasificar entre 0 y 1 los
+siguientes datos.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_circles</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.07</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_7_0.png" src="../../../_images/output_7_0.png" />
+<div class="section" id="conjunto-de-train-y-test">
+<h2>Conjunto de train y test:<a class="headerlink" href="#conjunto-de-train-y-test" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">800</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="estandarizacion-de-las-variables">
+<h2>Estandarización de las variables:<a class="headerlink" href="#estandarizacion-de-las-variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.44230374</span><span class="p">,</span>  <span class="mf">0.15891901</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.03728977</span><span class="p">,</span>  <span class="mf">0.68298475</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.33847</span>   <span class="p">,</span>  <span class="mf">1.28640686</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.80691874</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.62922478</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">1.11428973</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.53859523</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.49240256</span><span class="p">,</span>  <span class="mf">0.09767171</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.38307799</span><span class="p">,</span>  <span class="mf">0.24735874</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.7854906</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.08927135</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">0.42479835</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.7733051</span> <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.66610624</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.42829004</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id1">
+<img alt="RNAClasificacion1" src="../../../_images/RNAClasificacion1.jpg" />
+<p class="caption"><span class="caption-text">RNAClasificacion1</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Importar librerías:</strong></p>
+<p>Existen muchas maneras de escribir el código, cada una tiene variaciones
+en la forma de importar los módulos.</p>
+<p>Importaremos el modelo <code class="docutils literal notranslate"><span class="pre">Sequential()</span></code> y las capas <code class="docutils literal notranslate"><span class="pre">layers</span></code> densas
+<code class="docutils literal notranslate"><span class="pre">Dense()</span></code> así:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="creacion-de-la-arquitectura-de-la-red">
+<h2>Creación de la arquitectura de la red:<a class="headerlink" href="#creacion-de-la-arquitectura-de-la-red" title="Permalink to this headline">¶</a></h2>
+<p><strong>Sequential model:</strong></p>
+<p>Crearemos un objeto llamado <code class="docutils literal notranslate"><span class="pre">model</span></code> para almacenar el modelo
+<code class="docutils literal notranslate"><span class="pre">Sequential()</span></code>.</p>
+<p>A la red neuronal la almacenaremos con el nombre <code class="docutils literal notranslate"><span class="pre">model</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capas-densas-y-funciones-de-activacion">
+<h2>Capas densas y funciones de activación:<a class="headerlink" href="#capas-densas-y-funciones-de-activacion" title="Permalink to this headline">¶</a></h2>
+<p>Al modelo Sequential creado llamado <code class="docutils literal notranslate"><span class="pre">model</span></code> le agregaremos cada capa
+con el método <code class="docutils literal notranslate"><span class="pre">add()</span></code> y como serán capas densas se utiliza
+<code class="docutils literal notranslate"><span class="pre">.add(Dense())</span></code>.</p>
+<p><strong>Primera capa densa:</strong></p>
+<p>Dentro de la capa <code class="docutils literal notranslate"><span class="pre">Dense()</span></code> se debe especificar la función de
+activación con el argumento <code class="docutils literal notranslate"><span class="pre">activation</span> <span class="pre">=</span></code>. Por defecto es la función
+de activación lineal.</p>
+<p>Puede ver las funciones de activación de Keras
+<a class="reference external" href="https://keras.io/api/layers/activations/">aquí</a></p>
+<p>Funciones de activación de Keras: lineal por defecto, <code class="docutils literal notranslate"><span class="pre">&quot;relu&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;softmax&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;softplus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;softsign&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;tanh&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;selu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;elu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;exponential&quot;</span></code>.</p>
+<p>La primera capa densa será la primera capa oculta (hidden layer). Esta
+capa es la única que está conectada con el input layer, por tanto, a
+esta primera capa oculta se le especifica el tamaño del input con el
+argumento <code class="docutils literal notranslate"><span class="pre">input_shape</span> <span class="pre">=</span> <span class="pre">(X.shape[1],</span> <span class="pre">)</span></code>, donde la cantidad de
+variables de entrada se especifica con <code class="docutils literal notranslate"><span class="pre">X.shape[1]</span></code>.</p>
+<p>Incluir <code class="docutils literal notranslate"><span class="pre">input_shape</span></code> podría ser opcional, pero recuerde que solo se
+aplica en la primera capa oculta, en las demás capas, las entradas serán
+las capas de neuronas anteriores y no las variables de entrada.</p>
+<p>El siguente ejemplo crea la primera capa oculta con cuatro neuronas y
+función de activación <code class="docutils literal notranslate"><span class="pre">tanh</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)))</span>
+</pre></div>
+</div>
+<p>Cada capa densa gestiona su propia matriz de pesos, que contiene todos
+los pesos de conexión entre las neuronas y sus entradas. También
+gestiona un vector de términos de bias (una por neurona).</p>
+<p><strong>Segunda capa densa:</strong></p>
+<p>Las siguientes capas se crean de forma similar que la primera capa densa
+usando los métodos <code class="docutils literal notranslate"><span class="pre">.add(Dense))</span></code>, pero sin incluir <code class="docutils literal notranslate"><span class="pre">input_shape</span></code>.</p>
+<p>Se creará una capa densa con dos neuronas y función de activación
+<code class="docutils literal notranslate"><span class="pre">tanh</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Capa de salida:</strong></p>
+<p>El output layer se crea como cualquier otra capa densa. Recuerde que,
+dependiendo del problema, esta capa tendrá una o más neuronas y cierta
+función de activación.</p>
+<p>Como este ejemplo es de clasificación binaria solo se necesita una sola
+neurona con la función de activación Sigmoide.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Summary:</strong></p>
+<p>Después de construir el modelo, puede mostrar su contenido a través del
+método <code class="docutils literal notranslate"><span class="pre">summary()</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Model</span><span class="p">:</span> <span class="s2">&quot;sequential&quot;</span>
+<span class="n">_________________________________________________________________</span>
+ <span class="n">Layer</span> <span class="p">(</span><span class="nb">type</span><span class="p">)</span>                <span class="n">Output</span> <span class="n">Shape</span>              <span class="n">Param</span> <span class="c1">#</span>
+<span class="o">=================================================================</span>
+ <span class="n">dense</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>               <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>                 <span class="mi">12</span>
+
+ <span class="n">dense_1</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>             <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                 <span class="mi">10</span>
+
+ <span class="n">dense_2</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>             <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>                 <span class="mi">3</span>
+
+<span class="o">=================================================================</span>
+<span class="n">Total</span> <span class="n">params</span><span class="p">:</span> <span class="mi">25</span>
+<span class="n">Trainable</span> <span class="n">params</span><span class="p">:</span> <span class="mi">25</span>
+<span class="n">Non</span><span class="o">-</span><span class="n">trainable</span> <span class="n">params</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">_________________________________________________________________</span>
+</pre></div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">summary()</span></code> del modelo muestra todas las capas del modelo,
+incluido el nombre de cada capa (que se genera automáticamente a menos
+que lo establezca al crear la capa), su forma de salida (<code class="docutils literal notranslate"><span class="pre">None</span></code>
+significa que el tamaño del lote puede ser cualquiera) y su número de
+parámetros . El summary finaliza con el número total de parámetros,
+incluidos los parámetros entrenables y no entrenables. Aquí solo tenemos
+parámetros entrenables.</p>
+</div>
+<div class="section" id="resumen-de-la-creacion-de-la-red">
+<h2>Resumen de la creación de la red:<a class="headerlink" href="#resumen-de-la-creacion-de-la-red" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="compilar-el-modelo">
+<h2>Compilar el modelo:<a class="headerlink" href="#compilar-el-modelo" title="Permalink to this headline">¶</a></h2>
+<p>Después de crear la arquitectura de la RNA el modelo se compila con
+<code class="docutils literal notranslate"><span class="pre">compile()</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">loss</span> <span class="pre">=</span></code>: se puede especificar para los problemas de regresión
+<code class="docutils literal notranslate"><span class="pre">mse</span></code> o <code class="docutils literal notranslate"><span class="pre">mae</span></code>. Para clasificación binaria
+<code class="docutils literal notranslate"><span class="pre">&quot;binary_crossentropy&quot;</span></code> y para clasificación multiclase
+<code class="docutils literal notranslate"><span class="pre">&quot;categorical_crossentropy&quot;</span></code>. Si tuvieramos etiquetas donde para
+cada instancia solo hay una clase, por ejemplo, números del 0 al 9,
+estas clases son exclusivas, así que utilizaríamos la función de
+pérdida <code class="docutils literal notranslate"><span class="pre">&quot;sparse_categorical_crossentropy&quot;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">optimizer</span> <span class="pre">=</span></code>: por defecto usa <code class="docutils literal notranslate"><span class="pre">&quot;rmsprop&quot;</span></code>. Keras tiene las
+siguientes opciones
+<a class="reference external" href="https://keras.io/api/optimizers/#weights-property">aquí</a>:
+<code class="docutils literal notranslate"><span class="pre">&quot;sgd&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;rmsprop&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;adam&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;adadelta&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;adagrad&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;adamax&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;nadam&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;ftrl&quot;</span></code>. Luego se explicarán los demás
+métodos de optimización del Gradiente Descente, en este ejemplo
+utilizaremos <code class="docutils literal notranslate"><span class="pre">optimizer=&quot;sgd&quot;</span></code> que es el método de gradiente
+descendente estocástico con tasa de aprendizaje por defecto de
+<code class="docutils literal notranslate"><span class="pre">lr</span> <span class="pre">=</span> <span class="pre">0.01</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metrics</span> <span class="pre">=</span></code>: para especificar métricas adicionales. La más usada
+para regresión son <code class="docutils literal notranslate"><span class="pre">&quot;mse&quot;</span></code> o <code class="docutils literal notranslate"><span class="pre">&quot;mae&quot;</span></code> si hay presencia de valores
+atípicos y para clasificación <code class="docutils literal notranslate"><span class="pre">&quot;accuracy&quot;</span></code>, aunque se puede
+especificar una lista de métricas.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;sgd&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ajuste-del-modelo">
+<h2>Ajuste del modelo:<a class="headerlink" href="#ajuste-del-modelo" title="Permalink to this headline">¶</a></h2>
+<p>Con <code class="docutils literal notranslate"><span class="pre">fit()</span></code> se entrena la RNA. Note que en la creación de la
+arquitectura y en la compilación no se ha especificado el conjunto de
+datos. Esto se hace en este paso.</p>
+<p>Se puede especificar la cantidad con <code class="docutils literal notranslate"><span class="pre">epochs</span> <span class="pre">=</span></code> que por defecto es 1.
+El tamaño del lote es con <code class="docutils literal notranslate"><span class="pre">batch_size</span> <span class="pre">=</span></code>, por defecto es 32.</p>
+<p><code class="docutils literal notranslate"><span class="pre">verbose</span> <span class="pre">=</span> <span class="pre">1</span></code> se usa si quiere ver la historia del entramiento, esto
+lo imprime en pantalla por cada epoch. De lo contrario, escriba cero
+(<code class="docutils literal notranslate"><span class="pre">verbose</span> <span class="pre">=</span> <span class="pre">0</span></code>).</p>
+<p>El conjunto de test se pasa a la red con <code class="docutils literal notranslate"><span class="pre">validation_data</span> <span class="pre">=</span></code> (en
+realidad es el conjunto de validación porque el conjunto de test se usa
+después de la etapa del entrenamiento y optimización de hiperparámetros.</p>
+<p>Keras medirá la pérdida y las métricas adicionales en este conjunto al
+final de cada época, lo que es muy útil para ver qué tan bien funciona
+realmente el modelo. Si el rendimiento en el conjunto de entrenamiento
+es mucho mejor que en el conjunto de validación, es probable que su
+modelo esté sobreajustando el conjunto de entrenamiento (o hay un error,
+como una discrepancia de datos entre el conjunto de entrenamiento y el
+conjunto de validación).</p>
+<p>En lugar de pasar el conjunto de validación o de test se podría
+especificar que del conjunto de entrenamiento utilice un porcentaje para
+testear con <code class="docutils literal notranslate"><span class="pre">validation_split=0.20</span></code>, así utilizará el 20% de los
+datos.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Epoch</span> <span class="mi">1</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="n">s</span> <span class="mi">2</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6810</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6300</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.6539</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.7000</span>
+<span class="n">Epoch</span> <span class="mi">2</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6511</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6850</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.6280</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.6750</span>
+<span class="n">Epoch</span> <span class="mi">3</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6295</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6687</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.6079</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.6700</span>
+<span class="n">Epoch</span> <span class="mi">4</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6104</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.7287</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5891</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.7900</span>
+<span class="n">Epoch</span> <span class="mi">5</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5925</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8125</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5720</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8400</span>
+<span class="n">Epoch</span> <span class="mi">6</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5752</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8400</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5552</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8350</span>
+<span class="n">Epoch</span> <span class="mi">7</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5586</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8462</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5385</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8400</span>
+<span class="n">Epoch</span> <span class="mi">8</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5433</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8475</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5237</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8350</span>
+<span class="n">Epoch</span> <span class="mi">9</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5288</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8500</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5098</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8450</span>
+<span class="n">Epoch</span> <span class="mi">10</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5152</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8512</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4971</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8550</span>
+<span class="n">Epoch</span> <span class="mi">11</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5024</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8500</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4857</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8550</span>
+<span class="n">Epoch</span> <span class="mi">12</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4908</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8525</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4743</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8550</span>
+<span class="n">Epoch</span> <span class="mi">13</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4797</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8512</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4645</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8600</span>
+<span class="n">Epoch</span> <span class="mi">14</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4689</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8550</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4550</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8550</span>
+<span class="n">Epoch</span> <span class="mi">15</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4584</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8600</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4453</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8550</span>
+<span class="n">Epoch</span> <span class="mi">16</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4484</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8612</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4362</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8550</span>
+<span class="n">Epoch</span> <span class="mi">17</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4378</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8612</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4268</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8550</span>
+<span class="n">Epoch</span> <span class="mi">18</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4270</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8650</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4178</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8650</span>
+<span class="n">Epoch</span> <span class="mi">19</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4151</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8712</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4071</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8750</span>
+<span class="n">Epoch</span> <span class="mi">20</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4016</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8737</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.3977</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8800</span>
+<span class="n">Epoch</span> <span class="mi">21</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3868</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8900</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.3811</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8900</span>
+<span class="n">Epoch</span> <span class="mi">22</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3706</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8950</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.3670</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8950</span>
+<span class="n">Epoch</span> <span class="mi">23</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3517</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9100</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.3495</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8950</span>
+<span class="n">Epoch</span> <span class="mi">24</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3315</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9200</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.3318</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9250</span>
+<span class="n">Epoch</span> <span class="mi">25</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3106</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9400</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.3106</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9350</span>
+<span class="n">Epoch</span> <span class="mi">26</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2895</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9463</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2915</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9350</span>
+<span class="n">Epoch</span> <span class="mi">27</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2691</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9525</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2727</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9450</span>
+<span class="n">Epoch</span> <span class="mi">28</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2503</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9600</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2546</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9450</span>
+<span class="n">Epoch</span> <span class="mi">29</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2324</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9600</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2380</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9550</span>
+<span class="n">Epoch</span> <span class="mi">30</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2158</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9638</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2218</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9600</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">History</span> <span class="n">at</span> <span class="mh">0x2adea518490</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Pesos del modelo entrenado:</strong></p>
+<p>Los pesos de la red neuronal entrenada se pueden visualizar con
+<code class="docutils literal notranslate"><span class="pre">get_weights()</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.7902449</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.3115454</span> <span class="p">,</span>  <span class="mf">0.22630972</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.65818053</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.6853239</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.66296613</span><span class="p">,</span>  <span class="mf">1.1980275</span> <span class="p">,</span>  <span class="mf">0.6409905</span> <span class="p">]],</span>
+       <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.6906886</span><span class="p">,</span>  <span class="mf">1.2303365</span><span class="p">,</span>  <span class="mf">0.9412356</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5847251</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.4376062</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.5471656</span> <span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.63539207</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3672541</span> <span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.63737833</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5983989</span> <span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">1.3672698</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.72069883</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span> <span class="mf">0.4808468</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0285115</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([[</span> <span class="mf">2.2300436</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">2.4322083</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">2.1681833</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Podemos separar los pesos de las capas así:</p>
+<p><strong>Pesos de la primera capa oculta:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights_1</span><span class="p">,</span> <span class="n">biases_1</span> <span class="o">=</span> <span class="n">hidden_1</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights_1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.7902449</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.3115454</span> <span class="p">,</span>  <span class="mf">0.22630972</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.65818053</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.6853239</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.66296613</span><span class="p">,</span>  <span class="mf">1.1980275</span> <span class="p">,</span>  <span class="mf">0.6409905</span> <span class="p">]],</span>
+      <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">biases_1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.6906886</span><span class="p">,</span>  <span class="mf">1.2303365</span><span class="p">,</span>  <span class="mf">0.9412356</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5847251</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Pesos de la segunda capa oculta:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights_2</span><span class="p">,</span> <span class="n">biases_2</span> <span class="o">=</span> <span class="n">hidden_2</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights_2</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.4376062</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.5471656</span> <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.63539207</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3672541</span> <span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">0.63737833</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5983989</span> <span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">1.3672698</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.72069883</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">biases_2</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span> <span class="mf">0.4808468</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0285115</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Pesos de la tercera capa oculta:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hidden_3</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights_3</span><span class="p">,</span> <span class="n">biases_3</span> <span class="o">=</span> <span class="n">hidden_3</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights_3</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mf">2.2300436</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">2.4322083</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">biases_3</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">2.1681833</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Los anteriores pesos suman 20 que son los <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">params:</span> <span class="pre">20</span></code> del
+<code class="docutils literal notranslate"><span class="pre">model.summary()</span></code>.</p>
+</div>
+<div class="section" id="evaluacion-del-modelo">
+<h2>Evaluación del modelo:<a class="headerlink" href="#evaluacion-del-modelo" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">evaluate()</span></code> muestra las función de pérdida y las métricas
+especificadas en <code class="docutils literal notranslate"><span class="pre">compile()</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2218</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9600</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.221834197640419</span><span class="p">,</span> <span class="mf">0.9599999785423279</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="historia-del-entrenamiento">
+<h2>Historia del entrenamiento:<a class="headerlink" href="#historia-del-entrenamiento" title="Permalink to this headline">¶</a></h2>
+<p>El modelo se entrena con el método <code class="docutils literal notranslate"><span class="pre">fit()</span></code> y podemos almacenarlo para
+tener toda la historia del entrenamiento, es decir, la evolución del
+entrenamiento por cada epoch.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Epoch</span> <span class="mi">1</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2006</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9650</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2058</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9600</span>
+<span class="n">Epoch</span> <span class="mi">2</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1861</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9712</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1899</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9600</span>
+<span class="n">Epoch</span> <span class="mi">3</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1723</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9762</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1743</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9600</span>
+<span class="n">Epoch</span> <span class="mi">4</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1592</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9825</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1598</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9650</span>
+<span class="n">Epoch</span> <span class="mi">5</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1472</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9900</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1460</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9850</span>
+<span class="n">Epoch</span> <span class="mi">6</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1363</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9950</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1335</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9900</span>
+<span class="n">Epoch</span> <span class="mi">7</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1267</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9962</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1230</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">8</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1184</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9962</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1141</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">9</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1109</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9987</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1064</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">10</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1046</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9987</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1000</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">11</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0989</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9987</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0943</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">12</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0939</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0892</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">13</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0894</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0846</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">14</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0853</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0805</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">15</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0817</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9987</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0769</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">16</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0783</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9987</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0735</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">17</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0753</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9987</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0707</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">18</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0725</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0680</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">19</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0699</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0655</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">20</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0676</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0632</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">21</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0653</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9987</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0611</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">22</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0633</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0591</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">23</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0614</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0572</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">24</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0595</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0555</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">25</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0578</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0539</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">26</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0563</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0524</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">27</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0548</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0509</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">28</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0533</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0495</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">29</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0520</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0482</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">30</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0507</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0469</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">history.params</span></code> contiene los parámetros de entrenamiento:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">params</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;steps&#39;</span><span class="p">:</span> <span class="mi">160</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Note la relación entre <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>, la cantidad de instancia del
+conjunto de entrenamiento y de <code class="docutils literal notranslate"><span class="pre">'steps':</span></code>. El conjunto de
+entrenamiento tiene 800 observaciones, cada batch se especificó con un
+tamaño de 5 observaciones, por tanto, <code class="docutils literal notranslate"><span class="pre">'steps':</span> <span class="pre">160</span></code> (800 / 5 = 160).</p>
+<p><code class="docutils literal notranslate"><span class="pre">history.epoch</span></code> muestra la cantidad de <code class="docutils literal notranslate"><span class="pre">epochs</span></code>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">,</span>
+ <span class="mi">1</span><span class="p">,</span>
+ <span class="mi">2</span><span class="p">,</span>
+ <span class="mi">3</span><span class="p">,</span>
+ <span class="mi">4</span><span class="p">,</span>
+ <span class="mi">5</span><span class="p">,</span>
+ <span class="mi">6</span><span class="p">,</span>
+ <span class="mi">7</span><span class="p">,</span>
+ <span class="mi">8</span><span class="p">,</span>
+ <span class="mi">9</span><span class="p">,</span>
+ <span class="mi">10</span><span class="p">,</span>
+ <span class="mi">11</span><span class="p">,</span>
+ <span class="mi">12</span><span class="p">,</span>
+ <span class="mi">13</span><span class="p">,</span>
+ <span class="mi">14</span><span class="p">,</span>
+ <span class="mi">15</span><span class="p">,</span>
+ <span class="mi">16</span><span class="p">,</span>
+ <span class="mi">17</span><span class="p">,</span>
+ <span class="mi">18</span><span class="p">,</span>
+ <span class="mi">19</span><span class="p">,</span>
+ <span class="mi">20</span><span class="p">,</span>
+ <span class="mi">21</span><span class="p">,</span>
+ <span class="mi">22</span><span class="p">,</span>
+ <span class="mi">23</span><span class="p">,</span>
+ <span class="mi">24</span><span class="p">,</span>
+ <span class="mi">25</span><span class="p">,</span>
+ <span class="mi">26</span><span class="p">,</span>
+ <span class="mi">27</span><span class="p">,</span>
+ <span class="mi">28</span><span class="p">,</span>
+ <span class="mi">29</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">history.history</span></code>: contiene el resultado de <code class="docutils literal notranslate"><span class="pre">loss</span></code> y las métricas de
+desempeño adicionales que se usaron para medir el resultado al final de
+cada <code class="docutils literal notranslate"><span class="pre">epoch</span></code> sobre el conjunto de entrenamiento y el conjunto de
+testing (si este último se especificó).</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">history</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.20064914226531982</span><span class="p">,</span>
+  <span class="mf">0.18612179160118103</span><span class="p">,</span>
+  <span class="mf">0.17228195071220398</span><span class="p">,</span>
+  <span class="mf">0.15919338166713715</span><span class="p">,</span>
+  <span class="mf">0.14724820852279663</span><span class="p">,</span>
+  <span class="mf">0.13631734251976013</span><span class="p">,</span>
+  <span class="mf">0.12674230337142944</span><span class="p">,</span>
+  <span class="mf">0.1183607280254364</span><span class="p">,</span>
+  <span class="mf">0.11094741523265839</span><span class="p">,</span>
+  <span class="mf">0.10455510765314102</span><span class="p">,</span>
+  <span class="mf">0.09889142960309982</span><span class="p">,</span>
+  <span class="mf">0.09385880827903748</span><span class="p">,</span>
+  <span class="mf">0.08940057456493378</span><span class="p">,</span>
+  <span class="mf">0.08532065153121948</span><span class="p">,</span>
+  <span class="mf">0.08165186643600464</span><span class="p">,</span>
+  <span class="mf">0.07828886806964874</span><span class="p">,</span>
+  <span class="mf">0.07531453669071198</span><span class="p">,</span>
+  <span class="mf">0.07251229137182236</span><span class="p">,</span>
+  <span class="mf">0.06992437690496445</span><span class="p">,</span>
+  <span class="mf">0.06756928563117981</span><span class="p">,</span>
+  <span class="mf">0.06534776836633682</span><span class="p">,</span>
+  <span class="mf">0.06327711790800095</span><span class="p">,</span>
+  <span class="mf">0.06135782599449158</span><span class="p">,</span>
+  <span class="mf">0.05954119190573692</span><span class="p">,</span>
+  <span class="mf">0.057831648737192154</span><span class="p">,</span>
+  <span class="mf">0.05626584589481354</span><span class="p">,</span>
+  <span class="mf">0.05475471168756485</span><span class="p">,</span>
+  <span class="mf">0.053328126668930054</span><span class="p">,</span>
+  <span class="mf">0.051965657621622086</span><span class="p">,</span>
+  <span class="mf">0.05067552253603935</span><span class="p">],</span>
+ <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.9649999737739563</span><span class="p">,</span>
+  <span class="mf">0.9712499976158142</span><span class="p">,</span>
+  <span class="mf">0.9762499928474426</span><span class="p">,</span>
+  <span class="mf">0.9825000166893005</span><span class="p">,</span>
+  <span class="mf">0.9900000095367432</span><span class="p">,</span>
+  <span class="mf">0.9950000047683716</span><span class="p">,</span>
+  <span class="mf">0.9962499737739563</span><span class="p">,</span>
+  <span class="mf">0.9962499737739563</span><span class="p">,</span>
+  <span class="mf">0.9987499713897705</span><span class="p">,</span>
+  <span class="mf">0.9987499713897705</span><span class="p">,</span>
+  <span class="mf">0.9987499713897705</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">0.9987499713897705</span><span class="p">,</span>
+  <span class="mf">0.9987499713897705</span><span class="p">,</span>
+  <span class="mf">0.9987499713897705</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">0.9987499713897705</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">],</span>
+ <span class="s1">&#39;val_loss&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.20581863820552826</span><span class="p">,</span>
+  <span class="mf">0.18991920351982117</span><span class="p">,</span>
+  <span class="mf">0.17432135343551636</span><span class="p">,</span>
+  <span class="mf">0.1597510427236557</span><span class="p">,</span>
+  <span class="mf">0.14595744013786316</span><span class="p">,</span>
+  <span class="mf">0.13352885842323303</span><span class="p">,</span>
+  <span class="mf">0.12302403151988983</span><span class="p">,</span>
+  <span class="mf">0.114051453769207</span><span class="p">,</span>
+  <span class="mf">0.10641732811927795</span><span class="p">,</span>
+  <span class="mf">0.09998839348554611</span><span class="p">,</span>
+  <span class="mf">0.09425605088472366</span><span class="p">,</span>
+  <span class="mf">0.08917605131864548</span><span class="p">,</span>
+  <span class="mf">0.0846424549818039</span><span class="p">,</span>
+  <span class="mf">0.0805053785443306</span><span class="p">,</span>
+  <span class="mf">0.07686745375394821</span><span class="p">,</span>
+  <span class="mf">0.073545441031456</span><span class="p">,</span>
+  <span class="mf">0.07071712613105774</span><span class="p">,</span>
+  <span class="mf">0.06802648305892944</span><span class="p">,</span>
+  <span class="mf">0.06553196907043457</span><span class="p">,</span>
+  <span class="mf">0.06324446201324463</span><span class="p">,</span>
+  <span class="mf">0.061055220663547516</span><span class="p">,</span>
+  <span class="mf">0.05905761569738388</span><span class="p">,</span>
+  <span class="mf">0.0572139173746109</span><span class="p">,</span>
+  <span class="mf">0.055481404066085815</span><span class="p">,</span>
+  <span class="mf">0.05388655140995979</span><span class="p">,</span>
+  <span class="mf">0.05235353857278824</span><span class="p">,</span>
+  <span class="mf">0.05088932812213898</span><span class="p">,</span>
+  <span class="mf">0.04950018972158432</span><span class="p">,</span>
+  <span class="mf">0.04821966961026192</span><span class="p">,</span>
+  <span class="mf">0.04690530151128769</span><span class="p">],</span>
+ <span class="s1">&#39;val_accuracy&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.9599999785423279</span><span class="p">,</span>
+  <span class="mf">0.9599999785423279</span><span class="p">,</span>
+  <span class="mf">0.9599999785423279</span><span class="p">,</span>
+  <span class="mf">0.9649999737739563</span><span class="p">,</span>
+  <span class="mf">0.9850000143051147</span><span class="p">,</span>
+  <span class="mf">0.9900000095367432</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">,</span>
+  <span class="mf">1.0</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>Solo la evolución de la función de pérdida se muestra con:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.20064914226531982</span><span class="p">,</span>
+ <span class="mf">0.18612179160118103</span><span class="p">,</span>
+ <span class="mf">0.17228195071220398</span><span class="p">,</span>
+ <span class="mf">0.15919338166713715</span><span class="p">,</span>
+ <span class="mf">0.14724820852279663</span><span class="p">,</span>
+ <span class="mf">0.13631734251976013</span><span class="p">,</span>
+ <span class="mf">0.12674230337142944</span><span class="p">,</span>
+ <span class="mf">0.1183607280254364</span><span class="p">,</span>
+ <span class="mf">0.11094741523265839</span><span class="p">,</span>
+ <span class="mf">0.10455510765314102</span><span class="p">,</span>
+ <span class="mf">0.09889142960309982</span><span class="p">,</span>
+ <span class="mf">0.09385880827903748</span><span class="p">,</span>
+ <span class="mf">0.08940057456493378</span><span class="p">,</span>
+ <span class="mf">0.08532065153121948</span><span class="p">,</span>
+ <span class="mf">0.08165186643600464</span><span class="p">,</span>
+ <span class="mf">0.07828886806964874</span><span class="p">,</span>
+ <span class="mf">0.07531453669071198</span><span class="p">,</span>
+ <span class="mf">0.07251229137182236</span><span class="p">,</span>
+ <span class="mf">0.06992437690496445</span><span class="p">,</span>
+ <span class="mf">0.06756928563117981</span><span class="p">,</span>
+ <span class="mf">0.06534776836633682</span><span class="p">,</span>
+ <span class="mf">0.06327711790800095</span><span class="p">,</span>
+ <span class="mf">0.06135782599449158</span><span class="p">,</span>
+ <span class="mf">0.05954119190573692</span><span class="p">,</span>
+ <span class="mf">0.057831648737192154</span><span class="p">,</span>
+ <span class="mf">0.05626584589481354</span><span class="p">,</span>
+ <span class="mf">0.05475471168756485</span><span class="p">,</span>
+ <span class="mf">0.053328126668930054</span><span class="p">,</span>
+ <span class="mf">0.051965657621622086</span><span class="p">,</span>
+ <span class="mf">0.05067552253603935</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;val_loss&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.20581863820552826</span><span class="p">,</span>
+ <span class="mf">0.18991920351982117</span><span class="p">,</span>
+ <span class="mf">0.17432135343551636</span><span class="p">,</span>
+ <span class="mf">0.1597510427236557</span><span class="p">,</span>
+ <span class="mf">0.14595744013786316</span><span class="p">,</span>
+ <span class="mf">0.13352885842323303</span><span class="p">,</span>
+ <span class="mf">0.12302403151988983</span><span class="p">,</span>
+ <span class="mf">0.114051453769207</span><span class="p">,</span>
+ <span class="mf">0.10641732811927795</span><span class="p">,</span>
+ <span class="mf">0.09998839348554611</span><span class="p">,</span>
+ <span class="mf">0.09425605088472366</span><span class="p">,</span>
+ <span class="mf">0.08917605131864548</span><span class="p">,</span>
+ <span class="mf">0.0846424549818039</span><span class="p">,</span>
+ <span class="mf">0.0805053785443306</span><span class="p">,</span>
+ <span class="mf">0.07686745375394821</span><span class="p">,</span>
+ <span class="mf">0.073545441031456</span><span class="p">,</span>
+ <span class="mf">0.07071712613105774</span><span class="p">,</span>
+ <span class="mf">0.06802648305892944</span><span class="p">,</span>
+ <span class="mf">0.06553196907043457</span><span class="p">,</span>
+ <span class="mf">0.06324446201324463</span><span class="p">,</span>
+ <span class="mf">0.061055220663547516</span><span class="p">,</span>
+ <span class="mf">0.05905761569738388</span><span class="p">,</span>
+ <span class="mf">0.0572139173746109</span><span class="p">,</span>
+ <span class="mf">0.055481404066085815</span><span class="p">,</span>
+ <span class="mf">0.05388655140995979</span><span class="p">,</span>
+ <span class="mf">0.05235353857278824</span><span class="p">,</span>
+ <span class="mf">0.05088932812213898</span><span class="p">,</span>
+ <span class="mf">0.04950018972158432</span><span class="p">,</span>
+ <span class="mf">0.04821966961026192</span><span class="p">,</span>
+ <span class="mf">0.04690530151128769</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Solo la evolución de la métrica de error se muestra con:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.9649999737739563</span><span class="p">,</span>
+ <span class="mf">0.9712499976158142</span><span class="p">,</span>
+ <span class="mf">0.9762499928474426</span><span class="p">,</span>
+ <span class="mf">0.9825000166893005</span><span class="p">,</span>
+ <span class="mf">0.9900000095367432</span><span class="p">,</span>
+ <span class="mf">0.9950000047683716</span><span class="p">,</span>
+ <span class="mf">0.9962499737739563</span><span class="p">,</span>
+ <span class="mf">0.9962499737739563</span><span class="p">,</span>
+ <span class="mf">0.9987499713897705</span><span class="p">,</span>
+ <span class="mf">0.9987499713897705</span><span class="p">,</span>
+ <span class="mf">0.9987499713897705</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">0.9987499713897705</span><span class="p">,</span>
+ <span class="mf">0.9987499713897705</span><span class="p">,</span>
+ <span class="mf">0.9987499713897705</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">0.9987499713897705</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.9599999785423279</span><span class="p">,</span>
+ <span class="mf">0.9599999785423279</span><span class="p">,</span>
+ <span class="mf">0.9599999785423279</span><span class="p">,</span>
+ <span class="mf">0.9649999737739563</span><span class="p">,</span>
+ <span class="mf">0.9850000143051147</span><span class="p">,</span>
+ <span class="mf">0.9900000095367432</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">,</span>
+ <span class="mf">1.0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="evaluacion-del-desempeno">
+<h2>Evaluación del desempeño:<a class="headerlink" href="#evaluacion-del-desempeno" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0469</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.046905308961868286</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Gráfico de la función de pérdida por epoch:</strong></p>
+<p>Una gráfica que siempre se muestra después de cada entrenamiento es la
+siguiente. Más adelante se usará para hacer comparaciones entre la
+evolución con el conjunto de entrenamiento y con el conjunto de test
+para determinar el overfitting o el underfitting.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;val_loss&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;epoch&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_108_0.png" src="../../../_images/output_108_0.png" />
+<p>También podemos hacer un gráfico con las métricas de error.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;epoch&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_110_0.png" src="../../../_images/output_110_0.png" />
+<p>En caso en que la pérdida en el conjunto de validación (testing) aún
+siga disminuyendo, es probable que se debiera continuar con el
+entrenamiento porque el modelo aún no ha convergido del todo.</p>
+<p>Si no está satisfecho con el rendimiento de su modelo, debe volver atrás
+y ajustar los hiperparámetros:</p>
+<p>Si el rendimiento aún no es excelente, intente ajustar los
+hiperparámetros del modelo como:</p>
+<ul class="simple">
+<li><p>Cantidad de capas.</p></li>
+<li><p>Cantidad de neuronas por capa.</p></li>
+<li><p>Tipos de funciones de activación para cada capa.</p></li>
+<li><p>Cambiar el tamaño del lote, por defecto en <code class="docutils literal notranslate"><span class="pre">fit()</span></code> es de <code class="docutils literal notranslate"><span class="pre">32</span></code>,
+pero lo puede cambiar con <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="prediccion-del-modelo">
+<h2>Predicción del modelo:<a class="headerlink" href="#prediccion-del-modelo" title="Permalink to this headline">¶</a></h2>
+<p>Se usa <code class="docutils literal notranslate"><span class="pre">predict()</span></code> para hacer predicciones sobre cualquier instancia.
+Esto se hace después de entrenar el modelo.</p>
+<p>En este ejemplo se harán las predicciones sobre los datos de
+entrenamiento, pero lo más común es ingresar datos nuevos.</p>
+<p>Las predicciones las almacenaremos en <code class="docutils literal notranslate"><span class="pre">y_pred</span></code></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">831</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">0.97525346</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.9768917</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.05209705</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.04242007</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.05911655</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.8323839</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.01050462</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.0600028</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.9435755</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.08438432</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Como este es un problema de clasificación, el resultado de <code class="docutils literal notranslate"><span class="pre">y_pred</span></code> es
+la probabilidad de pertenecer a la clase de 1.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y_pred</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Resultado final&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_116_0.png" src="../../../_images/output_116_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+
+<span class="n">X_Set</span><span class="p">,</span> <span class="n">y_Set</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span>
+<span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X1</span><span class="p">,</span>
+    <span class="n">X2</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="s2">&quot;#F3B3A9&quot;</span><span class="p">)),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">X2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_Set</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;#195E7A&quot;</span><span class="p">,</span> <span class="s2">&quot;#BA1818&quot;</span><span class="p">))(</span><span class="n">i</span><span class="p">),</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">j</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;RNA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5777</span><span class="o">/</span><span class="mi">5777</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">5</span><span class="n">s</span> <span class="mi">802</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
+</pre></div>
+</div>
+<pre class="literal-block"><em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.
+<em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.</pre>
+<img alt="../../../_images/output_117_2.png" src="../../../_images/output_117_2.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="formas-de-evaluar-el-desempeno">
+<h2>Formas de evaluar el desempeño:<a class="headerlink" href="#formas-de-evaluar-el-desempeno" title="Permalink to this headline">¶</a></h2>
+<p>Podemos apoyarnos de <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> para usar las métricas de desempeño una
+vez tengamos las predicciones <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>.</p>
+<p>Las métricas de evaluación del desempeño de <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> las puede
+ver
+<a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html">aquí</a></p>
+<p>Para este ejemplo de clasificación podemos importar la métrica de
+<code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code>.</p>
+<p>Para problemas de regresión se puede importar las métricas de
+<code class="docutils literal notranslate"><span class="pre">mean_squared_error</span></code> y <code class="docutils literal notranslate"><span class="pre">r2_score</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>El anterior valor es el mismo hallado en <code class="docutils literal notranslate"><span class="pre">evaluate()</span></code>.</p>
+</div>
+<div class="section" id="recomendacion">
+<h2>Recomendación:<a class="headerlink" href="#recomendacion" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">keras</span>
+</pre></div>
+</div>
+<p>Correr el siguiente código para que el entrenamiento no use datos de la
+memoria de los entrenamientos anteriores. Usarlo especialmente si
+implementa los modelos de Keras en un loop.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">clear_session</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="guardar-y-cargar-el-modelo">
+<h2>Guardar y cargar el modelo<a class="headerlink" href="#guardar-y-cargar-el-modelo" title="Permalink to this headline">¶</a></h2>
+<p>Los modelos entrenados, es decir, con los pesos optimizados se pueden
+guardar para luego cargarlos y hacer predicciones.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;model_training.h5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;model_training.h5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>El modelo cargado debe tener la misma cantidad de parámetros que el
+modelo entrenado.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Model</span><span class="p">:</span> <span class="s2">&quot;sequential_1&quot;</span>
+<span class="n">_________________________________________________________________</span>
+ <span class="n">Layer</span> <span class="p">(</span><span class="nb">type</span><span class="p">)</span>                <span class="n">Output</span> <span class="n">Shape</span>              <span class="n">Param</span> <span class="c1">#</span>
+<span class="o">=================================================================</span>
+ <span class="n">dense_3</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>             <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>                 <span class="mi">12</span>
+
+ <span class="n">dense_4</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>             <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                 <span class="mi">10</span>
+
+ <span class="n">dense_5</span> <span class="p">(</span><span class="n">Dense</span><span class="p">)</span>             <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>                 <span class="mi">3</span>
+
+<span class="o">=================================================================</span>
+<span class="n">Total</span> <span class="n">params</span><span class="p">:</span> <span class="mi">25</span>
+<span class="n">Trainable</span> <span class="n">params</span><span class="p">:</span> <span class="mi">25</span>
+<span class="n">Non</span><span class="o">-</span><span class="n">trainable</span> <span class="n">params</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">_________________________________________________________________</span>
+</pre></div>
+</div>
+<p>Los pesos entrenados y guardados son estos:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.021808</span>  <span class="p">,</span> <span class="o">-</span><span class="mf">1.7277036</span> <span class="p">,</span>  <span class="mf">0.57696456</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.78262955</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.61105585</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8557676</span> <span class="p">,</span>  <span class="mf">1.5714128</span> <span class="p">,</span>  <span class="mf">0.54705364</span><span class="p">]],</span>
+       <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.7955898</span> <span class="p">,</span>  <span class="mf">1.4017594</span> <span class="p">,</span>  <span class="mf">1.285784</span>  <span class="p">,</span> <span class="o">-</span><span class="mf">0.69864714</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.760383</span>  <span class="p">,</span> <span class="o">-</span><span class="mf">0.2390663</span> <span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.8411085</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.9778302</span> <span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.20084894</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.2020907</span> <span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">1.6221673</span> <span class="p">,</span> <span class="o">-</span><span class="mf">0.5443424</span> <span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="mf">0.02981644</span><span class="p">,</span> <span class="mf">0.8002808</span> <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([[</span> <span class="mf">3.2374249</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">3.7132845</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">2.9383364</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Con el model cargado no se hace <code class="docutils literal notranslate"><span class="pre">fit()</span></code> solo hacemos predicciones.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">32</span><span class="o">/</span><span class="mi">32</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">788</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">0.9790649</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.98003715</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.76289076</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.98021734</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.9793022</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.97968346</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.32471827</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.5022857</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.61586124</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.9795463</span> <span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resumen-del-codigo">
+<h2>Resumen del código:<a class="headerlink" href="#resumen-del-codigo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;sgd&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">X_train</span><span class="p">,</span>
+    <span class="n">y_train</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Epoch</span> <span class="mi">1</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="n">s</span> <span class="mi">2</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.7167</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.5462</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.6633</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.6400</span>
+<span class="n">Epoch</span> <span class="mi">2</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6622</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6450</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.6306</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.7150</span>
+<span class="n">Epoch</span> <span class="mi">3</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6330</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6963</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.6092</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.7400</span>
+<span class="n">Epoch</span> <span class="mi">4</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6117</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.7362</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5920</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.7550</span>
+<span class="n">Epoch</span> <span class="mi">5</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5928</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.7538</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5758</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.7700</span>
+<span class="n">Epoch</span> <span class="mi">6</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5744</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.7812</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5559</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.7850</span>
+<span class="n">Epoch</span> <span class="mi">7</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5557</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.7812</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5373</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8050</span>
+<span class="n">Epoch</span> <span class="mi">8</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5352</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.7975</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.5157</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8150</span>
+<span class="n">Epoch</span> <span class="mi">9</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5126</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8163</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4916</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8400</span>
+<span class="n">Epoch</span> <span class="mi">10</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4876</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8313</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4644</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8500</span>
+<span class="n">Epoch</span> <span class="mi">11</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4597</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8375</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4358</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8750</span>
+<span class="n">Epoch</span> <span class="mi">12</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4295</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8525</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.4025</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8750</span>
+<span class="n">Epoch</span> <span class="mi">13</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3970</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8637</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.3682</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.8950</span>
+<span class="n">Epoch</span> <span class="mi">14</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3635</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9087</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.3350</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.9750</span>
+<span class="n">Epoch</span> <span class="mi">15</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3309</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.9737</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.3043</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">16</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3006</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2742</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">17</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2734</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2482</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">18</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2489</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2249</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">19</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2276</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.2058</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">20</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2087</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1885</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">21</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1921</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1738</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">22</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1774</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1607</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">23</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1644</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1489</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">24</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1528</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1386</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">25</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1425</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1287</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">26</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1333</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1208</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">27</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1249</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1138</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">28</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1176</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1065</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">29</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1109</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.1005</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+<span class="n">Epoch</span> <span class="mi">30</span><span class="o">/</span><span class="mi">30</span>
+<span class="mi">160</span><span class="o">/</span><span class="mi">160</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1047</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">1.0000</span> <span class="o">-</span> <span class="n">val_loss</span><span class="p">:</span> <span class="mf">0.0949</span> <span class="o">-</span> <span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">1.0000</span>
+</pre></div>
+</div>
+<p><strong>¿Cómo cambia el resultado si no hace el escalado de variables?</strong></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html" class="btn btn-neutral float-right" title="RNA en Keras para clasificación multiclase" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Escalado%20de%20variables/Escalado%20de%20variables.html" class="btn btn-neutral" title="Escalado de variables" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -34,6 +34,8 @@
   
     <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
+    <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  
 
   
         <link rel="index" title="Index"
@@ -101,6 +103,13 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Introducción Redes Neuronales Artificiales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicio%20RNA%20clasificaci%C3%B3n%20binaria/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
 </ul>
 </li>
 </ul>
@@ -352,7 +361,28 @@ función de activación <strong>(activation funtion)</strong> logística o <stro
 <p><span class="math notranslate nohighlight">\(z=XW+b\)</span></p>
 <p>La función sigmoide tiene forma de <span class="math notranslate nohighlight">\(S\)</span> y la salida oscila entre
 <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(1\)</span>.</p>
-<p>Más adelante se explicarán otras funciones de activación.</p>
+<p>Para la función de activación lineal (linear) el algoritmo de gradiente
+descendente utiliza las siguientes fórmulas en cada iteración para
+actualizar los pesos en el backward pass:</p>
+<div class="math notranslate nohighlight">
+\[W^{(nextStep)}=W-\eta\times\frac{\partial}{\partial W} MSE(W)\]</div>
+<p>Donde,</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial}{\partial W} MSE(W) = \frac{2}{m}\sum_{i=1}^m\left(WX_{i}+b-y_{i}\right)X_i\]</div>
+<p>Para cualquier función de activación podemos modificar las fórmulas
+agregando la derivada de la función de activación.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial}{\partial W} MSE(W) = \frac{2}{m}\sum_{i=1}^m\left(WX_{i}+b-y_{i}\right)X_i\times \frac{\partial g(z)}{\partial z}\]</div>
+<p>Donde,</p>
+<p><span class="math notranslate nohighlight">\(g(z)\)</span>: es la función de activación que se está usando en la
+neurona.</p>
+<p>Por ejemplo, para la función de activación Sigmoide, su derivada es:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \sigma(z)}{\partial z} = \sigma(z)(1-\sigma(z))\]</div>
+<p>Así que en la actualización de los pesos la fórmula quedaría:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial}{\partial W} MSE(W) = \frac{2}{m}\sum_{i=1}^m\left(WX_{i}+b-y_{i}\right)X_i\times \sigma(z)(1-\sigma(z))\]</div>
+<p>Luego se explicarán otras funciones de activación.</p>
 <p>Cerca de la década de 1970 los investigadores esperaban mucho más de los
 perceptrones, y algunos estaban tan decepcionados que abandonaron las
 RNA por completo a favor de otras técnicas, pero resulta que algunas de
@@ -418,6 +448,8 @@ perceptrón multicapa <strong>(MLP - Multilayer Perceptron).</strong></p>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="../../../_static/copybutton.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   

@@ -24,6 +24,30 @@ Redes Neuronales Artificiales (RNA):
    Introducción Redes Neuronales Artificiales/Introducción Redes Neuronales Artificiales
    Perceptrón multicapa/Perceptrón multicapa
    Funciones de activación/Funciones de activación
+   RNA para clasificación y regresión/RNA para clasificación y regresión
+
+Preprocesamiento de los datos:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   División del dataset/División del dataset
+   Escalado de variables/Escalado de variables
+
+
+Keras:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   RNA en Keras para clasificación/RNA en Keras para clasificación
+   RNA en Keras para clasificación multiclase/RNA en Keras para clasificación multiclase
+   RNA en Keras para regresión/RNA en Keras para regresión
+   Ejercicio RNA clasificación binaria/Ejercicio clasificación
 
 
 
@@ -31,3 +55,20 @@ Redes Neuronales Artificiales (RNA):
     Archivo para trabajar esta sesión:
 
     * **Descargue** :download:`DatosCafe.csv <DatosCafe.csv>`
+
+    * **Descargue** :download:`regresion.csv <regresion.csv>`
+
+    * **Descargue** :download:`Clasificación-2.csv <Clasificación-2.csv>` para el ejercicio.
+
+
+Bibliografía:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: Gerón.JPG
+   :width: 200px
+   :height: 200px
+
+
+.. image:: Chollet.jpg
+   :width: 200px
+   :height: 200px

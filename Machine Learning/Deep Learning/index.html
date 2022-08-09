@@ -34,6 +34,8 @@
   
     <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   
+    <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  
 
   
         <link rel="index" title="Index"
@@ -100,6 +102,13 @@
 <li class="toctree-l2"><a class="reference internal" href="Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Ejercicio%20RNA%20clasificaci%C3%B3n%20binaria/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
 </ul>
 </li>
 </ul>
@@ -225,6 +234,27 @@
 <li class="toctree-l1"><a class="reference internal" href="Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="preprocesamiento-de-los-datos">
+<h2>Preprocesamiento de los datos:<a class="headerlink" href="#preprocesamiento-de-los-datos" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="keras">
+<h2>Keras:<a class="headerlink" href="#keras" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ejercicio%20RNA%20clasificaci%C3%B3n%20binaria/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
 </ul>
 </div>
 <div class="admonition important">
@@ -232,8 +262,15 @@
 <p>Archivo para trabajar esta sesión:</p>
 <ul class="simple">
 <li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/7b92a2c904c8594b956ae8f170e73618/DatosCafe.csv"><code class="xref download docutils literal notranslate"><span class="pre">DatosCafe.csv</span></code></a></p></li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/03b8a2bb3eb517d5cfab5d519cf8ebe3/regresion.csv"><code class="xref download docutils literal notranslate"><span class="pre">regresion.csv</span></code></a></p></li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/af6fc1addf96dd8fbfebada957c72c14/Clasificaci%C3%B3n-2.csv"><code class="xref download docutils literal notranslate"><span class="pre">Clasificación-2.csv</span></code></a> para el ejercicio.</p></li>
 </ul>
 </div>
+</div>
+<div class="section" id="bibliografia">
+<h2>Bibliografía:<a class="headerlink" href="#bibliografia" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/Gerón.JPG"><img alt="../../_images/Gerón.JPG" src="../../_images/Gerón.JPG" style="width: 200px; height: 200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/Chollet.jpg"><img alt="../../_images/Chollet.jpg" src="../../_images/Chollet.jpg" style="width: 200px; height: 200px;" /></a>
 </div>
 </div>
 
@@ -293,6 +330,8 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="../../_static/copybutton.js"></script>
 
   
 
