@@ -206,7 +206,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/Machine Learning/Deep Learning/Ejercicio RNA clasificación binaria/Ejercicio clasificación.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/Machine Learning/Deep Learning/Ejercicio clasificación/Ejercicio clasificación.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -221,24 +221,23 @@
             
   <div class="section" id="ejercicio-clasificacion">
 <h1>Ejercicio clasificación<a class="headerlink" href="#ejercicio-clasificacion" title="Permalink to this headline">¶</a></h1>
-<p>Utilice la base de datos <code class="docutils literal notranslate"><span class="pre">Clasificación-2.csv</span></code> para crear un modelo
-que clasifique los datos con una accuracy de al menos un 90%.</p>
-<p>No utilice el conjunto de validación.</p>
+<p>Utilice la base de datos <code class="docutils literal notranslate"><span class="pre">Classification.csv</span></code> para crear un modelo que
+clasifique los datos con una accuracy de al menos un 90%.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Clasificación-2.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Classification.csv&quot;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>          <span class="n">X1</span>          <span class="n">X2</span>  <span class="n">y</span>
-<span class="mi">0</span> <span class="o">-</span><span class="mf">13.358048</span>  <span class="mf">158.397786</span>  <span class="mi">1</span>
-<span class="mi">1</span> <span class="o">-</span><span class="mf">12.474782</span>  <span class="mf">175.172230</span>  <span class="mi">1</span>
-<span class="mi">2</span>  <span class="o">-</span><span class="mf">2.542419</span>  <span class="mf">152.829053</span>  <span class="mi">1</span>
-<span class="mi">3</span> <span class="o">-</span><span class="mf">23.555350</span>   <span class="mf">51.011536</span>  <span class="mi">1</span>
-<span class="mi">4</span>  <span class="o">-</span><span class="mf">6.010912</span>  <span class="mf">187.004837</span>  <span class="mi">1</span>
+<span class="mi">0</span> <span class="o">-</span><span class="mf">16.374564</span>  <span class="mf">211.035503</span>  <span class="mi">1</span>
+<span class="mi">1</span> <span class="o">-</span><span class="mf">21.845987</span>    <span class="mf">6.262558</span>  <span class="mi">1</span>
+<span class="mi">2</span>  <span class="o">-</span><span class="mf">7.987957</span>   <span class="o">-</span><span class="mf">8.449664</span>  <span class="mi">0</span>
+<span class="mi">3</span>  <span class="mf">11.008814</span>   <span class="mf">82.381994</span>  <span class="mi">0</span>
+<span class="mi">4</span>   <span class="mf">3.524531</span>   <span class="mf">35.596753</span>  <span class="mi">0</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;X1&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;X2&quot;</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
@@ -246,23 +245,23 @@ que clasifique los datos con una accuracy de al menos un 90%.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_5_0.png" src="../../../_images/output_5_0.png" />
+<img alt="../../../_images/output_4_0.png" src="../../../_images/output_4_0.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="s2">&quot;X2&quot;</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>          <span class="n">X1</span>          <span class="n">X2</span>
-<span class="mi">0</span> <span class="o">-</span><span class="mf">13.358048</span>  <span class="mf">158.397786</span>
-<span class="mi">1</span> <span class="o">-</span><span class="mf">12.474782</span>  <span class="mf">175.172230</span>
-<span class="mi">2</span>  <span class="o">-</span><span class="mf">2.542419</span>  <span class="mf">152.829053</span>
-<span class="mi">3</span> <span class="o">-</span><span class="mf">23.555350</span>   <span class="mf">51.011536</span>
-<span class="mi">4</span>  <span class="o">-</span><span class="mf">6.010912</span>  <span class="mf">187.004837</span>
+<span class="mi">0</span> <span class="o">-</span><span class="mf">16.374564</span>  <span class="mf">211.035503</span>
+<span class="mi">1</span> <span class="o">-</span><span class="mf">21.845987</span>    <span class="mf">6.262558</span>
+<span class="mi">2</span>  <span class="o">-</span><span class="mf">7.987957</span>   <span class="o">-</span><span class="mf">8.449664</span>
+<span class="mi">3</span>  <span class="mf">11.008814</span>   <span class="mf">82.381994</span>
+<span class="mi">4</span>   <span class="mf">3.524531</span>   <span class="mf">35.596753</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
@@ -271,9 +270,9 @@ que clasifique los datos con una accuracy de al menos un 90%.</p>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>    <span class="mi">1</span>
 <span class="mi">1</span>    <span class="mi">1</span>
-<span class="mi">2</span>    <span class="mi">1</span>
-<span class="mi">3</span>    <span class="mi">1</span>
-<span class="mi">4</span>    <span class="mi">1</span>
+<span class="mi">2</span>    <span class="mi">0</span>
+<span class="mi">3</span>    <span class="mi">0</span>
+<span class="mi">4</span>    <span class="mi">0</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
 </pre></div>
 </div>
