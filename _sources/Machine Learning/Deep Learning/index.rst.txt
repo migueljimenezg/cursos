@@ -49,6 +49,7 @@ Keras:
    RNA en Keras para regresión/RNA en Keras para regresión
    Ejercicio clasificación/Ejercicio clasificación
    RNA para series de tiempo/RNA para series de tiempo
+   Ejemplo pronóstico serie de tiempo/Ejemplo pronóstico serie de tiempo
 
 
 
@@ -71,5 +72,9 @@ Bibliografía:
 
 
 .. image:: Chollet.jpg
+   :width: 200px
+   :height: 200px
+
+.. image:: JordiTorres.jpg
    :width: 200px
    :height: 200px

@@ -334,7 +334,7 @@ inicial <code class="docutils literal notranslate"><span class="pre">ggplot(data
 <span class="n">p</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_20_04.png"><img alt="../../_images/output_20_04.png" src="../../_images/output_20_04.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_20_05.png"><img alt="../../_images/output_20_05.png" src="../../_images/output_20_05.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="geometries">
 <h2>Geometries:<a class="headerlink" href="#geometries" title="Permalink to this headline">¶</a></h2>
@@ -462,12 +462,12 @@ solo cambian de color todos los puntos o líneas.</p>
     <span class="nf">geom_bar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Estrato</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">Género</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_50_0.png"><img alt="../../_images/output_50_0.png" src="../../_images/output_50_0.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_50_01.png"><img alt="../../_images/output_50_01.png" src="../../_images/output_50_01.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">datos</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_bar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Estrato</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">Género</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_51_01.png"><img alt="../../_images/output_51_01.png" src="../../_images/output_51_01.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_51_02.png"><img alt="../../_images/output_51_02.png" src="../../_images/output_51_02.png" style="width: 420px; height: 420px;" /></a>
 <p>Note que aparecen unos colores por defecto, pero podemos crear nuestra
 propia paleta de colores e ingresarlos manualmente.</p>
 <p>Cuando clasificamos los datos por colores podemos cambiar los colores
@@ -515,7 +515,7 @@ cambiando la forma de los puntos o líneas.</p>
     <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Edad</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Peso</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">Género</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_62_02.png"><img alt="../../_images/output_62_02.png" src="../../_images/output_62_02.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_62_03.png"><img alt="../../_images/output_62_03.png" src="../../_images/output_62_03.png" style="width: 420px; height: 420px;" /></a>
 <p><strong>Transparencias:</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">alpha</span></code> - Entre más cercano a uno, más opaco el gráfico y entre más
 cercano a cero, más transparente.</p>
@@ -560,7 +560,7 @@ gráficos para clasificar los datos.</p>
     <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">Género</span><span class="p">)</span>   <span class="c1"># Divide el gráfico en función del Género</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_71_02.png"><img alt="../../_images/output_71_02.png" src="../../_images/output_71_02.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_71_03.png"><img alt="../../_images/output_71_03.png" src="../../_images/output_71_03.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">datos</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Edad</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Peso</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">Género</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span> <span class="c1"># nrow = para cantidad de filas</span>
@@ -642,7 +642,7 @@ representarlos gráficamente. Algunas funciones empiezan con
     <span class="nf">geom_point</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_92_03.png"><img alt="../../_images/output_92_03.png" src="../../_images/output_92_03.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_92_04.png"><img alt="../../_images/output_92_04.png" src="../../_images/output_92_04.png" style="width: 420px; height: 420px;" /></a>
 <p>Segundo, con el siguiente gráfico se calculará el promedio por cada
 Estrato.</p>
 <p>Se utiliza la función <code class="docutils literal notranslate"><span class="pre">stat_summary()</span></code>, el promedio se especifica con
@@ -719,7 +719,7 @@ datos y facilitar las comparaciones.</p>
     <span class="nf">theme_bw</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_113_01.png"><img alt="../../_images/output_113_01.png" src="../../_images/output_113_01.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_113_02.png"><img alt="../../_images/output_113_02.png" src="../../_images/output_113_02.png" style="width: 420px; height: 420px;" /></a>
 <p><code class="docutils literal notranslate"><span class="pre">theme_linedraw</span></code>:</p>
 <p>Fondo blanco con líneas negras.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">datos</span><span class="p">)</span> <span class="o">+</span>
