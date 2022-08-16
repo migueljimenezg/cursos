@@ -174,112 +174,7 @@ Arquitectura de la red:
 
 .. code:: ipython3
 
-    history = model.fit(X, y, epochs=50, batch_size=1, verbose=1,)
-
-
-.. parsed-literal::
-
-    Epoch 1/50
-    7/7 [==============================] - 0s 1ms/step - loss: 48.7482
-    Epoch 2/50
-    7/7 [==============================] - 0s 1ms/step - loss: 45.2118
-    Epoch 3/50
-    7/7 [==============================] - 0s 1ms/step - loss: 41.8878
-    Epoch 4/50
-    7/7 [==============================] - 0s 1ms/step - loss: 38.2791
-    Epoch 5/50
-    7/7 [==============================] - 0s 992us/step - loss: 35.2226
-    Epoch 6/50
-    7/7 [==============================] - 0s 1ms/step - loss: 31.9653
-    Epoch 7/50
-    7/7 [==============================] - 0s 997us/step - loss: 29.2024
-    Epoch 8/50
-    7/7 [==============================] - 0s 999us/step - loss: 26.2834
-    Epoch 9/50
-    7/7 [==============================] - 0s 997us/step - loss: 23.7814
-    Epoch 10/50
-    7/7 [==============================] - 0s 1ms/step - loss: 21.2375
-    Epoch 11/50
-    7/7 [==============================] - 0s 993us/step - loss: 18.7691
-    Epoch 12/50
-    7/7 [==============================] - 0s 1ms/step - loss: 16.4282
-    Epoch 13/50
-    7/7 [==============================] - 0s 997us/step - loss: 14.5043
-    Epoch 14/50
-    7/7 [==============================] - 0s 985us/step - loss: 12.6547
-    Epoch 15/50
-    7/7 [==============================] - 0s 998us/step - loss: 10.7694
-    Epoch 16/50
-    7/7 [==============================] - 0s 970us/step - loss: 8.9978
-    Epoch 17/50
-    7/7 [==============================] - 0s 1ms/step - loss: 7.3858
-    Epoch 18/50
-    7/7 [==============================] - 0s 1ms/step - loss: 6.0591
-    Epoch 19/50
-    7/7 [==============================] - 0s 1ms/step - loss: 4.9401
-    Epoch 20/50
-    7/7 [==============================] - 0s 1ms/step - loss: 3.7863
-    Epoch 21/50
-    7/7 [==============================] - 0s 997us/step - loss: 2.8736
-    Epoch 22/50
-    7/7 [==============================] - 0s 997us/step - loss: 2.2238
-    Epoch 23/50
-    7/7 [==============================] - 0s 1ms/step - loss: 1.6932
-    Epoch 24/50
-    7/7 [==============================] - 0s 997us/step - loss: 1.1813
-    Epoch 25/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.8697
-    Epoch 26/50
-    7/7 [==============================] - 0s 998us/step - loss: 0.5938
-    Epoch 27/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.4136
-    Epoch 28/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.2797
-    Epoch 29/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.1925
-    Epoch 30/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.1360
-    Epoch 31/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.1002
-    Epoch 32/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.0776
-    Epoch 33/50
-    7/7 [==============================] - 0s 993us/step - loss: 0.0644
-    Epoch 34/50
-    7/7 [==============================] - 0s 997us/step - loss: 0.0573
-    Epoch 35/50
-    7/7 [==============================] - 0s 997us/step - loss: 0.0531
-    Epoch 36/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.0501
-    Epoch 37/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.0492
-    Epoch 38/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.0487
-    Epoch 39/50
-    7/7 [==============================] - 0s 998us/step - loss: 0.0491
-    Epoch 40/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.0483
-    Epoch 41/50
-    7/7 [==============================] - 0s 997us/step - loss: 0.0478
-    Epoch 42/50
-    7/7 [==============================] - 0s 997us/step - loss: 0.0475
-    Epoch 43/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.0472
-    Epoch 44/50
-    7/7 [==============================] - 0s 997us/step - loss: 0.0470
-    Epoch 45/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.0468
-    Epoch 46/50
-    7/7 [==============================] - 0s 831us/step - loss: 0.0472
-    Epoch 47/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.0466
-    Epoch 48/50
-    7/7 [==============================] - 0s 997us/step - loss: 0.0461
-    Epoch 49/50
-    7/7 [==============================] - 0s 1ms/step - loss: 0.0458
-    Epoch 50/50
-    7/7 [==============================] - 0s 997us/step - loss: 0.0454
-    
+    history = model.fit(X, y, epochs=500, batch_size=1, verbose=0)
 
 Evaluación del desempeño:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -291,14 +186,14 @@ Evaluación del desempeño:
 
 .. parsed-literal::
 
-    1/1 [==============================] - 0s 117ms/step - loss: 0.0452
+    1/1 [==============================] - 0s 124ms/step - loss: 8.8056e-04
     
 
 
 
 .. parsed-literal::
 
-    0.04522312432527542
+    0.000880562060046941
 
 
 
@@ -307,19 +202,11 @@ Evaluación del desempeño:
     plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
     plt.xlabel("epoch")
     plt.ylabel("Loss")
-    plt.legend()
+    plt.legend();
 
 
 
-
-.. parsed-literal::
-
-    <matplotlib.legend.Legend at 0x17ce0b2fcd0>
-
-
-
-
-.. image:: output_30_1.png
+.. image:: output_30_0.png
 
 
 Predicción del modelo:
@@ -370,14 +257,14 @@ Se espera que el modelo haga la predicción y el output sea 11.
 
 .. parsed-literal::
 
-    1/1 [==============================] - 0s 56ms/step
+    1/1 [==============================] - 0s 55ms/step
     
 
 
 
 .. parsed-literal::
 
-    array([[11.328106]], dtype=float32)
+    array([[11.045956]], dtype=float32)
 
 
 
@@ -389,20 +276,20 @@ Se espera que el modelo haga la predicción y el output sea 11.
 
 .. parsed-literal::
 
-    1/1 [==============================] - 0s 15ms/step
+    1/1 [==============================] - 0s 14ms/step
     
 
 
 
 .. parsed-literal::
 
-    array([[ 3.6278296],
-           [ 4.727869 ],
-           [ 5.827909 ],
-           [ 6.927948 ],
-           [ 8.027988 ],
-           [ 9.128027 ],
-           [10.228067 ]], dtype=float32)
+    array([[ 3.9480417],
+           [ 4.9621644],
+           [ 5.9761295],
+           [ 6.990095 ],
+           [ 8.004061 ],
+           [ 9.018025 ],
+           [10.031992 ]], dtype=float32)
 
 
 
@@ -504,14 +391,38 @@ La última muestra tiene los últimos 3 valores (últimos 3 time step).
 
 .. code:: ipython3
 
+    timeSerie[-time_step:].shape
+
+
+
+
+.. parsed-literal::
+
+    (3,)
+
+
+
+.. code:: ipython3
+
+    timeSerie[-time_step:][np.newaxis].shape
+
+
+
+
+.. parsed-literal::
+
+    (1, 3)
+
+
+
+.. code:: ipython3
+
     predictions = []
     
     time_prediction = 5  # cantidad de predicciones fuera de la muestra
     
     first_sample = timeSerie[-time_step:]  # última muestra dentro de la serie de tiempo
-    current_batch = first_sample.reshape(
-        (1, time_step)
-    )  # Transformación en muestras y time step
+    current_batch = first_sample[np.newaxis]  # Transformación en muestras y time step
     
     for i in range(time_prediction):
     
@@ -521,7 +432,7 @@ La última muestra tiene los últimos 3 valores (últimos 3 time step).
         predictions.append(current_pred)
     
         # Actualizar el lote para incluir ahora la predicción y soltar el primer valor (primer time step)
-        current_batch = np.append(current_batch[:, 1:], [[current_pred]]).reshape((1, time_step))
+        current_batch = np.append(current_batch[:, 1:], [[current_pred]])[np.newaxis]
 
 .. code:: ipython3
 
@@ -532,11 +443,11 @@ La última muestra tiene los últimos 3 valores (últimos 3 time step).
 
 .. parsed-literal::
 
-    [array([11.328106], dtype=float32),
-     array([12.755993], dtype=float32),
-     array([14.283464], dtype=float32),
-     array([15.943607], dtype=float32),
-     array([17.746378], dtype=float32)]
+    [array([11.045956], dtype=float32),
+     array([12.092222], dtype=float32),
+     array([13.143522], dtype=float32),
+     array([14.207874], dtype=float32),
+     array([15.281992], dtype=float32)]
 
 
 
@@ -562,7 +473,7 @@ La última muestra tiene los últimos 3 valores (últimos 3 time step).
 
 
 
-.. image:: output_49_0.png
+.. image:: output_51_0.png
 
 
 **¿Cómo cambia la predicción fuera de la muestra para 50 períodos?**

@@ -361,109 +361,7 @@ estandarización de los datos.</p>
 <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Epoch</span> <span class="mi">1</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">48.7482</span>
-<span class="n">Epoch</span> <span class="mi">2</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">45.2118</span>
-<span class="n">Epoch</span> <span class="mi">3</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">41.8878</span>
-<span class="n">Epoch</span> <span class="mi">4</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">38.2791</span>
-<span class="n">Epoch</span> <span class="mi">5</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">992</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">35.2226</span>
-<span class="n">Epoch</span> <span class="mi">6</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">31.9653</span>
-<span class="n">Epoch</span> <span class="mi">7</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">29.2024</span>
-<span class="n">Epoch</span> <span class="mi">8</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">999</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">26.2834</span>
-<span class="n">Epoch</span> <span class="mi">9</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">23.7814</span>
-<span class="n">Epoch</span> <span class="mi">10</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">21.2375</span>
-<span class="n">Epoch</span> <span class="mi">11</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">993</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">18.7691</span>
-<span class="n">Epoch</span> <span class="mi">12</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">16.4282</span>
-<span class="n">Epoch</span> <span class="mi">13</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">14.5043</span>
-<span class="n">Epoch</span> <span class="mi">14</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">985</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">12.6547</span>
-<span class="n">Epoch</span> <span class="mi">15</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">998</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">10.7694</span>
-<span class="n">Epoch</span> <span class="mi">16</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">970</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">8.9978</span>
-<span class="n">Epoch</span> <span class="mi">17</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">7.3858</span>
-<span class="n">Epoch</span> <span class="mi">18</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">6.0591</span>
-<span class="n">Epoch</span> <span class="mi">19</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">4.9401</span>
-<span class="n">Epoch</span> <span class="mi">20</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">3.7863</span>
-<span class="n">Epoch</span> <span class="mi">21</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">2.8736</span>
-<span class="n">Epoch</span> <span class="mi">22</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">2.2238</span>
-<span class="n">Epoch</span> <span class="mi">23</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">1.6932</span>
-<span class="n">Epoch</span> <span class="mi">24</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">1.1813</span>
-<span class="n">Epoch</span> <span class="mi">25</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.8697</span>
-<span class="n">Epoch</span> <span class="mi">26</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">998</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5938</span>
-<span class="n">Epoch</span> <span class="mi">27</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.4136</span>
-<span class="n">Epoch</span> <span class="mi">28</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.2797</span>
-<span class="n">Epoch</span> <span class="mi">29</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1925</span>
-<span class="n">Epoch</span> <span class="mi">30</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1360</span>
-<span class="n">Epoch</span> <span class="mi">31</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.1002</span>
-<span class="n">Epoch</span> <span class="mi">32</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0776</span>
-<span class="n">Epoch</span> <span class="mi">33</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">993</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0644</span>
-<span class="n">Epoch</span> <span class="mi">34</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0573</span>
-<span class="n">Epoch</span> <span class="mi">35</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0531</span>
-<span class="n">Epoch</span> <span class="mi">36</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0501</span>
-<span class="n">Epoch</span> <span class="mi">37</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0492</span>
-<span class="n">Epoch</span> <span class="mi">38</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0487</span>
-<span class="n">Epoch</span> <span class="mi">39</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">998</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0491</span>
-<span class="n">Epoch</span> <span class="mi">40</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0483</span>
-<span class="n">Epoch</span> <span class="mi">41</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0478</span>
-<span class="n">Epoch</span> <span class="mi">42</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0475</span>
-<span class="n">Epoch</span> <span class="mi">43</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0472</span>
-<span class="n">Epoch</span> <span class="mi">44</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0470</span>
-<span class="n">Epoch</span> <span class="mi">45</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0468</span>
-<span class="n">Epoch</span> <span class="mi">46</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">831</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0472</span>
-<span class="n">Epoch</span> <span class="mi">47</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0466</span>
-<span class="n">Epoch</span> <span class="mi">48</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0461</span>
-<span class="n">Epoch</span> <span class="mi">49</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0458</span>
-<span class="n">Epoch</span> <span class="mi">50</span><span class="o">/</span><span class="mi">50</span>
-<span class="mi">7</span><span class="o">/</span><span class="mi">7</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">997</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0454</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -472,22 +370,19 @@ estandarización de los datos.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">117</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.0452</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">124</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">8.8056e-04</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.04522312432527542</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.000880562060046941</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;epoch&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Loss&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x17ce0b2fcd0</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_30_1.png" src="../../../_images/output_30_1.png" />
+<img alt="../../../_images/output_30_01.png" src="../../../_images/output_30_01.png" />
 </div>
 <div class="section" id="prediccion-del-modelo">
 <h2>Predicción del modelo:<a class="headerlink" href="#prediccion-del-modelo" title="Permalink to this headline">¶</a></h2>
@@ -515,26 +410,26 @@ pronosticar se debe ingresar muestras con la misma dimensión
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_input</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">56</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">55</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">11.328106</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">11.045956</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">y_pred</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">15</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">1</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">14</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mf">3.6278296</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mf">4.727869</span> <span class="p">],</span>
-       <span class="p">[</span> <span class="mf">5.827909</span> <span class="p">],</span>
-       <span class="p">[</span> <span class="mf">6.927948</span> <span class="p">],</span>
-       <span class="p">[</span> <span class="mf">8.027988</span> <span class="p">],</span>
-       <span class="p">[</span> <span class="mf">9.128027</span> <span class="p">],</span>
-       <span class="p">[</span><span class="mf">10.228067</span> <span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mf">3.9480417</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">4.9621644</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">5.9761295</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">6.990095</span> <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">8.004061</span> <span class="p">],</span>
+       <span class="p">[</span> <span class="mf">9.018025</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">10.031992</span> <span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span><span class="o">.</span><span class="n">shape</span>
@@ -574,7 +469,7 @@ pronosticar se debe ingresar muestras con la misma dimensión
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_42_04.png" src="../../../_images/output_42_04.png" />
+<img alt="../../../_images/output_42_03.png" src="../../../_images/output_42_03.png" />
 </div>
 <div class="section" id="prediccion-fuera-de-la-muestra">
 <h2>Predicción fuera de la muestra:<a class="headerlink" href="#prediccion-fuera-de-la-muestra" title="Permalink to this headline">¶</a></h2>
@@ -596,14 +491,24 @@ modelo, se convertirán posteriormente en las entradas del modelo.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span> <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timeSerie</span><span class="p">[</span><span class="o">-</span><span class="n">time_step</span><span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">3</span><span class="p">,)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timeSerie</span><span class="p">[</span><span class="o">-</span><span class="n">time_step</span><span class="p">:][</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="n">time_prediction</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># cantidad de predicciones fuera de la muestra</span>
 
 <span class="n">first_sample</span> <span class="o">=</span> <span class="n">timeSerie</span><span class="p">[</span><span class="o">-</span><span class="n">time_step</span><span class="p">:]</span>  <span class="c1"># última muestra dentro de la serie de tiempo</span>
-<span class="n">current_batch</span> <span class="o">=</span> <span class="n">first_sample</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_step</span><span class="p">)</span>
-<span class="p">)</span>  <span class="c1"># Transformación en muestras y time step</span>
+<span class="n">current_batch</span> <span class="o">=</span> <span class="n">first_sample</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>  <span class="c1"># Transformación en muestras y time step</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">time_prediction</span><span class="p">):</span>
 
@@ -613,17 +518,17 @@ modelo, se convertirán posteriormente en las entradas del modelo.</p>
     <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_pred</span><span class="p">)</span>
 
     <span class="c1"># Actualizar el lote para incluir ahora la predicción y soltar el primer valor (primer time step)</span>
-    <span class="n">current_batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_batch</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="p">[[</span><span class="n">current_pred</span><span class="p">]])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">time_step</span><span class="p">))</span>
+    <span class="n">current_batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_batch</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="p">[[</span><span class="n">current_pred</span><span class="p">]])[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">array</span><span class="p">([</span><span class="mf">11.328106</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
- <span class="n">array</span><span class="p">([</span><span class="mf">12.755993</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
- <span class="n">array</span><span class="p">([</span><span class="mf">14.283464</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
- <span class="n">array</span><span class="p">([</span><span class="mf">15.943607</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
- <span class="n">array</span><span class="p">([</span><span class="mf">17.746378</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">array</span><span class="p">([</span><span class="mf">11.045956</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="mf">12.092222</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="mf">13.143522</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="mf">14.207874</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">),</span>
+ <span class="n">array</span><span class="p">([</span><span class="mf">15.281992</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)]</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
@@ -645,7 +550,7 @@ modelo, se convertirán posteriormente en las entradas del modelo.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_49_0.png" src="../../../_images/output_49_0.png" />
+<img alt="../../../_images/output_51_02.png" src="../../../_images/output_51_02.png" />
 <p><strong>¿Cómo cambia la predicción fuera de la muestra para 50 períodos?</strong></p>
 </div>
 </div>

@@ -746,7 +746,7 @@ mañana será el precio de hoy.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_43_01.png" src="../../_images/output_43_01.png" />
+<img alt="../../_images/output_43_02.png" src="../../_images/output_43_02.png" />
 </div>
 <div class="section" id="generacion-de-caminata-aleatoria">
 <h2>Generación de Caminata Aleatoria<a class="headerlink" href="#generacion-de-caminata-aleatoria" title="Permalink to this headline">¶</a></h2>
@@ -969,7 +969,7 @@ puede <strong>descomponer</strong> en lo siguiente:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_92_03.png" src="../../_images/output_92_03.png" />
+<img alt="../../_images/output_92_02.png" src="../../_images/output_92_02.png" />
 <p>El primer gráfico es la serie de tiempo origial, sin descomponer.</p>
 <p>El segundo gráfico es la tendencia, si es similar al primero, la serie
 de tiempo no es estacional.</p>
@@ -1004,7 +1004,7 @@ sugiere que no hay estacionalidad.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_102_01.png" src="../../_images/output_102_01.png" />
+<img alt="../../_images/output_102_0.png" src="../../_images/output_102_0.png" />
 <p><code class="docutils literal notranslate"><span class="pre">lags</span> <span class="pre">=</span> <span class="pre">40</span></code>: retrasos. En este caso, los 40 períodos antes del período
 actual.</p>
 <p><code class="docutils literal notranslate"><span class="pre">zero</span> <span class="pre">=</span> <span class="pre">False</span></code>: para no incluir el período actual. No es necesario
@@ -1055,7 +1055,7 @@ cuadrados ordinarios (OLS-Ordinary Least Squares).</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_113_01.png" src="../../_images/output_113_01.png" />
+<img alt="../../_images/output_113_0.png" src="../../_images/output_113_0.png" />
 <p><strong>Conclusión: la serie de tiempo no está autocorrelacionada.</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sgt</span><span class="o">.</span><span class="n">plot_pacf</span><span class="p">(</span><span class="n">rw</span><span class="p">,</span> <span class="n">lags</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">zero</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ols&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PACF para la Caminata Aleatoria&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">24</span><span class="p">)</span>

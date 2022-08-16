@@ -263,7 +263,7 @@ conoce como fuga del gradiente.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_10_01.png" src="../../../_images/output_10_01.png" />
+<img alt="../../../_images/output_10_0.png" src="../../../_images/output_10_0.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \sigma(z)}{\partial z} = \sigma(z)(1-\sigma(z))\]</div>
@@ -530,7 +530,7 @@ decir, si se asigna una categoría, ya no se puede pertenecer a otra.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_63_0.png" src="../../../_images/output_63_0.png" />
+<img alt="../../../_images/output_63_01.png" src="../../../_images/output_63_01.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial s(z)}{\partial z} = s(z)(1-s(z))\]</div>
@@ -558,7 +558,7 @@ hiperbólica.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softsing</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_72_0.png" src="../../../_images/output_72_0.png" />
+<img alt="../../../_images/output_72_01.png" src="../../../_images/output_72_01.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial f(z)}{\partial z} = \frac{z}{(|z|+1)^2}\]</div>
@@ -622,7 +622,7 @@ suavizada.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dexponential</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_92_02.png" src="../../../_images/output_92_02.png" />
+<img alt="../../../_images/output_92_01.png" src="../../../_images/output_92_01.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">tanh</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>
@@ -638,7 +638,7 @@ suavizada.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_93_0.png" src="../../../_images/output_93_0.png" />
+<img alt="../../../_images/output_93_01.png" src="../../../_images/output_93_01.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsigmoid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dtanh</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>
