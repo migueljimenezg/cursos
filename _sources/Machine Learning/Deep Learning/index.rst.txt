@@ -52,6 +52,19 @@ Keras:
    Ejemplo pronóstico serie de tiempo/Ejemplo pronóstico serie de tiempo
 
 
+______________________________________________
+
+Taller redes neuronales artificiales:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Taller redes neuronales artificiales/Taller redes neuronales artificiales
+
+______________________________________________
+
 
 .. important::
     Archivo para trabajar esta sesión:
@@ -61,6 +74,12 @@ Keras:
     * **Descargue** :download:`Regression.csv <Regression.csv>`
 
     * **Descargue** :download:`Classification.csv <Classification.csv>` para el ejercicio.
+
+    * **Descargue** :download:`spiral.csv <spiral.csv>` para el taller de RNA.
+
+    * **Descargue** :download:`blobs.csv <blobs.csv>` para el taller de RNA.
+
+    * **Descargue** :download:`Social_Network_Ads.csv <Social_Network_Ads.csv>` para el taller de RNA.
 
 
 Bibliografía:
