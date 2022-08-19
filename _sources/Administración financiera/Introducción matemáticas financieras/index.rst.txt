@@ -4,7 +4,7 @@ Introducción a las Matemáticas Financieras
 Esta sección es solo una introducción a las operaciones con las Matemáticas Financieras.
 
 
-**Presentación del curso:** :download:`aquí <0. Administración Financiera 01-2022.pdf>` 
+**Presentación del curso:** :download:`aquí <0. Administración Financiera 02-2022.pdf>` 
 
 
 **Cómo funciona la máquina económica, por Ray Dalio** --- `aquí <https://www.youtube.com/watch?v=npoNbXXS4oQ>`_.
