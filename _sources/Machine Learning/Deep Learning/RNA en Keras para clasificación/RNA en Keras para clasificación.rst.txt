@@ -309,7 +309,7 @@ Después de crear la arquitectura de la RNA el modelo se compila con
 
 -  ``optimizer =``: por defecto usa ``"rmsprop"``. Keras tiene las
    siguientes opciones
-   `aquí <https://keras.io/api/optimizers/#weights-property>`__:
+   `aquí <https://keras.io/api/optimizers/#available-optimizers>`__:
    ``"sgd"``, ``"rmsprop"``, ``"adam"``, ``"adadelta"``, ``"adagrad"``,
    ``"adamax"``, ``"nadam"``, ``"ftrl"``. Luego se explicarán los demás
    métodos de optimización del Gradiente Descente, en este ejemplo

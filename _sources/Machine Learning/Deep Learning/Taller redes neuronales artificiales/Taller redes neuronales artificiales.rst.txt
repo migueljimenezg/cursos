@@ -50,7 +50,7 @@ Clasificación forma de spiral.
 
 -  Histograma de ``y_test`` y de ``y_pred``.
 
-3 Clasifiación binaria comprar por internet:
+3 Clasifiación binaria compras por internet:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Base de datos: ``Social_Network_Ads.csv``.

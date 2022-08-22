@@ -52,6 +52,17 @@ Keras:
    Ejemplo pronóstico serie de tiempo/Ejemplo pronóstico serie de tiempo
 
 
+Optimizadores:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Optimizadores/Optimizadores
+   Ejemplo Optimizadores/Ejemplo Optimizadores
+
+
 ______________________________________________
 
 Taller redes neuronales artificiales:
