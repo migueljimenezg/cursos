@@ -1,0 +1,822 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GridSearchCV &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Deep Learning" href="../index.html"/>
+        <link rel="next" title="Generalización" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html"/>
+        <link rel="prev" title="Optimización de Hiperparámetros" href="../Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Deep Learning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicio%20clasificaci%C3%B3n/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20para%20series%20de%20tiempo/RNA%20para%20series%20de%20tiempo.html">RNA para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo.html">Ejemplo pronóstico serie de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimizadores/Optimizadores.html">Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GridSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Caracterizaci%C3%B3n%20de%20las%20series%20de%20tiempo/index.html">Caracterización de las series de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Modelos%20autorregresivos/index.html">ARIMA: autoregresivo integrado de medias móviles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Deep%20Learning%20para%20pron%C3%B3stico/index.html">Deep Learning para pronóstico</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Deep Learning</a> &raquo;</li>
+        
+      <li>GridSearchCV</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Machine Learning/Deep Learning/GridSearchCV/GridSearchCV.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gridsearchcv">
+<h1>GridSearchCV<a class="headerlink" href="#gridsearchcv" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">import</span> <span class="nn">warnings</span>  <span class="c1"># Para ignorar mensajes de advertencia</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;spiral.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">X1</span>        <span class="n">X2</span>    <span class="n">y</span>
+<span class="mi">0</span>  <span class="mf">13.31596</span>  <span class="o">-</span><span class="mf">5.47317</span>  <span class="mf">0.0</span>
+<span class="mi">1</span>  <span class="mf">16.70656</span>   <span class="mf">1.26700</span>  <span class="mf">0.0</span>
+<span class="mi">2</span>   <span class="mf">7.18348</span>   <span class="mf">7.29934</span>  <span class="mf">1.0</span>
+<span class="mi">3</span>  <span class="o">-</span><span class="mf">7.94940</span> <span class="o">-</span><span class="mf">14.77444</span>  <span class="mf">1.0</span>
+<span class="mi">4</span>  <span class="o">-</span><span class="mf">5.96108</span> <span class="o">-</span><span class="mf">18.68620</span>  <span class="mf">1.0</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_3_01.png" src="../../../_images/output_3_01.png" />
+<div class="section" id="conjunto-de-train-y-test">
+<h2>Conjunto de train y test:<a class="headerlink" href="#conjunto-de-train-y-test" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;X1&quot;</span><span class="p">,</span> <span class="s2">&quot;X2&quot;</span><span class="p">]]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>            <span class="n">X1</span>        <span class="n">X2</span>
+<span class="mi">0</span>     <span class="mf">13.31596</span>  <span class="o">-</span><span class="mf">5.47317</span>
+<span class="mi">1</span>     <span class="mf">16.70656</span>   <span class="mf">1.26700</span>
+<span class="mi">2</span>      <span class="mf">7.18348</span>   <span class="mf">7.29934</span>
+<span class="mi">3</span>     <span class="o">-</span><span class="mf">7.94940</span> <span class="o">-</span><span class="mf">14.77444</span>
+<span class="mi">4</span>     <span class="o">-</span><span class="mf">5.96108</span> <span class="o">-</span><span class="mf">18.68620</span>
+<span class="o">...</span>        <span class="o">...</span>       <span class="o">...</span>
+<span class="mi">3995</span>   <span class="mf">4.67165</span>  <span class="mf">11.72679</span>
+<span class="mi">3996</span>  <span class="o">-</span><span class="mf">9.34366</span>   <span class="mf">0.81879</span>
+<span class="mi">3997</span> <span class="o">-</span><span class="mf">13.08116</span> <span class="o">-</span><span class="mf">14.54117</span>
+<span class="mi">3998</span>  <span class="mf">10.66048</span> <span class="o">-</span><span class="mf">17.28003</span>
+<span class="mi">3999</span>  <span class="mf">12.35733</span>  <span class="o">-</span><span class="mf">8.63444</span>
+
+<span class="p">[</span><span class="mi">4000</span> <span class="n">rows</span> <span class="n">x</span> <span class="mi">2</span> <span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>       <span class="mf">0.0</span>
+<span class="mi">1</span>       <span class="mf">0.0</span>
+<span class="mi">2</span>       <span class="mf">1.0</span>
+<span class="mi">3</span>       <span class="mf">1.0</span>
+<span class="mi">4</span>       <span class="mf">1.0</span>
+       <span class="o">...</span>
+<span class="mi">3995</span>    <span class="mf">1.0</span>
+<span class="mi">3996</span>    <span class="mf">0.0</span>
+<span class="mi">3997</span>    <span class="mf">1.0</span>
+<span class="mi">3998</span>    <span class="mf">1.0</span>
+<span class="mi">3999</span>    <span class="mf">0.0</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span> <span class="n">Length</span><span class="p">:</span> <span class="mi">4000</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="escalado-de-variables">
+<h2>Escalado de variables:<a class="headerlink" href="#escalado-de-variables" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> pertenece a Scikit-Learn y los modelos de redes
+neuronales los estamos creando en Keras; sin embargo, podemos usar
+herramientas de Scikit-Learn sobre los trabajado en Keras por medio de
+<code class="docutils literal notranslate"><span class="pre">tf.keras.wrappers.scikit_learn</span></code> que usa la API de Scikit-Learn con
+modelos Keras.</p>
+<p>Esto se pude usar tanto para clasificación como para regresión:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">KerasClassifier()</span></code>
+<a class="reference external" href="https://www.tensorflow.org/versions/r1.15/api_docs/python/tf/keras/wrappers/scikit_learn/KerasClassifier">aquí</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KerasRegressor()</span></code><a class="reference external" href="https://www.tensorflow.org/versions/r1.15/api_docs/python/tf/keras/wrappers/scikit_learn/KerasRegressor">aquí</a></p></li>
+</ul>
+</div>
+<div class="section" id="optimizacion-de-neuronas-y-epochs">
+<h2>Optimización de neuronas y epochs:<a class="headerlink" href="#optimizacion-de-neuronas-y-epochs" title="Permalink to this headline">¶</a></h2>
+<p><strong>Construcción de la red neuronal:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;relu&quot;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p><strong>Hiperparámetros a ajustar:</strong></p>
+<p>Creamos una lista de hiperparámetros y de los valores que cada uno
+tendrá.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">epochs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>Con los valores indicados en <code class="docutils literal notranslate"><span class="pre">param_grid</span></code> se entrenará el modelo
+varias veces con todas las combinaciones posibles de los hiperparámetros
+que queremos optimizar, en este caso, se entrenará el modelo con 2
+neuronas en cada capa y se hará 3 veces, el primero con 50 epochs, el
+segundo con 100 y el tercero con 150. Luego cambiará la arquitectura a 4
+neuronas por capa y repetirá el proceso con la misma secuenta de epochs.
+En total realizará 6 entrenamientos.</p>
+<p><strong>Uso de la API de Scikit-Learn sobre Keras:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.wrappers.scikit_learn</span> <span class="kn">import</span> <span class="n">KerasClassifier</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras_reg</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">create_model</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>GridSearchCV de Scikit-Learn para optimizar hiperparámetros:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">keras_reg</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> es el mismo usado en Keras con el <code class="docutils literal notranslate"><span class="pre">Sequential()</span></code>
+models. Los argumentos que más usamos son:</p>
+<p><code class="docutils literal notranslate"><span class="pre">fit(x=None,</span> <span class="pre">y=None,</span> <span class="pre">batch_size=None,</span> <span class="pre">epochs=1,</span> <span class="pre">verbose=1,</span> <span class="pre">callbacks=None,</span> <span class="pre">validation_split=0.0,</span> <span class="pre">validation_data=None)</span></code></p>
+<p>Al final de probar todas las combinaciones de hiperparámtros se vuelve a
+entrenar el modelo con el mejor.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+        <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
+        <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=&lt;</span><span class="n">keras</span><span class="o">.</span><span class="n">wrappers</span><span class="o">.</span><span class="n">scikit_learn</span><span class="o">.</span><span class="n">KerasClassifier</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000001F607D99E80</span><span class="o">&gt;</span><span class="p">,</span>
+             <span class="n">param_grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span>
+</pre></div>
+</div>
+<p><strong>Mejor modelo:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span> <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Predicción con el mejor modelo:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+
+<span class="n">X_Set</span><span class="p">,</span> <span class="n">y_Set</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span>
+<span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X1</span><span class="p">,</span>
+    <span class="n">X2</span><span class="p">,</span>
+    <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="s2">&quot;#F3B3A9&quot;</span><span class="p">)),</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">X2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_Set</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;#195E7A&quot;</span><span class="p">,</span> <span class="s2">&quot;#BA1818&quot;</span><span class="p">))(</span><span class="n">i</span><span class="p">),</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">j</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;RNA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10715</span><span class="o">/</span><span class="mi">10715</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">7</span><span class="n">s</span> <span class="mi">653</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
+</pre></div>
+</div>
+<pre class="literal-block"><em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.
+<em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.</pre>
+<img alt="../../../_images/output_32_2.png" src="../../../_images/output_32_2.png" />
+</div>
+<div class="section" id="optimizacion-de-funcion-de-activacion">
+<h2>Optimización de función de activación:<a class="headerlink" href="#optimizacion-de-funcion-de-activacion" title="Permalink to this headline">¶</a></h2>
+<p><strong>Construcción de la red neuronal:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;relu&quot;</span><span class="p">):</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="n">activation</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="n">activation</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p><strong>Hiperparámetro a ajustar:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">activation</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="s2">&quot;tanh&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">,</span> <span class="s1">&#39;tanh&#39;</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p><strong>Uso de la API de Scikit-Learn sobre Keras:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras_reg</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">create_model</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>GridSearchCV de Scikit-Learn para optimizar hiperparámetros:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">keras_reg</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+        <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
+        <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">epochs</span> <span class="o">=</span> <span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=&lt;</span><span class="n">keras</span><span class="o">.</span><span class="n">wrappers</span><span class="o">.</span><span class="n">scikit_learn</span><span class="o">.</span><span class="n">KerasClassifier</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000001F607F381C0</span><span class="o">&gt;</span><span class="p">,</span>
+             <span class="n">param_grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">,</span> <span class="s1">&#39;tanh&#39;</span><span class="p">]})</span>
+</pre></div>
+</div>
+<p><strong>Mejor modelo:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;relu&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Predicción con el mejor modelo:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+
+<span class="n">X_Set</span><span class="p">,</span> <span class="n">y_Set</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span>
+<span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X1</span><span class="p">,</span>
+    <span class="n">X2</span><span class="p">,</span>
+    <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="s2">&quot;#F3B3A9&quot;</span><span class="p">)),</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">X2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_Set</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;#195E7A&quot;</span><span class="p">,</span> <span class="s2">&quot;#BA1818&quot;</span><span class="p">))(</span><span class="n">i</span><span class="p">),</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">j</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;RNA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10715</span><span class="o">/</span><span class="mi">10715</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">8</span><span class="n">s</span> <span class="mi">756</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
+</pre></div>
+</div>
+<pre class="literal-block"><em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.
+<em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.</pre>
+<img alt="../../../_images/output_48_2.png" src="../../../_images/output_48_2.png" />
+</div>
+<div class="section" id="optimizacion-de-la-cantidad-de-capas-ocultas">
+<h2>Optimización de la cantidad de capas ocultas:<a class="headerlink" href="#optimizacion-de-la-cantidad-de-capas-ocultas" title="Permalink to this headline">¶</a></h2>
+<p><strong>Construcción de la red neuronal:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">n_hidden</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+
+    <span class="c1"># Loop para las capas ocultas:</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">):</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">))</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p><strong>Hiperparámetro a ajustar:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">n_hidden</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p><strong>Uso de la API de Scikit-Learn sobre Keras:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras_reg</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">create_model</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>GridSearchCV de Scikit-Learn para optimizar hiperparámetros:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">keras_reg</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+        <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
+        <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">epochs</span> <span class="o">=</span> <span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=&lt;</span><span class="n">keras</span><span class="o">.</span><span class="n">wrappers</span><span class="o">.</span><span class="n">scikit_learn</span><span class="o">.</span><span class="n">KerasClassifier</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000001F607CCE880</span><span class="o">&gt;</span><span class="p">,</span>
+             <span class="n">param_grid</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
+</pre></div>
+</div>
+<p><strong>Mejor modelo:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Predicción con el mejor modelo:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+
+<span class="n">X_Set</span><span class="p">,</span> <span class="n">y_Set</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span>
+<span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X1</span><span class="p">,</span>
+    <span class="n">X2</span><span class="p">,</span>
+    <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="s2">&quot;#F3B3A9&quot;</span><span class="p">)),</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">X2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_Set</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;#195E7A&quot;</span><span class="p">,</span> <span class="s2">&quot;#BA1818&quot;</span><span class="p">))(</span><span class="n">i</span><span class="p">),</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">j</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;RNA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10715</span><span class="o">/</span><span class="mi">10715</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">7</span><span class="n">s</span> <span class="mi">638</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
+</pre></div>
+</div>
+<pre class="literal-block"><em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.
+<em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.</pre>
+<img alt="../../../_images/output_64_2.png" src="../../../_images/output_64_2.png" />
+</div>
+<div class="section" id="optimizacion-de-neuronas-capas-ocultas-funcion-de-activacion-optimizadores-batch-y-epochs">
+<h2>Optimización de neuronas, capas ocultas, función de activación, optimizadores, batch y epochs:<a class="headerlink" href="#optimizacion-de-neuronas-capas-ocultas-funcion-de-activacion-optimizadores-batch-y-epochs" title="Permalink to this headline">¶</a></h2>
+<p><strong>Construcción de la red neuronal:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_hidden</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s2">&quot;adam&quot;</span><span class="p">):</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+
+    <span class="c1"># Loop para las capas ocultas:</span>
+    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">):</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">activation</span><span class="p">))</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s2">&quot;binary_crossentropy&quot;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p><strong>Hiperparámetros a ajustar:</strong></p>
+<p>Algunos hiperparámetros está dentro de la función creada llamada
+<code class="docutils literal notranslate"><span class="pre">create_model()</span></code>, los demás hiperparámtros que están por fuera de esta
+función y que perteneces al método <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> deben tener el mismo
+nombre que los argumentos, por ejemplo, los hiperparámetros
+<code class="docutils literal notranslate"><span class="pre">batch_size</span></code> y <code class="docutils literal notranslate"><span class="pre">epochs</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                  <span class="n">n_hidden</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                  <span class="n">activation</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="s2">&quot;tanh&quot;</span><span class="p">],</span>
+                  <span class="n">optimizer</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="s2">&quot;rmsprop&quot;</span><span class="p">],</span>
+                  <span class="n">batch_size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+                  <span class="n">epochs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+ <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+ <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="s1">&#39;tanh&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+ <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p><strong>Uso de la API de Scikit-Learn sobre Keras:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras_reg</span> <span class="o">=</span> <span class="n">KerasClassifier</span><span class="p">(</span><span class="n">create_model</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>GridSearchCV de Scikit-Learn para optimizar hiperparámetros:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">keras_reg</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">StartTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
+        <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
+        <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">EndTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------&gt; Tiempo en procesar: &quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">((</span><span class="n">EndTime</span> <span class="o">-</span> <span class="n">StartTime</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span><span class="p">),</span> <span class="s2">&quot;Minutos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Mejor modelo:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
+</pre></div>
+</div>
+<p><strong>Predicción con el mejor modelo:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+
+<span class="n">X_Set</span><span class="p">,</span> <span class="n">y_Set</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span>
+<span class="n">X1</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="n">X_Set</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X1</span><span class="p">,</span>
+    <span class="n">X2</span><span class="p">,</span>
+    <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="s2">&quot;#F3B3A9&quot;</span><span class="p">)),</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">X2</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X2</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y_Set</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">X_Set</span><span class="p">[</span><span class="n">y_Set</span> <span class="o">==</span> <span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">ListedColormap</span><span class="p">((</span><span class="s2">&quot;#195E7A&quot;</span><span class="p">,</span> <span class="s2">&quot;#BA1818&quot;</span><span class="p">))(</span><span class="n">i</span><span class="p">),</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">j</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;RNA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;X2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html" class="btn btn-neutral float-right" title="Generalización" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html" class="btn btn-neutral" title="Optimización de Hiperparámetros" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

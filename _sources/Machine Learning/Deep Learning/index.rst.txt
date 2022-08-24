@@ -71,6 +71,7 @@ Optimización de Hiperparámetros:
    :titlesonly:
 
    Optimización de hiperparámetros/Optimización de Hiperparámetros
+   GridSearchCV/GridSearchCV
 
 
 Regularización:
