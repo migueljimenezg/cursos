@@ -1,0 +1,464 @@
+Ejemplo regularización
+----------------------
+
+.. code:: ipython3
+
+    import pandas as pd
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import warnings  # Para ignorar mensajes de advertencia
+    
+    warnings.filterwarnings("ignore")
+
+Descargar datos desde Yahoo Finance:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Se descarga la información del Futuro E-Mini Standard and Poors 500. El
+nemotécnico en la bolsa es ES.
+
+.. code:: ipython3
+
+    import yfinance as yf
+
+.. code:: ipython3
+
+    tickers = ["ES=F"]
+    ohlc = yf.download(tickers, period="max")
+    print(ohlc.tail())
+
+
+.. parsed-literal::
+
+    [*********************100%***********************]  1 of 1 completed
+                   Open     High      Low    Close  Adj Close   Volume
+    Date                                                              
+    2022-08-17  4309.25  4315.00  4255.00  4276.75    4276.75  1638797
+    2022-08-18  4279.50  4295.50  4258.00  4286.50    4286.50  1366220
+    2022-08-19  4287.00  4288.00  4220.75  4231.50    4231.50  1701251
+    2022-08-22  4221.00  4221.50  4131.50  4141.25    4141.25  1701251
+    2022-08-23  4147.00  4161.75  4118.00  4149.75    4149.75   686203
+    
+
+.. code:: ipython3
+
+    df = ohlc["Adj Close"].dropna(how="all")
+    df.tail()
+
+
+
+
+.. parsed-literal::
+
+    Date
+    2022-08-17    4276.75
+    2022-08-18    4286.50
+    2022-08-19    4231.50
+    2022-08-22    4141.25
+    2022-08-23    4149.75
+    Name: Adj Close, dtype: float64
+
+
+
+.. code:: ipython3
+
+    df.shape
+
+
+
+
+.. parsed-literal::
+
+    (5543,)
+
+
+
+.. code:: ipython3
+
+    df = np.array(df[:, np.newaxis])
+    df.shape
+
+
+
+
+.. parsed-literal::
+
+    (5543, 1)
+
+
+
+.. code:: ipython3
+
+    plt.figure(figsize=(10, 6))
+    plt.plot(df);
+
+
+
+.. image:: output_9_0.png
+
+
+Conjunto de train, validation y test:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    time_valid = 0.10
+    time_test = 0.10
+
+.. code:: ipython3
+
+    train = df[: int(len(df) * (1 - (time_valid + time_test)))]
+    valid = df[
+        int(len(df) * (1 - (time_valid + time_test))) : int(len(df) * (1 - time_test))
+    ]
+    test = df[int(len(df) * (1 - time_test)) :]
+
+**Función para conformar el dataset para datos secuenciales:**
+
+``[time_step, Features]``
+
+.. code:: ipython3
+
+    def split_sequence(sequence, time_step):
+        X, y = list(), list()
+        for i in range(len(sequence)):
+            end_ix = i + time_step
+            if end_ix > len(sequence) - 1:
+                break
+            seq_x, seq_y = sequence[i:end_ix], sequence[end_ix]
+            X.append(seq_x)
+            y.append(seq_y)
+        return np.array(X), np.array(y)
+
+Estandarización de las variables:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from sklearn.preprocessing import StandardScaler
+
+.. code:: ipython3
+
+    sc = StandardScaler()
+    sc.fit(train)
+    train = sc.transform(train)
+    valid = sc.transform(valid)
+    test = sc.transform(test)
+
+.. code:: ipython3
+
+    time_step = 10
+    
+    X_train, y_train = split_sequence(train, time_step)
+    X_valid, y_valid = split_sequence(valid, time_step)
+    X_test, y_test = split_sequence(test, time_step)
+
+Ajuste del modelo con 500 epochs:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from keras.models import Sequential
+    from keras.layers import Dense
+    import keras
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dense(10, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(1))
+    model.compile(optimizer="adam", loss="mse")
+    history = model.fit(
+        X_train,
+        y_train,
+        validation_data=(X_test, y_test),
+        epochs=500,
+        batch_size=50,
+        verbose=0,
+    )
+    
+    # Evaluación del desempeño:
+    print(model.evaluate(X_test, y_test, verbose=0))
+    plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
+    plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
+    plt.xlabel("epoch")
+    plt.ylabel("Loss")
+    plt.legend();
+
+
+.. parsed-literal::
+
+    0.010018723085522652
+    
+
+
+.. image:: output_22_1.png
+
+
+Early Stopping:
+~~~~~~~~~~~~~~~
+
+En el siguiente ejemplo el modelo se agrega una parada anticipada (early
+stopping) si el modelo no mejora durante 10 epochs. En caso de no usar
+este método la red de entrenará por 500 epoch y podrá observar que el
+modelo converge desde las primeras epochs.
+
+Este método es útil para detener el entrenamiento y no esperar hasta que
+ejecute la última epoch que indiquemos.
+
+.. code:: ipython3
+
+    keras.backend.clear_session()
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dense(10, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(1))
+    model.compile(optimizer="adam", loss="mse")
+    
+    callbacks= keras.callbacks.EarlyStopping(   # Interrumpe el entrenamiento cuando se detiene la mejora.
+        monitor="val_loss",                 # Supervisa el accuracy en la validación del modelo.
+        patience=10)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante 10 epochs.
+    
+    history = model.fit(
+        X_train,
+        y_train,
+        validation_data=(X_test, y_test),
+        callbacks=callbacks,
+        epochs=500,
+        batch_size=50,
+        verbose=0,
+    )
+    
+    # Evaluación del desempeño:
+    print(model.evaluate(X_test, y_test, verbose=0))
+    plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
+    plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
+    plt.xlabel("epoch")
+    plt.ylabel("Loss")
+    plt.legend();
+
+
+.. parsed-literal::
+
+    0.015855224803090096
+    
+
+
+.. image:: output_27_1.png
+
+
+Regularización L1:
+~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    keras.backend.clear_session()
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dense(10, activation="relu", input_shape=(time_step,),
+                   kernel_regularizer='l1'))         # Regularización L1
+    model.add(Dense(1))
+    model.compile(optimizer="adam", loss="mse")
+    history = model.fit(
+        X_train,
+        y_train,
+        validation_data=(X_test, y_test),
+        epochs=100,                                  # 100 epochs
+        batch_size=50,
+        verbose=0,
+    )
+    
+    # Evaluación del desempeño:
+    print(model.evaluate(X_test, y_test, verbose=0))
+    plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
+    plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
+    plt.xlabel("epoch")
+    plt.ylabel("Loss")
+    plt.legend();
+
+
+.. parsed-literal::
+
+    0.013674663379788399
+    
+
+
+.. image:: output_30_1.png
+
+
+Regularización L2:
+~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    keras.backend.clear_session()
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dense(10, activation="relu", input_shape=(time_step,),
+                   kernel_regularizer='l2'))         # Regularización L2
+    model.add(Dense(1))
+    model.compile(optimizer="adam", loss="mse")
+    history = model.fit(
+        X_train,
+        y_train,
+        validation_data=(X_test, y_test),
+        epochs=200,                                  # 200 epochs
+        batch_size=50,
+        verbose=0,
+    )
+    
+    # Evaluación del desempeño:
+    print(model.evaluate(X_test, y_test, verbose=0))
+    plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
+    plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
+    plt.xlabel("epoch")
+    plt.ylabel("Loss")
+    plt.legend();
+
+
+.. parsed-literal::
+
+    0.7967701554298401
+    
+
+
+.. image:: output_33_1.png
+
+
+Regularización L2 con Early Stopping:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    keras.backend.clear_session()
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dense(10, activation="relu", input_shape=(time_step,),
+                   kernel_regularizer='l2'))         # Regularización L2
+    model.add(Dense(1))
+    model.compile(optimizer="adam", loss="mse")
+    
+    callbacks= keras.callbacks.EarlyStopping(  
+        monitor="val_loss",                 
+        patience=10)        
+    
+    
+    history = model.fit(
+        X_train,
+        y_train,
+        validation_data=(X_test, y_test),
+        callbacks=callbacks,
+        epochs=500,                                  # 500 epochs
+        batch_size=50,
+        verbose=0,
+    )
+    
+    # Evaluación del desempeño:
+    print(model.evaluate(X_test, y_test, verbose=0))
+    plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
+    plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
+    plt.xlabel("epoch")
+    plt.ylabel("Loss")
+    plt.legend();
+
+
+.. parsed-literal::
+
+    0.054909028112888336
+    
+
+
+.. image:: output_36_1.png
+
+
+Dropout:
+~~~~~~~~
+
+.. code:: ipython3
+
+    from keras.layers import Dropout
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dense(10, activation="relu", input_shape=(time_step,)))
+    model.add(Dropout(0.2))              # Regularización Dropout
+    model.add(Dense(1))
+    model.compile(optimizer="adam", loss="mse")
+    history = model.fit(
+        X_train,
+        y_train,
+        validation_data=(X_test, y_test),
+        epochs=200,                                  # 200 epochs
+        batch_size=50,
+        verbose=0,
+    )
+    
+    # Evaluación del desempeño:
+    print(model.evaluate(X_test, y_test, verbose=0))
+    plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
+    plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
+    plt.xlabel("epoch")
+    plt.ylabel("Loss")
+    plt.legend();
+
+
+.. parsed-literal::
+
+    0.10498327016830444
+    
+
+
+.. image:: output_39_1.png
+
+
+Regularización Dropout con Early Stopping en capa de entrada:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dropout(0.1, input_shape=(time_step,)))
+    model.add(Dense(10, activation="relu", ))
+    model.add(Dropout(0.2))
+    model.add(Dense(1))
+    model.compile(optimizer="adam", loss="mse")
+    
+    callbacks= keras.callbacks.EarlyStopping(  
+        monitor="val_loss",                 
+        patience=10)       
+    
+    history = model.fit(
+        X_train,
+        y_train,
+        validation_data=(X_test, y_test),
+        callbacks=callbacks,
+        epochs=500,                                  # 500 epochs
+        batch_size=50,
+        verbose=0,
+    )
+    
+    # Evaluación del desempeño:
+    print(model.evaluate(X_test, y_test, verbose=0))
+    plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
+    plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
+    plt.xlabel("epoch")
+    plt.ylabel("Loss")
+    plt.legend();
+
+
+.. parsed-literal::
+
+    0.3654727339744568
+    
+
+
+.. image:: output_41_1.png
+

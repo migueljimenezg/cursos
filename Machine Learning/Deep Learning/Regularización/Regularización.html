@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Regularización &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Deep Learning" href="../index.html"/>
+        <link rel="next" title="Ejemplo regularización" href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html"/>
+        <link rel="prev" title="Generalización" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Deep Learning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicio%20clasificaci%C3%B3n/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNA%20para%20series%20de%20tiempo/RNA%20para%20series%20de%20tiempo.html">RNA para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo.html">Ejemplo pronóstico serie de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimizadores/Optimizadores.html">Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MODELACIÓN EN PYTHON:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Caracterizaci%C3%B3n%20de%20las%20series%20de%20tiempo/index.html">Caracterización de las series de tiempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Modelos%20autorregresivos/index.html">ARIMA: autoregresivo integrado de medias móviles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Modelaci%C3%B3n%20en%20Python/Deep%20Learning%20para%20pron%C3%B3stico/index.html">Deep Learning para pronóstico</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Deep Learning</a> &raquo;</li>
+        
+      <li>Regularización</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Machine Learning/Deep Learning/Regularización/Regularización.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="regularizacion">
+<h1>Regularización<a class="headerlink" href="#regularizacion" title="Permalink to this headline">¶</a></h1>
+<p>Un modelo ideal es aquel que se encuentra justo en el límite entre la
+insuficiencia y la sobre capacidad, pero para saber dónde se encuentra
+este punto, primero se debe cruzar, es decir, se necesita desarrollar un
+modelo que se ajuste demasiado.</p>
+<p>Cuando el modelo tiene un bajo error en el conjunto de train, pero el
+rendimiento en el conjunto de validación (o de test) comienza a
+degradarse, se ha logrado el sobreajuste (overfitting).</p>
+<p>Una vez se haya alcanzado el poder estadístico y se pueda sobreajustar,
+el siguiente objetivo es maximizar el rendimiento de la generalización.
+En esta fase se modificará el modelo, se vuelve a entrenar y se evalúa
+con los datos de validación (o de test en algunos casos), se modificará
+nuevamente y se repetirá el proceso hasta que el modelo sea tan bueno
+como sea posible.</p>
+<p>En caso de tener tres conjuntos de datos, train, validation y test, este
+proceso no se aplica a los datos de test.</p>
+<p>Algunas cosas que se pueden hacer son las siguientes:</p>
+<ul class="simple">
+<li><p>Probar con diferentes arquitecturas, añadir o quitar capas.</p></li>
+<li><p>Probar diferentes hiperparámetros como el número de neuronas por
+capa, tasa de aprendizaje, optimizador, etc. con el fin de encontrar
+la configuración óptima.</p></li>
+<li><p>Regularización de pesos como L1 o L2.</p></li>
+<li><p>Añadir Dropout.</p></li>
+</ul>
+<p>Las técnicas de regularización son un conjunto de mejores prácticas que
+impiden activamente la capacidad del modelo para ajustarse perfectamente
+a los datos de train, con el objetivo de hacer que el modelo funcione
+mejor durante el conjunto de validation (o de test), es decir, en la
+validación.</p>
+<p>Regularizar el modelo significa hacer que el modelo sea más simple, más
+“regular”, que sea menos específico para el conjunto de train y más
+capaz de generalizar.</p>
+<p>Algunas técnicas para regularizar el modelo son las siguientes:</p>
+<div class="section" id="reduccion-del-tamano-de-la-red">
+<h2>Reducción del tamaño de la red:<a class="headerlink" href="#reduccion-del-tamano-de-la-red" title="Permalink to this headline">¶</a></h2>
+<p>Un modelo demasiado pequeño no se ajustará demasiado, así que la manera
+más sencilla de mitigar el overfitting es reducir el tamaño del modelo,
+reducir la cantidad de capas y la cantidad de neuronas por capa. Al
+mismo tiempo tener en cuenta modelos que tengan suficientes parámetros
+para que no se ajusten mal.</p>
+<p>No existe un método para determinar la cantidad óptima de capas o de
+neuronas, por lo que se debe evaluar una variedad de arquitecturas
+diferentes para encontrar el tamaño correcto del modelo para los datos.</p>
+<p>Lo ideal es comenzar con pocas capas y neuronas y aumentar el tamaño
+hasta que vea rendimientos decrecientes con respecto a la pérdida de
+validación.</p>
+<p>Sabrá que su modelo es demasiado grande si comienza a sobreajustarse de
+inmediato y si su curva de pérdida de validación se ve entrecortada con
+una varianza alta (aunque las métricas de validación entrecortadas
+también podrían ser un síntoma del uso de un proceso de validación poco
+confiable, como una división de validación que es demasiado pequeña).</p>
+<p>Cuanta más capacidad tiene el modelo, más rápidamente puede modelar los
+datos de entrenamiento (lo que da como resultado una baja pérdida de
+entrenamiento), pero más susceptible es al sobreajuste (lo que da como
+resultado una gran diferencia entre la pérdida de entrenamiento y la de
+validación).</p>
+</div>
+<div class="section" id="regularizacion-de-peso">
+<h2>Regularización de peso:<a class="headerlink" href="#regularizacion-de-peso" title="Permalink to this headline">¶</a></h2>
+<p>Una forma de mitigar el sobreajuste es imponer restricciones a la
+complejidad del modelo al obligar a los pesos (W) a tomar solo valores
+pequeños, lo que hace que la distribución de los valores de peso sea más
+regular.</p>
+<p>Esta regularización de peso se hace agregando a la función de pérdida
+del modelo un costo asociado con tener pesos grandes. Se tienen dos
+métodos:</p>
+<ul class="simple">
+<li><p>Regularización L1: el costo agregado es proporcional al valor
+absoluto de los coeficientes de ponderación (la norma L1 de los
+pesos).</p></li>
+<li><p>Regularización L2: el costo agregado es proporcional al cuadrado del
+valor de los coeficientes de ponderación (la norma L2 de los pesos).</p></li>
+</ul>
+<p><strong>Regularización L1:</strong></p>
+<p>También llamada regularización Lasso (Least Absolute Shrinkage and
+Selection Operator Regression), agrega un término de regularización a la
+función de costo:</p>
+<div class="math notranslate nohighlight">
+\[Loss = Error(\hat{y},y) + \lambda \sum{|w_i|}\]</div>
+<div class="math notranslate nohighlight">
+\[||w||_1 = \sum{|w_i|}\]</div>
+<p>Una característica importante de Lasso es que tiende a eliminar los
+pesos de las variables menos importantes (es decir, establecerlas en
+cero). En otras palabras, Lasso realiza automáticamente la selección de
+variables y genera un modelo disperso (es decir, con pocos pesos de
+variables distintos de cero).</p>
+<p>Esta regularización se agrega en la capa <code class="docutils literal notranslate"><span class="pre">Dense()</span></code> con el argumento
+<code class="docutils literal notranslate"><span class="pre">kernel_regularizer=</span></code> en la red neuronal creada en Keras
+<a class="reference external" href="https://keras.io/api/layers/regularizers/#l1-class">aquí</a>. Por
+defecto <span class="math notranslate nohighlight">\(\lambda = 0.01\)</span>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">L1</span><span class="p">(</span><span class="n">l1</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Como alternativa, se puede usar el siguiente código para agregar la
+regularización L1 utilizando el valor de <span class="math notranslate nohighlight">\(\lambda\)</span> por defecto.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel_regularizer</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span>
+</pre></div>
+</div>
+<p><strong>Regularización L2:</strong></p>
+<p>También llamada regularización Rigde, agrega un término de
+regularización a la función de costo:</p>
+<div class="math notranslate nohighlight">
+\[Loss = Error(\hat{y},y) + \lambda \sum{(w_i)^2}\]</div>
+<div class="math notranslate nohighlight">
+\[||w||_2 = \sum{(w_i)^2}\]</div>
+<p>Esta regularización se agrega en la capa <code class="docutils literal notranslate"><span class="pre">Dense()</span></code> con el argumento
+<code class="docutils literal notranslate"><span class="pre">kernel_regularizer=</span></code> en la red neuronal creada en Keras
+<a class="reference external" href="https://keras.io/api/layers/regularizers/#l2-class">aquí</a>. Por
+defecto <span class="math notranslate nohighlight">\(\lambda = 0.01\)</span>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">L2</span><span class="p">(</span><span class="n">l2</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Como alternativa, se puede usar el siguiente código para agregar la
+regularización L2 utilizando el valor de <span class="math notranslate nohighlight">\(\lambda\)</span> por defecto.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kernel_regularizer</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span>
+</pre></div>
+</div>
+<p>Tenga en cuenta que la regularización del peso se usa más típicamente
+para modelos de aprendizaje profundo más pequeños. Los grandes modelos
+de aprendizaje profundo tienden a estar tan parametrizados que imponer
+restricciones en los valores de peso no tiene mucho impacto en la
+capacidad y la generalización del modelo. En estos casos, se prefiere
+una técnica de regularización diferente: Dropout.</p>
+</div>
+<div class="section" id="anadir-dropout">
+<h2>Añadir Dropout:<a class="headerlink" href="#anadir-dropout" title="Permalink to this headline">¶</a></h2>
+<p>El Dropout es una técnica de regularización que consiste en eliminar
+aleatoriamente una serie de salidas de la capa durante el entrenamiento,
+es decir, estable en cero ciertas neuronas de forma aleatoria. La tasa
+Dropout (o tasa de abandono) es la proporción de neuronas que se ponen
+en cero.</p>
+<p>En la validación no se aplica Dropout, en cambio, los valores de salida
+de la capa se reducen por un factor igual a la tasa de abandono, para
+equilibrar el hecho de que hay más neuronas activas que en el
+entrenamiento.</p>
+<p>Es un algoritmo es bastante simple: en cada paso de entrenamiento, cada
+neurona (incluidas las neuronas de entrada, pero siempre excluyendo las
+neuronas de salida) tiene una probabilidad <span class="math notranslate nohighlight">\(p\)</span> de ser “abandonada”
+temporalmente, lo que significa que será ignorada por completo durante
+este paso de entrenamiento, pero puede estar activa durante el próximo
+paso.</p>
+<p>El hiperparámetro <span class="math notranslate nohighlight">\(p\)</span> se denomina tasa de abandono y, por lo
+general, se establece entre el 10% y el 50%: más cerca del 20% al 30% en
+redes neuronales recurrentes y más cercano al 40 % a 50 % en redes
+neuronales convolucionales.</p>
+<p>Al eliminar aleatoriamente un subconjunto diferente de neuronas se
+reduce el sobreajuste. La introducción de ruido a los valores de salida
+de una capa puede romper patrones casuales que no son significativos.</p>
+<p>Otra forma de comprender el poder del Dropout es darse cuenta de que se
+genera una red neuronal única en cada paso de entrenamiento. Dado que
+cada neurona puede estar presente o no, hay un total de 2 redes posibles
+(donde <span class="math notranslate nohighlight">\(N\)</span> es el número total de neuronas descartables). Este es
+un número tan grande que es prácticamente imposible que la misma red
+neuronal se muestree dos veces. Una vez que haya ejecutado 10.000 pasos
+de entrenamiento, esencialmente habrá entrenado 10.000 redes neuronales
+diferentes (cada una con solo una instancia de entrenamiento). Estas
+redes neuronales obviamente no son independientes porque comparten
+muchos de sus pesos, pero sin embargo son todas diferentes. La red
+neuronal resultante puede verse como un conjunto promedio de todas estas
+redes neuronales más pequeñas.</p>
+<div class="figure align-default" id="id1">
+<img alt="Dropout" src="../../../_images/Dropout.jpg" />
+<p class="caption"><span class="caption-text">Dropout</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>En Keras
+<a class="reference external" href="https://keras.io/api/layers/regularization_layers/dropout/#dropout-class">aquí</a>,
+puede introducir el Dropout en un modelo a través de la capa
+<code class="docutils literal notranslate"><span class="pre">Dropout()</span></code>, que se aplica justo después de la salida de la capa.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Si observa que el modelo se está sobreajustando, puede aumentar la tasa
+de abandono. Por el contrario, debe intentar disminuir la tasa de
+abandono si el modelo no se ajusta al conjunto de entrenamiento. También
+puede ayudar a aumentar la tasa de abandono para las capas grandes y
+reducirla para las pequeñas. Además, muchas arquitecturas de última
+generación solo usan el Dropout después de la última capa oculta, por lo
+que es posible que desee probar esto si el abandono total es demasiado
+fuerte.</p>
+</div>
+<div class="section" id="early-stopping">
+<h2>Early stopping:<a class="headerlink" href="#early-stopping" title="Permalink to this headline">¶</a></h2>
+<p>Encontrar el punto exacto durante el entrenamiento en el que ha
+alcanzado el ajuste más generalizable (el límite exacto entre una curva
+de ajuste insuficiente y una curva de ajuste excesivo) es una de las
+cosas más efectivas que puede hacer para mejorar la generalización.</p>
+<p>La detención anticipada (Early stopping) interrumpe del entrenamiento
+cuando la pérdida de validación ya no mejora (y, por supuesto, guardar
+el mejor modelo obtenido durante el entrenamiento).</p>
+<p>Cuando se está entrenado a un modelo no se puede saber cuántos epochs se
+necesitarán para llegar a una pérdida de validación óptima. Hasta ahora
+el procedimiento ha sido entrenar durante suficientes epochs para
+comenzar a sobreajustar y determinar la cantidad adecuada de epochs para
+luego volver a ejecutar el entrenamiento desde cero utilizando este
+número óptimo. Este enfoque es un desperdicio.</p>
+<p>Una mejor manera de detener el entrenamiento cuando mida que la pérdida
+de validación no mejora. Esto se puede lograr utilizando el <code class="docutils literal notranslate"><span class="pre">callback</span></code>
+<code class="docutils literal notranslate"><span class="pre">EarlyStopping</span></code> que interrumpe el entrenamiento una vez que una
+métrica objetivo que se está monitoreando ha dejado de mejorar durante
+un número fijo de épocas.</p>
+<p>Por ejemplo, esta callback le permite interrumpir el entrenamiento tan
+pronto como comience a sobreajustar, evitando así tener que volver a
+entrenar su modelo por un número menor de épocas.</p>
+<p><strong>EarlyStopping para clasificación:</strong></p>
+<p>Se puede monitoriar la evolución de <code class="docutils literal notranslate"><span class="pre">loss</span></code> o <code class="docutils literal notranslate"><span class="pre">val_loss</span></code>. Si en
+<code class="docutils literal notranslate"><span class="pre">compile()</span></code> se agregan <code class="docutils literal notranslate"><span class="pre">metrics=</span></code> también se pueden monitorear.</p>
+<p>Para monitorear <code class="docutils literal notranslate"><span class="pre">val_accuracy</span></code>, primero se agrega en
+<code class="docutils literal notranslate"><span class="pre">compile(...,</span> <span class="pre">metrics</span> <span class="pre">=</span> <span class="pre">[&quot;accuracy&quot;],</span> <span class="pre">...)</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span><span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>   <span class="c1"># Interrumpe el entrenamiento cuando se detiene la mejora.</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa el accuracy en la validación del modelo.</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.</span>
+</pre></div>
+</div>
+<p>Simplemente se puede monitorear <code class="docutils literal notranslate"><span class="pre">val_loss</span></code> así:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span><span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>   <span class="c1"># Interrumpe el entrenamiento cuando se detiene la mejora.</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa el accuracy en la validación del modelo.</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.</span>
+</pre></div>
+</div>
+<p><strong>EarlyStopping para regresión:</strong></p>
+<p>En regresión podemos tener la costumbre de no tener métricas
+adicionales, se define en <code class="docutils literal notranslate"><span class="pre">loss</span></code> la métrica del <code class="docutils literal notranslate"><span class="pre">mse</span></code>. Podemos
+monitorear esta métrica de la siguiente manera:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span><span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>   <span class="c1"># Interrumpe el entrenamiento cuando se detiene la mejora.</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa el accuracy en la validación del modelo.</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.</span>
+</pre></div>
+</div>
+<p>Las callbacks se pasan al modelo a través del argumento de <code class="docutils literal notranslate"><span class="pre">callbacks</span></code>
+en <code class="docutils literal notranslate"><span class="pre">fit()</span></code>, que toma una lista de callbacks. Puede pasar cualquier
+número de callbacks.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Tenga en cuenta que debido a que callback monitoreará la pérdida de
+validación y la precisión de la validación, debe pasar
+<code class="docutils literal notranslate"><span class="pre">validation_data</span></code> a callbacks para <code class="docutils literal notranslate"><span class="pre">fit()</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html" class="btn btn-neutral float-right" title="Ejemplo regularización" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html" class="btn btn-neutral" title="Generalización" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

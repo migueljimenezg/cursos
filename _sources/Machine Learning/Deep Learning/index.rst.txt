@@ -63,6 +63,28 @@ Optimizadores:
    Ejemplo Optimizadores/Ejemplo Optimizadores
 
 
+Optimización de Hiperparámetros:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Optimización de hiperparámetros/Optimización de Hiperparámetros
+
+
+Regularización:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Generalización/Generalización
+   Regularización/Regularización
+   Ejemplo regularización/Ejemplo regularización
+
+
 ______________________________________________
 
 Taller redes neuronales artificiales:
