@@ -140,7 +140,7 @@ tendrá.
 
 .. code:: ipython3
 
-    param_grid = dict(units = [2, 4, 6], epochs = [50, 100, 150])
+    param_grid = dict(units = [4, 6], epochs = [50, 100])
 
 .. code:: ipython3
 
@@ -151,7 +151,7 @@ tendrá.
 
 .. parsed-literal::
 
-    {'units': [2, 4, 6], 'epochs': [50, 100, 150]}
+    {'units': [4, 6], 'epochs': [50, 100]}
 
 
 
@@ -160,8 +160,8 @@ varias veces con todas las combinaciones posibles de los hiperparámetros
 que queremos optimizar, en este caso, se entrenará el modelo con 2
 neuronas en cada capa y se hará 3 veces, el primero con 50 epochs, el
 segundo con 100 y el tercero con 150. Luego cambiará la arquitectura a 4
-neuronas por capa y repetirá el proceso con la misma secuenta de epochs.
-En total realizará 6 entrenamientos.
+neuronas por capa y repetirá el proceso con la misma secuencia de
+epochs. En total realizará 6 entrenamientos.
 
 **Uso de la API de Scikit-Learn sobre Keras:**
 
@@ -171,13 +171,28 @@ En total realizará 6 entrenamientos.
 
 .. code:: ipython3
 
-    keras_reg = KerasClassifier(create_model, verbose = 0)
+    keras_reg = KerasClassifier(create_model, verbose = 1)
 
 **GridSearchCV de Scikit-Learn para optimizar hiperparámetros:**
 
 .. code:: ipython3
 
     from sklearn.model_selection import GridSearchCV
+
+El entrenamiento se realiza con cross-validation que por defecto usa
+cinco subconjuntos de datos aleatorios. El argumento para cambiarlo es
+``cv=`` que por defecto es ``cv=5``.
+
+.. figure:: K-fold.JPG
+   :alt: K-fold
+
+   K-fold
+
+Tenemos en ``param_grid`` dos configuraciones para ``units`` y dos
+configuraciones para ``epochs``, para un total de cuatro combinaciones
+de hiperparámetros para entrenar el modelo, pero como ``cv=5``,
+realizará 20 corridas (4 combinaciones :math:`\times` 5 de
+cross-validation).
 
 .. code:: ipython3
 
@@ -198,12 +213,54 @@ entrenar el modelo con el mejor.
             verbose = 0)
 
 
+.. parsed-literal::
+
+    20/20 [==============================] - 0s 958us/step - loss: 0.4999 - accuracy: 0.7344
+    20/20 [==============================] - 0s 880us/step - loss: 0.3204 - accuracy: 0.9125
+    20/20 [==============================] - 0s 945us/step - loss: 0.4332 - accuracy: 0.7328
+    20/20 [==============================] - 0s 998us/step - loss: 0.4624 - accuracy: 0.7437
+    20/20 [==============================] - 0s 833us/step - loss: 0.4565 - accuracy: 0.7344
+    20/20 [==============================] - 0s 840us/step - loss: 0.4187 - accuracy: 0.6750
+    20/20 [==============================] - 0s 932us/step - loss: 0.4240 - accuracy: 0.6969
+    20/20 [==============================] - 0s 894us/step - loss: 0.3370 - accuracy: 0.8141
+    20/20 [==============================] - 0s 861us/step - loss: 0.5018 - accuracy: 0.7172
+    20/20 [==============================] - 0s 867us/step - loss: 0.3622 - accuracy: 0.8172
+    20/20 [==============================] - 0s 782us/step - loss: 0.3705 - accuracy: 0.7719
+    20/20 [==============================] - 0s 887us/step - loss: 0.4154 - accuracy: 0.7578
+    20/20 [==============================] - 0s 937us/step - loss: 0.3410 - accuracy: 0.7984
+    20/20 [==============================] - 0s 999us/step - loss: 0.3806 - accuracy: 0.7937
+    20/20 [==============================] - 0s 945us/step - loss: 0.2482 - accuracy: 0.9031
+    20/20 [==============================] - 0s 893us/step - loss: 0.2125 - accuracy: 0.9312
+    20/20 [==============================] - 0s 890us/step - loss: 0.2112 - accuracy: 0.9094
+    20/20 [==============================] - 0s 1ms/step - loss: 0.1980 - accuracy: 0.9266
+    20/20 [==============================] - 0s 891us/step - loss: 0.2269 - accuracy: 0.9156
+    20/20 [==============================] - 0s 947us/step - loss: 0.2199 - accuracy: 0.9094
+    
+
 
 
 .. parsed-literal::
 
-    GridSearchCV(estimator=<keras.wrappers.scikit_learn.KerasClassifier object at 0x000001F607D99E80>,
-                 param_grid={'epochs': [50, 100, 150], 'units': [2, 4, 6]})
+    GridSearchCV(estimator=<keras.wrappers.scikit_learn.KerasClassifier object at 0x000001D1065C5550>,
+                 param_grid={'epochs': [50, 100], 'units': [4, 6]})
+
+
+
+**Configuraciones de hiperparámetros:**
+
+.. code:: ipython3
+
+    grid_search.cv_results_["params"]
+
+
+
+
+.. parsed-literal::
+
+    [{'epochs': 50, 'units': 4},
+     {'epochs': 50, 'units': 6},
+     {'epochs': 100, 'units': 4},
+     {'epochs': 100, 'units': 6}]
 
 
 
@@ -218,7 +275,7 @@ entrenar el modelo con el mejor.
 
 .. parsed-literal::
 
-    {'epochs': 150, 'units': 6}
+    {'epochs': 100, 'units': 6}
 
 
 
@@ -256,7 +313,7 @@ entrenar el modelo con el mejor.
         X2,
         grid_search.best_estimator_.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
         alpha=0.75,
-        cmap=ListedColormap(("skyblue", "#F3B3A9")), verbose = 0
+        cmap=ListedColormap(("skyblue", "#F3B3A9"))
     )
     plt.xlim(X1.min(), X1.max())
     plt.ylim(X2.min(), X2.max())
@@ -276,7 +333,7 @@ entrenar el modelo con el mejor.
 
 .. parsed-literal::
 
-    10715/10715 [==============================] - 7s 653us/step
+    10715/10715 [==============================] - 7s 624us/step
     
 
 .. parsed-literal::
@@ -286,7 +343,7 @@ entrenar el modelo con el mejor.
     
 
 
-.. image:: output_32_2.png
+.. image:: output_37_2.png
 
 
 Optimización de función de activación:
@@ -329,7 +386,7 @@ Optimización de función de activación:
 
 .. code:: ipython3
 
-    keras_reg = KerasClassifier(create_model, verbose = 0)
+    keras_reg = KerasClassifier(create_model, verbose = 1)
 
 **GridSearchCV de Scikit-Learn para optimizar hiperparámetros:**
 
@@ -339,20 +396,38 @@ Optimización de función de activación:
 
 .. code:: ipython3
 
+    import time
+    
+    StartTime = time.time()
+    
     grid_search.fit(X_train, y_train, 
             validation_data = (X_test, y_test),
             verbose = 0,
             epochs = 150)
-
-
+    
+    EndTime = time.time()
+    print("---------> Tiempo en procesar: ", round((EndTime - StartTime) / 60), "Minutos")
 
 
 .. parsed-literal::
 
-    GridSearchCV(estimator=<keras.wrappers.scikit_learn.KerasClassifier object at 0x000001F607F381C0>,
-                 param_grid={'activation': ['relu', 'sigmoid', 'tanh']})
-
-
+    20/20 [==============================] - 0s 931us/step - loss: 0.1435 - accuracy: 0.9453
+    20/20 [==============================] - 0s 854us/step - loss: 0.0654 - accuracy: 0.9828
+    20/20 [==============================] - 0s 997us/step - loss: 0.0465 - accuracy: 0.9859
+    20/20 [==============================] - 0s 889us/step - loss: 0.0433 - accuracy: 0.9937
+    20/20 [==============================] - 0s 946us/step - loss: 0.1327 - accuracy: 0.9328
+    20/20 [==============================] - 0s 997us/step - loss: 0.6316 - accuracy: 0.6313
+    20/20 [==============================] - 0s 999us/step - loss: 0.6160 - accuracy: 0.6859
+    20/20 [==============================] - 0s 894us/step - loss: 0.6194 - accuracy: 0.6578
+    20/20 [==============================] - 0s 934us/step - loss: 0.6225 - accuracy: 0.6656
+    20/20 [==============================] - 0s 840us/step - loss: 0.6298 - accuracy: 0.6406
+    20/20 [==============================] - 0s 1ms/step - loss: 0.4396 - accuracy: 0.8000
+    20/20 [==============================] - 0s 893us/step - loss: 0.3438 - accuracy: 0.8672
+    20/20 [==============================] - 0s 882us/step - loss: 0.4088 - accuracy: 0.8219
+    20/20 [==============================] - 0s 895us/step - loss: 0.4551 - accuracy: 0.8062
+    20/20 [==============================] - 0s 868us/step - loss: 0.5662 - accuracy: 0.5875
+    ---------> Tiempo en procesar:  4 Minutos
+    
 
 **Mejor modelo:**
 
@@ -381,9 +456,9 @@ Optimización de función de activación:
 
 .. parsed-literal::
 
-    array([[0.],
+    array([[1.],
            [1.],
-           [0.],
+           [1.],
            [1.],
            [0.]])
 
@@ -423,7 +498,7 @@ Optimización de función de activación:
 
 .. parsed-literal::
 
-    10715/10715 [==============================] - 8s 756us/step
+    10715/10715 [==============================] - 7s 688us/step
     
 
 .. parsed-literal::
@@ -433,7 +508,7 @@ Optimización de función de activación:
     
 
 
-.. image:: output_48_2.png
+.. image:: output_53_2.png
 
 
 Optimización de la cantidad de capas ocultas:
@@ -479,7 +554,7 @@ Optimización de la cantidad de capas ocultas:
 
 .. code:: ipython3
 
-    keras_reg = KerasClassifier(create_model, verbose = 0)
+    keras_reg = KerasClassifier(create_model, verbose = 1)
 
 **GridSearchCV de Scikit-Learn para optimizar hiperparámetros:**
 
@@ -495,11 +570,30 @@ Optimización de la cantidad de capas ocultas:
             epochs = 150)
 
 
+.. parsed-literal::
+
+    20/20 [==============================] - 0s 1ms/step - loss: 0.1907 - accuracy: 0.9312
+    20/20 [==============================] - 0s 872us/step - loss: 0.1538 - accuracy: 0.9219
+    20/20 [==============================] - 0s 924us/step - loss: 0.1627 - accuracy: 0.9266
+    20/20 [==============================] - 0s 1ms/step - loss: 0.1390 - accuracy: 0.9484
+    20/20 [==============================] - 0s 945us/step - loss: 0.1716 - accuracy: 0.9344
+    20/20 [==============================] - 0s 911us/step - loss: 0.0725 - accuracy: 0.9734
+    20/20 [==============================] - 0s 1ms/step - loss: 0.1078 - accuracy: 0.9812
+    20/20 [==============================] - 0s 888us/step - loss: 0.0468 - accuracy: 0.9859
+    20/20 [==============================] - 0s 998us/step - loss: 0.4707 - accuracy: 0.7594
+    20/20 [==============================] - 0s 1ms/step - loss: 0.0280 - accuracy: 0.9859
+    20/20 [==============================] - 0s 1ms/step - loss: 0.0613 - accuracy: 0.9672
+    20/20 [==============================] - 0s 840us/step - loss: 0.0279 - accuracy: 0.9906
+    20/20 [==============================] - 0s 998us/step - loss: 0.0225 - accuracy: 0.9922
+    20/20 [==============================] - 0s 946us/step - loss: 0.0344 - accuracy: 0.9953
+    20/20 [==============================] - 0s 1ms/step - loss: 0.0477 - accuracy: 0.9828
+    
+
 
 
 .. parsed-literal::
 
-    GridSearchCV(estimator=<keras.wrappers.scikit_learn.KerasClassifier object at 0x000001F607CCE880>,
+    GridSearchCV(estimator=<keras.wrappers.scikit_learn.KerasClassifier object at 0x000001D114D37100>,
                  param_grid={'n_hidden': [2, 3, 4]})
 
 
@@ -573,7 +667,7 @@ Optimización de la cantidad de capas ocultas:
 
 .. parsed-literal::
 
-    10715/10715 [==============================] - 7s 638us/step
+    10715/10715 [==============================] - 7s 681us/step
     
 
 .. parsed-literal::
@@ -583,7 +677,7 @@ Optimización de la cantidad de capas ocultas:
     
 
 
-.. image:: output_64_2.png
+.. image:: output_69_2.png
 
 
 Optimización de neuronas, capas ocultas, función de activación, optimizadores, batch y epochs:
@@ -616,11 +710,11 @@ nombre que los argumentos, por ejemplo, los hiperparámetros
 
 .. code:: ipython3
 
-    param_grid = dict(units = [2, 4],
+    param_grid = dict(units = [4, 6],
                       n_hidden = [2, 3],
-                      activation = ["relu", "tanh"],
+                      activation = ["relu", "tanh", "sigmoid"],
                       optimizer = ["adam", "rmsprop"],
-                      batch_size = [10, 100],
+                      batch_size = [10, 50],
                       epochs = [50, 100])
 
 .. code:: ipython3
@@ -632,11 +726,11 @@ nombre que los argumentos, por ejemplo, los hiperparámetros
 
 .. parsed-literal::
 
-    {'units': [2, 4],
+    {'units': [4, 6],
      'n_hidden': [2, 3],
-     'activation': ['relu', 'tanh'],
+     'activation': ['relu', 'tanh', 'sigmoid'],
      'optimizer': ['adam', 'rmsprop'],
-     'batch_size': [10, 100],
+     'batch_size': [10, 50],
      'epochs': [50, 100]}
 
 
@@ -655,15 +749,610 @@ nombre que los argumentos, por ejemplo, los hiperparámetros
 
 .. code:: ipython3
 
-    import time
-    
     StartTime = time.time()
     
     grid_search.fit(X_train, y_train, 
             validation_data = (X_test, y_test),
             verbose = 0)
+    
     EndTime = time.time()
     print("---------> Tiempo en procesar: ", round((EndTime - StartTime) / 60), "Minutos")
+
+
+.. parsed-literal::
+
+    ---------> Tiempo en procesar:  35 Minutos
+    
+
+**Configuraciones de hiperparámetros:**
+
+.. code:: ipython3
+
+    grid_search.cv_results_["params"]
+
+
+
+
+.. parsed-literal::
+
+    [{'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'relu',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'tanh',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 10,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 50,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 2,
+      'optimizer': 'rmsprop',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'adam',
+      'units': 6},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 4},
+     {'activation': 'sigmoid',
+      'batch_size': 50,
+      'epochs': 100,
+      'n_hidden': 3,
+      'optimizer': 'rmsprop',
+      'units': 6}]
+
+
 
 **Mejor modelo:**
 
@@ -671,12 +1360,39 @@ nombre que los argumentos, por ejemplo, los hiperparámetros
 
     grid_search.best_params_
 
+
+
+
+.. parsed-literal::
+
+    {'activation': 'relu',
+     'batch_size': 10,
+     'epochs': 100,
+     'n_hidden': 3,
+     'optimizer': 'adam',
+     'units': 6}
+
+
+
 **Predicción con el mejor modelo:**
 
 .. code:: ipython3
 
     y_pred = grid_search.best_estimator_.predict(X_test, verbose = 0)
     y_pred[0:5]
+
+
+
+
+.. parsed-literal::
+
+    array([[0.],
+           [1.],
+           [0.],
+           [1.],
+           [0.]])
+
+
 
 .. code:: ipython3
 
@@ -708,3 +1424,19 @@ nombre que los argumentos, por ejemplo, los hiperparámetros
     plt.ylabel("X2")
     plt.legend()
     plt.show()
+
+
+.. parsed-literal::
+
+    10715/10715 [==============================] - 8s 708us/step
+    
+
+.. parsed-literal::
+
+    *c* argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with *x* & *y*.  Please use the *color* keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.
+    *c* argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with *x* & *y*.  Please use the *color* keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.
+    
+
+
+.. image:: output_88_2.png
+

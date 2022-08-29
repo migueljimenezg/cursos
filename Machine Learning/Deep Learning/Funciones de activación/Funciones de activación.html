@@ -116,6 +116,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../GridSearchCV/GridSearchCV.html">GridSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RandomizedSearchCV/RandomizedSearchCV.html">RandomizedSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../KerasTuner/KerasTuner.html">KerasTuner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
@@ -414,7 +416,7 @@ propaga a la siguiente capa.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">elu</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_40_0.png" src="../../../_images/output_40_0.png" />
+<img alt="../../../_images/output_40_01.png" src="../../../_images/output_40_01.png" />
 <p><strong>Derivada:</strong></p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(z&gt;0\)</span>:</p></li>
@@ -489,7 +491,7 @@ inicialización normal de LeCun.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">selu</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_53_0.png" src="../../../_images/output_53_0.png" />
+<img alt="../../../_images/output_53_01.png" src="../../../_images/output_53_01.png" />
 <p><strong>Derivada:</strong></p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(z&gt;0\)</span>:</p></li>
@@ -538,7 +540,7 @@ decir, si se asigna una categoría, ya no se puede pertenecer a otra.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_63_01.png" src="../../../_images/output_63_01.png" />
+<img alt="../../../_images/output_63_0.png" src="../../../_images/output_63_0.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial s(z)}{\partial z} = s(z)(1-s(z))\]</div>
@@ -566,7 +568,7 @@ hiperbólica.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softsing</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_72_01.png" src="../../../_images/output_72_01.png" />
+<img alt="../../../_images/output_72_0.png" src="../../../_images/output_72_0.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial f(z)}{\partial z} = \frac{z}{(|z|+1)^2}\]</div>
@@ -619,7 +621,7 @@ suavizada.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">exponential</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_89_0.png" src="../../../_images/output_89_0.png" />
+<img alt="../../../_images/output_89_01.png" src="../../../_images/output_89_01.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial f(z)}{\partial z} = exp(z)\]</div>
@@ -646,7 +648,7 @@ suavizada.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_93_01.png" src="../../../_images/output_93_01.png" />
+<img alt="../../../_images/output_93_0.png" src="../../../_images/output_93_0.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsigmoid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dtanh</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>

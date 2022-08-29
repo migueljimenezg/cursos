@@ -72,6 +72,8 @@ Optimización de Hiperparámetros:
 
    Optimización de hiperparámetros/Optimización de Hiperparámetros
    GridSearchCV/GridSearchCV
+   RandomizedSearchCV/RandomizedSearchCV
+   KerasTuner/KerasTuner
 
 
 Regularización:

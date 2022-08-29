@@ -428,7 +428,7 @@ clasificación se hace cambiando el tamaño de los puntos.</p>
     <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Edad</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Peso</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">Estrato</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_43_06.png"><img alt="../../_images/output_43_06.png" src="../../_images/output_43_06.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_43_05.png"><img alt="../../_images/output_43_05.png" src="../../_images/output_43_05.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">datos</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Edad</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Peso</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">Estrato</span><span class="p">))</span>
 </pre></div>
@@ -467,7 +467,7 @@ solo cambian de color todos los puntos o líneas.</p>
     <span class="nf">geom_bar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Estrato</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">Género</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_51_04.png"><img alt="../../_images/output_51_04.png" src="../../_images/output_51_04.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_51_03.png"><img alt="../../_images/output_51_03.png" src="../../_images/output_51_03.png" style="width: 420px; height: 420px;" /></a>
 <p>Note que aparecen unos colores por defecto, pero podemos crear nuestra
 propia paleta de colores e ingresarlos manualmente.</p>
 <p>Cuando clasificamos los datos por colores podemos cambiar los colores
@@ -534,7 +534,7 @@ que se dan en <code class="docutils literal notranslate"><span class="pre">alpha
                    <span class="n">alpha</span> <span class="o">=</span> <span class="m">0.3</span><span class="p">)</span>       <span class="c1"># Transparencia de 0,3. Más transparente que el anterior.</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_65_01.png"><img alt="../../_images/output_65_01.png" src="../../_images/output_65_01.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_65_02.png"><img alt="../../_images/output_65_02.png" src="../../_images/output_65_02.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">datos</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_density</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Peso</span><span class="p">),</span>
                    <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;darkred&quot;</span><span class="p">,</span>   <span class="c1"># Color del borde.</span>
@@ -566,7 +566,7 @@ gráficos para clasificar los datos.</p>
     <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">Género</span><span class="p">,</span> <span class="n">nrow</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span> <span class="c1"># nrow = para cantidad de filas</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_72_04.png"><img alt="../../_images/output_72_04.png" src="../../_images/output_72_04.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_72_03.png"><img alt="../../_images/output_72_03.png" src="../../_images/output_72_03.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">datos</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Edad</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Peso</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">Estrato</span><span class="p">)</span> <span class="c1"># Divide el gráfico en función del Estrato</span>
@@ -578,7 +578,7 @@ gráficos para clasificar los datos.</p>
     <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">Estrato</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span> <span class="c1"># ncol = para cantidad de columnas</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_74_01.png"><img alt="../../_images/output_74_01.png" src="../../_images/output_74_01.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_74_02.png"><img alt="../../_images/output_74_02.png" src="../../_images/output_74_02.png" style="width: 420px; height: 420px;" /></a>
 <p>En el siguiente gráfico se usa <code class="docutils literal notranslate"><span class="pre">facet_wrap()</span></code> para clasificar los
 datos por Estrato en cada subplot y al mismo tiempo se clasifican por
 Género al cambiar el color agregando <code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">=</span> <span class="pre">Género</span></code> dentro de
