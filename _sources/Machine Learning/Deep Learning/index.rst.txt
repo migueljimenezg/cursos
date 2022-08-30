@@ -26,7 +26,7 @@ Redes Neuronales Artificiales (RNA):
    Funciones de activación/Funciones de activación
    RNA para clasificación y regresión/RNA para clasificación y regresión
 
-Preprocesamiento de los datos:
+Preprocesamiento de datos:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
@@ -86,6 +86,17 @@ Regularización:
    Generalización/Generalización
    Regularización/Regularización
    Ejemplo regularización/Ejemplo regularización
+
+
+Redes Neuronales Recurrentes:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   RNN/RNN
+   GRU/GRU
 
 
 ______________________________________________

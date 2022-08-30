@@ -302,7 +302,7 @@ capas anteriores y que permita agregar más capas con el signo <code class="docu
 <span class="n">p</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_15_02.png"><img alt="../../_images/output_15_02.png" src="../../_images/output_15_02.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_15_03.png"><img alt="../../_images/output_15_03.png" src="../../_images/output_15_03.png" style="width: 420px; height: 420px;" /></a>
 </div>
 <div class="section" id="aesthetics">
 <h2>Aesthetics:<a class="headerlink" href="#aesthetics" title="Permalink to this headline">¶</a></h2>
@@ -368,7 +368,7 @@ qué debe graficar con los datos ingresados y las estéticas definidas.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_line</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_26_04.png"><img alt="../../_images/output_26_04.png" src="../../_images/output_26_04.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_26_05.png"><img alt="../../_images/output_26_05.png" src="../../_images/output_26_05.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_area</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -386,7 +386,7 @@ qué debe graficar con los datos ingresados y las estéticas definidas.</p>
 </pre></div>
 </div>
 <pre class="literal-block"><cite>stat_bin()</cite> using <cite>bins = 30</cite>. Pick better value with <cite>binwidth</cite>.</pre>
-<a class="reference internal image-reference" href="../../_images/output_31_12.png"><img alt="../../_images/output_31_12.png" src="../../_images/output_31_12.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_31_13.png"><img alt="../../_images/output_31_13.png" src="../../_images/output_31_13.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_density</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -398,7 +398,7 @@ qué debe graficar con los datos ingresados y las estéticas definidas.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">+</span> <span class="nf">geom_bar</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_34_03.png"><img alt="../../_images/output_34_03.png" src="../../_images/output_34_03.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_34_04.png"><img alt="../../_images/output_34_04.png" src="../../_images/output_34_04.png" style="width: 420px; height: 420px;" /></a>
 <p>Para cambiar la orientación se hace en <code class="docutils literal notranslate"><span class="pre">aes()</span></code> indicando solo <code class="docutils literal notranslate"><span class="pre">y</span></code></p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">datos</span><span class="p">)</span> <span class="o">+</span> <span class="nf">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">Estrato</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_bar</span><span class="p">()</span>
@@ -452,7 +452,7 @@ solo cambian de color todos los puntos o líneas.</p>
     <span class="nf">geom_point</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_48_02.png"><img alt="../../_images/output_48_02.png" src="../../_images/output_48_02.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_48_03.png"><img alt="../../_images/output_48_03.png" src="../../_images/output_48_03.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">datos</span><span class="p">)</span> <span class="o">+</span>
     <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Edad</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Peso</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">Estrato</span><span class="p">))</span>
 </pre></div>
@@ -498,7 +498,7 @@ que la librería muestra por defecto.</p>
     <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">Edad</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Peso</span><span class="p">),</span> <span class="n">linetype</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_57_06.png"><img alt="../../_images/output_57_06.png" src="../../_images/output_57_06.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_57_07.png"><img alt="../../_images/output_57_07.png" src="../../_images/output_57_07.png" style="width: 420px; height: 420px;" /></a>
 <p><strong>Forma de los puntos:</strong></p>
 <p>Con <code class="docutils literal notranslate"><span class="pre">shape</span></code> se pueden cambiar todos los puntos al mismo tiempo si se
 agrega este argumento por fuera de la función <code class="docutils literal notranslate"><span class="pre">aes()</span></code></p>

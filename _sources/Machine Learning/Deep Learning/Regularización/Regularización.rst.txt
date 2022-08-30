@@ -270,8 +270,8 @@ Simplemente se puede monitorear ``val_loss`` así:
 .. code:: ipython3
 
     callbacks= keras.callbacks.EarlyStopping(   # Interrumpe el entrenamiento cuando se detiene la mejora.
-        monitor="val_loss",                 # Supervisa el accuracy en la validación del modelo.
-        patience=2)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.
+        monitor="val_loss",                 # Supervisa la loss en la validación del modelo.
+        patience=2)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.
 
 **EarlyStopping para regresión:**
 
@@ -282,8 +282,8 @@ monitorear esta métrica de la siguiente manera:
 .. code:: ipython3
 
     callbacks= keras.callbacks.EarlyStopping(   # Interrumpe el entrenamiento cuando se detiene la mejora.
-        monitor="val_loss",                 # Supervisa el accuracy en la validación del modelo.
-        patience=2)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.
+        monitor="val_loss",                 # Supervisa la loss en la validación del modelo.
+        patience=2)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.
 
 Las callbacks se pasan al modelo a través del argumento de ``callbacks``
 en ``fit()``, que toma una lista de callbacks. Puede pasar cualquier

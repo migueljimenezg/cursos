@@ -106,7 +106,7 @@ comenzar con una tasa de aprendizaje baja, aumentarla y luego bajarla
 nuevamente. Estas estrategias se denominan programas de aprendizaje
 (Learning Rate Scheduling). En Keras es fácil configurar la estrategia
 con decaimiento exponencial. Con esta estrategia la tasa de aprendizaje
-se reduce gradualmente y se forma exponencial en cada paso.
+se reduce gradualmente y de forma exponencial en cada paso.
 
 La tasa de aprendizaje es posible que sea el hiperparámetro más
 importante. Una forma de encontrar una buena tasa de aprendizaje es

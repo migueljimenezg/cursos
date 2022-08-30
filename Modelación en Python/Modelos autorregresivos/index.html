@@ -402,7 +402,7 @@ anidados con este.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_34_01.png" src="../../_images/output_34_01.png" />
+<img alt="../../_images/output_34_02.png" src="../../_images/output_34_02.png" />
 <p>Se podría evaluar modelos más complejos hasta el ARIMA(7,1,7).</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_ar_5_i_1_ma_5</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">Precio</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">results_ar_5_i_1_ma_5</span> <span class="o">=</span> <span class="n">model_ar_5_i_1_ma_5</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">start_ar_lags</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
@@ -613,7 +613,7 @@ para determinar si la nueva serie de tiempo es estacionaria o no.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_48_01.png" src="../../_images/output_48_01.png" />
+<img alt="../../_images/output_48_02.png" src="../../_images/output_48_02.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sgt</span><span class="o">.</span><span class="n">plot_pacf</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">delta_prices</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">lags</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">zero</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;ols&#39;</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Partial Autocorrelation Function for Delta Prices&quot;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -809,7 +809,7 @@ la serie de tiempo.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_57_01.png" src="../../_images/output_57_01.png" />
+<img alt="../../_images/output_57_02.png" src="../../_images/output_57_02.png" />
 </div>
 </div>
 

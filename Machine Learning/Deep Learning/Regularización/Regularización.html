@@ -121,6 +121,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Regularización</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNN/RNN.html">RNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../GRU/GRU.html">GRU</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
 </ul>
 </li>
@@ -448,8 +450,8 @@ entrenar su modelo por un número menor de épocas.</p>
 </div>
 <p>Simplemente se puede monitorear <code class="docutils literal notranslate"><span class="pre">val_loss</span></code> así:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span><span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>   <span class="c1"># Interrumpe el entrenamiento cuando se detiene la mejora.</span>
-    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa el accuracy en la validación del modelo.</span>
-    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa la loss en la validación del modelo.</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.</span>
 </pre></div>
 </div>
 <p><strong>EarlyStopping para regresión:</strong></p>
@@ -457,8 +459,8 @@ entrenar su modelo por un número menor de épocas.</p>
 adicionales, se define en <code class="docutils literal notranslate"><span class="pre">loss</span></code> la métrica del <code class="docutils literal notranslate"><span class="pre">mse</span></code>. Podemos
 monitorear esta métrica de la siguiente manera:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span><span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>   <span class="c1"># Interrumpe el entrenamiento cuando se detiene la mejora.</span>
-    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa el accuracy en la validación del modelo.</span>
-    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.</span>
+    <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa la loss en la validación del modelo.</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.</span>
 </pre></div>
 </div>
 <p>Las callbacks se pasan al modelo a través del argumento de <code class="docutils literal notranslate"><span class="pre">callbacks</span></code>

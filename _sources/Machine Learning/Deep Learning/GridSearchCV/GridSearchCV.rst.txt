@@ -157,11 +157,11 @@ tendrá.
 
 Con los valores indicados en ``param_grid`` se entrenará el modelo
 varias veces con todas las combinaciones posibles de los hiperparámetros
-que queremos optimizar, en este caso, se entrenará el modelo con 2
-neuronas en cada capa y se hará 3 veces, el primero con 50 epochs, el
-segundo con 100 y el tercero con 150. Luego cambiará la arquitectura a 4
-neuronas por capa y repetirá el proceso con la misma secuencia de
-epochs. En total realizará 6 entrenamientos.
+que queremos optimizar, en este caso, se entrenará el modelo con 4
+neuronas en cada capa y se hará 2 veces, el primero con 50 epochs y el
+segundo con 100. Luego cambiará la arquitectura a 6 neuronas por capa y
+repetirá el proceso con la misma secuencia de epochs. En total realizará
+4 entrenamientos.
 
 **Uso de la API de Scikit-Learn sobre Keras:**
 
@@ -181,7 +181,7 @@ epochs. En total realizará 6 entrenamientos.
 
 El entrenamiento se realiza con cross-validation que por defecto usa
 cinco subconjuntos de datos aleatorios. El argumento para cambiarlo es
-``cv=`` que por defecto es ``cv=5``.
+``cv=`` (por defecto es ``cv=5``).
 
 .. figure:: K-fold.JPG
    :alt: K-fold
@@ -191,7 +191,7 @@ cinco subconjuntos de datos aleatorios. El argumento para cambiarlo es
 Tenemos en ``param_grid`` dos configuraciones para ``units`` y dos
 configuraciones para ``epochs``, para un total de cuatro combinaciones
 de hiperparámetros para entrenar el modelo, pero como ``cv=5``,
-realizará 20 corridas (4 combinaciones :math:`\times` 5 de
+entonces, realizará 20 corridas (4 combinaciones :math:`\times` 5 de
 cross-validation).
 
 .. code:: ipython3
@@ -203,8 +203,9 @@ models. Los argumentos que más usamos son:
 
 ``fit(x=None, y=None, batch_size=None, epochs=1, verbose=1, callbacks=None, validation_split=0.0, validation_data=None)``
 
-Al final de probar todas las combinaciones de hiperparámtros se vuelve a
-entrenar el modelo con el mejor.
+Al final de probar todas las combinaciones de hiperparámtros,
+automáticamente vuelve a entrenar el modelo con el mejor, pero con todos
+los datos.
 
 .. code:: ipython3
 
@@ -702,9 +703,9 @@ Optimización de neuronas, capas ocultas, función de activación, optimizadores
 
 **Hiperparámetros a ajustar:**
 
-Algunos hiperparámetros está dentro de la función creada llamada
+Algunos hiperparámetros están dentro de la función creada llamada
 ``create_model()``, los demás hiperparámtros que están por fuera de esta
-función y que perteneces al método ``.fit()`` deben tener el mismo
+función y que pertenecen al método ``.fit()`` deben tener el mismo
 nombre que los argumentos, por ejemplo, los hiperparámetros
 ``batch_size`` y ``epochs``.
 
