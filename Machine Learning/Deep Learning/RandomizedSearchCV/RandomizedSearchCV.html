@@ -249,6 +249,7 @@ especifica con el argumento <code class="docutils literal notranslate"><span cla
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">import</span> <span class="nn">keras</span>
 <span class="kn">import</span> <span class="nn">warnings</span>  <span class="c1"># Para ignorar mensajes de advertencia</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
@@ -380,16 +381,16 @@ realizará el ajuste dos veces con subconjuntos de datos aleatorios
                   <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">809</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6426</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6263</span>
-<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">805</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6439</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6644</span>
-<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">795</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6100</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6494</span>
-<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">835</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6164</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6637</span>
-<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">812</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5243</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.7431</span>
-<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">838</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5231</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.7188</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">956</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5424</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6625</span>
+<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">956</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.5451</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6950</span>
+<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">637</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6171</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6438</span>
+<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">1</span><span class="n">ms</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.6098</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.6650</span>
+<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">638</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3781</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8250</span>
+<span class="mi">50</span><span class="o">/</span><span class="mi">50</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">0</span><span class="n">s</span> <span class="mi">743</span><span class="n">us</span><span class="o">/</span><span class="n">step</span> <span class="o">-</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.3598</span> <span class="o">-</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.8487</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-                   <span class="n">estimator</span><span class="o">=&lt;</span><span class="n">keras</span><span class="o">.</span><span class="n">wrappers</span><span class="o">.</span><span class="n">scikit_learn</span><span class="o">.</span><span class="n">KerasClassifier</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x0000027718703190</span><span class="o">&gt;</span><span class="p">,</span>
+                   <span class="n">estimator</span><span class="o">=&lt;</span><span class="n">keras</span><span class="o">.</span><span class="n">wrappers</span><span class="o">.</span><span class="n">scikit_learn</span><span class="o">.</span><span class="n">KerasClassifier</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x000001F978F035B0</span><span class="o">&gt;</span><span class="p">,</span>
                    <span class="n">n_iter</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
                    <span class="n">param_distributions</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">],</span>
                                         <span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]})</span>
@@ -401,16 +402,16 @@ argumento <code class="docutils literal notranslate"><span class="pre">n_iter</s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">}]</span>
 </pre></div>
 </div>
 <p><strong>Mejor modelo:</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_search</span><span class="o">.</span><span class="n">best_params_</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Predicción con el mejor modelo:</strong></p>
@@ -455,7 +456,7 @@ argumento <code class="docutils literal notranslate"><span class="pre">n_iter</s
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10715</span><span class="o">/</span><span class="mi">10715</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">7</span><span class="n">s</span> <span class="mi">658</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10715</span><span class="o">/</span><span class="mi">10715</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">6</span><span class="n">s</span> <span class="mi">582</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
 </pre></div>
 </div>
 <pre class="literal-block"><em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.
@@ -468,6 +469,9 @@ argumento <code class="docutils literal notranslate"><span class="pre">n_iter</s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_hidden</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s2">&quot;adam&quot;</span><span class="p">):</span>
 
     <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+
+    <span class="c1"># Dimensión de las entradas para la primera capa:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)))</span>
 
     <span class="c1"># Loop para las capas ocultas:</span>
     <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">):</span>
@@ -483,9 +487,9 @@ argumento <code class="docutils literal notranslate"><span class="pre">n_iter</s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
                   <span class="n">n_hidden</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
                   <span class="n">activation</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">],</span>
-                  <span class="n">optimizer</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span> <span class="s2">&quot;sgd&quot;</span><span class="p">],</span>
+                  <span class="n">optimizer</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="s2">&quot;rmsprop&quot;</span><span class="p">],</span>
                   <span class="n">batch_size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
-                  <span class="n">epochs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+                  <span class="n">epochs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span>
@@ -494,9 +498,9 @@ argumento <code class="docutils literal notranslate"><span class="pre">n_iter</s
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="s1">&#39;tanh&#39;</span><span class="p">,</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">],</span>
- <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="s1">&#39;sgd&#39;</span><span class="p">],</span>
+ <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">],</span>
  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
- <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+ <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]}</span>
 </pre></div>
 </div>
 <p><strong>Uso de la API de Scikit-Learn sobre Keras:</strong></p>
@@ -519,72 +523,72 @@ argumento <code class="docutils literal notranslate"><span class="pre">n_iter</s
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------&gt; Tiempo en procesar: &quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">((</span><span class="n">EndTime</span> <span class="o">-</span> <span class="n">StartTime</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span><span class="p">),</span> <span class="s2">&quot;Minutos&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------&gt;</span> <span class="n">Tiempo</span> <span class="n">en</span> <span class="n">procesar</span><span class="p">:</span>  <span class="mi">5</span> <span class="n">Minutos</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------&gt;</span> <span class="n">Tiempo</span> <span class="n">en</span> <span class="n">procesar</span><span class="p">:</span>  <span class="mi">12</span> <span class="n">Minutos</span>
 </pre></div>
 </div>
 <p><strong>Configuraciones de hiperparámetros seleccionadas al azar:</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s2">&quot;params&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;sgd&#39;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;tanh&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;relu&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
   <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
   <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
   <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;tanh&#39;</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;relu&#39;</span><span class="p">},</span>
+ <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
   <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span>
   <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
   <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;tanh&#39;</span><span class="p">},</span>
+  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;relu&#39;</span><span class="p">},</span>
  <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;tanh&#39;</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;sgd&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;tanh&#39;</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;sgd&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
-  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;relu&#39;</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;relu&#39;</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
   <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
   <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
   <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;sigmoid&#39;</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;relu&#39;</span><span class="p">},</span>
- <span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
   <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;relu&#39;</span><span class="p">}]</span>
 </pre></div>
 </div>
@@ -594,8 +598,8 @@ argumento <code class="docutils literal notranslate"><span class="pre">n_iter</s
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;units&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
  <span class="s1">&#39;optimizer&#39;</span><span class="p">:</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span>
- <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
- <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+ <span class="s1">&#39;n_hidden&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+ <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
  <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
  <span class="s1">&#39;activation&#39;</span><span class="p">:</span> <span class="s1">&#39;relu&#39;</span><span class="p">}</span>
 </pre></div>
@@ -642,7 +646,7 @@ argumento <code class="docutils literal notranslate"><span class="pre">n_iter</s
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10715</span><span class="o">/</span><span class="mi">10715</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">7</span><span class="n">s</span> <span class="mi">693</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10715</span><span class="o">/</span><span class="mi">10715</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">7</span><span class="n">s</span> <span class="mi">620</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
 </pre></div>
 </div>
 <pre class="literal-block"><em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.

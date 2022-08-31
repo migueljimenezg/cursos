@@ -17,6 +17,7 @@ especifica con el argumento ``n_iter=``.
     from sklearn.preprocessing import StandardScaler
     from keras.models import Sequential
     from keras.layers import Dense
+    import keras
     import warnings  # Para ignorar mensajes de advertencia
     
     warnings.filterwarnings("ignore")
@@ -194,12 +195,12 @@ Por defecto ``n_iter=10`` y ``cv=5``.
 
 .. parsed-literal::
 
-    50/50 [==============================] - 0s 809us/step - loss: 0.6426 - accuracy: 0.6263
-    50/50 [==============================] - 0s 805us/step - loss: 0.6439 - accuracy: 0.6644
-    50/50 [==============================] - 0s 795us/step - loss: 0.6100 - accuracy: 0.6494
-    50/50 [==============================] - 0s 835us/step - loss: 0.6164 - accuracy: 0.6637
-    50/50 [==============================] - 0s 812us/step - loss: 0.5243 - accuracy: 0.7431
-    50/50 [==============================] - 0s 838us/step - loss: 0.5231 - accuracy: 0.7188
+    50/50 [==============================] - 0s 956us/step - loss: 0.5424 - accuracy: 0.6625
+    50/50 [==============================] - 0s 956us/step - loss: 0.5451 - accuracy: 0.6950
+    50/50 [==============================] - 0s 637us/step - loss: 0.6171 - accuracy: 0.6438
+    50/50 [==============================] - 0s 1ms/step - loss: 0.6098 - accuracy: 0.6650
+    50/50 [==============================] - 0s 638us/step - loss: 0.3781 - accuracy: 0.8250
+    50/50 [==============================] - 0s 743us/step - loss: 0.3598 - accuracy: 0.8487
     
 
 
@@ -207,7 +208,7 @@ Por defecto ``n_iter=10`` y ``cv=5``.
 .. parsed-literal::
 
     RandomizedSearchCV(cv=2,
-                       estimator=<keras.wrappers.scikit_learn.KerasClassifier object at 0x0000027718703190>,
+                       estimator=<keras.wrappers.scikit_learn.KerasClassifier object at 0x000001F978F035B0>,
                        n_iter=3,
                        param_distributions={'epochs': [10, 20, 30, 50, 80],
                                             'units': [2, 4, 6, 8]})
@@ -228,9 +229,9 @@ argumento ``n_iter`` se muestran a continuación.
 
 .. parsed-literal::
 
-    [{'units': 2, 'epochs': 20},
-     {'units': 4, 'epochs': 20},
-     {'units': 4, 'epochs': 50}]
+    [{'units': 4, 'epochs': 50},
+     {'units': 8, 'epochs': 10},
+     {'units': 6, 'epochs': 80}]
 
 
 
@@ -245,7 +246,7 @@ argumento ``n_iter`` se muestran a continuación.
 
 .. parsed-literal::
 
-    {'units': 4, 'epochs': 50}
+    {'units': 6, 'epochs': 80}
 
 
 
@@ -303,7 +304,7 @@ argumento ``n_iter`` se muestran a continuación.
 
 .. parsed-literal::
 
-    10715/10715 [==============================] - 7s 658us/step
+    10715/10715 [==============================] - 6s 582us/step
     
 
 .. parsed-literal::
@@ -326,6 +327,9 @@ Optimización de neuronas, capas ocultas, función de activación, optimizadores
     def create_model(units = 1, n_hidden = 2, activation = "relu", optimizer = "adam"):
         
         model = Sequential()
+            
+        # Dimensión de las entradas para la primera capa:
+        model.add(keras.layers.InputLayer(input_shape=(X.shape[1],)))
         
         # Loop para las capas ocultas:
         for layer in range(n_hidden):
@@ -343,9 +347,9 @@ Optimización de neuronas, capas ocultas, función de activación, optimizadores
     param_grid = dict(units = [2, 4, 6, 8],
                       n_hidden = [2, 3],
                       activation = ["relu", "tanh", "sigmoid"],
-                      optimizer = ["adam", "rmsprop", "sgd"],
+                      optimizer = ["adam", "rmsprop"],
                       batch_size = [10, 100],
-                      epochs = [50, 100])
+                      epochs = [100, 200, 300])
 
 .. code:: ipython3
 
@@ -359,9 +363,9 @@ Optimización de neuronas, capas ocultas, función de activación, optimizadores
     {'units': [2, 4, 6, 8],
      'n_hidden': [2, 3],
      'activation': ['relu', 'tanh', 'sigmoid'],
-     'optimizer': ['adam', 'rmsprop', 'sgd'],
+     'optimizer': ['adam', 'rmsprop'],
      'batch_size': [10, 100],
-     'epochs': [50, 100]}
+     'epochs': [100, 200, 300]}
 
 
 
@@ -393,7 +397,7 @@ Optimización de neuronas, capas ocultas, función de activación, optimizadores
 
 .. parsed-literal::
 
-    ---------> Tiempo en procesar:  5 Minutos
+    ---------> Tiempo en procesar:  12 Minutos
     
 
 **Configuraciones de hiperparámetros seleccionadas al azar:**
@@ -407,65 +411,65 @@ Optimización de neuronas, capas ocultas, función de activación, optimizadores
 
 .. parsed-literal::
 
-    [{'units': 6,
-      'optimizer': 'sgd',
+    [{'units': 2,
+      'optimizer': 'adam',
+      'n_hidden': 2,
+      'epochs': 100,
+      'batch_size': 10,
+      'activation': 'sigmoid'},
+     {'units': 6,
+      'optimizer': 'adam',
+      'n_hidden': 3,
+      'epochs': 200,
+      'batch_size': 100,
+      'activation': 'sigmoid'},
+     {'units': 8,
+      'optimizer': 'rmsprop',
+      'n_hidden': 2,
+      'epochs': 200,
+      'batch_size': 100,
+      'activation': 'sigmoid'},
+     {'units': 6,
+      'optimizer': 'rmsprop',
+      'n_hidden': 2,
+      'epochs': 300,
+      'batch_size': 10,
+      'activation': 'tanh'},
+     {'units': 8,
+      'optimizer': 'adam',
+      'n_hidden': 2,
+      'epochs': 200,
+      'batch_size': 10,
+      'activation': 'sigmoid'},
+     {'units': 8,
+      'optimizer': 'adam',
+      'n_hidden': 2,
+      'epochs': 300,
+      'batch_size': 10,
+      'activation': 'relu'},
+     {'units': 6,
+      'optimizer': 'rmsprop',
+      'n_hidden': 2,
+      'epochs': 200,
+      'batch_size': 100,
+      'activation': 'sigmoid'},
+     {'units': 6,
+      'optimizer': 'adam',
       'n_hidden': 3,
       'epochs': 100,
       'batch_size': 100,
-      'activation': 'tanh'},
-     {'units': 4,
+      'activation': 'relu'},
+     {'units': 6,
       'optimizer': 'rmsprop',
       'n_hidden': 3,
       'epochs': 100,
-      'batch_size': 10,
-      'activation': 'tanh'},
+      'batch_size': 100,
+      'activation': 'relu'},
      {'units': 2,
-      'optimizer': 'rmsprop',
-      'n_hidden': 3,
-      'epochs': 100,
-      'batch_size': 100,
-      'activation': 'tanh'},
-     {'units': 6,
-      'optimizer': 'sgd',
-      'n_hidden': 2,
-      'epochs': 100,
-      'batch_size': 10,
-      'activation': 'tanh'},
-     {'units': 6,
-      'optimizer': 'sgd',
-      'n_hidden': 2,
-      'epochs': 50,
-      'batch_size': 100,
-      'activation': 'relu'},
-     {'units': 8,
-      'optimizer': 'rmsprop',
-      'n_hidden': 3,
-      'epochs': 100,
-      'batch_size': 100,
-      'activation': 'relu'},
-     {'units': 8,
-      'optimizer': 'adam',
-      'n_hidden': 3,
-      'epochs': 100,
-      'batch_size': 10,
-      'activation': 'sigmoid'},
-     {'units': 8,
       'optimizer': 'adam',
       'n_hidden': 2,
-      'epochs': 100,
+      'epochs': 300,
       'batch_size': 10,
-      'activation': 'sigmoid'},
-     {'units': 8,
-      'optimizer': 'adam',
-      'n_hidden': 3,
-      'epochs': 100,
-      'batch_size': 10,
-      'activation': 'relu'},
-     {'units': 8,
-      'optimizer': 'adam',
-      'n_hidden': 2,
-      'epochs': 100,
-      'batch_size': 100,
       'activation': 'relu'}]
 
 
@@ -483,8 +487,8 @@ Optimización de neuronas, capas ocultas, función de activación, optimizadores
 
     {'units': 8,
      'optimizer': 'adam',
-     'n_hidden': 3,
-     'epochs': 100,
+     'n_hidden': 2,
+     'epochs': 300,
      'batch_size': 10,
      'activation': 'relu'}
 
@@ -544,7 +548,7 @@ Optimización de neuronas, capas ocultas, función de activación, optimizadores
 
 .. parsed-literal::
 
-    10715/10715 [==============================] - 7s 693us/step
+    10715/10715 [==============================] - 7s 620us/step
     
 
 .. parsed-literal::

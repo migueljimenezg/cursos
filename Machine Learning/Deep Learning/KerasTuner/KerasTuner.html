@@ -244,6 +244,7 @@
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
 <span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
+<span class="kn">import</span> <span class="nn">keras</span>
 <span class="kn">import</span> <span class="nn">warnings</span>  <span class="c1"># Para ignorar mensajes de advertencia</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
@@ -332,12 +333,15 @@
 y tiene hiperparámetros que se ajustarán.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">hp</span><span class="p">):</span>   <span class="c1"># solo el argumento hp.</span>
 
-    <span class="n">units</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>               <span class="c1"># Hiperparámetro a ajustar</span>
-    <span class="n">activation</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="s2">&quot;activation&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">])</span>       <span class="c1"># Hiperparámetro a ajustar</span>
-    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="s2">&quot;optimizers&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span> <span class="s2">&quot;sgd&quot;</span><span class="p">])</span>         <span class="c1"># Hiperparámetro a ajustar</span>
-    <span class="n">n_hidden</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="s2">&quot;n_hidden&quot;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>         <span class="c1"># Hiperparámetro a ajustar</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>                 <span class="c1"># Hiperparámetro a ajustar</span>
+    <span class="n">activation</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="s2">&quot;activation&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="s2">&quot;selu&quot;</span><span class="p">])</span> <span class="c1"># Hiperparámetro a ajustar</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="s2">&quot;optimizers&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="s2">&quot;rmsprop&quot;</span><span class="p">,</span> <span class="s2">&quot;sgd&quot;</span><span class="p">])</span>           <span class="c1"># Hiperparámetro a ajustar</span>
+    <span class="n">n_hidden</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="s2">&quot;n_hidden&quot;</span><span class="p">,</span> <span class="n">min_value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_value</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>           <span class="c1"># Hiperparámetro a ajustar</span>
 
     <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+
+    <span class="c1"># Dimensión de las entradas para la primera capa:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">InputLayer</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)))</span>
 
     <span class="c1"># Loop para las capas ocultas:</span>
     <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">):</span>
@@ -372,6 +376,8 @@ a la siguiente ronda.</p>
                               <span class="n">directory</span><span class="o">=</span><span class="s1">&#39;optimización_hiperparámetros&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<pre class="literal-block"><a class="reference external" href="INFO:tensorflow:Reloading">INFO:tensorflow:Reloading</a> Oracle from existing project optimización_hiperparámetrosuntitled_projectoracle.json
+<a class="reference external" href="INFO:tensorflow:Reloading">INFO:tensorflow:Reloading</a> Tuner from optimización_hiperparámetrosuntitled_projecttuner0.json</pre>
 <p>Se creó una carpeta en el disco con el nombre
 <code class="docutils literal notranslate"><span class="pre">optimización_hiperparámetros</span></code>.</p>
 <p><strong>Búsqueda de los hiperparámetros:</strong></p>
@@ -383,12 +389,7 @@ argumentos que <code class="docutils literal notranslate"><span class="pre">fit(
              <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trial</span> <span class="mi">154</span> <span class="n">Complete</span> <span class="p">[</span><span class="mi">00</span><span class="n">h</span> <span class="mi">00</span><span class="n">m</span> <span class="mi">01</span><span class="n">s</span><span class="p">]</span>
-<span class="n">val_accuracy</span><span class="p">:</span> <span class="mf">0.5737500190734863</span>
-
-<span class="n">Best</span> <span class="n">val_accuracy</span> <span class="n">So</span> <span class="n">Far</span><span class="p">:</span> <span class="mf">0.8349999785423279</span>
-<span class="n">Total</span> <span class="n">elapsed</span> <span class="n">time</span><span class="p">:</span> <span class="mi">00</span><span class="n">h</span> <span class="mi">03</span><span class="n">m</span> <span class="mi">36</span><span class="n">s</span>
-<span class="n">INFO</span><span class="p">:</span><span class="n">tensorflow</span><span class="p">:</span><span class="n">Oracle</span> <span class="n">triggered</span> <span class="n">exit</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INFO</span><span class="p">:</span><span class="n">tensorflow</span><span class="p">:</span><span class="n">Oracle</span> <span class="n">triggered</span> <span class="n">exit</span>
 </pre></div>
 </div>
 <p><strong>Hiperparámetros óptimos:</strong></p>
@@ -398,7 +399,7 @@ argumentos que <code class="docutils literal notranslate"><span class="pre">fit(
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;units&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;activation&quot;</span><span class="p">)</span>
@@ -410,13 +411,13 @@ argumentos que <code class="docutils literal notranslate"><span class="pre">fit(
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;optimizers&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;rmsprop&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;adam&#39;</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;n_hidden&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
 </pre></div>
 </div>
 <p><strong>Ajuste con la mejor configuración de hiperparámetros:</strong></p>
@@ -425,7 +426,7 @@ argumentos que <code class="docutils literal notranslate"><span class="pre">fit(
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">history</span> <span class="o">=</span> <span class="n">hypermodel</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
                          <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
-                         <span class="n">epochs</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
+                         <span class="n">epochs</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
                          <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -435,7 +436,7 @@ argumentos que <code class="docutils literal notranslate"><span class="pre">fit(
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best epoch: </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">best_epoch</span><span class="p">,))</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Best</span> <span class="n">epoch</span><span class="p">:</span> <span class="mi">292</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Best</span> <span class="n">epoch</span><span class="p">:</span> <span class="mi">887</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">)</span>
@@ -450,18 +451,18 @@ argumentos que <code class="docutils literal notranslate"><span class="pre">fit(
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hypermodel</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.14508116245269775</span><span class="p">,</span> <span class="mf">0.9725000262260437</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.018545441329479218</span><span class="p">,</span> <span class="mf">0.9962499737739563</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">hypermodel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">1.8467054e-02</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">9.9921650e-01</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">4.8438464e-03</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">9.9388260e-01</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">1.4725054e-04</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">4.0814998e-03</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">9.9986339e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">7.2828634e-04</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">9.9996448e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">6.1287057e-05</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
@@ -494,7 +495,7 @@ argumentos que <code class="docutils literal notranslate"><span class="pre">fit(
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10715</span><span class="o">/</span><span class="mi">10715</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">7</span><span class="n">s</span> <span class="mi">662</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10715</span><span class="o">/</span><span class="mi">10715</span> <span class="p">[</span><span class="o">==============================</span><span class="p">]</span> <span class="o">-</span> <span class="mi">7</span><span class="n">s</span> <span class="mi">668</span><span class="n">us</span><span class="o">/</span><span class="n">step</span>
 </pre></div>
 </div>
 <pre class="literal-block"><em>c</em> argument looks like a single numeric RGB or RGBA sequence, which should be avoided as value-mapping will have precedence in case its length matches with <em>x</em> &amp; <em>y</em>.  Please use the <em>color</em> keyword-argument or provide a 2D array with a single row if you intend to specify the same RGB or RGBA value for all points.

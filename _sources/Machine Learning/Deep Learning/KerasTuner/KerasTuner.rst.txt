@@ -10,6 +10,7 @@ KerasTuner
     from sklearn.preprocessing import StandardScaler
     from keras.models import Sequential
     from keras.layers import Dense
+    import keras
     import warnings  # Para ignorar mensajes de advertencia
     
     warnings.filterwarnings("ignore")
@@ -122,12 +123,15 @@ y tiene hiperparámetros que se ajustarán.
 
     def create_model(hp):   # solo el argumento hp.
         
-        units = hp.Int("units", min_value=2, max_value=8, step=1)               # Hiperparámetro a ajustar
-        activation = hp.Choice("activation", ["relu", "tanh", "sigmoid"])       # Hiperparámetro a ajustar
-        optimizer = hp.Choice("optimizers", ["adam", "rmsprop", "sgd"])         # Hiperparámetro a ajustar    
-        n_hidden = hp.Int("n_hidden", min_value=2, max_value=3, step=1)         # Hiperparámetro a ajustar 
+        units = hp.Int("units", min_value=2, max_value=8, step=1)                 # Hiperparámetro a ajustar
+        activation = hp.Choice("activation", ["relu", "tanh", "sigmoid", "selu"]) # Hiperparámetro a ajustar
+        optimizer = hp.Choice("optimizers", ["adam", "rmsprop", "sgd"])           # Hiperparámetro a ajustar    
+        n_hidden = hp.Int("n_hidden", min_value=2, max_value=4, step=1)           # Hiperparámetro a ajustar 
         
         model = Sequential()
+        
+        # Dimensión de las entradas para la primera capa:
+        model.add(keras.layers.InputLayer(input_shape=(X.shape[1],)))
         
         # Loop para las capas ocultas:
         for layer in range(n_hidden):
@@ -167,6 +171,13 @@ a la siguiente ronda.
                                   max_epochs=100,
                                   directory='optimización_hiperparámetros')
 
+
+.. parsed-literal::
+
+    INFO:tensorflow:Reloading Oracle from existing project optimización_hiperparámetros\untitled_project\oracle.json
+    INFO:tensorflow:Reloading Tuner from optimización_hiperparámetros\untitled_project\tuner0.json
+    
+
 Se creó una carpeta en el disco con el nombre
 ``optimización_hiperparámetros``.
 
@@ -185,11 +196,6 @@ argumentos que ``fit()``.
 
 .. parsed-literal::
 
-    Trial 154 Complete [00h 00m 01s]
-    val_accuracy: 0.5737500190734863
-    
-    Best val_accuracy So Far: 0.8349999785423279
-    Total elapsed time: 00h 03m 36s
     INFO:tensorflow:Oracle triggered exit
     
 
@@ -208,7 +214,7 @@ argumentos que ``fit()``.
 
 .. parsed-literal::
 
-    7
+    6
 
 
 
@@ -234,7 +240,7 @@ argumentos que ``fit()``.
 
 .. parsed-literal::
 
-    'rmsprop'
+    'adam'
 
 
 
@@ -247,7 +253,7 @@ argumentos que ``fit()``.
 
 .. parsed-literal::
 
-    3
+    2
 
 
 
@@ -261,7 +267,7 @@ argumentos que ``fit()``.
 
     history = hypermodel.fit(X_train, y_train,
                              validation_data = (X_test, y_test),
-                             epochs = 300,
+                             epochs = 1000,
                              verbose = 0)
 
 **Número óptimo de epoch:**
@@ -275,7 +281,7 @@ argumentos que ``fit()``.
 
 .. parsed-literal::
 
-    Best epoch: 292
+    Best epoch: 887
     
 
 .. code:: ipython3
@@ -302,7 +308,7 @@ argumentos que ``fit()``.
 
 .. parsed-literal::
 
-    [0.14508116245269775, 0.9725000262260437]
+    [0.018545441329479218, 0.9962499737739563]
 
 
 
@@ -316,11 +322,11 @@ argumentos que ``fit()``.
 
 .. parsed-literal::
 
-    array([[1.8467054e-02],
-           [9.9921650e-01],
-           [4.8438464e-03],
-           [9.9388260e-01],
-           [1.4725054e-04]], dtype=float32)
+    array([[4.0814998e-03],
+           [9.9986339e-01],
+           [7.2828634e-04],
+           [9.9996448e-01],
+           [6.1287057e-05]], dtype=float32)
 
 
 
@@ -358,7 +364,7 @@ argumentos que ``fit()``.
 
 .. parsed-literal::
 
-    10715/10715 [==============================] - 7s 662us/step
+    10715/10715 [==============================] - 7s 668us/step
     
 
 .. parsed-literal::
