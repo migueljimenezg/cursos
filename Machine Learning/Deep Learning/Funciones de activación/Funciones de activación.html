@@ -122,7 +122,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RNN/RNN.html">RNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LSTM/LSTM.html">LSTM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../GRU/GRU.html">GRU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNN%20Bidireccional/RNN%20Bidireccional.html">RNN Bidireccional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
 </ul>
 </li>
@@ -418,7 +420,7 @@ propaga a la siguiente capa.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">elu</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_40_01.png" src="../../../_images/output_40_01.png" />
+<img alt="../../../_images/output_40_0.png" src="../../../_images/output_40_0.png" />
 <p><strong>Derivada:</strong></p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(z&gt;0\)</span>:</p></li>
@@ -493,7 +495,7 @@ inicialización normal de LeCun.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">selu</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_53_01.png" src="../../../_images/output_53_01.png" />
+<img alt="../../../_images/output_53_0.png" src="../../../_images/output_53_0.png" />
 <p><strong>Derivada:</strong></p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(z&gt;0\)</span>:</p></li>
@@ -542,7 +544,7 @@ decir, si se asigna una categoría, ya no se puede pertenecer a otra.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_63_0.png" src="../../../_images/output_63_0.png" />
+<img alt="../../../_images/output_63_01.png" src="../../../_images/output_63_01.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial s(z)}{\partial z} = s(z)(1-s(z))\]</div>
@@ -609,7 +611,7 @@ suavizada.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsoftplus</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_84_0.png" src="../../../_images/output_84_0.png" />
+<img alt="../../../_images/output_84_01.png" src="../../../_images/output_84_01.png" />
 </div>
 <div class="section" id="exponencial">
 <h2>9. Exponencial:<a class="headerlink" href="#exponencial" title="Permalink to this headline">¶</a></h2>
@@ -623,7 +625,7 @@ suavizada.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">exponential</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_89_01.png" src="../../../_images/output_89_01.png" />
+<img alt="../../../_images/output_89_0.png" src="../../../_images/output_89_0.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial f(z)}{\partial z} = exp(z)\]</div>
@@ -634,7 +636,7 @@ suavizada.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dexponential</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_92_01.png" src="../../../_images/output_92_01.png" />
+<img alt="../../../_images/output_92_02.png" src="../../../_images/output_92_02.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">tanh</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>

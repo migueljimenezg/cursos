@@ -122,7 +122,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RNN/RNN.html">RNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LSTM/LSTM.html">LSTM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../GRU/GRU.html">GRU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNN%20Bidireccional/RNN%20Bidireccional.html">RNN Bidireccional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
 </ul>
 </li>
@@ -1092,7 +1094,7 @@ para determinar el overfitting o el underfitting.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_108_01.png" src="../../../_images/output_108_01.png" />
+<img alt="../../../_images/output_108_0.png" src="../../../_images/output_108_0.png" />
 <p>También podemos hacer un gráfico con las métricas de error.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">)</span>

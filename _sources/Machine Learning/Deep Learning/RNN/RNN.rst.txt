@@ -170,11 +170,11 @@ Descargar datos desde Yahoo Finance:
     [*********************100%***********************]  1 of 1 completed
                    Open     High      Low    Close  Adj Close   Volume
     Date                                                              
-    2022-08-23  4147.00  4161.75  4118.00  4130.50    4130.50  1575674
     2022-08-24  4128.25  4158.50  4110.75  4142.75    4142.75  1348612
     2022-08-25  4148.75  4202.75  4143.00  4201.00    4201.00  1635476
-    2022-08-26  4198.25  4217.25  4042.75  4059.50    4059.50  1635476
-    2022-08-29  4035.75  4037.75  4034.00  4035.00    4035.00     5036
+    2022-08-26  4198.25  4217.25  4042.75  4059.50    4059.50  2241117
+    2022-08-29  4024.00  4064.00  4006.75  4031.25    4031.25  1963446
+    2022-08-30  4035.75  4072.75  3964.50  3987.50    3987.50  1963446
     
 
 .. code:: ipython3
@@ -188,11 +188,11 @@ Descargar datos desde Yahoo Finance:
 .. parsed-literal::
 
     Date
-    2022-08-23    4130.50
     2022-08-24    4142.75
     2022-08-25    4201.00
     2022-08-26    4059.50
-    2022-08-29    4035.00
+    2022-08-29    4031.25
+    2022-08-30    3987.50
     Name: Adj Close, dtype: float64
 
 
@@ -207,7 +207,7 @@ Descargar datos desde Yahoo Finance:
 
 .. parsed-literal::
 
-    (5547, 1)
+    (5548, 1)
 
 
 
@@ -254,16 +254,6 @@ Conjunto de train y test:
 .. image:: output_31_1.png
 
 
-Estandarización de las variables:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: ipython3
-
-    sc = StandardScaler()
-    sc.fit(train)
-    train = sc.transform(train)
-    test = sc.transform(test)
-
 **Función para conformar el dataset para datos secuenciales:**
 
 .. code:: ipython3
@@ -281,7 +271,7 @@ Estandarización de las variables:
 
 .. code:: ipython3
 
-    time_step = 10
+    time_step = 5
     
     X_train, y_train = split_sequence(train, time_step)
     X_test, y_test = split_sequence(test, time_step)
@@ -295,7 +285,7 @@ Estandarización de las variables:
 
 .. parsed-literal::
 
-    (4427, 10, 1)
+    (4433, 5, 1)
 
 
 
@@ -308,7 +298,7 @@ Estandarización de las variables:
 
 .. parsed-literal::
 
-    (1100, 10, 1)
+    (1105, 5, 1)
 
 
 
@@ -348,16 +338,17 @@ usa es una neurona ``Dense``.
 .. code:: ipython3
 
     model = Sequential()
-    model.add(RNN(10, activation="relu", return_sequences=True))     
-    model.add(RNN(4, activation="relu"))   
+    model.add(RNN(10, activation="selu", return_sequences=True))    
+    model.add(RNN(10, activation="selu", return_sequences=True))    
+    model.add(RNN(4, activation="selu"))   
     model.add(Dense(1))                           # última capa Dense
     model.compile(optimizer="adam", loss="mse")
     history = model.fit(
         X_train,
         y_train,
         validation_data=(X_test, y_test),
-        epochs=100,
-        batch_size=50,
+        epochs=30,
+        batch_size=10,
         verbose=0
     )
 
@@ -366,14 +357,29 @@ Evaluación del desempeño:
 
 .. code:: ipython3
 
-    model.evaluate(X_test, y_test, verbose=0)
+    mse = model.evaluate(X_test, y_test, verbose=0)
+    mse
 
 
 
 
 .. parsed-literal::
 
-    0.009385934099555016
+    3454.1025390625
+
+
+
+.. code:: ipython3
+
+    rmse = mse ** 0.5
+    rmse
+
+
+
+
+.. parsed-literal::
+
+    58.7716133780799
 
 
 
@@ -387,33 +393,15 @@ Evaluación del desempeño:
 
 
 
-.. image:: output_48_0.png
+.. image:: output_47_0.png
 
 
-Predicción del modelo con valores sin escalar:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: ipython3
-
-    test_ = df[int(len(df) * (1 - time_test)) :]
-    X_test_, y_test_ = split_sequence(test_, time_step)
+Predicción del modelo:
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
-    X_test_.shape
-
-
-
-
-.. parsed-literal::
-
-    (1100, 10, 1)
-
-
-
-.. code:: ipython3
-
-    y_pred = model.predict(X_test_, verbose=0)
+    y_pred = model.predict(X_test, verbose=0)
     y_pred[0:5]
 
 
@@ -421,11 +409,11 @@ Predicción del modelo con valores sin escalar:
 
 .. parsed-literal::
 
-    array([[2694.186 ],
-           [2679.0159],
-           [2684.2632],
-           [2647.123 ],
-           [2654.7764]], dtype=float32)
+    array([[2646.0144],
+           [2656.9644],
+           [2669.1555],
+           [2684.126 ],
+           [2690.2444]], dtype=float32)
 
 
 
@@ -434,11 +422,11 @@ Predicción del modelo con valores sin escalar:
     plt.figure(figsize=(18, 6))
     plt.plot(
         range(1, len(X_test) + 1),
-        test_[time_step:, :],
+        test[time_step:, :],
         color="b",
         marker=".",
         linestyle="-",
-        label="True",
+        label="True"
     )
     plt.plot(
         range(1, len(X_test) + 1),
@@ -446,13 +434,13 @@ Predicción del modelo con valores sin escalar:
         color="g",
         marker=".",
         linestyle="-",
-        label="y_pred",
+        label="y_pred"
     )
     plt.legend();
 
 
 
-.. image:: output_53_0.png
+.. image:: output_50_0.png
 
 
 Predicción fuera de la muestra:
@@ -490,7 +478,7 @@ Predicción fuera de la muestra:
         color="b",
         marker=".",
         linestyle="-",
-        label="True",
+        label="True"
     )
     plt.plot(
         range(len(df[-100:, 0]) + 1, len(df[-100:, 0]) + len(predictions) + 1),
@@ -498,11 +486,11 @@ Predicción fuera de la muestra:
         color="g",
         marker=".",
         linestyle="-",
-        label="y_pred fuera de la muestra",
+        label="y_pred fuera de la muestra"
     )
     plt.legend();
 
 
 
-.. image:: output_57_0.png
+.. image:: output_54_0.png
 

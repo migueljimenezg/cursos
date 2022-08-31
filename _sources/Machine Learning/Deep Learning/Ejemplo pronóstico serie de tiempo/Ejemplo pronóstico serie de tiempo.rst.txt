@@ -37,11 +37,11 @@ nemotécnico en la bolsa es ES.
     [*********************100%***********************]  1 of 1 completed
                    Open     High      Low    Close  Adj Close   Volume
     Date                                                              
-    2022-08-22  4221.00  4221.50  4131.50  4141.25    4141.25  1724203
-    2022-08-23  4147.00  4161.75  4118.00  4130.50    4130.50  1575674
     2022-08-24  4128.25  4158.50  4110.75  4142.75    4142.75  1348612
     2022-08-25  4148.75  4202.75  4143.00  4201.00    4201.00  1635476
-    2022-08-26  4198.25  4217.25  4042.75  4059.50    4059.50  1635476
+    2022-08-26  4198.25  4217.25  4042.75  4059.50    4059.50  2241117
+    2022-08-29  4024.00  4064.00  4006.75  4031.25    4031.25  1963446
+    2022-08-30  4035.75  4072.75  3964.50  3987.50    3987.50  1963446
     
 
 .. code:: ipython3
@@ -55,11 +55,11 @@ nemotécnico en la bolsa es ES.
 .. parsed-literal::
 
     Date
-    2022-08-22    4141.25
-    2022-08-23    4130.50
     2022-08-24    4142.75
     2022-08-25    4201.00
     2022-08-26    4059.50
+    2022-08-29    4031.25
+    2022-08-30    3987.50
     Name: Adj Close, dtype: float64
 
 
@@ -73,7 +73,7 @@ nemotécnico en la bolsa es ES.
 
 .. parsed-literal::
 
-    (5546,)
+    (5548,)
 
 
 
@@ -87,7 +87,7 @@ nemotécnico en la bolsa es ES.
 
 .. parsed-literal::
 
-    (5546, 1)
+    (5548, 1)
 
 
 
@@ -131,7 +131,7 @@ lejano serán para entrenar el modelo.
 
 .. parsed-literal::
 
-    4436
+    4438
 
 
 
@@ -149,7 +149,7 @@ lejano serán para entrenar el modelo.
 
 .. parsed-literal::
 
-    (4436, 1)
+    (4438, 1)
 
 
 
@@ -200,54 +200,6 @@ test:
 .. image:: output_21_1.png
 
 
-Estandarización de las variables:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: ipython3
-
-    from sklearn.preprocessing import StandardScaler
-
-.. code:: ipython3
-
-    sc = StandardScaler()
-    sc.fit(train)
-    train = sc.transform(train)
-    test = sc.transform(test)
-
-.. code:: ipython3
-
-    train[0:5]
-
-
-
-
-.. parsed-literal::
-
-    array([[0.03571584],
-           [0.05963391],
-           [0.04006458],
-           [0.04006458],
-           [0.03789021]])
-
-
-
-.. code:: ipython3
-
-    test[0:5]
-
-
-
-
-.. parsed-literal::
-
-    array([[2.63245707],
-           [2.51069236],
-           [2.53950276],
-           [2.61778007],
-           [2.5873389 ]])
-
-
-
 **Función para conformar el dataset para datos secuenciales:**
 
 ``[time_step, Features]``
@@ -269,7 +221,7 @@ Se usarán 10 datos secuenciales para predicir el siguiente valor.
 
 .. code:: ipython3
 
-    time_step = 10
+    time_step = 5
     
     X_train, y_train = split_sequence(train, time_step)
     X_test, y_test = split_sequence(test, time_step)
@@ -283,7 +235,7 @@ Se usarán 10 datos secuenciales para predicir el siguiente valor.
 
 .. parsed-literal::
 
-    (4426, 10, 1)
+    (4433, 5, 1)
 
 
 
@@ -296,7 +248,7 @@ Se usarán 10 datos secuenciales para predicir el siguiente valor.
 
 .. parsed-literal::
 
-    (1100, 10, 1)
+    (1105, 5, 1)
 
 
 
@@ -314,14 +266,15 @@ test:**
 .. code:: ipython3
 
     model = Sequential()
-    model.add(Dense(10, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(20, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(20, activation="relu"))
     model.add(Dense(1))
-    model.compile(optimizer="sgd", loss="mse")
+    model.compile(optimizer="adam", loss="mse")
     history = model.fit(
         X_train,
         y_train,
         validation_data=(X_test, y_test),
-        epochs=500,
+        epochs=100,
         batch_size=50,
         verbose=0
     )
@@ -331,14 +284,29 @@ Evaluación del desempeño:
 
 .. code:: ipython3
 
-    model.evaluate(X_test, y_test, verbose=0)
+    mse = model.evaluate(X_test, y_test, verbose=0)
+    mse
 
 
 
 
 .. parsed-literal::
 
-    0.01737597957253456
+    2457.294921875
+
+
+
+.. code:: ipython3
+
+    rmse = mse ** 0.5
+    rmse
+
+
+
+
+.. parsed-literal::
+
+    49.571109750287015
 
 
 
@@ -352,7 +320,7 @@ Evaluación del desempeño:
 
 
 
-.. image:: output_40_0.png
+.. image:: output_36_0.png
 
 
 Predicción del modelo:
@@ -368,11 +336,11 @@ Predicción del modelo:
 
 .. parsed-literal::
 
-    array([[2.7075548],
-           [2.7011378],
-           [2.7089038],
-           [2.7088575],
-           [2.638163 ]], dtype=float32)
+    array([[2668.0508],
+           [2691.209 ],
+           [2709.4067],
+           [2724.749 ],
+           [2707.08  ]], dtype=float32)
 
 
 
@@ -385,7 +353,7 @@ Predicción del modelo:
 
 .. parsed-literal::
 
-    (1100, 10, 1)
+    (1105, 5, 1)
 
 
 
@@ -398,7 +366,7 @@ Predicción del modelo:
 
 .. parsed-literal::
 
-    (1100, 1)
+    (1105, 1)
 
 
 
@@ -425,95 +393,10 @@ Predicción del modelo:
 
 
 
-.. image:: output_45_0.png
+.. image:: output_41_0.png
 
 
 La anterior figura muestra los resultados con los datos escalados.
-
-Predicción del modelo con valores sin escalar:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Para escalar los datos se usó ``sc.transform()``, ahora, para escalarlos
-de nuevo a la representación original se usa ``sc.inverse_transform()``.
-
-.. code:: ipython3
-
-    test = sc.inverse_transform(test)
-    X_test, y_test = split_sequence(test, time_step)
-
-.. code:: ipython3
-
-    X_test[0:1]
-
-
-
-
-.. parsed-literal::
-
-    array([[[2661.75],
-            [2605.75],
-            [2619.  ],
-            [2655.  ],
-            [2641.  ],
-            [2664.  ],
-            [2657.25],
-            [2681.75],
-            [2706.5 ],
-            [2709.75]]])
-
-
-
-.. code:: ipython3
-
-    X_test.shape
-
-
-
-
-.. parsed-literal::
-
-    (1100, 10, 1)
-
-
-
-.. code:: ipython3
-
-    y_pred = model.predict(X_test)
-    y_pred[0:5]
-
-
-.. parsed-literal::
-
-    35/35 [==============================] - 0s 713us/step
-    
-
-
-
-.. parsed-literal::
-
-    array([[2696.6638],
-           [2693.7126],
-           [2697.284 ],
-           [2697.2627],
-           [2664.7498]], dtype=float32)
-
-
-
-.. code:: ipython3
-
-    plt.figure(figsize=(18, 6))
-    plt.plot(
-        test, color="b", marker=".", linestyle="-", label="True",
-    )
-    plt.plot(
-        y_pred, color="g", marker=".", linestyle="-", label="y_pred",
-    )
-    plt.legend();
-
-
-
-.. image:: output_53_0.png
-
 
 Predicción fuera de la muestra:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -547,8 +430,7 @@ las predicciones como entradas a la red neuronal.
 
 .. parsed-literal::
 
-    array([4298.25, 4307.75, 4276.75, 4286.5 , 4231.5 , 4141.25, 4130.5 ,
-           4142.75, 4201.  , 4059.5 ])
+    array([4142.75, 4201.  , 4059.5 , 4031.25, 3987.5 ])
 
 
 
@@ -603,7 +485,7 @@ predicciones:**
 
 
 
-.. image:: output_61_0.png
+.. image:: output_50_0.png
 
 
 **Predicción fuera de la muestra para 100 períodos:**
@@ -653,7 +535,7 @@ predicciones:**
 
 
 
-.. image:: output_65_0.png
+.. image:: output_54_0.png
 
 
 Conjunto de train, validation y test:
@@ -697,7 +579,7 @@ con valores que nunca ha conocido.
 
 .. parsed-literal::
 
-    (4436, 1)
+    (4438, 1)
 
 
 
@@ -749,80 +631,15 @@ con valores que nunca ha conocido.
 
 
 
-.. image:: output_74_0.png
+.. image:: output_63_0.png
 
 
 
-.. image:: output_74_1.png
+.. image:: output_63_1.png
 
 
 
-.. image:: output_74_2.png
-
-
-Estandarización de las variables:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Con la información del conjunto de train se escalan los conjuntos de
-datos validation y test.
-
-.. code:: ipython3
-
-    sc = StandardScaler()
-    sc.fit(train)
-    train = sc.transform(train)
-    valid = sc.transform(valid)
-    test = sc.transform(test)
-
-.. code:: ipython3
-
-    train[0:5]
-
-
-
-
-.. parsed-literal::
-
-    array([[0.03571584],
-           [0.05963391],
-           [0.04006458],
-           [0.04006458],
-           [0.03789021]])
-
-
-
-.. code:: ipython3
-
-    valid[0:5]
-
-
-
-
-.. parsed-literal::
-
-    array([[2.63245707],
-           [2.51069236],
-           [2.53950276],
-           [2.61778007],
-           [2.5873389 ]])
-
-
-
-.. code:: ipython3
-
-    test[0:5]
-
-
-
-
-.. parsed-literal::
-
-    array([[3.604944  ],
-           [3.71857659],
-           [3.60874915],
-           [3.62560052],
-           [3.47448181]])
-
+.. image:: output_63_2.png
 
 
 **Función para conformar el dataset para datos secuenciales:**
@@ -831,7 +648,7 @@ Se usarán 10 datos secuenciales para predicir el siguiente valor.
 
 .. code:: ipython3
 
-    time_step = 10
+    time_step = 5
     
     X_train, y_train = split_sequence(train, time_step)
     X_valid, y_valid = split_sequence(valid, time_step)
@@ -846,14 +663,15 @@ validation:**
 .. code:: ipython3
 
     model = Sequential()
-    model.add(Dense(10, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(20, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(20, activation="relu"))
     model.add(Dense(1))
-    model.compile(optimizer="sgd", loss="mse")
+    model.compile(optimizer="adam", loss="mse")
     history = model.fit(
         X_train,
         y_train,
-        validation_data=(X_valid, y_valid),
-        epochs=500,
+        validation_data=(X_test, y_test),
+        epochs=100,
         batch_size=50,
         verbose=0
     )
@@ -863,14 +681,29 @@ Evaluación del desempeño en el conjunto de validation:
 
 .. code:: ipython3
 
-    model.evaluate(X_valid, y_valid, verbose=0)
+    mse = model.evaluate(X_test, y_test, verbose=0)
+    mse
 
 
 
 
 .. parsed-literal::
 
-    0.00974947214126587
+    2421.138427734375
+
+
+
+.. code:: ipython3
+
+    rmse = mse ** 0.5
+    rmse
+
+
+
+
+.. parsed-literal::
+
+    49.205065061783785
 
 
 
@@ -884,7 +717,7 @@ Evaluación del desempeño en el conjunto de validation:
 
 
 
-.. image:: output_89_0.png
+.. image:: output_73_0.png
 
 
 **Entrenamiento con los conjuntos de train y validation y evaluación con
@@ -906,7 +739,7 @@ conjunto de valid.
 
 .. parsed-literal::
 
-    (4971, 10, 1)
+    (4983, 5, 1)
 
 
 
@@ -923,21 +756,22 @@ conjunto de valid.
 
 .. parsed-literal::
 
-    (4971, 1)
+    (4983, 1)
 
 
 
 .. code:: ipython3
 
     model = Sequential()
-    model.add(Dense(10, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(20, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(20, activation="relu"))
     model.add(Dense(1))
-    model.compile(optimizer="sgd", loss="mse")
+    model.compile(optimizer="adam", loss="mse")
     history = model.fit(
-        X_train_,
-        y_train_,
+        X_train,
+        y_train,
         validation_data=(X_test, y_test),
-        epochs=500,
+        epochs=100,
         batch_size=50,
         verbose=0
     )
@@ -947,14 +781,29 @@ Evaluación del desempeño en el conjunto de test:
 
 .. code:: ipython3
 
-    model.evaluate(X_test, y_test, verbose=0)
+    mse = model.evaluate(X_test, y_test, verbose=0)
+    mse
 
 
 
 
 .. parsed-literal::
 
-    0.01425506267696619
+    2572.123779296875
+
+
+
+.. code:: ipython3
+
+    rmse = mse ** 0.5
+    rmse
+
+
+
+
+.. parsed-literal::
+
+    50.716109662481756
 
 
 
@@ -968,16 +817,11 @@ Evaluación del desempeño en el conjunto de test:
 
 
 
-.. image:: output_99_0.png
+.. image:: output_84_0.png
 
 
-Predicción del modelo con valores sin escalar:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: ipython3
-
-    test = sc.inverse_transform(test)
-    X_test, y_test = split_sequence(test, time_step)
+Predicción del modelo:
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
@@ -987,18 +831,18 @@ Predicción del modelo con valores sin escalar:
 
 .. parsed-literal::
 
-    18/18 [==============================] - 0s 713us/step
+    18/18 [==============================] - 0s 704us/step
     
 
 
 
 .. parsed-literal::
 
-    array([[3083.2756],
-           [3076.2095],
-           [3145.4617],
-           [3093.9329],
-           [3134.4114]], dtype=float32)
+    array([[3033.438 ],
+           [3034.3125],
+           [3069.794 ],
+           [3076.5864],
+           [3101.8071]], dtype=float32)
 
 
 
@@ -1025,7 +869,7 @@ Predicción del modelo con valores sin escalar:
 
 
 
-.. image:: output_103_0.png
+.. image:: output_87_0.png
 
 
 Predicción fuera de la muestra:
@@ -1078,5 +922,5 @@ predicciones:**
 
 
 
-.. image:: output_108_0.png
+.. image:: output_92_0.png
 

@@ -77,11 +77,11 @@ Descargar datos desde Yahoo Finance:
     [*********************100%***********************]  1 of 1 completed
                    Open     High      Low    Close  Adj Close   Volume
     Date                                                              
-    2022-08-23  4147.00  4161.75  4118.00  4130.50    4130.50  1575674
     2022-08-24  4128.25  4158.50  4110.75  4142.75    4142.75  1348612
     2022-08-25  4148.75  4202.75  4143.00  4201.00    4201.00  1635476
     2022-08-26  4198.25  4217.25  4042.75  4059.50    4059.50  2241117
-    2022-08-29  4024.00  4064.00  4006.75  4031.25    4031.25  2241117
+    2022-08-29  4024.00  4064.00  4006.75  4031.25    4031.25  1963446
+    2022-08-30  4035.75  4072.75  3964.50  3987.50    3987.50  1963446
     
 
 .. code:: ipython3
@@ -95,11 +95,11 @@ Descargar datos desde Yahoo Finance:
 .. parsed-literal::
 
     Date
-    2022-08-23    4130.50
     2022-08-24    4142.75
     2022-08-25    4201.00
     2022-08-26    4059.50
     2022-08-29    4031.25
+    2022-08-30    3987.50
     Name: Adj Close, dtype: float64
 
 
@@ -114,7 +114,7 @@ Descargar datos desde Yahoo Finance:
 
 .. parsed-literal::
 
-    (5547, 1)
+    (5548, 1)
 
 
 
@@ -161,16 +161,6 @@ Conjunto de train y test:
 .. image:: output_15_1.png
 
 
-Estandarización de las variables:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: ipython3
-
-    sc = StandardScaler()
-    sc.fit(train)
-    train = sc.transform(train)
-    test = sc.transform(test)
-
 **Función para conformar el dataset para datos secuenciales:**
 
 .. code:: ipython3
@@ -188,7 +178,7 @@ Estandarización de las variables:
 
 .. code:: ipython3
 
-    time_step = 10
+    time_step = 5
     
     X_train, y_train = split_sequence(train, time_step)
     X_test, y_test = split_sequence(test, time_step)
@@ -206,6 +196,7 @@ Arquitectura de la red con celdas GRU:
 
     model = Sequential()
     model.add(GRU(10, activation="relu", return_sequences=True))     
+    model.add(GRU(10, activation="relu", return_sequences=True))   
     model.add(GRU(4, activation="relu"))   
     model.add(Dense(1))                           # última capa Dense
     model.compile(optimizer="adam", loss="mse")
@@ -213,8 +204,8 @@ Arquitectura de la red con celdas GRU:
         X_train,
         y_train,
         validation_data=(X_test, y_test),
-        epochs=100,
-        batch_size=50,
+        epochs=50,
+        batch_size=100,
         verbose=0
     )
 
@@ -223,14 +214,29 @@ Evaluación del desempeño:
 
 .. code:: ipython3
 
-    model.evaluate(X_test, y_test, verbose=0)
+    mse = model.evaluate(X_test, y_test, verbose=0)
+    mse
 
 
 
 
 .. parsed-literal::
 
-    0.009295530617237091
+    2123.21630859375
+
+
+
+.. code:: ipython3
+
+    rmse = mse ** 0.5
+    rmse
+
+
+
+
+.. parsed-literal::
+
+    46.07837137523146
 
 
 
@@ -244,7 +250,7 @@ Evaluación del desempeño:
 
 
 
-.. image:: output_26_0.png
+.. image:: output_25_0.png
 
 
 Predicción del modelo con valores sin escalar:
@@ -252,25 +258,7 @@ Predicción del modelo con valores sin escalar:
 
 .. code:: ipython3
 
-    test_ = df[int(len(df) * (1 - time_test)) :]
-    X_test_, y_test_ = split_sequence(test_, time_step)
-
-.. code:: ipython3
-
-    X_test_.shape
-
-
-
-
-.. parsed-literal::
-
-    (1100, 10, 1)
-
-
-
-.. code:: ipython3
-
-    y_pred = model.predict(X_test_, verbose=0)
+    y_pred = model.predict(X_test, verbose=0)
     y_pred[0:5]
 
 
@@ -278,11 +266,11 @@ Predicción del modelo con valores sin escalar:
 
 .. parsed-literal::
 
-    array([[2624.65  ],
-           [2601.2954],
-           [2597.669 ],
-           [2565.9043],
-           [2567.2456]], dtype=float32)
+    array([[2657.94  ],
+           [2669.9927],
+           [2693.0232],
+           [2705.2556],
+           [2697.1033]], dtype=float32)
 
 
 
@@ -291,7 +279,7 @@ Predicción del modelo con valores sin escalar:
     plt.figure(figsize=(18, 6))
     plt.plot(
         range(1, len(X_test) + 1),
-        test_[time_step:, :],
+        test[time_step:, :],
         color="b",
         marker=".",
         linestyle="-",
@@ -309,7 +297,7 @@ Predicción del modelo con valores sin escalar:
 
 
 
-.. image:: output_31_0.png
+.. image:: output_28_0.png
 
 
 Predicción fuera de la muestra:
@@ -359,5 +347,5 @@ Predicción fuera de la muestra:
 
 
 
-.. image:: output_34_0.png
+.. image:: output_31_0.png
 

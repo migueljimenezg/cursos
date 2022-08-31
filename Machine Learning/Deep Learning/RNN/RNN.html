@@ -43,7 +43,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
         <link rel="up" title="Deep Learning" href="../index.html"/>
-        <link rel="next" title="GRU" href="../GRU/GRU.html"/>
+        <link rel="next" title="LSTM" href="../LSTM/LSTM.html"/>
         <link rel="prev" title="Ejemplo regularización" href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html"/> 
 
   
@@ -122,7 +122,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">RNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../LSTM/LSTM.html">LSTM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../GRU/GRU.html">GRU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RNN%20Bidireccional/RNN%20Bidireccional.html">RNN Bidireccional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
 </ul>
 </li>
@@ -375,21 +377,21 @@ los precios desplazados un día hacia el futuro (es decir, desde
 <pre class="literal-block">[<strong>*******************100%*********************</strong>]  1 of 1 completed
                Open     High      Low    Close  Adj Close   Volume
 Date
-2022-08-23  4147.00  4161.75  4118.00  4130.50    4130.50  1575674
 2022-08-24  4128.25  4158.50  4110.75  4142.75    4142.75  1348612
 2022-08-25  4148.75  4202.75  4143.00  4201.00    4201.00  1635476
-2022-08-26  4198.25  4217.25  4042.75  4059.50    4059.50  1635476
-2022-08-29  4035.75  4037.75  4034.00  4035.00    4035.00     5036</pre>
+2022-08-26  4198.25  4217.25  4042.75  4059.50    4059.50  2241117
+2022-08-29  4024.00  4064.00  4006.75  4031.25    4031.25  1963446
+2022-08-30  4035.75  4072.75  3964.50  3987.50    3987.50  1963446</pre>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">ohlc</span><span class="p">[</span><span class="s2">&quot;Adj Close&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Date</span>
-<span class="mi">2022</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">23</span>    <span class="mf">4130.50</span>
 <span class="mi">2022</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">24</span>    <span class="mf">4142.75</span>
 <span class="mi">2022</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">25</span>    <span class="mf">4201.00</span>
 <span class="mi">2022</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">26</span>    <span class="mf">4059.50</span>
-<span class="mi">2022</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">29</span>    <span class="mf">4035.00</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">29</span>    <span class="mf">4031.25</span>
+<span class="mi">2022</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">30</span>    <span class="mf">3987.50</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">Adj</span> <span class="n">Close</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 </pre></div>
 </div>
@@ -397,7 +399,7 @@ Date
 <span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">5547</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">5548</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -405,7 +407,7 @@ Date
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_28_01.png" src="../../../_images/output_28_01.png" />
+<img alt="../../../_images/output_28_02.png" src="../../../_images/output_28_02.png" />
 </div>
 <div class="section" id="conjunto-de-train-y-test">
 <h2>Conjunto de train y test:<a class="headerlink" href="#conjunto-de-train-y-test" title="Permalink to this headline">¶</a></h2>
@@ -429,15 +431,6 @@ Date
 </div>
 <img alt="../../../_images/output_31_01.png" src="../../../_images/output_31_01.png" />
 <img alt="../../../_images/output_31_1.png" src="../../../_images/output_31_1.png" />
-</div>
-<div class="section" id="estandarizacion-de-las-variables">
-<h2>Estandarización de las variables:<a class="headerlink" href="#estandarizacion-de-las-variables" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">sc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="n">train</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="n">test</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
-</pre></div>
-</div>
 <p><strong>Función para conformar el dataset para datos secuenciales:</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split_sequence</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">time_step</span><span class="p">):</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(),</span> <span class="nb">list</span><span class="p">()</span>
@@ -451,7 +444,7 @@ Date
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_step</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_step</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">split_sequence</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">time_step</span><span class="p">)</span>
 <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">split_sequence</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">time_step</span><span class="p">)</span>
@@ -460,13 +453,13 @@ Date
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">4427</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">4433</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1105</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -496,16 +489,17 @@ usa es una neurona <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">RNN</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">RNN</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;relu&quot;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">RNN</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;selu&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">RNN</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;selu&quot;</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">RNN</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;selu&quot;</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>                           <span class="c1"># última capa Dense</span>
 <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;adam&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;mse&quot;</span><span class="p">)</span>
 <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
     <span class="n">X_train</span><span class="p">,</span>
     <span class="n">y_train</span><span class="p">,</span>
     <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
-    <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span>
 <span class="p">)</span>
 </pre></div>
@@ -513,10 +507,18 @@ usa es una neurona <code class="docutils literal notranslate"><span class="pre">
 </div>
 <div class="section" id="evaluacion-del-desempeno">
 <h2>Evaluación del desempeño:<a class="headerlink" href="#evaluacion-del-desempeno" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mse</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">mse</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.009385934099555016</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">3454.1025390625</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rmse</span> <span class="o">=</span> <span class="n">mse</span> <span class="o">**</span> <span class="mf">0.5</span>
+<span class="n">rmse</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">58.7716133780799</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">)</span>
@@ -526,39 +528,29 @@ usa es una neurona <code class="docutils literal notranslate"><span class="pre">
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_48_0.png" src="../../../_images/output_48_0.png" />
+<img alt="../../../_images/output_47_02.png" src="../../../_images/output_47_02.png" />
 </div>
-<div class="section" id="prediccion-del-modelo-con-valores-sin-escalar">
-<h2>Predicción del modelo con valores sin escalar:<a class="headerlink" href="#prediccion-del-modelo-con-valores-sin-escalar" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">time_test</span><span class="p">))</span> <span class="p">:]</span>
-<span class="n">X_test_</span><span class="p">,</span> <span class="n">y_test_</span> <span class="o">=</span> <span class="n">split_sequence</span><span class="p">(</span><span class="n">test_</span><span class="p">,</span> <span class="n">time_step</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test_</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="section" id="prediccion-del-modelo">
+<h2>Predicción del modelo:<a class="headerlink" href="#prediccion-del-modelo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">y_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">2694.186</span> <span class="p">],</span>
-       <span class="p">[</span><span class="mf">2679.0159</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">2684.2632</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">2647.123</span> <span class="p">],</span>
-       <span class="p">[</span><span class="mf">2654.7764</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">2646.0144</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">2656.9644</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">2669.1555</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">2684.126</span> <span class="p">],</span>
+       <span class="p">[</span><span class="mf">2690.2444</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
-    <span class="n">test_</span><span class="p">[</span><span class="n">time_step</span><span class="p">:,</span> <span class="p">:],</span>
+    <span class="n">test</span><span class="p">[</span><span class="n">time_step</span><span class="p">:,</span> <span class="p">:],</span>
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span>
     <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
     <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True&quot;</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
@@ -566,12 +558,12 @@ usa es una neurona <code class="docutils literal notranslate"><span class="pre">
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
     <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
     <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_pred&quot;</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_53_02.png" src="../../../_images/output_53_02.png" />
+<img alt="../../../_images/output_50_01.png" src="../../../_images/output_50_01.png" />
 </div>
 <div class="section" id="prediccion-fuera-de-la-muestra">
 <h2>Predicción fuera de la muestra:<a class="headerlink" href="#prediccion-fuera-de-la-muestra" title="Permalink to this headline">¶</a></h2>
@@ -603,7 +595,7 @@ usa es una neurona <code class="docutils literal notranslate"><span class="pre">
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span>
     <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
     <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True&quot;</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
@@ -611,12 +603,12 @@ usa es una neurona <code class="docutils literal notranslate"><span class="pre">
     <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
     <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
     <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_pred fuera de la muestra&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;y_pred fuera de la muestra&quot;</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_57_01.png" src="../../../_images/output_57_01.png" />
+<img alt="../../../_images/output_54_01.png" src="../../../_images/output_54_01.png" />
 </div>
 </div>
 
@@ -630,7 +622,7 @@ usa es una neurona <code class="docutils literal notranslate"><span class="pre">
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../GRU/GRU.html" class="btn btn-neutral float-right" title="GRU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../LSTM/LSTM.html" class="btn btn-neutral float-right" title="LSTM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html" class="btn btn-neutral" title="Ejemplo regularización" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

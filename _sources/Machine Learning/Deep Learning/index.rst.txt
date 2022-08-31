@@ -96,7 +96,9 @@ Redes Neuronales Recurrentes:
    :titlesonly:
 
    RNN/RNN
+   LSTM/LSTM
    GRU/GRU
+   RNN Bidireccional/RNN Bidireccional
 
 
 ______________________________________________
