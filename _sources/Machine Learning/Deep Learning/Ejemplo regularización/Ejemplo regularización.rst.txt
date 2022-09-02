@@ -13,16 +13,13 @@ Ejemplo regularización
 Descargar datos desde Yahoo Finance:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Se descarga la información del Futuro E-Mini Standard and Poors 500. El
-nemotécnico en la bolsa es ES.
-
 .. code:: ipython3
 
     import yfinance as yf
 
 .. code:: ipython3
 
-    tickers = ["ES=F"]
+    tickers = ["BTC-USD"]
     ohlc = yf.download(tickers, period="max")
     print(ohlc.tail())
 
@@ -30,13 +27,21 @@ nemotécnico en la bolsa es ES.
 .. parsed-literal::
 
     [*********************100%***********************]  1 of 1 completed
-                   Open     High      Low    Close  Adj Close   Volume
-    Date                                                              
-    2022-08-17  4309.25  4315.00  4255.00  4276.75    4276.75  1638797
-    2022-08-18  4279.50  4295.50  4258.00  4286.50    4286.50  1366220
-    2022-08-19  4287.00  4288.00  4220.75  4231.50    4231.50  1701251
-    2022-08-22  4221.00  4221.50  4131.50  4141.25    4141.25  1701251
-    2022-08-23  4147.00  4161.75  4118.00  4149.75    4149.75   686203
+                        Open          High           Low         Close  \
+    Date                                                                 
+    2022-08-29  19615.154297  20357.462891  19600.785156  20297.994141   
+    2022-08-30  20298.611328  20542.644531  19617.640625  19796.808594   
+    2022-08-31  19799.582031  20420.990234  19799.582031  20049.763672   
+    2022-09-01  20050.498047  20198.390625  19653.968750  20127.140625   
+    2022-09-02  20108.171875  20213.396484  19985.148438  20170.986328   
+    
+                   Adj Close       Volume  
+    Date                                   
+    2022-08-29  20297.994141  32637854078  
+    2022-08-30  19796.808594  34483360283  
+    2022-08-31  20049.763672  33225232872  
+    2022-09-01  20127.140625  30182031010  
+    2022-09-02  20170.986328  29514622976  
     
 
 .. code:: ipython3
@@ -50,11 +55,11 @@ nemotécnico en la bolsa es ES.
 .. parsed-literal::
 
     Date
-    2022-08-17    4276.75
-    2022-08-18    4286.50
-    2022-08-19    4231.50
-    2022-08-22    4141.25
-    2022-08-23    4149.75
+    2022-08-29    20297.994141
+    2022-08-30    19796.808594
+    2022-08-31    20049.763672
+    2022-09-01    20127.140625
+    2022-09-02    20170.986328
     Name: Adj Close, dtype: float64
 
 
@@ -68,7 +73,7 @@ nemotécnico en la bolsa es ES.
 
 .. parsed-literal::
 
-    (5543,)
+    (2908,)
 
 
 
@@ -82,7 +87,7 @@ nemotécnico en la bolsa es ES.
 
 .. parsed-literal::
 
-    (5543, 1)
+    (2908, 1)
 
 
 
@@ -93,24 +98,17 @@ nemotécnico en la bolsa es ES.
 
 
 
-.. image:: output_9_0.png
+.. image:: output_8_0.png
 
 
-Conjunto de train, validation y test:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: ipython3
-
-    time_valid = 0.10
-    time_test = 0.10
+Conjunto de train y test:
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
-    train = df[: int(len(df) * (1 - (time_valid + time_test)))]
-    valid = df[
-        int(len(df) * (1 - (time_valid + time_test))) : int(len(df) * (1 - time_test))
-    ]
-    test = df[int(len(df) * (1 - time_test)) :]
+    time_test = 200
+    train = df[:len(df)-time_test]
+    test = df[len(df)-time_test:]
 
 **Función para conformar el dataset para datos secuenciales:**
 
@@ -129,31 +127,15 @@ Conjunto de train, validation y test:
             y.append(seq_y)
         return np.array(X), np.array(y)
 
-Estandarización de las variables:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 .. code:: ipython3
 
-    from sklearn.preprocessing import StandardScaler
-
-.. code:: ipython3
-
-    sc = StandardScaler()
-    sc.fit(train)
-    train = sc.transform(train)
-    valid = sc.transform(valid)
-    test = sc.transform(test)
-
-.. code:: ipython3
-
-    time_step = 10
+    time_step = 3
     
     X_train, y_train = split_sequence(train, time_step)
-    X_valid, y_valid = split_sequence(valid, time_step)
     X_test, y_test = split_sequence(test, time_step)
 
-Ajuste del modelo con 500 epochs:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ajuste del modelo inicial:
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
@@ -164,20 +146,23 @@ Ajuste del modelo con 500 epochs:
 .. code:: ipython3
 
     model = Sequential()
-    model.add(Dense(10, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(200, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(200, activation="relu"))
+    model.add(Dense(200, activation="relu"))
     model.add(Dense(1))
     model.compile(optimizer="adam", loss="mse")
     history = model.fit(
         X_train,
         y_train,
         validation_data=(X_test, y_test),
-        epochs=500,
+        epochs=200,
         batch_size=50,
-        verbose=0,
+        verbose=0
     )
     
     # Evaluación del desempeño:
-    print(model.evaluate(X_test, y_test, verbose=0))
+    rmse = model.evaluate(X_test, y_test, verbose=0) ** 0.5
+    print(rmse)
     plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
     plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
     plt.xlabel("epoch")
@@ -187,19 +172,19 @@ Ajuste del modelo con 500 epochs:
 
 .. parsed-literal::
 
-    0.010018723085522652
+    1133.444198008883
     
 
 
-.. image:: output_22_1.png
+.. image:: output_17_1.png
 
 
 Early Stopping:
 ~~~~~~~~~~~~~~~
 
 En el siguiente ejemplo el modelo se agrega una parada anticipada (early
-stopping) si el modelo no mejora durante 10 epochs. En caso de no usar
-este método la red de entrenará por 500 epoch y podrá observar que el
+stopping) si el modelo no mejora durante 20 epochs. En caso de no usar
+este método, la red de entrenará por 200 epoch y podrá observar que el
 modelo converge desde las primeras epochs.
 
 Este método es útil para detener el entrenamiento y no esperar hasta que
@@ -212,26 +197,29 @@ ejecute la última epoch que indiquemos.
 .. code:: ipython3
 
     model = Sequential()
-    model.add(Dense(10, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(200, activation="relu", input_shape=(time_step,)))
+    model.add(Dense(200, activation="relu"))
+    model.add(Dense(200, activation="relu"))
     model.add(Dense(1))
     model.compile(optimizer="adam", loss="mse")
     
     callbacks= keras.callbacks.EarlyStopping(   # Interrumpe el entrenamiento cuando se detiene la mejora.
         monitor="val_loss",                 # Supervisa el accuracy en la validación del modelo.
-        patience=10)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante 10 epochs.
+        patience=20)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante 10 epochs.
     
     history = model.fit(
         X_train,
         y_train,
         validation_data=(X_test, y_test),
-        callbacks=callbacks,
-        epochs=500,
+        callbacks=callbacks,             # Early stopping
+        epochs=100,
         batch_size=50,
-        verbose=0,
+        verbose=0
     )
     
     # Evaluación del desempeño:
-    print(model.evaluate(X_test, y_test, verbose=0))
+    rmse = model.evaluate(X_test, y_test, verbose=0) ** 0.5
+    print(rmse)
     plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
     plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
     plt.xlabel("epoch")
@@ -241,11 +229,11 @@ ejecute la última epoch que indiquemos.
 
 .. parsed-literal::
 
-    0.015855224803090096
+    1736.9679041364006
     
 
 
-.. image:: output_27_1.png
+.. image:: output_22_1.png
 
 
 Regularización L1:
@@ -258,21 +246,24 @@ Regularización L1:
 .. code:: ipython3
 
     model = Sequential()
-    model.add(Dense(10, activation="relu", input_shape=(time_step,),
-                   kernel_regularizer='l1'))         # Regularización L1
+    model.add(Dense(200, activation="relu", input_shape=(time_step,),
+                   kernel_regularizer='l1'))                          # Regularización L1 primera capa oculta
+    model.add(Dense(200, activation="relu", kernel_regularizer='l1'))  # Regularización L1 en segunda capa oculta
+    model.add(Dense(200, activation="relu", kernel_regularizer='l1'))  # Regularización L1 en tercera capa oculta
     model.add(Dense(1))
     model.compile(optimizer="adam", loss="mse")
     history = model.fit(
         X_train,
         y_train,
         validation_data=(X_test, y_test),
-        epochs=100,                                  # 100 epochs
+        epochs=100,                                 
         batch_size=50,
-        verbose=0,
+        verbose=0
     )
     
     # Evaluación del desempeño:
-    print(model.evaluate(X_test, y_test, verbose=0))
+    rmse = model.evaluate(X_test, y_test, verbose=0) ** 0.5
+    print(rmse)
     plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
     plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
     plt.xlabel("epoch")
@@ -282,11 +273,11 @@ Regularización L1:
 
 .. parsed-literal::
 
-    0.013674663379788399
+    1957.8838065625855
     
 
 
-.. image:: output_30_1.png
+.. image:: output_25_1.png
 
 
 Regularización L2:
@@ -299,21 +290,24 @@ Regularización L2:
 .. code:: ipython3
 
     model = Sequential()
-    model.add(Dense(10, activation="relu", input_shape=(time_step,),
-                   kernel_regularizer='l2'))         # Regularización L2
+    model.add(Dense(200, activation="relu", input_shape=(time_step,),
+                   kernel_regularizer='l2'))                           # Regularización L2 primera capa oculta
+    model.add(Dense(200, activation="relu", kernel_regularizer='l2'))  # Regularización L2 en segunda capa oculta
+    model.add(Dense(200, activation="relu", kernel_regularizer='l2'))  # Regularización L2 en tercera capa oculta
     model.add(Dense(1))
     model.compile(optimizer="adam", loss="mse")
     history = model.fit(
         X_train,
         y_train,
         validation_data=(X_test, y_test),
-        epochs=200,                                  # 200 epochs
+        epochs=100,                                
         batch_size=50,
-        verbose=0,
+        verbose=0
     )
     
     # Evaluación del desempeño:
-    print(model.evaluate(X_test, y_test, verbose=0))
+    rmse = model.evaluate(X_test, y_test, verbose=0) ** 0.5
+    print(rmse)
     plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
     plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
     plt.xlabel("epoch")
@@ -323,11 +317,11 @@ Regularización L2:
 
 .. parsed-literal::
 
-    0.7967701554298401
+    1161.484610315608
     
 
 
-.. image:: output_33_1.png
+.. image:: output_28_1.png
 
 
 Regularización L2 con Early Stopping:
@@ -340,14 +334,16 @@ Regularización L2 con Early Stopping:
 .. code:: ipython3
 
     model = Sequential()
-    model.add(Dense(10, activation="relu", input_shape=(time_step,),
-                   kernel_regularizer='l2'))         # Regularización L2
+    model.add(Dense(200, activation="relu", input_shape=(time_step,),
+                   kernel_regularizer='l2'))         # Regularización L2 primera capa oculta
+    model.add(Dense(200, activation="relu", kernel_regularizer='l2'))  # Regularización L2 en segunda capa oculta
+    model.add(Dense(200, activation="relu", kernel_regularizer='l2'))  # Regularización L2 en tercera capa oculta
     model.add(Dense(1))
     model.compile(optimizer="adam", loss="mse")
     
     callbacks= keras.callbacks.EarlyStopping(  
         monitor="val_loss",                 
-        patience=10)        
+        patience=20)        
     
     
     history = model.fit(
@@ -357,11 +353,12 @@ Regularización L2 con Early Stopping:
         callbacks=callbacks,
         epochs=500,                                  # 500 epochs
         batch_size=50,
-        verbose=0,
+        verbose=0
     )
     
     # Evaluación del desempeño:
-    print(model.evaluate(X_test, y_test, verbose=0))
+    rmse = model.evaluate(X_test, y_test, verbose=0) ** 0.5
+    print(rmse)
     plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
     plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
     plt.xlabel("epoch")
@@ -371,11 +368,11 @@ Regularización L2 con Early Stopping:
 
 .. parsed-literal::
 
-    0.054909028112888336
+    1252.2435366173786
     
 
 
-.. image:: output_36_1.png
+.. image:: output_31_1.png
 
 
 Dropout:
@@ -387,22 +384,31 @@ Dropout:
 
 .. code:: ipython3
 
+    keras.backend.clear_session()
+
+.. code:: ipython3
+
     model = Sequential()
-    model.add(Dense(10, activation="relu", input_shape=(time_step,)))
-    model.add(Dropout(0.2))              # Regularización Dropout
+    model.add(Dense(200, activation="relu", input_shape=(time_step,)))
+    model.add(Dropout(0.2))              # Regularización Dropout en primera capa oculta
+    model.add(Dense(200, activation="relu"))
+    model.add(Dropout(0.2))              # Regularización Dropout en segunda capa oculta
+    model.add(Dense(200, activation="relu"))
+    model.add(Dropout(0.2))              # Regularización Dropout en tercera capa oculta
     model.add(Dense(1))
     model.compile(optimizer="adam", loss="mse")
     history = model.fit(
         X_train,
         y_train,
         validation_data=(X_test, y_test),
-        epochs=200,                                  # 200 epochs
+        epochs=100,                                  # 100 epochs
         batch_size=50,
-        verbose=0,
+        verbose=0
     )
     
     # Evaluación del desempeño:
-    print(model.evaluate(X_test, y_test, verbose=0))
+    rmse = model.evaluate(X_test, y_test, verbose=0) ** 0.5
+    print(rmse)
     plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
     plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
     plt.xlabel("epoch")
@@ -412,11 +418,11 @@ Dropout:
 
 .. parsed-literal::
 
-    0.10498327016830444
+    8986.162696056643
     
 
 
-.. image:: output_39_1.png
+.. image:: output_35_1.png
 
 
 Regularización Dropout con Early Stopping en capa de entrada:
@@ -426,14 +432,18 @@ Regularización Dropout con Early Stopping en capa de entrada:
 
     model = Sequential()
     model.add(Dropout(0.1, input_shape=(time_step,)))
-    model.add(Dense(10, activation="relu", ))
+    model.add(Dense(200, activation="relu", ))
+    model.add(Dropout(0.2))
+    model.add(Dense(200, activation="relu", ))
+    model.add(Dropout(0.2))
+    model.add(Dense(200, activation="relu", ))
     model.add(Dropout(0.2))
     model.add(Dense(1))
     model.compile(optimizer="adam", loss="mse")
     
     callbacks= keras.callbacks.EarlyStopping(  
         monitor="val_loss",                 
-        patience=10)       
+        patience=20)       
     
     history = model.fit(
         X_train,
@@ -442,11 +452,12 @@ Regularización Dropout con Early Stopping en capa de entrada:
         callbacks=callbacks,
         epochs=500,                                  # 500 epochs
         batch_size=50,
-        verbose=0,
+        verbose=0
     )
     
     # Evaluación del desempeño:
-    print(model.evaluate(X_test, y_test, verbose=0))
+    rmse = model.evaluate(X_test, y_test, verbose=0) ** 0.5
+    print(rmse)
     plt.plot(range(1, len(history.epoch) + 1), history.history["loss"], label="Train")
     plt.plot(range(1, len(history.epoch) + 1), history.history["val_loss"], label="Test")
     plt.xlabel("epoch")
@@ -456,9 +467,9 @@ Regularización Dropout con Early Stopping en capa de entrada:
 
 .. parsed-literal::
 
-    0.3654727339744568
+    5909.748556410839
     
 
 
-.. image:: output_41_1.png
+.. image:: output_37_1.png
 
