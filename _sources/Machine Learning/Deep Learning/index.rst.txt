@@ -101,6 +101,18 @@ Redes Neuronales Recurrentes:
    RNN Bidireccional/RNN Bidireccional
 
 
+Redes Neuronales Convolucionales:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   CNN/CNN
+   CNN para series de tiempo/CNN para series de tiempo
+   CNN-LSTM para series de tiempo/CNN-LSTM para series de tiempo
+
+
 ______________________________________________
 
 Taller redes neuronales artificiales:
