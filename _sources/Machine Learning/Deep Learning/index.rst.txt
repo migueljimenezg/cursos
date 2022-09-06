@@ -115,14 +115,12 @@ Redes Neuronales Convolucionales:
 
 ______________________________________________
 
-Taller redes neuronales artificiales:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. toctree::
    :maxdepth: 1
    :titlesonly:
 
    Taller redes neuronales artificiales/Taller redes neuronales artificiales
+   Taller RNN/Taller RNN
 
 ______________________________________________
 
