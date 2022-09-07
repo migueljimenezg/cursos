@@ -158,7 +158,7 @@ Algunas empresas S.A. están obligadas a reportar informes financieros cada tres
 
 
 
-    * **Descargue** :download:`aquí <Estados Financieros-Supermercado Euro 2019-2020.xlsx>` el archivo de Excel con los Estados Financieros del Euro.
+    * **Descargue** :download:`aquí <Taller análisis Estados Financieros-Supermercado Euro.xlsx>` la solución de los ejercicios.
 
 
 

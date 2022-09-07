@@ -96,7 +96,7 @@ Ejercicios
 
 
 
-* **Descargue** :download:`aquí <SOLUCIÓN-Ejercicios introducción a las Matemáticas Financieras.xlsx>` la solución de los ejercicios.
+    * **Descargue** :download:`aquí <SOLUCIÓN-Ejercicios introducción a las Matemáticas Financieras.xlsx>` la solución de los ejercicios.
 
 
 ________________________________________________________________________________________
