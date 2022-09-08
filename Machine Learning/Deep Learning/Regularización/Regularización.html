@@ -443,15 +443,21 @@ entrenar su modelo por un número menor de épocas.</p>
 <code class="docutils literal notranslate"><span class="pre">compile()</span></code> se agregan <code class="docutils literal notranslate"><span class="pre">metrics=</span></code> también se pueden monitorear.</p>
 <p>Para monitorear <code class="docutils literal notranslate"><span class="pre">val_accuracy</span></code>, primero se agrega en
 <code class="docutils literal notranslate"><span class="pre">compile(...,</span> <span class="pre">metrics</span> <span class="pre">=</span> <span class="pre">[&quot;accuracy&quot;],</span> <span class="pre">...)</span></code>.</p>
+<p>Puede agregar el argumento <code class="docutils literal notranslate"><span class="pre">restore_best_weights=True</span></code> para que
+restaure los pesos del modelo desde el epoch con el mejor valor de la
+cantidad a monitorear. Por defecto es <code class="docutils literal notranslate"><span class="pre">False</span></code>, con lo que utiliza los
+pesos del modelo obtenidos en el último step de entrenamiento.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span><span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>   <span class="c1"># Interrumpe el entrenamiento cuando se detiene la mejora.</span>
     <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_accuracy&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa el accuracy en la validación del modelo.</span>
-    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>       <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.</span>
+    <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># pesos del mejor modelo.</span>
 </pre></div>
 </div>
 <p>Simplemente se puede monitorear <code class="docutils literal notranslate"><span class="pre">val_loss</span></code> así:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span><span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>   <span class="c1"># Interrumpe el entrenamiento cuando se detiene la mejora.</span>
     <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa la loss en la validación del modelo.</span>
-    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.</span>
+    <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># pesos del mejor modelo.</span>
 </pre></div>
 </div>
 <p><strong>EarlyStopping para regresión:</strong></p>
@@ -460,7 +466,8 @@ adicionales, se define en <code class="docutils literal notranslate"><span class
 monitorear esta métrica de la siguiente manera:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">callbacks</span><span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span>   <span class="c1"># Interrumpe el entrenamiento cuando se detiene la mejora.</span>
     <span class="n">monitor</span><span class="o">=</span><span class="s2">&quot;val_loss&quot;</span><span class="p">,</span>                 <span class="c1"># Supervisa la loss en la validación del modelo.</span>
-    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.</span>
+    <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>        <span class="c1"># Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.</span>
+    <span class="n">restore_best_weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># pesos del mejor modelo.</span>
 </pre></div>
 </div>
 <p>Las callbacks se pasan al modelo a través del argumento de <code class="docutils literal notranslate"><span class="pre">callbacks</span></code>

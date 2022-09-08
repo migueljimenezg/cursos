@@ -259,11 +259,17 @@ Se puede monitoriar la evolución de ``loss`` o ``val_loss``. Si en
 Para monitorear ``val_accuracy``, primero se agrega en
 ``compile(..., metrics = ["accuracy"], ...)``.
 
+Puede agregar el argumento ``restore_best_weights=True`` para que
+restaure los pesos del modelo desde el epoch con el mejor valor de la
+cantidad a monitorear. Por defecto es ``False``, con lo que utiliza los
+pesos del modelo obtenidos en el último step de entrenamiento.
+
 .. code:: ipython3
 
     callbacks= keras.callbacks.EarlyStopping(   # Interrumpe el entrenamiento cuando se detiene la mejora.
         monitor="val_accuracy",                 # Supervisa el accuracy en la validación del modelo.
-        patience=2)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.
+        patience=2,       # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante dos epochs.
+        restore_best_weights=True) # pesos del mejor modelo.
 
 Simplemente se puede monitorear ``val_loss`` así:
 
@@ -271,7 +277,8 @@ Simplemente se puede monitorear ``val_loss`` así:
 
     callbacks= keras.callbacks.EarlyStopping(   # Interrumpe el entrenamiento cuando se detiene la mejora.
         monitor="val_loss",                 # Supervisa la loss en la validación del modelo.
-        patience=2)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.
+        patience=2,        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.
+        restore_best_weights=True) # pesos del mejor modelo.
 
 **EarlyStopping para regresión:**
 
@@ -283,7 +290,8 @@ monitorear esta métrica de la siguiente manera:
 
     callbacks= keras.callbacks.EarlyStopping(   # Interrumpe el entrenamiento cuando se detiene la mejora.
         monitor="val_loss",                 # Supervisa la loss en la validación del modelo.
-        patience=2)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.
+        patience=2,        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante cinco epochs.
+        restore_best_weights=True) # pesos del mejor modelo.
 
 Las callbacks se pasan al modelo a través del argumento de ``callbacks``
 en ``fit()``, que toma una lista de callbacks. Puede pasar cualquier

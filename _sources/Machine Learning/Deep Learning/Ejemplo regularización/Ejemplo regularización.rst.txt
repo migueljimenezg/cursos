@@ -29,19 +29,19 @@ Descargar datos desde Yahoo Finance:
     [*********************100%***********************]  1 of 1 completed
                         Open          High           Low         Close  \
     Date                                                                 
-    2022-08-29  19615.154297  20357.462891  19600.785156  20297.994141   
-    2022-08-30  20298.611328  20542.644531  19617.640625  19796.808594   
-    2022-08-31  19799.582031  20420.990234  19799.582031  20049.763672   
-    2022-09-01  20050.498047  20198.390625  19653.968750  20127.140625   
-    2022-09-02  20108.171875  20213.396484  19985.148438  20170.986328   
+    2022-09-03  19969.718750  20037.009766  19698.355469  19832.087891   
+    2022-09-04  19832.470703  19999.689453  19636.816406  19986.712891   
+    2022-09-05  19988.789062  20031.160156  19673.046875  19812.371094   
+    2022-09-06  19817.724609  20155.269531  18800.171875  18837.667969   
+    2022-09-08  19309.482422  19372.404297  19275.042969  19276.115234   
     
                    Adj Close       Volume  
     Date                                   
-    2022-08-29  20297.994141  32637854078  
-    2022-08-30  19796.808594  34483360283  
-    2022-08-31  20049.763672  33225232872  
-    2022-09-01  20127.140625  30182031010  
-    2022-09-02  20170.986328  29514622976  
+    2022-09-03  19832.087891  23613051457  
+    2022-09-04  19986.712891  25245861652  
+    2022-09-05  19812.371094  28813460025  
+    2022-09-06  18837.667969  43403978910  
+    2022-09-08  19276.115234  34544746496  
     
 
 .. code:: ipython3
@@ -55,11 +55,11 @@ Descargar datos desde Yahoo Finance:
 .. parsed-literal::
 
     Date
-    2022-08-29    20297.994141
-    2022-08-30    19796.808594
-    2022-08-31    20049.763672
-    2022-09-01    20127.140625
-    2022-09-02    20170.986328
+    2022-09-03    19832.087891
+    2022-09-04    19986.712891
+    2022-09-05    19812.371094
+    2022-09-06    18837.667969
+    2022-09-08    19276.115234
     Name: Adj Close, dtype: float64
 
 
@@ -73,7 +73,7 @@ Descargar datos desde Yahoo Finance:
 
 .. parsed-literal::
 
-    (2908,)
+    (2913,)
 
 
 
@@ -87,7 +87,7 @@ Descargar datos desde Yahoo Finance:
 
 .. parsed-literal::
 
-    (2908, 1)
+    (2913, 1)
 
 
 
@@ -172,7 +172,7 @@ Ajuste del modelo inicial:
 
 .. parsed-literal::
 
-    1133.444198008883
+    1118.935934269697
     
 
 
@@ -205,7 +205,8 @@ ejecute la última epoch que indiquemos.
     
     callbacks= keras.callbacks.EarlyStopping(   # Interrumpe el entrenamiento cuando se detiene la mejora.
         monitor="val_loss",                 # Supervisa el accuracy en la validación del modelo.
-        patience=20)        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante 10 epochs.
+        patience=20,        # Interrumpe el entrenamiento cuando la precisión ha dejado de mejorar durante 10 epochs.
+        restore_best_weights=True)
     
     history = model.fit(
         X_train,
@@ -229,7 +230,7 @@ ejecute la última epoch que indiquemos.
 
 .. parsed-literal::
 
-    1736.9679041364006
+    1124.7939811361011
     
 
 
@@ -273,7 +274,7 @@ Regularización L1:
 
 .. parsed-literal::
 
-    1957.8838065625855
+    1122.4477159315707
     
 
 
@@ -317,7 +318,7 @@ Regularización L2:
 
 .. parsed-literal::
 
-    1161.484610315608
+    1155.8512014961095
     
 
 
@@ -343,7 +344,8 @@ Regularización L2 con Early Stopping:
     
     callbacks= keras.callbacks.EarlyStopping(  
         monitor="val_loss",                 
-        patience=20)        
+        patience=20,
+        restore_best_weights=True)
     
     
     history = model.fit(
@@ -368,7 +370,7 @@ Regularización L2 con Early Stopping:
 
 .. parsed-literal::
 
-    1252.2435366173786
+    1123.5660861738397
     
 
 
@@ -418,20 +420,23 @@ Dropout:
 
 .. parsed-literal::
 
-    8986.162696056643
+    3861.8776521272653
     
 
 
 .. image:: output_35_1.png
 
 
-Regularización Dropout con Early Stopping en capa de entrada:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Regularización Dropout con Early Stopping:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    keras.backend.clear_session()
 
 .. code:: ipython3
 
     model = Sequential()
-    model.add(Dropout(0.1, input_shape=(time_step,)))
     model.add(Dense(200, activation="relu", ))
     model.add(Dropout(0.2))
     model.add(Dense(200, activation="relu", ))
@@ -443,7 +448,8 @@ Regularización Dropout con Early Stopping en capa de entrada:
     
     callbacks= keras.callbacks.EarlyStopping(  
         monitor="val_loss",                 
-        patience=20)       
+        patience=20,
+        restore_best_weights=True)
     
     history = model.fit(
         X_train,
@@ -467,9 +473,21 @@ Regularización Dropout con Early Stopping en capa de entrada:
 
 .. parsed-literal::
 
-    5909.748556410839
+    1552.5757630466862
     
 
 
-.. image:: output_37_1.png
+.. image:: output_38_1.png
 
+
+Dropout capa de entrada:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+La capa de entrada también puede tener Dropout:
+
+.. code:: ipython3
+
+    model = Sequential()
+    model.add(Dropout(0.1, input_shape=(time_step,)))  # Capa de entrada con Droput
+    model.add(Dense(200, activation="relu", ))         # Primera capa oculta
+    model.add(Dropout(0.2))                            # Dropout primera capa oculta
