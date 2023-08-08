@@ -1,0 +1,46 @@
+Introducción al Mercado Financiero
+===================================================
+
+El objetivo de esta sección es comprender la mecánica de los principales instrumentos financieros que podemos encontrar en el mercado de valores.
+
+
+:download:`Presentación del curso <0. Finanzas I – Mercado de Valores 02-2023.pdf>` 
+
+
+**Video:** --- `Cómo funciona la máquina económica, por Ray Dalio <https://www.youtube.com/watch?v=npoNbXXS4oQ>`_.
+
+
+* :download:`1. Introducción al Mercado Financiero <1. Introducción al Mercado Financiero.pdf>`
+
+    **Excel:** --- :download:`Reporte renta variable BVC <Reporte de Riesgos Mercado de Renta Variable-agosto2023.xlsx>`
+
+
+
+**Enlaces de interés**
+    
+    * `Informes de la Bolsa de Valores de Colombia BVC <https://www.bvc.com.co/informes-y-boletines?tab=informes-bursatiles_diario>`_.
+
+
+    * `Investing <https://es.investing.com/>`_. Para monitorear el mercado. Para descargar precios se debe iniciar sesion.
+
+
+    * `Yahoo Finance <https://finance.yahoo.com/>`_. Para monitorear el mercado y descargar histórico de precios.
+
+
+    * `Finviz <https://finviz.com/>`_. Para monitorear el mercado.
+
+
+    * `TradingView <https://es.tradingview.com/>`_. Para realizar análisis técnico. Se debe iniciar sesión para poder tener la plataforma de gráficos por más de 30 minutos.
+
+
+
+________________________________________________________________________________________
+
+Lecturas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. [#f1] :download:`Guía de estudio renta variable - AMV <Guia-Renta-Variable-Operador-enero-2021.pdf>` Páginas 12 - 20.
+
+
+.. [#f2] :download:`Características generales del mercado de acciones de Colombia <Mercado de acciones de Colombia-Agudelo.pdf>` Páginas 59 - 67. Libro: Inversiones en renta variable. Fundamentos y aplicaciones al mercado accionario colombiano. Autor: Diego  A. Agudelo R. Año: 2014.
+
