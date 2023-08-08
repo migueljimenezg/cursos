@@ -16,6 +16,39 @@ El objetivo de esta sección es comprender la mecánica de los principales instr
 
 
 
+* :download:`2. Fondos de Inversión Colectiva <2. Fondos de Inversión Colectiva.pdf>`
+
+
+    * :download:`Ficha técnica FIC abierto renta variable <Renta_Acciones_Junio2023.pdf>`
+
+
+    * :download:`Ficha técnica FIC abierto renta fija <Renta_Fija_Plazo_Junio2023.pdf>`
+
+
+    * :download:`Ficha técnica FIC cerrado renta fija <Cerrado_Renta_Fija_II_Junio2023.pdf>`
+
+
+    * :download:`Ficha técnica FIC inmobiliario <Fondo_Inmobiliario_Junio2023.pdf>`
+
+
+    * :download:`Ficha técnica iCOLCAP <icolcap-fondo-burs-til-ishares-msci-colcap-fund-fact-sheet-en-lm.pdf>`
+
+
+    * `ETF: iCOLCAP <https://www.blackrock.com/co/literatura?productIdentifier=CORB6PA00015%7EBRSCAWPA3%7E251708&MaterialType=Fact+Sheet>`_.
+
+
+    * `ETF: SPY <https://www.ssga.com/us/en/intermediary/etfs/funds/spdr-sp-500-etf-trust-spy>`_.
+
+
+    * `ETF: QQQ <https://www.invesco.com/qqq-etf/en/about.html>`_.
+
+
+    * `ETF´s de BlackRock (iShares) <https://www.ishares.com/us/products/etf-investments#/?productView=etf&pageNumber=1&sortColumn=totalNetAssets&sortDirection=desc&dataView=keyFacts>`_.
+
+
+
+
+
 **Enlaces de interés**
     
     * `Informes de la Bolsa de Valores de Colombia BVC <https://www.bvc.com.co/informes-y-boletines?tab=informes-bursatiles_diario>`_.
@@ -33,6 +66,9 @@ El objetivo de esta sección es comprender la mecánica de los principales instr
     * `TradingView <https://es.tradingview.com/>`_. Para realizar análisis técnico. Se debe iniciar sesión para poder tener la plataforma de gráficos por más de 30 minutos.
 
 
+    * `CoinMarketCap <https://coinmarketcap.com/>`_. Para criptomonedas.
+
+
 
 ________________________________________________________________________________________
 
@@ -44,3 +80,5 @@ Lecturas
 
 .. [#f2] :download:`Características generales del mercado de acciones de Colombia <Mercado de acciones de Colombia-Agudelo.pdf>` Páginas 59 - 67. Libro: Inversiones en renta variable. Fundamentos y aplicaciones al mercado accionario colombiano. Autor: Diego  A. Agudelo R. Año: 2014.
 
+
+.. [#f3] :download:`Guía de estudio FIC - AMV <Guía-FIC-Operador.pdf>` Páginas 8 - 19.
