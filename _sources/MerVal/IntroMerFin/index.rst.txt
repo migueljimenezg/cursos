@@ -14,6 +14,24 @@ El objetivo de esta sección es comprender la mecánica de los principales instr
 
     **Excel:** --- :download:`Reporte renta variable BVC <Reporte de Riesgos Mercado de Renta Variable-agosto2023.xlsx>`
 
+  
+    * `Informes de la Bolsa de Valores de Colombia BVC <https://www.bvc.com.co/informes-y-boletines?tab=informes-bursatiles_diario>`_.
+
+
+    * `Investing <https://es.investing.com/>`_. Para monitorear el mercado. Para descargar precios se debe iniciar sesion.
+
+
+    * `Yahoo Finance <https://finance.yahoo.com/>`_. Para monitorear el mercado y descargar histórico de precios.
+
+
+    * `Finviz <https://finviz.com/>`_. Para monitorear el mercado.
+
+
+    * `TradingView <https://es.tradingview.com/>`_. Para realizar análisis técnico. Se debe iniciar sesión para poder tener la plataforma de gráficos por más de 30 minutos.
+
+
+    * `CoinMarketCap <https://coinmarketcap.com/>`_. Para criptomonedas.
+
 
 
 * :download:`2. Fondos de Inversión Colectiva <2. Fondos de Inversión Colectiva.pdf>`
@@ -47,26 +65,17 @@ El objetivo de esta sección es comprender la mecánica de los principales instr
 
 
 
+* :download:`3. Análisis económico <3. Análisis económico.pdf>`
 
 
-**Enlaces de interés**
-    
-    * `Informes de la Bolsa de Valores de Colombia BVC <https://www.bvc.com.co/informes-y-boletines?tab=informes-bursatiles_diario>`_.
+    * `PIB -- Dane <https://www.dane.gov.co/index.php/estadisticas-por-tema/cuentas-nacionales/cuentas-nacionales-trimestrales/historicos-producto-interno-bruto-pib>`_.
 
 
-    * `Investing <https://es.investing.com/>`_. Para monitorear el mercado. Para descargar precios se debe iniciar sesion.
+    * `Deuda pública -- Datosmacro.com <https://datosmacro.expansion.com/deuda/colombia>`_.
 
 
-    * `Yahoo Finance <https://finance.yahoo.com/>`_. Para monitorear el mercado y descargar histórico de precios.
+    * `IPC -- Dane <https://www.dane.gov.co/index.php/estadisticas-por-tema/precios-y-costos/indice-de-precios-al-consumidor-ipc>`_.
 
-
-    * `Finviz <https://finviz.com/>`_. Para monitorear el mercado.
-
-
-    * `TradingView <https://es.tradingview.com/>`_. Para realizar análisis técnico. Se debe iniciar sesión para poder tener la plataforma de gráficos por más de 30 minutos.
-
-
-    * `CoinMarketCap <https://coinmarketcap.com/>`_. Para criptomonedas.
 
 
 
