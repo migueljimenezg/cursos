@@ -1,0 +1,38 @@
+Derivados Financieros
+===================================================
+
+El objetivo de esta sección es comprender la mecánica de los principales derivados financieros cómo lo son los Forward y los Futuros.
+
+
+
+Forward
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+* :download:`1. Forward <../../Derivados financieros/Forward/1. Forward V6.pdf>`
+
+    * `video Forward <https://youtu.be/Khpc9dX2dK8>`_.
+
+
+* :download:`2. Ejemplos de compensación en los Forwards <../../Derivados financieros/Forward/Compensaciones Forward.xlsx>`
+
+    * `video compensaciones Forward <https://youtu.be/LFmYCp15Zq8>`_.
+
+
+* :download:`3. Ejemplos de coberturas con Forwards <../../Derivados financieros/Forward/Coberturas con Forward.xlsx>`
+
+    * `video coberturas <https://youtu.be/1XmHjvYuFzo>`_.
+
+
+* `4. Contratos Forwards en el mercado colombiano <https://youtu.be/2Z4S8CPFm1Q>`_.
+
+
+    * **Bancolombia** --- `aquí <https://www.grupobancolombia.com/wps/portal/empresas/productos-servicios/derivados/forwards/divisas>`_.
+
+    * **Davivienda** --- `aquí <https://www.davivienda.com/wps/portal/empresas/nuevo/menu/corporativo/globalice_su_negocio/importadores/operaciones_forward/!ut/p/z1/hY49D4IwFEV_CwOj7ZMvW7diWCASZRHfYoBUIAFKAG3899bRRMPdbu45yaVIc4pD8WzrYmnVUHSmXzG4uezspXHoHA8icUBE0SlLwsxJYUsvawCaGf5EgPFxDYkptmVPdNUTIC5j3PV8P9hxBpwz_3NRDKXLaoqTvMtJTuQxmefNsozz3gYbtNakVqruJKlUb8MvpVHzQvNvko59DhssX1pY1hvB9HUP/dz/d5/L2dBISEvZ0FBIS9nQSEh/>`_.
+
+    * **Corficolombiana** --- `aquí <https://www.corficolombiana.com/forward>`_.
+
+    * **Banco de Bogotá** --- `aquí <https://www.bancodebogota.com/wps/portal/banco-de-bogota/bogota/productos/para-empresas/soluciones-de-comercio-internacional-y-tesoreria/operaciones-de-cobertura/forward-sobre-divisas>`_.
+
+
