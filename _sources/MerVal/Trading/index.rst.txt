@@ -1,0 +1,74 @@
+Trading
+===================================================
+
+En el transcurso de esta sesión, nos enfocaremos en proporcionar una sólida introducción al emocionante mundo del trading. Exploraremos los conceptos fundamentales que subyacen en esta práctica financiera, desde los principios básicos hasta las estrategias más avanzadas. 
+
+Libro de órdenes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Formación del precio de los instrumentos financieros.
+
+
+.. figure:: GIF-Velas.gif
+   :alt: Libro_de_órdenes
+________________________________________________________________________________________
+
+
+Velas japonesas
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: Velas.JPG
+   :alt: Velas_japonesas
+
+
+Soportes y Resistencias
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: SoportesResistencias.JPG
+   :alt: Soportes_Resistencias
+
+
+.. figure:: SoportesResistencias_2.JPG
+   :alt: Soportes_Resistencias
+
+Canales
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. figure:: Canal.JPG
+   :alt: Canales
+
+
+Impulsos y Correcciones
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Cada impulso tiene su réplica.
+
+
+.. figure:: Impulso.JPG
+   :alt: Impulso
+
+
+Estructura del Mercado
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: y_bajista.JPG
+   :alt: y_bajista
+
+
+.. figure:: y_alcista.JPG
+   :alt: y_alcista
+
+
+.. figure:: Z_bajista.JPG
+   :alt: Z_bajista
+
+
+.. figure:: Z_alcista.JPG
+   :alt: Z_alcista
+
+
+
+
+
+

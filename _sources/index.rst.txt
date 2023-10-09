@@ -25,6 +25,7 @@ Material de apoyo
      
     MerVal/IntroMerFin/index
     MerVal/Derivados/index
+    MerVal/Trading/index
 
   
 
