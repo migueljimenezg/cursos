@@ -3,6 +3,14 @@ Trading
 
 En el transcurso de esta sesión, nos enfocaremos en proporcionar una sólida introducción al emocionante mundo del trading. Exploraremos los conceptos fundamentales que subyacen en esta práctica financiera, desde los principios básicos hasta las estrategias más avanzadas. 
 
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Ninja Trader/Ninja Trader
+
+
+
 Libro de órdenes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -58,7 +66,7 @@ Creek
 .. figure:: Creek_2.JPG
    :alt: Creek_2.JPG
 
-Estructura del Mercado
+Estructura del Mercado en marcos de tiempo diario o semanal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: y_bajista.JPG
@@ -88,10 +96,17 @@ Estructura del Mercado
 .. figure:: BT_1.JPG
    :alt: BT_1
 
+Estructura del Mercado en marcos de tiempo 4 horas y horarios
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. figure:: Channel_1.jpg
+   :alt: Channel_1
 
+.. figure:: Channel_2.jpg
+   :alt: Channel_2
 
-
+.. figure:: Channel_3.jpg
+   :alt: Channel_3
 
 
 
