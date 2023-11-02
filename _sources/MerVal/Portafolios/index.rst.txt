@@ -8,7 +8,7 @@ El objetivo de esta sección es comprender la conformación de un portafolio de 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-* :download:`Bonos <../../Portafolios de inversión2/Teoría de portafolios/1. Introducción a la teoría de portafolios/4. Introducción a la teoría de portafolios.pdf>`
+* :download:`Introducción a los portafolios <../../Portafolios de inversión2/Teoría de portafolios/1. Introducción a la teoría de portafolios/4. Introducción a la teoría de portafolios.pdf>`
 
 
     * `Video introducción a los portafolios <https://youtu.be/wkwCU7pnVA0>`_.
@@ -53,7 +53,7 @@ El objetivo de esta sección es comprender la conformación de un portafolio de 
     * :download:`Excel indicadores <../../Portafolios de inversión2/Teoría de portafolios/3. Indicadores de desempeño/3. Indicadores de desempeño.xlsx>`
 
 
-    * `Video indicadores <https://youtu.be/yy7RVU6Vy0o>`_.
+    * `Video Excel indicadores <https://youtu.be/yy7RVU6Vy0o>`_.
 
 
 4. Frontera eficiente
@@ -69,7 +69,7 @@ El objetivo de esta sección es comprender la conformación de un portafolio de 
     * :download:`Excel Frontera eficiente <../../Portafolios de inversión2/Teoría de portafolios/4. Frontera eficiente/4. Frontera eficiente.xlsx>`
 
 
-    * `Video Frontera eficiente <https://youtu.be/RA0wRLt8T_4>`_.
+    * `Video Excel Frontera eficiente <https://youtu.be/RA0wRLt8T_4>`_.
 
 _______________________________________________________________________________________________________________
 
