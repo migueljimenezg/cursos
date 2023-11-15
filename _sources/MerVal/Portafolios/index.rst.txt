@@ -73,6 +73,11 @@ El objetivo de esta sección es comprender la conformación de un portafolio de 
 
 _______________________________________________________________________________________________________________
 
+    * **Ver video** --- `Descargar precios de acciones desde Investing <https://youtu.be/q0UganT3NfQ>`_.
+
+    * **Ver video** --- `Limpieza de base de datos <https://youtu.be/BJeLKCWMUz8>`_.
+
+_______________________________________________________________________________________________________________
 
 **Lecturas**
 
