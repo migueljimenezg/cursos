@@ -14,17 +14,7 @@ Forward
     * `Video Forward <https://youtu.be/Khpc9dX2dK8>`_.
 
 
-* :download:`2. Ejemplos de compensación en los Forwards <../../Derivados financieros/Forward/Compensaciones Forward.xlsx>`
-
-    * `Video compensaciones Forward <https://youtu.be/LFmYCp15Zq8>`_.
-
-
-* :download:`3. Ejemplos de coberturas con Forwards <../../Derivados financieros/Forward/Coberturas con Forward.xlsx>`
-
-    * `Video coberturas <https://youtu.be/1XmHjvYuFzo>`_.
-
-
-* `4. Video contratos Forwards en el mercado colombiano <https://youtu.be/2Z4S8CPFm1Q>`_.
+* `2. Video contratos Forwards en el mercado colombiano <https://youtu.be/2Z4S8CPFm1Q>`_.
 
 
     * **Bancolombia** --- `aquí <https://www.grupobancolombia.com/wps/portal/empresas/productos-servicios/derivados/forwards/divisas>`_.
