@@ -94,7 +94,7 @@ Este enfoque implica examinar una amplia gama de información y datos, como los 
 El análisis fundamental es utilizado tanto por inversores a largo plazo como por traders a corto plazo para tomar decisiones informadas sobre la inversión. Sin embargo, es importante destacar que el análisis fundamental puede ser una tarea compleja y requiere un profundo entendimiento de los conceptos financieros y económicos, así como la capacidad de interpretar y contextualizar la información de manera precisa.
 
 
-* :download:`3. Análisis económico <3. Análisis económico.pdf>`
+* :download:`3. Análisis económico <3. Análisis económico v2.pdf>`
 
 
     * `PIB -- Dane <https://www.dane.gov.co/index.php/estadisticas-por-tema/cuentas-nacionales/cuentas-nacionales-trimestrales/historicos-producto-interno-bruto-pib>`_.
