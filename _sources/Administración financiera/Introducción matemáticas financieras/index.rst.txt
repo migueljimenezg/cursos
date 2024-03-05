@@ -99,7 +99,22 @@ Ejercicios
     * **Descargue** :download:`aquí <SOLUCIÓN-Ejercicios introducción a las Matemáticas Financieras.xlsx>` la solución de los ejercicios.
 
 
+Examen semestre 01-2024
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. toctree::
+            :maxdepth: 1
+            :titlesonly:
+
+
+            Fórmulas Examen Matemáticas Financieras 01-2024.rst
+
+
+
+    * **Descargue** :download:`aquí <EXAMEN MATEMÁTICAS FINANCIERAS-01-2024 v2.pdf>` el enunciado del examen.
 ________________________________________________________________________________________
+
+
 
 Resumen de fórmulas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
