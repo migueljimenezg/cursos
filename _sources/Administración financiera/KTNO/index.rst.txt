@@ -36,3 +36,10 @@ debe utilizar otros fondos (deudas o capital propio) en la operación.
 .. raw:: html
 
    <iframe width="560" height="315" src="https://www.youtube.com/embed/8a8YCgnSzRQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+.. important::
+    Estados Financieros Supermercados 2021-2022:
+
+    **Descargue** :download:`aquí <Supermercados2022.xlsx>`
+

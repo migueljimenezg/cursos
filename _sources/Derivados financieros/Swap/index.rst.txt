@@ -35,6 +35,9 @@ Swap
 
     * **Tasa SOFR:** --- `aquí <https://www.newyorkfed.org/markets/reference-rates/sofr>`_.
 
+    * **Tasa SOFR a 30, 90 y 180 días:** --- `aquí <https://www.newyorkfed.org/markets/reference-rates/sofr-averages-and-index>`_.
+
+
 
 
  
