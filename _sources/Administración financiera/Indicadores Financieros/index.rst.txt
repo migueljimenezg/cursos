@@ -57,7 +57,7 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
 
 
 .. important::
-    El siguiente archivo tiene los Estados Financieros y los Indicadores de Actividad de 20 Mission actualizados hasta el año 2022:
+    El siguiente archivo contiene los Estados Financieros y los Indicadores de Actividad de 20 Mission actualizados hasta el año 2022:
     
     **Descargue** :download:`aquí <Indicadores de Actividad-20 Mission-actualizado 2022.xlsx>` el archivo de Excel con el ejemplo.
 
@@ -96,6 +96,13 @@ Estos indicadores miden la capacidad de la compañía para cumplir con sus deuda
 .. raw:: html
 
    <iframe width="560" height="315" src="https://www.youtube.com/embed/HQC0k94UwoE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+.. important::
+    El siguiente archivo contiene los Estados Financieros con los Indicadores de Actividad y Liquidez para los Supermercados para el año 2022:
+    
+    **Descargue** :download:`aquí <Supermercados2022-Actividad-Liquidez.xlsx>` el archivo de Excel con el ejemplo.
 
 
 
