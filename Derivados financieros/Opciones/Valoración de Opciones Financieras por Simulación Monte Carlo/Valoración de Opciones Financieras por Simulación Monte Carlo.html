@@ -1,0 +1,544 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Valoración de Opciones Financieras por Simulación Monte Carlo &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Opciones" href="../index.html"/>
+        <link rel="next" title="Ejercicios propiedades, coberturas y valoración de opciones por SMC" href="../Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html"/>
+        <link rel="prev" title="Movimiento Browniano Geométrico (GBM) en Python" href="../Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/index.html">Deep Learning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MERCADO DE VALORES:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/IntroMerFin/index.html">Introducción al Mercado Financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Derivados/index.html">Derivados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Bonos/index.html">Bonos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Portafolios/index.html">Portafolios de inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Opciones</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html">Movimiento Browniano Geométrico (GBM) en Python</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Valoración de Opciones Financieras por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicios%20valoraci%C3%B3n%20de%20opciones.html">Ejercicios valoración de opciones</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/index.html">Análisis Financiero en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Opciones</a> &raquo;</li>
+        
+      <li>Valoración de Opciones Financieras por Simulación Monte Carlo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Derivados financieros/Opciones/Valoración de Opciones Financieras por Simulación Monte Carlo/Valoración de Opciones Financieras por Simulación Monte Carlo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="valoracion-de-opciones-financieras-por-simulacion-monte-carlo">
+<h1>Valoración de Opciones Financieras por Simulación Monte Carlo<a class="headerlink" href="#valoracion-de-opciones-financieras-por-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="acciones-sin-dividendos">
+<h2>Acciones sin dividendos:<a class="headerlink" href="#acciones-sin-dividendos" title="Permalink to this headline">¶</a></h2>
+<p>La valoración de una opción financiera mediante el método de Simulación
+Monte Carlo implica simular múltiples trayectorias del precio del activo
+subyacente hasta la fecha de vencimiento de la opción, utilizando un
+modelo estocástico como el Movimiento Browniano Geométrico (GBM). Luego,
+se calcula el valor de la opción en cada trayectoria simulada al
+vencimiento y se toma el promedio de estos valores. Finalmente, este
+promedio se descuenta al presente utilizando la tasa de interés libre de
+riesgo. Este proceso se puede aplicar tanto a opciones de compra (call)
+como a opciones de venta (put).</p>
+<p>A continuación, se detallan los pasos para valorar una opción de compra
+europea, aunque el proceso es similar para las opciones de venta:</p>
+<ol class="arabic simple">
+<li><p><strong>Definir los parámetros iniciales:</strong> Estos incluyen el precio actual
+del activo subyacente (<span class="math notranslate nohighlight">\(S\)</span>), la tasa de interés libre de riesgo
+(<span class="math notranslate nohighlight">\(r\)</span>), la volatilidad del activo subyacente (<span class="math notranslate nohighlight">\(\sigma\)</span>),
+el tiempo hasta el vencimiento de la opción (<span class="math notranslate nohighlight">\(T\)</span>) y el precio
+de ejercicio de la opción (<span class="math notranslate nohighlight">\(K\)</span>).</p></li>
+<li><p><strong>Simular trayectorias del precio del activo subyacente:</strong> Utilizando
+el modelo de GBM, se generan múltiples trayectorias del precio del
+activo subyacente hasta la fecha de vencimiento de la opción. Cada
+trayectoria simula una posible evolución del precio del activo a lo
+largo del tiempo.</p></li>
+<li><p><strong>Calcular el valor de la opción en el vencimiento para cada
+trayectoria:</strong> Para una opción de compra, el valor al vencimiento es
+el máximo entre 0 y la diferencia entre el precio del activo
+subyacente y el precio de ejercicio <span class="math notranslate nohighlight">\(Máx(S_T-K,0)\)</span>. Para una
+opción de venta, sería <span class="math notranslate nohighlight">\(Máx(K-S_T,0)\)</span>.</p></li>
+<li><p><strong>Calcular el valor presente del promedio de los valores al
+vencimiento:</strong> Se toma el promedio de los valores calculados en el
+paso anterior y se descuenta al presente utilizando la tasa de
+interés libre de riesgo. La fórmula para el valor presente es:
+<span class="math notranslate nohighlight">\(V_0=Promedio Valores Vencimiento \times e^{-rT}\)</span>.</p></li>
+<li><p><strong>Ajustar por el número de simulaciones:</strong> A medida que aumenta el
+número de trayectorias simuladas, la estimación del precio de la
+opción se vuelve más precisa.</p></li>
+</ol>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">valorar_opcion_europea_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># Establecer la semilla</span>
+
+    <span class="c1"># Paso 2: Simular trayectorias del precio del activo subyacente</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">T</span>  <span class="c1"># Asumimos un paso de tiempo hasta el vencimiento</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">num_simulaciones</span><span class="p">)</span>
+    <span class="n">ST</span> <span class="o">=</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">r</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
+
+    <span class="c1"># Paso 3: Calcular el valor de la opción en el vencimiento para cada trayectoria</span>
+    <span class="n">payoff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">ST</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Para Put sería np.maximum(K - ST , 0)</span>
+
+    <span class="c1"># Paso 4: Calcular el valor presente del promedio de los valores al vencimiento</span>
+    <span class="n">V0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">r</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">payoff</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">V0</span>
+
+
+<span class="c1"># Parámetros de la opción</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Precio inicial del activo subyacente</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">105</span>  <span class="c1"># Precio de ejercicio de la opción</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Tiempo hasta el vencimiento (en años)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Tasa de interés libre de riesgo expresada cómo Compuesta Continua Anual (CCA)</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># Volatilidad del activo subyacente</span>
+<span class="n">num_simulaciones</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Número de simulaciones</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># Semilla para la reproducibilidad</span>
+
+<span class="c1"># Valoración de la opción</span>
+<span class="n">precio_opcion</span> <span class="o">=</span> <span class="n">valorar_opcion_europea_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El precio de la opción de compra europea es:&quot;</span><span class="p">,</span> <span class="n">precio_opcion</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">la</span> <span class="n">opción</span> <span class="n">de</span> <span class="n">compra</span> <span class="n">europea</span> <span class="n">es</span><span class="p">:</span> <span class="mf">7.958464828524326</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="divisas">
+<h2>Divisas:<a class="headerlink" href="#divisas" title="Permalink to this headline">¶</a></h2>
+<p>Para valorar opciones sobre divisas (también conocidas como opciones FX
+o de tipo de cambio) mediante el método de Simulación Monte Carlo, el
+proceso es muy similar al descrito para opciones sobre acciones. Sin
+embargo, hay algunas particularidades a considerar, como la tasa de
+interés en cada divisa.</p>
+<p>Cuando se valora una opción sobre divisas, se debe tener en cuenta tanto
+la tasa de interés de la divisa nacional (doméstica) como la de la
+divisa extranjera. Esto se debe a que el tipo de cambio futuro está
+influenciado por la diferencia entre estas tasas de interés, según la
+paridad de interés cubierto. Por tanto, el modelo de GBM para el tipo de
+cambio se ajusta para incluir estas tasas.</p>
+<p><strong>Pasos para la Valoración de una Opción sobre Divisas:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Definir los parámetros iniciales:</strong> Estos incluyen el tipo de
+cambio actual (<span class="math notranslate nohighlight">\(S_0\)</span>), la tasa de interés libre de riesgo de la
+divisa nacional (<span class="math notranslate nohighlight">\(r_d\)</span>), la tasa de interés libre de riesgo de
+la divisa extranjera (<span class="math notranslate nohighlight">\(r_f\)</span>), la volatilidad del tipo de cambio
+(<span class="math notranslate nohighlight">\(\sigma\)</span>), el tiempo hasta el vencimiento de la opción
+(<span class="math notranslate nohighlight">\(T\)</span>) y el precio de ejercicio de la opción (<span class="math notranslate nohighlight">\(K\)</span>).</p></li>
+<li><p><strong>Simular trayectorias del tipo de cambio:</strong> Utilizando el modelo de
+GBM ajustado para opciones sobre divisas, se generan múltiples
+trayectorias del tipo de cambio hasta la fecha de vencimiento. La
+fórmula ajustada para el GBM en este caso es:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[S_{t+\Delta t} = S_t \exp((r_d - r_f - \frac{1}{2} \sigma^2) \Delta t + \sigma \epsilon \sqrt{\Delta t} )\]</div>
+<p>Luego, aplicar los pasos 3 y 4 anteriormente vistos.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="k">def</span> <span class="nf">valorar_opcion_divisa_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># Establecer la semilla</span>
+
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">T</span>  <span class="c1"># Asumimos un paso de tiempo hasta el vencimiento</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">num_simulaciones</span><span class="p">)</span>
+    <span class="n">ST</span> <span class="o">=</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">rd</span> <span class="o">-</span> <span class="n">rf</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
+
+    <span class="n">payoff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">ST</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Para Put sería np.maximum(K - ST , 0)</span>
+    <span class="n">V0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">rd</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">payoff</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">V0</span>
+
+
+<span class="c1"># Parámetros de la opción sobre divisas</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="mi">4000</span>  <span class="c1"># Tipo de cambio actual USD/COP</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">4100</span>  <span class="c1"># Precio de ejercicio</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Tiempo hasta el vencimiento (en años)</span>
+<span class="n">rd</span> <span class="o">=</span> <span class="mf">0.10</span>  <span class="c1"># Tasa de interés COP expresada cómo Compuesta Continua Anual (CCA)</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Tasa de interés USD expresada cómo Compuesta Continua Anual (CCA)</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.1</span>  <span class="c1"># Volatilidad del tipo de cambio</span>
+<span class="n">num_simulaciones</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Número de simulaciones</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>
+
+<span class="n">precio_opcion</span> <span class="o">=</span> <span class="n">valorar_opcion_divisa_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El precio de la opción de compra sobre divisas es:&quot;</span><span class="p">,</span> <span class="n">precio_opcion</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">la</span> <span class="n">opción</span> <span class="n">de</span> <span class="n">compra</span> <span class="n">sobre</span> <span class="n">divisas</span> <span class="n">es</span><span class="p">:</span> <span class="mf">200.30730440936077</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplo-trm">
+<h2>Ejemplo TRM:<a class="headerlink" href="#ejemplo-trm" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Leer el archivo CSV, ajustando el formato de los números</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;TRM.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Calcular los rendimientos logarítmicos para el gráfico</span>
+<span class="n">rendimientos_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Crear figuras para los gráficos</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># Gráfico de los precios</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precio&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Precio del Activo&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Precio&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Gráfico de los rendimientos logarítmicos</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="n">rendimientos_log</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rendimientos Logarítmicos&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Rendimientos Logarítmicos&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rendimiento&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_10_0.png" src="../../../_images/output_10_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Cargar los datos desde el archivo CSV, corrigiendo el formato de los números</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;TRM.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="c1"># Calcular las tasas de retorno logarítmicas y sus parámetros</span>
+<span class="n">precios</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">tasas_retorno_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">precios</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">precios</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">tasas_retorno_log</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c1"># Volatilidad</span>
+
+<span class="c1"># Datos de las tasas libres de riesgo:</span>
+<span class="n">rd</span> <span class="o">=</span> <span class="mf">0.12121</span>  <span class="c1"># E.A. (IBR para 1 mes)</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="mf">0.0532999</span>  <span class="c1"># Nominal Anual (SOFR para 1 mes)</span>
+<span class="c1"># Conversión de tasas a CCA.</span>
+<span class="n">rd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rd</span><span class="p">)</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rf</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span>  <span class="c1"># C.C.A.</span>
+
+
+<span class="k">def</span> <span class="nf">valorar_opcion_divisa_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># Establecer la semilla</span>
+
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">T</span>  <span class="c1"># Asumimos un paso de tiempo hasta el vencimiento</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">num_simulaciones</span><span class="p">)</span>
+    <span class="n">ST</span> <span class="o">=</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">rd</span> <span class="o">-</span> <span class="n">rf</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
+
+    <span class="n">payoff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">ST</span> <span class="o">-</span> <span class="n">K</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Para Put sería np.maximum(K - ST , 0)</span>
+    <span class="n">V0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">rd</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">payoff</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">V0</span>
+
+
+<span class="c1"># Parámetros de la opción sobre divisas</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Precio inicial: último precio conocido</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">3700</span>  <span class="c1"># Precio de ejercicio</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">12</span>  <span class="c1"># Tiempo hasta el vencimiento (en años)</span>
+<span class="n">num_simulaciones</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Número de simulaciones</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>
+
+<span class="n">precio_opcion</span> <span class="o">=</span> <span class="n">valorar_opcion_divisa_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El precio de la opción de compra sobre divisas es:&quot;</span><span class="p">,</span> <span class="n">precio_opcion</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">la</span> <span class="n">opción</span> <span class="n">de</span> <span class="n">compra</span> <span class="n">sobre</span> <span class="n">divisas</span> <span class="n">es</span><span class="p">:</span> <span class="mf">93.15922694245872</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html" class="btn btn-neutral float-right" title="Ejercicios propiedades, coberturas y valoración de opciones por SMC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html" class="btn btn-neutral" title="Movimiento Browniano Geométrico (GBM) en Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

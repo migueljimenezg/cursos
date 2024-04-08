@@ -43,7 +43,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
         <link rel="up" title="Análisis Financiero en Python" href="../index.html"/>
-        <link rel="next" title="Flujo de Efectivo" href="../../Flujo%20de%20Efectivo/index.html"/>
+        <link rel="next" title="Análisis Horizontal" href="../An%C3%A1lisis%20Horizontal/An%C3%A1lisis%20Horizontal.html"/>
         <link rel="prev" title="Análisis Financiero en Python" href="../index.html"/> 
 
   
@@ -123,6 +123,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../../Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Análisis Financiero en Python</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Análisis Vertical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../An%C3%A1lisis%20Horizontal/An%C3%A1lisis%20Horizontal.html">Análisis Horizontal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../An%C3%A1lisis%20de%20los%20m%C3%A1rgenes/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes.html">Análisis de los márgenes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
@@ -302,7 +304,7 @@ Ganancias acumuladas.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_4_0.png" src="../../../_images/output_4_0.png" />
+<img alt="../../../_images/output_4_01.png" src="../../../_images/output_4_01.png" />
 <p>Este gráfico ofrece una alternativa para el análisis vertical del
 Balance General, situando las cuentas negativas en la parte inferior. Se
 aconseja excluir cuentas totales como Activos corrientes totales,
@@ -413,6 +415,159 @@ Ganancias, como Utilidad Bruta y Utilidad Operacional, entre otras.</p>
 </div>
 <img alt="../../../_images/output_11_0.png" src="../../../_images/output_11_0.png" />
 </div>
+<div class="section" id="analisis-vertical-ktno">
+<h2>Análisis Vertical KTNO:<a class="headerlink" href="#analisis-vertical-ktno" title="Permalink to this headline">¶</a></h2>
+<p>El siguiente gráfico analiza el análisis vertical de las cuentas del
+KTNO por cada año junto con el valor del KTNO y los Ingresos
+Operacionales.</p>
+<p>Se debe especificar cuáles son las cuentas del Activo Corriente y del
+Pasivo Corriente en la siguiente parte del código:</p>
+<p><code class="docutils literal notranslate"><span class="pre">activo_corriente</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;Efectivo</span> <span class="pre">y</span> <span class="pre">equivalentes</span> <span class="pre">al</span> <span class="pre">efectivo&quot;,</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;Cuentas</span> <span class="pre">por</span> <span class="pre">cobrar&quot;,</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;Inventarios</span> <span class="pre">corrientes&quot;,</span> <span class="pre">]</span> <span class="pre">pasivos_corrientes</span> <span class="pre">=</span> <span class="pre">[</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;Cuentas</span> <span class="pre">por</span> <span class="pre">pagar&quot;,</span>&#160;&#160;&#160;&#160; <span class="pre">&quot;Pasivos</span> <span class="pre">por</span> <span class="pre">impuestos</span> <span class="pre">corrientes&quot;,</span> <span class="pre">]</span></code></p>
+<p>El siguiente ejemplo se realizó con el archivo
+<code class="docutils literal notranslate"><span class="pre">AnalisisVertical-KTNO.csv</span></code></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importar las librerías necesarias</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Cargar el archivo CSV que contiene los datos de las cuentas</span>
+<span class="c1"># Reemplaza &#39;ruta_del_archivo.csv&#39; con la ruta real de tu archivo</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;AnalisisVertical-KTNO.csv&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="p">)</span>  <span class="c1"># Eliminar el signo % y convertir a flotante</span>
+
+<span class="c1"># Definir las cuentas que van en cada barra</span>
+<span class="n">activo_corriente</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Efectivo y equivalentes al efectivo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Cuentas por cobrar&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Inventarios corrientes&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">pasivos_corrientes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Cuentas por pagar&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Pasivos por impuestos corrientes&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Preparar la visualización</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">titulos</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;2017&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2018&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2019&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2020&quot;</span><span class="p">,</span>
+<span class="p">]</span>  <span class="c1"># Títulos para cada subgráfico, que corresponden a los años</span>
+
+<span class="c1"># Crear un gráfico de barras apiladas para cada año</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="p">):</span>
+    <span class="n">año</span> <span class="o">=</span> <span class="n">titulos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">valores_activos_corriente</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">activo_corriente</span><span class="p">,</span> <span class="n">año</span><span class="p">]</span>
+    <span class="n">valores_pasivo_corriente</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pasivos_corrientes</span><span class="p">,</span> <span class="n">año</span><span class="p">]</span>
+    <span class="n">bottom_1</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Inicio de la acumulación para la barra 1</span>
+    <span class="n">bottom_2</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Inicio de la acumulación para la barra 2</span>
+
+    <span class="c1"># Dibujar cada cuenta en la barra 1</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">cuenta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">activo_corriente</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+            <span class="s2">&quot;Activos Corrientes&quot;</span><span class="p">,</span>
+            <span class="n">valores_activos_corriente</span><span class="p">[</span><span class="n">cuenta</span><span class="p">],</span>
+            <span class="n">bottom</span><span class="o">=</span><span class="n">bottom_1</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="n">cuenta</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab20c</span><span class="p">(</span><span class="n">idx</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Activos Corrientes&quot;</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">bottom_1</span> <span class="o">+</span> <span class="p">(</span><span class="n">valores_activos_corriente</span><span class="p">[</span><span class="n">cuenta</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">s</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">valores_activos_corriente</span><span class="p">[</span><span class="n">cuenta</span><span class="p">]</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span>
+            <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">bottom_1</span> <span class="o">+=</span> <span class="n">valores_activos_corriente</span><span class="p">[</span><span class="n">cuenta</span><span class="p">]</span>
+
+    <span class="c1"># Dibujar cada cuenta en la barra 2</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">cuenta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pasivos_corrientes</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+            <span class="s2">&quot;Pasivos Corrientes&quot;</span><span class="p">,</span>
+            <span class="n">valores_pasivo_corriente</span><span class="p">[</span><span class="n">cuenta</span><span class="p">],</span>
+            <span class="n">bottom</span><span class="o">=</span><span class="n">bottom_2</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="n">cuenta</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab20c</span><span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">activo_corriente</span><span class="p">)),</span>
+        <span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Pasivos Corrientes&quot;</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">bottom_2</span> <span class="o">+</span> <span class="p">(</span><span class="n">valores_pasivo_corriente</span><span class="p">[</span><span class="n">cuenta</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">s</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">valores_pasivo_corriente</span><span class="p">[</span><span class="n">cuenta</span><span class="p">]</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span>
+            <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">bottom_2</span> <span class="o">+=</span> <span class="n">valores_pasivo_corriente</span><span class="p">[</span><span class="n">cuenta</span><span class="p">]</span>
+
+    <span class="c1"># Configurar título y etiquetas de los ejes para cada subgráfico</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">año</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">% d</span><span class="s2">el Total&quot;</span><span class="p">)</span>
+
+<span class="c1"># Añadir una leyenda fuera del gráfico para identificar las cuentas</span>
+<span class="n">handles</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Cuentas&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># Ajustar el layout para no cortar la leyenda</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Mostrar el gráfico</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_15_0.png" src="../../../_images/output_15_0.png" />
+<p>El siguiente gráfico es complementario al anterior porque las cuentas
+del Activo Corriente y Pasivo Corriente dependen del los Ingresos
+Operacionales.</p>
+<p>El siguiente ejemplo se realizó con el archivo <code class="docutils literal notranslate"><span class="pre">KTNO-Ventas.csv</span></code></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Cargar los datos desde el archivo CSV.</span>
+<span class="n">kt_data_path</span> <span class="o">=</span> <span class="s1">&#39;KTNO-Ventas.csv&#39;</span>
+<span class="n">kt_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">kt_data_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Crear una figura y un eje para el gráfico con el tamaño deseado.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Establecer el color del fondo de la figura a blanco.</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Graficar KTNO en barras usando color gris.</span>
+<span class="n">bars</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">kt_data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">kt_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;KTNO&#39;</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;KTNO&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Configurar el eje y las etiquetas para KTNO.</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Año&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;KTNO&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Establecer el fondo del eje a blanco.</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Crear un segundo eje y para los Ingresos Operacionales.</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kt_data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">kt_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Ingresos Operacionales&#39;</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ingresos Operacionales&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Configurar el eje y las etiquetas para los Ingresos Operacionales.</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Ingresos Operacionales&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelcolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1"># Establecer el fondo del eje secundario a blanco.</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="c1"># Añadir título al gráfico.</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;KTNO e Ingresos Operacionales&#39;</span><span class="p">)</span>
+
+<span class="c1"># Colocar las leyendas por fuera del gráfico en la parte superior derecha.</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.07</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.07</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">))</span>
+
+<span class="c1"># Ajustar el layout de la figura para que las leyendas y los ejes encajen bien.</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Mostrar el gráfico.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_18_0.png" src="../../../_images/output_18_0.png" />
+</div>
 </div>
 
 
@@ -425,7 +580,7 @@ Ganancias, como Utilidad Bruta y Utilidad Operacional, entre otras.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../Flujo%20de%20Efectivo/index.html" class="btn btn-neutral float-right" title="Flujo de Efectivo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../An%C3%A1lisis%20Horizontal/An%C3%A1lisis%20Horizontal.html" class="btn btn-neutral float-right" title="Análisis Horizontal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="Análisis Financiero en Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -1,0 +1,786 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Movimiento Browniano Geométrico (GBM) en Python &mdash; Cursos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
+        <link rel="up" title="Opciones" href="../index.html"/>
+        <link rel="next" title="Valoración de Opciones Financieras por Simulación Monte Carlo" href="../Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html"/>
+        <link rel="prev" title="Simulación de cobertura con opciones" href="../Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Cursos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Introducci%C3%B3n%20al%20Machine%20Learning/index.html">Introducción al Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/index.html">Deep Learning</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MERCADO DE VALORES:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/IntroMerFin/index.html">Introducción al Mercado Financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Derivados/index.html">Derivados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Bonos/index.html">Bonos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Portafolios/index.html">Portafolios de inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Forward/index.html">Forward</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Swap/index.html">Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Futuros/index.html">Futuros</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Opciones</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Movimiento Browniano Geométrico (GBM) en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de Opciones Financieras por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Ejercicios%20valoraci%C3%B3n%20de%20opciones.html">Ejercicios valoración de opciones</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/index.html">Análisis Financiero en Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Trading/index.html">Análisis técnico</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Cursos</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Opciones</a> &raquo;</li>
+        
+      <li>Movimiento Browniano Geométrico (GBM) en Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/Derivados financieros/Opciones/Movimiento Browniano Geométrico (GBM) en Python/Movimiento Browniano Geométrico (GBM) en Python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="movimiento-browniano-geometrico-gbm-en-python">
+<h1>Movimiento Browniano Geométrico (GBM) en Python<a class="headerlink" href="#movimiento-browniano-geometrico-gbm-en-python" title="Permalink to this headline">¶</a></h1>
+<p>El Movimiento Browniano Geométrico es un modelo matemático que se
+utiliza comúnmente para describir la evolución de los precios de los
+activos financieros, como las acciones. Este modelo combina la propiedad
+del crecimiento exponencial con la aleatoriedad del Movimiento
+Browniano, haciendo que sea especialmente útil para modelar el
+comportamiento de los precios de las acciones a lo largo del tiempo.</p>
+<p><strong>Ecuación Diferencial del GBM:</strong></p>
+<p>La dinámica de un activo bajo el modelo de Movimiento Browniano
+Geométrico se describe mediante la siguiente ecuación diferencial
+estocástica:</p>
+<div class="math notranslate nohighlight">
+\[dS_t = \mu S_t dt + \sigma S_t dW_t\]</div>
+<p>donde: - <span class="math notranslate nohighlight">\(S_t\)</span>: Precio del activo en el tiempo <span class="math notranslate nohighlight">\(t\)</span>. -
+<span class="math notranslate nohighlight">\(\mu\)</span>: Tasa de retorno esperada del activo. - <span class="math notranslate nohighlight">\(\sigma\)</span>:
+Volatilidad del activo. - <span class="math notranslate nohighlight">\(dW_t\)</span>: Incremento del Movimiento
+Browniano estándar. - <span class="math notranslate nohighlight">\(dt\)</span>: Incremento en el tiempo.</p>
+<p><strong>Solución de la Ecuación:</strong></p>
+<p>La solución a la ecuación diferencial para un intervalo de tiempo
+discreto se puede aproximar utilizando la siguiente expresión:</p>
+<div class="math notranslate nohighlight">
+\[S_{t+\Delta t} = S_t \exp((\mu - \frac{1}{2} \sigma^2) \Delta t + \sigma \epsilon \sqrt{\Delta t} )\]</div>
+<p>en la que <span class="math notranslate nohighlight">\(\epsilon\)</span> es una variable aleatoria que sigue una
+distribución normal estándar <span class="math notranslate nohighlight">\(N(0,1)\)</span>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="k">def</span> <span class="nf">modelo_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Genera una trayectoria de un Movimiento Browniano Geométrico con una semilla opcional para reproducibilidad.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    - S0: Precio inicial del activo.</span>
+<span class="sd">    - mu: Tasa de retorno esperada.</span>
+<span class="sd">    - sigma: Volatilidad del activo.</span>
+<span class="sd">    - T: Tiempo total de simulación.</span>
+<span class="sd">    - dt: Paso de tiempo de la simulación.</span>
+<span class="sd">    - seed: Semilla para el generador de números aleatorios (opcional).</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - Una array de NumPy con la trayectoria del precio del activo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># Establecer la semilla</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>  <span class="c1"># Número de pasos en el tiempo</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># Vector de tiempos</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># Incrementos del Movimiento Browniano</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">W</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>  <span class="c1"># Movimiento Browniano</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">t</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">W</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># Trayectoria del Movimiento Browniano Geométrico</span>
+    <span class="k">return</span> <span class="n">S</span>
+
+
+<span class="c1"># Parámetros del modelo</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Precio inicial del activo</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Tasa de retorno esperada</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># Volatilidad</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Tiempo total de simulación (e.g., 1 año)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Paso de tiempo de la simulación</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># Semilla para la reproducibilidad</span>
+
+<span class="c1"># Generación de la trayectoria</span>
+<span class="n">trayectoria</span> <span class="o">=</span> <span class="n">modelo_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+
+<span class="c1"># Plot de la trayectoria</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trayectoria</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precio del activo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Movimiento Browniano Geométrico&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_5_0.png" src="../../../_images/output_5_0.png" />
+<div class="section" id="trazas">
+<h2>100 trazas:<a class="headerlink" href="#trazas" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="k">def</span> <span class="nf">generar_gbm_multiples_trayectorias</span><span class="p">(</span>
+    <span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Genera múltiples trayectorias de un Movimiento Browniano Geométrico.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    - S0: Precio inicial del activo.</span>
+<span class="sd">    - mu: Tasa de retorno esperada.</span>
+<span class="sd">    - sigma: Volatilidad del activo.</span>
+<span class="sd">    - T: Tiempo total de simulación.</span>
+<span class="sd">    - dt: Paso de tiempo de la simulación.</span>
+<span class="sd">    - num_trayectorias: Número de trayectorias a simular.</span>
+<span class="sd">    - seed: Semilla para el generador de números aleatorios (opcional).</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - Un array de NumPy con las múltiples trayectorias del precio del activo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># Establecer la semilla</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>  <span class="c1"># Número de pasos en el tiempo</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>  <span class="c1"># Vector de tiempos</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">))</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">S0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">num_trayectorias</span><span class="p">)</span>  <span class="c1"># Genera variaciones aleatorias</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">mu</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">S</span>
+
+
+<span class="c1"># Parámetros del modelo</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Precio inicial del activo</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Tasa de retorno esperada</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># Volatilidad</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Tiempo total de simulación (e.g., 1 año)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Paso de tiempo de la simulación</span>
+<span class="n">num_trayectorias</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Número de trayectorias a simular</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># Semilla para la reproducibilidad</span>
+
+<span class="c1"># Generación de las trayectorias</span>
+<span class="n">trayectorias</span> <span class="o">=</span> <span class="n">generar_gbm_multiples_trayectorias</span><span class="p">(</span>
+    <span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">,</span> <span class="n">seed</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot de las trayectorias</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_trayectorias</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">trayectorias</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precio del activo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;100 Trayectorias del Movimiento Browniano Geométrico&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_7_01.png" src="../../../_images/output_7_01.png" />
+</div>
+<div class="section" id="simulacion-con-datos-reales">
+<h2>Simulación con datos reales:<a class="headerlink" href="#simulacion-con-datos-reales" title="Permalink to this headline">¶</a></h2>
+<p>Usar los siguientes archivos: <code class="docutils literal notranslate"><span class="pre">Precio-ECO.csv</span></code> y
+<code class="docutils literal notranslate"><span class="pre">Precio-ECO-mensual.csv</span></code></p>
+<p><strong>Pasos:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Cargar los datos:</strong> Utiliza pandas para cargar los precios del
+activo desde un archivo CSV.</p></li>
+<li><p><strong>Calcular</strong> <span class="math notranslate nohighlight">\(\mu\)</span> y <span class="math notranslate nohighlight">\(\sigma\)</span>: Estos parámetros se
+calculan a partir de los datos históricos. La tasa de retorno
+esperada (<span class="math notranslate nohighlight">\(\mu\)</span>) se puede estimar como el promedio de las tasas
+de retorno logarítmicas diarias, y la volatilidad (<span class="math notranslate nohighlight">\(\sigma\)</span>)
+como la desviación estándar de estas tasas de retorno.</p></li>
+<li><p><strong>Simular el GBM:</strong> Con estos parámetros, puedes simular nuevas
+trayectorias de precios utilizando el GBM.</p></li>
+</ol>
+</div>
+<div class="section" id="simulacion-a-partir-de-datos-diarios">
+<h2>Simulación a partir de datos diarios:<a class="headerlink" href="#simulacion-a-partir-de-datos-diarios" title="Permalink to this headline">¶</a></h2>
+<p><strong>Análisis de los datos reales:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Leer el archivo CSV, ajustando el formato de los números</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Precio-ECO.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Calcular los rendimientos logarítmicos para el gráfico</span>
+<span class="n">rendimientos_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Crear figuras para los gráficos</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># Gráfico de los precios</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precio&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Precio del Activo&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Precio&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Gráfico de los rendimientos logarítmicos</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="n">rendimientos_log</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rendimientos Logarítmicos&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Rendimientos Logarítmicos&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rendimiento&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_13_0.png" src="../../../_images/output_13_0.png" />
+<p>Simulación de 180 días (<code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">=</span> <span class="pre">180</span></code>) con saltos diarios (<code class="docutils literal notranslate"><span class="pre">dt</span> <span class="pre">=</span> <span class="pre">1</span></code>)</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Cargar los datos desde el archivo CSV, corrigiendo el formato de los números</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Precio-ECO.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="c1"># Calcular las tasas de retorno logarítmicas y sus parámetros</span>
+<span class="n">precios</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">tasas_retorno_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">precios</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">precios</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">tasas_retorno_log</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Promedio de la tasa de retorno logarítmica</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">tasas_retorno_log</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c1"># Volatilidad</span>
+
+
+<span class="c1"># Función para simular múltiples trayectorias usando el modelo GBM</span>
+<span class="k">def</span> <span class="nf">simular_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simula múltiples trayectorias de un Movimiento Browniano Geométrico.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    - S0: Precio inicial del activo.</span>
+<span class="sd">    - mu: Tasa de retorno logarítmica media.</span>
+<span class="sd">    - sigma: Volatilidad del activo.</span>
+<span class="sd">    - T: Tiempo total de simulación.</span>
+<span class="sd">    - dt: Paso de tiempo de la simulación.</span>
+<span class="sd">    - num_trayectorias: Número de trayectorias a simular.</span>
+<span class="sd">    - seed: Semilla para el generador de números aleatorios (opcional).</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - t: Vector de tiempos de simulación.</span>
+<span class="sd">    - S: Array con las trayectorias simuladas del precio del activo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># Establecer la semilla para reproducibilidad</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>  <span class="c1"># Número de pasos en el tiempo</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">))</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">S0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">num_trayectorias</span><span class="p">)</span>  <span class="c1"># Genera variaciones aleatorias</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">mu</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">S</span>
+
+
+<span class="c1"># Parámetros de la simulación</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Precio inicial: último precio conocido</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">180</span>  <span class="c1"># Tiempo total de simulación</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Paso de tiempo</span>
+<span class="n">num_trayectorias</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Número de trayectorias a simular</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># Semilla para la reproducibilidad</span>
+
+<span class="c1"># Simular las trayectorias y visualizar</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">trayectorias_simuladas</span> <span class="o">=</span> <span class="n">simular_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_trayectorias</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">trayectorias_simuladas</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo (años)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precio del activo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulación GBM para Ecopetrol (saltos diarios por 180 días)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_15_01.png" src="../../../_images/output_15_01.png" />
+<p>Simulación de 6 meses (<code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">=</span> <span class="pre">180</span></code>) con saltos mensuales (<code class="docutils literal notranslate"><span class="pre">dt</span> <span class="pre">=</span> <span class="pre">1</span></code>)</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Cargar los datos desde el archivo CSV, corrigiendo el formato de los números</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Precio-ECO.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="c1"># Calcular las tasas de retorno logarítmicas y sus parámetros</span>
+<span class="n">precios</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">tasas_retorno_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">precios</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">precios</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">tasas_retorno_log</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Promedio de la tasa de retorno logarítmica</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">tasas_retorno_log</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c1"># Volatilidad</span>
+
+
+<span class="c1"># Función para simular múltiples trayectorias usando el modelo GBM</span>
+<span class="k">def</span> <span class="nf">simular_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simula múltiples trayectorias de un Movimiento Browniano Geométrico.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    - S0: Precio inicial del activo.</span>
+<span class="sd">    - mu: Tasa de retorno logarítmica media.</span>
+<span class="sd">    - sigma: Volatilidad del activo.</span>
+<span class="sd">    - T: Tiempo total de simulación.</span>
+<span class="sd">    - dt: Paso de tiempo de la simulación.</span>
+<span class="sd">    - num_trayectorias: Número de trayectorias a simular.</span>
+<span class="sd">    - seed: Semilla para el generador de números aleatorios (opcional).</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - t: Vector de tiempos de simulación.</span>
+<span class="sd">    - S: Array con las trayectorias simuladas del precio del activo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># Establecer la semilla para reproducibilidad</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>  <span class="c1"># Número de pasos en el tiempo</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">))</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">S0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">num_trayectorias</span><span class="p">)</span>  <span class="c1"># Genera variaciones aleatorias</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">mu</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">S</span>
+
+
+<span class="c1"># Parámetros de la simulación</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Precio inicial: último precio conocido</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">180</span>  <span class="c1"># Tiempo total de simulación</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># Paso de tiempo</span>
+<span class="n">num_trayectorias</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Número de trayectorias a simular</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># Semilla para la reproducibilidad</span>
+
+<span class="c1"># Simular las trayectorias y visualizar</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">trayectorias_simuladas</span> <span class="o">=</span> <span class="n">simular_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_trayectorias</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">trayectorias_simuladas</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo (años)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precio del activo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulación GBM para Ecopetrol (saltos mensuales por 6 meses)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_17_0.png" src="../../../_images/output_17_0.png" />
+</div>
+<div class="section" id="simulacion-a-partir-de-datos-mensuales">
+<h2>Simulación a partir de datos mensuales:<a class="headerlink" href="#simulacion-a-partir-de-datos-mensuales" title="Permalink to this headline">¶</a></h2>
+<p>Simulación de 6 meses (<code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">=</span> <span class="pre">6</span></code>) con saltos mensuales (<code class="docutils literal notranslate"><span class="pre">dt</span> <span class="pre">=</span> <span class="pre">1</span></code>)</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Cargar los datos desde el archivo CSV, corrigiendo el formato de los números</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Precio-ECO-mensual.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="p">)</span>
+
+
+<span class="c1"># Calcular las tasas de retorno logarítmicas y sus parámetros</span>
+<span class="n">precios</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">tasas_retorno_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">precios</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">precios</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">tasas_retorno_log</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Promedio de la tasa de retorno logarítmica</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">tasas_retorno_log</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c1"># Volatilidad</span>
+
+
+<span class="c1"># Función para simular múltiples trayectorias usando el modelo GBM</span>
+<span class="k">def</span> <span class="nf">simular_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simula múltiples trayectorias de un Movimiento Browniano Geométrico.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    - S0: Precio inicial del activo.</span>
+<span class="sd">    - mu: Tasa de retorno logarítmica media.</span>
+<span class="sd">    - sigma: Volatilidad del activo.</span>
+<span class="sd">    - T: Tiempo total de simulación.</span>
+<span class="sd">    - dt: Paso de tiempo de la simulación.</span>
+<span class="sd">    - num_trayectorias: Número de trayectorias a simular.</span>
+<span class="sd">    - seed: Semilla para el generador de números aleatorios (opcional).</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    - t: Vector de tiempos de simulación.</span>
+<span class="sd">    - S: Array con las trayectorias simuladas del precio del activo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># Establecer la semilla para reproducibilidad</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>  <span class="c1"># Número de pasos en el tiempo</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">))</span>
+    <span class="n">S</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">S0</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">num_trayectorias</span><span class="p">)</span>  <span class="c1"># Genera variaciones aleatorias</span>
+        <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">mu</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">t</span><span class="p">,</span> <span class="n">S</span>
+
+
+<span class="c1"># Parámetros de la simulación</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Precio inicial: último precio conocido</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># Tiempo total de simulación</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Paso de tiempo</span>
+<span class="n">num_trayectorias</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Número de trayectorias a simular</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>  <span class="c1"># Semilla para la reproducibilidad</span>
+
+<span class="c1"># Simular las trayectorias y visualizar</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">trayectorias_simuladas</span> <span class="o">=</span> <span class="n">simular_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num_trayectorias</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_trayectorias</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">trayectorias_simuladas</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo (años)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precio del activo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulación GBM para Ecopetrol (saltos mensuales por 6 meses)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_20_0.png" src="../../../_images/output_20_0.png" />
+</div>
+<div class="section" id="prueba-de-la-simulacion-monte-carlo">
+<h2>Prueba de la Simulación Monte Carlo:<a class="headerlink" href="#prueba-de-la-simulacion-monte-carlo" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Parámetros del GBM</span>
+<span class="n">S0</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Precio inicial</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># Tasa de retorno esperada</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># Volatilidad</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Tiempo total de simulación (1 año)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">252</span>  <span class="c1"># Paso de tiempo (suponiendo 252 días de trading al año)</span>
+
+
+<span class="k">def</span> <span class="nf">simular_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>  <span class="c1"># Número de pasos en el tiempo</span>
+    <span class="n">precios_finales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_simulaciones</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_simulaciones</span><span class="p">):</span>
+        <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># Genera variaciones aleatorias</span>
+        <span class="n">precios</span> <span class="o">=</span> <span class="n">S0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">((</span><span class="n">mu</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="n">Z</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">precios_finales</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">precios</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Almacenar el precio final de cada simulación</span>
+
+    <span class="k">return</span> <span class="n">precios_finales</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Devolver el promedio de los precios finales</span>
+
+
+<span class="c1"># Realizar simulaciones aumentando gradualmente el número de simulaciones</span>
+<span class="n">num_simulaciones_prueba</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">50000</span><span class="p">]</span>
+<span class="n">promedios</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">num_simulaciones_prueba</span><span class="p">:</span>
+    <span class="n">promedio</span> <span class="o">=</span> <span class="n">simular_gbm</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+    <span class="n">promedios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">promedio</span><span class="p">)</span>
+
+<span class="c1"># Graficar cómo se estabiliza el promedio de los precios finales</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">num_simulaciones_prueba</span><span class="p">,</span> <span class="n">promedios</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>  <span class="c1"># Escala logarítmica para el eje X</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de Simulaciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Promedio del Precio Final&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Estabilización del promedio con el aumento de Simulaciones Monte Carlo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_22_0.png" src="../../../_images/output_22_0.png" />
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html" class="btn btn-neutral float-right" title="Valoración de Opciones Financieras por Simulación Monte Carlo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html" class="btn btn-neutral" title="Simulación de cobertura con opciones" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Miguel Jiménez.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

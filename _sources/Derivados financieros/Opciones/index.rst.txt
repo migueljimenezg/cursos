@@ -143,6 +143,30 @@ El drift para valorar opciones debe ser la tasa libre de riesgo para activos sin
         * **Ver video:** --- `aquí <https://youtu.be/8U6brTCjreI>`_.
 
 
+3.4. Simulación en Python
+------------------------------------------------------------------------------
+
+.. important::
+
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+
+            Movimiento Browniano Geométrico (GBM) en Python/Movimiento Browniano Geométrico (GBM) en Python.rst
+
+    * **Descargue** :download:`Precio-ECO.csv <Movimiento Browniano Geométrico (GBM) en Python/Precio-ECO.csv>`
+
+    * **Descargue** :download:`Precio-ECO-mensual.csv <Movimiento Browniano Geométrico (GBM) en Python/Precio-ECO-mensual.csv>`
+
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+
+            Valoración de Opciones Financieras por Simulación Monte Carlo/Valoración de Opciones Financieras por Simulación Monte Carlo.rst
+
+    * **Descargue** :download:`TRM.csv <Valoración de Opciones Financieras por Simulación Monte Carlo/TRM.csv>`
+
+
 
 __________________________________________________________________________
 
