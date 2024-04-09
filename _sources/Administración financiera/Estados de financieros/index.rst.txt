@@ -92,10 +92,9 @@ ________________________________________________________________________________
 
 5. Estados Financieros reportados en Supersociedades
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Cada año, las empresas en Colombia deben reportar los Estados Financieros ante la Superintendencia de Sociedades (Supersociedades). En el siguiente link se pueden descargar los Estados Financieros anuales desde el año 2017 --- `aquí <https://siis.ia.supersociedades.gov.co/#/massivereports>`_.
-
-
-En Supersociedades se pueden descargar tres tipos de Estados Financieros:
+.. important::
+    Cada año, las empresas en Colombia deben reportar los Estados Financieros ante la Superintendencia de Sociedades (Supersociedades). En el siguiente link se pueden descargar los Estados Financieros anuales desde el año 2017 --- `SuperSociedades <https://siis.ia.supersociedades.gov.co/#/massivereports>`_.
+    En Supersociedades se pueden descargar tres tipos de Estados Financieros:
 
     * **1. Estados financieros individuales:** son los preparados por una entidad que NO tiene inversiones en asociadas, subordinadas o en negocios conjuntos.
 

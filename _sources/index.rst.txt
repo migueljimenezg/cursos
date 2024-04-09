@@ -6,15 +6,6 @@ Material de apoyo
           lumjimenezgo@unal.edu.co
 
 
-.. toctree::
-    :maxdepth: 2
-    :caption: MACHINE LEARNING:
-    :titlesonly:
-    :hidden:
-     
-    Machine Learning/Introducción a Python/index
-    Machine Learning/Introducción al Machine Learning/index
-    Machine Learning/Deep Learning/index
 
 
 .. toctree::
@@ -53,6 +44,18 @@ Material de apoyo
     Administración financiera/Indicadores Financieros/index
     Administración financiera/Análisis Financiero en Python/index  
     Administración financiera/Flujo de Efectivo/index
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: MACHINE LEARNING:
+    :titlesonly:
+    :hidden:
+     
+    Machine Learning/Introducción a Python/index
+    Machine Learning/Introducción al Machine Learning/index
+    Machine Learning/Deep Learning/index
+
 
 
 .. toctree::

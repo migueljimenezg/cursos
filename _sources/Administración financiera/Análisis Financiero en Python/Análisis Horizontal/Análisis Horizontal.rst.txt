@@ -27,7 +27,7 @@ dentro del archivo, es por esto que se usa esta parte del código:
     
     # Limpiar y preparar los datos
     # Eliminar el signo de porcentaje (%) y convertir las cadenas de texto a números flotantes.
-    for year in ["2018", "2019", "2020"]:
+    for year in ["2018", "2019", "2020", "2021", "2022"]:
         data_new[year] = data_new[year].str.replace("%", "").astype(float)
     
     # Preparar los datos para el gráfico
@@ -40,7 +40,7 @@ dentro del archivo, es por esto que se usa esta parte del código:
     fig, ax = plt.subplots(
         figsize=(14, 8)
     )  # Se inicializa una figura y un eje para el gráfico.
-    width = 0.25  # Ancho de las barras, para separar los grupos de barras entre sí.
+    width = 0.17  # Ancho de las barras, para separar los grupos de barras entre sí.
     
     # Definir la paleta de colores utilizando plt.cm.tab20
     colors = plt.cm.tab20.colors
@@ -48,9 +48,9 @@ dentro del archivo, es por esto que se usa esta parte del código:
     # Dibujar las barras para cada año con un color específico de la paleta.
     ax.bar(x, data_new["2018"], width, label="2018", color=colors[0])
     ax.bar([p + width for p in x], data_new["2019"], width, label="2019", color=colors[4])
-    ax.bar(
-        [p + width * 2 for p in x], data_new["2020"], width, label="2020", color=colors[8]
-    )
+    ax.bar([p + width * 2 for p in x], data_new["2020"], width, label="2020", color=colors[8])
+    ax.bar([p + width * 3 for p in x], data_new["2021"], width, label="2021", color=colors[9])
+    ax.bar([p + width * 4 for p in x], data_new["2022"], width, label="2022", color=colors[10])
     
     # Configurar las etiquetas y el título del gráfico
     ax.set_ylabel("Cambio Porcentual (%)")  # Establece la etiqueta del eje Y.
@@ -103,7 +103,7 @@ dentro del archivo, es por esto que se usa esta parte del código:
     
     # Limpiar y preparar los datos
     # Eliminar el signo de porcentaje (%) y convertir las cadenas de texto a números flotantes.
-    for year in ["2018", "2019", "2020"]:
+    for year in ["2018", "2019", "2020", "2021", "2022"]:
         data_new[year] = data_new[year].str.replace("%", "").astype(float)
     
     # Preparar los datos para el gráfico
@@ -116,7 +116,7 @@ dentro del archivo, es por esto que se usa esta parte del código:
     fig, ax = plt.subplots(
         figsize=(14, 8)
     )  # Se inicializa una figura y un eje para el gráfico.
-    width = 0.25  # Ancho de las barras, para separar los grupos de barras entre sí.
+    width = 0.17  # Ancho de las barras, para separar los grupos de barras entre sí.
     
     # Definir la paleta de colores utilizando plt.cm.tab20
     colors = plt.cm.tab20.colors
@@ -124,9 +124,9 @@ dentro del archivo, es por esto que se usa esta parte del código:
     # Dibujar las barras para cada año con un color específico de la paleta.
     ax.bar(x, data_new["2018"], width, label="2018", color=colors[0])
     ax.bar([p + width for p in x], data_new["2019"], width, label="2019", color=colors[4])
-    ax.bar(
-        [p + width * 2 for p in x], data_new["2020"], width, label="2020", color=colors[8]
-    )
+    ax.bar([p + width * 2 for p in x], data_new["2020"], width, label="2020", color=colors[8])
+    ax.bar([p + width * 3 for p in x], data_new["2021"], width, label="2021", color=colors[9])
+    ax.bar([p + width * 4 for p in x], data_new["2022"], width, label="2022", color=colors[10])
     
     # Configurar las etiquetas y el título del gráfico
     ax.set_ylabel("Cambio Porcentual (%)")  # Establece la etiqueta del eje Y.

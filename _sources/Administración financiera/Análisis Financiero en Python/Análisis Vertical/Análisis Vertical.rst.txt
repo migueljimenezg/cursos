@@ -234,6 +234,11 @@ Pasivo Corriente en la siguiente parte del código:
 
 ``activo_corriente = [     "Efectivo y equivalentes al efectivo",     "Cuentas por cobrar",     "Inventarios corrientes", ] pasivos_corrientes = [     "Cuentas por pagar",     "Pasivos por impuestos corrientes", ]``
 
+En la siguiente parte del código modificar ``ncols=6`` para la cantidad
+de años.
+
+``# Preparar la visualización fig, axes = plt.subplots(nrows=1, ncols=6, figsize=(20, 8), sharey=True)``
+
 El siguiente ejemplo se realizó con el archivo
 ``AnalisisVertical-KTNO.csv``
 
@@ -263,12 +268,14 @@ El siguiente ejemplo se realizó con el archivo
     ]
     
     # Preparar la visualización
-    fig, axes = plt.subplots(nrows=1, ncols=4, figsize=(20, 8), sharey=True)
+    fig, axes = plt.subplots(nrows=1, ncols=6, figsize=(22, 8), sharey=True)
     titulos = [
         "2017",
         "2018",
         "2019",
         "2020",
+        "2021",
+        "2022"
     ]  # Títulos para cada subgráfico, que corresponden a los años
     
     # Crear un gráfico de barras apiladas para cada año
@@ -320,14 +327,14 @@ El siguiente ejemplo se realizó con el archivo
     
     # Añadir una leyenda fuera del gráfico para identificar las cuentas
     handles, labels = axes[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper left", bbox_to_anchor=(1.05, 1), title="Cuentas")
+    fig.legend(handles, labels, loc="upper left", bbox_to_anchor=(0.85, 1), title="Cuentas")
     
     plt.tight_layout(rect=[0, 0, 0.85, 1])  # Ajustar el layout para no cortar la leyenda
     plt.show()  # Mostrar el gráfico
 
 
 
-.. image:: output_15_0.png
+.. image:: output_16_0.png
 
 
 El siguiente gráfico es complementario al anterior porque las cuentas
@@ -389,5 +396,5 @@ El siguiente ejemplo se realizó con el archivo ``KTNO-Ventas.csv``
 
 
 
-.. image:: output_18_0.png
+.. image:: output_19_0.png
 
