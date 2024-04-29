@@ -148,9 +148,13 @@ Cuando se relacionan cuentas del Balance General y del Estado de Resultados se a
 
 
 .. important::
-    El siguiente archivo tiene un ejemplo de los indicadores de liquidez, endeudamiento y rentabilidad sobre la compañía H&M.
+    El siguiente archivo contiene un ejemplo de los indicadores de liquidez, endeudamiento y rentabilidad sobre la compañía H&M.
     
     **Descargue** :download:`aquí <Indicadores liquidez-endeuda-renta-H&M.xlsx>` el archivo de Excel con el ejemplo.
+
+    El siguiente archivo actualizado contiene un ejemplo de los indicadores de liquidez, endeudamiento y rentabilidad sobre la compañía H&M hasta el año 2022.
+
+    **Descargue** :download:`aquí <Análisis Financiero H&M-2022.xlsx>` el archivo de Excel con el ejemplo actualizado.
 
 
 
