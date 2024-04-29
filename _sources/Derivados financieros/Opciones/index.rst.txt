@@ -166,6 +166,12 @@ El drift para valorar opciones debe ser la tasa libre de riesgo para activos sin
 
     * **Descargue** :download:`TRM.csv <Valoración de Opciones Financieras por Simulación Monte Carlo/TRM.csv>`
 
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+
+            Simulación estrategia de cobertura/Simulación estrategia de cobertura.rst
+
 
 
 __________________________________________________________________________

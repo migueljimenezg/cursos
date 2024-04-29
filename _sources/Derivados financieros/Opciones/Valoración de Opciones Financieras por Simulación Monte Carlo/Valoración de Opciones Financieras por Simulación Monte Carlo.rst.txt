@@ -236,8 +236,8 @@ Ejemplo TRM:
     rd = 0.12121  # E.A. (IBR para 1 mes)
     rf = 0.0532999  # Nominal Anual (SOFR para 1 mes)
     # Conversión de tasas a CCA.
-    rd = np.log(1 + rd)
-    rf = np.log(1 + rf / 12) * 12  # C.C.A.
+    rd = np.log(1 + rd)/365  # C.C.D.
+    rf = np.log(1 + rf / 12) /365  # C.C.D.
     
     
     def valorar_opcion_divisa_call(S0, K, T, rd, rf, sigma, num_simulaciones):
@@ -257,7 +257,7 @@ Ejemplo TRM:
     # Parámetros de la opción sobre divisas
     S0 = df["Precio"].iloc[-1]  # Precio inicial: último precio conocido
     K = 3700  # Precio de ejercicio
-    T = 1 / 12  # Tiempo hasta el vencimiento (en años)
+    T = 30  # Tiempo hasta el vencimiento (en días)
     num_simulaciones = 10000  # Número de simulaciones
     seed = 52
     
@@ -267,5 +267,5 @@ Ejemplo TRM:
 
 .. parsed-literal::
 
-    El precio de la opción de compra sobre divisas es: 93.15922694245872
+    El precio de la opción de compra sobre divisas es: 136.73239988718046
     

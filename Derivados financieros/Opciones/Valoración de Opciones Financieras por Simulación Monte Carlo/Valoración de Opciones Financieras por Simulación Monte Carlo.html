@@ -43,7 +43,7 @@
         <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="Cursos  documentation" href="../../../index.html"/>
         <link rel="up" title="Opciones" href="../index.html"/>
-        <link rel="next" title="Ejercicios propiedades, coberturas y valoración de opciones por SMC" href="../Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html"/>
+        <link rel="next" title="Simulación estrategia de cobertura" href="../Simulaci%C3%B3n%20estrategia%20de%20cobertura/Simulaci%C3%B3n%20estrategia%20de%20cobertura.html"/>
         <link rel="prev" title="Movimiento Browniano Geométrico (GBM) en Python" href="../Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html"/> 
 
   
@@ -112,6 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html">Simulación de cobertura con opciones</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html">Movimiento Browniano Geométrico (GBM) en Python</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Valoración de Opciones Financieras por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Simulaci%C3%B3n%20estrategia%20de%20cobertura/Simulaci%C3%B3n%20estrategia%20de%20cobertura.html">Simulación estrategia de cobertura</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejercicios%20valoraci%C3%B3n%20de%20opciones.html">Ejercicios valoración de opciones</a></li>
 </ul>
@@ -429,8 +430,8 @@ fórmula ajustada para el GBM en este caso es:</p></li>
 <span class="n">rd</span> <span class="o">=</span> <span class="mf">0.12121</span>  <span class="c1"># E.A. (IBR para 1 mes)</span>
 <span class="n">rf</span> <span class="o">=</span> <span class="mf">0.0532999</span>  <span class="c1"># Nominal Anual (SOFR para 1 mes)</span>
 <span class="c1"># Conversión de tasas a CCA.</span>
-<span class="n">rd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rd</span><span class="p">)</span>
-<span class="n">rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rf</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="mi">12</span>  <span class="c1"># C.C.A.</span>
+<span class="n">rd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rd</span><span class="p">)</span><span class="o">/</span><span class="mi">365</span>  <span class="c1"># C.C.D.</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rf</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">/</span><span class="mi">365</span>  <span class="c1"># C.C.D.</span>
 
 
 <span class="k">def</span> <span class="nf">valorar_opcion_divisa_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">):</span>
@@ -450,7 +451,7 @@ fórmula ajustada para el GBM en este caso es:</p></li>
 <span class="c1"># Parámetros de la opción sobre divisas</span>
 <span class="n">S0</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Precio inicial: último precio conocido</span>
 <span class="n">K</span> <span class="o">=</span> <span class="mi">3700</span>  <span class="c1"># Precio de ejercicio</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">12</span>  <span class="c1"># Tiempo hasta el vencimiento (en años)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># Tiempo hasta el vencimiento (en días)</span>
 <span class="n">num_simulaciones</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Número de simulaciones</span>
 <span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>
 
@@ -458,7 +459,7 @@ fórmula ajustada para el GBM en este caso es:</p></li>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El precio de la opción de compra sobre divisas es:&quot;</span><span class="p">,</span> <span class="n">precio_opcion</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">la</span> <span class="n">opción</span> <span class="n">de</span> <span class="n">compra</span> <span class="n">sobre</span> <span class="n">divisas</span> <span class="n">es</span><span class="p">:</span> <span class="mf">93.15922694245872</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">la</span> <span class="n">opción</span> <span class="n">de</span> <span class="n">compra</span> <span class="n">sobre</span> <span class="n">divisas</span> <span class="n">es</span><span class="p">:</span> <span class="mf">136.73239988718046</span>
 </pre></div>
 </div>
 </div>
@@ -474,7 +475,7 @@ fórmula ajustada para el GBM en este caso es:</p></li>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html" class="btn btn-neutral float-right" title="Ejercicios propiedades, coberturas y valoración de opciones por SMC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../Simulaci%C3%B3n%20estrategia%20de%20cobertura/Simulaci%C3%B3n%20estrategia%20de%20cobertura.html" class="btn btn-neutral float-right" title="Simulación estrategia de cobertura" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html" class="btn btn-neutral" title="Movimiento Browniano Geométrico (GBM) en Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
