@@ -265,9 +265,8 @@
 <img alt="../../../_images/output_1_0.png" src="../../../_images/output_1_0.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular las tasas de retorno logarítmicas y sus parámetros</span>
 <span class="n">precios</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">tasas_retorno_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">precios</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">/</span> <span class="n">precios</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">mu</span> <span class="o">=</span> <span class="n">tasas_retorno_log</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Promedio de la tasa de retorno logarítmica</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="n">tasas_retorno_log</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c1"># Volatilidad</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">rendimientos_log</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Promedio de la tasa de retorno logarítmica</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">rendimientos_log</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c1"># Volatilidad</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rentabilidad esperada diaria:&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Volatilidad diaria:&quot;</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
@@ -275,8 +274,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fecha más reciente:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Rentabilidad</span> <span class="n">esperada</span> <span class="n">diaria</span><span class="p">:</span> <span class="mf">0.0002562277963223317</span>
-<span class="n">Volatilidad</span> <span class="n">diaria</span><span class="p">:</span> <span class="mf">0.008762064060163022</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Rentabilidad</span> <span class="n">esperada</span> <span class="n">diaria</span><span class="p">:</span> <span class="mf">0.00025622779632233206</span>
+<span class="n">Volatilidad</span> <span class="n">diaria</span><span class="p">:</span> <span class="mf">0.008763742455745923</span>
 <span class="n">Precio</span> <span class="n">más</span> <span class="n">reciente</span><span class="p">:</span> <span class="mf">3774.86</span>
 <span class="n">Fecha</span> <span class="n">más</span> <span class="n">reciente</span><span class="p">:</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">08</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
 </pre></div>
@@ -342,9 +341,9 @@
 
 <span class="c1"># Create a histogram</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">last_time_prices</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Price&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma de los precios simulados en el día 30&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histograma de los precios simulados en el día 30&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -358,8 +357,8 @@ mercado se convertirán a diarias.</p>
 <span class="n">rd</span> <span class="o">=</span> <span class="mf">0.12121</span>  <span class="c1"># E.A. (IBR para 1 mes)</span>
 <span class="n">rf</span> <span class="o">=</span> <span class="mf">0.0532999</span>  <span class="c1"># Nominal Anual (SOFR para 1 mes)</span>
 <span class="c1"># Conversión de tasas diarias.</span>
-<span class="n">rd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rd</span><span class="p">)</span><span class="o">/</span><span class="mi">365</span>  <span class="c1"># C.C.D.</span>
-<span class="n">rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rf</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">/</span><span class="mi">365</span>  <span class="c1"># C.C.D.</span>
+<span class="n">rd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rd</span> <span class="p">)</span> <span class="o">/</span> <span class="mi">365</span>  <span class="c1"># C.C.D.</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rf</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">/</span> <span class="mi">30</span>  <span class="c1"># C.C.D.</span>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">valorar_opcion_divisa_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">):</span>
@@ -378,17 +377,17 @@ mercado se convertirán a diarias.</p>
 </div>
 <p>Opción de compra europea con vencimiento en un mes. Opción ATM.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parámetros de la opción sobre divisas</span>
-<span class="n">S0</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Precio inicial: último precio conocido</span>
 <span class="n">K</span> <span class="o">=</span> <span class="n">S0</span>  <span class="c1"># Precio de ejercicio (Opción ATM)</span>
-<span class="n">T</span> <span class="o">=</span>  <span class="mi">30</span> <span class="c1"># 1 mes</span>
 <span class="n">num_simulaciones</span> <span class="o">=</span> <span class="mi">10000</span>  <span class="c1"># Número de simulaciones</span>
 <span class="n">seed</span> <span class="o">=</span> <span class="mi">52</span>
 
-<span class="n">precio_opcion_call</span> <span class="o">=</span> <span class="n">valorar_opcion_divisa_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">)</span>
+<span class="n">precio_opcion_call</span> <span class="o">=</span> <span class="n">valorar_opcion_divisa_call</span><span class="p">(</span>
+    <span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span>
+<span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El precio de la opción de compra sobre divisas es:&quot;</span><span class="p">,</span> <span class="n">precio_opcion_call</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">la</span> <span class="n">opción</span> <span class="n">de</span> <span class="n">compra</span> <span class="n">sobre</span> <span class="n">divisas</span> <span class="n">es</span><span class="p">:</span> <span class="mf">89.36789738483625</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">la</span> <span class="n">opción</span> <span class="n">de</span> <span class="n">compra</span> <span class="n">sobre</span> <span class="n">divisas</span> <span class="n">es</span><span class="p">:</span> <span class="mf">80.81584142899695</span>
 </pre></div>
 </div>
 </div>
@@ -399,9 +398,9 @@ mercado se convertirán a diarias.</p>
 
 <span class="c1"># Create a histogram</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">payoff_call_T</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Price&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma de las compensaciones Call simuladas en el día 30&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Payoff&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histograma de las compensaciones Call simuladas en el día 30&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -409,7 +408,7 @@ mercado se convertirán a diarias.</p>
 <p>Cantidad de escenarios donde se ejerce la opción:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ejercer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">last_time_prices</span> <span class="o">&gt;</span> <span class="n">K</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de escenarios donde se ejerce:&quot;</span><span class="p">,</span> <span class="n">ejercer</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probabilidad de ejercer la Call:&quot;</span><span class="p">,</span> <span class="n">ejercer</span><span class="o">/</span><span class="n">num_trayectorias</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Probabilidad de ejercer la Call:&quot;</span><span class="p">,</span> <span class="n">ejercer</span> <span class="o">/</span> <span class="n">num_trayectorias</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cantidad</span> <span class="n">de</span> <span class="n">escenarios</span> <span class="n">donde</span> <span class="n">se</span> <span class="n">ejerce</span><span class="p">:</span> <span class="mi">5519</span>
@@ -419,13 +418,13 @@ mercado se convertirán a diarias.</p>
 </div>
 <div class="section" id="precios-con-cobertura">
 <h2>Precios con cobertura:<a class="headerlink" href="#precios-con-cobertura" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hedge_price</span> <span class="o">=</span>   <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="n">last_time_prices</span><span class="o">+</span><span class="n">payoff_call_T</span><span class="o">-</span><span class="n">precio_opcion_call</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hedge_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="n">last_time_prices</span> <span class="o">+</span> <span class="n">payoff_call_T</span> <span class="o">-</span> <span class="n">precio_opcion_call</span><span class="p">)</span>
 
 <span class="c1"># Create a histogram</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">hedge_price</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Price&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histograma de los precios con cobertura en el día 30&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histograma de los precios con cobertura en el día 30&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -449,10 +448,10 @@ mercado se convertirán a diarias.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Volatilidad escenario con cobertura:&quot;</span><span class="p">,</span> <span class="n">vol_hedge_price</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Precio</span> <span class="n">promedio</span> <span class="n">sin</span> <span class="n">cobertura</span><span class="p">:</span> <span class="mf">3801.4537062078894</span>
-<span class="n">Volatilidad</span> <span class="n">escenario</span> <span class="n">sin</span> <span class="n">cobertura</span><span class="p">:</span> <span class="mf">180.18770007458394</span>
-<span class="n">Precio</span> <span class="n">más</span> <span class="n">probable</span> <span class="n">con</span> <span class="n">cobertura</span><span class="p">:</span> <span class="p">[</span><span class="mf">3864.22789738</span><span class="p">]</span>
-<span class="n">Volatilidad</span> <span class="n">escenario</span> <span class="n">con</span> <span class="n">cobertura</span><span class="p">:</span> <span class="mf">93.29368332042841</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Precio</span> <span class="n">promedio</span> <span class="n">sin</span> <span class="n">cobertura</span><span class="p">:</span> <span class="mf">3801.4534139471134</span>
+<span class="n">Volatilidad</span> <span class="n">escenario</span> <span class="n">sin</span> <span class="n">cobertura</span><span class="p">:</span> <span class="mf">180.22223534598183</span>
+<span class="n">Precio</span> <span class="n">más</span> <span class="n">probable</span> <span class="n">con</span> <span class="n">cobertura</span><span class="p">:</span> <span class="p">[</span><span class="mf">3855.67584143</span><span class="p">]</span>
+<span class="n">Volatilidad</span> <span class="n">escenario</span> <span class="n">con</span> <span class="n">cobertura</span><span class="p">:</span> <span class="mf">93.31287683512937</span>
 </pre></div>
 </div>
 </div>

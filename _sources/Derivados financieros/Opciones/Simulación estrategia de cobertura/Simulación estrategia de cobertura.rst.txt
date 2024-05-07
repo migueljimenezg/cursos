@@ -53,9 +53,8 @@ Simulación estrategia de cobertura
 
     # Calcular las tasas de retorno logarítmicas y sus parámetros
     precios = df["Precio"].values
-    tasas_retorno_log = np.log(precios[1:] / precios[:-1])
-    mu = tasas_retorno_log.mean()  # Promedio de la tasa de retorno logarítmica
-    sigma = tasas_retorno_log.std()  # Volatilidad
+    mu = rendimientos_log.mean()  # Promedio de la tasa de retorno logarítmica
+    sigma = rendimientos_log.std()  # Volatilidad
     
     print("Rentabilidad esperada diaria:", mu)
     print("Volatilidad diaria:", sigma)
@@ -65,8 +64,8 @@ Simulación estrategia de cobertura
 
 .. parsed-literal::
 
-    Rentabilidad esperada diaria: 0.0002562277963223317
-    Volatilidad diaria: 0.008762064060163022
+    Rentabilidad esperada diaria: 0.00025622779632233206
+    Volatilidad diaria: 0.008763742455745923
     Precio más reciente: 3774.86
     Fecha más reciente: 2024-04-08 00:00:00
     
@@ -140,9 +139,9 @@ Simulación diaria hasta un mes:
     
     # Create a histogram
     plt.hist(last_time_prices, bins=30)
-    plt.xlabel('Price')
-    plt.ylabel('Frequency')
-    plt.title('Histograma de los precios simulados en el día 30')
+    plt.xlabel("Price")
+    plt.ylabel("Frequency")
+    plt.title("Histograma de los precios simulados en el día 30")
     plt.show()
 
 
@@ -162,8 +161,8 @@ mercado se convertirán a diarias.
     rd = 0.12121  # E.A. (IBR para 1 mes)
     rf = 0.0532999  # Nominal Anual (SOFR para 1 mes)
     # Conversión de tasas diarias.
-    rd = np.log(1 + rd)/365  # C.C.D.
-    rf = np.log(1 + rf / 12) /365  # C.C.D.
+    rd = np.log(1 + rd ) / 365  # C.C.D.
+    rf = np.log(1 + rf / 12) / 30  # C.C.D.
 
 .. code:: ipython3
 
@@ -185,19 +184,19 @@ Opción de compra europea con vencimiento en un mes. Opción ATM.
 .. code:: ipython3
 
     # Parámetros de la opción sobre divisas
-    S0 = df["Precio"].iloc[-1]  # Precio inicial: último precio conocido
     K = S0  # Precio de ejercicio (Opción ATM)
-    T =  30 # 1 mes
     num_simulaciones = 10000  # Número de simulaciones
     seed = 52
     
-    precio_opcion_call = valorar_opcion_divisa_call(S0, K, T, rd, rf, sigma, num_simulaciones)
+    precio_opcion_call = valorar_opcion_divisa_call(
+        S0, K, T, rd, rf, sigma, num_simulaciones
+    )
     print("El precio de la opción de compra sobre divisas es:", precio_opcion_call)
 
 
 .. parsed-literal::
 
-    El precio de la opción de compra sobre divisas es: 89.36789738483625
+    El precio de la opción de compra sobre divisas es: 80.81584142899695
     
 
 Simulación estrategia de cobertura con Opción Call:
@@ -211,9 +210,9 @@ Compensaciones en el último período simulado.
     
     # Create a histogram
     plt.hist(payoff_call_T, bins=30)
-    plt.xlabel('Price')
-    plt.ylabel('Frequency')
-    plt.title('Histograma de las compensaciones Call simuladas en el día 30')
+    plt.xlabel("Payoff")
+    plt.ylabel("Frequency")
+    plt.title("Histograma de las compensaciones Call simuladas en el día 30")
     plt.show()
 
 
@@ -227,8 +226,7 @@ Cantidad de escenarios donde se ejerce la opción:
 
     ejercer = np.sum(last_time_prices > K)
     print("Cantidad de escenarios donde se ejerce:", ejercer)
-    print("Probabilidad de ejercer la Call:", ejercer/num_trayectorias)
-    
+    print("Probabilidad de ejercer la Call:", ejercer / num_trayectorias)
 
 
 .. parsed-literal::
@@ -242,13 +240,13 @@ Precios con cobertura:
 
 .. code:: ipython3
 
-    hedge_price =   np.abs(-last_time_prices+payoff_call_T-precio_opcion_call)
+    hedge_price = np.abs(-last_time_prices + payoff_call_T - precio_opcion_call)
     
     # Create a histogram
     plt.hist(hedge_price, bins=30)
-    plt.xlabel('Price')
-    plt.ylabel('Frequency')
-    plt.title('Histograma de los precios con cobertura en el día 30')
+    plt.xlabel("Price")
+    plt.ylabel("Frequency")
+    plt.title("Histograma de los precios con cobertura en el día 30")
     plt.show()
 
 
@@ -279,8 +277,8 @@ Resultados de la simulación de la cobertura:
 
 .. parsed-literal::
 
-    Precio promedio sin cobertura: 3801.4537062078894
-    Volatilidad escenario sin cobertura: 180.18770007458394
-    Precio más probable con cobertura: [3864.22789738]
-    Volatilidad escenario con cobertura: 93.29368332042841
+    Precio promedio sin cobertura: 3801.4534139471134
+    Volatilidad escenario sin cobertura: 180.22223534598183
+    Precio más probable con cobertura: [3855.67584143]
+    Volatilidad escenario con cobertura: 93.31287683512937
     

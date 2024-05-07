@@ -430,8 +430,8 @@ fórmula ajustada para el GBM en este caso es:</p></li>
 <span class="n">rd</span> <span class="o">=</span> <span class="mf">0.12121</span>  <span class="c1"># E.A. (IBR para 1 mes)</span>
 <span class="n">rf</span> <span class="o">=</span> <span class="mf">0.0532999</span>  <span class="c1"># Nominal Anual (SOFR para 1 mes)</span>
 <span class="c1"># Conversión de tasas a CCA.</span>
-<span class="n">rd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rd</span><span class="p">)</span><span class="o">/</span><span class="mi">365</span>  <span class="c1"># C.C.D.</span>
-<span class="n">rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rf</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">/</span><span class="mi">365</span>  <span class="c1"># C.C.D.</span>
+<span class="n">rd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rd</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">/</span> <span class="mi">30</span>  <span class="c1"># C.C.D.</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rf</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span> <span class="o">/</span> <span class="mi">30</span>  <span class="c1"># C.C.D.</span>
 
 
 <span class="k">def</span> <span class="nf">valorar_opcion_divisa_call</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">rd</span><span class="p">,</span> <span class="n">rf</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">num_simulaciones</span><span class="p">):</span>
@@ -459,7 +459,7 @@ fórmula ajustada para el GBM en este caso es:</p></li>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El precio de la opción de compra sobre divisas es:&quot;</span><span class="p">,</span> <span class="n">precio_opcion</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">la</span> <span class="n">opción</span> <span class="n">de</span> <span class="n">compra</span> <span class="n">sobre</span> <span class="n">divisas</span> <span class="n">es</span><span class="p">:</span> <span class="mf">136.73239988718046</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">El</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">la</span> <span class="n">opción</span> <span class="n">de</span> <span class="n">compra</span> <span class="n">sobre</span> <span class="n">divisas</span> <span class="n">es</span><span class="p">:</span> <span class="mf">127.36404555816445</span>
 </pre></div>
 </div>
 </div>
