@@ -1,6 +1,8 @@
 Introducción al Mercado Financiero
 ===================================================
 
+:download:`Prueba de mérito TdeA <Prueba oral v3.pptx>` 
+
 El objetivo de esta sección es comprender la mecánica de los principales instrumentos financieros que podemos encontrar en el mercado de valores.
 Adicionalmente, se estudiará el análisis fundamental para analizar la posición relativa de las compañías.
 
