@@ -15,10 +15,8 @@ lumjimenezgo@unal.edu.co
     :maxdepth: 1
     :caption: APRENDIZAJE ESTADÍSTICO:
 
-    AprenEst/Introducción a Python/index 
-    AprenEst/Clustering/index
-    AprenEst/ReDim/index
-    
+    AprenEst/index 
+
 
 .. toctree::
     :maxdepth: 1
@@ -62,7 +60,6 @@ lumjimenezgo@unal.edu.co
     :caption: MACHINE LEARNING:
 
      
-    Machine Learning/Introducción a Python/index
     Machine Learning/Deep Learning/index
 
 

@@ -61,7 +61,7 @@ Ejercicios
    :titlesonly:
 
    EjercicioClusterEF/Ejercicio Clustering Estados Financieros
-   EjercicioClusterAcciones/Ejercicio Clustering acciones
+   EjercicioClusterAcciones/Ejemplo Clustering acciones
 
 Talleres
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
