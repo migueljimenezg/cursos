@@ -378,8 +378,8 @@ cada punto:
 :math:`a(i)`: La distancia promedio entre el punto :math:`i` y todos los
 demás puntos del mismo clúster.
 
-:math:`b(i)`: La distancia promedio entre el punto :math:`i`\ y todos
-los puntos del clúster más cercano al que no pertenece.
+:math:`b(i)`: La distancia promedio entre el punto :math:`i` y todos los
+puntos del clúster más cercano al que no pertenece.
 
 La puntuación de la silueta para un punto :math:`i` se define como:
 

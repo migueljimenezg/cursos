@@ -186,12 +186,17 @@
 <li class="toctree-l3"><a class="reference internal" href="DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
-<li class="toctree-l3"><a class="reference internal" href="RLEF/Ejemplo%20clasificaci%C3%B3n%20Estados%20Financieros.html">Ejemplo clasificación Estados Financieros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="EjemploAD/Ejemplo%20%C3%A1rboles%20de%20decisi%C3%B3n.html">Ejemplo árboles de decisión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Bagging/Bagging.html">Bagging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RandomForest/Random%20Forest.html">Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EjemRF/Ejemplo%20Random%20Forest.html">Ejemplo Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Boosting/Boosting%20%28AdaBoost%29.html">Boosting (AdaBoost)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="XGBoost/XGBoost.html">XGBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Stacking/Stacking.html">Stacking</a></li>
 </ul>
 </li>
 </ul>
@@ -596,16 +601,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
 <li class="toctree-l1"><a class="reference internal" href="RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
-<li class="toctree-l1"><a class="reference internal" href="RLEF/Ejemplo%20clasificaci%C3%B3n%20Estados%20Financieros.html">Ejemplo clasificación Estados Financieros</a></li>
-</ul>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<ul class="simple">
-<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/abbf91132b95334321d8979a98a7b3ce/credit_risk_data.csv"><code class="xref download docutils literal notranslate"><span class="pre">credit_risk_data.csv</span></code></a></p></li>
-<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/e3462b54ec78dff8f90d2a66dfbd8c25/7.jpg"><code class="xref download docutils literal notranslate"><span class="pre">Dígito</span> <span class="pre">7</span></code></a></p></li>
-<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/3b31baf67607553c8281be7e655e2af2/310030_Estado%20de%20resultado%20integral%2C%20resultado%20del%20periodo%2C%20por%20funcion%20de%20gasto_PYMES.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">310030_Estado</span> <span class="pre">de</span> <span class="pre">resultado</span> <span class="pre">integral,</span> <span class="pre">resultado</span> <span class="pre">del</span> <span class="pre">periodo,</span> <span class="pre">por</span> <span class="pre">funcion</span> <span class="pre">de</span> <span class="pre">gasto_PYMES.xlsx</span></code></a></p></li>
-<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/90ad6ca7906a83f2908d23fa60211bc1/210030_Estado%20de%20situaci%C3%B3n%20financiera%2C%20corriente_no%20corriente_PYMES.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">210030_Estado</span> <span class="pre">de</span> <span class="pre">situación</span> <span class="pre">financiera,</span> <span class="pre">corriente_no</span> <span class="pre">corriente_PYMES.xlsx</span></code></a></p></li>
 </ul>
 </div>
 </section>
@@ -632,6 +627,21 @@ document.write(`
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Bagging/Bagging.html">Bagging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="RandomForest/Random%20Forest.html">Random Forest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EjemRF/Ejemplo%20Random%20Forest.html">Ejemplo Random Forest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Boosting/Boosting%20%28AdaBoost%29.html">Boosting (AdaBoost)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="XGBoost/XGBoost.html">XGBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Stacking/Stacking.html">Stacking</a></li>
+</ul>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<ul class="simple">
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/abbf91132b95334321d8979a98a7b3ce/credit_risk_data.csv"><code class="xref download docutils literal notranslate"><span class="pre">credit_risk_data.csv</span></code></a></p></li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/e3462b54ec78dff8f90d2a66dfbd8c25/7.jpg"><code class="xref download docutils literal notranslate"><span class="pre">Dígito</span> <span class="pre">7</span></code></a></p></li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/3b31baf67607553c8281be7e655e2af2/310030_Estado%20de%20resultado%20integral%2C%20resultado%20del%20periodo%2C%20por%20funcion%20de%20gasto_PYMES.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">310030_Estado</span> <span class="pre">de</span> <span class="pre">resultado</span> <span class="pre">integral,</span> <span class="pre">resultado</span> <span class="pre">del</span> <span class="pre">periodo,</span> <span class="pre">por</span> <span class="pre">funcion</span> <span class="pre">de</span> <span class="pre">gasto_PYMES.xlsx</span></code></a></p></li>
+<li><p><strong>Descargue</strong> <a class="reference download internal" download="" href="../../_downloads/90ad6ca7906a83f2908d23fa60211bc1/210030_Estado%20de%20situaci%C3%B3n%20financiera%2C%20corriente_no%20corriente_PYMES.xlsx"><code class="xref download docutils literal notranslate"><span class="pre">210030_Estado</span> <span class="pre">de</span> <span class="pre">situación</span> <span class="pre">financiera,</span> <span class="pre">corriente_no</span> <span class="pre">corriente_PYMES.xlsx</span></code></a></p></li>
 </ul>
 </div>
 </section>

@@ -11,7 +11,7 @@ con estructuras complejas y ruido.
 Conceptos clave:
 ~~~~~~~~~~~~~~~~
 
-**1. Épsilon (:math:`\epsilon`):** La distancia máxima entre dos puntos
+**1. Épsilon** (:math:`\epsilon`): La distancia máxima entre dos puntos
 para que uno sea considerado vecino del otro.
 
 **2. MinPts:** El número mínimo de puntos en el vecindario de un punto

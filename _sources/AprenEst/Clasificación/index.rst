@@ -27,18 +27,7 @@ Regresión Logística:
    DatasetCrédito/Análisis dataset riesgo de crédito
    RLCrédito/Regresión logística riesgo de crédito
    DigitosMano/Clasificador de dígitos escritos a mano
-   RLEF/Ejemplo clasificación Estados Financieros
 
-
-.. important::
-
-    * **Descargue** :download:`credit_risk_data.csv <credit_risk_data.csv>`
-
-    * **Descargue** :download:`Dígito 7 <7.jpg>`
-
-    * **Descargue** :download:`310030_Estado de resultado integral, resultado del periodo, por funcion de gasto_PYMES.xlsx <310030_Estado de resultado integral, resultado del periodo, por funcion de gasto_PYMES.xlsx>`
-
-    * **Descargue** :download:`210030_Estado de situación financiera, corriente_no corriente_PYMES.xlsx <210030_Estado de situación financiera, corriente_no corriente_PYMES.xlsx>`
 
 
 
@@ -72,6 +61,24 @@ Ensemble Learning:
    :titlesonly:
 
    EL/Ensemble Learning
+   Bagging/Bagging
+   RandomForest/Random Forest
+   EjemRF/Ejemplo Random Forest
+   Boosting/Boosting (AdaBoost)
+   XGBoost/XGBoost
+   Stacking/Stacking
+   EclasEF/Ejemplo métodos de clasificación sobre Estados Financieros
+
+
+.. important::
+
+    * **Descargue** :download:`credit_risk_data.csv <credit_risk_data.csv>`
+
+    * **Descargue** :download:`Dígito 7 <7.jpg>`
+
+    * **Descargue** :download:`310030_Estado de resultado integral, resultado del periodo, por funcion de gasto_PYMES.xlsx <310030_Estado de resultado integral, resultado del periodo, por funcion de gasto_PYMES.xlsx>`
+
+    * **Descargue** :download:`210030_Estado de situación financiera, corriente_no corriente_PYMES.xlsx <210030_Estado de situación financiera, corriente_no corriente_PYMES.xlsx>`
 
 
 

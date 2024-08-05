@@ -80,6 +80,12 @@ Conceptos clave:
    los errores residuales en lugar de cambiar los pesos de las
    instancias.
 
+-  **XGBoost:** es una implementación optimizada de Gradient Boosting
+   que mejora la eficiencia, la escalabilidad y la capacidad de ajuste
+   del modelo. Mientras que el algoritmo subyacente es el mismo
+   (Gradient Boosting), XGBoost incorpora mejoras prácticas y avanzadas
+   que pueden llevar a un mejor rendimiento en la práctica.
+
 .. figure:: Stacking.JPG
    :alt: Stacking
 

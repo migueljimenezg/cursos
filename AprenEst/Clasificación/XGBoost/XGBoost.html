@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Ejemplo clasificación Estados Financieros &#8212; Cursos  documentation</title>
+    <title>XGBoost &#8212; Cursos  documentation</title>
   
   
   
@@ -44,11 +44,12 @@
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=ff8fa330"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Clasificación/RLEF/Ejemplo clasificación Estados Financieros';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Clasificación/XGBoost/XGBoost';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Support Vector Machines" href="../SVM/Support%20Vector%20Machines.html" />
-    <link rel="prev" title="Clasificador de dígitos escritos a mano" href="../DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html" />
+    <link rel="next" title="Stacking" href="../Stacking/Stacking.html" />
+    <link rel="prev" title="Boosting (AdaBoost)" href="../Boosting/Boosting%20%28AdaBoost%29.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,12 +187,17 @@
 <li class="toctree-l3"><a class="reference internal" href="../DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ejemplo clasificación Estados Financieros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjemploAD/Ejemplo%20%C3%A1rboles%20de%20decisi%C3%B3n.html">Ejemplo árboles de decisión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Bagging/Bagging.html">Bagging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../RandomForest/Random%20Forest.html">Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemRF/Ejemplo%20Random%20Forest.html">Ejemplo Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Boosting/Boosting%20%28AdaBoost%29.html">Boosting (AdaBoost)</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">XGBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Stacking/Stacking.html">Stacking</a></li>
 </ul>
 </li>
 </ul>
@@ -465,7 +471,7 @@
       
       
       
-      <li><a href="../../../_sources/AprenEst/Clasificación/RLEF/Ejemplo clasificación Estados Financieros.rst" target="_blank"
+      <li><a href="../../../_sources/AprenEst/Clasificación/XGBoost/XGBoost.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -549,7 +555,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ejemplo clasificación Estados Financieros</h1>
+    <h1>XGBoost</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -559,8 +565,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-datos">Análisis de los datos:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-con-regresion-logistica">Clasificación con Regresión Logística:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-precios-del-futuro-es">Descargar precios del Futuro ES:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-las-caracteristicas">Creación de las características:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">XGBoost:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-funciona-xgboost">Cómo Funciona XGBoost:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo:</a></li>
 </ul>
             </nav>
         </div>
@@ -572,245 +581,171 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="ejemplo-clasificacion-estados-financieros">
-<h1>Ejemplo clasificación Estados Financieros<a class="headerlink" href="#ejemplo-clasificacion-estados-financieros" title="Permalink to this heading">#</a></h1>
+  <section id="xgboost">
+<h1>XGBoost<a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h1>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">resample</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">accuracy_score</span>
-
-<span class="c1"># Cargar los archivos de Excel</span>
-<span class="n">file_1</span> <span class="o">=</span> <span class="s2">&quot;../310030_Estado de resultado integral, resultado del periodo, por funcion de gasto_PYMES.xlsx&quot;</span>
-<span class="n">file_2</span> <span class="o">=</span> <span class="s2">&quot;../210030_Estado de situación financiera, corriente_no corriente_PYMES.xlsx&quot;</span>
-
-<span class="c1"># Leer todas las hojas de los archivos</span>
-<span class="n">sheets_file_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_1</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">sheets_file_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_2</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-
-<span class="c1"># Función para separar las empresas según &#39;EN REORGANIZACION&#39;</span>
-<span class="k">def</span> <span class="nf">separate_companies</span><span class="p">(</span><span class="n">sheets</span><span class="p">):</span>
-    <span class="n">reorganizacion</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Lista para almacenar las empresas en reorganización</span>
-    <span class="n">not_reorganizacion</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="p">[]</span>
-    <span class="p">)</span>  <span class="c1"># Lista para almacenar las empresas que no están en reorganización</span>
-
-    <span class="k">for</span> <span class="n">sheet_name</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">sheets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="c1"># Filtrar por &#39;Periodo Actual&#39;</span>
-        <span class="n">df_periodo_actual</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Periodo&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Periodo Actual&quot;</span><span class="p">]</span>
-        <span class="c1"># Filtrar las empresas que terminan con &#39;EN REORGANIZACION&#39;</span>
-        <span class="n">reorganizacion</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="n">df_periodo_actual</span><span class="p">[</span>
-                <span class="n">df_periodo_actual</span><span class="p">[</span><span class="s2">&quot;Razón social de la sociedad&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span>
-                    <span class="s2">&quot;EN REORGANIZACION&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span>
-                <span class="p">)</span>
-            <span class="p">]</span>
-        <span class="p">)</span>
-        <span class="c1"># Filtrar las empresas que no terminan con &#39;EN REORGANIZACION&#39;</span>
-        <span class="n">not_reorganizacion</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="n">df_periodo_actual</span><span class="p">[</span>
-                <span class="o">~</span><span class="n">df_periodo_actual</span><span class="p">[</span><span class="s2">&quot;Razón social de la sociedad&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span>
-                    <span class="s2">&quot;EN REORGANIZACION&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span>
-                <span class="p">)</span>
-            <span class="p">]</span>
-        <span class="p">)</span>
-
-    <span class="c1"># Concatenar los resultados de todas las hojas</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">reorganizacion</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">not_reorganizacion</span><span class="p">)</span>
-
-
-<span class="c1"># Separar las empresas en ambos archivos</span>
-<span class="n">reorganizacion_1</span><span class="p">,</span> <span class="n">not_reorganizacion_1</span> <span class="o">=</span> <span class="n">separate_companies</span><span class="p">(</span><span class="n">sheets_file_1</span><span class="p">)</span>
-<span class="n">reorganizacion_2</span><span class="p">,</span> <span class="n">not_reorganizacion_2</span> <span class="o">=</span> <span class="n">separate_companies</span><span class="p">(</span><span class="n">sheets_file_2</span><span class="p">)</span>
-
-<span class="c1"># Combinar los resultados de ambos archivos</span>
-<span class="n">reorganizacion</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">reorganizacion_1</span><span class="p">,</span> <span class="n">reorganizacion_2</span><span class="p">])</span>
-<span class="n">not_reorganizacion</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">not_reorganizacion_1</span><span class="p">,</span> <span class="n">not_reorganizacion_2</span><span class="p">])</span>
-
-<span class="c1"># Filtrar las empresas donde &#39;Ingresos de actividades ordinarias (Revenue)&#39; fueron positivos</span>
-<span class="n">reorganizacion</span> <span class="o">=</span> <span class="n">reorganizacion</span><span class="p">[</span>
-    <span class="n">reorganizacion</span><span class="p">[</span><span class="s2">&quot;Ingresos de actividades ordinarias (Revenue)&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
-<span class="p">]</span>
-<span class="n">not_reorganizacion</span> <span class="o">=</span> <span class="n">not_reorganizacion</span><span class="p">[</span>
-    <span class="n">not_reorganizacion</span><span class="p">[</span><span class="s2">&quot;Ingresos de actividades ordinarias (Revenue)&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
-<span class="p">]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empresas en reorganización: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">reorganizacion</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empresas que no están en reorganización: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">not_reorganizacion</span><span class="p">))</span>
+<span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Empresas</span> <span class="n">en</span> <span class="n">reorganización</span><span class="p">:</span>  <span class="mi">424</span>
-<span class="n">Empresas</span> <span class="n">que</span> <span class="n">no</span> <span class="n">están</span> <span class="n">en</span> <span class="n">reorganización</span><span class="p">:</span>  <span class="mi">21969</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Submuestrear las empresas que no están en reorganización utilizando resample de sklearn</span>
-<span class="n">subsample_not_reorganizacion</span> <span class="o">=</span> <span class="n">resample</span><span class="p">(</span>
-    <span class="n">not_reorganizacion</span><span class="p">,</span>
-    <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># muestreo sin reemplazo</span>
-    <span class="n">n_samples</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">reorganizacion</span><span class="p">),</span>  <span class="c1"># mismo tamaño que las empresas en reorganización</span>
-    <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
-<span class="p">)</span>  <span class="c1"># para reproducibilidad</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear una nueva columna &#39;label&#39; para identificar las empresas en reorganización (1) y las que no están en reorganización (0)</span>
-<span class="n">reorganizacion</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">subsample_not_reorganizacion</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<section id="descargar-precios-del-futuro-es">
+<h2>Descargar precios del Futuro ES:<a class="headerlink" href="#descargar-precios-del-futuro-es" title="Permalink to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descargar datos históricos del futuro del índice S&amp;P 500 (ES)</span>
+<span class="n">ticker</span> <span class="o">=</span> <span class="s2">&quot;ES=F&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2024-06-30&quot;</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s2">&quot;1d&quot;</span><span class="p">)</span>
 
-<span class="c1"># Combinar las empresas en reorganización y la submuestra de las que no están en reorganización</span>
-<span class="n">combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">reorganizacion</span><span class="p">,</span> <span class="n">subsample_not_reorganizacion</span><span class="p">])</span>
-
-<span class="c1"># Contar cuántas hay de cada tipo</span>
-<span class="n">combined</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>    <span class="mi">424</span>
-<span class="mi">0</span>    <span class="mi">424</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combinar las empresas en reorganización y la submuestra de las que no están en reorganización</span>
-<span class="n">combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">reorganizacion</span><span class="p">,</span> <span class="n">subsample_not_reorganizacion</span><span class="p">])</span>
-
-<span class="c1"># Crear el DataFrame &#39;df&#39; combinando las columnas necesarias de filtered_BG y filtered_ER</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-
-<span class="c1"># Calcular los indicadores financieros y agregarlos al DataFrame &#39;df&#39;</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Margen Bruto&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">combined</span><span class="p">[</span><span class="s2">&quot;Ganancia bruta (GrossProfit)&quot;</span><span class="p">]</span>
-    <span class="o">/</span> <span class="n">combined</span><span class="p">[</span><span class="s2">&quot;Ingresos de actividades ordinarias (Revenue)&quot;</span><span class="p">]</span>
-<span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Margen Operacional&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">combined</span><span class="p">[</span>
-        <span class="s2">&quot;Ganancia (pérdida) por actividades de operación (GananciaPerdidaPorActividadesDeOperacion)&quot;</span>
-    <span class="p">]</span>
-    <span class="o">/</span> <span class="n">combined</span><span class="p">[</span><span class="s2">&quot;Ingresos de actividades ordinarias (Revenue)&quot;</span><span class="p">]</span>
-<span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Margen Neto&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">combined</span><span class="p">[</span><span class="s2">&quot;Ganancia (pérdida) (ProfitLoss)&quot;</span><span class="p">]</span>
-    <span class="o">/</span> <span class="n">combined</span><span class="p">[</span><span class="s2">&quot;Ingresos de actividades ordinarias (Revenue)&quot;</span><span class="p">]</span>
-<span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
-
-<span class="c1"># Eliminar filas con valores nulos o infinitos</span>
-<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Mostrar los primeros resultados del DataFrame &#39;df&#39; para verificación</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-
-<span class="c1"># Contar cuántas hay de cada tipo</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="n">Margen</span> <span class="n">Bruto</span>  <span class="n">Margen</span> <span class="n">Operacional</span>  <span class="n">Margen</span> <span class="n">Neto</span>  <span class="n">label</span>
-<span class="mi">120</span>      <span class="mf">0.182169</span>           <span class="o">-</span><span class="mf">0.139234</span>    <span class="o">-</span><span class="mf">0.110590</span>      <span class="mi">1</span>
-<span class="mi">206</span>      <span class="mf">0.145285</span>            <span class="mf">0.021016</span>    <span class="o">-</span><span class="mf">0.074642</span>      <span class="mi">1</span>
-<span class="mi">302</span>      <span class="mf">1.000000</span>            <span class="mf">1.595930</span>     <span class="mf">1.077714</span>      <span class="mi">1</span>
-<span class="mi">306</span>      <span class="mf">0.568611</span>            <span class="mf">0.077610</span>     <span class="mf">0.059090</span>      <span class="mi">1</span>
-<span class="mi">432</span>      <span class="mf">0.149503</span>            <span class="mf">0.026351</span>     <span class="mf">0.026905</span>      <span class="mi">1</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>    <span class="mi">424</span>
-<span class="mi">0</span>    <span class="mi">424</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
-</pre></div>
-</div>
-<section id="analisis-de-los-datos">
-<h2>Análisis de los datos:<a class="headerlink" href="#analisis-de-los-datos" title="Permalink to this heading">#</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indicadores</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="c1"># Calcular estadísticas descriptivas por etiqueta</span>
-<span class="n">descriptive_stats</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">)[</span><span class="n">indicadores</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-
-<span class="c1"># Mostrar las estadísticas descriptivas</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">descriptive_stats</span><span class="p">)</span>
-</pre></div>
-</div>
-<pre class="literal-block">      Margen Bruto                                                                 count      mean       std       min       25%       50%
-label
-0            424.0  0.470579  0.440547 -3.989035  0.187012  0.358174
-1            424.0  0.353629  0.423258 -3.786625  0.179082  0.314670
-
-                     Margen Operacional            ...                                   75%  max              count      mean  ...       75%        max
-label                                              ...
-0      0.949685  1.0              424.0 -0.404545  ...  0.179070  16.825625
-1      0.505105  1.0              424.0 -0.120398  ...  0.091547  29.476177
-
-      Margen Neto                                                                   count      mean        std         min       25%       50%
-label
-0           424.0 -0.484004  10.374411 -212.235702  0.002675  0.036420
-1           424.0 -0.206236   3.322487  -23.506586 -0.087183  0.010214
-
-
-            75%        max
-label
-0      0.105156  11.793688
-1      0.049940  43.647336
-
-[2 rows x 24 columns]</pre>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear diagramas de violín para cada variable por etiqueta</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">variable</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">indicadores</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-    <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">variable</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Diagrama de Violín de </span><span class="si">{</span><span class="n">variable</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Label (1: En Reorganización, 0: No en Reorganización)&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># Gráfico de dispersión para algunas combinaciones de indicadores financieros</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="n">indicadores</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Gráfico de dispersión de Indicadores Financieros&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="c1"># Graficar el precio de cierre</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Close&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precio de Cierre&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Precio de Cierre del Futuro del Índice S&amp;P 500 (ES)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precio de Cierre&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_7_01.png" src="../../../_images/output_7_01.png" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Figure</span> <span class="n">size</span> <span class="mi">1500</span><span class="n">x1000</span> <span class="k">with</span> <span class="mi">0</span> <span class="n">Axes</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_7_2.png" src="../../../_images/output_7_2.png" />
+<pre class="literal-block">[<strong>*******************100%*********************</strong>]  1 of 1 completed</pre>
+<img alt="../../../_images/output_3_14.png" src="../../../_images/output_3_14.png" />
 </section>
-<section id="clasificacion-con-regresion-logistica">
-<h2>Clasificación con Regresión Logística:<a class="headerlink" href="#clasificacion-con-regresion-logistica" title="Permalink to this heading">#</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seleccionar las características (indicadores financieros) y la etiqueta</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">indicadores</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+<section id="creacion-de-las-caracteristicas">
+<h2>Creación de las características:<a class="headerlink" href="#creacion-de-las-caracteristicas" title="Permalink to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear características adicionales</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;PriceChange&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Close&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Close&quot;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;Label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;PriceChange&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;DailyPctChange&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Close&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Open&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Open&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;Range&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;High&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Low&quot;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;Volatility&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;High&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Low&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Close&quot;</span><span class="p">]</span>
+
+<span class="c1"># Seleccionar características y etiqueta</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Open&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;High&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Low&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Close&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Volume&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Volatility&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DailyPctChange&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Range&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Label&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad precios positivos y negativos:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Label&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Dividir el conjunto de datos en entrenamiento y prueba</span>
+<pre class="literal-block">Cantidad precios positivos y negativos:
+ 1    602
+0    529
+Name: Label, dtype: int64
+               Open     High      Low    Close   Volume  Volatility  Date
+2020-01-02  3237.00  3261.75  3234.25  3259.00  1416241    0.008438
+2020-01-03  3261.00  3263.50  3206.75  3235.50  1755057    0.017540
+2020-01-06  3220.25  3249.50  3208.75  3243.50  1502748    0.012564
+2020-01-07  3243.50  3254.50  3226.00  3235.25  1293494    0.008809
+2020-01-08  3231.75  3267.75  3181.00  3260.25  2279138    0.026608
+
+            DailyPctChange  Range
+Date
+2020-01-02        0.679642  27.50
+2020-01-03       -0.781969  56.75
+2020-01-06        0.721994  40.75
+2020-01-07       -0.254355  28.50
+2020-01-08        0.881875  86.75</pre>
+</section>
+<section id="id1">
+<h2>XGBoost:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p><strong>XGBoost (eXtreme Gradient Boosting)</strong> es una biblioteca de aprendizaje
+automático que ha ganado gran popularidad debido a su rendimiento
+superior y eficiencia. Es una implementación avanzada del algoritmo de
+Gradient Boosting, diseñada para ser rápida, flexible y precisa. XGBoost
+se utiliza ampliamente para tareas de clasificación y regresión, y es
+especialmente eficaz en competiciones de ciencia de datos y problemas
+del mundo real que requieren modelos de alto rendimiento.</p>
+<p>XGBoost incluye regularización <span class="math notranslate nohighlight">\(𝐿_1\)</span> (Lasso) y <span class="math notranslate nohighlight">\(𝐿_2\)</span> (Ridge)
+de manera nativa, lo que ayuda a evitar el sobreajuste y mejora la
+capacidad de generalización del modelo.</p>
+<p>Soporta una variedad de funciones de pérdida personalizables, lo que
+permite optimizar diferentes tipos de problemas, como clasificación
+binaria, clasificación multiclase, regresión y ranking.</p>
+<p>Permite ajustar muchos hiperparámetros para optimizar el modelo de
+acuerdo a las necesidades específicas del problema.</p>
+</section>
+<section id="como-funciona-xgboost">
+<h2>Cómo Funciona XGBoost:<a class="headerlink" href="#como-funciona-xgboost" title="Permalink to this heading">#</a></h2>
+<p>XGBoost es una implementación de <strong>Gradient Boosting</strong> que utiliza
+árboles de decisión como modelos base. A continuación se describen los
+pasos generales del funcionamiento de XGBoost:</p>
+<p><strong>1. Inicialización:</strong></p>
+<ul class="simple">
+<li><p>Comienza con un modelo inicial simple, generalmente un modelo
+constante que predice el valor promedio de la variable objetivo.</p></li>
+</ul>
+<p><strong>2. Iteración secuencial:</strong></p>
+<ul class="simple">
+<li><p>En cada iteración, se entrena un nuevo árbol de decisión en los
+residuos (errores) del modelo actual.</p></li>
+<li><p>El objetivo es minimizar la función de pérdida, ajustando el nuevo
+árbol para corregir los errores del modelo acumulado.</p></li>
+</ul>
+<p><strong>3. Optimización del Gradiente:</strong></p>
+<ul class="simple">
+<li><p>Calcula el gradiente de la función de pérdida con respecto a las
+predicciones del modelo y utiliza estos gradientes para ajustar los
+nuevos árboles.</p></li>
+</ul>
+<p><strong>4. Regularización:</strong></p>
+<ul class="simple">
+<li><p>Aplica regularización para evitar el sobreajuste, controlando la
+complejidad del modelo a través de hiperparámetros como la
+profundidad máxima de los árboles y el término de penalización.</p></li>
+</ul>
+<p><strong>5. Combinación de modelos:</strong></p>
+<ul class="simple">
+<li><p>Los modelos se combinan para formar un predictor fuerte, ponderando
+cada modelo según su contribución a la reducción de la función de
+pérdida.</p></li>
+</ul>
+<p><strong>6. Predicción final:</strong></p>
+<ul class="simple">
+<li><p>La predicción final es la suma de las predicciones ponderadas de
+todos los modelos en el conjunto.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dividir el conjunto de datos en entrenamiento y prueba</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span>
 <span class="p">)</span>
 
-<span class="c1"># 2. Estandarizar los datos</span>
-<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="c1"># Crear un clasificador XGBoost</span>
+<span class="n">xgb_clf</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># Número de árboles en el bosque</span>
+    <span class="n">max_depth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="c1"># Profundidad máxima de cada árbol</span>
+    <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>  <span class="c1"># Tasa de aprendizaje</span>
+    <span class="n">subsample</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>  <span class="c1"># Subconjunto de datos utilizado para cada árbol</span>
+    <span class="n">colsample_bytree</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>  <span class="c1"># Subconjunto de características utilizado para cada árbol</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="c1"># 3. Crear un modelo de regresión logística</span>
-<span class="n">logistic_model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="c1"># Entrenar el clasificador XGBoost</span>
+<span class="n">xgb_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
-<span class="c1"># 4. Entrenar el modelo</span>
-<span class="n">logistic_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># 5. Hacer predicciones.</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logistic_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="n">y_pred_prob</span> <span class="o">=</span> <span class="n">logistic_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
-
-<span class="c1"># 6. Calcular las métricas de evaluación</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="c1"># Realizar predicciones</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">xgb_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="evaluacion-del-modelo">
+<h2>Evaluación del modelo:<a class="headerlink" href="#evaluacion-del-modelo" title="Permalink to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular las métricas de evaluación</span>
 <span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 <span class="n">class_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 
 <span class="c1"># Mostrar las métricas de evaluación</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">class_report</span><span class="p">)</span>
 
 <span class="c1"># Crear un mapa de calor para la matriz de confusión con etiquetas</span>
@@ -829,167 +764,18 @@ label
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.5254901960784314</span>
-<span class="n">Classification</span> <span class="n">Report</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Classification</span> <span class="n">Report</span><span class="p">:</span>
                <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
 
-           <span class="mi">0</span>       <span class="mf">0.55</span>      <span class="mf">0.42</span>      <span class="mf">0.48</span>       <span class="mi">131</span>
-           <span class="mi">1</span>       <span class="mf">0.51</span>      <span class="mf">0.64</span>      <span class="mf">0.57</span>       <span class="mi">124</span>
+           <span class="mi">0</span>       <span class="mf">0.49</span>      <span class="mf">0.26</span>      <span class="mf">0.34</span>       <span class="mi">154</span>
+           <span class="mi">1</span>       <span class="mf">0.56</span>      <span class="mf">0.78</span>      <span class="mf">0.65</span>       <span class="mi">186</span>
 
-    <span class="n">accuracy</span>                           <span class="mf">0.53</span>       <span class="mi">255</span>
-   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.53</span>      <span class="mf">0.53</span>      <span class="mf">0.52</span>       <span class="mi">255</span>
-<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.53</span>      <span class="mf">0.53</span>      <span class="mf">0.52</span>       <span class="mi">255</span>
+    <span class="n">accuracy</span>                           <span class="mf">0.54</span>       <span class="mi">340</span>
+   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.53</span>      <span class="mf">0.52</span>      <span class="mf">0.50</span>       <span class="mi">340</span>
+<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.53</span>      <span class="mf">0.54</span>      <span class="mf">0.51</span>       <span class="mi">340</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_10_1.png" src="../../../_images/output_10_1.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
-
-<span class="c1"># Crear el modelo de SVM</span>
-<span class="n">svm_model</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;rbf&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">)</span>
-
-<span class="c1"># Entrenar el modelo</span>
-<span class="n">svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># Hacer predicciones en el conjunto de prueba</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">svm_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Evaluar el modelo</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">class_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-
-<span class="c1"># Mostrar los resultados</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">conf_matrix</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">class_report</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.5490196078431373</span>
-<span class="n">Confusion</span> <span class="n">Matrix</span><span class="p">:</span>
- <span class="p">[[</span><span class="mi">41</span> <span class="mi">90</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">25</span> <span class="mi">99</span><span class="p">]]</span>
-<span class="n">Classification</span> <span class="n">Report</span><span class="p">:</span>
-               <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
-
-           <span class="mi">0</span>       <span class="mf">0.62</span>      <span class="mf">0.31</span>      <span class="mf">0.42</span>       <span class="mi">131</span>
-           <span class="mi">1</span>       <span class="mf">0.52</span>      <span class="mf">0.80</span>      <span class="mf">0.63</span>       <span class="mi">124</span>
-
-    <span class="n">accuracy</span>                           <span class="mf">0.55</span>       <span class="mi">255</span>
-   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.57</span>      <span class="mf">0.56</span>      <span class="mf">0.52</span>       <span class="mi">255</span>
-<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.57</span>      <span class="mf">0.55</span>      <span class="mf">0.52</span>       <span class="mi">255</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
-
-<span class="c1"># Crear el modelo de árbol de decisión</span>
-<span class="n">tree_model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="c1"># Entrenar el modelo</span>
-<span class="n">tree_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># Hacer predicciones en el conjunto de prueba</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">tree_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Evaluar el modelo</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">class_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-
-<span class="c1"># Mostrar los resultados</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">conf_matrix</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">class_report</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.5137254901960784</span>
-<span class="n">Confusion</span> <span class="n">Matrix</span><span class="p">:</span>
- <span class="p">[[</span><span class="mi">69</span> <span class="mi">62</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">62</span> <span class="mi">62</span><span class="p">]]</span>
-<span class="n">Classification</span> <span class="n">Report</span><span class="p">:</span>
-               <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
-
-           <span class="mi">0</span>       <span class="mf">0.53</span>      <span class="mf">0.53</span>      <span class="mf">0.53</span>       <span class="mi">131</span>
-           <span class="mi">1</span>       <span class="mf">0.50</span>      <span class="mf">0.50</span>      <span class="mf">0.50</span>       <span class="mi">124</span>
-
-    <span class="n">accuracy</span>                           <span class="mf">0.51</span>       <span class="mi">255</span>
-   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.51</span>      <span class="mf">0.51</span>      <span class="mf">0.51</span>       <span class="mi">255</span>
-<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.51</span>      <span class="mf">0.51</span>      <span class="mf">0.51</span>       <span class="mi">255</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
-
-<span class="c1"># Crear el modelo de Random Forest</span>
-<span class="n">rf_model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">)</span>
-
-<span class="c1"># Entrenar el modelo</span>
-<span class="n">rf_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># Hacer predicciones en el conjunto de prueba</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">rf_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Evaluar el modelo</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">class_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-
-<span class="c1"># Mostrar los resultados</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">conf_matrix</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">class_report</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.5764705882352941</span>
-<span class="n">Confusion</span> <span class="n">Matrix</span><span class="p">:</span>
- <span class="p">[[</span><span class="mi">83</span> <span class="mi">48</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">60</span> <span class="mi">64</span><span class="p">]]</span>
-<span class="n">Classification</span> <span class="n">Report</span><span class="p">:</span>
-               <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
-
-           <span class="mi">0</span>       <span class="mf">0.58</span>      <span class="mf">0.63</span>      <span class="mf">0.61</span>       <span class="mi">131</span>
-           <span class="mi">1</span>       <span class="mf">0.57</span>      <span class="mf">0.52</span>      <span class="mf">0.54</span>       <span class="mi">124</span>
-
-    <span class="n">accuracy</span>                           <span class="mf">0.58</span>       <span class="mi">255</span>
-   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.58</span>      <span class="mf">0.57</span>      <span class="mf">0.57</span>       <span class="mi">255</span>
-<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.58</span>      <span class="mf">0.58</span>      <span class="mf">0.57</span>       <span class="mi">255</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
-
-<span class="c1"># Crear el modelo de XGBoost</span>
-<span class="n">xgb_model</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">)</span>
-
-<span class="c1"># Entrenar el modelo</span>
-<span class="n">xgb_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1"># Hacer predicciones en el conjunto de prueba</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">xgb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Evaluar el modelo</span>
-<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">conf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="n">class_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-
-<span class="c1"># Mostrar los resultados</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">conf_matrix</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">class_report</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.611764705882353</span>
-<span class="n">Confusion</span> <span class="n">Matrix</span><span class="p">:</span>
- <span class="p">[[</span><span class="mi">80</span> <span class="mi">51</span><span class="p">]</span>
- <span class="p">[</span><span class="mi">48</span> <span class="mi">76</span><span class="p">]]</span>
-<span class="n">Classification</span> <span class="n">Report</span><span class="p">:</span>
-               <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
-
-           <span class="mi">0</span>       <span class="mf">0.62</span>      <span class="mf">0.61</span>      <span class="mf">0.62</span>       <span class="mi">131</span>
-           <span class="mi">1</span>       <span class="mf">0.60</span>      <span class="mf">0.61</span>      <span class="mf">0.61</span>       <span class="mi">124</span>
-
-    <span class="n">accuracy</span>                           <span class="mf">0.61</span>       <span class="mi">255</span>
-   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.61</span>      <span class="mf">0.61</span>      <span class="mf">0.61</span>       <span class="mi">255</span>
-<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.61</span>      <span class="mf">0.61</span>      <span class="mf">0.61</span>       <span class="mi">255</span>
-</pre></div>
-</div>
+<img alt="../../../_images/output_12_11.png" src="../../../_images/output_12_11.png" />
 </section>
 </section>
 
@@ -1005,20 +791,20 @@ label
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html"
+       href="../Boosting/Boosting%20%28AdaBoost%29.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Clasificador de dígitos escritos a mano</p>
+        <p class="prev-next-title">Boosting (AdaBoost)</p>
       </div>
     </a>
     <a class="right-next"
-       href="../SVM/Support%20Vector%20Machines.html"
+       href="../Stacking/Stacking.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Support Vector Machines</p>
+        <p class="prev-next-title">Stacking</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1037,8 +823,11 @@ label
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-datos">Análisis de los datos:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-con-regresion-logistica">Clasificación con Regresión Logística:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-precios-del-futuro-es">Descargar precios del Futuro ES:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creacion-de-las-caracteristicas">Creación de las características:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">XGBoost:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-funciona-xgboost">Cómo Funciona XGBoost:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo:</a></li>
 </ul>
   </nav></div>
 
