@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Ejercicio Clustering acciones &#8212; Cursos  documentation</title>
+    <title>Ejemplo DBSCAN precio electricidad &#8212; Cursos  documentation</title>
   
   
   
@@ -44,11 +44,11 @@
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=ff8fa330"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Clustering/EjercicioClusterAcciones/Ejemplo Clustering acciones';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Clustering/EDBSCANElectricidad/Ejemplo DBSCAN precio electricidad';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Taller Clustering datos ficticios" href="../TallerDatosFicticios/Taller%20Clustering%20datos%20ficticios.html" />
-    <link rel="prev" title="Ejercicio Clustering Estados Financieros" href="../EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html" />
+    <link rel="next" title="Ejercicio Clustering Estados Financieros" href="../EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html" />
+    <link rel="prev" title="Ejemplo DBSCAN para precios" href="../EDBSCANprecios/Ejemplo%20DBSCAN%20para%20precios.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -162,8 +162,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCAN/Ejemplo%20DBSCAN.html">Ejemplo DBSCAN</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCANEF/Ejemplo%20clustering%20DBSCAN%20Estados%20Financieros.html">Ejemplo clustering DBSCAN Estados Financieros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCANprecios/Ejemplo%20DBSCAN%20para%20precios.html">Ejemplo DBSCAN para precios</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ejemplo DBSCAN precio electricidad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html">Ejercicio Clustering Estados Financieros</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ejercicio Clustering acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjercicioClusterAcciones/Ejercicio%20Clustering%20acciones.html">Ejercicio Clustering acciones</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerDatosFicticios/Taller%20Clustering%20datos%20ficticios.html">Taller Clustering datos ficticios</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerS%26P500/Taller%20Clustering%20acciones%20S%26P%20500.html">Taller Clustering acciones S&amp;P 500</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerEF/Taller%20Clustering%20Estados%20Financieros.html">Taller Clustering Estados Financieros</a></li>
@@ -470,7 +471,7 @@
       
       
       
-      <li><a href="../../../_sources/AprenEst/Clustering/EjercicioClusterAcciones/Ejemplo Clustering acciones.rst" target="_blank"
+      <li><a href="../../../_sources/AprenEst/Clustering/EDBSCANElectricidad/Ejemplo DBSCAN precio electricidad.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -554,7 +555,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ejercicio Clustering acciones</h1>
+    <h1>Ejemplo DBSCAN precio electricidad</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -564,9 +565,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-cluster-k-means">Ajuste Cluster K-Means:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-cluster-jerarquico">Ajuste Cluster jerárquico:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-cluster-dbscan">Ajuste Cluster DBSCAN:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinar-los-valores-de-eps-y-min-samples">Determinar los valores de <code class="docutils literal notranslate"><span class="pre">eps</span></code> y <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-del-mejor-modelo">Ajuste del mejor modelo:</a></li>
 </ul>
             </nav>
         </div>
@@ -578,367 +578,90 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="ejercicio-clustering-acciones">
-<h1>Ejercicio Clustering acciones<a class="headerlink" href="#ejercicio-clustering-acciones" title="Permalink to this heading">#</a></h1>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+  <section id="ejemplo-dbscan-precio-electricidad">
+<h1>Ejemplo DBSCAN precio electricidad<a class="headerlink" href="#ejemplo-dbscan-precio-electricidad" title="Permalink to this heading">#</a></h1>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span><span class="p">,</span> <span class="n">linkage</span><span class="p">,</span> <span class="n">fcluster</span><span class="p">,</span> <span class="n">cophenet</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
-<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">pdist</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
 <span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Cargar los datos omitiendo la primera fila como encabezado y asignando nombres a las columnas</span>
+<span class="n">data_precio</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;promedios_mensuales_2024.csv&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">,</span> <span class="s2">&quot;Precio&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Convertir la columna &#39;Fecha&#39; a datetime</span>
+<span class="n">data_precio</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data_precio</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y-%m&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set &#39;Fecha&#39; as the index</span>
+<span class="n">data_precio</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_precio</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data_precio</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precio&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Precio electricidad mensual&quot;</span><span class="p">)</span>  <span class="c1"># Título del gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>  <span class="c1"># Etiqueta del eje X</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precio&quot;</span><span class="p">)</span>  <span class="c1"># Etiqueta del eje Y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  <span class="c1"># Añadir leyenda para identificar las líneas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lista de tickers de Yahoo Finance</span>
-<span class="n">tickers</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;AAPL&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MSFT&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GOOGL&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;META&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AMZN&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TSLA&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NVDA&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AMD&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NFLX&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;WMT&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;COST&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KO&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PEP&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;JPM&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;V&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BAC&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;XOM&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CVX&quot;</span><span class="p">,</span>
-<span class="p">]</span>
+<img alt="../../../_images/output_1_0.png" src="../../../_images/output_1_0.png" />
+<p><strong>Rendimientos:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular los rendimientos (diferencias en los precios)</span>
+<span class="n">returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">data_precio</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">])</span>
 
-<span class="c1"># Descargar datos históricos para cada ticker</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
-    <span class="n">data</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2023-06-30&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2024-07-01&quot;</span><span class="p">)</span>
+<span class="c1"># Escalar los rendimientos</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">returns_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">returns</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
-<span class="c1"># Crear un DataFrame que contenga los precios de cierre de todas las acciones</span>
-<span class="n">closing_prices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">ticker</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="n">ticker</span><span class="p">][</span><span class="s2">&quot;Close&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">})</span>
-
-<span class="c1"># Graficar los precios de cierre</span>
+<span class="c1"># Visualizar los rendimientos</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">closing_prices</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">closing_prices</span><span class="p">[</span><span class="n">ticker</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">ticker</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precio de Cierre&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Evolución de los Precios de Cierre de las Acciones&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">returns</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rendimientos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Rendimientos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Rendimientos&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<pre class="literal-block">[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed
-[<strong>*******************100%*********************</strong>]  1 of 1 completed</pre>
-<img alt="../../../_images/output_2_1.png" src="../../../_images/output_2_1.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular características (media y desviación estándar del retorno diario)</span>
-<span class="n">features</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">ticker</span><span class="p">]</span>
-    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Rendimiento diario&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Adj Close&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-    <span class="n">mean_return</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Rendimiento diario&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">std_return</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Rendimiento diario&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-    <span class="n">features</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ticker</span><span class="p">,</span> <span class="n">mean_return</span><span class="p">,</span> <span class="n">std_return</span><span class="p">])</span>
+<img alt="../../../_images/output_3_01.png" src="../../../_images/output_3_01.png" />
+<p><strong>Ajuste modelo DBSCAN:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aplicar DBSCAN para identificar saltos</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">db_labels</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">returns_scaled</span><span class="p">)</span>
+<span class="c1"># Identificar los índices de los saltos</span>
+<span class="n">jump_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">db_labels</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="c1"># Crear un DataFrame con las características</span>
-<span class="n">features_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">features</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Ticker&quot;</span><span class="p">,</span> <span class="s2">&quot;Media rendimientos&quot;</span><span class="p">,</span> <span class="s2">&quot;Desviación estándar&quot;</span><span class="p">]</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">features_df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de saltos identificados:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">jump_points</span><span class="p">))</span>
 
-<span class="c1"># Graficar los datos</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Visualizar los precios y los saltos identificados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_precio</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precios&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-    <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">],</span> <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span>
+    <span class="n">jump_points</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">data_precio</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">][</span>
+        <span class="n">jump_points</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="p">],</span>  <span class="c1"># +1 para compensar la diferencia de rendimientos</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Saltos&quot;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-
-<span class="c1"># Añadir etiquetas a cada punto</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">features_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Ticker&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-    <span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;esvación estándar&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Media rendimientos vs. Desviación estándar&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">Ticker</span>  <span class="n">Media</span> <span class="n">rendimientos</span>  <span class="n">Desviación</span> <span class="n">estándar</span>
-<span class="mi">0</span>    <span class="n">AAPL</span>            <span class="mf">0.000445</span>             <span class="mf">0.013786</span>
-<span class="mi">1</span>    <span class="n">MSFT</span>            <span class="mf">0.001200</span>             <span class="mf">0.012674</span>
-<span class="mi">2</span>   <span class="n">GOOGL</span>            <span class="mf">0.001838</span>             <span class="mf">0.017509</span>
-<span class="mi">3</span>    <span class="n">META</span>            <span class="mf">0.002511</span>             <span class="mf">0.022573</span>
-<span class="mi">4</span>    <span class="n">AMZN</span>            <span class="mf">0.001728</span>             <span class="mf">0.017548</span>
-<span class="mi">5</span>    <span class="n">TSLA</span>           <span class="o">-</span><span class="mf">0.000623</span>             <span class="mf">0.031697</span>
-<span class="mi">6</span>    <span class="n">NVDA</span>            <span class="mf">0.004694</span>             <span class="mf">0.028430</span>
-<span class="mi">7</span>     <span class="n">AMD</span>            <span class="mf">0.001815</span>             <span class="mf">0.028429</span>
-<span class="mi">8</span>    <span class="n">NFLX</span>            <span class="mf">0.001942</span>             <span class="mf">0.021858</span>
-<span class="mi">9</span>     <span class="n">WMT</span>            <span class="mf">0.001140</span>             <span class="mf">0.010716</span>
-<span class="mi">10</span>   <span class="n">COST</span>            <span class="mf">0.002010</span>             <span class="mf">0.011295</span>
-<span class="mi">11</span>     <span class="n">KO</span>            <span class="mf">0.000381</span>             <span class="mf">0.008206</span>
-<span class="mi">12</span>    <span class="n">PEP</span>           <span class="o">-</span><span class="mf">0.000288</span>             <span class="mf">0.010535</span>
-<span class="mi">13</span>    <span class="n">JPM</span>            <span class="mf">0.001482</span>             <span class="mf">0.010693</span>
-<span class="mi">14</span>      <span class="n">V</span>            <span class="mf">0.000468</span>             <span class="mf">0.008557</span>
-<span class="mi">15</span>    <span class="n">BAC</span>            <span class="mf">0.001532</span>             <span class="mf">0.014706</span>
-<span class="mi">16</span>    <span class="n">XOM</span>            <span class="mf">0.000507</span>             <span class="mf">0.013064</span>
-<span class="mi">17</span>    <span class="n">CVX</span>            <span class="mf">0.000221</span>             <span class="mf">0.012696</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_3_16.png" src="../../../_images/output_3_16.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">features_df</span><span class="p">[[</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">,</span> <span class="s2">&quot;Desviación estándar&quot;</span><span class="p">]]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Media</span> <span class="n">rendimientos</span>  <span class="n">Desviación</span> <span class="n">estándar</span>
-<span class="mi">0</span>             <span class="mf">0.000445</span>             <span class="mf">0.013786</span>
-<span class="mi">1</span>             <span class="mf">0.001200</span>             <span class="mf">0.012674</span>
-<span class="mi">2</span>             <span class="mf">0.001838</span>             <span class="mf">0.017509</span>
-<span class="mi">3</span>             <span class="mf">0.002511</span>             <span class="mf">0.022573</span>
-<span class="mi">4</span>             <span class="mf">0.001728</span>             <span class="mf">0.017548</span>
-<span class="mi">5</span>            <span class="o">-</span><span class="mf">0.000623</span>             <span class="mf">0.031697</span>
-<span class="mi">6</span>             <span class="mf">0.004694</span>             <span class="mf">0.028430</span>
-<span class="mi">7</span>             <span class="mf">0.001815</span>             <span class="mf">0.028429</span>
-<span class="mi">8</span>             <span class="mf">0.001942</span>             <span class="mf">0.021858</span>
-<span class="mi">9</span>             <span class="mf">0.001140</span>             <span class="mf">0.010716</span>
-<span class="mi">10</span>            <span class="mf">0.002010</span>             <span class="mf">0.011295</span>
-<span class="mi">11</span>            <span class="mf">0.000381</span>             <span class="mf">0.008206</span>
-<span class="mi">12</span>           <span class="o">-</span><span class="mf">0.000288</span>             <span class="mf">0.010535</span>
-<span class="mi">13</span>            <span class="mf">0.001482</span>             <span class="mf">0.010693</span>
-<span class="mi">14</span>            <span class="mf">0.000468</span>             <span class="mf">0.008557</span>
-<span class="mi">15</span>            <span class="mf">0.001532</span>             <span class="mf">0.014706</span>
-<span class="mi">16</span>            <span class="mf">0.000507</span>             <span class="mf">0.013064</span>
-<span class="mi">17</span>            <span class="mf">0.000221</span>             <span class="mf">0.012696</span>
-</pre></div>
-</div>
-<section id="ajuste-cluster-k-means">
-<h2>Ajuste Cluster K-Means:<a class="headerlink" href="#ajuste-cluster-k-means" title="Permalink to this heading">#</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wcss</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">silhouette_scores</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">K</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
-    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">)</span>
-    <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="n">wcss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
-    <span class="n">score</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
-    <span class="n">silhouette_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
-
-<span class="c1"># Visualizar los resultados del método del codo y de la silueta</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">wcss</span><span class="p">,</span> <span class="s2">&quot;bo-&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de clústeres (K)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;WCSS&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Método del Codo&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">silhouette_scores</span><span class="p">,</span> <span class="s2">&quot;bo-&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de clústeres (K)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Puntuación de la Silueta&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Método de la Silueta&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_6_0.png" src="../../../_images/output_6_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
-
-<span class="c1"># Ajustar K-Means con el número óptimo de clústeres</span>
-<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">)</span>
-<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
-
-<span class="c1"># Agregar los clusters al DataFrame</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de acciones por cluster:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cantidad</span> <span class="n">de</span> <span class="n">acciones</span> <span class="n">por</span> <span class="n">cluster</span><span class="p">:</span>
- <span class="mi">0</span>    <span class="mi">5</span>
-<span class="mi">1</span>    <span class="mi">3</span>
-<span class="mi">2</span>    <span class="mi">4</span>
-<span class="mi">3</span>    <span class="mi">6</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar colores dinámicamente</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
-
-<span class="c1"># Graficar los datos</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-    <span class="n">clustered</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-        <span class="n">clustered</span><span class="p">[</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">],</span>
-        <span class="n">clustered</span><span class="p">[</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">],</span>
-        <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">cluster</span><span class="p">],</span>
-        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cluster </span><span class="si">{</span><span class="n">cluster</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
-
-<span class="c1"># Añadir etiquetas a cada punto</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">features_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Ticker&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-    <span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Media rendimientos vs. Desviación estándar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precios&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Identificación de Saltos en los Precios usando DBSCAN&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_8_02.png" src="../../../_images/output_8_02.png" />
-</section>
-<section id="ajuste-cluster-jerarquico">
-<h2>Ajuste Cluster jerárquico:<a class="headerlink" href="#ajuste-cluster-jerarquico" title="Permalink to this heading">#</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Métodos de vinculación a probar</span>
-<span class="n">linkage_methods</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;single&quot;</span><span class="p">,</span> <span class="s2">&quot;complete&quot;</span><span class="p">,</span> <span class="s2">&quot;average&quot;</span><span class="p">,</span> <span class="s2">&quot;ward&quot;</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">linkage_methods</span><span class="p">:</span>
-    <span class="c1"># Crear la matriz de enlaces</span>
-    <span class="n">Z</span> <span class="o">=</span> <span class="n">linkage</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
-
-    <span class="c1"># Calcular la correlación coefénica</span>
-    <span class="n">c</span><span class="p">,</span> <span class="n">coph_dists</span> <span class="o">=</span> <span class="n">cophenet</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">pdist</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Método de vinculación: </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">, Correlación cofenética: </span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Plot del dendrograma</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dendrograma (</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
-    <span class="n">dendrogram</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cantidad</span> <span class="n">de</span> <span class="n">saltos</span> <span class="n">identificados</span><span class="p">:</span> <span class="mi">6</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Método</span> <span class="n">de</span> <span class="n">vinculación</span><span class="p">:</span> <span class="n">single</span><span class="p">,</span> <span class="n">Correlación</span> <span class="n">cofenética</span><span class="p">:</span> <span class="mf">0.7292</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_10_13.png" src="../../../_images/output_10_13.png" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Método</span> <span class="n">de</span> <span class="n">vinculación</span><span class="p">:</span> <span class="n">complete</span><span class="p">,</span> <span class="n">Correlación</span> <span class="n">cofenética</span><span class="p">:</span> <span class="mf">0.7838</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_10_3.png" src="../../../_images/output_10_3.png" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Método</span> <span class="n">de</span> <span class="n">vinculación</span><span class="p">:</span> <span class="n">average</span><span class="p">,</span> <span class="n">Correlación</span> <span class="n">cofenética</span><span class="p">:</span> <span class="mf">0.8282</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_10_5.png" src="../../../_images/output_10_5.png" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Método</span> <span class="n">de</span> <span class="n">vinculación</span><span class="p">:</span> <span class="n">ward</span><span class="p">,</span> <span class="n">Correlación</span> <span class="n">cofenética</span><span class="p">:</span> <span class="mf">0.8245</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_10_7.png" src="../../../_images/output_10_7.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_n_clusters</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
-<span class="n">silhouette_avg_values</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">n_clusters</span> <span class="ow">in</span> <span class="n">range_n_clusters</span><span class="p">:</span>
-    <span class="c1"># Agrupar los datos con AgglomerativeClustering</span>
-    <span class="n">clusterer</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;average&quot;</span><span class="p">)</span>
-    <span class="n">cluster_labels</span> <span class="o">=</span> <span class="n">clusterer</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-    <span class="c1"># Calcular el silhouette score medio</span>
-    <span class="n">silhouette_avg</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cluster_labels</span><span class="p">)</span>
-    <span class="n">silhouette_avg_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">silhouette_avg</span><span class="p">)</span>
-
-<span class="c1"># Graficar el silhouette score para cada número de clusters</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">range_n_clusters</span><span class="p">,</span> <span class="n">silhouette_avg_values</span><span class="p">,</span> <span class="s2">&quot;bo-&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de clusters&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Silhouette Score promedio&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Silhouette Score para diferentes números de clusters&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_11_02.png" src="../../../_images/output_11_02.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignar clusters</span>
-<span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># Definir el número de clusters</span>
-<span class="n">metodo</span> <span class="o">=</span> <span class="s2">&quot;average&quot;</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="n">metodo</span><span class="p">)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="c1"># Agregar los clusters al DataFrame</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de acciones por cluster:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cantidad</span> <span class="n">de</span> <span class="n">acciones</span> <span class="n">por</span> <span class="n">cluster</span><span class="p">:</span>
- <span class="mi">0</span>    <span class="mi">3</span>
-<span class="mi">1</span>    <span class="mi">4</span>
-<span class="mi">2</span>    <span class="mi">6</span>
-<span class="mi">3</span>    <span class="mi">5</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar colores dinámicamente</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
-
-<span class="c1"># Graficar los datos</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-    <span class="n">clustered</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-        <span class="n">clustered</span><span class="p">[</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">],</span>
-        <span class="n">clustered</span><span class="p">[</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">],</span>
-        <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">cluster</span><span class="p">],</span>
-        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cluster </span><span class="si">{</span><span class="n">cluster</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
-
-<span class="c1"># Añadir etiquetas a cada punto</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">features_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Ticker&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-    <span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Media rendimientos vs. Desviación estándar&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_13_01.png" src="../../../_images/output_13_01.png" />
-</section>
-<section id="ajuste-cluster-dbscan">
-<h2>Ajuste Cluster DBSCAN:<a class="headerlink" href="#ajuste-cluster-dbscan" title="Permalink to this heading">#</a></h2>
+<img alt="../../../_images/output_5_1.png" src="../../../_images/output_5_1.png" />
+<section id="determinar-los-valores-de-eps-y-min-samples">
+<h2>Determinar los valores de <code class="docutils literal notranslate"><span class="pre">eps</span></code> y <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>:<a class="headerlink" href="#determinar-los-valores-de-eps-y-min-samples" title="Permalink to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir los valores de eps y min_samples para evaluar</span>
 <span class="n">eps_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="n">min_samples_values</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -949,10 +672,10 @@ document.write(`
 <span class="k">for</span> <span class="n">eps</span> <span class="ow">in</span> <span class="n">eps_values</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">min_samples</span> <span class="ow">in</span> <span class="n">min_samples_values</span><span class="p">:</span>
         <span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="n">min_samples</span><span class="p">)</span>
-        <span class="n">dbscan_labels</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="n">dbscan_labels</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">returns_scaled</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">dbscan_labels</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Asegurarse de que hay más de un cluster</span>
-            <span class="n">silhouette_avg</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dbscan_labels</span><span class="p">)</span>
+            <span class="n">silhouette_avg</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">returns_scaled</span><span class="p">,</span> <span class="n">dbscan_labels</span><span class="p">)</span>
             <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="p">,</span> <span class="n">silhouette_avg</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
@@ -963,87 +686,58 @@ document.write(`
 <span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span> <span class="s2">&quot;min_samples&quot;</span><span class="p">,</span> <span class="s2">&quot;silhouette_score&quot;</span><span class="p">])</span>
 
 <span class="c1"># Visualizar los resultados en un heatmap</span>
-<span class="n">pivot_table</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span> <span class="s2">&quot;min_samples&quot;</span><span class="p">,</span> <span class="s2">&quot;silhouette_score&quot;</span><span class="p">)</span>
+<span class="n">pivot_table</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;eps&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;min_samples&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;silhouette_score&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">pivot_table</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.4f&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Puntuación de Silueta para diferentes combinaciones de eps y min_samples&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_15_02.png" src="../../../_images/output_15_02.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eps</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">min_samples</span> <span class="o">=</span> <span class="mi">3</span>
+<img alt="../../../_images/output_7_01.png" src="../../../_images/output_7_01.png" />
+</section>
+<section id="ajuste-del-mejor-modelo">
+<h2>Ajuste del mejor modelo:<a class="headerlink" href="#ajuste-del-mejor-modelo" title="Permalink to this heading">#</a></h2>
+<p><strong>Nota:</strong></p>
+<p>El objetivo es identificar los datos atípicos y no los clusters. Por lo
+tanto, se busca que el modelo no agrupe la totalidad de los datos, sino
+que deje algunos sin agrupar. Es decir, se seleccionan los peores
+ajustes porque contendrán la mayor cantidad de datos atípicos.</p>
+<p>Se seleccionan los modelos con los peores valores de la puntuación de la
+Silueta.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eps</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">min_samples</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="c1"># Aplicar DBSCAN</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="n">min_samples</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">labels_</span>
+<span class="c1"># Aplicar DBSCAN para identificar saltos</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="n">min_samples</span><span class="p">)</span>
+<span class="n">db_labels</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">returns_scaled</span><span class="p">)</span>
+<span class="c1"># Identificar los índices de los saltos</span>
+<span class="n">jump_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">db_labels</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de saltos identificados:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">jump_points</span><span class="p">))</span>
 
-<span class="c1"># Número de clusters en las etiquetas, ignorando el ruido si está presente.</span>
-<span class="n">n_clusters_</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">labels</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Tener en cuenta que el cluster -1 es el ruido.</span>
-<span class="n">n_noise_</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de clusters: </span><span class="si">{</span><span class="n">n_clusters_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Número de puntos de ruido: </span><span class="si">{</span><span class="n">n_noise_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-
-<span class="n">labels</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-
-<span class="c1"># Agregar los clusters al DataFrame</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
-
-<span class="c1"># Calcular el índice de silueta</span>
-<span class="n">silhouette_scores</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Puntuación de Silueta: </span><span class="si">{</span><span class="n">silhouette_scores</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de acciones por cluster:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
-<span class="n">Número</span> <span class="n">de</span> <span class="n">clusters</span><span class="p">:</span> <span class="mi">4</span>
-<span class="n">Número</span> <span class="n">de</span> <span class="n">puntos</span> <span class="n">de</span> <span class="n">ruido</span><span class="p">:</span> <span class="mi">0</span>
-<span class="n">Puntuación</span> <span class="n">de</span> <span class="n">Silueta</span><span class="p">:</span> <span class="mf">0.9975</span>
-<span class="n">Cantidad</span> <span class="n">de</span> <span class="n">acciones</span> <span class="n">por</span> <span class="n">cluster</span><span class="p">:</span>
- <span class="mi">0</span>    <span class="mi">5</span>
-<span class="mi">1</span>    <span class="mi">4</span>
-<span class="mi">2</span>    <span class="mi">3</span>
-<span class="mi">3</span>    <span class="mi">6</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar colores dinámicamente</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
-
-<span class="c1"># Graficar los datos</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-    <span class="n">clustered</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cluster</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-        <span class="n">clustered</span><span class="p">[</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">],</span>
-        <span class="n">clustered</span><span class="p">[</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">],</span>
-        <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">cluster</span><span class="p">],</span>
-        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cluster </span><span class="si">{</span><span class="n">cluster</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
-
-<span class="c1"># Añadir etiquetas a cada punto</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">features_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-        <span class="n">features_df</span><span class="p">[</span><span class="s2">&quot;Ticker&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span>
-    <span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Media rendimientos&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Desviación estándar&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Media rendimientos vs. Desviación estándar&quot;</span><span class="p">)</span>
+<span class="c1"># Visualizar los precios y los saltos identificados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_precio</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precios&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">jump_points</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">data_precio</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">][</span>
+        <span class="n">jump_points</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="p">],</span>  <span class="c1"># +1 para compensar la diferencia de rendimientos</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Saltos&quot;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precios&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Identificación de Saltos en los Precios usando DBSCAN&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_17_01.png" src="../../../_images/output_17_01.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cantidad</span> <span class="n">de</span> <span class="n">saltos</span> <span class="n">identificados</span><span class="p">:</span> <span class="mi">26</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_10_13.png" src="../../../_images/output_10_13.png" />
 </section>
 </section>
 
@@ -1059,20 +753,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html"
+       href="../EDBSCANprecios/Ejemplo%20DBSCAN%20para%20precios.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Ejercicio Clustering Estados Financieros</p>
+        <p class="prev-next-title">Ejemplo DBSCAN para precios</p>
       </div>
     </a>
     <a class="right-next"
-       href="../TallerDatosFicticios/Taller%20Clustering%20datos%20ficticios.html"
+       href="../EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Taller Clustering datos ficticios</p>
+        <p class="prev-next-title">Ejercicio Clustering Estados Financieros</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1091,9 +785,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-cluster-k-means">Ajuste Cluster K-Means:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-cluster-jerarquico">Ajuste Cluster jerárquico:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-cluster-dbscan">Ajuste Cluster DBSCAN:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determinar-los-valores-de-eps-y-min-samples">Determinar los valores de <code class="docutils literal notranslate"><span class="pre">eps</span></code> y <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-del-mejor-modelo">Ajuste del mejor modelo:</a></li>
 </ul>
   </nav></div>
 

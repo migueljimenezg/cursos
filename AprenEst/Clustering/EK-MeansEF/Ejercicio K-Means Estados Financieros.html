@@ -162,8 +162,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCAN/Ejemplo%20DBSCAN.html">Ejemplo DBSCAN</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCANEF/Ejemplo%20clustering%20DBSCAN%20Estados%20Financieros.html">Ejemplo clustering DBSCAN Estados Financieros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCANprecios/Ejemplo%20DBSCAN%20para%20precios.html">Ejemplo DBSCAN para precios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html">Ejemplo DBSCAN precio electricidad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html">Ejercicio Clustering Estados Financieros</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../EjercicioClusterAcciones/Ejemplo%20Clustering%20acciones.html">Ejercicio Clustering acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjercicioClusterAcciones/Ejercicio%20Clustering%20acciones.html">Ejercicio Clustering acciones</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerDatosFicticios/Taller%20Clustering%20datos%20ficticios.html">Taller Clustering datos ficticios</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerS%26P500/Taller%20Clustering%20acciones%20S%26P%20500.html">Taller Clustering acciones S&amp;P 500</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerEF/Taller%20Clustering%20Estados%20Financieros.html">Taller Clustering Estados Financieros</a></li>
@@ -587,12 +588,8 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 <span class="c1"># Cargar los datos</span>
-<span class="n">data_pymes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
-    <span class="s2">&quot;../210030_Estado de situación financiera, corriente_no corriente_PYMES.xlsx&quot;</span>
-<span class="p">)</span>
-<span class="n">data_grandes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
-    <span class="s2">&quot;../210030_Estado de situación financiera, corriente_no corriente.xlsx&quot;</span>
-<span class="p">)</span>
+<span class="n">data_pymes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;../210030_Estado de situación financiera, corriente_no corriente_PYMES.xlsx&quot;</span><span class="p">)</span>
+<span class="n">data_grandes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;../210030_Estado de situación financiera, corriente_no corriente.xlsx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Cantidad de empresas por industria:</strong></p>
@@ -634,26 +631,15 @@ document.write(`
 <h2>G4631 - Comercio al por mayor de productos alimenticios:<a class="headerlink" href="#g4631-comercio-al-por-mayor-de-productos-alimenticios" title="Permalink to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Función para filtrar, calcular indicadores y eliminar outliers</span>
 <span class="k">def</span> <span class="nf">filtrar_y_calcular</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ciiu</span><span class="p">):</span>
-    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span>
-        <span class="p">(</span>
-            <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Clasificación Industrial Internacional Uniforme Versión 4 A.C (CIIU)&quot;</span><span class="p">]</span>
-            <span class="o">==</span> <span class="n">ciiu</span>
-        <span class="p">)</span>
-        <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Periodo&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Periodo Actual&quot;</span><span class="p">)</span>
-    <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Clasificación Industrial Internacional Uniforme Versión 4 A.C (CIIU)&quot;</span><span class="p">]</span>
+            <span class="o">==</span> <span class="n">ciiu</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Periodo&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Periodo Actual&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="c1"># Calcular los indicadores de liquidez y endeudamiento utilizando los nombres exactos de las columnas</span>
-    <span class="n">filtered_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Liquidez&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;Activos corrientes totales (CurrentAssets)&quot;</span><span class="p">]</span>
-        <span class="o">/</span> <span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;Pasivos corrientes totales (CurrentLiabilities)&quot;</span><span class="p">]</span>
-    <span class="p">)</span>
-    <span class="n">filtered_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Endeudamiento&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;Total pasivos (Liabilities)&quot;</span><span class="p">]</span>
-        <span class="o">/</span> <span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;Total de activos (Assets)&quot;</span><span class="p">]</span>
-    <span class="p">)</span>
-    <span class="n">filtered_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;UtilidadesAcumuladas&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span>
-        <span class="s2">&quot;Ganancias acumuladas (RetainedEarnings)&quot;</span>
-    <span class="p">]</span>
+    <span class="n">filtered_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Liquidez&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;Activos corrientes totales (CurrentAssets)&quot;</span><span class="p">]</span>
+        <span class="o">/</span> <span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;Pasivos corrientes totales (CurrentLiabilities)&quot;</span><span class="p">])</span>
+    <span class="n">filtered_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;Endeudamiento&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;Total pasivos (Liabilities)&quot;</span><span class="p">]</span>
+        <span class="o">/</span> <span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;Total de activos (Assets)&quot;</span><span class="p">])</span>
+    <span class="n">filtered_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;UtilidadesAcumuladas&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="s2">&quot;Ganancias acumuladas (RetainedEarnings)&quot;</span><span class="p">]</span>
 
     <span class="n">filtered_data</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -661,14 +647,13 @@ document.write(`
     <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="c1"># Identificar y eliminar valores atípicos usando el IQR</span>
-    <span class="n">Q1</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
-    <span class="n">Q3</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">numeric_cols</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">Q1</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+    <span class="n">Q3</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
     <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
     <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
     <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
-    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span>
-        <span class="o">~</span><span class="p">((</span><span class="n">filtered_data</span> <span class="o">&lt;</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">filtered_data</span> <span class="o">&gt;</span> <span class="n">upper_bound</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="p">]</span>
+    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">filtered_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">filtered_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">upper_bound</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
 
     <span class="k">return</span> <span class="n">filtered_data</span>
 
@@ -746,7 +731,7 @@ document.write(`
 <span class="n">Cantidad</span> <span class="n">empresas</span> <span class="n">pymes</span><span class="p">:</span>  <span class="mi">282</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_5_1.png" src="../../../_images/output_5_1.png" />
+<img alt="../../../_images/output_5_11.png" src="../../../_images/output_5_11.png" />
 <img alt="../../../_images/output_5_2.png" src="../../../_images/output_5_2.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">Liquidez</span>  <span class="n">Endeudamiento</span>  <span class="n">UtilidadesAcumuladas</span>  <span class="n">Tipo</span>
 <span class="mi">0</span>  <span class="mf">1.236270</span>       <span class="mf">0.833611</span>              <span class="mf">554338.0</span>  <span class="n">Pyme</span>
@@ -793,7 +778,7 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_7_01.png" src="../../../_images/output_7_01.png" />
+<img alt="../../../_images/output_7_02.png" src="../../../_images/output_7_02.png" />
 <p><strong>Ajuste del modelo K = 5</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>
 

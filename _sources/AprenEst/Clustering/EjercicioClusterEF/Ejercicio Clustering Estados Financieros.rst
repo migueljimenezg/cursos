@@ -137,12 +137,14 @@ Ejercicio Clustering Estados Financieros
             filtered_data = filtered_data[variables].replace([np.inf, -np.inf], np.nan, inplace=False).dropna().copy()
     
         # Identificar y eliminar valores atípicos usando el IQR
-        Q1 = filtered_data.quantile(0.25)
-        Q3 = filtered_data.quantile(0.75)
+        numeric_cols = filtered_data.select_dtypes(include=[np.number]).columns
+        Q1 = filtered_data[numeric_cols].quantile(0.25)
+        Q3 = filtered_data[numeric_cols].quantile(0.75)
         IQR = Q3 - Q1
         lower_bound = Q1 - 1.5 * IQR
         upper_bound = Q3 + 1.5 * IQR
-        filtered_data = filtered_data[~((filtered_data < lower_bound) | (filtered_data > upper_bound)).any(axis=1)]
+        filtered_data = filtered_data[~((filtered_data[numeric_cols] < lower_bound) | (filtered_data[numeric_cols] > upper_bound)).any(axis=1)]
+    
                 
         return filtered_data
     
@@ -188,18 +190,6 @@ Ejercicio Clustering Estados Financieros
     2             1327480.0     0.020362  Pyme  
     3             1211767.0     0.010259  Pyme  
     4              -51975.0    -0.015125  Pyme  
-    
-
-.. parsed-literal::
-
-    C:\Users\migue\AppData\Local\Temp\ipykernel_23644\1539605065.py:46: FutureWarning: Automatic reindexing on DataFrame vs Series comparisons is deprecated and will raise ValueError in a future version. Do `left, right = left.align(right, axis=1, copy=False)` before e.g. `left == right`
-      filtered_data = filtered_data[~((filtered_data < lower_bound) | (filtered_data > upper_bound)).any(axis=1)]
-    C:\Users\migue\AppData\Local\Temp\ipykernel_23644\1539605065.py:46: FutureWarning: Automatic reindexing on DataFrame vs Series comparisons is deprecated and will raise ValueError in a future version. Do `left, right = left.align(right, axis=1, copy=False)` before e.g. `left == right`
-      filtered_data = filtered_data[~((filtered_data < lower_bound) | (filtered_data > upper_bound)).any(axis=1)]
-    C:\Users\migue\AppData\Local\Temp\ipykernel_23644\1539605065.py:46: FutureWarning: Automatic reindexing on DataFrame vs Series comparisons is deprecated and will raise ValueError in a future version. Do `left, right = left.align(right, axis=1, copy=False)` before e.g. `left == right`
-      filtered_data = filtered_data[~((filtered_data < lower_bound) | (filtered_data > upper_bound)).any(axis=1)]
-    C:\Users\migue\AppData\Local\Temp\ipykernel_23644\1539605065.py:46: FutureWarning: Automatic reindexing on DataFrame vs Series comparisons is deprecated and will raise ValueError in a future version. Do `left, right = left.align(right, axis=1, copy=False)` before e.g. `left == right`
-      filtered_data = filtered_data[~((filtered_data < lower_bound) | (filtered_data > upper_bound)).any(axis=1)]
     
 
 .. code:: ipython3
@@ -586,7 +576,7 @@ Optimizar los siguientes hiperparámetros:
     results_df = pd.DataFrame(results, columns=["eps", "min_samples", "silhouette_score"])
     
     # Visualizar los resultados en un heatmap
-    pivot_table = results_df.pivot("eps", "min_samples", "silhouette_score")
+    pivot_table = results_df.pivot(index='eps', columns='min_samples', values='silhouette_score')
     plt.figure(figsize=(10, 7))
     sns.heatmap(pivot_table, annot=True, fmt=".4f", cmap="viridis")
     plt.title("Puntuación de Silueta para diferentes combinaciones de eps y min_samples")

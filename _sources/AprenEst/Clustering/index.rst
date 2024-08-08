@@ -51,6 +51,7 @@ DBSCAN
    EDBSCAN/Ejemplo DBSCAN
    EDBSCANEF/Ejemplo clustering DBSCAN Estados Financieros
    EDBSCANprecios/Ejemplo DBSCAN para precios
+   EDBSCANElectricidad/Ejemplo DBSCAN precio electricidad
 
 
 Ejercicios
@@ -61,7 +62,7 @@ Ejercicios
    :titlesonly:
 
    EjercicioClusterEF/Ejercicio Clustering Estados Financieros
-   EjercicioClusterAcciones/Ejemplo Clustering acciones
+   EjercicioClusterAcciones/Ejercicio Clustering acciones
 
 Talleres
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

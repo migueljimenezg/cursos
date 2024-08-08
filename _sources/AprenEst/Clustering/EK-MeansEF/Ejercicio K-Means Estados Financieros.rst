@@ -12,12 +12,8 @@ Ejercicio K-Means Estados Financieros
     import seaborn as sns
     
     # Cargar los datos
-    data_pymes = pd.read_excel(
-        "../210030_Estado de situación financiera, corriente_no corriente_PYMES.xlsx"
-    )
-    data_grandes = pd.read_excel(
-        "../210030_Estado de situación financiera, corriente_no corriente.xlsx"
-    )
+    data_pymes = pd.read_excel("../210030_Estado de situación financiera, corriente_no corriente_PYMES.xlsx")
+    data_grandes = pd.read_excel("../210030_Estado de situación financiera, corriente_no corriente.xlsx")
 
 **Cantidad de empresas por industria:**
 
@@ -66,26 +62,15 @@ G4631 - Comercio al por mayor de productos alimenticios:
 
     # Función para filtrar, calcular indicadores y eliminar outliers
     def filtrar_y_calcular(data, ciiu):
-        filtered_data = data[
-            (
-                data["Clasificación Industrial Internacional Uniforme Versión 4 A.C (CIIU)"]
-                == ciiu
-            )
-            & (data["Periodo"] == "Periodo Actual")
-        ].copy()
+        filtered_data = data[(data["Clasificación Industrial Internacional Uniforme Versión 4 A.C (CIIU)"]
+                == ciiu) & (data["Periodo"] == "Periodo Actual")].copy()
     
         # Calcular los indicadores de liquidez y endeudamiento utilizando los nombres exactos de las columnas
-        filtered_data.loc[:, "Liquidez"] = (
-            filtered_data["Activos corrientes totales (CurrentAssets)"]
-            / filtered_data["Pasivos corrientes totales (CurrentLiabilities)"]
-        )
-        filtered_data.loc[:, "Endeudamiento"] = (
-            filtered_data["Total pasivos (Liabilities)"]
-            / filtered_data["Total de activos (Assets)"]
-        )
-        filtered_data.loc[:, "UtilidadesAcumuladas"] = filtered_data[
-            "Ganancias acumuladas (RetainedEarnings)"
-        ]
+        filtered_data.loc[:, "Liquidez"] = (filtered_data["Activos corrientes totales (CurrentAssets)"]
+            / filtered_data["Pasivos corrientes totales (CurrentLiabilities)"])
+        filtered_data.loc[:, "Endeudamiento"] = (filtered_data["Total pasivos (Liabilities)"]
+            / filtered_data["Total de activos (Assets)"])
+        filtered_data.loc[:, "UtilidadesAcumuladas"] = filtered_data["Ganancias acumuladas (RetainedEarnings)"]
     
         filtered_data.replace([np.inf, -np.inf], np.nan, inplace=True)
     
@@ -93,14 +78,13 @@ G4631 - Comercio al por mayor de productos alimenticios:
         filtered_data = filtered_data[variables].dropna().copy()
     
         # Identificar y eliminar valores atípicos usando el IQR
-        Q1 = filtered_data.quantile(0.25)
-        Q3 = filtered_data.quantile(0.75)
+        numeric_cols = filtered_data.select_dtypes(include=[np.number]).columns
+        Q1 = filtered_data[numeric_cols].quantile(0.25)
+        Q3 = filtered_data[numeric_cols].quantile(0.75)
         IQR = Q3 - Q1
         lower_bound = Q1 - 1.5 * IQR
         upper_bound = Q3 + 1.5 * IQR
-        filtered_data = filtered_data[
-            ~((filtered_data < lower_bound) | (filtered_data > upper_bound)).any(axis=1)
-        ]
+        filtered_data = filtered_data[~((filtered_data[numeric_cols] < lower_bound) | (filtered_data[numeric_cols] > upper_bound)).any(axis=1)]
     
         return filtered_data
     

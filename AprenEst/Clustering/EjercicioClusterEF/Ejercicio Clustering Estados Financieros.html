@@ -47,8 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Clustering/EjercicioClusterEF/Ejercicio Clustering Estados Financieros';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Ejercicio Clustering acciones" href="../EjercicioClusterAcciones/Ejemplo%20Clustering%20acciones.html" />
-    <link rel="prev" title="Ejemplo DBSCAN para precios" href="../EDBSCANprecios/Ejemplo%20DBSCAN%20para%20precios.html" />
+    <link rel="next" title="Ejercicio Clustering acciones" href="../EjercicioClusterAcciones/Ejercicio%20Clustering%20acciones.html" />
+    <link rel="prev" title="Ejemplo DBSCAN precio electricidad" href="../EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -162,8 +162,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCAN/Ejemplo%20DBSCAN.html">Ejemplo DBSCAN</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCANEF/Ejemplo%20clustering%20DBSCAN%20Estados%20Financieros.html">Ejemplo clustering DBSCAN Estados Financieros</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCANprecios/Ejemplo%20DBSCAN%20para%20precios.html">Ejemplo DBSCAN para precios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html">Ejemplo DBSCAN precio electricidad</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Ejercicio Clustering Estados Financieros</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../EjercicioClusterAcciones/Ejemplo%20Clustering%20acciones.html">Ejercicio Clustering acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjercicioClusterAcciones/Ejercicio%20Clustering%20acciones.html">Ejercicio Clustering acciones</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerDatosFicticios/Taller%20Clustering%20datos%20ficticios.html">Taller Clustering datos ficticios</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerS%26P500/Taller%20Clustering%20acciones%20S%26P%20500.html">Taller Clustering acciones S&amp;P 500</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerEF/Taller%20Clustering%20Estados%20Financieros.html">Taller Clustering Estados Financieros</a></li>
@@ -699,12 +700,14 @@ document.write(`
         <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="n">variables</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
     <span class="c1"># Identificar y eliminar valores atípicos usando el IQR</span>
-    <span class="n">Q1</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
-    <span class="n">Q3</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">numeric_cols</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">Q1</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+    <span class="n">Q3</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
     <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
     <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
     <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">IQR</span>
-    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">filtered_data</span> <span class="o">&lt;</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">filtered_data</span> <span class="o">&gt;</span> <span class="n">upper_bound</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">filtered_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">filtered_data</span><span class="p">[</span><span class="n">numeric_cols</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">upper_bound</span><span class="p">))</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
 
     <span class="k">return</span> <span class="n">filtered_data</span>
 
@@ -747,14 +750,6 @@ Cantidad empresas pymes:  370
 2             1327480.0     0.020362  Pyme
 3             1211767.0     0.010259  Pyme
 4              -51975.0    -0.015125  Pyme</pre>
-<pre class="literal-block">C:UsersmigueAppDataLocalTempipykernel_236441539605065.py:46: FutureWarning: Automatic reindexing on DataFrame vs Series comparisons is deprecated and will raise ValueError in a future version. Do <cite>left, right = left.align(right, axis=1, copy=False)</cite> before e.g. <cite>left == right</cite>
-  filtered_data = filtered_data[~((filtered_data &lt; lower_bound) | (filtered_data &gt; upper_bound)).any(axis=1)]
-C:UsersmigueAppDataLocalTempipykernel_236441539605065.py:46: FutureWarning: Automatic reindexing on DataFrame vs Series comparisons is deprecated and will raise ValueError in a future version. Do <cite>left, right = left.align(right, axis=1, copy=False)</cite> before e.g. <cite>left == right</cite>
-  filtered_data = filtered_data[~((filtered_data &lt; lower_bound) | (filtered_data &gt; upper_bound)).any(axis=1)]
-C:UsersmigueAppDataLocalTempipykernel_236441539605065.py:46: FutureWarning: Automatic reindexing on DataFrame vs Series comparisons is deprecated and will raise ValueError in a future version. Do <cite>left, right = left.align(right, axis=1, copy=False)</cite> before e.g. <cite>left == right</cite>
-  filtered_data = filtered_data[~((filtered_data &lt; lower_bound) | (filtered_data &gt; upper_bound)).any(axis=1)]
-C:UsersmigueAppDataLocalTempipykernel_236441539605065.py:46: FutureWarning: Automatic reindexing on DataFrame vs Series comparisons is deprecated and will raise ValueError in a future version. Do <cite>left, right = left.align(right, axis=1, copy=False)</cite> before e.g. <cite>left == right</cite>
-  filtered_data = filtered_data[~((filtered_data &lt; lower_bound) | (filtered_data &gt; upper_bound)).any(axis=1)]</pre>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">combined_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
     <span class="p">:,</span> <span class="p">[</span><span class="s2">&quot;Liquidez&quot;</span><span class="p">,</span> <span class="s2">&quot;Endeudamiento&quot;</span><span class="p">,</span> <span class="s2">&quot;UtilidadesAcumuladas&quot;</span><span class="p">,</span> <span class="s2">&quot;Margen_EBIT&quot;</span><span class="p">]</span>
 <span class="p">]</span>
@@ -831,7 +826,7 @@ C:UsersmigueAppDataLocalTempipykernel_236441539605065.py:46: FutureWarning: Auto
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_7_02.png" src="../../../_images/output_7_02.png" />
+<img alt="../../../_images/output_7_03.png" src="../../../_images/output_7_03.png" />
 <section id="ajuste-cluster-k-means">
 <h2>Ajuste Cluster K-Means:<a class="headerlink" href="#ajuste-cluster-k-means" title="Permalink to this heading">#</a></h2>
 <p>Optimizar el hiperparámetro de <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code></p>
@@ -1054,7 +1049,7 @@ C:UsersmigueAppDataLocalTempipykernel_236441539605065.py:46: FutureWarning: Auto
 <span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span> <span class="s2">&quot;min_samples&quot;</span><span class="p">,</span> <span class="s2">&quot;silhouette_score&quot;</span><span class="p">])</span>
 
 <span class="c1"># Visualizar los resultados en un heatmap</span>
-<span class="n">pivot_table</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="s2">&quot;eps&quot;</span><span class="p">,</span> <span class="s2">&quot;min_samples&quot;</span><span class="p">,</span> <span class="s2">&quot;silhouette_score&quot;</span><span class="p">)</span>
+<span class="n">pivot_table</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;eps&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;min_samples&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;silhouette_score&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">pivot_table</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.4f&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Puntuación de Silueta para diferentes combinaciones de eps y min_samples&quot;</span><span class="p">)</span>
@@ -1189,16 +1184,16 @@ Acumuladas.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../EDBSCANprecios/Ejemplo%20DBSCAN%20para%20precios.html"
+       href="../EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Ejemplo DBSCAN para precios</p>
+        <p class="prev-next-title">Ejemplo DBSCAN precio electricidad</p>
       </div>
     </a>
     <a class="right-next"
-       href="../EjercicioClusterAcciones/Ejemplo%20Clustering%20acciones.html"
+       href="../EjercicioClusterAcciones/Ejercicio%20Clustering%20acciones.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>

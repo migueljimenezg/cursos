@@ -458,7 +458,7 @@ Ajuste Cluster DBSCAN:
     results_df = pd.DataFrame(results, columns=["eps", "min_samples", "silhouette_score"])
     
     # Visualizar los resultados en un heatmap
-    pivot_table = results_df.pivot("eps", "min_samples", "silhouette_score")
+    pivot_table = results_df.pivot(index='eps', columns='min_samples', values='silhouette_score')
     plt.figure(figsize=(10, 7))
     sns.heatmap(pivot_table, annot=True, fmt=".4f", cmap="viridis")
     plt.title("Puntuación de Silueta para diferentes combinaciones de eps y min_samples")
