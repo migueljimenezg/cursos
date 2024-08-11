@@ -10,6 +10,8 @@ Aprendizaje Estadístico
    Clustering/index
    ReDim/index
    Clasificación/index
+   Pipeline/index
+   Optimización de Hiperparámetros/index
 
 
 Bibliografía:
