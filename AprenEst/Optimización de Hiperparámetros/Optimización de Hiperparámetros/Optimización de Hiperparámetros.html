@@ -44,6 +44,7 @@
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=ff8fa330"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Optimización de Hiperparámetros/Optimización de Hiperparámetros/Optimización de Hiperparámetros';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -183,9 +184,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Clasificaci%C3%B3n/Clasificaci%C3%B3n.html">Clasificación</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/M%C3%A9tricas/M%C3%A9tricas%20clasificaci%C3%B3n.html">Métricas para Evaluación de Modelos de Clasificación</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Cross/Cross%20Validation.html">Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Teor%C3%ADaRL/Regresi%C3%B3n%20Log%C3%ADstica.html">Regresión Logística</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/EjemRegulaRL/Ejemplo%20regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Ejemplo regularización regresión logística</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
@@ -578,6 +582,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-clave">Conceptos clave:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-optimizacion-de-hiperparametros">Técnicas de Optimización de Hiperparámetros:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-error">Métricas de error:</a></li>
 </ul>
             </nav>
         </div>
@@ -668,6 +673,40 @@ Search para refinar la búsqueda en un espacio más pequeño.</p></li>
 enfoque simple es probar potencias consecutivas de 10 (o un número menor
 si deseas una búsqueda más detallada)</p>
 </section>
+<section id="metricas-de-error">
+<h2>Métricas de error:<a class="headerlink" href="#metricas-de-error" title="Permalink to this heading">#</a></h2>
+<p><strong>Problemas de clasificación:</strong></p>
+<p>Para problemas de clasificación, puedes utilizar las siguientes
+opciones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">accuracy:</span></code> Precisión (proporción de predicciones correctas).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">balanced_accuracy:</span></code> Precisión equilibrada, que ajusta el
+desequilibrio de clases.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f1:</span></code> Puntaje F1 (balance entre precisión y recall).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">precision:</span></code> Precisión de las predicciones.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recall:</span></code> Tasa de aciertos (recall).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">roc_auc:</span></code> Área bajo la curva ROC (ideal para problemas de
+clasificación binaria).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">average_precision:</span></code> Precisión promedio.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log_loss:</span></code> Logarithmic loss (debe minimizarse).</p></li>
+</ul>
+<p><strong>Problemas de regresión:</strong></p>
+<p>Para problemas de regresión, puedes utilizar las siguientes opciones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">neg_mean_absolute_error:</span></code> Error absoluto medio (MAE) negativo.
+Cuanto más cercano a 0, mejor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neg_mean_squared_error:</span></code> Error cuadrático medio (MSE) negativo.
+Cuanto más cercano a 0, mejor..</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neg_root_mean_squared_error:</span></code> Raíz cuadrada del error cuadrático
+medio (RMSE) negativo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">neg_median_absolute_error:</span></code> Error absoluto mediano negativo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r2:</span></code> Coeficiente de determinación (<span class="math notranslate nohighlight">\(R^2\)</span>). Cuanto más
+cercano a 1, mejor.</p></li>
+</ul>
+<p>Las métricas que comienzan con <code class="docutils literal notranslate"><span class="pre">neg_</span></code> son negativas porque
+scikit-learn siempre maximiza las métricas. Por lo tanto, las métricas
+de error (que deben minimizarse) se expresan en forma negativa.</p>
+</section>
 </section>
 
 
@@ -716,6 +755,7 @@ si deseas una búsqueda más detallada)</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptos-clave">Conceptos clave:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-optimizacion-de-hiperparametros">Técnicas de Optimización de Hiperparámetros:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-error">Métricas de error:</a></li>
 </ul>
   </nav></div>
 

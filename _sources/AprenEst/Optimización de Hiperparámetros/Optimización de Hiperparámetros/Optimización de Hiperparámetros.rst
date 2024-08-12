@@ -86,3 +86,51 @@ Técnicas de Optimización de Hiperparámetros:
 Cuando no tenemos idea de qué valor debería tener un hiperparámetro, un
 enfoque simple es probar potencias consecutivas de 10 (o un número menor
 si deseas una búsqueda más detallada)
+
+Métricas de error:
+~~~~~~~~~~~~~~~~~~
+
+**Problemas de clasificación:**
+
+Para problemas de clasificación, puedes utilizar las siguientes
+opciones:
+
+-  ``accuracy:`` Precisión (proporción de predicciones correctas).
+
+-  ``balanced_accuracy:`` Precisión equilibrada, que ajusta el
+   desequilibrio de clases.
+
+-  ``f1:`` Puntaje F1 (balance entre precisión y recall).
+
+-  ``precision:`` Precisión de las predicciones.
+
+-  ``recall:`` Tasa de aciertos (recall).
+
+-  ``roc_auc:`` Área bajo la curva ROC (ideal para problemas de
+   clasificación binaria).
+
+-  ``average_precision:`` Precisión promedio.
+
+-  ``log_loss:`` Logarithmic loss (debe minimizarse).
+
+**Problemas de regresión:**
+
+Para problemas de regresión, puedes utilizar las siguientes opciones:
+
+-  ``neg_mean_absolute_error:`` Error absoluto medio (MAE) negativo.
+   Cuanto más cercano a 0, mejor.
+
+-  ``neg_mean_squared_error:`` Error cuadrático medio (MSE) negativo.
+   Cuanto más cercano a 0, mejor..
+
+-  ``neg_root_mean_squared_error:`` Raíz cuadrada del error cuadrático
+   medio (RMSE) negativo.
+
+-  ``neg_median_absolute_error:`` Error absoluto mediano negativo.
+
+-  ``r2:`` Coeficiente de determinación (:math:`R^2`). Cuanto más
+   cercano a 1, mejor.
+
+Las métricas que comienzan con ``neg_`` son negativas porque
+scikit-learn siempre maximiza las métricas. Por lo tanto, las métricas
+de error (que deben minimizarse) se expresan en forma negativa.

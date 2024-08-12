@@ -42,9 +42,7 @@ Regresión logística riesgo de crédito
     y = credit_risk_data["Estado del Préstamo"]
     
     # 1. Dividir el conjunto de datos en entrenamiento y prueba
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=34
-    )
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=34)
 
 .. code:: ipython3
 

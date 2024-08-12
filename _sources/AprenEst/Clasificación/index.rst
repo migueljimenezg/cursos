@@ -14,6 +14,7 @@ Clasificación
    Clasificación/Clasificación
    Métricas/Métricas clasificación
    Cross/Cross Validation
+   Generalización/Generalización
 
 
 Regresión Logística:
@@ -26,6 +27,8 @@ Regresión Logística:
    TeoríaRL/Regresión Logística
    DatasetCrédito/Análisis dataset riesgo de crédito
    RLCrédito/Regresión logística riesgo de crédito
+   RegulaRL/Regularización regresión logística
+   EjemRegulaRL/Ejemplo regularización regresión logística
    DigitosMano/Clasificador de dígitos escritos a mano
 
 
