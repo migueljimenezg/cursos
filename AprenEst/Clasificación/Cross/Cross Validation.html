@@ -593,14 +593,14 @@ document.write(`
                   
   <section id="cross-validation">
 <h1>Cross Validation<a class="headerlink" href="#cross-validation" title="Permalink to this heading">#</a></h1>
+<p>¿Cómo seleccionamos los mejores puntos para el entrenamiento y los
+mejores puntos para las pruebas?</p>
 <figure class="align-default" id="id1">
 <img alt="Train-Test" src="../../../_images/Train-Test.jpg" />
 <figcaption>
 <p><span class="caption-text">Train-Test</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>¿Cómo seleccionamos los mejores puntos para el entrenamiento y los
-mejores puntos para las pruebas?</p>
 <p>Podemos usar la validación cruzada (Cross Validation) para determinar
 estos dos conjuntos de datos (train y test) manera imparcial.</p>
 <p>En lugar de preocuparnos demasiado por cuáles puntos específicos son
@@ -617,13 +617,6 @@ para ser utilizados en las pruebas.</p>
 que garantiza que cada grupo se utilice para testing. El número de
 iteraciones también se denomina Folds (pliegues), por lo que esto se
 llama validación cruzada de 3-Fold (3-Fold Cross Validation).</p>
-<p>Dado que cada iteración utiliza una combinación diferente de datos para
-training, cada una resulta en una línea ajustada ligeramente distinta.
-Esta variación en la línea ajustada, combinada con el uso de distintos
-datos para testing, produce errores de predicción diferentes en cada
-iteración. Podemos promediar estos errores para obtener una idea general
-del rendimiento del modelo con datos futuros, o bien compararlos con los
-errores generados por otro método en cada iteración.</p>
 <figure class="align-default" id="id2">
 <img alt="Cross-Validation" src="../../../_images/Cross_Validation.jpg" />
 <figcaption>
@@ -632,14 +625,9 @@ errores generados por otro método en cada iteración.</p>
 </figure>
 <section id="k-fold-cross-validation">
 <h2>K-Fold Cross Validation:<a class="headerlink" href="#k-fold-cross-validation" title="Permalink to this heading">#</a></h2>
-<p>Si se tienen 3 grupos de puntos de datos, se realizan 3 iteraciones, lo
-que garantiza que cada grupo se utilice para testing. El número de
-iteraciones también se denomina Folds (pliegues), por lo que esto se
-llama validación cruzada de 3-Fold (3-Fold Cross Validation).</p>
-<p>El remuestreo se realiza de manera que ningún par de conjutnos de test
-se superponga.</p>
-<p>K subconjuntos distintos de tamaño aproximadamente igual (Folds=).
-Seleccionados de manera aleatoria y sin reemplazo.</p>
+<p>K subconjuntos distintos de tamaño aproximadamente igual (<code class="docutils literal notranslate"><span class="pre">Folds=</span></code>).
+Seleccionados de manera aleatoria y sin reemplazo. El remuestreo se
+realiza de manera que ningún par de conjutnos de test se superponga.</p>
 <p>El entrenamiento se realiza con K-1 subconjuntos, y el subconjunto
 restante se utiliza para la validación, midiendo así el rendimiento.
 Este proceso se repite hasta que cada uno de los K subconjuntos haya
@@ -652,7 +640,8 @@ datos para testing, produce errores de predicción diferentes en cada
 iteración. Podemos promediar estos errores para obtener una idea general
 del rendimiento del modelo con datos futuros, o bien compararlos con los
 errores generados por otro método en cada iteración.</p>
-<p>Lo más común es usar <strong>10-Fold Cross Validation.</strong></p>
+<p>Lo más común es usar <strong>5-Folds Cross Validation</strong> o <strong>10-Folds Cross
+Validation</strong>.</p>
 <figure class="align-default" id="id3">
 <img alt="Folds" src="../../../_images/Folds.jpg" />
 <figcaption>

@@ -1,13 +1,13 @@
 Cross Validation
 ----------------
 
+¿Cómo seleccionamos los mejores puntos para el entrenamiento y los
+mejores puntos para las pruebas?
+
 .. figure:: Train-Test.jpg
    :alt: Train-Test
 
    Train-Test
-
-¿Cómo seleccionamos los mejores puntos para el entrenamiento y los
-mejores puntos para las pruebas?
 
 Podemos usar la validación cruzada (Cross Validation) para determinar
 estos dos conjuntos de datos (train y test) manera imparcial.
@@ -30,14 +30,6 @@ que garantiza que cada grupo se utilice para testing. El número de
 iteraciones también se denomina Folds (pliegues), por lo que esto se
 llama validación cruzada de 3-Fold (3-Fold Cross Validation).
 
-Dado que cada iteración utiliza una combinación diferente de datos para
-training, cada una resulta en una línea ajustada ligeramente distinta.
-Esta variación en la línea ajustada, combinada con el uso de distintos
-datos para testing, produce errores de predicción diferentes en cada
-iteración. Podemos promediar estos errores para obtener una idea general
-del rendimiento del modelo con datos futuros, o bien compararlos con los
-errores generados por otro método en cada iteración.
-
 .. figure:: Cross_Validation.jpg
    :alt: Cross-Validation
 
@@ -46,16 +38,9 @@ errores generados por otro método en cada iteración.
 K-Fold Cross Validation:
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Si se tienen 3 grupos de puntos de datos, se realizan 3 iteraciones, lo
-que garantiza que cada grupo se utilice para testing. El número de
-iteraciones también se denomina Folds (pliegues), por lo que esto se
-llama validación cruzada de 3-Fold (3-Fold Cross Validation).
-
-El remuestreo se realiza de manera que ningún par de conjutnos de test
-se superponga.
-
-K subconjuntos distintos de tamaño aproximadamente igual (Folds=).
-Seleccionados de manera aleatoria y sin reemplazo.
+K subconjuntos distintos de tamaño aproximadamente igual (``Folds=``).
+Seleccionados de manera aleatoria y sin reemplazo. El remuestreo se
+realiza de manera que ningún par de conjutnos de test se superponga.
 
 El entrenamiento se realiza con K-1 subconjuntos, y el subconjunto
 restante se utiliza para la validación, midiendo así el rendimiento.
@@ -71,7 +56,8 @@ iteración. Podemos promediar estos errores para obtener una idea general
 del rendimiento del modelo con datos futuros, o bien compararlos con los
 errores generados por otro método en cada iteración.
 
-Lo más común es usar **10-Fold Cross Validation.**
+Lo más común es usar **5-Folds Cross Validation** o **10-Folds Cross
+Validation**.
 
 .. figure:: Folds.jpg
    :alt: Folds
