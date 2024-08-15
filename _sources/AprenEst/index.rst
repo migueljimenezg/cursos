@@ -12,6 +12,7 @@ Aprendizaje Estadístico
    Clasificación/index
    Pipeline/index
    Optimización de Hiperparámetros/index
+   Regresión/index
 
 
 Bibliografía:
