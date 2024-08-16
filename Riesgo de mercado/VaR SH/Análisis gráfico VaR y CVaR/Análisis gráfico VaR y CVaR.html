@@ -219,7 +219,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html">SVM para Regresión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRst/SVR%20para%20series%20de%20tiempo.html">SVR para series de tiempo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html">SVR series de tiempo con lags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADst/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/DFst/Random%20Forest%20para%20series%20de%20tiempo.html">Random Forest para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/XGBoostst/XGBoost%20para%20series%20de%20tiempo.html">XGBoost para series de tiempo</a></li>
 </ul>
 </li>
 </ul>
@@ -641,7 +645,7 @@ document.write(`
 <span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;topleft&quot;</span><span class="p">,</span><span class="s">&quot;Distribución empírica&quot;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;Black&quot;</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">3</span><span class="p">,</span><span class="n">bty</span><span class="o">=</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_7_07.png"><img alt="../../../_images/output_7_07.png" src="../../../_images/output_7_07.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_7_08.png"><img alt="../../../_images/output_7_08.png" src="../../../_images/output_7_08.png" style="width: 420px; height: 420px;" /></a>
 </section>
 <section id="histograma-y-distribucion-empirica-de-nutresa">
 <h2>Histograma y distribución empírica de Nutresa<a class="headerlink" href="#histograma-y-distribucion-empirica-de-nutresa" title="Permalink to this heading">#</a></h2>
@@ -659,7 +663,7 @@ document.write(`
 <span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;topleft&quot;</span><span class="p">,</span><span class="s">&quot;Distribución empírica&quot;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;Black&quot;</span><span class="p">,</span><span class="n">lwd</span><span class="o">=</span><span class="m">3</span><span class="p">,</span><span class="n">bty</span><span class="o">=</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_11_07.png"><img alt="../../../_images/output_11_07.png" src="../../../_images/output_11_07.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_11_08.png"><img alt="../../../_images/output_11_08.png" src="../../../_images/output_11_08.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">proporciones</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.25</span><span class="p">,</span><span class="m">0.25</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -725,7 +729,7 @@ document.write(`
 <span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Distribución empírica&quot;</span><span class="p">,</span><span class="s">&quot;VaR&quot;</span><span class="p">,</span><span class="s">&quot;CVaR&quot;</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Black&quot;</span><span class="p">,</span><span class="s">&quot;darkblue&quot;</span><span class="p">,</span><span class="s">&quot;darkred&quot;</span><span class="p">),</span><span class="n">lwd</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="n">bty</span><span class="o">=</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_22_010.png"><img alt="../../../_images/output_22_010.png" src="../../../_images/output_22_010.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_22_012.png"><img alt="../../../_images/output_22_012.png" src="../../../_images/output_22_012.png" style="width: 420px; height: 420px;" /></a>
 </section>
 <section id="histograma-distribucion-empirica-de-var-y-cvar-de-nutresa">
 <h2>Histograma, distribución empírica de VaR y CVaR de Nutresa<a class="headerlink" href="#histograma-distribucion-empirica-de-var-y-cvar-de-nutresa" title="Permalink to this heading">#</a></h2>
@@ -736,7 +740,7 @@ document.write(`
 <span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Distribución empírica&quot;</span><span class="p">,</span><span class="s">&quot;VaR&quot;</span><span class="p">,</span><span class="s">&quot;CVaR&quot;</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Black&quot;</span><span class="p">,</span><span class="s">&quot;darkblue&quot;</span><span class="p">,</span><span class="s">&quot;darkred&quot;</span><span class="p">),</span><span class="n">lwd</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="n">bty</span><span class="o">=</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_24_06.png"><img alt="../../../_images/output_24_06.png" src="../../../_images/output_24_06.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_24_08.png"><img alt="../../../_images/output_24_08.png" src="../../../_images/output_24_08.png" style="width: 420px; height: 420px;" /></a>
 </section>
 <section id="histograma-distribucion-empirica-de-var-y-cvar-de-pfbcolom">
 <h2>Histograma, distribución empírica de VaR y CVaR de PFBCOLOM<a class="headerlink" href="#histograma-distribucion-empirica-de-var-y-cvar-de-pfbcolom" title="Permalink to this heading">#</a></h2>
@@ -747,7 +751,7 @@ document.write(`
 <span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Distribución empírica&quot;</span><span class="p">,</span><span class="s">&quot;VaR&quot;</span><span class="p">,</span><span class="s">&quot;CVaR&quot;</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Black&quot;</span><span class="p">,</span><span class="s">&quot;darkblue&quot;</span><span class="p">,</span><span class="s">&quot;darkred&quot;</span><span class="p">),</span><span class="n">lwd</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="n">bty</span><span class="o">=</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_26_04.png"><img alt="../../../_images/output_26_04.png" src="../../../_images/output_26_04.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_26_05.png"><img alt="../../../_images/output_26_05.png" src="../../../_images/output_26_05.png" style="width: 420px; height: 420px;" /></a>
 </section>
 <section id="distribuciones-empiricas-y-var-de-las-cuatro-acciones">
 <h2>Distribuciones empíricas y VaR de las cuatro acciones<a class="headerlink" href="#distribuciones-empiricas-y-var-de-las-cuatro-acciones" title="Permalink to this heading">#</a></h2>
@@ -763,7 +767,7 @@ document.write(`
 <span class="nf">legend</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;ECO&quot;</span><span class="p">,</span><span class="s">&quot;ISA&quot;</span><span class="p">,</span><span class="s">&quot;Nutresa&quot;</span><span class="p">,</span><span class="s">&quot;PFBCOLOM&quot;</span><span class="p">),</span><span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;brown&quot;</span><span class="p">,</span><span class="s">&quot;darkblue&quot;</span><span class="p">,</span><span class="s">&quot;darkgreen&quot;</span><span class="p">,</span><span class="s">&quot;purple&quot;</span><span class="p">),</span><span class="n">lwd</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="n">bty</span><span class="o">=</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_28_06.png"><img alt="../../../_images/output_28_06.png" src="../../../_images/output_28_06.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_28_07.png"><img alt="../../../_images/output_28_07.png" src="../../../_images/output_28_07.png" style="width: 420px; height: 420px;" /></a>
 </section>
 <section id="distribuciones-empiricas-y-cvar-de-las-cuatro-acciones">
 <h2>Distribuciones empíricas y CVaR de las cuatro acciones<a class="headerlink" href="#distribuciones-empiricas-y-cvar-de-las-cuatro-acciones" title="Permalink to this heading">#</a></h2>

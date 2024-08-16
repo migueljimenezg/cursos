@@ -11,7 +11,7 @@ SVR para series de tiempo
     from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
     import matplotlib.pyplot as plt
     import scipy.stats as stats
-    from sklearn.model_selection import RandomizedSearchCV
+    import seaborn as sns
     
     import warnings
     
@@ -34,7 +34,9 @@ SVR para series de tiempo
     print("Cantidad de datos:", n)
     
     plt.figure(figsize=(20, 5))  # Establecer el tamaño del gráfico
-    plt.plot(data.index, data["Irradiancia"], label="Irradiancia", color="blue")  # Dibujar los datos reales
+    plt.plot(
+        data.index, data["Irradiancia"], label="Irradiancia", color="blue"
+    )  # Dibujar los datos reales
     plt.title("Irradiancia Mensual")  # Título del gráfico
     plt.xlabel("Tiempo")  # Etiqueta del eje X
     plt.ylabel("Irradiancia")  # Etiqueta del eje Y
@@ -105,6 +107,29 @@ que no tiene sentido para un modelo predictivo.
 
 .. code:: ipython3
 
+    # Crear una figura y ejes
+    fig, (ax_box, ax_hist) = plt.subplots(2, figsize=(10, 6), gridspec_kw={"height_ratios": (0.15, 0.85)})
+    
+    # Gráfico de caja en la parte superior
+    sns.boxplot(data=[X_train, X_test], ax=ax_box, orient="h", palette="Set2")
+    ax_box.set(yticklabels=["Train", "Test"], xlabel=None)
+    ax_box.tick_params(left=False)
+    
+    # Histograma de densidad en la parte inferior
+    sns.histplot(X_train, ax=ax_hist, kde=True, palette="Set2", label="Train", alpha=0.6)
+    sns.histplot(X_test, ax=ax_hist, kde=True, palette="Set1", label="Test", alpha=0.6)
+    
+    # Mostrar la leyenda y el gráfico
+    ax_hist.legend()
+    plt.show()
+
+
+
+.. image:: output_8_0.png
+
+
+.. code:: ipython3
+
     # Crear escaladores para X e y
     scaler_X = StandardScaler()
     scaler_y = StandardScaler()
@@ -155,10 +180,15 @@ Evaluación del modelo:
 
 **Sobre conjunto de entrenamiento:**
 
+Se usa ``.inverse_transform`` para volver a las unidades originales
+(desescalar).
+
 .. code:: ipython3
 
     # Predicciones en el conjunto de entrenamiento
     y_pred_scaled_train = svr.predict(X_train_scaled)
+    
+    # Transformar las predicciones a la escala original: desescalar
     y_pred_train = scaler_y.inverse_transform(y_pred_scaled_train.reshape(-1, 1)).flatten()
     
     # Calcular MAE
@@ -196,6 +226,8 @@ Evaluación del modelo:
 
     # Predicciones en el conjunto de prueba
     y_pred_scaled = svr.predict(X_test_scaled)
+    
+    # Transformar las predicciones a la escala original: desescalar
     y_pred = scaler_y.inverse_transform(y_pred_scaled.reshape(-1, 1))
     
     # Calcular MAE
@@ -241,10 +273,11 @@ Evaluación del modelo:
 
 
 
-.. image:: output_17_0.png
+.. image:: output_19_0.png
 
 
-Se usa ``.inverse_transform`` para volver a las unidades originales.
+Análisis de los residuales:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
@@ -302,11 +335,11 @@ Se usa ``.inverse_transform`` para volver a las unidades originales.
 
 
 
-.. image:: output_20_0.png
+.. image:: output_22_0.png
 
 
 
-.. image:: output_20_1.png
+.. image:: output_22_1.png
 
 
 Predicciones fuera de la muestra:
@@ -352,7 +385,9 @@ Predicciones fuera de la muestra:
     predictions_out_of_sample = np.array(predictions_out_of_sample)
     
     # Asegúrate de que los índices de tiempo estén en formato de fechas
-    dates_out_of_sample = pd.date_range(start=y_test.index[-1], periods=n_steps_ahead + 1, freq="M")[1:]
+    dates_out_of_sample = pd.date_range(
+        start=y_test.index[-1], periods=n_steps_ahead + 1, freq="M"
+    )[1:]
     
     # Gráfico de las predicciones fuera de muestra
     plt.figure(figsize=(10, 6))
@@ -373,5 +408,5 @@ Predicciones fuera de la muestra:
 
 
 
-.. image:: output_23_0.png
+.. image:: output_25_0.png
 

@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Regresión/SVRst/SVR para series de tiempo';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Árboles de decisión para regresión" href="../ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html" />
+    <link rel="next" title="SVR series de tiempo con lags" href="../SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html" />
     <link rel="prev" title="SVM para Regresión" href="../SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -219,7 +219,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html">SVM para Regresión</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">SVR para series de tiempo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html">SVR series de tiempo con lags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ADst/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DFst/Random%20Forest%20para%20series%20de%20tiempo.html">Random Forest para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../XGBoostst/XGBoost%20para%20series%20de%20tiempo.html">XGBoost para series de tiempo</a></li>
 </ul>
 </li>
 </ul>
@@ -590,6 +594,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-de-train-y-test-y-escalado-de-datos">Conjunto de Train y Test y escalado de datos:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#svr">SVR:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-residuales">Análisis de los residuales:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicciones-fuera-de-la-muestra">Predicciones fuera de la muestra:</a></li>
 </ul>
             </nav>
@@ -612,7 +617,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 
@@ -634,7 +639,9 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de datos:&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Establecer el tamaño del gráfico</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>  <span class="c1"># Dibujar los datos reales</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span>
+<span class="p">)</span>  <span class="c1"># Dibujar los datos reales</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Irradiancia Mensual&quot;</span><span class="p">)</span>  <span class="c1"># Título del gráfico</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>  <span class="c1"># Etiqueta del eje X</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">)</span>  <span class="c1"># Etiqueta del eje Y</span>
@@ -645,7 +652,7 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cantidad</span> <span class="n">de</span> <span class="n">datos</span><span class="p">:</span> <span class="mi">483</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_2_11.png" src="../../../_images/output_2_11.png" />
+<img alt="../../../_images/output_2_13.png" src="../../../_images/output_2_13.png" />
 <section id="conjunto-de-train-y-test-y-escalado-de-datos">
 <h2>Conjunto de Train y Test y escalado de datos:<a class="headerlink" href="#conjunto-de-train-y-test-y-escalado-de-datos" title="Permalink to this heading">#</a></h2>
 <p>Las características (<code class="docutils literal notranslate"><span class="pre">X</span></code>) y la variable objetivo (<code class="docutils literal notranslate"><span class="pre">y</span></code>) deben
@@ -686,7 +693,25 @@ que no tiene sentido para un modelo predictivo.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_7_04.png" src="../../../_images/output_7_04.png" />
+<img alt="../../../_images/output_7_05.png" src="../../../_images/output_7_05.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear una figura y ejes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_box</span><span class="p">,</span> <span class="n">ax_hist</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;height_ratios&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">)})</span>
+
+<span class="c1"># Gráfico de caja en la parte superior</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_box</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">)</span>
+<span class="n">ax_box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Train&quot;</span><span class="p">,</span> <span class="s2">&quot;Test&quot;</span><span class="p">],</span> <span class="n">xlabel</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">ax_box</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Histograma de densidad en la parte inferior</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_hist</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set2&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_hist</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set1&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="c1"># Mostrar la leyenda y el gráfico</span>
+<span class="n">ax_hist</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_8_03.png" src="../../../_images/output_8_03.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear escaladores para X e y</span>
 <span class="n">scaler_X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 <span class="n">scaler_y</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
@@ -728,8 +753,12 @@ forma <code class="docutils literal notranslate"><span class="pre">(n_samples,)<
 <section id="evaluacion-del-modelo">
 <h2>Evaluación del modelo:<a class="headerlink" href="#evaluacion-del-modelo" title="Permalink to this heading">#</a></h2>
 <p><strong>Sobre conjunto de entrenamiento:</strong></p>
+<p>Se usa <code class="docutils literal notranslate"><span class="pre">.inverse_transform</span></code> para volver a las unidades originales
+(desescalar).</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predicciones en el conjunto de entrenamiento</span>
 <span class="n">y_pred_scaled_train</span> <span class="o">=</span> <span class="n">svr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">)</span>
+
+<span class="c1"># Transformar las predicciones a la escala original: desescalar</span>
 <span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">scaler_y</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_pred_scaled_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
 <span class="c1"># Calcular MAE</span>
@@ -762,6 +791,8 @@ R² Score: 0.9941573087931465
 <p><strong>Sobre conjunto de prueba:</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predicciones en el conjunto de prueba</span>
 <span class="n">y_pred_scaled</span> <span class="o">=</span> <span class="n">svr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+
+<span class="c1"># Transformar las predicciones a la escala original: desescalar</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">scaler_y</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_pred_scaled</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
 <span class="c1"># Calcular MAE</span>
@@ -802,8 +833,10 @@ R² Score: 0.9906490284012837
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_17_02.png" src="../../../_images/output_17_02.png" />
-<p>Se usa <code class="docutils literal notranslate"><span class="pre">.inverse_transform</span></code> para volver a las unidades originales.</p>
+<img alt="../../../_images/output_19_02.png" src="../../../_images/output_19_02.png" />
+</section>
+<section id="analisis-de-los-residuales">
+<h2>Análisis de los residuales:<a class="headerlink" href="#analisis-de-los-residuales" title="Permalink to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular los residuales sobre train</span>
 <span class="n">y_pred_train_scaled</span> <span class="o">=</span> <span class="n">svr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">)</span>
 <span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">scaler_y</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_pred_train_scaled</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -856,8 +889,8 @@ R² Score: 0.9906490284012837
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_20_01.png" src="../../../_images/output_20_01.png" />
-<img alt="../../../_images/output_20_13.png" src="../../../_images/output_20_13.png" />
+<img alt="../../../_images/output_22_04.png" src="../../../_images/output_22_04.png" />
+<img alt="../../../_images/output_22_13.png" src="../../../_images/output_22_13.png" />
 </section>
 <section id="predicciones-fuera-de-la-muestra">
 <h2>Predicciones fuera de la muestra:<a class="headerlink" href="#predicciones-fuera-de-la-muestra" title="Permalink to this heading">#</a></h2>
@@ -892,7 +925,9 @@ R² Score: 0.9906490284012837
 <span class="n">predictions_out_of_sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">predictions_out_of_sample</span><span class="p">)</span>
 
 <span class="c1"># Asegúrate de que los índices de tiempo estén en formato de fechas</span>
-<span class="n">dates_out_of_sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">y_test</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">periods</span><span class="o">=</span><span class="n">n_steps_ahead</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">dates_out_of_sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="n">y_test</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">periods</span><span class="o">=</span><span class="n">n_steps_ahead</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;M&quot;</span>
+<span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
 
 <span class="c1"># Gráfico de las predicciones fuera de muestra</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -912,7 +947,7 @@ R² Score: 0.9906490284012837
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_23_02.png" src="../../../_images/output_23_02.png" />
+<img alt="../../../_images/output_25_0.png" src="../../../_images/output_25_0.png" />
 </section>
 </section>
 
@@ -937,11 +972,11 @@ R² Score: 0.9906490284012837
       </div>
     </a>
     <a class="right-next"
-       href="../ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html"
+       href="../SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Árboles de decisión para regresión</p>
+        <p class="prev-next-title">SVR series de tiempo con lags</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -963,6 +998,7 @@ R² Score: 0.9906490284012837
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-de-train-y-test-y-escalado-de-datos">Conjunto de Train y Test y escalado de datos:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#svr">SVR:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-residuales">Análisis de los residuales:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicciones-fuera-de-la-muestra">Predicciones fuera de la muestra:</a></li>
 </ul>
   </nav></div>

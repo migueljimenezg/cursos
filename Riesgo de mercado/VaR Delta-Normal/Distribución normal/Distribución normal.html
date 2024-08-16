@@ -220,7 +220,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html">SVM para Regresión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRst/SVR%20para%20series%20de%20tiempo.html">SVR para series de tiempo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html">SVR series de tiempo con lags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADst/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/DFst/Random%20Forest%20para%20series%20de%20tiempo.html">Random Forest para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/XGBoostst/XGBoost%20para%20series%20de%20tiempo.html">XGBoost para series de tiempo</a></li>
 </ul>
 </li>
 </ul>
@@ -691,7 +695,7 @@ normal dada una probabilidad o percentil.</p>
 <span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.99</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_14_05.png"><img alt="../../../_images/output_14_05.png" src="../../../_images/output_14_05.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_14_06.png"><img alt="../../../_images/output_14_06.png" src="../../../_images/output_14_06.png" style="width: 420px; height: 420px;" /></a>
 </section>
 <section id="con-una-probabilidad-del-5-z-es-igual-a-1-64485362695147">
 <h2>Con una probabilidad del 5% z es igual a -1,64485362695147.<a class="headerlink" href="#con-una-probabilidad-del-5-z-es-igual-a-1-64485362695147" title="Permalink to this heading">#</a></h2>
@@ -713,7 +717,7 @@ normal dada una probabilidad o percentil.</p>
 <span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.95</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_19_06.png"><img alt="../../../_images/output_19_06.png" src="../../../_images/output_19_06.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_19_07.png"><img alt="../../../_images/output_19_07.png" src="../../../_images/output_19_07.png" style="width: 420px; height: 420px;" /></a>
 </section>
 <section id="ejemplo-distribucion-normal-mu-1-y-sigma-5">
 <h2>Ejemplo distribución normal: <span class="math notranslate nohighlight">\(\mu=1\)</span>% y <span class="math notranslate nohighlight">\(\sigma=5\)</span>%<a class="headerlink" href="#ejemplo-distribucion-normal-mu-1-y-sigma-5" title="Permalink to this heading">#</a></h2>
@@ -750,7 +754,7 @@ normal dada una probabilidad o percentil.</p>
 <span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.99</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mu</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">volatilidad</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_28_05.png"><img alt="../../../_images/output_28_05.png" src="../../../_images/output_28_05.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_28_06.png"><img alt="../../../_images/output_28_06.png" src="../../../_images/output_28_06.png" style="width: 420px; height: 420px;" /></a>
 </section>
 <section id="id1">
 <h2>Ejemplo distribución normal: <span class="math notranslate nohighlight">\(\mu=-1\)</span>% y <span class="math notranslate nohighlight">\(\sigma=5\)</span>%<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
@@ -787,7 +791,7 @@ normal dada una probabilidad o percentil.</p>
 <span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.99</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mu</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">volatilidad</span><span class="p">),</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../../_images/output_37_03.png"><img alt="../../../_images/output_37_03.png" src="../../../_images/output_37_03.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/output_37_04.png"><img alt="../../../_images/output_37_04.png" src="../../../_images/output_37_04.png" style="width: 420px; height: 420px;" /></a>
 </section>
 <section id="importar-datos">
 <h2>Importar datos.<a class="headerlink" href="#importar-datos" title="Permalink to this heading">#</a></h2>

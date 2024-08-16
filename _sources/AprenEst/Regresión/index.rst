@@ -26,6 +26,7 @@ SVM para Regresión
 
    SVMRegresión/SVM para Regresión
    SVRst/SVR para series de tiempo
+   SVRstLags/SVR series de tiempo con lags
 
 
 
@@ -36,7 +37,29 @@ SVM para Regresión
    :maxdepth: 1
    :titlesonly:
 
-   ADregresión/Árboles de decisión para series de tiempo
+   ADregresión/Árboles de decisión para regresión
+   ADst/Árboles de decisión para series de tiempo
+
+
+
+Random Forest para regresión
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   DFst/Random Forest para series de tiempo
+
+
+XGBoost para para regresión
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   XGBoostst/XGBoost para series de tiempo
 
 
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Árboles de decisión para regresión &#8212; Cursos  documentation</title>
+    <title>SVR series de tiempo con lags &#8212; Cursos  documentation</title>
   
   
   
@@ -44,10 +44,10 @@
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=ff8fa330"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Regresión/ADregresión/Árboles de decisión para series de tiempo';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Regresión/SVRstLags/SVR series de tiempo con lags';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Introducción al Mercado Financiero" href="../../../MerVal/IntroMerFin/index.html" />
+    <link rel="next" title="Árboles de decisión para regresión" href="../ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html" />
     <link rel="prev" title="SVR para series de tiempo" href="../SVRst/SVR%20para%20series%20de%20tiempo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -219,7 +219,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html">SVM para Regresión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SVRst/SVR%20para%20series%20de%20tiempo.html">SVR para series de tiempo</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">SVR series de tiempo con lags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ADst/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../DFst/Random%20Forest%20para%20series%20de%20tiempo.html">Random Forest para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../XGBoostst/XGBoost%20para%20series%20de%20tiempo.html">XGBoost para series de tiempo</a></li>
 </ul>
 </li>
 </ul>
@@ -493,7 +497,7 @@
       
       
       
-      <li><a href="../../../_sources/AprenEst/Regresión/ADregresión/Árboles de decisión para series de tiempo.rst" target="_blank"
+      <li><a href="../../../_sources/AprenEst/Regresión/SVRstLags/SVR series de tiempo con lags.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -577,7 +581,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Árboles de decisión para regresión</h1>
+    <h1>SVR series de tiempo con lags</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -587,9 +591,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-funciona-la-regresion-con-arboles-de-decision">Cómo funciona la regresión con árboles de decisión:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas">Desventajas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lags-de-la-serie-de-tiempo-como-variables-de-entrada">Lags de la serie de tiempo como variables de entrada:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizacion-de-hiperparametros">Optimización de Hiperparámetros:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-residuales">Análisis de los residuales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicciones-fuera-de-la-muestra">Predicciones fuera de la muestra:</a></li>
 </ul>
             </nav>
         </div>
@@ -601,81 +606,323 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="arboles-de-decision-para-regresion">
-<h1>Árboles de decisión para regresión<a class="headerlink" href="#arboles-de-decision-para-regresion" title="Permalink to this heading">#</a></h1>
-<p>La regresión con árboles de decisión es un método de aprendizaje
-supervisado utilizado para predecir un valor continuo. Al igual que los
-árboles de decisión para clasificación, este modelo divide los datos en
-subconjuntos más pequeños en función de decisiones o divisiones en los
-atributos. Sin embargo, <strong>en lugar de asignar una clase a cada hoja, el
-árbol de decisión para regresión predice un valor numérico.</strong></p>
-<section id="como-funciona-la-regresion-con-arboles-de-decision">
-<h2>Cómo funciona la regresión con árboles de decisión:<a class="headerlink" href="#como-funciona-la-regresion-con-arboles-de-decision" title="Permalink to this heading">#</a></h2>
-<p><strong>1. División recursiva de los datos:</strong></p>
-<ul class="simple">
-<li><p>El proceso comienza con todo el conjunto de datos en la raíz del
-árbol.</p></li>
-<li><p>Se elige la característica y el punto de división que minimizan el
-error de predicción (por ejemplo, el error cuadrático medio, MSE).</p></li>
-<li><p>El conjunto de datos se divide en dos subconjuntos en función de esta
-división.</p></li>
-<li><p>Este proceso se repite recursivamente para cada subconjunto, creando
-ramas en el árbol hasta cumplir con algún criterio de parada (como
-una profundidad máxima del árbol <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> o un número mínimo de
-muestras en una hoja <code class="docutils literal notranslate"><span class="pre">min_samples_split</span></code>).</p></li>
-</ul>
-<p><strong>2. Cálculo del valor predicho en las hojas:</strong></p>
-<ul class="simple">
-<li><p>Una vez que se alcanzan los nodos hoja (donde ya no se realiza más
-división), el valor predicho es la media de los valores de la
-variable objetivo en ese nodo.</p></li>
-<li><p>Este valor es lo que el modelo utiliza como la predicción para
-cualquier nuevo dato que llegue a ese nodo.</p></li>
-</ul>
-<p><strong>3. Criterios de división:</strong></p>
-<ul class="simple">
-<li><p>Para seleccionar la mejor división en cada nodo, se utilizan
-criterios como la reducción de varianza. La idea es elegir la
-división que minimice la suma de las varianzas dentro de los dos
-subconjuntos resultantes.</p></li>
-<li><p>Matemáticamente, se busca minimizar el error cuadrático medio (MSE),
-que es la suma de las diferencias al cuadrado entre los valores
-reales y la media en cada nodo.</p></li>
-</ul>
-<p><strong>4. Poda del árbol (opcional):</strong></p>
-<ul class="simple">
-<li><p>Después de construir el árbol, a menudo se realiza una poda para
-evitar el sobreajuste. La poda implica eliminar ramas que tienen poco
-impacto en la predicción para simplificar el modelo y mejorar su
-capacidad de generalización.</p></li>
-</ul>
+  <section id="svr-series-de-tiempo-con-lags">
+<h1>SVR series de tiempo con lags<a class="headerlink" href="#svr-series-de-tiempo-con-lags" title="Permalink to this heading">#</a></h1>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="c1"># Suprimir todas las advertencias</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargar los datos omitiendo la primera fila como encabezado y asignando nombres a las columnas</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Irradiance_mensual.csv&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">,</span> <span class="s2">&quot;Irradiancia&quot;</span><span class="p">])</span>
+
+<span class="c1"># Convertir la columna &#39;Fecha&#39; a datetime</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y-%m&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set &#39;Fecha&#39; as the index</span>
+<span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Cantidad de datos</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cantidad de datos:&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Establecer el tamaño del gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>  <span class="c1"># Dibujar los datos reales</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Irradiancia Mensual&quot;</span><span class="p">)</span>  <span class="c1"># Título del gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>  <span class="c1"># Etiqueta del eje X</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">)</span>  <span class="c1"># Etiqueta del eje Y</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  <span class="c1"># Añadir leyenda para identificar las líneas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Cantidad</span> <span class="n">de</span> <span class="n">datos</span><span class="p">:</span> <span class="mi">483</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_2_14.png" src="../../../_images/output_2_14.png" />
+<section id="lags-de-la-serie-de-tiempo-como-variables-de-entrada">
+<h2>Lags de la serie de tiempo como variables de entrada:<a class="headerlink" href="#lags-de-la-serie-de-tiempo-como-variables-de-entrada" title="Permalink to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear características de lags</span>
+<span class="n">n_lags</span> <span class="o">=</span> <span class="mi">12</span>  <span class="c1"># Número de lags que deseas utilizar</span>
+
+<span class="n">data_lags</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">lag</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_lags</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">data_lags</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Irradiancia_Lag_</span><span class="si">{</span><span class="n">lag</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">lag</span><span class="p">)</span>
+
+<span class="c1"># Eliminar las filas con valores NaN resultantes de los lags</span>
+<span class="n">data_lags</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_lags</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<pre class="literal-block">            Irradiancia  Irradiancia_Lag_1  Irradiancia_Lag_2  Fecha
+1985-01-01     5.699355           4.802258           4.808667
+1985-02-01     5.977500           5.699355           4.802258
+1985-03-01     6.374194           5.977500           5.699355
+1985-04-01     6.214000           6.374194           5.977500
+1985-05-01     6.260645           6.214000           6.374194
+
+            Irradiancia_Lag_3  Irradiancia_Lag_4  Irradiancia_Lag_5  Fecha
+1985-01-01           5.150323           5.660333           5.511290
+1985-02-01           4.808667           5.150323           5.660333
+1985-03-01           4.802258           4.808667           5.150323
+1985-04-01           5.699355           4.802258           4.808667
+1985-05-01           5.977500           5.699355           4.802258
+
+            Irradiancia_Lag_6  Irradiancia_Lag_7  Irradiancia_Lag_8  Fecha
+1985-01-01           5.544516           5.665000           6.674194
+1985-02-01           5.511290           5.544516           5.665000
+1985-03-01           5.660333           5.511290           5.544516
+1985-04-01           5.150323           5.660333           5.511290
+1985-05-01           4.808667           5.150323           5.660333
+
+            Irradiancia_Lag_9  Irradiancia_Lag_10  Irradiancia_Lag_11  Fecha
+1985-01-01           6.739667            6.182903            6.030690
+1985-02-01           6.674194            6.739667            6.182903
+1985-03-01           5.665000            6.674194            6.739667
+1985-04-01           5.544516            5.665000            6.674194
+1985-05-01           5.511290            5.544516            5.665000
+
+            Irradiancia_Lag_12
+Fecha
+1985-01-01            5.367742
+1985-02-01            6.030690
+1985-03-01            6.182903
+1985-04-01            6.739667
+1985-05-01            6.674194</pre>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Separar características (X) y la variable objetivo (y)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data_lags</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data_lags</span><span class="p">[</span><span class="s2">&quot;Irradiancia&quot;</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">)</span>
+
+<span class="c1"># Crear escaladores para X e y</span>
+<span class="n">scaler_X</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaler_y</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+
+<span class="c1"># Ajustar y transformar X_train, luego transformar X_test con el mismo escalador</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="n">scaler_X</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="n">scaler_X</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Ajustar y transformar y_train, luego transformar y_test con el mismo escalador</span>
+<span class="n">y_train_scaled</span> <span class="o">=</span> <span class="n">scaler_y</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">y_test_scaled</span> <span class="o">=</span> <span class="n">scaler_y</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
-<section id="ventajas">
-<h2>Ventajas:<a class="headerlink" href="#ventajas" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Interpretabilidad:</strong> Los árboles de decisión son fáciles de
-interpretar y visualizar.</p></li>
-<li><p><strong>Manejo de variables categóricas y numéricas:</strong> Puede manejar tanto
-variables categóricas como numéricas sin requerir preprocesamiento.</p></li>
-<li><p><strong>No requiere escalado:</strong> No es necesario escalar las
-características.</p></li>
-<li><p><strong>Captura de no linealidades:</strong> Los árboles de decisión pueden
-capturar relaciones no lineales entre las características y la
-variable objetivo.</p></li>
-</ul>
+<section id="optimizacion-de-hiperparametros">
+<h2>Optimización de Hiperparámetros:<a class="headerlink" href="#optimizacion-de-hiperparametros" title="Permalink to this heading">#</a></h2>
+<p>Los hiperparámetros como <code class="docutils literal notranslate"><span class="pre">C</span></code>, <code class="docutils literal notranslate"><span class="pre">epsilon</span></code>, y <code class="docutils literal notranslate"><span class="pre">gamma</span></code> pueden variar
+en órdenes de magnitud, es decir, desde valores muy pequeños (por
+ejemplo, 0.001) hasta valores muy grandes (por ejemplo, 1000). Usar un
+rango logarítmico permite explorar de manera más efectiva valores
+pequeños y grandes, capturando la sensibilidad del modelo a estos
+parámetros.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mf">1.00000000e-03</span><span class="p">,</span> <span class="mf">4.64158883e-03</span><span class="p">,</span> <span class="mf">2.15443469e-02</span><span class="p">,</span> <span class="mf">1.00000000e-01</span><span class="p">,</span>
+       <span class="mf">4.64158883e-01</span><span class="p">,</span> <span class="mf">2.15443469e+00</span><span class="p">,</span> <span class="mf">1.00000000e+01</span><span class="p">,</span> <span class="mf">4.64158883e+01</span><span class="p">,</span>
+       <span class="mf">2.15443469e+02</span><span class="p">,</span> <span class="mf">1.00000000e+03</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir el modelo SVR</span>
+<span class="n">svr</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">()</span>
+
+<span class="c1"># Definir el espacio de búsqueda de hiperparámetros</span>
+<span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="c1"># Valor de C en un rango logarítmico</span>
+    <span class="s2">&quot;epsilon&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>  <span class="c1"># Epsilon en un rango logarítmico</span>
+    <span class="s2">&quot;kernel&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="s2">&quot;rbf&quot;</span><span class="p">,</span> <span class="s2">&quot;poly&quot;</span><span class="p">,</span> <span class="s2">&quot;sigmoid&quot;</span><span class="p">],</span>  <span class="c1"># Diferentes kernels</span>
+    <span class="s2">&quot;gamma&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;scale&quot;</span><span class="p">,</span> <span class="s2">&quot;auto&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span>  <span class="c1"># Gamma con opciones y un rango logarítmico</span>
+    <span class="s2">&quot;degree&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>  <span class="c1"># Grados para el kernel polinomial</span>
+    <span class="s2">&quot;coef0&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>  <span class="c1"># Coeficiente 0 para kernels polinomial y sigmoide</span>
+<span class="p">}</span>
+
+<span class="c1"># Configurar RandomizedSearchCV</span>
+<span class="n">random_search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">svr</span><span class="p">,</span>
+    <span class="n">param_distributions</span><span class="o">=</span><span class="n">param_dist</span><span class="p">,</span>
+    <span class="n">n_iter</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>  <span class="c1"># Número de combinaciones aleatorias a evaluar</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">,</span>  <span class="c1"># Métrica de evaluación</span>
+    <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>  <span class="c1"># Número de divisiones para la validación cruzada</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># Utilizar todos los núcleos disponibles</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajustar RandomizedSearchCV al conjunto de entrenamiento</span>
+<span class="n">random_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train_scaled</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fitting</span> <span class="mi">5</span> <span class="n">folds</span> <span class="k">for</span> <span class="n">each</span> <span class="n">of</span> <span class="mi">30</span> <span class="n">candidates</span><span class="p">,</span> <span class="n">totalling</span> <span class="mi">150</span> <span class="n">fits</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="n">SVR</span><span class="p">(),</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                   <span class="n">param_distributions</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mf">1.00000000e-03</span><span class="p">,</span> <span class="mf">4.64158883e-03</span><span class="p">,</span> <span class="mf">2.15443469e-02</span><span class="p">,</span> <span class="mf">1.00000000e-01</span><span class="p">,</span>
+       <span class="mf">4.64158883e-01</span><span class="p">,</span> <span class="mf">2.15443469e+00</span><span class="p">,</span> <span class="mf">1.00000000e+01</span><span class="p">,</span> <span class="mf">4.64158883e+01</span><span class="p">,</span>
+       <span class="mf">2.15443469e+02</span><span class="p">,</span> <span class="mf">1.00000000e+03</span><span class="p">]),</span>
+                                        <span class="s1">&#39;coef0&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+                                        <span class="s1">&#39;degree&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                                        <span class="s1">&#39;epsilon&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mf">1.00000000e-04</span><span class="p">,</span> <span class="mf">3.59381366e-04</span><span class="p">,</span> <span class="mf">1.29154967e-03</span><span class="o">...</span>
+       <span class="mf">1.66810054e-02</span><span class="p">,</span> <span class="mf">5.99484250e-02</span><span class="p">,</span> <span class="mf">2.15443469e-01</span><span class="p">,</span> <span class="mf">7.74263683e-01</span><span class="p">,</span>
+       <span class="mf">2.78255940e+00</span><span class="p">,</span> <span class="mf">1.00000000e+01</span><span class="p">]),</span>
+                                        <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;scale&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">,</span>
+                                                  <span class="mf">0.00035938136638046257</span><span class="p">,</span>
+                                                  <span class="mf">0.001291549665014884</span><span class="p">,</span>
+                                                  <span class="mf">0.004641588833612782</span><span class="p">,</span>
+                                                  <span class="mf">0.016681005372000592</span><span class="p">,</span>
+                                                  <span class="mf">0.05994842503189409</span><span class="p">,</span>
+                                                  <span class="mf">0.21544346900318845</span><span class="p">,</span>
+                                                  <span class="mf">0.7742636826811278</span><span class="p">,</span>
+                                                  <span class="mf">2.782559402207126</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">],</span>
+                                        <span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;poly&#39;</span><span class="p">,</span>
+                                                   <span class="s1">&#39;sigmoid&#39;</span><span class="p">]},</span>
+                   <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;neg_mean_squared_error&#39;</span><span class="p">,</span>
+                   <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Si pones <code class="docutils literal notranslate"><span class="pre">n_iter=40</span></code> ¿cuánto se demora en ejecutarse?</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtener los mejores hiperparámetros</span>
+<span class="n">best_params</span> <span class="o">=</span> <span class="n">random_search</span><span class="o">.</span><span class="n">best_params_</span>
+<span class="n">best_score</span> <span class="o">=</span> <span class="n">random_search</span><span class="o">.</span><span class="n">best_score_</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mejores hiperparámetros: </span><span class="si">{</span><span class="n">best_params</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mejor MSE: </span><span class="si">{</span><span class="n">best_score</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mejores</span> <span class="n">hiperparámetros</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="mf">0.0001</span><span class="p">,</span> <span class="s1">&#39;epsilon&#39;</span><span class="p">:</span> <span class="mf">0.05994842503189409</span><span class="p">,</span> <span class="s1">&#39;degree&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;coef0&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mf">215.44346900318823</span><span class="p">}</span>
+<span class="n">Mejor</span> <span class="n">MSE</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.4132827538647449</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usar el mejor modelo encontrado para hacer predicciones</span>
+<span class="n">best_model</span> <span class="o">=</span> <span class="n">random_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+</pre></div>
+</div>
 </section>
-<section id="desventajas">
-<h2>Desventajas:<a class="headerlink" href="#desventajas" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>Sobreajuste:</strong> Los árboles de decisión tienden a sobreajustar los
-datos si no se podan o si no se limita la profundidad del árbol.</p></li>
-<li><p><strong>Sensibilidad a los datos:</strong> Pequeños cambios en los datos pueden
-llevar a la creación de árboles completamente diferentes, lo que los
-hace menos robustos.</p></li>
-<li><p><strong>Poco eficientes para datos muy grandes:</strong> Los árboles de decisión
-pueden volverse ineficientes en conjuntos de datos muy grandes o con
-muchas características.</p></li>
-</ul>
+<section id="analisis-de-los-residuales">
+<h2>Análisis de los residuales:<a class="headerlink" href="#analisis-de-los-residuales" title="Permalink to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular los residuales sobre train</span>
+<span class="n">y_pred_train_scaled</span> <span class="o">=</span> <span class="n">random_search</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">)</span>
+<span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">scaler_y</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_pred_train_scaled</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">residuals_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">y_pred_train</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hacer predicciones en el conjunto de entrenamiento</span>
+<span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">)</span>
+
+<span class="c1"># Desescalar las predicciones para obtener los valores originales</span>
+<span class="n">y_pred_train_descaled</span> <span class="o">=</span> <span class="n">scaler_y</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span>
+    <span class="n">y_pred_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># Calcular los residuales sobre el conjunto de entrenamiento</span>
+<span class="n">residuals_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">y_pred_train_descaled</span>
+
+<span class="c1"># Configuración de la figura para los subplots</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Gráfico de valores predichos vs. valores reales</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_pred_train_descaled</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">y_train</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_train</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="n">y_train</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_train</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="s2">&quot;k--&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>  <span class="c1"># Línea diagonal ideal</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Valores Reales vs. Valores Predichos (Train)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Valores Predichos&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Valores Reales&quot;</span><span class="p">)</span>
+
+<span class="c1"># Gráfico de residuales</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">residuals_train</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>  <span class="c1"># Línea en y=0 para referencia</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gráfico de Residuales (Train)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Residuales&quot;</span><span class="p">)</span>
+
+<span class="c1"># Mejorar el layout para evitar solapamientos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Mostrar la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Visualización del histograma de los residuos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">residuals_train</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histograma de Residuos (Train)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Residuos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia&quot;</span><span class="p">)</span>
+
+<span class="c1"># Visualización del gráfico Q-Q de los residuos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">probplot</span><span class="p">(</span><span class="n">residuals_train</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="s2">&quot;norm&quot;</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">plt</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Gráfico Q-Q de Residuos (Train)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Ajustar el diseño de la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Mostrar la figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_16_05.png" src="../../../_images/output_16_05.png" />
+<img alt="../../../_images/output_16_11.png" src="../../../_images/output_16_11.png" />
+</section>
+<section id="predicciones-fuera-de-la-muestra">
+<h2>Predicciones fuera de la muestra:<a class="headerlink" href="#predicciones-fuera-de-la-muestra" title="Permalink to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preparar el punto de partida (última fila de X_test)</span>
+<span class="n">last_X</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Número de pasos adelante para predecir</span>
+<span class="n">n_steps_ahead</span> <span class="o">=</span> <span class="mi">12</span> <span class="o">*</span> <span class="mi">5</span>
+
+<span class="c1"># Lista para almacenar las predicciones fuera de muestra</span>
+<span class="n">predictions_out_of_sample</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps_ahead</span><span class="p">):</span>
+    <span class="c1"># Hacer la predicción usando el último valor de X</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">last_X</span><span class="p">)</span>
+
+    <span class="c1"># Guardar la predicción</span>
+    <span class="n">predictions_out_of_sample</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pred</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Crear la nueva entrada para la siguiente predicción utilizando los lags</span>
+    <span class="n">new_X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">last_X</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Desplazar valores</span>
+    <span class="n">new_X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">n_lags</span><span class="p">:]</span> <span class="o">=</span> <span class="n">pred</span>  <span class="c1"># Actualizar con la nueva predicción</span>
+    <span class="n">last_X</span> <span class="o">=</span> <span class="n">new_X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Reajustar la forma</span>
+
+<span class="c1"># Crear un rango de fechas para las predicciones fuera de muestra</span>
+<span class="n">dates_out_of_sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span>
+    <span class="n">start</span><span class="o">=</span><span class="n">y_test</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">periods</span><span class="o">=</span><span class="n">n_steps_ahead</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;M&quot;</span>
+<span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="c1"># Graficar las predicciones fuera de muestra</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Datos Reales (Test)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">dates_out_of_sample</span><span class="p">,</span>
+    <span class="n">predictions_out_of_sample</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicciones Fuera de Muestra&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Predicciones fuera de la muestra con SVR (con Lags)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valores Predichos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_18_02.png" src="../../../_images/output_18_02.png" />
 </section>
 </section>
 
@@ -700,11 +947,11 @@ muchas características.</p></li>
       </div>
     </a>
     <a class="right-next"
-       href="../../../MerVal/IntroMerFin/index.html"
+       href="../ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introducción al Mercado Financiero</p>
+        <p class="prev-next-title">Árboles de decisión para regresión</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -723,9 +970,10 @@ muchas características.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#como-funciona-la-regresion-con-arboles-de-decision">Cómo funciona la regresión con árboles de decisión:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas">Ventajas:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas">Desventajas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lags-de-la-serie-de-tiempo-como-variables-de-entrada">Lags de la serie de tiempo como variables de entrada:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizacion-de-hiperparametros">Optimización de Hiperparámetros:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-residuales">Análisis de los residuales:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predicciones-fuera-de-la-muestra">Predicciones fuera de la muestra:</a></li>
 </ul>
   </nav></div>
 
