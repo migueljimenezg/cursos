@@ -1,7 +1,7 @@
 Material de apoyo
 =======================================
 
-Profesor: Miguel Jiménez.
+Profesor: Luis Miguel Jiménez.
 
 Departamento de Ingeniería de la Organizcación
 
@@ -10,12 +10,6 @@ Facultad de Minas
 Universidad Nacional de Colombia
 
 lumjimenezgo@unal.edu.co
-
-.. toctree::
-    :maxdepth: 1
-    :caption: APRENDIZAJE ESTADÍSTICO:
-
-    AprenEst/index 
 
 
 .. toctree::
@@ -44,6 +38,15 @@ lumjimenezgo@unal.edu.co
     Administración financiera/Análisis Financiero en Python/index  
     Administración financiera/Flujo de Efectivo/index
 
+
+.. toctree::
+    :maxdepth: 1
+    :caption: PORTAFOLIOS DE INVERSIÓN:
+
+
+    Portafolios de inversión2/index
+
+
 .. toctree::
     :maxdepth: 1
     :caption: DERIVADOS FINANCIEROS:
@@ -53,6 +56,13 @@ lumjimenezgo@unal.edu.co
     Derivados financieros/Swap/index
     Derivados financieros/Futuros/index
     Derivados financieros/Opciones/index
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: APRENDIZAJE ESTADÍSTICO:
+
+    AprenEst/index 
 
 
 .. toctree::
@@ -82,12 +92,7 @@ lumjimenezgo@unal.edu.co
 
 
 
-.. toctree::
-    :maxdepth: 1
-    :caption: PORTAFOLIOS DE INVERSIÓN:
 
-
-    Portafolios de inversión2/index
 
 
 .. toctree::

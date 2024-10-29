@@ -2,18 +2,6 @@ Teoría moderna de portafolios
 ==============================================
 
 
-    * **Descargue** :download:`aquí <Cuatro acciones 2020.csv>` el archivo ``Cuatro acciones 2020.csv``
-
-    * **Descargue** :download:`aquí <Cuatro acciones 2020 y COLCAP - mensual.csv>` el archivo ``Cuatro acciones 2020 y COLCAP - mensual.csv``
-
-    * **Descargue** :download:`aquí <Cuatro acciones 2020 y COLCAP.csv>` el archivo ``Cuatro acciones 2020 y COLCAP.csv``
-
-    * **Ver** --- `aquí <https://es.investing.com/rates-bonds/world-government-bonds>`_ tasas libres de riesgo para cada país en Investing.
-
-
-    
-
-
 
 1. Introducción a la teoría de portafolios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -25,20 +13,6 @@ Teoría moderna de portafolios
     * **Descargue** :download:`aquí <1. Introducción a la teoría de portafolios/1. Introducción a la teoría de portafolios.xlsx>` archivo de Excel.
 
         * **Ver video** --- `aquí <https://youtu.be/vYmmNOO4Y3U>`_.
-
-
-    .. toctree::
-            :maxdepth: 2
-            :titlesonly:
-
-
-            1. Introducción a la teoría de portafolios/Introducción a la teoría de portafolios.rst
-
-        
-    * **Descargue** :download:`aquí <1. Introducción a la teoría de portafolios/Introducción a la teoría de portafolios.r>` el código.
-
-        * **Ver video** --- `aquí <https://youtu.be/v5XWOdDHPXA>`_.
-
     
 2. CAPM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -56,19 +30,6 @@ Teoría moderna de portafolios
         * **Ver video** --- `aquí <https://youtu.be/ebSMgQu0tsI>`_.
 
 
-    .. toctree::
-            :maxdepth: 2
-            :titlesonly:
-
-
-            2. CAPM//CAPM.rst
-
-        
-    * **Descargue** :download:`aquí <2. CAPM/CAPM.r>` el código.
-
-        * **Ver video** --- `aquí <https://youtu.be/B89VZqJt_fQ>`_.
-
-
 
 3. Indicadores de desempeño
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -80,19 +41,6 @@ Teoría moderna de portafolios
     * **Descargue** :download:`aquí <3. Indicadores de desempeño/3. Indicadores de desempeño.xlsx>` archivo de Excel.
 
         * **Ver video** --- `aquí <https://youtu.be/yy7RVU6Vy0o>`_.
-
-
-    .. toctree::
-            :maxdepth: 2
-            :titlesonly:
-
-
-            3. Indicadores de desempeño/Indicadores de desempeño.rst
-
-        
-    * **Descargue** :download:`aquí <3. Indicadores de desempeño/Indicadores de desempeño.r>` el código.
-
-        * **Ver video** --- `aquí <https://youtu.be/yHiGMXBzCxI>`_.
 
 
 4. Frontera eficiente
@@ -107,19 +55,6 @@ Teoría moderna de portafolios
         * **Ver video** --- `aquí <https://youtu.be/RA0wRLt8T_4>`_.
 
 
-    .. toctree::
-            :maxdepth: 2
-            :titlesonly:
-
-
-            4. Frontera eficiente/Frontera eficiente.rst
-
-        
-    * **Descargue** :download:`aquí <4. Frontera eficiente/Frontera eficiente.r>` el código.
-
-        * **Ver video** --- `aquí <https://youtu.be/72PGZpT0O_c>`_.
-
-
 5. Línea de Mercado de Capitales (CML)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -132,72 +67,8 @@ Teoría moderna de portafolios
         * **Ver video** --- `aquí <https://youtu.be/EyGnjLW3pMs>`_.
 
 
-    .. toctree::
-            :maxdepth: 2
-            :titlesonly:
 
-
-            5. Línea de Mercado de Capitales (CML)/Línea de Mercado de Capitales (CML).rst
-
-        
-    * **Descargue** :download:`aquí <5. Línea de Mercado de Capitales (CML)/Línea de Mercado de Capitales (CML).r>` el código.
-
-        * **Ver video** --- `aquí <https://youtu.be/0d2WraCUeLw>`_.
-
-
-
-
-6. Análisis frontera eficiente
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-    * **Descargue** :download:`aquí <6. Análisis frontera eficiente/6. Análisis frontera eficiente.xlsx>` archivo de Excel.
-
-        * **Ver video** --- `aquí <https://youtu.be/S-laLc3Muq4>`_.
-
-
-
-    .. toctree::
-            :maxdepth: 2
-            :titlesonly:
-
-
-            6. Análisis frontera eficiente/Análisis frontera eficiente.rst
-
-        
-    * **Descargue** :download:`aquí <6. Análisis frontera eficiente/Análisis frontera eficiente.r>` el código.
-
-        * **Ver video** --- `aquí <https://youtu.be/qQAWScZ9aTE>`_.
-
-
-7. Ejemplo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-    .. toctree::
-            :maxdepth: 2
-            :titlesonly:
-
-
-            Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño/Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño.rst
-
-        
-    * **Descargue** :download:`aquí <Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño/Ejemplo - Frontera eficiente, CAPM e indicadores de desempeño.r>` el código.
-
-
-8. Ejercicios
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-    .. toctree::
-            :maxdepth: 2
-            :titlesonly:
-
-
-            Ejercicios-Teoría de portafolios/Ejercicios-Frontera eficiente, CAPM e indicadores de desempeño.rst
-
-    * **Descargue** :download:`aquí <Ejercicios-Teoría de portafolios/Datos ejercicio Teoría de portafolios.csv>` el archivo ``Datos ejercicio Teoría de portafolios.csv`` para resolver los ejercicios.
-
-        
+       
 **Lecturas**
 
 .. [#f1] **Capítulo 3: Teoría de cartera.** Mercado de capitales. Court y Tarradellas.
