@@ -13,6 +13,14 @@ Teoría moderna de portafolios
     * **Descargue** :download:`aquí <1. Introducción a la teoría de portafolios/1. Introducción a la teoría de portafolios.xlsx>` archivo de Excel.
 
         * **Ver video** --- `aquí <https://youtu.be/vYmmNOO4Y3U>`_.
+
+
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+
+
+            Introducción a portafolios de inversión/Introducción a portafolios de inversión
     
 2. CAPM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
