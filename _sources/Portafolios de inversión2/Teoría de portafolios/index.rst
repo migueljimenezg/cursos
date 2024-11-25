@@ -37,6 +37,12 @@ Teoría moderna de portafolios
 
         * **Ver video** --- `aquí <https://youtu.be/ebSMgQu0tsI>`_.
 
+    .. toctree::
+            :maxdepth: 2
+            :titlesonly:
+
+
+            CAPM/CAPM
 
 
 3. Indicadores de desempeño
