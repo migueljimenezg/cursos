@@ -160,4 +160,13 @@ Algunas empresas S.A. están obligadas a reportar informes financieros cada tres
     * **Descargue** :download:`aquí <Taller análisis Estados Financieros-Supermercado Euro.xlsx>` la solución de los ejercicios.
 
 
+Examen semestre 01-2023
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * **Descargue** :download:`Enunciado examen Estados Financieros 01-2023 <Examen análisis Estados Financieros-Terpel.pdf>` (Terpel)
+
+
+    * **Descargue** :download:`Estados Financieros de Terpel (Sep2022) <Estados Financieros Terpel Sep2022.pdf>`
+
+
 
