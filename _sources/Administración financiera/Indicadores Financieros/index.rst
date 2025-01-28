@@ -78,6 +78,11 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
     * **Descargue** :download:`aquí <Estados Financieros HERMECO.xlsx>` el archivo de Excel con los Estados Financieros de HERMECO.
 
 
+Examen semestre 01-2022
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * **Descargue** :download:`Examen análisis vertical, horizontal y actividad-01-2022 <Examen análisis vertical, horizontal y actividad-01-2022.xlsx>` (EURO)
+
 
 3. Indicadores de Liquidez
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
