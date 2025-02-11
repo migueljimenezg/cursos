@@ -3,7 +3,7 @@ Material de apoyo
 
 Profesor: Luis Miguel Jiménez.
 
-Departamento de Ingeniería de la Organizcación
+Departamento de Ingeniería de la Organización
 
 Facultad de Minas
 

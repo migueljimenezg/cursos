@@ -177,6 +177,13 @@ Ejercicios indicadores de liquidez, rentabilidad y endeudamiento
     * **Descargue** :download:`aquí <../Estados de financieros/Estados Financieros-Supermercado Euro 2019-2020.xlsx>` el archivo de Excel con los Estados Financieros de supermercados EURO.
 
 
+.. important::
+    El siguiente archivo contiene un ejemplo de los indicadores de actividad, liquidez, endeudamiento y rentabilidad sobre supermercados La Vaquita (2020 - 2023).
+    
+    **Descargue** :download:`aquí <Indicadores Supermercados la Vaquita 2020-2023.xlsx>` el archivo de Excel con el ejemplo.
+
+
+
 
 .. important::
     .. toctree::
