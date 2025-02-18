@@ -182,6 +182,12 @@ Ejercicios indicadores de liquidez, rentabilidad y endeudamiento
     
     **Descargue** :download:`aquí <Indicadores Supermercados la Vaquita 2020-2023.xlsx>` el archivo de Excel con el ejemplo.
 
+.. important::
+    Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023:
+    
+    **Descargue** :download:`aquí <Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023.pdf>` el examen en PDF.
+
+    **Descargue** :download:`aquí <Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023.xlsx>` la solución en Excel.
 
 
 
