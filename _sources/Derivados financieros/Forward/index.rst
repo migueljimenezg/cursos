@@ -1,7 +1,7 @@
 Forward
 ==========================================
 
-**Presentación del curso:** :download:`aquí <0. Presentación Futuros y opciones 01-2024.pdf>` 
+**Presentación del curso:** :download:`aquí <0. Presentación Derivados Financieros 01-2025.pdf>` 
 
 
 
@@ -35,7 +35,7 @@ Forward
 
     * **Banco de Bogotá** --- `aquí <https://www.bancodebogota.com/wps/portal/banco-de-bogota/bogota/productos/para-empresas/soluciones-de-comercio-internacional-y-tesoreria/operaciones-de-cobertura/forward-sobre-divisas>`_.
 
-    **Informe del Banco de la República sobre la negociación de los Forwards (24/07/2020):** :download:`aquí <Informe Forward BR.pdf>`
+    **Informe del Banco de la República sobre la negociación de los Forwards (16/10/2024):** :download:`aquí <forwa-20241016.pdf>`
 
 
 

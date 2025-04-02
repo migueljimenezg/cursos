@@ -41,14 +41,6 @@ lumjimenezgo@unal.edu.co
 
 .. toctree::
     :maxdepth: 1
-    :caption: PORTAFOLIOS DE INVERSIÓN:
-
-
-    Portafolios de inversión2/index
-
-
-.. toctree::
-    :maxdepth: 1
     :caption: DERIVADOS FINANCIEROS:
 
 
@@ -56,6 +48,18 @@ lumjimenezgo@unal.edu.co
     Derivados financieros/Swap/index
     Derivados financieros/Futuros/index
     Derivados financieros/Opciones/index
+
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: PORTAFOLIOS DE INVERSIÓN:
+
+
+    Portafolios de inversión2/index
+
+
+
 
 
 .. toctree::
