@@ -43,3 +43,18 @@ debe utilizar otros fondos (deudas o capital propio) en la operación.
 
     **Descargue** :download:`aquí <Supermercados2022.xlsx>`
 
+
+.. important::
+    Estados Financieros Pastelería Santa Elena 2018-2023:
+
+    **Descargue** :download:`aquí <Estados Financieros Santa Elena 2018-2023.xlsx>`
+
+
+Examen semestre 02-2024
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * **Descargue** :download:`Enunciado examen Estados Financieros 02-2022 <Examen análisis Estados Financieros-Bavaria-02-2024-A.pdf>` (Bavaria)
+
+
+    * **Descargue** :download:`Estados Financieros de Bavaria 2022-2023 <Estados Financieros Bavaria 2022-2023.xlsx>`
+
