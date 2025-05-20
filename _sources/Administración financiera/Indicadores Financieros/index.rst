@@ -57,9 +57,17 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
 
 
 .. important::
-    El siguiente archivo contiene los Estados Financieros y los Indicadores de Actividad de 20 Mission actualizados hasta el año 2022:
+    Indicadores de Actividad Pastelería Santa Elena 2018-2023:
+    
+    **Descargue** :download:`aquí <Indicadores de Actividad Santa Elena 2018-2023.xlsx>` el archivo de Excel con el ejemplo.
+
+    Indicadores de Actividad 20 Mission 2018-2022:
     
     **Descargue** :download:`aquí <Indicadores de Actividad-20 Mission-actualizado 2022.xlsx>` el archivo de Excel con el ejemplo.
+
+    Indicadores de Actividad cervecería BBC 2018-2022:
+    
+    **Descargue** :download:`aquí <Indicadores de Actividad BBC 2018-2023.xlsx>` el archivo de Excel con el ejemplo.
 
 
 

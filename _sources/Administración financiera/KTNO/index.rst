@@ -53,8 +53,17 @@ debe utilizar otros fondos (deudas o capital propio) en la operación.
 Examen semestre 02-2024
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    * **Descargue** :download:`Enunciado examen Estados Financieros 02-2022 <Examen análisis Estados Financieros-Bavaria-02-2024-A.pdf>` (Bavaria)
+    * **Descargue** :download:`Enunciado examen Estados Financieros y KTNO 02-2024 <Examen análisis Estados Financieros-Bavaria-02-2024-A.pdf>` (Bavaria)
 
 
     * **Descargue** :download:`Estados Financieros de Bavaria 2022-2023 <Estados Financieros Bavaria 2022-2023.xlsx>`
+
+
+Examen semestre 01-2025
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * **Descargue** :download:`Enunciado examen Estados Financieros y KTNO 01-2025 <Segundo examen Administración Financiera-Medipiel-01-2025-respuestas.pdf>` (Medipiel)
+
+
+    * **Descargue** :download:`Estados Financieros de Medipiel 2018-2023 <Estados Financieros Medipiel 2018-2023.xlsx>`
 
