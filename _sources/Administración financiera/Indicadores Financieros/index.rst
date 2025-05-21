@@ -57,17 +57,17 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
 
 
 .. important::
-    Indicadores de Actividad Pastelería Santa Elena 2018-2023:
-    
-    **Descargue** :download:`aquí <Indicadores de Actividad Santa Elena 2018-2023.xlsx>` el archivo de Excel con el ejemplo.
+ 
+    **Descargue** :download:`Indicadores de Actividad Pastelería Santa Elena 2018-2023 <Indicadores de Actividad Santa Elena 2018-2023.xlsx>`
 
-    Indicadores de Actividad 20 Mission 2018-2022:
-    
-    **Descargue** :download:`aquí <Indicadores de Actividad-20 Mission-actualizado 2022.xlsx>` el archivo de Excel con el ejemplo.
+  
+    **Descargue** :download:`Indicadores de Actividad 20 Mission 2018-2022 <Indicadores de Actividad-20 Mission 2019-2022.xlsx>`
 
-    Indicadores de Actividad cervecería BBC 2018-2022:
     
-    **Descargue** :download:`aquí <Indicadores de Actividad BBC 2018-2023.xlsx>` el archivo de Excel con el ejemplo.
+    **Descargue** :download:`Indicadores de Actividad cervecería BBC 2018-2022 <Indicadores de Actividad BBC 2018-2023.xlsx>`
+
+
+    **Descargue** :download:`Indicadores de Actividad Justo y Bueno 2017-2021 <Indicadores de Actividad Justo y Bueno 2017-2021.xlsx>`
 
 
 
@@ -90,6 +90,12 @@ Examen semestre 01-2022
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     * **Descargue** :download:`Examen análisis vertical, horizontal y actividad-01-2022 <Examen análisis vertical, horizontal y actividad-01-2022.xlsx>` (EURO)
+
+Examen semestre 02-2024
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * **Descargue** :download:`Examen análisis vertical, horizontal y actividad-02-2024 <Examen análisis vertical, horizontal y actividad-02-2024-respuestas.pdf>` (La Vaquita)
+
 
 
 3. Indicadores de Liquidez
@@ -190,12 +196,27 @@ Ejercicios indicadores de liquidez, rentabilidad y endeudamiento
     
     **Descargue** :download:`aquí <Indicadores Supermercados la Vaquita 2020-2023.xlsx>` el archivo de Excel con el ejemplo.
 
-.. important::
-    Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023:
-    
-    **Descargue** :download:`aquí <Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023.pdf>` el examen en PDF.
 
-    **Descargue** :download:`aquí <Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023.xlsx>` la solución en Excel.
+Examen semestre 01-2023
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * **Descargue** :download:`Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023 <Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023.pdf>`
+
+    * **Descargue** :download:`Solución del examen <Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023.xlsx>`
+
+
+
+
+Ejemplo de análisis financiero
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    **Descargue** :download:`Análisis Financiero KIMBERLY CLARK ANTIOQUIA 2017-2020 <22. Análisis Financiero KIMBERLY CLARK ANTIOQUIA.pdf>` diapositivas del Análisis Financiero.
+
+    **Descargue** :download:`Análisis Financiero KIMBERLY CLARK ANTIOQUIA 2017-2020 <Análisis Financiero KIMBERLY CLARK.xlsx>`Excel con el ejemplo.
+
+    .. raw:: html
+
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/qIJPaGvIH1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
@@ -204,21 +225,6 @@ Ejercicios indicadores de liquidez, rentabilidad y endeudamiento
             :titlesonly:
  
             Resumen fórmulas Indicadores Financieros
-
-.. important::
-    Este es un ejemplo del Análisis Financiero aplicado a la compañía KIMBERLY CLARK ANTIOQUIA.
-    
-    **Descargue** :download:`aquí <22. Análisis Financiero KIMBERLY CLARK ANTIOQUIA.pdf>` las diapositivas del Análisis Financiero.
-
-    **Descargue** :download:`aquí <Análisis Financiero KIMBERLY CLARK.xlsx>` el archivo de Excel con el ejemplo.
-
-    .. raw:: html
-
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/qIJPaGvIH1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-
-
 
 
 
