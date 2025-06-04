@@ -57,6 +57,9 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
 
 
 .. important::
+
+    :download:`[PDF] Análisis indicadores Actividad cervezas-Santa Elena <18.1. Análisis indicadores Actividad cervezas-Santa Elena.pdf>`
+
  
     :download:`Indicadores de Actividad Pastelería Santa Elena 2018-2023 <Indicadores de Actividad Santa Elena 2018-2023.xlsx>`
 
