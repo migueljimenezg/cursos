@@ -67,3 +67,11 @@ Flujo de Efectivo
 
 
 
+Examen semestre 02-2024
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * **Descargue** :download:`Enunciado examen Flujo de Efectivo-Santa Elena-02-2024 <Examen Flujo de Efectivo-Santa Elena-02-2024.pdf>`
+
+
+    * **Descargue** :download:`Solución examen Flujo de Efectivo-Santa Elena-02-2024 <Flujo de Efectivo Santa Elena 2018-2023-SOLUCIÓN.xlsx>`
+

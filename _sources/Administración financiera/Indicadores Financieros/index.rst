@@ -214,6 +214,11 @@ Examen semestre 01-2023
     * **Descargue** :download:`Solución del examen <Examen indicadores de liquidez, endeudamiento y rentabilidad-Terpel-01-2023.xlsx>`
 
 
+Examen semestre 02-2024
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    * **Descargue** :download:`Examen indicadores de liquidez, endeudamiento y rentabilidad-Santa Elena-02-2024 <Estados Financieros Santa Elena 2018-2023-SOLUCIÓN.xlsx>`
+
 
 
 Ejemplo de análisis financiero
