@@ -11,6 +11,34 @@ Universidad Nacional de Colombia
 
 lumjimenezgo@unal.edu.co
 
+.. toctree::
+    :maxdepth: 1
+    :caption: SERIES DE TIEMPO:
+
+    Series de tiempo/index 
+
+.. toctree::
+    :maxdepth: 1
+    :caption: REGRESIÓN LINEAL:
+
+    Regresión lineal/index 
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: APRENDIZAJE ESTADÍSTICO:
+
+    AprenEst/index 
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: MACHINE LEARNING:
+
+     
+    Machine Learning/Deep Learning/index
+
+
 
 .. toctree::
     :maxdepth: 1
@@ -57,24 +85,6 @@ lumjimenezgo@unal.edu.co
 
 
     Portafolios de inversión2/index
-
-
-
-
-
-.. toctree::
-    :maxdepth: 1
-    :caption: APRENDIZAJE ESTADÍSTICO:
-
-    AprenEst/index 
-
-
-.. toctree::
-    :maxdepth: 1
-    :caption: MACHINE LEARNING:
-
-     
-    Machine Learning/Deep Learning/index
 
 
 
