@@ -5,6 +5,7 @@ Aprendizaje Estadístico
    :maxdepth: 1
    :titlesonly:
 
+   Motivación/index
    Introducción a Python/index
    Machine Learning/index
    Clustering/index
