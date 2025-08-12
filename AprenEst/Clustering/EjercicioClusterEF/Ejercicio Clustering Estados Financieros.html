@@ -47,8 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Clustering/EjercicioClusterEF/Ejercicio Clustering Estados Financieros';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Ejercicio Clustering acciones" href="../EjercicioClusterAcciones/Ejercicio%20Clustering%20acciones.html" />
-    <link rel="prev" title="Ejemplo DBSCAN precio electricidad" href="../EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html" />
+    <link rel="next" title="Reducción de dimensionalidad" href="../../ReDim/index.html" />
+    <link rel="prev" title="Ejemplo K-Means acciones" href="../Ejemplo%20K-Means%20acciones/Ejemplo_K_Means_acciones.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -198,13 +198,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../DBSCAN/DBSCAN.html">DBSCAN</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCAN/Ejemplo%20DBSCAN.html">Ejemplo DBSCAN</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCANEF/Ejemplo%20clustering%20DBSCAN%20Estados%20Financieros.html">Ejemplo clustering DBSCAN Estados Financieros</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../EDBSCANprecios/Ejemplo%20DBSCAN%20para%20precios.html">Ejemplo DBSCAN para precios</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html">Ejemplo DBSCAN precio electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Ejemplo%20K-Means%20acciones/Ejemplo_K_Means_acciones.html">Ejemplo K-Means acciones</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Ejercicio Clustering Estados Financieros</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../EjercicioClusterAcciones/Ejercicio%20Clustering%20acciones.html">Ejercicio Clustering acciones</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../TallerDatosFicticios/Taller%20Clustering%20datos%20ficticios.html">Taller Clustering datos ficticios</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../TallerS%26P500/Taller%20Clustering%20acciones%20S%26P%20500.html">Taller Clustering acciones S&amp;P 500</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../TallerEF/Taller%20Clustering%20Estados%20Financieros.html">Taller Clustering Estados Financieros</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../ReDim/index.html">Reducción de dimensionalidad</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -923,7 +919,7 @@ Cantidad empresas pymes:  370
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_10_01.png" src="../../../_images/output_10_01.png" />
+<img alt="../../../_images/output_10_02.png" src="../../../_images/output_10_02.png" />
 <p>La mejor cantidad de clusters es 3.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
 
@@ -964,7 +960,7 @@ Cantidad empresas pymes:  370
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_13_02.png" src="../../../_images/output_13_02.png" />
+<img alt="../../../_images/output_13_01.png" src="../../../_images/output_13_01.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1034,7 +1030,7 @@ Cantidad empresas pymes:  370
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_19_01.png" src="../../../_images/output_19_01.png" />
+<img alt="../../../_images/output_19_02.png" src="../../../_images/output_19_02.png" />
 <p>La mejor cantidad de cluster son 2 y 3.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignar clusters</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Definir el número de clusters</span>
@@ -1074,7 +1070,7 @@ Cantidad empresas pymes:  370
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_22_01.png" src="../../../_images/output_22_01.png" />
+<img alt="../../../_images/output_22_02.png" src="../../../_images/output_22_02.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1247,20 +1243,20 @@ Acumuladas.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html"
+       href="../Ejemplo%20K-Means%20acciones/Ejemplo_K_Means_acciones.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Ejemplo DBSCAN precio electricidad</p>
+        <p class="prev-next-title">Ejemplo K-Means acciones</p>
       </div>
     </a>
     <a class="right-next"
-       href="../EjercicioClusterAcciones/Ejercicio%20Clustering%20acciones.html"
+       href="../../ReDim/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ejercicio Clustering acciones</p>
+        <p class="prev-next-title">Reducción de dimensionalidad</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

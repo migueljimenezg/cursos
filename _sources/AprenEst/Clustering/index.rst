@@ -50,7 +50,6 @@ DBSCAN
    DBSCAN/DBSCAN
    EDBSCAN/Ejemplo DBSCAN
    EDBSCANEF/Ejemplo clustering DBSCAN Estados Financieros
-   EDBSCANprecios/Ejemplo DBSCAN para precios
    EDBSCANElectricidad/Ejemplo DBSCAN precio electricidad
 
 
@@ -61,19 +60,10 @@ Ejercicios
    :maxdepth: 1
    :titlesonly:
 
+   Ejemplo K-Means acciones/Ejemplo_K_Means_acciones
    EjercicioClusterEF/Ejercicio Clustering Estados Financieros
-   EjercicioClusterAcciones/Ejercicio Clustering acciones
 
-Talleres
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
-
-   TallerDatosFicticios/Taller Clustering datos ficticios
-   TallerS&P500/Taller Clustering acciones S&P 500
-   TallerEF/Taller Clustering Estados Financieros
 
 Archivos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
