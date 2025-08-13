@@ -16,7 +16,7 @@ En esta sección, se explicará en detalle el proceso completo de Machine Learni
    :titlesonly:
 
    ProcessML/Proceso de Machine Learning
-   Prepro/Preprocesamiento de datos
+
 
 
 

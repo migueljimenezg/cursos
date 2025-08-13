@@ -8,6 +8,7 @@ Aprendizaje Estadístico
    Motivación/index
    Introducción a Python/index
    Machine Learning/index
+   Preparación y preprocesamiento de datos/Preparación y preprocesamiento de datos
    Clustering/index
    ReDim/index
    Clasificación/index

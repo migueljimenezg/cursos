@@ -186,9 +186,10 @@
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/Machine%20Learning/index.html">Machine Learning</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Machine%20Learning/ProcessML/Proceso%20de%20Machine%20Learning.html">Proceso de Machine Learning</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Machine%20Learning/Prepro/Preprocesamiento%20de%20datos.html">Preprocesamiento de datos</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../AprenEst/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos.html">Preparación y preprocesamiento de datos</a></li>
+
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/Clustering/index.html">Clustering</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/Tclustering/Clustering.html">Clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/K-Means/K-Means.html">K-Means</a></li>
@@ -695,7 +696,7 @@ para el ajuste de Regresión Lineal <em>(Linear Method)</em>.</p>
 <span class="w">                         </span><span class="s">&quot; Valor - p =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">signif</span><span class="p">(</span><span class="nf">summary</span><span class="p">(</span><span class="n">regression</span><span class="p">)</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="m">2</span><span class="p">)))</span><span class="w">   </span><span class="c1"># Valor p con dos decimales</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_8_05.png"><img alt="../../_images/output_8_05.png" src="../../_images/output_8_05.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_8_04.png"><img alt="../../_images/output_8_04.png" src="../../_images/output_8_04.png" style="width: 420px; height: 420px;" /></a>
 <p>En <code class="docutils literal notranslate"><span class="pre">geom_smooth()</span></code> muestra por defecto el <span class="math notranslate nohighlight">\(SE(\hat{\beta_1})\)</span>:
 Es el error estándar de <span class="math notranslate nohighlight">\(\hat{\beta_1}\)</span>, con el argumento <code class="docutils literal notranslate"><span class="pre">se</span></code>.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">,</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="o">+</span>
@@ -707,7 +708,7 @@ Es el error estándar de <span class="math notranslate nohighlight">\(\hat{\beta
 <span class="w">                         </span><span class="s">&quot; Valor - p =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">signif</span><span class="p">(</span><span class="nf">summary</span><span class="p">(</span><span class="n">regression</span><span class="p">)</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="m">2</span><span class="p">)))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_10_010.png"><img alt="../../_images/output_10_010.png" src="../../_images/output_10_010.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_10_09.png"><img alt="../../_images/output_10_09.png" src="../../_images/output_10_09.png" style="width: 420px; height: 420px;" /></a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression</span><span class="o">$</span><span class="n">fitted.values</span>
 <span class="nf">print</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))</span>
 </pre></div>
@@ -767,7 +768,7 @@ uno solo. Se usará la función <code class="docutils literal notranslate"><span
 <span class="nf">grid.arrange</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="n">p2</span><span class="p">,</span><span class="w"> </span><span class="n">p3</span><span class="p">,</span><span class="w"> </span><span class="n">p4</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_16_08.png"><img alt="../../_images/output_16_08.png" src="../../_images/output_16_08.png" style="width: 420px; height: 420px;" /></a>
+<a class="reference internal image-reference" href="../../_images/output_16_07.png"><img alt="../../_images/output_16_07.png" src="../../_images/output_16_07.png" style="width: 420px; height: 420px;" /></a>
 <p>Para darle más importancia a un gráfico el entorno visual se dividirá
 por vectores y los números dentro de cada vector serán los gráficos.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">gridExtra</span><span class="p">)</span>
