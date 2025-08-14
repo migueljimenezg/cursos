@@ -8,7 +8,7 @@ preprocesamiento y el modelo adecuado.
 Tipos principales
 ~~~~~~~~~~~~~~~~~
 
-1. **Numéricos (cuantitativos)**
+1. **Numéricos (cuantitativos):**
 
    Son valores que representan cantidades medibles.
 
@@ -18,64 +18,59 @@ Tipos principales
    -  **Discretos:** toman valores enteros. Ejemplo: número de hijos,
       cantidad de ventas.
 
-2. **Categóricos (cualitativos)**
+2. **Categóricos (cualitativos):**
 
-   Representan categorías o grupos.
+   **Variables nominales:** No tienen un orden natural entre sus
+   categorías.
 
-   -  **Nominales:** categorías sin orden inherente. Ejemplo: color,
-      país.
+   Ejemplos:
 
-   -  **Ordinales:** categorías con un orden lógico. Ejemplo: nivel de
-      educación (bajo, medio, alto), estrato socio económico (1, 2, 3,
-      4, 5, 6).
+   -  **Color:** Rojo, Azul, Verde.
 
-3. **Binarios**
+   -  **País:** Colombia, México, Chile.
 
-   Tienen solo dos valores posibles. Ejemplo: sí/no, 0/1.
+   -  **Género:** Masculino, Femenino.
 
-4. **Texto**
+   **Conversión numérica (One-Hot Encoding):**
 
-   Secuencias de caracteres. Ejemplo: comentarios, descripciones.
+   ===== ========== ========== ===========
+   Color Color_Rojo Color_Azul Color_Verde
+   ===== ========== ========== ===========
+   Rojo  1          0          0
+   Azul  0          1          0
+   Verde 0          0          1
+   ===== ========== ========== ===========
 
-5. **Fecha y hora**
+   **Variables ordinales:** Tienen un orden lógico entre sus categorías.
 
-   Representan momentos específicos en el tiempo. Ejemplo:
-   ``2025-08-13 14:35:00``.
+   Ejemplos:
 
-**Ejemplo en tabla:**
+   -  **Nivel educativo:** Bajo, Medio, Alto.
 
-+----+------+-------+-------+-------+-------+-------+-------+
-| ID | Edad | G     | Ing   | Nivel | C     | Comen | Fecha |
-|    |      | énero | resos | educ  | ompra | tario | reg   |
-|    |      |       |       | ación | p     |       | istro |
-|    |      |       |       |       | revia |       |       |
-+====+======+=======+=======+=======+=======+=======+=======+
-| 1  | 25   | M     | 3000  | Medio | Sí    | Buen  | 2025- |
-|    |      |       |       |       |       | ser   | 08-01 |
-|    |      |       |       |       |       | vicio | 09:15 |
-+----+------+-------+-------+-------+-------+-------+-------+
-| 2  | 40   | F     | 5500  | Alto  | No    | P     | 2025- |
-|    |      |       |       |       |       | odría | 08-02 |
-|    |      |       |       |       |       | me    | 14:40 |
-|    |      |       |       |       |       | jorar |       |
-+----+------+-------+-------+-------+-------+-------+-------+
-| 3  | 31   | F     | 4200  | Bajo  | Sí    | Exce  | 2025- |
-|    |      |       |       |       |       | lente | 08-05 |
-|    |      |       |       |       |       | ate   | 17:10 |
-|    |      |       |       |       |       | nción |       |
-+----+------+-------+-------+-------+-------+-------+-------+
+   -  **Talla de ropa:** S, M, L, XL.
 
--  **Numéricos:** ``Edad``, ``Ingresos``
+   -  **Satisfacción:** Mala, Regular, Buena, Excelente.
 
--  **Categóricos nominales:** ``Género``
+   **Conversión numérica (Ordinal Encoding):**
 
--  **Categóricos ordinales:** ``Nivel educación``
+   =============== ============
+   Nivel educativo Codificación
+   =============== ============
+   Bajo            1
+   Medio           2
+   Alto            3
+   =============== ============
 
--  **Binarios:** ``Compra previa``
+   Otro ejemplo:
 
--  **Texto:** ``Comentario``
-
--  **Fecha y hora:** ``Fecha registro``
+   ===== ============
+   Talla Codificación
+   ===== ============
+   S     1
+   M     2
+   L     3
+   XL    4
+   ===== ============
 
 .. figure:: DataTypes1.PNG
    :alt: DataTypes1
@@ -110,7 +105,24 @@ necesario **codificarlas**.
 
    Ejemplo: Nivel educativo — Bajo = 1, Medio = 2, Alto = 3.
 
+   =============== ============
+   Nivel educativo Codificación
+   =============== ============
+   Bajo            1
+   Medio           2
+   Alto            3
+   =============== ============
+
    Útil para variables **ordinales** donde el orden importa.
+
+   ===== ============
+   Talla Codificación
+   ===== ============
+   S     1
+   M     2
+   L     3
+   XL    4
+   ===== ============
 
    No es necesario crear variables booleanas, ya que el orden tiene
    significado.
@@ -121,16 +133,13 @@ necesario **codificarlas**.
    variables **nominales** (sin orden). • Crea una nueva columna binaria
    (0 o 1) para cada categoría posible.
 
-   Ejemplo: Color — Rojo, Azul, Verde → columnas ``Rojo``, ``Azul``,
-   ``Verde``.
-
-   ========== =========== ==========
-   color=rojo color=verde color=azul
-   ========== =========== ==========
-   1          0           0
-   0          1           0
-   0          0           1
-   ========== =========== ==========
+   ===== ========== ========== ===========
+   Color Color_Rojo Color_Azul Color_Verde
+   ===== ========== ========== ===========
+   Rojo  1          0          0
+   Azul  0          1          0
+   Verde 0          0          1
+   ===== ========== ========== ===========
 
    No es correcto asignar números enteros arbitrarios (rojo=0, Azul=1,
    Verde=2) porque:
@@ -156,25 +165,39 @@ En **otros modelos** (árboles de decisión, random forest, XGBoost, redes
 neuronales) no es necesario eliminar columnas, ya que no se ven
 afectados por la multicolinealidad de la misma forma.
 
-Ejemplo con scikit-learn:
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**Resumen:**
 
-| En este ejemplo se codifican dos variables nominales: **Género** y
-  **Nivel_educacion**.
-| Primero se aplicará One-Hot Encoding **eliminando una columna**
-  (``drop='first'``) para evitar la multicolinealidad en modelos
-  lineales, y luego se mostrará el resultado **sin eliminar columnas**
-  (útil para otros modelos como árboles de decisión o redes neuronales).
+-  **Nominales** → usar **One-Hot Encoding** para evitar introducir un
+   orden falso.
+
+-  **Ordinales** → usar **Ordinal Encoding** respetando el orden natural
+   de las categorías.
+
+Ejemplo:
+~~~~~~~~
+
+En este ejemplo se codifican tre variables categóricas:
+
+-  **Nivel_educacion** (ordinal).
+
+-  **Género** (nominal): Cuando **Género** tiene solo dos categorías,
+   puede representarse directamente como **variable binaria** sin
+   necesidad de crear más de una columna.
+
+-  **Compra** (nominal): Al tener solo dos categorías, puede codificarse
+   directamente como variable binaria.
+
+-  **Color** (nominal): Tiene más de dos categorías.
 
 .. code:: ipython3
 
     import pandas as pd
-    from sklearn.preprocessing import OneHotEncoder
     
     # Datos de ejemplo
     df = pd.DataFrame({
         'Género': ['M', 'F', 'F', 'M', 'M'],
         'Nivel_educacion': ['Bajo', 'Medio', 'Alto', 'Medio', 'Bajo'],
+        'Color': ['Rojo', 'Azul', 'Verde', 'Rojo', 'Azul'],
         'Compra': ['Sí', 'No', 'Sí', 'No', 'Sí']
     })
     
@@ -211,6 +234,7 @@ Ejemplo con scikit-learn:
           <th></th>
           <th>Género</th>
           <th>Nivel_educacion</th>
+          <th>Color</th>
           <th>Compra</th>
         </tr>
       </thead>
@@ -219,30 +243,35 @@ Ejemplo con scikit-learn:
           <th>0</th>
           <td>M</td>
           <td>Bajo</td>
+          <td>Rojo</td>
           <td>Sí</td>
         </tr>
         <tr>
           <th>1</th>
           <td>F</td>
           <td>Medio</td>
+          <td>Azul</td>
           <td>No</td>
         </tr>
         <tr>
           <th>2</th>
           <td>F</td>
           <td>Alto</td>
+          <td>Verde</td>
           <td>Sí</td>
         </tr>
         <tr>
           <th>3</th>
           <td>M</td>
           <td>Medio</td>
+          <td>Rojo</td>
           <td>No</td>
         </tr>
         <tr>
           <th>4</th>
           <td>M</td>
           <td>Bajo</td>
+          <td>Azul</td>
           <td>Sí</td>
         </tr>
       </tbody>
@@ -251,64 +280,39 @@ Ejemplo con scikit-learn:
 
 
 
+Ejemplo con scikit-learn:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Variables nominales:**
+
 -  **OneHotEncoder**: transforma variables categóricas en columnas
    binarias (0/1).
 
--  **drop=‘first’**: elimina la primera categoría de cada variable para
-   evitar multicolinealidad en modelos lineales.
+-  ``drop='first'``: elimina la primera categoría de cada variable para
+   evitar multicolinealidad en modelos lineales o para las que tienen
+   solo dos categorías cómo **Género** y **Compra**.
 
--  **sparse=False**: devuelve un arreglo denso (``numpy.ndarray``) en
+-  ``sparse=False``: devuelve un arreglo denso (``numpy.ndarray``) en
    lugar de una matriz dispersa, lo que facilita convertirlo en un
    DataFrame.
 
--  **``encoder_drop.fit_transform(X)``**
+**Género** y **compra** donde deben quedar en una sola columna binaria,
+por tanto, usar ``drop=first'``.
 
-   -  Ajusta y transforma en un solo paso las columnas categóricas a
-      **one‑hot**.
+Para **Color** se aplicará también ``drop=first'`` por si se usarán
+modelos lineales y así evitar la muticolinealidad.
 
-   -  **Entrada:** ``X`` es un DataFrame/array 2D con las columnas
-      categóricas (ej. ``df[['Género', 'Nivel_educacion']]``).
-
-   -  **Durante ``fit``:** aprende las categorías por columna (quedan en
-      ``encoder_drop.categories_``) y aplica la regla de
-      ``drop='first'`` si corresponde.
-
-   -  **Durante ``transform``:** genera la matriz binaria (0/1).
-
-   -  **Salida:** ``numpy.ndarray`` (porque ``sparse=False``) con forma
-      ``(n_muestras, n_features_cod)``.
-
-   -  **Cálculo de columnas:**
-
-      -  Con ``drop='first'``:
-         ``n_features_cod = Σ (n_categorías_col − 1)``
-
-      -  Sin ``drop``: ``n_features_cod = Σ (n_categorías_col)``
-
--  **``encoder_drop.get_feature_names_out(input_features)``**
-
-   -  Devuelve los **nombres de las columnas** generadas tras la
-      codificación.
-
-   -  **Parámetro:** ``input_features`` es la lista de nombres
-      originales (ej. ``['Género', 'Nivel_educacion']``).
-
-   -  **Formato de nombre:** ``"<col>_<categoría>"`` (ej. ``Género_M``,
-      ``Nivel_educacion_Alto``).
-
-   -  Con ``drop='first'``, la primera categoría de cada variable **no**
-      aparece en los nombres.
-
-   -  Útil para construir el DataFrame final:
-
-      ``pd.DataFrame(encoded_drop, columns=encoder_drop.get_feature_names_out(['Género', 'Nivel_educacion']))``
+``encoder_drop.get_feature_names_out(input_features)``: Devuelve los
+nombres de las columnas generadas tras la codificación.
 
 .. code:: ipython3
 
-    # ---- One-Hot Encoding eliminando una columna (para evitar multicolinealidad en modelos lineales) ----
+    from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
+    
+    # ---- One-Hot Encoding eliminando una columna para las variables nominales con dos categorías y para Color para evitar multicolinealidad ----
     encoder_drop = OneHotEncoder(drop='first', sparse=False)
-    encoded_drop = encoder_drop.fit_transform(df[['Género', 'Nivel_educacion']])
-    cols_drop = encoder_drop.get_feature_names_out(['Género', 'Nivel_educacion'])
+    encoded_drop = encoder_drop.fit_transform(df[['Género', 'Color', 'Compra']])
+    cols_drop = encoder_drop.get_feature_names_out(['Género', 'Color', 'Compra'])
     df_encoded_drop = pd.DataFrame(encoded_drop, columns=cols_drop)
     df_encoded_drop
 
@@ -336,8 +340,9 @@ Ejemplo con scikit-learn:
         <tr style="text-align: right;">
           <th></th>
           <th>Género_M</th>
-          <th>Nivel_educacion_Bajo</th>
-          <th>Nivel_educacion_Medio</th>
+          <th>Color_Rojo</th>
+          <th>Color_Verde</th>
+          <th>Compra_Sí</th>
         </tr>
       </thead>
       <tbody>
@@ -346,9 +351,154 @@ Ejemplo con scikit-learn:
           <td>1.0</td>
           <td>1.0</td>
           <td>0.0</td>
+          <td>1.0</td>
         </tr>
         <tr>
           <th>1</th>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>1.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+Para **Nivel educación** por ser ordinal donde el orden tiene
+importancia, se usará ``OrdinalEncoder``.
+
+.. code:: ipython3
+
+    # Codificación ordinal (respeta el orden) para 'Nivel_educacion'
+    encoder_ord = OrdinalEncoder(categories=[['Bajo', 'Medio', 'Alto']])
+    encoded_ord = encoder_ord.fit_transform(df[['Nivel_educacion']])
+    df_encoded_ord = pd.DataFrame(encoded_ord, columns=['Nivel_educacion'])
+    df_encoded_ord
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Nivel_educacion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>2.0</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>0.0</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+.. code:: ipython3
+
+    # Resultados elimando una columna a Color:
+    pd.concat([df_encoded_drop, df_encoded_ord], axis=1)
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Género_M</th>
+          <th>Color_Rojo</th>
+          <th>Color_Verde</th>
+          <th>Compra_Sí</th>
+          <th>Nivel_educacion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>0.0</td>
+          <td>0.0</td>
           <td>0.0</td>
           <td>0.0</td>
           <td>1.0</td>
@@ -357,17 +507,23 @@ Ejemplo con scikit-learn:
           <th>2</th>
           <td>0.0</td>
           <td>0.0</td>
-          <td>0.0</td>
+          <td>1.0</td>
+          <td>1.0</td>
+          <td>2.0</td>
         </tr>
         <tr>
           <th>3</th>
           <td>1.0</td>
+          <td>1.0</td>
+          <td>0.0</td>
           <td>0.0</td>
           <td>1.0</td>
         </tr>
         <tr>
           <th>4</th>
           <td>1.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
           <td>1.0</td>
           <td>0.0</td>
         </tr>
@@ -379,10 +535,78 @@ Ejemplo con scikit-learn:
 
 .. code:: ipython3
 
-    # ---- One-Hot Encoding sin eliminar columnas (para modelos no lineales) ----
+    # ---- One-Hot Encoding eliminando una columna para las variables nominales con dos categorías----
+    encoder_drop = OneHotEncoder(drop='first', sparse=False)
+    encoded_drop = encoder_drop.fit_transform(df[['Género', 'Compra']])
+    cols_drop = encoder_drop.get_feature_names_out(['Género', 'Compra'])
+    df_encoded_drop = pd.DataFrame(encoded_drop, columns=cols_drop)
+    df_encoded_drop
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Género_M</th>
+          <th>Compra_Sí</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>1.0</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>0.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>0.0</td>
+          <td>1.0</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>1.0</td>
+          <td>0.0</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>1.0</td>
+          <td>1.0</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+.. code:: ipython3
+
+    # ---- One-Hot Encoding para Color sin eliminar columnas ----
     encoder_full = OneHotEncoder(sparse=False)
-    encoded_full = encoder_full.fit_transform(df[['Género', 'Nivel_educacion']])
-    cols_full = encoder_full.get_feature_names_out(['Género', 'Nivel_educacion'])
+    encoded_full = encoder_full.fit_transform(df[['Color']])
+    cols_full = encoder_full.get_feature_names_out(['Color'])
     df_encoded_full = pd.DataFrame(encoded_full, columns=cols_full)
     df_encoded_full
 
@@ -409,18 +633,14 @@ Ejemplo con scikit-learn:
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Género_F</th>
-          <th>Género_M</th>
-          <th>Nivel_educacion_Alto</th>
-          <th>Nivel_educacion_Bajo</th>
-          <th>Nivel_educacion_Medio</th>
+          <th>Color_Azul</th>
+          <th>Color_Rojo</th>
+          <th>Color_Verde</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th>0</th>
-          <td>0.0</td>
-          <td>1.0</td>
           <td>0.0</td>
           <td>1.0</td>
           <td>0.0</td>
@@ -430,31 +650,23 @@ Ejemplo con scikit-learn:
           <td>1.0</td>
           <td>0.0</td>
           <td>0.0</td>
-          <td>0.0</td>
-          <td>1.0</td>
         </tr>
         <tr>
           <th>2</th>
+          <td>0.0</td>
+          <td>0.0</td>
           <td>1.0</td>
-          <td>0.0</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>0.0</td>
         </tr>
         <tr>
           <th>3</th>
           <td>0.0</td>
           <td>1.0</td>
           <td>0.0</td>
-          <td>0.0</td>
-          <td>1.0</td>
         </tr>
         <tr>
           <th>4</th>
-          <td>0.0</td>
           <td>1.0</td>
           <td>0.0</td>
-          <td>1.0</td>
           <td>0.0</td>
         </tr>
       </tbody>
@@ -465,9 +677,8 @@ Ejemplo con scikit-learn:
 
 .. code:: ipython3
 
-    # ---- Codificación binaria para 'Compra' ----
-    df['Compra_cod'] = df['Compra'].map({'Sí': 1, 'No': 0})
-    df
+    # Resultados sin eliminar una columna a Color:
+    pd.concat([df_encoded_drop, df_encoded_full, df_encoded_ord], axis=1)
 
 
 
@@ -492,93 +703,12 @@ Ejemplo con scikit-learn:
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Género</th>
+          <th>Género_M</th>
+          <th>Compra_Sí</th>
+          <th>Color_Azul</th>
+          <th>Color_Rojo</th>
+          <th>Color_Verde</th>
           <th>Nivel_educacion</th>
-          <th>Compra</th>
-          <th>Compra_cod</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>M</td>
-          <td>Bajo</td>
-          <td>Sí</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>F</td>
-          <td>Medio</td>
-          <td>No</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>F</td>
-          <td>Alto</td>
-          <td>Sí</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>M</td>
-          <td>Medio</td>
-          <td>No</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>M</td>
-          <td>Bajo</td>
-          <td>Sí</td>
-          <td>1</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
-
-.. code:: ipython3
-
-    # Resultados
-    print("\n--- One-Hot Encoding eliminando una columna ---")
-    pd.concat([df_encoded_drop, df["Compra_cod"]], axis=1)
-
-
-.. parsed-literal::
-
-    
-    --- One-Hot Encoding eliminando una columna ---
-    
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-    
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-    
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Género_M</th>
-          <th>Nivel_educacion_Bajo</th>
-          <th>Nivel_educacion_Medio</th>
-          <th>Compra_cod</th>
         </tr>
       </thead>
       <tbody>
@@ -587,130 +717,45 @@ Ejemplo con scikit-learn:
           <td>1.0</td>
           <td>1.0</td>
           <td>0.0</td>
-          <td>1</td>
+          <td>1.0</td>
+          <td>0.0</td>
+          <td>0.0</td>
         </tr>
         <tr>
           <th>1</th>
           <td>0.0</td>
           <td>0.0</td>
           <td>1.0</td>
-          <td>0</td>
+          <td>0.0</td>
+          <td>0.0</td>
+          <td>1.0</td>
         </tr>
         <tr>
           <th>2</th>
           <td>0.0</td>
+          <td>1.0</td>
           <td>0.0</td>
           <td>0.0</td>
-          <td>1</td>
+          <td>1.0</td>
+          <td>2.0</td>
         </tr>
         <tr>
           <th>3</th>
           <td>1.0</td>
           <td>0.0</td>
+          <td>0.0</td>
           <td>1.0</td>
-          <td>0</td>
+          <td>0.0</td>
+          <td>1.0</td>
         </tr>
         <tr>
           <th>4</th>
           <td>1.0</td>
           <td>1.0</td>
-          <td>0.0</td>
-          <td>1</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
-
-.. code:: ipython3
-
-    # Resultados
-    print("\n--- One-Hot Encoding sin eliminar columnas ---")
-    pd.concat([df_encoded_full, df["Compra_cod"]], axis=1)
-
-
-.. parsed-literal::
-
-    
-    --- One-Hot Encoding sin eliminar columnas ---
-    
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-    
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-    
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Género_F</th>
-          <th>Género_M</th>
-          <th>Nivel_educacion_Alto</th>
-          <th>Nivel_educacion_Bajo</th>
-          <th>Nivel_educacion_Medio</th>
-          <th>Compra_cod</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.0</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th>1</th>
           <td>1.0</td>
           <td>0.0</td>
           <td>0.0</td>
           <td>0.0</td>
-          <td>1.0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>0.0</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>0.0</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>0.0</td>
-          <td>1.0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>0.0</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>1</td>
         </tr>
       </tbody>
     </table>
@@ -721,24 +766,13 @@ Ejemplo con scikit-learn:
 Ejemplo de codificación de variables categóricas solo con pandas:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **``pd.get_dummies()``**: crea columnas binarias (0/1) a partir de
-   variables categóricas.
-
--  **``drop_first=True``**: elimina la primera categoría de cada
-   variable para evitar multicolinealidad en modelos lineales.
-
--  **``drop_first=False``**: mantiene todas las categorías, útil para
-   modelos no lineales.
-
--  **``.map({'Sí': 1, 'No': 0})``**: convierte una variable binaria en
-   formato texto a valores 0 y 1.
-
 .. code:: ipython3
 
     # Datos de ejemplo
     df = pd.DataFrame({
         'Género': ['M', 'F', 'F', 'M', 'M'],
         'Nivel_educacion': ['Bajo', 'Medio', 'Alto', 'Medio', 'Bajo'],
+        'Color': ['Rojo', 'Azul', 'Verde', 'Rojo', 'Azul'],
         'Compra': ['Sí', 'No', 'Sí', 'No', 'Sí']
     })
     
@@ -775,6 +809,7 @@ Ejemplo de codificación de variables categóricas solo con pandas:
           <th></th>
           <th>Género</th>
           <th>Nivel_educacion</th>
+          <th>Color</th>
           <th>Compra</th>
         </tr>
       </thead>
@@ -783,31 +818,108 @@ Ejemplo de codificación de variables categóricas solo con pandas:
           <th>0</th>
           <td>M</td>
           <td>Bajo</td>
+          <td>Rojo</td>
           <td>Sí</td>
         </tr>
         <tr>
           <th>1</th>
           <td>F</td>
           <td>Medio</td>
+          <td>Azul</td>
           <td>No</td>
         </tr>
         <tr>
           <th>2</th>
           <td>F</td>
           <td>Alto</td>
+          <td>Verde</td>
           <td>Sí</td>
         </tr>
         <tr>
           <th>3</th>
           <td>M</td>
           <td>Medio</td>
+          <td>Rojo</td>
           <td>No</td>
         </tr>
         <tr>
           <th>4</th>
           <td>M</td>
           <td>Bajo</td>
+          <td>Azul</td>
           <td>Sí</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+-  **``pd.get_dummies()``**: crea columnas binarias (0/1) a partir de
+   variables categóricas.
+
+-  **``drop_first=True``**: elimina la primera categoría de cada
+   variable para evitar multicolinealidad en modelos lineales.
+
+-  **``drop_first=False``**: mantiene todas las categorías, útil para
+   modelos no lineales.
+
+-  **``.map({'Sí': 1, 'No': 0})``**: convierte una variable binaria en
+   formato texto a valores 0 y 1.
+
+.. code:: ipython3
+
+    # Codificación ordinal manual para 'Nivel_educacion':
+    orden_edu = {'Bajo': 0, 'Medio': 1, 'Alto': 2}
+    df_ord = pd.DataFrame(df['Nivel_educacion'].map(orden_edu), columns=['Nivel_educacion'])
+    df_ord
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Nivel_educacion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>0</td>
         </tr>
       </tbody>
     </table>
@@ -817,8 +929,8 @@ Ejemplo de codificación de variables categóricas solo con pandas:
 
 .. code:: ipython3
 
-    # --- One-Hot Encoding eliminando una columna (para evitar multicolinealidad) ---
-    df_onehot_drop = pd.get_dummies(df[['Género', 'Nivel_educacion']], drop_first=True)
+    # --- One-Hot Encoding eliminando una columna: ---
+    df_onehot_drop = pd.get_dummies(df[['Género', 'Compra']], drop_first=True)
     df_onehot_drop
 
 
@@ -845,8 +957,7 @@ Ejemplo de codificación de variables categóricas solo con pandas:
         <tr style="text-align: right;">
           <th></th>
           <th>Género_M</th>
-          <th>Nivel_educacion_Bajo</th>
-          <th>Nivel_educacion_Medio</th>
+          <th>Compra_Sí</th>
         </tr>
       </thead>
       <tbody>
@@ -854,31 +965,26 @@ Ejemplo de codificación de variables categóricas solo con pandas:
           <th>0</th>
           <td>1</td>
           <td>1</td>
-          <td>0</td>
         </tr>
         <tr>
           <th>1</th>
           <td>0</td>
           <td>0</td>
-          <td>1</td>
         </tr>
         <tr>
           <th>2</th>
           <td>0</td>
-          <td>0</td>
-          <td>0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>3</th>
           <td>1</td>
           <td>0</td>
-          <td>1</td>
         </tr>
         <tr>
           <th>4</th>
           <td>1</td>
           <td>1</td>
-          <td>0</td>
         </tr>
       </tbody>
     </table>
@@ -888,8 +994,8 @@ Ejemplo de codificación de variables categóricas solo con pandas:
 
 .. code:: ipython3
 
-    # --- One-Hot Encoding sin eliminar columnas (para modelos no lineales) ---
-    df_onehot_full = pd.get_dummies(df[['Género', 'Nivel_educacion']], drop_first=False)
+    # --- One-Hot Encoding eliminado primera columna (para modelos lineales) ---
+    df_onehot_full = pd.get_dummies(df[['Color']], drop_first=True)
     df_onehot_full
 
 
@@ -915,52 +1021,34 @@ Ejemplo de codificación de variables categóricas solo con pandas:
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Género_F</th>
-          <th>Género_M</th>
-          <th>Nivel_educacion_Alto</th>
-          <th>Nivel_educacion_Bajo</th>
-          <th>Nivel_educacion_Medio</th>
+          <th>Color_Rojo</th>
+          <th>Color_Verde</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th>0</th>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
           <td>1</td>
           <td>0</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>1</td>
           <td>0</td>
           <td>0</td>
-          <td>0</td>
-          <td>1</td>
         </tr>
         <tr>
           <th>2</th>
-          <td>1</td>
           <td>0</td>
           <td>1</td>
-          <td>0</td>
-          <td>0</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>0</td>
           <td>1</td>
           <td>0</td>
-          <td>0</td>
-          <td>1</td>
         </tr>
         <tr>
           <th>4</th>
           <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
           <td>0</td>
         </tr>
       </tbody>
@@ -971,9 +1059,8 @@ Ejemplo de codificación de variables categóricas solo con pandas:
 
 .. code:: ipython3
 
-    # --- Codificación binaria para 'Compra' ---
-    df['Compra_cod'] = df['Compra'].map({'Sí': 1, 'No': 0})
-    df
+    # Resultados
+    pd.concat([df_onehot_drop, df_onehot_full, df_ord], axis=1)
 
 
 
@@ -998,47 +1085,124 @@ Ejemplo de codificación de variables categóricas solo con pandas:
       <thead>
         <tr style="text-align: right;">
           <th></th>
-          <th>Género</th>
+          <th>Género_M</th>
+          <th>Compra_Sí</th>
+          <th>Color_Rojo</th>
+          <th>Color_Verde</th>
           <th>Nivel_educacion</th>
-          <th>Compra</th>
-          <th>Compra_cod</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th>0</th>
-          <td>M</td>
-          <td>Bajo</td>
-          <td>Sí</td>
           <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
         </tr>
         <tr>
           <th>1</th>
-          <td>F</td>
-          <td>Medio</td>
-          <td>No</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+
+.. code:: ipython3
+
+    # --- One-Hot Encoding sin eliminar columnas (para modelos no lineales) ---
+    df_onehot_full = pd.get_dummies(df[['Color']], drop_first=False)
+    df_onehot_full
+
+
+
+
+.. raw:: html
+
+    <div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>Color_Azul</th>
+          <th>Color_Rojo</th>
+          <th>Color_Verde</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>1</td>
+          <td>0</td>
           <td>0</td>
         </tr>
         <tr>
           <th>2</th>
-          <td>F</td>
-          <td>Alto</td>
-          <td>Sí</td>
+          <td>0</td>
+          <td>0</td>
           <td>1</td>
         </tr>
         <tr>
           <th>3</th>
-          <td>M</td>
-          <td>Medio</td>
-          <td>No</td>
+          <td>0</td>
+          <td>1</td>
           <td>0</td>
         </tr>
         <tr>
           <th>4</th>
-          <td>M</td>
-          <td>Bajo</td>
-          <td>Sí</td>
           <td>1</td>
+          <td>0</td>
+          <td>0</td>
         </tr>
       </tbody>
     </table>
@@ -1049,15 +1213,8 @@ Ejemplo de codificación de variables categóricas solo con pandas:
 .. code:: ipython3
 
     # Resultados
-    print("\n--- One-Hot Encoding eliminando una columna ---")
-    pd.concat([df_onehot_drop, df['Compra_cod']], axis=1)
+    pd.concat([df_onehot_drop, df_onehot_full, df_ord], axis=1)
 
-
-.. parsed-literal::
-
-    
-    --- One-Hot Encoding eliminando una columna ---
-    
 
 
 
@@ -1082,9 +1239,11 @@ Ejemplo de codificación de variables categóricas solo con pandas:
         <tr style="text-align: right;">
           <th></th>
           <th>Género_M</th>
-          <th>Nivel_educacion_Bajo</th>
-          <th>Nivel_educacion_Medio</th>
-          <th>Compra_cod</th>
+          <th>Compra_Sí</th>
+          <th>Color_Azul</th>
+          <th>Color_Rojo</th>
+          <th>Color_Verde</th>
+          <th>Nivel_educacion</th>
         </tr>
       </thead>
       <tbody>
@@ -1094,6 +1253,8 @@ Ejemplo de codificación de variables categóricas solo con pandas:
           <td>1</td>
           <td>0</td>
           <td>1</td>
+          <td>0</td>
+          <td>0</td>
         </tr>
         <tr>
           <th>1</th>
@@ -1101,122 +1262,35 @@ Ejemplo de codificación de variables categóricas solo con pandas:
           <td>0</td>
           <td>1</td>
           <td>0</td>
+          <td>0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>2</th>
           <td>0</td>
+          <td>1</td>
           <td>0</td>
           <td>0</td>
           <td>1</td>
+          <td>2</td>
         </tr>
         <tr>
           <th>3</th>
           <td>1</td>
           <td>0</td>
+          <td>0</td>
           <td>1</td>
           <td>0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>4</th>
           <td>1</td>
           <td>1</td>
-          <td>0</td>
-          <td>1</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
-
-.. code:: ipython3
-
-    # Resultados
-    print("\n--- One-Hot Encoding sin eliminar columnas ---")
-    pd.concat([df_onehot_full, df['Compra_cod']], axis=1)
-
-
-.. parsed-literal::
-
-    
-    --- One-Hot Encoding sin eliminar columnas ---
-    
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-    
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-    
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Género_F</th>
-          <th>Género_M</th>
-          <th>Nivel_educacion_Alto</th>
-          <th>Nivel_educacion_Bajo</th>
-          <th>Nivel_educacion_Medio</th>
-          <th>Compra_cod</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th>1</th>
           <td>1</td>
           <td>0</td>
           <td>0</td>
           <td>0</td>
-          <td>1</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>0</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
         </tr>
       </tbody>
     </table>
@@ -1225,7 +1299,7 @@ Ejemplo de codificación de variables categóricas solo con pandas:
 
 
 Escalado de variables:
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 El **escalado de variables** es el proceso de transformar los valores
 numéricos para que estén en un rango o distribución específica.

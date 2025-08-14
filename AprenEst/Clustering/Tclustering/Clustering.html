@@ -189,7 +189,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos.html">Preparación y preprocesamiento de datos</a></li>
-
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Clustering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../K-Means/K-Means.html">K-Means</a></li>
@@ -628,6 +627,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-clustering">Tipos de Clustering:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-del-clustering-en-finanzas">Aplicaciones del Clustering en Finanzas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
 </ul>
             </nav>
         </div>
@@ -752,6 +752,362 @@ diferentes categorías de riesgo.</p></li>
 similares para diversificar riesgos y optimizar retornos.</p></li>
 </ol>
 </section>
+<section id="resumen">
+<h2>Resumen<a class="headerlink" href="#resumen" title="Permalink to this heading">#</a></h2>
+<p><strong>K-Means</strong> <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.KMeans</span></code></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Argumento</p></th>
+<th class="head"><p>¿Para qué
+sirve?</p></th>
+<th class="head"><p>Opciones /
+valores típicos</p></th>
+<th class="head"><p>Lo clave</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code></p></td>
+<td><p>Número de
+clusters a
+formar.</p></td>
+<td><p>Entero ≥ 1
+(p. ej., 3, 5,
+8).</p></td>
+<td><p>Elegir con
+criterios como
+codo (inertia)
+o
+<code class="docutils literal notranslate"><span class="pre">silhouette</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">init</span></code></p></td>
+<td><p>Método para
+inicializar
+centroides.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'k-means++'</span></code>
+(por defecto),
+<code class="docutils literal notranslate"><span class="pre">'random'</span></code>,
+matriz
+<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'k-means++'</span></code>
+suele converger
+más rápido y
+estable.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">n_init</span></code></p></td>
+<td><p>Repeticiones
+con distintas
+in
+icializaciones.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10</span></code>, <code class="docutils literal notranslate"><span class="pre">20</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'auto'</span></code>
+(versiones
+recientes).</p></td>
+<td><p>Aumentarlo
+reduce riesgo
+de mínimos
+locales; fijar
+para
+re
+producibilidad.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_iter</span></code></p></td>
+<td><p>Iteraciones
+máximas por
+corrida.</p></td>
+<td><p>Entero (p. ej.,
+300).</p></td>
+<td><p>Si no converge,
+incrementar o
+revisar
+escalado de
+datos.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tol</span></code></p></td>
+<td><p>Tolerancia para
+criterio de
+parada.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1e-4</span></code>,
+<code class="docutils literal notranslate"><span class="pre">1e-3</span></code>, etc.</p></td>
+<td><p>Controla cuándo
+detener por
+pequeños
+cambios en
+inercia.</p></td>
+</tr>
+<tr class="row-odd"><td><p>`
+<cite>random_state`</cite></p></td>
+<td><p>Semilla de
+aleatoriedad.</p></td>
+<td><p>Entero (p. ej.,
+42).</p></td>
+<td><p>Fija resultados
+reproducibles.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notas clave K-Means:</strong></p>
+<ul class="simple">
+<li><p>Escalar variables (p. ej., <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code>) para que una dimensión
+no domine.</p></li>
+<li><p>Sensible a outliers y a la forma (prefiere clusters esféricos).</p></li>
+<li><p>Métricas comunes: <strong>inercia</strong>, <strong>silhouette</strong> para elegir
+<code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>.</p></li>
+</ul>
+<p><strong>Clustering Jerárquico Aglomerativo</strong>
+<code class="docutils literal notranslate"><span class="pre">sklearn.cluster.AgglomerativeClustering</span></code></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Argumento</p></th>
+<th class="head"><p>¿Para qué
+sirve?</p></th>
+<th class="head"><p>Opciones /
+valores típicos</p></th>
+<th class="head"><p>Lo clave</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">n_clusters</span></code></p></td>
+<td><p>Número de
+clusters
+finales.</p></td>
+<td><p>Entero ≥ 1.</p></td>
+<td><p>Alternativo a
+<code class="docutils literal notranslate"><span class="pre">dista</span>
+<span class="pre">nce_threshold</span></code>
+(no se usan
+juntos).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dista</span>
+<span class="pre">nce_threshold</span></code></p></td>
+<td><p>Umbral de
+distancia para
+cortar el
+dendrograma.</p></td>
+<td><p>Float (p. ej.,
+10.0).</p></td>
+<td><p>Si se usa,
+dejar
+<code class="docutils literal notranslate"><span class="pre">n_</span>
+<span class="pre">clusters=None</span></code>
+para
+“descubrir” el
+número de
+clusters.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">linkage</span></code></p></td>
+<td><p>Cómo se
+combinan
+clusters.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'ward'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'complete'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'average'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'single'</span></code>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'ward'</span></code>
+minimiza
+varianza
+(requiere
+métrica
+euclídea);
+<code class="docutils literal notranslate"><span class="pre">'complete'</span></code>
+más compacto;
+<code class="docutils literal notranslate"><span class="pre">'single'</span></code>
+puede generar
+e
+ncadenamientos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">metric</span></code></p></td>
+<td><p>Métrica de
+distancia.</p></td>
+<td><p>`
+<cite>‘euclidean’`</cite>,
+`
+<cite>‘manhattan’`</cite>,
+<code class="docutils literal notranslate"><span class="pre">'cosine'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'l1'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'l2'</span></code>, etc.</p></td>
+<td><p>Con
+<code class="docutils literal notranslate"><span class="pre">l</span>
+<span class="pre">inkage='ward'</span></code>
+debe ser
+`
+<cite>‘euclidean’`</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">comp</span>
+<span class="pre">ute_full_tree</span></code></p></td>
+<td><p>Fuerza calcular
+árbol completo.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'auto'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">True</span></code>,
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+<td><p>Útil con
+<code class="docutils literal notranslate"><span class="pre">dista</span>
+<span class="pre">nce_threshold</span></code>
+para cortes
+precisos.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">comp</span>
+<span class="pre">ute_distances</span></code></p></td>
+<td><p>Guarda
+distancias
+entre merges.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> /
+<code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></td>
+<td><p>Necesario para
+análisi
+s/visualización
+posterior.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notas clave Jerárquico:</strong></p>
+<ul class="simple">
+<li><p>Permite interpretar la estructura con <strong>dendrogramas</strong> (usar
+<code class="docutils literal notranslate"><span class="pre">scipy</span></code> para graficarlos).</p></li>
+<li><p>No requiere fijar el número de clusters si se usa
+<code class="docutils literal notranslate"><span class="pre">distance_threshold</span></code>.</p></li>
+<li><p>Escalado recomendado si las variables están en magnitudes muy
+distintas.</p></li>
+</ul>
+<p><strong>DBSCAN</strong> <code class="docutils literal notranslate"><span class="pre">sklearn.cluster.DBSCAN</span></code></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Argumento</p></th>
+<th class="head"><p>¿Para qué
+sirve?</p></th>
+<th class="head"><p>Opciones /
+valores típicos</p></th>
+<th class="head"><p>Lo clave</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eps</span></code></p></td>
+<td><p>Radio del
+vecindario.</p></td>
+<td><p>Float (p. ej.,
+0.3, 0.5).</p></td>
+<td><p>Parámetro más
+sensible</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">min_samples</span></code></p></td>
+<td><p>Mínimo de
+puntos para
+formar un
+núcleo.</p></td>
+<td><p>Entero (p. ej.,
+5, 10).</p></td>
+<td><p>Regula densidad
+mínima; valores
+mayores →
+clusters más
+“densos”.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">metric</span></code></p></td>
+<td><p>Métrica de
+distancia.</p></td>
+<td><p>`
+<cite>‘euclidean’`</cite>,
+`
+<cite>‘manhattan’`</cite>,
+<code class="docutils literal notranslate"><span class="pre">'cosine'</span></code>,
+`
+<cite>‘minkowski’`</cite>,
+etc.</p></td>
+<td><p>Consistente con
+la escala de
+datos; escalar
+antes si
+procede.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+<td><p>Parámetro de
+Minkowski.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code>
+(Manhattan),
+<code class="docutils literal notranslate"><span class="pre">2</span></code>
+(Euclídea).</p></td>
+<td><p>Solo si
+<code class="docutils literal notranslate"><span class="pre">metric</span>
+<span class="pre">='minkowski'</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code></p></td>
+<td><p>Paralelización.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code> o
+entero.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-1</span></code> usa
+todos los cores
+disponibles.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notas clave DBSCAN:</strong></p>
+<ul class="simple">
+<li><p>No requiere <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code>; detecta <strong>ruido</strong> (<code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">=</span> <span class="pre">-1</span></code>) y
+clusters de <strong>forma arbitraria</strong>.</p></li>
+<li><p>Muy <strong>sensible a la escala</strong>: aplicar escalado o normalización.</p></li>
+</ul>
+<p><strong>K-Means:</strong> Agrupa buscando que cada punto esté lo más cerca posible
+del centro de su grupo.</p>
+<p><strong>Clustering Jerárquico:</strong> Es como armar familias de datos empezando de
+individuos y uniéndolos poco a poco.</p>
+<p><strong>DBSCAN:</strong> Encuentra grupos donde hay mucha densidad de puntos y deja
+fuera a los que están aislados.*</p>
+<p><strong>Forma de los clusters en cada método:</strong></p>
+<p><strong>K-Means:</strong></p>
+<ul class="simple">
+<li><p>Tiende a formar <strong>clusters circulares o esféricos</strong> (en 2D serían
+círculos, en 3D serían esferas).</p></li>
+<li><p>Esto pasa porque usa distancias euclídeas al centro, por lo que asume
+que todos los puntos de un grupo están distribuidos de forma más o
+menos redonda alrededor de su centro.</p></li>
+<li><p>Si los datos tienen formas alargadas o curvas, K-Means puede
+separarlos de forma poco natural.</p></li>
+</ul>
+<p><strong>Clustering Jerárquico:</strong></p>
+<ul class="simple">
+<li><p>La forma de los clusters depende del criterio de enlace
+(<code class="docutils literal notranslate"><span class="pre">linkage</span></code>).</p></li>
+<li><p>Con <code class="docutils literal notranslate"><span class="pre">ward</span></code> tiende a formar clusters más compactos y cercanos a
+circulares.</p></li>
+<li><p>Con <code class="docutils literal notranslate"><span class="pre">single</span></code> o <code class="docutils literal notranslate"><span class="pre">complete</span></code> puede generar <strong>clusters alargados o
+irregulares</strong>, adaptándose mejor a distintas formas.</p></li>
+<li><p>Es más flexible que K-Means, pero no tan bueno como DBSCAN para
+formas muy complejas.</p></li>
+</ul>
+<p><strong>DBSCAN:</strong></p>
+<ul class="simple">
+<li><p>No asume forma circular.</p></li>
+<li><p>Puede detectar <strong>clusters de forma arbitraria</strong>: alargados, curvos,
+en espiral, etc.</p></li>
+<li><p>Muy útil cuando los datos tienen densidades diferentes o formas no
+regulares.</p></li>
+<li><p>Sin embargo, puede fallar si los clusters tienen densidades muy
+distintas.</p></li>
+</ul>
+<p><strong>Diferencia entre inercia y silueta:</strong></p>
+<ul>
+<li><p><strong>Inercia</strong></p>
+<p>Imagina que cada grupo de puntos tiene un “imán” en el centro.</p>
+<p>La inercia mide <strong>qué tan cerca están los puntos de su imán</strong>.</p>
+<p>Cuanto más pequeña es la inercia, más juntos están los puntos dentro
+de cada grupo.</p>
+<p><em>Es como medir qué tan apretado está un racimo de uvas.</em></p>
+</li>
+<li><p><strong>Silueta</strong></p>
+<div class="line-block">
+<div class="line">Aquí no solo miramos lo cerca que están los puntos de su propio
+grupo, sino también <strong>qué tan lejos están de otros grupos</strong>.</div>
+<div class="line">La silueta combina ambas cosas:</div>
+</div>
+<ul class="simple">
+<li><p>Alta → los puntos están muy cerca de su grupo y muy lejos de los
+otros.</p></li>
+<li><p>Baja o negativa → los puntos están confundidos entre grupos.</p></li>
+</ul>
+<p><em>Es como medir si un racimo de uvas está bien separado de los otros
+racimos.</em></p>
+</li>
+</ul>
+</section>
 </section>
 
 
@@ -800,6 +1156,7 @@ similares para diversificar riesgos y optimizar retornos.</p></li>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-clustering">Tipos de Clustering:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplicaciones-del-clustering-en-finanzas">Aplicaciones del Clustering en Finanzas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen</a></li>
 </ul>
   </nav></div>
 

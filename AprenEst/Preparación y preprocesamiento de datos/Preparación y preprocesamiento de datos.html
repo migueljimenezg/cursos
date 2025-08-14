@@ -189,7 +189,6 @@
 </ul>
 </li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Preparación y preprocesamiento de datos</a></li>
-
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Clustering/index.html">Clustering</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Clustering/Tclustering/Clustering.html">Clustering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Clustering/K-Means/K-Means.html">K-Means</a></li>
@@ -626,22 +625,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Preparación y preprocesamiento de datos</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-principales">Tipos principales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codificacion-de-variables-categoricas">Codificación de variables categóricas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-con-scikit-learn">Ejemplo con scikit-learn:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-codificacion-de-variables-categoricas-solo-con-pandas">Ejemplo de codificación de variables categóricas solo con pandas:</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#escalado-de-variables">Escalado de variables:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escalado-de-variables">Escalado de variables:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativas-de-escalado">Alternativas de escalado:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-escalado-cambia-las-propiedades-estadisticas-de-las-variables">¿El escalado cambia las propiedades estadísticas de las variables?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-escalado-cambia-las-correlaciones-entre-las-variables">¿El escalado cambia las correlaciones entre las variables?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-en-python-minmaxscaler-y-standardscaler">Ejemplo en Python: MinMaxScaler y StandardScaler:</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -660,7 +654,7 @@ preprocesamiento y el modelo adecuado.</p>
 <section id="tipos-principales">
 <h2>Tipos principales<a class="headerlink" href="#tipos-principales" title="Permalink to this heading">#</a></h2>
 <ol class="arabic">
-<li><p><strong>Numéricos (cuantitativos)</strong></p>
+<li><p><strong>Numéricos (cuantitativos):</strong></p>
 <p>Son valores que representan cantidades medibles.</p>
 <ul class="simple">
 <li><p><strong>Continuos:</strong> pueden tomar cualquier valor en un rango. Ejemplo:
@@ -669,102 +663,92 @@ altura, peso, temperatura.</p></li>
 cantidad de ventas.</p></li>
 </ul>
 </li>
-<li><p><strong>Categóricos (cualitativos)</strong></p>
-<p>Representan categorías o grupos.</p>
+<li><p><strong>Categóricos (cualitativos):</strong></p>
+<p><strong>Variables nominales:</strong> No tienen un orden natural entre sus
+categorías.</p>
+<p>Ejemplos:</p>
 <ul class="simple">
-<li><p><strong>Nominales:</strong> categorías sin orden inherente. Ejemplo: color,
-país.</p></li>
-<li><p><strong>Ordinales:</strong> categorías con un orden lógico. Ejemplo: nivel de
-educación (bajo, medio, alto), estrato socio económico (1, 2, 3,
-4, 5, 6).</p></li>
+<li><p><strong>Color:</strong> Rojo, Azul, Verde.</p></li>
+<li><p><strong>País:</strong> Colombia, México, Chile.</p></li>
+<li><p><strong>Género:</strong> Masculino, Femenino.</p></li>
 </ul>
-</li>
-<li><p><strong>Binarios</strong></p>
-<p>Tienen solo dos valores posibles. Ejemplo: sí/no, 0/1.</p>
-</li>
-<li><p><strong>Texto</strong></p>
-<p>Secuencias de caracteres. Ejemplo: comentarios, descripciones.</p>
-</li>
-<li><p><strong>Fecha y hora</strong></p>
-<p>Representan momentos específicos en el tiempo. Ejemplo:
-<code class="docutils literal notranslate"><span class="pre">2025-08-13</span> <span class="pre">14:35:00</span></code>.</p>
-</li>
-</ol>
-<p><strong>Ejemplo en tabla:</strong></p>
+<p><strong>Conversión numérica (One-Hot Encoding):</strong></p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>ID</p></th>
-<th class="head"><p>Edad</p></th>
-<th class="head"><p>G
-énero</p></th>
-<th class="head"><p>Ing
-resos</p></th>
-<th class="head"><p>Nivel
-educ
-ación</p></th>
-<th class="head"><p>C
-ompra
-p
-revia</p></th>
-<th class="head"><p>Comen
-tario</p></th>
-<th class="head"><p>Fecha
-reg
-istro</p></th>
+<tr class="row-odd"><th class="head"><p>Color</p></th>
+<th class="head"><p>Color_Rojo</p></th>
+<th class="head"><p>Color_Azul</p></th>
+<th class="head"><p>Color_Verde</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>25</p></td>
-<td><p>M</p></td>
-<td><p>3000</p></td>
-<td><p>Medio</p></td>
-<td><p>Sí</p></td>
-<td><p>Buen
-ser
-vicio</p></td>
-<td><p>2025-
-08-01
-09:15</p></td>
+<tr class="row-even"><td><p>Rojo</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
 </tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>40</p></td>
-<td><p>F</p></td>
-<td><p>5500</p></td>
-<td><p>Alto</p></td>
-<td><p>No</p></td>
-<td><p>P
-odría
-me
-jorar</p></td>
-<td><p>2025-
-08-02
-14:40</p></td>
+<tr class="row-odd"><td><p>Azul</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
 </tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>31</p></td>
-<td><p>F</p></td>
-<td><p>4200</p></td>
-<td><p>Bajo</p></td>
-<td><p>Sí</p></td>
-<td><p>Exce
-lente
-ate
-nción</p></td>
-<td><p>2025-
-08-05
-17:10</p></td>
+<tr class="row-even"><td><p>Verde</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
 </tr>
 </tbody>
 </table>
+<p><strong>Variables ordinales:</strong> Tienen un orden lógico entre sus categorías.</p>
+<p>Ejemplos:</p>
 <ul class="simple">
-<li><p><strong>Numéricos:</strong> <code class="docutils literal notranslate"><span class="pre">Edad</span></code>, <code class="docutils literal notranslate"><span class="pre">Ingresos</span></code></p></li>
-<li><p><strong>Categóricos nominales:</strong> <code class="docutils literal notranslate"><span class="pre">Género</span></code></p></li>
-<li><p><strong>Categóricos ordinales:</strong> <code class="docutils literal notranslate"><span class="pre">Nivel</span> <span class="pre">educación</span></code></p></li>
-<li><p><strong>Binarios:</strong> <code class="docutils literal notranslate"><span class="pre">Compra</span> <span class="pre">previa</span></code></p></li>
-<li><p><strong>Texto:</strong> <code class="docutils literal notranslate"><span class="pre">Comentario</span></code></p></li>
-<li><p><strong>Fecha y hora:</strong> <code class="docutils literal notranslate"><span class="pre">Fecha</span> <span class="pre">registro</span></code></p></li>
+<li><p><strong>Nivel educativo:</strong> Bajo, Medio, Alto.</p></li>
+<li><p><strong>Talla de ropa:</strong> S, M, L, XL.</p></li>
+<li><p><strong>Satisfacción:</strong> Mala, Regular, Buena, Excelente.</p></li>
 </ul>
+<p><strong>Conversión numérica (Ordinal Encoding):</strong></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nivel educativo</p></th>
+<th class="head"><p>Codificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bajo</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Medio</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>Alto</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
+<p>Otro ejemplo:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Talla</p></th>
+<th class="head"><p>Codificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>M</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>L</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XL</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
 <figure class="align-default" id="id1">
 <img alt="DataTypes1" src="../../_images/DataTypes1.PNG" />
 <figcaption>
@@ -793,7 +777,46 @@ interpretación del modelo.</p></li>
 <p>Se asigna un número entero a cada categoría respetando un orden
 lógico.</p>
 <p>Ejemplo: Nivel educativo — Bajo = 1, Medio = 2, Alto = 3.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Nivel educativo</p></th>
+<th class="head"><p>Codificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bajo</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Medio</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>Alto</p></td>
+<td><p>3</p></td>
+</tr>
+</tbody>
+</table>
 <p>Útil para variables <strong>ordinales</strong> donde el orden importa.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Talla</p></th>
+<th class="head"><p>Codificación</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>S</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>M</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>L</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>XL</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
 <p>No es necesario crear variables booleanas, ya que el orden tiene
 significado.</p>
 </li>
@@ -801,25 +824,27 @@ significado.</p>
 <p>Convierte cada categoría en una columna booleana (0/1). Útil para
 variables <strong>nominales</strong> (sin orden). • Crea una nueva columna binaria
 (0 o 1) para cada categoría posible.</p>
-<p>Ejemplo: Color — Rojo, Azul, Verde → columnas <code class="docutils literal notranslate"><span class="pre">Rojo</span></code>, <code class="docutils literal notranslate"><span class="pre">Azul</span></code>,
-<code class="docutils literal notranslate"><span class="pre">Verde</span></code>.</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>color=rojo</p></th>
-<th class="head"><p>color=verde</p></th>
-<th class="head"><p>color=azul</p></th>
+<tr class="row-odd"><th class="head"><p>Color</p></th>
+<th class="head"><p>Color_Rojo</p></th>
+<th class="head"><p>Color_Azul</p></th>
+<th class="head"><p>Color_Verde</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>1</p></td>
+<tr class="row-even"><td><p>Rojo</p></td>
+<td><p>1</p></td>
 <td><p>0</p></td>
 <td><p>0</p></td>
 </tr>
-<tr class="row-odd"><td><p>0</p></td>
+<tr class="row-odd"><td><p>Azul</p></td>
+<td><p>0</p></td>
 <td><p>1</p></td>
 <td><p>0</p></td>
 </tr>
-<tr class="row-even"><td><p>0</p></td>
+<tr class="row-even"><td><p>Verde</p></td>
+<td><p>0</p></td>
 <td><p>0</p></td>
 <td><p>1</p></td>
 </tr>
@@ -847,24 +872,33 @@ se dejan <code class="docutils literal notranslate"><span class="pre">Azul</span
 <p>En <strong>otros modelos</strong> (árboles de decisión, random forest, XGBoost, redes
 neuronales) no es necesario eliminar columnas, ya que no se ven
 afectados por la multicolinealidad de la misma forma.</p>
+<p><strong>Resumen:</strong></p>
+<ul class="simple">
+<li><p><strong>Nominales</strong> → usar <strong>One-Hot Encoding</strong> para evitar introducir un
+orden falso.</p></li>
+<li><p><strong>Ordinales</strong> → usar <strong>Ordinal Encoding</strong> respetando el orden natural
+de las categorías.</p></li>
+</ul>
 </section>
-<section id="ejemplo-con-scikit-learn">
-<h2>Ejemplo con scikit-learn:<a class="headerlink" href="#ejemplo-con-scikit-learn" title="Permalink to this heading">#</a></h2>
-<div class="line-block">
-<div class="line">En este ejemplo se codifican dos variables nominales: <strong>Género</strong> y
-<strong>Nivel_educacion</strong>.</div>
-<div class="line">Primero se aplicará One-Hot Encoding <strong>eliminando una columna</strong>
-(<code class="docutils literal notranslate"><span class="pre">drop='first'</span></code>) para evitar la multicolinealidad en modelos
-lineales, y luego se mostrará el resultado <strong>sin eliminar columnas</strong>
-(útil para otros modelos como árboles de decisión o redes neuronales).</div>
-</div>
+<section id="ejemplo">
+<h2>Ejemplo:<a class="headerlink" href="#ejemplo" title="Permalink to this heading">#</a></h2>
+<p>En este ejemplo se codifican tre variables categóricas:</p>
+<ul class="simple">
+<li><p><strong>Nivel_educacion</strong> (ordinal).</p></li>
+<li><p><strong>Género</strong> (nominal): Cuando <strong>Género</strong> tiene solo dos categorías,
+puede representarse directamente como <strong>variable binaria</strong> sin
+necesidad de crear más de una columna.</p></li>
+<li><p><strong>Compra</strong> (nominal): Al tener solo dos categorías, puede codificarse
+directamente como variable binaria.</p></li>
+<li><p><strong>Color</strong> (nominal): Tiene más de dos categorías.</p></li>
+</ul>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
 
 <span class="c1"># Datos de ejemplo</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;Género&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">],</span>
     <span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bajo&#39;</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">,</span> <span class="s1">&#39;Alto&#39;</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">,</span> <span class="s1">&#39;Bajo&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Rojo&#39;</span><span class="p">,</span> <span class="s1">&#39;Azul&#39;</span><span class="p">,</span> <span class="s1">&#39;Verde&#39;</span><span class="p">,</span> <span class="s1">&#39;Rojo&#39;</span><span class="p">,</span> <span class="s1">&#39;Azul&#39;</span><span class="p">],</span>
     <span class="s1">&#39;Compra&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Sí&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Sí&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Sí&#39;</span><span class="p">]</span>
 <span class="p">})</span>
 
@@ -895,6 +929,7 @@ lineales, y luego se mostrará el resultado <strong>sin eliminar columnas</stron
       <th></th>
       <th>Género</th>
       <th>Nivel_educacion</th>
+      <th>Color</th>
       <th>Compra</th>
     </tr>
   </thead>
@@ -903,83 +938,65 @@ lineales, y luego se mostrará el resultado <strong>sin eliminar columnas</stron
       <th>0</th>
       <td>M</td>
       <td>Bajo</td>
+      <td>Rojo</td>
       <td>Sí</td>
     </tr>
     <tr>
       <th>1</th>
       <td>F</td>
       <td>Medio</td>
+      <td>Azul</td>
       <td>No</td>
     </tr>
     <tr>
       <th>2</th>
       <td>F</td>
       <td>Alto</td>
+      <td>Verde</td>
       <td>Sí</td>
     </tr>
     <tr>
       <th>3</th>
       <td>M</td>
       <td>Medio</td>
+      <td>Rojo</td>
       <td>No</td>
     </tr>
     <tr>
       <th>4</th>
       <td>M</td>
       <td>Bajo</td>
+      <td>Azul</td>
       <td>Sí</td>
     </tr>
   </tbody>
 </table>
-</div><ul>
+</div></section>
+<section id="ejemplo-con-scikit-learn">
+<h2>Ejemplo con scikit-learn:<a class="headerlink" href="#ejemplo-con-scikit-learn" title="Permalink to this heading">#</a></h2>
+<p><strong>Variables nominales:</strong></p>
+<ul class="simple">
 <li><p><strong>OneHotEncoder</strong>: transforma variables categóricas en columnas
 binarias (0/1).</p></li>
-<li><p><strong>drop=‘first’</strong>: elimina la primera categoría de cada variable para
-evitar multicolinealidad en modelos lineales.</p></li>
-<li><p><strong>sparse=False</strong>: devuelve un arreglo denso (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>) en
+<li><p><code class="docutils literal notranslate"><span class="pre">drop='first'</span></code>: elimina la primera categoría de cada variable para
+evitar multicolinealidad en modelos lineales o para las que tienen
+solo dos categorías cómo <strong>Género</strong> y <strong>Compra</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sparse=False</span></code>: devuelve un arreglo denso (<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>) en
 lugar de una matriz dispersa, lo que facilita convertirlo en un
 DataFrame.</p></li>
-<li><p><strong>``encoder_drop.fit_transform(X)``</strong></p>
-<ul class="simple">
-<li><p>Ajusta y transforma en un solo paso las columnas categóricas a
-<strong>one‑hot</strong>.</p></li>
-<li><p><strong>Entrada:</strong> <code class="docutils literal notranslate"><span class="pre">X</span></code> es un DataFrame/array 2D con las columnas
-categóricas (ej. <code class="docutils literal notranslate"><span class="pre">df[['Género',</span> <span class="pre">'Nivel_educacion']]</span></code>).</p></li>
-<li><p><strong>Durante ``fit``:</strong> aprende las categorías por columna (quedan en
-<code class="docutils literal notranslate"><span class="pre">encoder_drop.categories_</span></code>) y aplica la regla de
-<code class="docutils literal notranslate"><span class="pre">drop='first'</span></code> si corresponde.</p></li>
-<li><p><strong>Durante ``transform``:</strong> genera la matriz binaria (0/1).</p></li>
-<li><p><strong>Salida:</strong> <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> (porque <code class="docutils literal notranslate"><span class="pre">sparse=False</span></code>) con forma
-<code class="docutils literal notranslate"><span class="pre">(n_muestras,</span> <span class="pre">n_features_cod)</span></code>.</p></li>
-<li><p><strong>Cálculo de columnas:</strong></p>
-<ul>
-<li><p>Con <code class="docutils literal notranslate"><span class="pre">drop='first'</span></code>:
-<code class="docutils literal notranslate"><span class="pre">n_features_cod</span> <span class="pre">=</span> <span class="pre">Σ</span> <span class="pre">(n_categorías_col</span> <span class="pre">−</span> <span class="pre">1)</span></code></p></li>
-<li><p>Sin <code class="docutils literal notranslate"><span class="pre">drop</span></code>: <code class="docutils literal notranslate"><span class="pre">n_features_cod</span> <span class="pre">=</span> <span class="pre">Σ</span> <span class="pre">(n_categorías_col)</span></code></p></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p><strong>``encoder_drop.get_feature_names_out(input_features)``</strong></p>
-<ul>
-<li><p>Devuelve los <strong>nombres de las columnas</strong> generadas tras la
-codificación.</p></li>
-<li><p><strong>Parámetro:</strong> <code class="docutils literal notranslate"><span class="pre">input_features</span></code> es la lista de nombres
-originales (ej. <code class="docutils literal notranslate"><span class="pre">['Género',</span> <span class="pre">'Nivel_educacion']</span></code>).</p></li>
-<li><p><strong>Formato de nombre:</strong> <code class="docutils literal notranslate"><span class="pre">&quot;&lt;col&gt;_&lt;categoría&gt;&quot;</span></code> (ej. <code class="docutils literal notranslate"><span class="pre">Género_M</span></code>,
-<code class="docutils literal notranslate"><span class="pre">Nivel_educacion_Alto</span></code>).</p></li>
-<li><p>Con <code class="docutils literal notranslate"><span class="pre">drop='first'</span></code>, la primera categoría de cada variable <strong>no</strong>
-aparece en los nombres.</p></li>
-<li><p>Útil para construir el DataFrame final:</p>
-<p><code class="docutils literal notranslate"><span class="pre">pd.DataFrame(encoded_drop,</span> <span class="pre">columns=encoder_drop.get_feature_names_out(['Género',</span> <span class="pre">'Nivel_educacion']))</span></code></p>
-</li>
-</ul>
-</li>
-</ul>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ---- One-Hot Encoding eliminando una columna (para evitar multicolinealidad en modelos lineales) ----</span>
+<p><strong>Género</strong> y <strong>compra</strong> donde deben quedar en una sola columna binaria,
+por tanto, usar <code class="docutils literal notranslate"><span class="pre">drop=first'</span></code>.</p>
+<p>Para <strong>Color</strong> se aplicará también <code class="docutils literal notranslate"><span class="pre">drop=first'</span></code> por si se usarán
+modelos lineales y así evitar la muticolinealidad.</p>
+<p><code class="docutils literal notranslate"><span class="pre">encoder_drop.get_feature_names_out(input_features)</span></code>: Devuelve los
+nombres de las columnas generadas tras la codificación.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">OrdinalEncoder</span>
+
+<span class="c1"># ---- One-Hot Encoding eliminando una columna para las variables nominales con dos categorías y para Color para evitar multicolinealidad ----</span>
 <span class="n">encoder_drop</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">encoded_drop</span> <span class="o">=</span> <span class="n">encoder_drop</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">]])</span>
-<span class="n">cols_drop</span> <span class="o">=</span> <span class="n">encoder_drop</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">([</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">])</span>
+<span class="n">encoded_drop</span> <span class="o">=</span> <span class="n">encoder_drop</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Compra&#39;</span><span class="p">]])</span>
+<span class="n">cols_drop</span> <span class="o">=</span> <span class="n">encoder_drop</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">([</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="s1">&#39;Compra&#39;</span><span class="p">])</span>
 <span class="n">df_encoded_drop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">encoded_drop</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">cols_drop</span><span class="p">)</span>
 <span class="n">df_encoded_drop</span>
 </pre></div>
@@ -1003,8 +1020,9 @@ aparece en los nombres.</p></li>
     <tr style="text-align: right;">
       <th></th>
       <th>Género_M</th>
-      <th>Nivel_educacion_Bajo</th>
-      <th>Nivel_educacion_Medio</th>
+      <th>Color_Rojo</th>
+      <th>Color_Verde</th>
+      <th>Compra_Sí</th>
     </tr>
   </thead>
   <tbody>
@@ -1013,9 +1031,133 @@ aparece en los nombres.</p></li>
       <td>1.0</td>
       <td>1.0</td>
       <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div><p>Para <strong>Nivel educación</strong> por ser ordinal donde el orden tiene
+importancia, se usará <code class="docutils literal notranslate"><span class="pre">OrdinalEncoder</span></code>.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Codificación ordinal (respeta el orden) para &#39;Nivel_educacion&#39;</span>
+<span class="n">encoder_ord</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;Bajo&#39;</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">,</span> <span class="s1">&#39;Alto&#39;</span><span class="p">]])</span>
+<span class="n">encoded_ord</span> <span class="o">=</span> <span class="n">encoder_ord</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">]])</span>
+<span class="n">df_encoded_ord</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">encoded_ord</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">])</span>
+<span class="n">df_encoded_ord</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nivel_educacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resultados elimando una columna a Color:</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_encoded_drop</span><span class="p">,</span> <span class="n">df_encoded_ord</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Género_M</th>
+      <th>Color_Rojo</th>
+      <th>Color_Verde</th>
+      <th>Compra_Sí</th>
+      <th>Nivel_educacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
@@ -1024,26 +1166,90 @@ aparece en los nombres.</p></li>
       <th>2</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ---- One-Hot Encoding sin eliminar columnas (para modelos no lineales) ----</span>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ---- One-Hot Encoding eliminando una columna para las variables nominales con dos categorías----</span>
+<span class="n">encoder_drop</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">encoded_drop</span> <span class="o">=</span> <span class="n">encoder_drop</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Compra&#39;</span><span class="p">]])</span>
+<span class="n">cols_drop</span> <span class="o">=</span> <span class="n">encoder_drop</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">([</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Compra&#39;</span><span class="p">])</span>
+<span class="n">df_encoded_drop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">encoded_drop</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">cols_drop</span><span class="p">)</span>
+<span class="n">df_encoded_drop</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Género_M</th>
+      <th>Compra_Sí</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ---- One-Hot Encoding para Color sin eliminar columnas ----</span>
 <span class="n">encoder_full</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">encoded_full</span> <span class="o">=</span> <span class="n">encoder_full</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">]])</span>
-<span class="n">cols_full</span> <span class="o">=</span> <span class="n">encoder_full</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">([</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">])</span>
+<span class="n">encoded_full</span> <span class="o">=</span> <span class="n">encoder_full</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Color&#39;</span><span class="p">]])</span>
+<span class="n">cols_full</span> <span class="o">=</span> <span class="n">encoder_full</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">([</span><span class="s1">&#39;Color&#39;</span><span class="p">])</span>
 <span class="n">df_encoded_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">encoded_full</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">cols_full</span><span class="p">)</span>
 <span class="n">df_encoded_full</span>
 </pre></div>
@@ -1066,18 +1272,14 @@ aparece en los nombres.</p></li>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Género_F</th>
-      <th>Género_M</th>
-      <th>Nivel_educacion_Alto</th>
-      <th>Nivel_educacion_Bajo</th>
-      <th>Nivel_educacion_Medio</th>
+      <th>Color_Azul</th>
+      <th>Color_Rojo</th>
+      <th>Color_Verde</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.0</td>
-      <td>1.0</td>
       <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
@@ -1087,38 +1289,29 @@ aparece en los nombres.</p></li>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>1.0</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ---- Codificación binaria para &#39;Compra&#39; ----</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Compra_cod&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Compra&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;Sí&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
-<span class="n">df</span>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resultados sin eliminar una columna a Color:</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_encoded_drop</span><span class="p">,</span> <span class="n">df_encoded_full</span><span class="p">,</span> <span class="n">df_encoded_ord</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <div>
@@ -1139,80 +1332,12 @@ aparece en los nombres.</p></li>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Género</th>
+      <th>Género_M</th>
+      <th>Compra_Sí</th>
+      <th>Color_Azul</th>
+      <th>Color_Rojo</th>
+      <th>Color_Verde</th>
       <th>Nivel_educacion</th>
-      <th>Compra</th>
-      <th>Compra_cod</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>M</td>
-      <td>Bajo</td>
-      <td>Sí</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>F</td>
-      <td>Medio</td>
-      <td>No</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>F</td>
-      <td>Alto</td>
-      <td>Sí</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>M</td>
-      <td>Medio</td>
-      <td>No</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>M</td>
-      <td>Bajo</td>
-      <td>Sí</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resultados</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- One-Hot Encoding eliminando una columna ---&quot;</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_encoded_drop</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Compra_cod&quot;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">One</span><span class="o">-</span><span class="n">Hot</span> <span class="n">Encoding</span> <span class="n">eliminando</span> <span class="n">una</span> <span class="n">columna</span> <span class="o">---</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Género_M</th>
-      <th>Nivel_educacion_Bajo</th>
-      <th>Nivel_educacion_Medio</th>
-      <th>Compra_cod</th>
     </tr>
   </thead>
   <tbody>
@@ -1221,137 +1346,56 @@ aparece en los nombres.</p></li>
       <td>1.0</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>1</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1</td>
+      <td>1.0</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1.0</td>
       <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resultados</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- One-Hot Encoding sin eliminar columnas ---&quot;</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_encoded_full</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Compra_cod&quot;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">One</span><span class="o">-</span><span class="n">Hot</span> <span class="n">Encoding</span> <span class="n">sin</span> <span class="n">eliminar</span> <span class="n">columnas</span> <span class="o">---</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Género_F</th>
-      <th>Género_M</th>
-      <th>Nivel_educacion_Alto</th>
-      <th>Nivel_educacion_Bajo</th>
-      <th>Nivel_educacion_Medio</th>
-      <th>Compra_cod</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1</td>
     </tr>
   </tbody>
 </table>
 </div></section>
 <section id="ejemplo-de-codificacion-de-variables-categoricas-solo-con-pandas">
 <h2>Ejemplo de codificación de variables categóricas solo con pandas:<a class="headerlink" href="#ejemplo-de-codificacion-de-variables-categoricas-solo-con-pandas" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><strong>``pd.get_dummies()``</strong>: crea columnas binarias (0/1) a partir de
-variables categóricas.</p></li>
-<li><p><strong>``drop_first=True``</strong>: elimina la primera categoría de cada
-variable para evitar multicolinealidad en modelos lineales.</p></li>
-<li><p><strong>``drop_first=False``</strong>: mantiene todas las categorías, útil para
-modelos no lineales.</p></li>
-<li><p><strong>``.map({‘Sí’: 1, ‘No’: 0})``</strong>: convierte una variable binaria en
-formato texto a valores 0 y 1.</p></li>
-</ul>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Datos de ejemplo</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;Género&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">],</span>
     <span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Bajo&#39;</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">,</span> <span class="s1">&#39;Alto&#39;</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">,</span> <span class="s1">&#39;Bajo&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Rojo&#39;</span><span class="p">,</span> <span class="s1">&#39;Azul&#39;</span><span class="p">,</span> <span class="s1">&#39;Verde&#39;</span><span class="p">,</span> <span class="s1">&#39;Rojo&#39;</span><span class="p">,</span> <span class="s1">&#39;Azul&#39;</span><span class="p">],</span>
     <span class="s1">&#39;Compra&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Sí&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Sí&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Sí&#39;</span><span class="p">]</span>
 <span class="p">})</span>
 
@@ -1382,6 +1426,7 @@ formato texto a valores 0 y 1.</p></li>
       <th></th>
       <th>Género</th>
       <th>Nivel_educacion</th>
+      <th>Color</th>
       <th>Compra</th>
     </tr>
   </thead>
@@ -1390,36 +1435,101 @@ formato texto a valores 0 y 1.</p></li>
       <th>0</th>
       <td>M</td>
       <td>Bajo</td>
+      <td>Rojo</td>
       <td>Sí</td>
     </tr>
     <tr>
       <th>1</th>
       <td>F</td>
       <td>Medio</td>
+      <td>Azul</td>
       <td>No</td>
     </tr>
     <tr>
       <th>2</th>
       <td>F</td>
       <td>Alto</td>
+      <td>Verde</td>
       <td>Sí</td>
     </tr>
     <tr>
       <th>3</th>
       <td>M</td>
       <td>Medio</td>
+      <td>Rojo</td>
       <td>No</td>
     </tr>
     <tr>
       <th>4</th>
       <td>M</td>
       <td>Bajo</td>
+      <td>Azul</td>
       <td>Sí</td>
     </tr>
   </tbody>
 </table>
-</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- One-Hot Encoding eliminando una columna (para evitar multicolinealidad) ---</span>
-<span class="n">df_onehot_drop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</div><ul class="simple">
+<li><p><strong>``pd.get_dummies()``</strong>: crea columnas binarias (0/1) a partir de
+variables categóricas.</p></li>
+<li><p><strong>``drop_first=True``</strong>: elimina la primera categoría de cada
+variable para evitar multicolinealidad en modelos lineales.</p></li>
+<li><p><strong>``drop_first=False``</strong>: mantiene todas las categorías, útil para
+modelos no lineales.</p></li>
+<li><p><strong>``.map({‘Sí’: 1, ‘No’: 0})``</strong>: convierte una variable binaria en
+formato texto a valores 0 y 1.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Codificación ordinal manual para &#39;Nivel_educacion&#39;:</span>
+<span class="n">orden_edu</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Bajo&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Medio&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Alto&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">df_ord</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">orden_edu</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">])</span>
+<span class="n">df_ord</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nivel_educacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- One-Hot Encoding eliminando una columna: ---</span>
+<span class="n">df_onehot_drop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Compra&#39;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df_onehot_drop</span>
 </pre></div>
 </div>
@@ -1442,8 +1552,7 @@ formato texto a valores 0 y 1.</p></li>
     <tr style="text-align: right;">
       <th></th>
       <th>Género_M</th>
-      <th>Nivel_educacion_Bajo</th>
-      <th>Nivel_educacion_Medio</th>
+      <th>Compra_Sí</th>
     </tr>
   </thead>
   <tbody>
@@ -1451,36 +1560,31 @@ formato texto a valores 0 y 1.</p></li>
       <th>0</th>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
     </tr>
   </tbody>
 </table>
-</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- One-Hot Encoding sin eliminar columnas (para modelos no lineales) ---</span>
-<span class="n">df_onehot_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Género&#39;</span><span class="p">,</span> <span class="s1">&#39;Nivel_educacion&#39;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- One-Hot Encoding eliminado primera columna (para modelos lineales) ---</span>
+<span class="n">df_onehot_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Color&#39;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df_onehot_full</span>
 </pre></div>
 </div>
@@ -1502,59 +1606,40 @@ formato texto a valores 0 y 1.</p></li>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Género_F</th>
-      <th>Género_M</th>
-      <th>Nivel_educacion_Alto</th>
-      <th>Nivel_educacion_Bajo</th>
-      <th>Nivel_educacion_Medio</th>
+      <th>Color_Rojo</th>
+      <th>Color_Verde</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
       <td>1</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1</td>
       <td>0</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0</td>
       <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
       <td>0</td>
     </tr>
   </tbody>
 </table>
-</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Codificación binaria para &#39;Compra&#39; ---</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Compra_cod&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Compra&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;Sí&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
-<span class="n">df</span>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resultados</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_onehot_drop</span><span class="p">,</span> <span class="n">df_onehot_full</span><span class="p">,</span> <span class="n">df_ord</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <div>
@@ -1575,56 +1660,119 @@ formato texto a valores 0 y 1.</p></li>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Género</th>
+      <th>Género_M</th>
+      <th>Compra_Sí</th>
+      <th>Color_Rojo</th>
+      <th>Color_Verde</th>
       <th>Nivel_educacion</th>
-      <th>Compra</th>
-      <th>Compra_cod</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>M</td>
-      <td>Bajo</td>
-      <td>Sí</td>
       <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>F</td>
-      <td>Medio</td>
-      <td>No</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- One-Hot Encoding sin eliminar columnas (para modelos no lineales) ---</span>
+<span class="n">df_onehot_full</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Color&#39;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_onehot_full</span>
+</pre></div>
+</div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Color_Azul</th>
+      <th>Color_Rojo</th>
+      <th>Color_Verde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>F</td>
-      <td>Alto</td>
-      <td>Sí</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>M</td>
-      <td>Medio</td>
-      <td>No</td>
+      <td>0</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>M</td>
-      <td>Bajo</td>
-      <td>Sí</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
 </div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resultados</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- One-Hot Encoding eliminando una columna ---&quot;</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_onehot_drop</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Compra_cod&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">One</span><span class="o">-</span><span class="n">Hot</span> <span class="n">Encoding</span> <span class="n">eliminando</span> <span class="n">una</span> <span class="n">columna</span> <span class="o">---</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_onehot_drop</span><span class="p">,</span> <span class="n">df_onehot_full</span><span class="p">,</span> <span class="n">df_ord</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <div>
@@ -1646,9 +1794,11 @@ formato texto a valores 0 y 1.</p></li>
     <tr style="text-align: right;">
       <th></th>
       <th>Género_M</th>
-      <th>Nivel_educacion_Bajo</th>
-      <th>Nivel_educacion_Medio</th>
-      <th>Compra_cod</th>
+      <th>Compra_Sí</th>
+      <th>Color_Azul</th>
+      <th>Color_Rojo</th>
+      <th>Color_Verde</th>
+      <th>Nivel_educacion</th>
     </tr>
   </thead>
   <tbody>
@@ -1658,6 +1808,8 @@ formato texto a valores 0 y 1.</p></li>
       <td>1</td>
       <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1665,116 +1817,41 @@ formato texto a valores 0 y 1.</p></li>
       <td>0</td>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resultados</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- One-Hot Encoding sin eliminar columnas ---&quot;</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_onehot_full</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Compra_cod&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span> <span class="n">One</span><span class="o">-</span><span class="n">Hot</span> <span class="n">Encoding</span> <span class="n">sin</span> <span class="n">eliminar</span> <span class="n">columnas</span> <span class="o">---</span>
-</pre></div>
-</div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Género_F</th>
-      <th>Género_M</th>
-      <th>Nivel_educacion_Alto</th>
-      <th>Nivel_educacion_Bajo</th>
-      <th>Nivel_educacion_Medio</th>
-      <th>Compra_cod</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
     </tr>
   </tbody>
 </table>
 </div></section>
-</section>
 <section id="escalado-de-variables">
-<h1>Escalado de variables:<a class="headerlink" href="#escalado-de-variables" title="Permalink to this heading">#</a></h1>
+<h2>Escalado de variables:<a class="headerlink" href="#escalado-de-variables" title="Permalink to this heading">#</a></h2>
 <p>El <strong>escalado de variables</strong> es el proceso de transformar los valores
 numéricos para que estén en un rango o distribución específica.</p>
 <p>Se utiliza porque muchos algoritmos de Machine Learning son sensibles a
@@ -1792,6 +1869,7 @@ en el modelo.</p></li>
 descendente.</p></li>
 <li><p>Mejora la estabilidad numérica de los cálculos.</p></li>
 </ul>
+</section>
 <section id="alternativas-de-escalado">
 <h2>Alternativas de escalado:<a class="headerlink" href="#alternativas-de-escalado" title="Permalink to this heading">#</a></h2>
 <p><strong>1. Min-Max Scaling (Normalización):</strong></p>
@@ -2154,22 +2232,17 @@ variables puede cambiar, y por tanto la correlación también.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Preparación y preprocesamiento de datos</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-principales">Tipos principales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codificacion-de-variables-categoricas">Codificación de variables categóricas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-con-scikit-learn">Ejemplo con scikit-learn:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-codificacion-de-variables-categoricas-solo-con-pandas">Ejemplo de codificación de variables categóricas solo con pandas:</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#escalado-de-variables">Escalado de variables:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escalado-de-variables">Escalado de variables:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativas-de-escalado">Alternativas de escalado:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-escalado-cambia-las-propiedades-estadisticas-de-las-variables">¿El escalado cambia las propiedades estadísticas de las variables?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#el-escalado-cambia-las-correlaciones-entre-las-variables">¿El escalado cambia las correlaciones entre las variables?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-en-python-minmaxscaler-y-standardscaler">Ejemplo en Python: MinMaxScaler y StandardScaler:</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
