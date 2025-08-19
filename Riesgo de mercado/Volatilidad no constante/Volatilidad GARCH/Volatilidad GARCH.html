@@ -1,0 +1,1240 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Volatilidad GARCH &#8212; Cursos  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=3ee1c6c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=30b7b246" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Riesgo de mercado/Volatilidad no constante/Volatilidad GARCH/Volatilidad GARCH';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Ejercicios volatilidades dinámicas" href="../Ejercicios-volatilidades%20din%C3%A1micas/Ejercicios%20volatilidades%20din%C3%A1micas.html" />
+    <link rel="prev" title="Volatilidad EWMA" href="../Volatilidad%20EWMA/Volatilidad%20EWMA.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cursos  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">SERIES DE TIEMPO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Series%20de%20tiempo/index.html">Series de tiempo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo.html">Características de las series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/ACF/ACF.html">ACF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Modelos%20Autorregresivos%20-%20AR/Modelos%20Autorregresivos%20-%20AR.html">Modelos Autorregresivos - AR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Pron%C3%B3stico%20con%20AR/Pron%C3%B3stico%20con%20AR.html">Pronóstico con AR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/autoplot%20para%20series%20de%20tiempo/autoplot%20para%20series%20de%20tiempo.html">autoplot para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Modelos%20de%20promedio%20m%C3%B3vil%20-%20MA/Modelos%20de%20promedio%20m%C3%B3vil%20-%20MA.html">Modelos de promedio móvil - MA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Modelos%20ARMA/Modelos%20ARMA.html">Modelos ARMA</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">REGRESIÓN LINEAL:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/index.html">Regresión lineal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis/Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis.html">Taller Intervalos de Confianza y Pruebas de Hipótesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29/Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29.html">Regresión Lineal Simple (RLS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/An%C3%A1lisis%20de%20Normalidad%20en%20RLS/An%C3%A1lisis%20de%20Normalidad%20en%20RLS.html">Análisis de Normalidad en RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n/Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n.html">Prueba de significancia de la regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Intervalos%20de%20confianza%20-%20CI/Intervalos%20de%20confianza%20-%20CI.html">Intervalos de confianza - CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Medidas%20de%20desempe%C3%B1o%20RLS/Medidas%20de%20desempe%C3%B1o%20RLS.html">Medidas de desempeño RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/RLS%20con%20ggplot2/RLS%20con%20ggplot2.html">RLS con ggplot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29/Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29.html">Regresión Lineal Múltiple (RLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/ANOVA/ANOVA.html">ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Multicolinealidad/Multicolinealidad.html">Multicolinealidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Comparaci%C3%B3n%20de%20modelos/Comparaci%C3%B3n%20de%20modelos.html">Comparación de modelos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/An%C3%A1lisis%20de%20Normalidad%20en%20RLM/An%C3%A1lisis%20de%20Normalidad%20en%20RLM.html">Análisis de Normalidad en RLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Variables%20indicadoras/Variables%20indicadoras.html">Variables indicadoras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica/Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica.html">Teoría Regresión Logística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20en%20R.html">Regresión Logística en R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n.html">Regresión Logística para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R.html">Regresión Logística para clasificación en R</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APRENDIZAJE ESTADÍSTICO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../AprenEst/index.html">Aprendizaje Estadístico</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../AprenEst/Motivaci%C3%B3n/index.html">Motivación</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python.html">Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/Pandas/Pandas.html">Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/NumPy/NumPy.html">NumPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/Matplotlib/Matplotlib.html">Matplotlib</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Machine%20Learning/index.html">Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Machine%20Learning/ProcessML/Proceso%20de%20Machine%20Learning.html">Proceso de Machine Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AprenEst/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos.html">Preparación y preprocesamiento de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Clustering/index.html">Clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/Tclustering/Clustering.html">Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/K-Means/K-Means.html">K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EK-Means/Ejemplo%20K-Means.html">Ejemplo K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EK-MeansEF/Ejercicio%20K-Means%20Estados%20Financieros.html">Ejercicio K-Means Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/CJer%C3%A1rquico/Clustering%20Jer%C3%A1rquico.html">Clustering Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EclusteringJ/Ejemplo%20clustering%20jer%C3%A1rquico.html">Ejemplo clustering jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/DBSCAN/DBSCAN.html">DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EDBSCAN/Ejemplo%20DBSCAN.html">Ejemplo DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EDBSCANEF/Ejemplo%20clustering%20DBSCAN%20Estados%20Financieros.html">Ejemplo clustering DBSCAN Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html">Ejemplo DBSCAN precio electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/Ejemplo%20K-Means%20acciones/Ejemplo_K_Means_acciones.html">Ejemplo K-Means acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html">Ejercicio Clustering Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/ReDim/index.html">Reducción de dimensionalidad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/Algebra/Repaso%20%C3%81lgebra%20Lineal.html">Repaso Álgebra Lineal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/PCA/An%C3%A1lisis%20de%20Componentes%20Principales-PCA.html">Análisis de Componentes Principales-PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/KernelPCA/Kernel%20PCA%20%28kPCA%29.html">Kernel PCA (kPCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html">Ejemplo diferente tipo de escalado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjerciReDim/Ejercicio%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejercicio reducción de dimensionalidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/TallerReDim/Taller%20reducci%C3%B3n%20de%20dimensionalidad.html">Taller reducción de dimensionalidad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/index.html">Clasificación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Clasificaci%C3%B3n/Clasificaci%C3%B3n.html">Clasificación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/M%C3%A9tricas/M%C3%A9tricas%20clasificaci%C3%B3n.html">Métricas para Evaluación de Modelos de Clasificación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Cross/Cross%20Validation.html">Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Teor%C3%ADaRL/Regresi%C3%B3n%20Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemRegulaRL/Ejemplo%20regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Ejemplo regularización regresión logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemploAD/Ejemplo%20%C3%A1rboles%20de%20decisi%C3%B3n.html">Ejemplo árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Bagging/Bagging.html">Bagging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/RandomForest/Random%20Forest.html">Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemRF/Ejemplo%20Random%20Forest.html">Ejemplo Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Boosting/Boosting%20%28AdaBoost%29.html">Boosting (AdaBoost)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/XGBoost/XGBoost.html">XGBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Stacking/Stacking.html">Stacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EclasEF/Ejemplo%20m%C3%A9todos%20de%20clasificaci%C3%B3n%20sobre%20Estados%20Financieros.html">Ejemplo métodos de clasificación sobre Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Pipeline/index.html">Pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Pipeline/Pipeline/Pipeline.html">Pipeline en Machine Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Pipeline/Pipeline%20riesgo%20de%20cr%C3%A9dito/Pipeline%20riesgo%20de%20cr%C3%A9dito.html">Pipeline riesgo de crédito</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/index.html">Optimización de Hiperparámetros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/GridSearch/Grid%20Search.html">Grid Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/RandomizedSearch/Randomized%20Search.html">Randomized Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/index.html">Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html">SVM para Regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRst/SVR%20para%20series%20de%20tiempo.html">SVR para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html">SVR series de tiempo con lags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADst/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/DFst/Random%20Forest%20para%20series%20de%20tiempo.html">Random Forest para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/XGBoostst/XGBoost%20para%20series%20de%20tiempo.html">XGBoost para series de tiempo</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/index.html">Deep Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejercicio%20clasificaci%C3%B3n/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20para%20series%20de%20tiempo/RNA%20para%20series%20de%20tiempo.html">RNA para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo.html">Ejemplo pronóstico serie de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizadores/Optimizadores.html">Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/GridSearchCV/GridSearchCV.html">GridSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RandomizedSearchCV/RandomizedSearchCV.html">RandomizedSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/KerasTuner/KerasTuner.html">KerasTuner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNN/RNN.html">RNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/LSTM/LSTM.html">LSTM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/GRU/GRU.html">GRU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNN%20Bidireccional/RNN%20Bidireccional.html">RNN Bidireccional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN/CNN.html">CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN%20para%20series%20de%20tiempo/CNN%20para%20series%20de%20tiempo.html">CNN para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Taller%20RNN/Taller%20RNN.html">Taller RNN</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MERCADO DE VALORES:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/IntroMerFin/index.html">Introducción al Mercado Financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Derivados/index.html">Derivados Financieros</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Bonos/index.html">Bonos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Portafolios/index.html">Portafolios de inversión</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/Ejercicios%20matem%C3%A1ticas%20financieras.html">Ejercicios introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/F%C3%B3rmulas%20Examen%20Matem%C3%A1ticas%20Financieras%2001-2024.html">Examen semestre 01-2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20an%C3%A1lisis%20vertical%2C%20horizontal%20e%20indicadores%20de%20actividad.html">Ejercicios análisis vertical, horizontal e indicadores de actividad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20indicadores%20de%20liquidez%2C%20rentabilidad%20y%20endeudamiento.html">Ejercicios indicadores de liquidez, rentabilidad y endeudamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Resumen%20f%C3%B3rmulas%20Indicadores%20Financieros.html">Resumen fórmulas Indicadores Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/index.html">Análisis Financiero en Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Vertical/An%C3%A1lisis%20Vertical.html">Análisis Vertical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Horizontal/An%C3%A1lisis%20Horizontal.html">Análisis Horizontal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes.html">Análisis de los márgenes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Forward/Ejercicios%20valoraci%C3%B3n%20contratos%20Forward.html">Ejercicios valoración contratos Forward</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Swap/Ejercicios%20tasas%20FRA.html">Ejercicios tasas FRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Swap/Ejercicios%20swap.html">Ejercicios swap</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/Ejercicios%20operaciones%20con%20Futuros%20BVC.html">Ejercicios operaciones con Futuros BVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/Ejercicios%20coberturas%20con%20Futuros.html">Ejercicios coberturas con Futuros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html">Movimiento Browniano Geométrico (GBM) en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de Opciones Financieras por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20estrategia%20de%20cobertura/Simulaci%C3%B3n%20estrategia%20de%20cobertura.html">Simulación estrategia de cobertura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Ejercicios%20valoraci%C3%B3n%20de%20opciones.html">Ejercicios valoración de opciones</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Mercado%20financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/index.html">Teoría moderna de portafolios</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n.html">Introducción a portafolios de inversión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/CAPM/CAPM.html">CAPM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Indicadores%20de%20desempe%C3%B1o/Indicadores%20de%20desempe%C3%B1o.html">Indicadores de desempeño</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Frontera%20eficiente/Frontera%20Eficiente.html">Frontera Eficiente</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/index.html">Bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2.html">Ejercicios: valoración de bonos BVC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20bonos.html">Ejercicios Bonos</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la gestión del riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Estad%C3%ADstica/index.html">Conceptos básicos de estadística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Distribuciones%20de%20probabilidad/index.html">Distribuciones de probabilidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/An%C3%A1lisis%20de%20sensibilidad%20tradicional/index.html">Análisis de sensibilidad tradicional</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Riesgo de Mercado</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../VaR%20Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20Delta-Normal/Distribuci%C3%B3n%20normal/Distribuci%C3%B3n%20normal.html">Distribución normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20Delta-Normal/VaR%20varianzas-covarianzas/VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20Delta-Normal/Taller%201/Taller%20N%C2%B0%201%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 1: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20Delta-Normal/Taller%202/Taller%20N%C2%B0%202%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 2: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal.html">Ejercicios: VaR Delta-Normal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Volatilidades dinámicas</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Volatilidad%20EWMA/Volatilidad%20EWMA.html">Volatilidad EWMA</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Volatilidad GARCH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Ejercicios-volatilidades%20din%C3%A1micas/Ejercicios%20volatilidades%20din%C3%A1micas.html">Ejercicios volatilidades dinámicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../VaR%20SH/index.html">VaR Simulación Histórica y CVaR</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20SH/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20SH/VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/VaR-simulaci%C3%B3n-Hist%C3%B3rica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20SH/CVaR/CVaR-Jupyter.html">CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20SH/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Taller VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20SH/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR.html">Análisis gráfico VaR y CVaR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../VaR%20SM/index.html">VaR Simulación Monte Carlo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20SM/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR para un activo por Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20SM/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR por el método de simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20SM/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo.html">Taller VaR y CVaR método de simulación Monte Carlo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Backtesting/index.html">Backtesting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Backtesting/Backtesting%20VaR%20Delta-Normal/Backtesting%20VaR%20Delta-Normal.html">Backtesting VaR Delta-Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Backtesting método VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Backtesting método VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal.html">Puntaje de López - VaR Delta-Normal</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Puntaje de López - VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Puntaje de López - VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Backtesting/Resumen%20Backtesting/Resumen%20Backtesting.html">Resumen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../VaR%20bonos/index.html">VaR bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20bonos/Duraci%C3%B3n%20y%20Duraci%C3%B3n%20Modificada/Duraci%C3%B3n%20y%20duraci%C3%B3n%20modificada%20en%20bonos.html">Duración y duración modificada en bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20bonos/VaR%20bonos/VaR%20Bonos.html">VaR Bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../VaR%20bonos/Ejercicios%20-%20VaR%20bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC.html">Ejercicios: valoración de bonos BVC</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/Extraer%20datos%20de%20Yahoo%20Finance/Extraer%20datos%20de%20Yahoo%20Finance.html">Extraer datos de Yahoo Finance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../ggplot2/Introducci%C3%B3n%20a%20ggplot2/ggplot2.html">ggplot2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles.html">Estadística aplicada a los activos bursátiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n.html">Volatilidad portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n.html">Conformación portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n.html">Ejercicios: Estadística y conformación de portafolios de inversión.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/Riesgo de mercado/Volatilidad no constante/Volatilidad GARCH/Volatilidad GARCH.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Volatilidad GARCH</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importar-datos">Importar datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-precios">Matriz de precios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-rendimientos">Matriz de rendimientos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grafico-de-los-rendimientos">Gráfico de los rendimientos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-de-cada-accion">Volatilidad de cada acción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-garch-1-1">Volatilidad GARCH (1,1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficientes-de-la-volatilidad-garch">Coeficientes de la volatilidad GARCH</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accion-eco">Acción ECO:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accion-pfbcolom">Acción PFBCOLOM:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accion-isa">Acción ISA:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidades-de-largo-plazo">Volatilidades de largo plazo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-de-largo-plazo-de-cada-acion">Volatilidad de largo plazo de cada ación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Volatilidad GARCH(1,1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-garch-1-1-de-cada-accion">Volatilidad GARCH(1,1) de cada acción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-historica-de-cada-accion">Volatilidad histórica de cada acción</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="volatilidad-garch">
+<h1>Volatilidad GARCH<a class="headerlink" href="#volatilidad-garch" title="Link to this heading">#</a></h1>
+<section id="importar-datos">
+<h2>Importar datos<a class="headerlink" href="#importar-datos" title="Link to this heading">#</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;Tres acciones.csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dec</span><span class="o">=</span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="matriz-de-precios">
+<h2>Matriz de precios<a class="headerlink" href="#matriz-de-precios" title="Link to this heading">#</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">precios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+
+<span class="nf">head</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+<span class="nf">tail</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+</pre></div>
+</div>
+<table>
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+    <tr><th></th><th scope=col>ECO</th><th scope=col>PFBCOLOM</th><th scope=col>ISA</th></tr>
+    <tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>1</th><td>1995</td><td>16800</td><td>7000</td></tr>
+    <tr><th scope=row>2</th><td>1960</td><td>16380</td><td>6810</td></tr>
+    <tr><th scope=row>3</th><td>1905</td><td>15880</td><td>6890</td></tr>
+    <tr><th scope=row>4</th><td>1860</td><td>15980</td><td>6710</td></tr>
+    <tr><th scope=row>5</th><td>1755</td><td>15900</td><td>6590</td></tr>
+    <tr><th scope=row>6</th><td>1725</td><td>15340</td><td>6320</td></tr>
+</tbody>
+</table><table>
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+    <tr><th></th><th scope=col>ECO</th><th scope=col>PFBCOLOM</th><th scope=col>ISA</th></tr>
+    <tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><th scope=row>2811</th><td>3030</td><td>41260</td><td>19000</td></tr>
+    <tr><th scope=row>2812</th><td>3015</td><td>42020</td><td>19160</td></tr>
+    <tr><th scope=row>2813</th><td>3000</td><td>41280</td><td>19300</td></tr>
+    <tr><th scope=row>2814</th><td>3000</td><td>41300</td><td>19800</td></tr>
+    <tr><th scope=row>2815</th><td>2980</td><td>41160</td><td>19200</td></tr>
+    <tr><th scope=row>2816</th><td>2980</td><td>41300</td><td>18960</td></tr>
+</tbody>
+</table><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">nombres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">colnames</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+<span class="n">nombres</span>
+</pre></div>
+</div>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'ECO'</li><li>'PFBCOLOM'</li><li>'ISA'</li></ol><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">acciones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ncol</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+<span class="n">acciones</span>
+</pre></div>
+</div>
+3<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">precios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ts</span><span class="p">(</span><span class="n">precios</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="matriz-de-rendimientos">
+<h2>Matriz de rendimientos<a class="headerlink" href="#matriz-de-rendimientos" title="Link to this heading">#</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rendimientos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">diff</span><span class="p">(</span><span class="nf">log</span><span class="p">(</span><span class="n">precios</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="grafico-de-los-rendimientos">
+<h2>Gráfico de los rendimientos<a class="headerlink" href="#grafico-de-los-rendimientos" title="Link to this heading">#</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Rendimientos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/output_11_011.png"><img alt="../../../_images/output_11_011.png" src="../../../_images/output_11_011.png" style="width: 420px; height: 420px;" />
+</a>
+</section>
+<section id="volatilidad-de-cada-accion">
+<h2>Volatilidad de cada acción<a class="headerlink" href="#volatilidad-de-cada-accion" title="Link to this heading">#</a></h2>
+<p>Esta forma de calcular la volatilidad también se llama <strong>volatilidad
+histórica</strong>. Cada uno de los rendimientos tiene igual peso para la
+volatilidad.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidades</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       <span class="n">ECO</span>   <span class="n">PFBCOLOM</span>        <span class="n">ISA</span>
+<span class="mf">0.01862871</span> <span class="mf">0.01583774</span> <span class="mf">0.01556859</span>
+</pre></div>
+</div>
+</section>
+<section id="volatilidad-garch-1-1">
+<h2>Volatilidad GARCH (1,1)<a class="headerlink" href="#volatilidad-garch-1-1" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\sigma_t=\sqrt{\omega+\alpha r^2_{t-1}+\beta \sigma^2_{t-1}}\]</div>
+<p>Donde;</p>
+<div class="math notranslate nohighlight">
+\[\omega=\gamma V_L\]</div>
+<div class="math notranslate nohighlight">
+\[\sigma_t=\sqrt{\gamma V_L+\alpha r^2_{t-1}+\beta \sigma^2_{t-1}}\]</div>
+<p><span class="math notranslate nohighlight">\(V_L:\)</span> Es la volatilidad a largo plazo.</p>
+<p><span class="math notranslate nohighlight">\(\gamma:\)</span> Peso asignado a la volatilidad a largo plazo.</p>
+<p><span class="math notranslate nohighlight">\(\alpha:\)</span> Peso asignado al rendimiento al cuadrado del período
+anterior (<span class="math notranslate nohighlight">\(r^2_{t-1}\)</span>).</p>
+<p><span class="math notranslate nohighlight">\(\beta:\)</span> Peso asignado a la varianza del período anterior
+(<span class="math notranslate nohighlight">\(\sigma^2_{t-1}\)</span>).</p>
+<p>Al igual que en la fórmula de la volatilidad EWMA, la fórmula de la
+volatilidad GARCH es recursida, el resultado del período actual depende
+de los resultados del período anterior.</p>
+<p>La volatilida GARCH (1,1) es similar a la volatilidad EWMA si
+<span class="math notranslate nohighlight">\(\alpha=(1-\lambda)\)</span> y <span class="math notranslate nohighlight">\(\beta=\lambda\)</span>, solo que GARCH tiene
+un término adicional que es la volatilidad a largo plazo, <span class="math notranslate nohighlight">\(V_L\)</span> y
+su correspondiente peso <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\gamma=1-\alpha-\beta\]</div>
+<div class="math notranslate nohighlight">
+\[V_L=\frac{\omega}{\gamma}\]</div>
+<p>Entonces,</p>
+<div class="math notranslate nohighlight">
+\[V_L=\frac{\omega}{1-\alpha-\beta}\]</div>
+<p>Esta es otra forma de calcular <span class="math notranslate nohighlight">\(V_L\)</span>. Esta volatilidad de largo
+plazo indica el valor al que se espera que la volatilidad de la acción
+se estabilice en los siguientes períodos, es decir, se espera que la
+volatilidad de los siguientes períodos tienda al valor de <span class="math notranslate nohighlight">\(V_L\)</span>.</p>
+<p>Los coeficientes de la volatilidad GARCH(1,1) se pueden hallar con la
+librería <code class="docutils literal notranslate"><span class="pre">tseries</span></code>.</p>
+<p>Se debe instalar el paquete tseries: <code class="docutils literal notranslate"><span class="pre">install.packages(&quot;tseries&quot;)</span></code>.</p>
+<p>Llamar la librería <code class="docutils literal notranslate"><span class="pre">tseries</span></code> después de instalarla:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tseries</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="coeficientes-de-la-volatilidad-garch">
+<h2>Coeficientes de la volatilidad GARCH<a class="headerlink" href="#coeficientes-de-la-volatilidad-garch" title="Link to this heading">#</a></h2>
+<p>La volatilidad GARCH(1,1) tiene tres coeficientes. La función
+<code class="docutils literal notranslate"><span class="pre">garch()</span></code> estima el GARCH(1,1) y la función <code class="docutils literal notranslate"><span class="pre">coef()</span></code> extrae solo los
+tres coeficientes. De esta forma, se utilizará la función <code class="docutils literal notranslate"><span class="pre">coef()</span></code>
+sobre la función <code class="docutils literal notranslate"><span class="pre">garch()</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">coeficientes_garch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">acciones</span><span class="p">)</span>
+
+<span class="kr">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+<span class="w">  </span><span class="n">coeficientes_garch</span><span class="p">[,</span><span class="w"> </span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">coef</span><span class="p">(</span><span class="nf">garch</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">[,</span><span class="w"> </span><span class="n">i</span><span class="p">]))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<pre class="literal-block"><strong>*</strong> ESTIMATION WITH ANALYTICAL GRADIENT <strong>*</strong>
+
+
+    I     INITIAL X(I)        D(I)
+
+    1     3.123260e-04     1.000e+00
+    2     5.000000e-02     1.000e+00
+    3     5.000000e-02     1.000e+00
+
+   IT   NF      F         RELDF    PRELDF    RELDX   STPPAR   D*STEP   NPRELDF
+    0    1 -9.861e+03
+    1    7 -9.864e+03  2.76e-04  4.08e-04  1.5e-04  1.8e+10  1.5e-05  3.71e+06
+    2    8 -9.864e+03  2.95e-05  3.38e-05  1.3e-04  2.0e+00  1.5e-05  3.20e+01
+    3    9 -9.864e+03  1.81e-06  1.85e-06  1.5e-04  2.0e+00  1.5e-05  3.18e+01
+    4   16 -9.898e+03  3.43e-03  4.88e-03  3.8e-01  2.0e+00  6.1e-02  3.17e+01
+    5   19 -9.939e+03  4.13e-03  3.62e-03  6.9e-01  2.0e+00  2.4e-01  1.10e+00
+    6   21 -9.949e+03  9.88e-04  9.46e-04  7.6e-02  2.0e+00  4.9e-02  1.39e+02
+    7   23 -1.000e+04  5.53e-03  8.04e-03  3.6e-01  2.0e+00  3.9e-01  8.73e+03
+    8   33 -1.003e+04  2.84e-03  1.11e-02  1.3e-05  4.1e+00  1.8e-05  2.56e-01
+    9   43 -1.004e+04  6.25e-04  3.73e-04  7.3e-03  1.9e+00  1.1e-02  3.38e-03
+   10   44 -1.004e+04  2.47e-04  4.59e-04  7.2e-03  2.0e+00  1.1e-02  1.95e-01
+   11   45 -1.004e+04  1.82e-04  2.33e-04  7.1e-03  2.0e+00  1.1e-02  6.72e-02
+   12   46 -1.004e+04  5.07e-05  8.78e-05  7.0e-03  2.0e+00  1.1e-02  2.68e-02
+   13   58 -1.004e+04  3.64e-06  9.51e-06  3.7e-07  2.7e+00  5.7e-07  8.01e-04
+   14   59 -1.004e+04  9.00e-07  7.87e-07  3.5e-07  2.0e+00  5.7e-07  3.06e-04
+   15   67 -1.004e+04  2.19e-05  3.71e-05  6.0e-03  1.7e+00  9.4e-03  3.09e-04
+   16   70 -1.005e+04  1.05e-03  7.05e-04  5.1e-02  0.0e+00  1.1e-01  7.05e-04
+   17   72 -1.006e+04  3.75e-04  6.65e-04  9.0e-03  1.7e+00  1.8e-02  1.08e-03
+   18   73 -1.006e+04  1.30e-04  2.15e-04  8.8e-03  1.3e+00  1.8e-02  5.06e-04
+   19   74 -1.006e+04  3.37e-06  1.39e-05  2.7e-03  0.0e+00  4.8e-03  1.39e-05
+   20   75 -1.006e+04  5.11e-06  7.95e-06  2.2e-03  6.4e-01  4.8e-03  1.02e-05
+   21   76 -1.006e+04  3.75e-07  2.31e-06  9.7e-04  0.0e+00  1.8e-03  2.31e-06
+   22   77 -1.006e+04  7.79e-07  6.72e-07  4.7e-04  0.0e+00  9.4e-04  6.72e-07
+   23   78 -1.006e+04  8.00e-10  4.34e-10  4.1e-06  0.0e+00  8.8e-06  4.34e-10
+   24   79 -1.006e+04  1.72e-10  4.62e-11  2.1e-06  0.0e+00  3.8e-06  4.62e-11
+   25   80 -1.006e+04  2.31e-11  8.91e-15  9.2e-08  0.0e+00  2.1e-07  8.91e-15
+   26   81 -1.006e+04  1.87e-12  5.35e-17  7.5e-09  0.0e+00  1.7e-08  5.35e-17
+   27   82 -1.006e+04  2.53e-15  1.39e-23  1.5e-12  0.0e+00  2.6e-12  1.39e-23
+   28   83 -1.006e+04 -7.23e-16  7.08e-29  1.9e-15  0.0e+00  3.7e-15  7.08e-29
+
+<strong>*</strong> X- AND RELATIVE FUNCTION CONVERGENCE <strong>*</strong>
+
+FUNCTION    -1.005976e+04   RELDX        1.935e-15
+FUNC. EVALS      83         GRAD. EVALS      28
+PRELDF       7.078e-29      NPRELDF      7.078e-29
+
+    I      FINAL X(I)        D(I)          G(I)
+
+    1    6.826205e-06     1.000e+00    -1.410e-06
+    2    9.525933e-02     1.000e+00    -3.441e-10
+    3    8.891568e-01     1.000e+00    -4.288e-10
+
+
+<strong>*</strong> ESTIMATION WITH ANALYTICAL GRADIENT <strong>*</strong>
+
+
+    I     INITIAL X(I)        D(I)
+
+    1     2.257505e-04     1.000e+00
+    2     5.000000e-02     1.000e+00
+    3     5.000000e-02     1.000e+00
+
+   IT   NF      F         RELDF    PRELDF    RELDX   STPPAR   D*STEP   NPRELDF
+    0    1 -1.033e+04
+    1    7 -1.034e+04  3.61e-04  4.83e-04  1.1e-04  4.3e+10  1.1e-05  1.04e+07
+    2    8 -1.034e+04  8.82e-05  1.06e-04  9.8e-05  2.0e+00  1.1e-05  3.77e+01
+    3    9 -1.034e+04  4.20e-06  4.54e-06  1.1e-04  2.0e+00  1.1e-05  3.73e+01
+    4   16 -1.037e+04  2.72e-03  3.74e-03  3.1e-01  2.0e+00  4.4e-02  3.72e+01
+    5   19 -1.039e+04  1.69e-03  1.52e-03  6.3e-01  2.0e+00  1.8e-01  3.77e-01
+    6   21 -1.043e+04  4.72e-03  3.71e-03  4.4e-01  2.0e+00  3.5e-01  5.29e+01
+    7   23 -1.045e+04  1.15e-03  1.14e-03  5.7e-02  2.0e+00  7.1e-02  6.36e+03
+    8   24 -1.046e+04  1.57e-03  2.26e-03  9.8e-02  2.0e+00  1.4e-01  2.17e+01
+    9   30 -1.046e+04  3.64e-05  1.51e-04  9.9e-07  2.3e+01  1.6e-06  2.37e-02
+   10   31 -1.046e+04  1.26e-05  1.13e-05  8.5e-07  2.0e+00  1.6e-06  9.87e-05
+   11   39 -1.046e+04  1.14e-04  8.29e-05  8.3e-03  0.0e+00  1.5e-02  8.29e-05
+   12   42 -1.047e+04  2.74e-04  3.23e-04  3.2e-02  1.4e+00  5.8e-02  4.35e-03
+   13   43 -1.047e+04  3.99e-05  1.60e-04  3.0e-02  5.1e-01  5.8e-02  1.82e-04
+   14   44 -1.047e+04  1.43e-05  1.23e-04  1.7e-02  0.0e+00  3.1e-02  1.23e-04
+   15   45 -1.047e+04  2.05e-05  3.87e-05  3.9e-03  0.0e+00  8.3e-03  3.87e-05
+   16   47 -1.047e+04  2.04e-05  1.51e-05  6.6e-03  0.0e+00  1.3e-02  1.51e-05
+   17   48 -1.047e+04  8.36e-07  7.32e-07  1.3e-03  0.0e+00  2.4e-03  7.32e-07
+   18   49 -1.047e+04  2.60e-07  3.22e-07  3.1e-04  0.0e+00  6.4e-04  3.22e-07
+   19   62 -1.047e+04  5.31e-11  4.12e-09  1.0e-09  6.2e+00  1.8e-09  6.37e-08
+   20   76 -1.047e+04 -7.82e-15  4.65e-14  1.3e-14  2.9e+05  2.4e-14  6.15e-08
+
+<strong>*</strong> FALSE CONVERGENCE <strong>*</strong>
+
+FUNCTION    -1.046832e+04   RELDX        1.334e-14
+FUNC. EVALS      76         GRAD. EVALS      20
+PRELDF       4.654e-14      NPRELDF      6.145e-08
+
+    I      FINAL X(I)        D(I)          G(I)
+
+    1    9.417356e-06     1.000e+00    -2.065e+04
+    2    7.484815e-02     1.000e+00    -5.749e+00
+    3    8.844196e-01     1.000e+00    -4.211e+00
+
+
+<strong>*</strong> ESTIMATION WITH ANALYTICAL GRADIENT <strong>*</strong>
+
+
+    I     INITIAL X(I)        D(I)
+
+    1     2.181429e-04     1.000e+00
+    2     5.000000e-02     1.000e+00
+    3     5.000000e-02     1.000e+00
+
+   IT   NF      F         RELDF    PRELDF    RELDX   STPPAR   D*STEP   NPRELDF
+    0    1 -1.038e+04
+    1    7 -1.038e+04  3.17e-04  4.31e-04  1.0e-04  4.5e+10  1.0e-05  9.62e+06
+    2    8 -1.038e+04  7.00e-05  8.28e-05  8.4e-05  2.0e+00  1.0e-05  3.82e+01
+    3    9 -1.038e+04  3.07e-06  3.24e-06  9.9e-05  2.0e+00  1.0e-05  3.78e+01
+    4   17 -1.042e+04  4.34e-03  7.47e-03  4.7e-01  2.0e+00  8.8e-02  3.77e+01
+    5   20 -1.050e+04  6.93e-03  6.29e-03  7.5e-01  2.0e+00  3.5e-01  1.63e+00
+    6   29 -1.050e+04  1.73e-04  1.09e-03  1.8e-05  3.7e+00  1.4e-05  1.83e+01
+    7   30 -1.050e+04  1.81e-04  1.51e-04  1.6e-05  2.0e+00  1.4e-05  2.33e+01
+    8   31 -1.050e+04  4.68e-06  5.18e-06  1.7e-05  2.0e+00  1.4e-05  2.58e+01
+    9   40 -1.055e+04  4.72e-03  4.41e-03  1.8e-01  2.0e+00  1.8e-01  2.54e+01
+   10   42 -1.056e+04  6.86e-04  1.22e-03  3.0e-02  2.0e+00  3.7e-02  4.53e+02
+   11   43 -1.057e+04  1.22e-03  1.32e-03  2.8e-02  2.0e+00  3.7e-02  6.03e+02
+   12   45 -1.058e+04  9.20e-04  1.87e-03  6.1e-02  2.0e+00  8.6e-02  2.88e+02
+   13   52 -1.058e+04  1.65e-05  4.29e-05  4.8e-07  7.7e+03  7.1e-07  1.03e+00
+   14   53 -1.058e+04  7.90e-07  7.27e-07  4.6e-07  2.0e+00  7.1e-07  5.05e-04
+   15   61 -1.058e+04  5.12e-05  9.02e-05  7.7e-03  1.5e+00  1.2e-02  4.99e-04
+   16   62 -1.058e+04  1.19e-04  6.19e-05  6.2e-03  0.0e+00  1.2e-02  6.19e-05
+   17   64 -1.059e+04  3.51e-04  3.50e-04  2.2e-02  0.0e+00  4.6e-02  6.11e-04
+   18   65 -1.059e+04  1.67e-04  1.94e-04  2.2e-02  6.0e-01  4.6e-02  2.50e-04
+   19   66 -1.059e+04  1.29e-05  2.32e-05  8.6e-03  0.0e+00  1.6e-02  2.32e-05
+   20   67 -1.059e+04  3.85e-06  4.50e-06  2.0e-03  0.0e+00  3.7e-03  4.50e-06
+   21   68 -1.059e+04  2.67e-08  1.06e-07  3.1e-04  0.0e+00  6.7e-04  1.06e-07
+   22   69 -1.059e+04  4.00e-08  1.65e-08  2.3e-04  0.0e+00  4.4e-04  1.65e-08
+   23   72 -1.059e+04  1.50e-10  3.07e-11  4.8e-07  1.9e+00  7.9e-07  4.14e-10
+   24   75 -1.059e+04  1.28e-12  3.99e-13  9.8e-09  2.0e+00  1.6e-08  3.74e-10
+   25   77 -1.059e+04  6.09e-13  1.40e-13  3.5e-09  2.0e+00  5.7e-09  3.69e-10
+   26   84 -1.059e+04 -4.64e-15  3.60e-18  6.9e-15  1.5e+02  1.1e-14  3.70e-10
+
+<strong>*</strong> FALSE CONVERGENCE <strong>*</strong>
+
+FUNCTION    -1.058874e+04   RELDX        6.947e-15
+FUNC. EVALS      84         GRAD. EVALS      26
+PRELDF       3.598e-18      NPRELDF      3.702e-10
+
+    I      FINAL X(I)        D(I)          G(I)
+
+    1    9.801076e-06     1.000e+00    -3.318e+00
+    2    1.453401e-01     1.000e+00     2.359e-01
+    3    8.208107e-01     1.000e+00     2.353e-01</pre>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">coeficientes_garch</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>             <span class="p">[,</span><span class="mi">1</span><span class="p">]</span>         <span class="p">[,</span><span class="mi">2</span><span class="p">]</span>         <span class="p">[,</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,]</span> <span class="mf">6.826205e-06</span> <span class="mf">9.417356e-06</span> <span class="mf">9.801076e-06</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,]</span> <span class="mf">9.525933e-02</span> <span class="mf">7.484815e-02</span> <span class="mf">1.453401e-01</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,]</span> <span class="mf">8.891568e-01</span> <span class="mf">8.844196e-01</span> <span class="mf">8.208107e-01</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">coeficientes_garch</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nombres</span><span class="w"> </span><span class="c1"># se renombran las columnas con los nombres de las acciones.</span>
+
+<span class="nf">rownames</span><span class="p">(</span><span class="n">coeficientes_garch</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Omega&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Alfa&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Beta&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># se renombran las filas con los nombres de los coeficientes.</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">coeficientes_garch</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>               <span class="n">ECO</span>     <span class="n">PFBCOLOM</span>          <span class="n">ISA</span>
+<span class="n">Omega</span> <span class="mf">6.826205e-06</span> <span class="mf">9.417356e-06</span> <span class="mf">9.801076e-06</span>
+<span class="n">Alfa</span>  <span class="mf">9.525933e-02</span> <span class="mf">7.484815e-02</span> <span class="mf">1.453401e-01</span>
+<span class="n">Beta</span>  <span class="mf">8.891568e-01</span> <span class="mf">8.844196e-01</span> <span class="mf">8.208107e-01</span>
+</pre></div>
+</div>
+</section>
+<section id="accion-eco">
+<h2>Acción ECO:<a class="headerlink" href="#accion-eco" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\omega=0,000006826205\)</span>, <span class="math notranslate nohighlight">\(\alpha=0,09525933\)</span> y
+<span class="math notranslate nohighlight">\(\beta=0,8891568\)</span>.</p>
+</section>
+<section id="accion-pfbcolom">
+<h2>Acción PFBCOLOM:<a class="headerlink" href="#accion-pfbcolom" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\omega=0,000009417356\)</span>, <span class="math notranslate nohighlight">\(\alpha=0,07484815\)</span> y
+<span class="math notranslate nohighlight">\(\beta=0,8844196\)</span>.</p>
+</section>
+<section id="accion-isa">
+<h2>Acción ISA:<a class="headerlink" href="#accion-isa" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(\omega=0,000009801076\)</span>, <span class="math notranslate nohighlight">\(\alpha=0,1453401\)</span> y
+<span class="math notranslate nohighlight">\(\beta=0,8208107\)</span>.</p>
+</section>
+<section id="volatilidades-de-largo-plazo">
+<h2>Volatilidades de largo plazo<a class="headerlink" href="#volatilidades-de-largo-plazo" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[V_L=\frac{\omega}{1-\alpha-\beta}\]</div>
+</section>
+<section id="volatilidad-de-largo-plazo-de-cada-acion">
+<h2>Volatilidad de largo plazo de cada ación<a class="headerlink" href="#volatilidad-de-largo-plazo-de-cada-acion" title="Link to this heading">#</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_largo_plazo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">vector</span><span class="p">()</span>
+
+<span class="kr">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+<span class="w">  </span><span class="n">volatilidad_largo_plazo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">coeficientes_garch</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">coeficientes_garch</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">coeficientes_garch</span><span class="p">[</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="n">volatilidad_largo_plazo</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="mf">0.0004380293</span> <span class="mf">0.0002312015</span> <span class="mf">0.0002895511</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>La volatilidad a largo plazo de ECO es de 0,0438% diaria.</p></li>
+<li><p>La volatilidad a largo plazo de PFBCOLOM es de 0,0231% diaria.</p></li>
+<li><p>La volatilidad a largo plazo de ISA es de 0,0290% diaria.</p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>Volatilidad GARCH(1,1)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">numero_rendimientos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">rendimientos</span><span class="p">)</span>
+<span class="n">numero_rendimientos</span>
+</pre></div>
+</div>
+2815<p>Al igual que en volatilidad EWMA, se calculará la volatilidad GARCH(1,1)
+para cada período. El primer período tendra un valor igual a cero. Por
+tanto, en el segundo ciclo <code class="docutils literal notranslate"><span class="pre">for</span></code> se empezará a partir de dos, porque
+en uno se especificará que será igual a cero.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">volatilidad_garch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(,</span><span class="w"> </span><span class="n">numero_rendimientos</span><span class="p">,</span><span class="w"> </span><span class="n">acciones</span><span class="p">)</span><span class="w"> </span><span class="c1"># Matriz para calcular volatilidad GARCH para cada período por acción.</span>
+
+<span class="n">volatilidad_garch</span><span class="p">[</span><span class="m">1</span><span class="p">,]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c1"># La primera fila de la matriz anterior tendrá como valor semilla igual a cero.</span>
+
+<span class="kr">for</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">acciones</span><span class="p">){</span>
+
+<span class="w">  </span><span class="kr">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="m">2</span><span class="o">:</span><span class="n">numero_rendimientos</span><span class="p">){</span>
+
+<span class="w">    </span><span class="n">volatilidad_garch</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="n">coeficientes_garch</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">coeficientes_garch</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">rendimientos</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">coeficientes_garch</span><span class="p">[</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">volatilidad_garch</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="o">^</span><span class="m">2</span><span class="p">)</span>
+
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>En el código anterior, debido a que la volatilidad GARCH es recursiva,
+la volatilidad del período actual depende del rendimiento y de la
+volatilidad GARCH del período anterior <span class="math notranslate nohighlight">\(t - 1\)</span>. Por esto, se
+utiliza <code class="docutils literal notranslate"><span class="pre">[i</span> <span class="pre">-</span> <span class="pre">1]</span></code> para indicar que se utiliza el valor del período
+anterior.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="n">volatilidad_garch</span><span class="p">))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">tail</span><span class="p">(</span><span class="n">volatilidad_garch</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>            <span class="p">[,</span><span class="mi">1</span><span class="p">]</span>        <span class="p">[,</span><span class="mi">2</span><span class="p">]</span>       <span class="p">[,</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,]</span> <span class="mf">0.000000000</span> <span class="mf">0.000000000</span> <span class="mf">0.00000000</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,]</span> <span class="mf">0.006055458</span> <span class="mf">0.007575907</span> <span class="mf">0.01094800</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,]</span> <span class="mf">0.010798196</span> <span class="mf">0.011493912</span> <span class="mf">0.01131400</span>
+<span class="p">[</span><span class="mi">4</span><span class="p">,]</span> <span class="mf">0.012842937</span> <span class="mf">0.011366951</span> <span class="mf">0.01472144</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,]</span> <span class="mf">0.021797419</span> <span class="mf">0.011206087</span> <span class="mf">0.01533026</span>
+<span class="p">[</span><span class="mi">6</span><span class="p">,]</span> <span class="mf">0.021391767</span> <span class="mf">0.014720891</span> <span class="mf">0.02137907</span>
+              <span class="p">[,</span><span class="mi">1</span><span class="p">]</span>       <span class="p">[,</span><span class="mi">2</span><span class="p">]</span>       <span class="p">[,</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2810</span><span class="p">,]</span> <span class="mf">0.01397373</span> <span class="mf">0.01313261</span> <span class="mf">0.01473754</span>
+<span class="p">[</span><span class="mi">2811</span><span class="p">,]</span> <span class="mf">0.01358770</span> <span class="mf">0.01302408</span> <span class="mf">0.01408182</span>
+<span class="p">[</span><span class="mi">2812</span><span class="p">,]</span> <span class="mf">0.01316561</span> <span class="mf">0.01357842</span> <span class="mf">0.01351985</span>
+<span class="p">[</span><span class="mi">2813</span><span class="p">,]</span> <span class="mf">0.01277953</span> <span class="mf">0.01400391</span> <span class="mf">0.01294363</span>
+<span class="p">[</span><span class="mi">2814</span><span class="p">,]</span> <span class="mf">0.01233045</span> <span class="mf">0.01352324</span> <span class="mf">0.01556906</span>
+<span class="p">[</span><span class="mi">2815</span><span class="p">,]</span> <span class="mf">0.01209445</span> <span class="mf">0.01311569</span> <span class="mf">0.01861139</span>
+</pre></div>
+</div>
+</section>
+<section id="volatilidad-garch-1-1-de-cada-accion">
+<h2>Volatilidad GARCH(1,1) de cada acción<a class="headerlink" href="#volatilidad-garch-1-1-de-cada-accion" title="Link to this heading">#</a></h2>
+<p>El último valor corresponde a la volatilidad GARCH de cada acción.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">vol_GARCH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">tail</span><span class="p">(</span><span class="n">volatilidad_garch</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">vol_GARCH</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>              <span class="p">[,</span><span class="mi">1</span><span class="p">]</span>       <span class="p">[,</span><span class="mi">2</span><span class="p">]</span>       <span class="p">[,</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2815</span><span class="p">,]</span> <span class="mf">0.01209445</span> <span class="mf">0.01311569</span> <span class="mf">0.01861139</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">vol_GARCH</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nombres</span><span class="w"> </span><span class="c1"># se renombran las columnas con los nombres de las acciones.</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">vol_GARCH</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>               <span class="n">ECO</span>   <span class="n">PFBCOLOM</span>        <span class="n">ISA</span>
+<span class="p">[</span><span class="mi">2815</span><span class="p">,]</span> <span class="mf">0.01209445</span> <span class="mf">0.01311569</span> <span class="mf">0.01861139</span>
+</pre></div>
+</div>
+<p><strong>Volatilidad GARCH:</strong></p>
+<ul class="simple">
+<li><p><strong>ECO:</strong> 1,21% diaria.</p></li>
+<li><p><strong>PFBCOLOM:</strong> 1,31% diaria.</p></li>
+<li><p><strong>ISA:</strong> 1,86% diaria.</p></li>
+</ul>
+</section>
+<section id="volatilidad-historica-de-cada-accion">
+<h2>Volatilidad histórica de cada acción<a class="headerlink" href="#volatilidad-historica-de-cada-accion" title="Link to this heading">#</a></h2>
+<p>Anteriormente se habían calculado.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">volatilidades</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       <span class="n">ECO</span>   <span class="n">PFBCOLOM</span>        <span class="n">ISA</span>
+<span class="mf">0.01862871</span> <span class="mf">0.01583774</span> <span class="mf">0.01556859</span>
+</pre></div>
+</div>
+<p><strong>Volatilidad histórica:</strong></p>
+<ul class="simple">
+<li><p><strong>ECO:</strong> 1,86% diaria.</p></li>
+<li><p><strong>PFBCOLOM:</strong> 1,58% diaria.</p></li>
+<li><p><strong>ISA:</strong> 1,56% diaria.</p></li>
+</ul>
+<figure class="align-default" id="id2">
+<img alt="1" src="../../../_images/FiguraVolatilidadesGARCH.jpg" />
+<figcaption>
+<p><span class="caption-text">1</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Volatilidad%20EWMA/Volatilidad%20EWMA.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Volatilidad EWMA</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Ejercicios-volatilidades%20din%C3%A1micas/Ejercicios%20volatilidades%20din%C3%A1micas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ejercicios volatilidades dinámicas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importar-datos">Importar datos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-precios">Matriz de precios</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-rendimientos">Matriz de rendimientos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grafico-de-los-rendimientos">Gráfico de los rendimientos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-de-cada-accion">Volatilidad de cada acción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-garch-1-1">Volatilidad GARCH (1,1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coeficientes-de-la-volatilidad-garch">Coeficientes de la volatilidad GARCH</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accion-eco">Acción ECO:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accion-pfbcolom">Acción PFBCOLOM:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accion-isa">Acción ISA:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidades-de-largo-plazo">Volatilidades de largo plazo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-de-largo-plazo-de-cada-acion">Volatilidad de largo plazo de cada ación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Volatilidad GARCH(1,1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-garch-1-1-de-cada-accion">Volatilidad GARCH(1,1) de cada acción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volatilidad-historica-de-cada-accion">Volatilidad histórica de cada acción</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Miguel Jiménez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Miguel Jiménez.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1111 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Comparación de modelos &#8212; Cursos  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=3ee1c6c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=30b7b246" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Regresión lineal/Comparación de modelos/Comparación de modelos';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Análisis de Normalidad en RLM" href="../An%C3%A1lisis%20de%20Normalidad%20en%20RLM/An%C3%A1lisis%20de%20Normalidad%20en%20RLM.html" />
+    <link rel="prev" title="Multicolinealidad" href="../Multicolinealidad/Multicolinealidad.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cursos  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">SERIES DE TIEMPO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Series%20de%20tiempo/index.html">Series de tiempo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo.html">Características de las series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/ACF/ACF.html">ACF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20Autorregresivos%20-%20AR/Modelos%20Autorregresivos%20-%20AR.html">Modelos Autorregresivos - AR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/Pron%C3%B3stico%20con%20AR/Pron%C3%B3stico%20con%20AR.html">Pronóstico con AR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/autoplot%20para%20series%20de%20tiempo/autoplot%20para%20series%20de%20tiempo.html">autoplot para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20de%20promedio%20m%C3%B3vil%20-%20MA/Modelos%20de%20promedio%20m%C3%B3vil%20-%20MA.html">Modelos de promedio móvil - MA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20ARMA/Modelos%20ARMA.html">Modelos ARMA</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">REGRESIÓN LINEAL:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Regresión lineal</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis/Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis.html">Taller Intervalos de Confianza y Pruebas de Hipótesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29/Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29.html">Regresión Lineal Simple (RLS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../An%C3%A1lisis%20de%20Normalidad%20en%20RLS/An%C3%A1lisis%20de%20Normalidad%20en%20RLS.html">Análisis de Normalidad en RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n/Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n.html">Prueba de significancia de la regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Intervalos%20de%20confianza%20-%20CI/Intervalos%20de%20confianza%20-%20CI.html">Intervalos de confianza - CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Medidas%20de%20desempe%C3%B1o%20RLS/Medidas%20de%20desempe%C3%B1o%20RLS.html">Medidas de desempeño RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../RLS%20con%20ggplot2/RLS%20con%20ggplot2.html">RLS con ggplot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29/Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29.html">Regresión Lineal Múltiple (RLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ANOVA/ANOVA.html">ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Multicolinealidad/Multicolinealidad.html">Multicolinealidad</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Comparación de modelos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../An%C3%A1lisis%20de%20Normalidad%20en%20RLM/An%C3%A1lisis%20de%20Normalidad%20en%20RLM.html">Análisis de Normalidad en RLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Variables%20indicadoras/Variables%20indicadoras.html">Variables indicadoras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica/Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica.html">Teoría Regresión Logística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Regresi%C3%B3n%20Log%C3%ADstica%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20en%20R.html">Regresión Logística en R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n.html">Regresión Logística para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R.html">Regresión Logística para clasificación en R</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APRENDIZAJE ESTADÍSTICO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../AprenEst/index.html">Aprendizaje Estadístico</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../AprenEst/Motivaci%C3%B3n/index.html">Motivación</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python.html">Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Introducci%C3%B3n%20a%20Python/Pandas/Pandas.html">Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Introducci%C3%B3n%20a%20Python/NumPy/NumPy.html">NumPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Introducci%C3%B3n%20a%20Python/Matplotlib/Matplotlib.html">Matplotlib</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/Machine%20Learning/index.html">Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Machine%20Learning/ProcessML/Proceso%20de%20Machine%20Learning.html">Proceso de Machine Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AprenEst/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos.html">Preparación y preprocesamiento de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/Clustering/index.html">Clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/Tclustering/Clustering.html">Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/K-Means/K-Means.html">K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/EK-Means/Ejemplo%20K-Means.html">Ejemplo K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/EK-MeansEF/Ejercicio%20K-Means%20Estados%20Financieros.html">Ejercicio K-Means Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/CJer%C3%A1rquico/Clustering%20Jer%C3%A1rquico.html">Clustering Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/EclusteringJ/Ejemplo%20clustering%20jer%C3%A1rquico.html">Ejemplo clustering jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/DBSCAN/DBSCAN.html">DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/EDBSCAN/Ejemplo%20DBSCAN.html">Ejemplo DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/EDBSCANEF/Ejemplo%20clustering%20DBSCAN%20Estados%20Financieros.html">Ejemplo clustering DBSCAN Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html">Ejemplo DBSCAN precio electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/Ejemplo%20K-Means%20acciones/Ejemplo_K_Means_acciones.html">Ejemplo K-Means acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clustering/EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html">Ejercicio Clustering Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/ReDim/index.html">Reducción de dimensionalidad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/ReDim/Algebra/Repaso%20%C3%81lgebra%20Lineal.html">Repaso Álgebra Lineal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/ReDim/PCA/An%C3%A1lisis%20de%20Componentes%20Principales-PCA.html">Análisis de Componentes Principales-PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/ReDim/KernelPCA/Kernel%20PCA%20%28kPCA%29.html">Kernel PCA (kPCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/ReDim/EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html">Ejemplo diferente tipo de escalado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/ReDim/EjerciReDim/Ejercicio%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejercicio reducción de dimensionalidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/ReDim/TallerReDim/Taller%20reducci%C3%B3n%20de%20dimensionalidad.html">Taller reducción de dimensionalidad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/index.html">Clasificación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/Clasificaci%C3%B3n/Clasificaci%C3%B3n.html">Clasificación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/M%C3%A9tricas/M%C3%A9tricas%20clasificaci%C3%B3n.html">Métricas para Evaluación de Modelos de Clasificación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/Cross/Cross%20Validation.html">Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/Teor%C3%ADaRL/Regresi%C3%B3n%20Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EjemRegulaRL/Ejemplo%20regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Ejemplo regularización regresión logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EjemploAD/Ejemplo%20%C3%A1rboles%20de%20decisi%C3%B3n.html">Ejemplo árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/Bagging/Bagging.html">Bagging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/RandomForest/Random%20Forest.html">Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EjemRF/Ejemplo%20Random%20Forest.html">Ejemplo Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/Boosting/Boosting%20%28AdaBoost%29.html">Boosting (AdaBoost)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/XGBoost/XGBoost.html">XGBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/Stacking/Stacking.html">Stacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EclasEF/Ejemplo%20m%C3%A9todos%20de%20clasificaci%C3%B3n%20sobre%20Estados%20Financieros.html">Ejemplo métodos de clasificación sobre Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/Pipeline/index.html">Pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Pipeline/Pipeline/Pipeline.html">Pipeline en Machine Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Pipeline/Pipeline%20riesgo%20de%20cr%C3%A9dito/Pipeline%20riesgo%20de%20cr%C3%A9dito.html">Pipeline riesgo de crédito</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/index.html">Optimización de Hiperparámetros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/GridSearch/Grid%20Search.html">Grid Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/RandomizedSearch/Randomized%20Search.html">Randomized Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/index.html">Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html">SVM para Regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/SVRst/SVR%20para%20series%20de%20tiempo.html">SVR para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html">SVR series de tiempo con lags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/ADst/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/DFst/Random%20Forest%20para%20series%20de%20tiempo.html">Random Forest para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/XGBoostst/XGBoost%20para%20series%20de%20tiempo.html">XGBoost para series de tiempo</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/index.html">Deep Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Ejercicio%20clasificaci%C3%B3n/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/RNA%20para%20series%20de%20tiempo/RNA%20para%20series%20de%20tiempo.html">RNA para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo.html">Ejemplo pronóstico serie de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Optimizadores/Optimizadores.html">Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/GridSearchCV/GridSearchCV.html">GridSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/RandomizedSearchCV/RandomizedSearchCV.html">RandomizedSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/KerasTuner/KerasTuner.html">KerasTuner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/RNN/RNN.html">RNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/LSTM/LSTM.html">LSTM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/GRU/GRU.html">GRU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/RNN%20Bidireccional/RNN%20Bidireccional.html">RNN Bidireccional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN/CNN.html">CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN%20para%20series%20de%20tiempo/CNN%20para%20series%20de%20tiempo.html">CNN para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Taller%20RNN/Taller%20RNN.html">Taller RNN</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MERCADO DE VALORES:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MerVal/IntroMerFin/index.html">Introducción al Mercado Financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MerVal/Derivados/index.html">Derivados Financieros</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MerVal/Bonos/index.html">Bonos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MerVal/Portafolios/index.html">Portafolios de inversión</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/Ejercicios%20matem%C3%A1ticas%20financieras.html">Ejercicios introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/F%C3%B3rmulas%20Examen%20Matem%C3%A1ticas%20Financieras%2001-2024.html">Examen semestre 01-2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20an%C3%A1lisis%20vertical%2C%20horizontal%20e%20indicadores%20de%20actividad.html">Ejercicios análisis vertical, horizontal e indicadores de actividad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20indicadores%20de%20liquidez%2C%20rentabilidad%20y%20endeudamiento.html">Ejercicios indicadores de liquidez, rentabilidad y endeudamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Resumen%20f%C3%B3rmulas%20Indicadores%20Financieros.html">Resumen fórmulas Indicadores Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/index.html">Análisis Financiero en Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Vertical/An%C3%A1lisis%20Vertical.html">Análisis Vertical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Horizontal/An%C3%A1lisis%20Horizontal.html">Análisis Horizontal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes.html">Análisis de los márgenes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Derivados%20financieros/Forward/index.html">Forward</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Forward/Ejercicios%20valoraci%C3%B3n%20contratos%20Forward.html">Ejercicios valoración contratos Forward</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Derivados%20financieros/Swap/index.html">Swap</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Swap/Ejercicios%20tasas%20FRA.html">Ejercicios tasas FRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Swap/Ejercicios%20swap.html">Ejercicios swap</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Derivados%20financieros/Futuros/index.html">Futuros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Futuros/Ejercicios%20operaciones%20con%20Futuros%20BVC.html">Ejercicios operaciones con Futuros BVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Futuros/Ejercicios%20coberturas%20con%20Futuros.html">Ejercicios coberturas con Futuros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Derivados%20financieros/Opciones/index.html">Opciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Opciones/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html">Movimiento Browniano Geométrico (GBM) en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de Opciones Financieras por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20estrategia%20de%20cobertura/Simulaci%C3%B3n%20estrategia%20de%20cobertura.html">Simulación estrategia de cobertura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Opciones/Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Derivados%20financieros/Opciones/Ejercicios%20valoraci%C3%B3n%20de%20opciones.html">Ejercicios valoración de opciones</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Mercado%20financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/index.html">Teoría moderna de portafolios</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n.html">Introducción a portafolios de inversión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/CAPM/CAPM.html">CAPM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Indicadores%20de%20desempe%C3%B1o/Indicadores%20de%20desempe%C3%B1o.html">Indicadores de desempeño</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Frontera%20eficiente/Frontera%20Eficiente.html">Frontera Eficiente</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Bonos/index.html">Bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2.html">Ejercicios: valoración de bonos BVC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20bonos.html">Ejercicios Bonos</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../An%C3%A1lisis%20de%20riesgo/Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la gestión del riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../An%C3%A1lisis%20de%20riesgo/Estad%C3%ADstica/index.html">Conceptos básicos de estadística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../An%C3%A1lisis%20de%20riesgo/Distribuciones%20de%20probabilidad/index.html">Distribuciones de probabilidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../An%C3%A1lisis%20de%20riesgo/An%C3%A1lisis%20de%20sensibilidad%20tradicional/index.html">Análisis de sensibilidad tradicional</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Riesgo%20de%20mercado/Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Distribuci%C3%B3n%20normal/Distribuci%C3%B3n%20normal.html">Distribución normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20Delta-Normal/VaR%20varianzas-covarianzas/VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Taller%201/Taller%20N%C2%B0%201%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 1: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Taller%202/Taller%20N%C2%B0%202%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 2: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal.html">Ejercicios: VaR Delta-Normal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/index.html">Volatilidades dinámicas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Volatilidad%20EWMA/Volatilidad%20EWMA.html">Volatilidad EWMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Volatilidad%20GARCH/Volatilidad%20GARCH.html">Volatilidad GARCH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Ejercicios-volatilidades%20din%C3%A1micas/Ejercicios%20volatilidades%20din%C3%A1micas.html">Ejercicios volatilidades dinámicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SH/index.html">VaR Simulación Histórica y CVaR</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SH/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SH/VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/VaR-simulaci%C3%B3n-Hist%C3%B3rica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SH/CVaR/CVaR-Jupyter.html">CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SH/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Taller VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SH/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR.html">Análisis gráfico VaR y CVaR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SM/index.html">VaR Simulación Monte Carlo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SM/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR para un activo por Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SM/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR por el método de simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20SM/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo.html">Taller VaR y CVaR método de simulación Monte Carlo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Riesgo%20de%20mercado/Backtesting/index.html">Backtesting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Backtesting/Backtesting%20VaR%20Delta-Normal/Backtesting%20VaR%20Delta-Normal.html">Backtesting VaR Delta-Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Backtesting método VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Backtesting método VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal.html">Puntaje de López - VaR Delta-Normal</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Puntaje de López - VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Puntaje de López - VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/Backtesting/Resumen%20Backtesting/Resumen%20Backtesting.html">Resumen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20bonos/index.html">VaR bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20bonos/Duraci%C3%B3n%20y%20Duraci%C3%B3n%20Modificada/Duraci%C3%B3n%20y%20duraci%C3%B3n%20modificada%20en%20bonos.html">Duración y duración modificada en bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20bonos/VaR%20bonos/VaR%20Bonos.html">VaR Bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Riesgo%20de%20mercado/VaR%20bonos/Ejercicios%20-%20VaR%20bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC.html">Ejercicios: valoración de bonos BVC</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20R/Extraer%20datos%20de%20Yahoo%20Finance/Extraer%20datos%20de%20Yahoo%20Finance.html">Extraer datos de Yahoo Finance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../ggplot2/index.html">ggplot2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ggplot2/Introducci%C3%B3n%20a%20ggplot2/ggplot2.html">ggplot2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles.html">Estadística aplicada a los activos bursátiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n.html">Volatilidad portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n.html">Conformación portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n.html">Ejercicios: Estadística y conformación de portafolios de inversión.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Regresión lineal/Comparación de modelos/Comparación de modelos.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Comparación de modelos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-variables">Selección de variables:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-de-informacion">Criterios de información:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-en-r">Código en R:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="comparacion-de-modelos">
+<h1>Comparación de modelos<a class="headerlink" href="#comparacion-de-modelos" title="Link to this heading">#</a></h1>
+<p>Se busca determinar la menor cantidad de variables regresoras porque la
+varianza de la predicción <span class="math notranslate nohighlight">\(\hat{y}\)</span> aumenta a medida que aumenta
+la cantidad de regresoras. No hay un único método óptimo para
+seleccionar las variables y es posible que cada uno indique variables
+distintas para la regresión. Así que no se obtendrá una ecuación de
+regresión óptima, sino que se tendrán varias igualmente buenas.</p>
+<section id="seleccion-de-variables">
+<h2>Selección de variables:<a class="headerlink" href="#seleccion-de-variables" title="Link to this heading">#</a></h2>
+<p>En la Regresión Lineal Múltiple tenemos <span class="math notranslate nohighlight">\(k\)</span> cantidad de variables
+regresoras o explicativas y se busca encontrar la ecuación óptima o
+mejor a partir de subconjuntos de estas variables. Con la ordenada al
+origen, <span class="math notranslate nohighlight">\(\beta_0\)</span>, tenemos <span class="math notranslate nohighlight">\(2^k\)</span> ecuaciones de todas las
+combinaciones posibles y que se deben estimar y examinar. Si tenemos 3
+variables explicativas, entonces tenemos 8 ecuaciones posibles de
+regresión, con 5, serían 32 ecuaciones. Esto conlleva un alto costo
+computacional; sin embargo, tenemos varios métodos para evaluar solo una
+pequeña cantidad de modelos de regresión del subconjunto, donde se
+agregan o eliminan regresoras una por una. Tenemos tres métodos:</p>
+<ol class="arabic simple">
+<li><p>Selección hacia adelante.</p></li>
+<li><p>Selección hacia atrás.</p></li>
+<li><p>Regresión por segmentos.</p></li>
+</ol>
+<p>Estos métodos son iterativos porque en cada paso agregan o eliminan una
+variable explicativa y evalúa el nuevo modelo de regresión.</p>
+<p><strong>Selección hacia adelante (Forward):</strong></p>
+<p>Se parte de una ecuación con solo la ordenada al origen,
+<span class="math notranslate nohighlight">\(\beta_0\)</span>, y se determina el subconjunto óptimo insertando
+variables regresoras una por una. Es un proceso iterativo.</p>
+<p>El primer modelo no tiene ninguna variable regresora y es el siguiente:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = \beta_0\]</div>
+<p>En cada paso se agrega una variable explicativa al modelo si con el
+nuevo modelo disminuye el AIC.</p>
+<p><strong>Eliminación hace atrás (Backward):</strong></p>
+<p>Comienza con un modelo que incluya todas las <span class="math notranslate nohighlight">\(k\)</span> variables
+regresoras y evalúa la significancia de todas las variables. Elimina las
+variables no significativas. Después de eliminar variables, vuelve a
+ajustar el modelo con las variables restantes y evalúa de nuevo la
+significancia de las variables para volver a eliminar más variables no
+significativas. Este proceso se detiene cuando todas las variables
+explicativas son significativas.</p>
+<p>La significancia de las variables se evalúa con el valor p.</p>
+<p>También se puede usar el criterio de eliminar variables si con la
+ausencia de la variable eliminada el AIC es menor.</p>
+<p><strong>Regresión por segmentos (Stepwise):</strong></p>
+<p>Este proceso es una combinación de los dos anteriores. Empieza como el
+Forward, sin variables explicativas, en cada paso agrega una variable
+con el criterio del AIC, pero evalúa la significancia de la nueva
+variable, como en el método Backward.</p>
+</section>
+<section id="criterios-de-informacion">
+<h2>Criterios de información:<a class="headerlink" href="#criterios-de-informacion" title="Link to this heading">#</a></h2>
+<p>Los criterios de información dan un equilibrio entre los modelos que
+mejor se ajustan y la parsimonia del modelo. Las dos métricas más
+comunes son el Criterio de Información de Akaike (AIC - Akaike’s
+Information Criterion) y el Criterio de Información Bayesiano (BIC -
+Bayesian Information Criterion)</p>
+<div class="math notranslate nohighlight">
+\[AIC = n \times ln \left( \frac{SSE}{n} \right) + 2(k+2)\]</div>
+<div class="math notranslate nohighlight">
+\[BIC = n \times ln \left( \frac{SSE}{n} \right) + (k+2)(ln(n))\]</div>
+<p>Los modelos con AIC o BIC más pequeños indican un mejor ajuste.</p>
+</section>
+<section id="codigo-en-r">
+<h2>Código en R:<a class="headerlink" href="#codigo-en-r" title="Link to this heading">#</a></h2>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;DatosCafe.csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;;&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="n">datos</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">Fecha</span> <span class="n">PrecioInterno</span> <span class="n">PrecioInternacional</span> <span class="n">Producción</span> <span class="n">Exportaciones</span>     <span class="n">TRM</span>
+<span class="mi">1</span> <span class="n">ene</span><span class="o">-</span><span class="mi">00</span>        <span class="mi">371375</span>              <span class="mf">130.12</span>        <span class="mi">658</span>           <span class="mi">517</span> <span class="mf">1923.57</span>
+<span class="mi">2</span> <span class="n">feb</span><span class="o">-</span><span class="mi">00</span>        <span class="mi">354297</span>              <span class="mf">124.72</span>        <span class="mi">740</span>           <span class="mi">642</span> <span class="mf">1950.64</span>
+<span class="mi">3</span> <span class="n">mar</span><span class="o">-</span><span class="mi">00</span>        <span class="mi">360016</span>              <span class="mf">119.51</span>        <span class="mi">592</span>           <span class="mi">404</span> <span class="mf">1956.25</span>
+<span class="mi">4</span> <span class="n">abr</span><span class="o">-</span><span class="mi">00</span>        <span class="mi">347538</span>              <span class="mf">112.67</span>       <span class="mi">1055</span>           <span class="mi">731</span> <span class="mf">1986.77</span>
+<span class="mi">5</span> <span class="n">may</span><span class="o">-</span><span class="mi">00</span>        <span class="mi">353750</span>              <span class="mf">110.31</span>       <span class="mi">1114</span>           <span class="mi">615</span> <span class="mf">2055.69</span>
+<span class="mi">6</span> <span class="n">jun</span><span class="o">-</span><span class="mi">00</span>        <span class="mi">341688</span>              <span class="mf">100.30</span>       <span class="mi">1092</span>           <span class="mi">869</span> <span class="mf">2120.17</span>
+     <span class="n">EUR</span>
+<span class="mi">1</span> <span class="mf">1916.0</span>
+<span class="mi">2</span> <span class="mf">1878.5</span>
+<span class="mi">3</span> <span class="mf">1875.0</span>
+<span class="mi">4</span> <span class="mf">1832.0</span>
+<span class="mi">5</span> <span class="mf">1971.5</span>
+<span class="mi">6</span> <span class="mf">2053.5</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regression</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">Exportaciones</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Producción</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">PrecioInternacional</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">PrecioInterno</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TRM</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">EUR</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">regression</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="literal-block">Call:
+lm(formula = Exportaciones ~ Producción + PrecioInternacional +
+    PrecioInterno + TRM + EUR, data = datos)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-507.57  -73.29   -2.66   74.68  400.44
+
+Coefficients:
+                      Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)          2.800e+02  1.172e+02   2.390   0.0176 *
+Producción           5.806e-01  3.284e-02  17.681   &lt;2e-16 <strong>*
+PrecioInternacional -1.045e+00  6.248e-01  -1.673   0.0956 .
+PrecioInterno        1.878e-04  1.311e-04   1.432   0.1533
+TRM                 -3.049e-02  5.367e-02  -0.568   0.5704
+EUR                  5.335e-02  2.725e-02   1.958   0.0513 .
+---
+Signif. codes:  0 '*</strong>' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 121.1 on 258 degrees of freedom
+Multiple R-squared:  0.7055,        Adjusted R-squared:  0.6998
+F-statistic: 123.6 on 5 and 258 DF,  p-value: &lt; 2.2e-16</pre>
+<p><strong>Selección de variables:</strong></p>
+<p>Estos métodos de selección de variables pueden indicar ecuaciones de
+regresión diferentes:</p>
+<p>Se deben crear dos modelos:</p>
+<ol class="arabic simple">
+<li><p>Modelo vacío con solo el intercepto <code class="docutils literal notranslate"><span class="pre">regression_full</span></code>:
+<span class="math notranslate nohighlight">\(\hat{y}=\beta_0\)</span>.</p></li>
+<li><p>Modelo completo con todas las variables explicativas
+<code class="docutils literal notranslate"><span class="pre">regression_empt</span></code>:
+<span class="math notranslate nohighlight">\(\hat{y}=\beta_0+\beta_1 x_1 +\beta_2 x_2 + ... + \beta_k x_k\)</span></p></li>
+</ol>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regression_full</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">Exportaciones</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Producción</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">PrecioInternacional</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">PrecioInterno</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TRM</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">EUR</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
+<span class="n">regression_empty</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">Exportaciones</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Selección hacia adelante (Forward):</strong></p>
+<p>Criterio de inclusión: variable con la que se disminuye el AIC.</p>
+<p>Inicia con el modelo sin variables <code class="docutils literal notranslate"><span class="pre">regression_empty</span></code> y termina con el
+modelo con todas las variables <code class="docutils literal notranslate"><span class="pre">regression_full</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regression_forward</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression_empty</span><span class="p">,</span>
+<span class="w">                           </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">lower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression_empty</span><span class="p">,</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression_full</span><span class="p">),</span>
+<span class="w">                           </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;forward&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">trace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Start</span><span class="p">:</span>  <span class="n">AIC</span><span class="o">=</span><span class="mf">2851.31</span>
+<span class="n">Exportaciones</span> <span class="o">~</span> <span class="mi">1</span>
+
+                      <span class="n">Df</span> <span class="n">Sum</span> <span class="n">of</span> <span class="n">Sq</span>      <span class="n">RSS</span>    <span class="n">AIC</span>
+<span class="o">+</span> <span class="n">Producción</span>           <span class="mi">1</span>   <span class="mi">8556536</span>  <span class="mi">4292540</span> <span class="mf">2563.9</span>
+<span class="o">+</span> <span class="n">TRM</span>                  <span class="mi">1</span>   <span class="mi">3909237</span>  <span class="mi">8939840</span> <span class="mf">2757.5</span>
+<span class="o">+</span> <span class="n">EUR</span>                  <span class="mi">1</span>   <span class="mi">3150223</span>  <span class="mi">9698854</span> <span class="mf">2779.1</span>
+<span class="o">+</span> <span class="n">PrecioInterno</span>        <span class="mi">1</span>    <span class="mi">569792</span> <span class="mi">12279285</span> <span class="mf">2841.3</span>
+<span class="o">+</span> <span class="n">PrecioInternacional</span>  <span class="mi">1</span>    <span class="mi">411399</span> <span class="mi">12437678</span> <span class="mf">2844.7</span>
+<span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>                             <span class="mi">12849076</span> <span class="mf">2851.3</span>
+
+<span class="n">Step</span><span class="p">:</span>  <span class="n">AIC</span><span class="o">=</span><span class="mf">2563.86</span>
+<span class="n">Exportaciones</span> <span class="o">~</span> <span class="n">Producción</span>
+
+                      <span class="n">Df</span> <span class="n">Sum</span> <span class="n">of</span> <span class="n">Sq</span>     <span class="n">RSS</span>    <span class="n">AIC</span>
+<span class="o">+</span> <span class="n">TRM</span>                  <span class="mi">1</span>    <span class="mi">433271</span> <span class="mi">3859269</span> <span class="mf">2537.8</span>
+<span class="o">+</span> <span class="n">EUR</span>                  <span class="mi">1</span>    <span class="mi">408532</span> <span class="mi">3884008</span> <span class="mf">2539.5</span>
+<span class="o">+</span> <span class="n">PrecioInterno</span>        <span class="mi">1</span>    <span class="mi">107039</span> <span class="mi">4185501</span> <span class="mf">2559.2</span>
+<span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>                             <span class="mi">4292540</span> <span class="mf">2563.9</span>
+<span class="o">+</span> <span class="n">PrecioInternacional</span>  <span class="mi">1</span>      <span class="mi">3278</span> <span class="mi">4289262</span> <span class="mf">2565.7</span>
+
+<span class="n">Step</span><span class="p">:</span>  <span class="n">AIC</span><span class="o">=</span><span class="mf">2537.77</span>
+<span class="n">Exportaciones</span> <span class="o">~</span> <span class="n">Producción</span> <span class="o">+</span> <span class="n">TRM</span>
+
+                      <span class="n">Df</span> <span class="n">Sum</span> <span class="n">of</span> <span class="n">Sq</span>     <span class="n">RSS</span>    <span class="n">AIC</span>
+<span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>                             <span class="mi">3859269</span> <span class="mf">2537.8</span>
+<span class="o">+</span> <span class="n">EUR</span>                  <span class="mi">1</span>   <span class="mf">25953.5</span> <span class="mi">3833316</span> <span class="mf">2538.0</span>
+<span class="o">+</span> <span class="n">PrecioInternacional</span>  <span class="mi">1</span>    <span class="mf">1812.7</span> <span class="mi">3857456</span> <span class="mf">2539.7</span>
+<span class="o">+</span> <span class="n">PrecioInterno</span>        <span class="mi">1</span>     <span class="mf">138.5</span> <span class="mi">3859131</span> <span class="mf">2539.8</span>
+</pre></div>
+</div>
+<p>Se detiene cuando ya no agrega variables. Después de incluir la TRM, el
+AIC es de 2537,8 y al analizar si se incluye EUR, el AIC tiene el mismo
+valor, por tanto, la variable EUR no se incluye y este proceso se
+detiene.</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = \beta_0 + \beta_1 \times Producción + \beta_2 \times TRM\]</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">regression_forward</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="literal-block">Call:
+lm(formula = Exportaciones ~ Producción + TRM, data = datos)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-516.84  -73.36  -10.09   76.14  388.09
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept) 120.22988   35.39162   3.397 0.000787 <strong>*
+Producción    0.59391    0.03204  18.536  &lt; 2e-16 *</strong>
+TRM           0.07806    0.01442   5.413  1.4e-07 <strong>*
+---
+Signif. codes:  0 '*</strong>' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 121.6 on 261 degrees of freedom
+Multiple R-squared:  0.6996,        Adjusted R-squared:  0.6973
+F-statistic:   304 on 2 and 261 DF,  p-value: &lt; 2.2e-16</pre>
+<p><strong>Eliminación hace atrás (Backward):</strong></p>
+<p>Criterio de exclusión: disminución del AIC al eliminar la variable.</p>
+<p>Inicial con el modelo completo <code class="docutils literal notranslate"><span class="pre">regression_full</span></code> y termina en el
+modelo vacío <code class="docutils literal notranslate"><span class="pre">regression_empty</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regression_backward</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression_full</span><span class="p">,</span>
+<span class="w">                            </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">lower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression_empty</span><span class="p">,</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression_full</span><span class="p">),</span>
+<span class="w">                            </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;backward&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">trace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Start</span><span class="p">:</span>  <span class="n">AIC</span><span class="o">=</span><span class="mf">2538.54</span>
+<span class="n">Exportaciones</span> <span class="o">~</span> <span class="n">Producción</span> <span class="o">+</span> <span class="n">PrecioInternacional</span> <span class="o">+</span> <span class="n">PrecioInterno</span> <span class="o">+</span>
+    <span class="n">TRM</span> <span class="o">+</span> <span class="n">EUR</span>
+
+                      <span class="n">Df</span> <span class="n">Sum</span> <span class="n">of</span> <span class="n">Sq</span>     <span class="n">RSS</span>    <span class="n">AIC</span>
+<span class="o">-</span> <span class="n">TRM</span>                  <span class="mi">1</span>      <span class="mi">4735</span> <span class="mi">3788321</span> <span class="mf">2536.9</span>
+<span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>                             <span class="mi">3783586</span> <span class="mf">2538.5</span>
+<span class="o">-</span> <span class="n">PrecioInterno</span>        <span class="mi">1</span>     <span class="mi">30085</span> <span class="mi">3813671</span> <span class="mf">2538.6</span>
+<span class="o">-</span> <span class="n">PrecioInternacional</span>  <span class="mi">1</span>     <span class="mi">41039</span> <span class="mi">3824625</span> <span class="mf">2539.4</span>
+<span class="o">-</span> <span class="n">EUR</span>                  <span class="mi">1</span>     <span class="mi">56227</span> <span class="mi">3839813</span> <span class="mf">2540.4</span>
+<span class="o">-</span> <span class="n">Producción</span>           <span class="mi">1</span>   <span class="mi">4584682</span> <span class="mi">8368268</span> <span class="mf">2746.1</span>
+
+<span class="n">Step</span><span class="p">:</span>  <span class="n">AIC</span><span class="o">=</span><span class="mf">2536.87</span>
+<span class="n">Exportaciones</span> <span class="o">~</span> <span class="n">Producción</span> <span class="o">+</span> <span class="n">PrecioInternacional</span> <span class="o">+</span> <span class="n">PrecioInterno</span> <span class="o">+</span>
+    <span class="n">EUR</span>
+
+                      <span class="n">Df</span> <span class="n">Sum</span> <span class="n">of</span> <span class="n">Sq</span>     <span class="n">RSS</span>    <span class="n">AIC</span>
+<span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>                             <span class="mi">3788321</span> <span class="mf">2536.9</span>
+<span class="o">-</span> <span class="n">PrecioInterno</span>        <span class="mi">1</span>     <span class="mi">45190</span> <span class="mi">3833511</span> <span class="mf">2538.0</span>
+<span class="o">-</span> <span class="n">EUR</span>                  <span class="mi">1</span>     <span class="mi">61244</span> <span class="mi">3849565</span> <span class="mf">2539.1</span>
+<span class="o">-</span> <span class="n">PrecioInternacional</span>  <span class="mi">1</span>     <span class="mi">84721</span> <span class="mi">3873042</span> <span class="mf">2540.7</span>
+<span class="o">-</span> <span class="n">Producción</span>           <span class="mi">1</span>   <span class="mi">4603882</span> <span class="mi">8392203</span> <span class="mf">2744.8</span>
+</pre></div>
+</div>
+<p>No elimina la variable EUR porque el AIC sigue siendo el mismo.</p>
+<div class="math notranslate nohighlight">
+\[\hat{y} = \beta_0 + \beta_1 \times Producción + \beta_2 \times PrecioInternacional + \beta_3 \times PrecioInterno + \beta_4 \times EUR\]</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">regression_backward</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="literal-block">Call:
+lm(formula = Exportaciones ~ Producción + PrecioInternacional +
+    PrecioInterno + EUR, data = datos)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-510.51  -72.10   -4.75   77.68  398.79
+
+Coefficients:
+                      Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)          2.257e+02  6.764e+01   3.337 0.000973 <strong>*
+Producción           5.813e-01  3.277e-02  17.741  &lt; 2e-16 *</strong>
+PrecioInternacional -7.356e-01  3.057e-01  -2.407 0.016798 *
+PrecioInterno        1.253e-04  7.128e-05   1.758 0.079979 .
+EUR                  4.379e-02  2.140e-02   2.046 0.041742 *
+---
+Signif. codes:  0 '<strong>*' 0.001 '</strong>' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 120.9 on 259 degrees of freedom
+Multiple R-squared:  0.7052,        Adjusted R-squared:  0.7006
+F-statistic: 154.9 on 4 and 259 DF,  p-value: &lt; 2.2e-16</pre>
+<p><strong>Regresión por segmentos (Stepwise):</strong></p>
+<p>Agrega variables como el método Forward aplicando el criterio del menor
+AIC, pero si la variable agregada no es significativa, la elimina y
+repite el paso (como en el método Backward).</p>
+<p>Inicia con el modelo sin variables <code class="docutils literal notranslate"><span class="pre">regression_empty</span></code> porque empieza
+como el Forward.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regression_stepwise</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression_empty</span><span class="p">,</span>
+<span class="w">                            </span><span class="n">scope</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">lower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression_empty</span><span class="p">,</span><span class="w"> </span><span class="n">upper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression_full</span><span class="p">),</span>
+<span class="w">                            </span><span class="n">direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;both&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">trace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Start</span><span class="p">:</span>  <span class="n">AIC</span><span class="o">=</span><span class="mf">2851.31</span>
+<span class="n">Exportaciones</span> <span class="o">~</span> <span class="mi">1</span>
+
+                      <span class="n">Df</span> <span class="n">Sum</span> <span class="n">of</span> <span class="n">Sq</span>      <span class="n">RSS</span>    <span class="n">AIC</span>
+<span class="o">+</span> <span class="n">Producción</span>           <span class="mi">1</span>   <span class="mi">8556536</span>  <span class="mi">4292540</span> <span class="mf">2563.9</span>
+<span class="o">+</span> <span class="n">TRM</span>                  <span class="mi">1</span>   <span class="mi">3909237</span>  <span class="mi">8939840</span> <span class="mf">2757.5</span>
+<span class="o">+</span> <span class="n">EUR</span>                  <span class="mi">1</span>   <span class="mi">3150223</span>  <span class="mi">9698854</span> <span class="mf">2779.1</span>
+<span class="o">+</span> <span class="n">PrecioInterno</span>        <span class="mi">1</span>    <span class="mi">569792</span> <span class="mi">12279285</span> <span class="mf">2841.3</span>
+<span class="o">+</span> <span class="n">PrecioInternacional</span>  <span class="mi">1</span>    <span class="mi">411399</span> <span class="mi">12437678</span> <span class="mf">2844.7</span>
+<span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>                             <span class="mi">12849076</span> <span class="mf">2851.3</span>
+
+<span class="n">Step</span><span class="p">:</span>  <span class="n">AIC</span><span class="o">=</span><span class="mf">2563.86</span>
+<span class="n">Exportaciones</span> <span class="o">~</span> <span class="n">Producción</span>
+
+                      <span class="n">Df</span> <span class="n">Sum</span> <span class="n">of</span> <span class="n">Sq</span>      <span class="n">RSS</span>    <span class="n">AIC</span>
+<span class="o">+</span> <span class="n">TRM</span>                  <span class="mi">1</span>    <span class="mi">433271</span>  <span class="mi">3859269</span> <span class="mf">2537.8</span>
+<span class="o">+</span> <span class="n">EUR</span>                  <span class="mi">1</span>    <span class="mi">408532</span>  <span class="mi">3884008</span> <span class="mf">2539.5</span>
+<span class="o">+</span> <span class="n">PrecioInterno</span>        <span class="mi">1</span>    <span class="mi">107039</span>  <span class="mi">4185501</span> <span class="mf">2559.2</span>
+<span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>                              <span class="mi">4292540</span> <span class="mf">2563.9</span>
+<span class="o">+</span> <span class="n">PrecioInternacional</span>  <span class="mi">1</span>      <span class="mi">3278</span>  <span class="mi">4289262</span> <span class="mf">2565.7</span>
+<span class="o">-</span> <span class="n">Producción</span>           <span class="mi">1</span>   <span class="mi">8556536</span> <span class="mi">12849076</span> <span class="mf">2851.3</span>
+
+<span class="n">Step</span><span class="p">:</span>  <span class="n">AIC</span><span class="o">=</span><span class="mf">2537.77</span>
+<span class="n">Exportaciones</span> <span class="o">~</span> <span class="n">Producción</span> <span class="o">+</span> <span class="n">TRM</span>
+
+                      <span class="n">Df</span> <span class="n">Sum</span> <span class="n">of</span> <span class="n">Sq</span>     <span class="n">RSS</span>    <span class="n">AIC</span>
+<span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>                             <span class="mi">3859269</span> <span class="mf">2537.8</span>
+<span class="o">+</span> <span class="n">EUR</span>                  <span class="mi">1</span>     <span class="mi">25954</span> <span class="mi">3833316</span> <span class="mf">2538.0</span>
+<span class="o">+</span> <span class="n">PrecioInternacional</span>  <span class="mi">1</span>      <span class="mi">1813</span> <span class="mi">3857456</span> <span class="mf">2539.7</span>
+<span class="o">+</span> <span class="n">PrecioInterno</span>        <span class="mi">1</span>       <span class="mi">139</span> <span class="mi">3859131</span> <span class="mf">2539.8</span>
+<span class="o">-</span> <span class="n">TRM</span>                  <span class="mi">1</span>    <span class="mi">433271</span> <span class="mi">4292540</span> <span class="mf">2563.9</span>
+<span class="o">-</span> <span class="n">Producción</span>           <span class="mi">1</span>   <span class="mi">5080571</span> <span class="mi">8939840</span> <span class="mf">2757.5</span>
+</pre></div>
+</div>
+<div class="math notranslate nohighlight">
+\[\hat{y} = \beta_0 + \beta_1 \times Producción + \beta_2 \times TRM + \beta_3 \times EUR\]</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">regression_stepwise</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="literal-block">Call:
+lm(formula = Exportaciones ~ Producción + TRM, data = datos)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-516.84  -73.36  -10.09   76.14  388.09
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept) 120.22988   35.39162   3.397 0.000787 <strong>*
+Producción    0.59391    0.03204  18.536  &lt; 2e-16 *</strong>
+TRM           0.07806    0.01442   5.413  1.4e-07 <strong>*
+---
+Signif. codes:  0 '*</strong>' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 121.6 on 261 degrees of freedom
+Multiple R-squared:  0.6996,        Adjusted R-squared:  0.6973
+F-statistic:   304 on 2 and 261 DF,  p-value: &lt; 2.2e-16</pre>
+<p>Se puede hacer la prueba que con el modelo de regresión con las
+variables Producción, TRM y EUR, la variable EUR no es significativa.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">lm</span><span class="p">(</span><span class="n">Exportaciones</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Producción</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TRM</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">EUR</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">))</span>
+</pre></div>
+</div>
+<pre class="literal-block">Call:
+lm(formula = Exportaciones ~ Producción + TRM + EUR, data = datos)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-516.96  -75.78   -2.17   76.98  410.90
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept) 99.93981   38.50711   2.595  0.00999 **
+Producción   0.59460    0.03200  18.582  &lt; 2e-16 <strong>*
+TRM          0.04881    0.02633   1.854  0.06483 .
+EUR          0.03102    0.02338   1.327  0.18575
+---
+Signif. codes:  0 '*</strong>' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 121.4 on 260 degrees of freedom
+Multiple R-squared:  0.7017,        Adjusted R-squared:  0.6982
+F-statistic: 203.8 on 3 and 260 DF,  p-value: &lt; 2.2e-16</pre>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Multicolinealidad/Multicolinealidad.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Multicolinealidad</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../An%C3%A1lisis%20de%20Normalidad%20en%20RLM/An%C3%A1lisis%20de%20Normalidad%20en%20RLM.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Análisis de Normalidad en RLM</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seleccion-de-variables">Selección de variables:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criterios-de-informacion">Criterios de información:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-en-r">Código en R:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Miguel Jiménez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Miguel Jiménez.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
