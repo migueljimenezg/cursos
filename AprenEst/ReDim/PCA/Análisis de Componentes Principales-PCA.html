@@ -224,7 +224,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../Algebra/Repaso%20%C3%81lgebra%20Lineal.html">Repaso Álgebra Lineal</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Análisis de Componentes Principales-PCA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../KernelPCA/Kernel%20PCA%20%28kPCA%29.html">Kernel PCA (kPCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemReDim/Ejemplo%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejemplo reducción de dimensionalidad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html">Ejemplo diferente tipo de escalado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjerciPCAacciones/Ejemplo_PCA_acciones.html">Ejercicio PCA - acciones</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjerciReDim/Ejercicio%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejercicio reducción de dimensionalidad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerReDim/Taller%20reducci%C3%B3n%20de%20dimensionalidad.html">Taller reducción de dimensionalidad</a></li>
 </ul>
@@ -955,6 +957,166 @@ explicada.</p>
 vectores es igual a cero:</p>
 <p><span class="math notranslate nohighlight">\(\sum{\lambda_i} = \sum{var_i}\)</span>: la suma de las varianzas de las
 variables es igual a la suma de los Eigenvalores.</p>
+<p><strong>Matriz de rotación vs. Cargas en PCA:</strong></p>
+<p>Cuando aplicamos PCA obtenemos dos resultados relacionados pero
+distintos: la <strong>matriz de rotación</strong> y las <strong>cargas (loadings)</strong>.</p>
+<p><strong>1. Matriz de rotación (o matriz de componentes):</strong></p>
+<ul class="simple">
+<li><p>Contiene los <strong>autovectores</strong> de la matriz de covarianzas o
+correlaciones.</p></li>
+<li><p>Sus elementos son los <strong>coeficientes</strong> de las combinaciones lineales
+que definen cada componente principal.</p></li>
+<li><p>Explican <strong>cómo se construye cada componente</strong> a partir de las
+variables originales.</p></li>
+<li><p>Cada columna de esta matriz es un componente principal.</p></li>
+</ul>
+<p>Por ejemplo, si tenemos 3 variables y calculamos 2 componentes
+principales, la matriz podría verse así:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>PC1</p></th>
+<th class="head"><p>PC2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>X1</p></td>
+<td><p>0.70</p></td>
+<td><p>-0.20</p></td>
+</tr>
+<tr class="row-odd"><td><p>X2</p></td>
+<td><p>0.50</p></td>
+<td><p>0.85</p></td>
+</tr>
+<tr class="row-even"><td><p>X3</p></td>
+<td><p>-0.45</p></td>
+<td><p>0.47</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Esto significa que:</p>
+<p><span class="math notranslate nohighlight">\(PC1 = 0.70X_1 + 0.50X_2 − 0.45X_3\)</span></p>
+<p><span class="math notranslate nohighlight">\(PC2 = −0.20X_1 + 0.85X_2 + 0.47X_3\)</span></p>
+<p><strong>Cargas (loadings) y matriz de rotación en PCA</strong></p>
+<p>Cuando aplicamos PCA, no solo obtenemos las nuevas variables
+(componentes principales), sino también una matriz llamada <strong>matriz de
+rotación</strong> o <strong>matriz de componentes</strong>, que nos permite interpretar y
+transformar los datos.</p>
+<p><strong>1. Matriz de rotación (componentes de PCA)</strong></p>
+<p>La matriz de rotación contiene los <strong>autovectores</strong> de la matriz de
+covarianzas o correlaciones de los datos originales. Cada fila
+corresponde a una variable original, y cada columna a un componente
+principal.</p>
+<ul class="simple">
+<li><p>Si tenemos <code class="docutils literal notranslate"><span class="pre">p</span></code> variables originales y <code class="docutils literal notranslate"><span class="pre">k</span></code> componentes
+principales, la matriz de rotación tiene dimensión <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">×</span> <span class="pre">k</span></code>.</p></li>
+<li><p>Los valores de esta matriz son los <strong>coeficientes de la combinación
+lineal</strong> que define cada componente principal.</p></li>
+</ul>
+<p>Por ejemplo, si tenemos 3 variables y calculamos 2 componentes
+principales, la matriz podría verse así:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>PC1</p></th>
+<th class="head"><p>PC2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>X1</p></td>
+<td><p>0.70</p></td>
+<td><p>-0.20</p></td>
+</tr>
+<tr class="row-odd"><td><p>X2</p></td>
+<td><p>0.50</p></td>
+<td><p>0.85</p></td>
+</tr>
+<tr class="row-even"><td><p>X3</p></td>
+<td><p>-0.45</p></td>
+<td><p>0.47</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Esto significa que:</p>
+<p><span class="math notranslate nohighlight">\(PC1 = 0.70X_1 + 0.50X_2 − 0.45X_3\)</span></p>
+<p><span class="math notranslate nohighlight">\(PC2 = −0.20X_1 + 0.85X_2 + 0.47X_3\)</span></p>
+<p><strong>2. Cargas (loadings)</strong></p>
+<p>Las <strong>cargas</strong> son una forma de interpretar la matriz de rotación.
+Indican la <strong>correlación</strong> entre cada variable original y cada
+componente principal.</p>
+<p>Para obtener las cargas, se toma la <strong>matriz de rotación</strong> y se
+multiplica por la raíz cuadrada de la varianza (desviación estándar)
+explicada por cada componente:</p>
+<p><span class="math notranslate nohighlight">\(Cargas = Rotación × \sqrt{(Autovalores)}\)</span></p>
+<ul class="simple">
+<li><p>Valores cercanos a ±1 indican fuerte relación entre la variable y el
+componente.</p></li>
+<li><p>Valores cercanos a 0 indican poca relación.</p></li>
+</ul>
+<p>Ejemplo de cargas (continuando el ejemplo anterior):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>PC1</p></th>
+<th class="head"><p>PC2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>X1</p></td>
+<td><p>0.82</p></td>
+<td><p>-0.10</p></td>
+</tr>
+<tr class="row-odd"><td><p>X2</p></td>
+<td><p>0.60</p></td>
+<td><p>0.92</p></td>
+</tr>
+<tr class="row-even"><td><p>X3</p></td>
+<td><p>-0.50</p></td>
+<td><p>0.55</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Interpretación:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X_1\)</span> está fuertemente correlacionada con PC1.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_2\)</span> se asocia más a PC2.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_3\)</span> influye en ambos, con signo opuesto en PC1.</p></li>
+</ul>
+<p><strong>3. Cómo usar la matriz de rotación</strong></p>
+<p>La matriz de rotación permite:</p>
+<ul>
+<li><p><strong>Transformar los datos originales</strong> a los nuevos componentes
+principales.</p>
+<p>Matemáticamente:</p>
+<p><span class="math notranslate nohighlight">\(Z = X × Rotación\)</span></p>
+<p>donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\)</span> = matriz de datos originales estandarizados, de tamaño
+<span class="math notranslate nohighlight">\((n × p)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Rotación\)</span> = matriz de componentes <span class="math notranslate nohighlight">\((p × k)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(Z\)</span> = datos transformados en el espacio PCA <span class="math notranslate nohighlight">\((n × k)\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Reconstruir los datos aproximados</strong> a partir de los componentes
+principales:</p>
+<p><span class="math notranslate nohighlight">\(X_{aprox} ≈ Z × Rotaciónᵀ\)</span></p>
+<p>Esto se usa cuando reducimos la dimensionalidad y queremos volver a
+aproximar los datos originales.</p>
+</li>
+</ul>
+<p><strong>4. Interpretación práctica</strong></p>
+<ul class="simple">
+<li><p>La <strong>matriz de rotación</strong> nos dice <strong>qué combinación de variables
+forma cada componente</strong>.</p></li>
+<li><p>Las <strong>cargas</strong> nos dicen <strong>qué tan fuertemente cada variable original
+está asociada con cada componente</strong>.</p></li>
+<li><p>En la práctica, se usan ambas para <strong>dar significado</strong> a los
+componentes y para entender qué miden en términos de las variables
+originales.</p></li>
+</ul>
 </section>
 </section>
 

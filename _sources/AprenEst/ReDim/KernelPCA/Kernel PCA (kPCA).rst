@@ -114,3 +114,20 @@ exactamente al conjunto de datos, lo que provocaría un ajuste excesivo
 :math:`K(x, y) = \tanh(\alpha x^T y + c)`
 
 Donde :math:`alpha` y :math:`c` son parámetros.
+
+**Parámetros:**
+
++---------------+------------------------------------------------------+
+| Parámetro     | Explicación breve                                    |
++===============+======================================================+
+| **n           | Número de componentes principales a calcular (≤      |
+| _components** | número de observaciones).                            |
++---------------+------------------------------------------------------+
+| **kernel**    | Tipo de kernel: ``'linear'``, ``'poly'``, ``'rbf'``, |
+|               | ``'sigmoid'``, ``'cosine'``, etc.                    |
++---------------+------------------------------------------------------+
+| **gamma**     | Parámetro del kernel RBF, polinómico y sigmoide;     |
+|               | controla la curvatura.                               |
++---------------+------------------------------------------------------+
+| **degree**    | Grado del polinomio si ``kernel='poly'``.            |
++---------------+------------------------------------------------------+

@@ -1,0 +1,2660 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ejercicio PCA - acciones &#8212; Cursos  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=3ee1c6c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=30b7b246" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/ReDim/EjerciPCAacciones/Ejemplo_PCA_acciones';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Ejercicio reducción de dimensionalidad" href="../EjerciReDim/Ejercicio%20reducci%C3%B3n%20de%20dimensionalidad.html" />
+    <link rel="prev" title="Ejemplo diferente tipo de escalado" href="../EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cursos  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">SERIES DE TIEMPO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Series%20de%20tiempo/index.html">Series de tiempo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo.html">Características de las series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/ACF/ACF.html">ACF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Modelos%20Autorregresivos%20-%20AR/Modelos%20Autorregresivos%20-%20AR.html">Modelos Autorregresivos - AR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Pron%C3%B3stico%20con%20AR/Pron%C3%B3stico%20con%20AR.html">Pronóstico con AR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/autoplot%20para%20series%20de%20tiempo/autoplot%20para%20series%20de%20tiempo.html">autoplot para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Modelos%20de%20promedio%20m%C3%B3vil%20-%20MA/Modelos%20de%20promedio%20m%C3%B3vil%20-%20MA.html">Modelos de promedio móvil - MA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Modelos%20ARMA/Modelos%20ARMA.html">Modelos ARMA</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">REGRESIÓN LINEAL:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/index.html">Regresión lineal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis/Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis.html">Taller Intervalos de Confianza y Pruebas de Hipótesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29/Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29.html">Regresión Lineal Simple (RLS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/An%C3%A1lisis%20de%20Normalidad%20en%20RLS/An%C3%A1lisis%20de%20Normalidad%20en%20RLS.html">Análisis de Normalidad en RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n/Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n.html">Prueba de significancia de la regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Intervalos%20de%20confianza%20-%20CI/Intervalos%20de%20confianza%20-%20CI.html">Intervalos de confianza - CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Medidas%20de%20desempe%C3%B1o%20RLS/Medidas%20de%20desempe%C3%B1o%20RLS.html">Medidas de desempeño RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/RLS%20con%20ggplot2/RLS%20con%20ggplot2.html">RLS con ggplot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29/Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29.html">Regresión Lineal Múltiple (RLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/ANOVA/ANOVA.html">ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Multicolinealidad/Multicolinealidad.html">Multicolinealidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Comparaci%C3%B3n%20de%20modelos/Comparaci%C3%B3n%20de%20modelos.html">Comparación de modelos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/An%C3%A1lisis%20de%20Normalidad%20en%20RLM/An%C3%A1lisis%20de%20Normalidad%20en%20RLM.html">Análisis de Normalidad en RLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Variables%20indicadoras/Variables%20indicadoras.html">Variables indicadoras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica/Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica.html">Teoría Regresión Logística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20en%20R.html">Regresión Logística en R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n.html">Regresión Logística para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R.html">Regresión Logística para clasificación en R</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APRENDIZAJE ESTADÍSTICO:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Aprendizaje Estadístico</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../Motivaci%C3%B3n/index.html">Motivación</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python.html">Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/Pandas/Pandas.html">Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/NumPy/NumPy.html">NumPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Introducci%C3%B3n%20a%20Python/Matplotlib/Matplotlib.html">Matplotlib</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Machine%20Learning/index.html">Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Machine%20Learning/ProcessML/Proceso%20de%20Machine%20Learning.html">Proceso de Machine Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos.html">Preparación y preprocesamiento de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Clustering/index.html">Clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/Tclustering/Clustering.html">Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/K-Means/K-Means.html">K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/EK-Means/Ejemplo%20K-Means.html">Ejemplo K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/EK-MeansEF/Ejercicio%20K-Means%20Estados%20Financieros.html">Ejercicio K-Means Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/CJer%C3%A1rquico/Clustering%20Jer%C3%A1rquico.html">Clustering Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/EclusteringJ/Ejemplo%20clustering%20jer%C3%A1rquico.html">Ejemplo clustering jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/DBSCAN/DBSCAN.html">DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/EDBSCAN/Ejemplo%20DBSCAN.html">Ejemplo DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/EDBSCANEF/Ejemplo%20clustering%20DBSCAN%20Estados%20Financieros.html">Ejemplo clustering DBSCAN Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html">Ejemplo DBSCAN precio electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/Ejemplo%20K-Means%20acciones/Ejemplo_K_Means_acciones.html">Ejemplo K-Means acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clustering/EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html">Ejercicio Clustering Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Reducción de dimensionalidad</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../Algebra/Repaso%20%C3%81lgebra%20Lineal.html">Repaso Álgebra Lineal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../PCA/An%C3%A1lisis%20de%20Componentes%20Principales-PCA.html">Análisis de Componentes Principales-PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../KernelPCA/Kernel%20PCA%20%28kPCA%29.html">Kernel PCA (kPCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemReDim/Ejemplo%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejemplo reducción de dimensionalidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html">Ejemplo diferente tipo de escalado</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ejercicio PCA - acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjerciReDim/Ejercicio%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejercicio reducción de dimensionalidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../TallerReDim/Taller%20reducci%C3%B3n%20de%20dimensionalidad.html">Taller reducción de dimensionalidad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Clasificaci%C3%B3n/index.html">Clasificación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Clasificaci%C3%B3n/Clasificaci%C3%B3n.html">Clasificación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/M%C3%A9tricas/M%C3%A9tricas%20clasificaci%C3%B3n.html">Métricas para Evaluación de Modelos de Clasificación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Cross/Cross%20Validation.html">Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Teor%C3%ADaRL/Regresi%C3%B3n%20Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/EjemRegulaRL/Ejemplo%20regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Ejemplo regularización regresión logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/EjemploAD/Ejemplo%20%C3%A1rboles%20de%20decisi%C3%B3n.html">Ejemplo árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Bagging/Bagging.html">Bagging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/RandomForest/Random%20Forest.html">Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/EjemRF/Ejemplo%20Random%20Forest.html">Ejemplo Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Boosting/Boosting%20%28AdaBoost%29.html">Boosting (AdaBoost)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/XGBoost/XGBoost.html">XGBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Stacking/Stacking.html">Stacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/EclasEF/Ejemplo%20m%C3%A9todos%20de%20clasificaci%C3%B3n%20sobre%20Estados%20Financieros.html">Ejemplo métodos de clasificación sobre Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Pipeline/index.html">Pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Pipeline/Pipeline/Pipeline.html">Pipeline en Machine Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Pipeline/Pipeline%20riesgo%20de%20cr%C3%A9dito/Pipeline%20riesgo%20de%20cr%C3%A9dito.html">Pipeline riesgo de crédito</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/index.html">Optimización de Hiperparámetros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/GridSearch/Grid%20Search.html">Grid Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/RandomizedSearch/Randomized%20Search.html">Randomized Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Regresi%C3%B3n/index.html">Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Regresi%C3%B3n/SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html">SVM para Regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Regresi%C3%B3n/SVRst/SVR%20para%20series%20de%20tiempo.html">SVR para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Regresi%C3%B3n/SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html">SVR series de tiempo con lags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Regresi%C3%B3n/ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Regresi%C3%B3n/ADst/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Regresi%C3%B3n/DFst/Random%20Forest%20para%20series%20de%20tiempo.html">Random Forest para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Regresi%C3%B3n/XGBoostst/XGBoost%20para%20series%20de%20tiempo.html">XGBoost para series de tiempo</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/index.html">Deep Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejercicio%20clasificaci%C3%B3n/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20para%20series%20de%20tiempo/RNA%20para%20series%20de%20tiempo.html">RNA para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo.html">Ejemplo pronóstico serie de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizadores/Optimizadores.html">Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/GridSearchCV/GridSearchCV.html">GridSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RandomizedSearchCV/RandomizedSearchCV.html">RandomizedSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/KerasTuner/KerasTuner.html">KerasTuner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNN/RNN.html">RNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/LSTM/LSTM.html">LSTM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/GRU/GRU.html">GRU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNN%20Bidireccional/RNN%20Bidireccional.html">RNN Bidireccional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN/CNN.html">CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN%20para%20series%20de%20tiempo/CNN%20para%20series%20de%20tiempo.html">CNN para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Taller%20RNN/Taller%20RNN.html">Taller RNN</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MERCADO DE VALORES:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/IntroMerFin/index.html">Introducción al Mercado Financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Derivados/index.html">Derivados Financieros</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Bonos/index.html">Bonos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Portafolios/index.html">Portafolios de inversión</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/Ejercicios%20matem%C3%A1ticas%20financieras.html">Ejercicios introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/F%C3%B3rmulas%20Examen%20Matem%C3%A1ticas%20Financieras%2001-2024.html">Examen semestre 01-2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20an%C3%A1lisis%20vertical%2C%20horizontal%20e%20indicadores%20de%20actividad.html">Ejercicios análisis vertical, horizontal e indicadores de actividad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20indicadores%20de%20liquidez%2C%20rentabilidad%20y%20endeudamiento.html">Ejercicios indicadores de liquidez, rentabilidad y endeudamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Resumen%20f%C3%B3rmulas%20Indicadores%20Financieros.html">Resumen fórmulas Indicadores Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/index.html">Análisis Financiero en Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Vertical/An%C3%A1lisis%20Vertical.html">Análisis Vertical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Horizontal/An%C3%A1lisis%20Horizontal.html">Análisis Horizontal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes.html">Análisis de los márgenes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Forward/Ejercicios%20valoraci%C3%B3n%20contratos%20Forward.html">Ejercicios valoración contratos Forward</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Swap/Ejercicios%20tasas%20FRA.html">Ejercicios tasas FRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Swap/Ejercicios%20swap.html">Ejercicios swap</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/Ejercicios%20operaciones%20con%20Futuros%20BVC.html">Ejercicios operaciones con Futuros BVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/Ejercicios%20coberturas%20con%20Futuros.html">Ejercicios coberturas con Futuros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html">Movimiento Browniano Geométrico (GBM) en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de Opciones Financieras por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20estrategia%20de%20cobertura/Simulaci%C3%B3n%20estrategia%20de%20cobertura.html">Simulación estrategia de cobertura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Ejercicios%20valoraci%C3%B3n%20de%20opciones.html">Ejercicios valoración de opciones</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Mercado%20financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/index.html">Teoría moderna de portafolios</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n.html">Introducción a portafolios de inversión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/CAPM/CAPM.html">CAPM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Indicadores%20de%20desempe%C3%B1o/Indicadores%20de%20desempe%C3%B1o.html">Indicadores de desempeño</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Frontera%20eficiente/Frontera%20Eficiente.html">Frontera Eficiente</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/index.html">Bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2.html">Ejercicios: valoración de bonos BVC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20bonos.html">Ejercicios Bonos</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la gestión del riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Estad%C3%ADstica/index.html">Conceptos básicos de estadística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Distribuciones%20de%20probabilidad/index.html">Distribuciones de probabilidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/An%C3%A1lisis%20de%20sensibilidad%20tradicional/index.html">Análisis de sensibilidad tradicional</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Distribuci%C3%B3n%20normal/Distribuci%C3%B3n%20normal.html">Distribución normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/VaR%20varianzas-covarianzas/VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Taller%201/Taller%20N%C2%B0%201%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 1: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Taller%202/Taller%20N%C2%B0%202%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 2: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal.html">Ejercicios: VaR Delta-Normal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/index.html">Volatilidades dinámicas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Volatilidad%20EWMA/Volatilidad%20EWMA.html">Volatilidad EWMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Volatilidad%20GARCH/Volatilidad%20GARCH.html">Volatilidad GARCH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Ejercicios-volatilidades%20din%C3%A1micas/Ejercicios%20volatilidades%20din%C3%A1micas.html">Ejercicios volatilidades dinámicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/index.html">VaR Simulación Histórica y CVaR</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/VaR-simulaci%C3%B3n-Hist%C3%B3rica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/CVaR/CVaR-Jupyter.html">CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Taller VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR.html">Análisis gráfico VaR y CVaR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/index.html">VaR Simulación Monte Carlo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR para un activo por Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR por el método de simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo.html">Taller VaR y CVaR método de simulación Monte Carlo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/index.html">Backtesting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Backtesting%20VaR%20Delta-Normal/Backtesting%20VaR%20Delta-Normal.html">Backtesting VaR Delta-Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Backtesting método VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Backtesting método VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal.html">Puntaje de López - VaR Delta-Normal</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Puntaje de López - VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Puntaje de López - VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Resumen%20Backtesting/Resumen%20Backtesting.html">Resumen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/index.html">VaR bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/Duraci%C3%B3n%20y%20Duraci%C3%B3n%20Modificada/Duraci%C3%B3n%20y%20duraci%C3%B3n%20modificada%20en%20bonos.html">Duración y duración modificada en bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/VaR%20bonos/VaR%20Bonos.html">VaR Bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/Ejercicios%20-%20VaR%20bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC.html">Ejercicios: valoración de bonos BVC</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/Extraer%20datos%20de%20Yahoo%20Finance/Extraer%20datos%20de%20Yahoo%20Finance.html">Extraer datos de Yahoo Finance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../ggplot2/Introducci%C3%B3n%20a%20ggplot2/ggplot2.html">ggplot2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles.html">Estadística aplicada a los activos bursátiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n.html">Volatilidad portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n.html">Conformación portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n.html">Ejercicios: Estadística y conformación de portafolios de inversión.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/AprenEst/ReDim/EjerciPCAacciones/Ejemplo_PCA_acciones.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ejercicio PCA - acciones</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca">PCA:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">K-Means:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ejercicio-pca-acciones">
+<h1>Ejercicio PCA - acciones<a class="headerlink" href="#ejercicio-pca-acciones" title="Link to this heading">#</a></h1>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+<p>Descargar precios de acciones con diferentes características.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acciones</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># 🟢 Acciones de bajo Beta (&lt; 0.8) — defensivas</span>
+    <span class="s1">&#39;JNJ&#39;</span><span class="p">,</span>   <span class="c1"># Johnson &amp; Johnson</span>
+    <span class="s1">&#39;PG&#39;</span><span class="p">,</span>    <span class="c1"># Procter &amp; Gamble</span>
+    <span class="s1">&#39;KO&#39;</span><span class="p">,</span>    <span class="c1"># Coca-Cola</span>
+    <span class="s1">&#39;PEP&#39;</span><span class="p">,</span>   <span class="c1"># PepsiCo</span>
+    <span class="s1">&#39;WMT&#39;</span><span class="p">,</span>   <span class="c1"># Walmart</span>
+
+    <span class="c1"># 🟡 Acciones de Beta cercano a 1 (≈ 0.9 - 1.1) — mercado promedio</span>
+    <span class="s1">&#39;AAPL&#39;</span><span class="p">,</span>  <span class="c1"># Apple</span>
+    <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span>  <span class="c1"># Microsoft</span>
+    <span class="s1">&#39;V&#39;</span><span class="p">,</span>     <span class="c1"># Visa</span>
+    <span class="s1">&#39;MA&#39;</span><span class="p">,</span>    <span class="c1"># Mastercard</span>
+    <span class="s1">&#39;UNH&#39;</span><span class="p">,</span>   <span class="c1"># UnitedHealth</span>
+
+    <span class="c1"># 🔴 Acciones de Beta alto (&gt; 1.2) — más volátiles que el mercado</span>
+    <span class="s1">&#39;TSLA&#39;</span><span class="p">,</span>  <span class="c1"># Tesla</span>
+    <span class="s1">&#39;NVDA&#39;</span><span class="p">,</span>  <span class="c1"># Nvidia</span>
+    <span class="s1">&#39;META&#39;</span><span class="p">,</span>  <span class="c1"># Meta (Facebook)</span>
+    <span class="s1">&#39;AMZN&#39;</span><span class="p">,</span>  <span class="c1"># Amazon</span>
+    <span class="s1">&#39;NFLX&#39;</span><span class="p">,</span>  <span class="c1"># Netflix</span>
+
+    <span class="c1"># 🔁 Adicionales mixtas para aumentar diversidad</span>
+    <span class="s1">&#39;GOOGL&#39;</span><span class="p">,</span> <span class="c1"># Alphabet (Google)</span>
+    <span class="s1">&#39;AMD&#39;</span><span class="p">,</span>   <span class="c1"># Advanced Micro Devices</span>
+    <span class="s1">&#39;CRM&#39;</span><span class="p">,</span>   <span class="c1"># Salesforce</span>
+    <span class="s1">&#39;BA&#39;</span><span class="p">,</span>    <span class="c1"># Boeing</span>
+    <span class="s1">&#39;NKE&#39;</span>    <span class="c1"># Nike</span>
+<span class="p">]</span>
+
+<span class="n">indice</span> <span class="o">=</span> <span class="s1">&#39;^GSPC&#39;</span>  <span class="c1"># S&amp;P500</span>
+
+<span class="n">datos</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">acciones</span> <span class="o">+</span> <span class="p">[</span><span class="n">indice</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2020-07-01&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2025-07-31&#39;</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s1">&#39;1mo&#39;</span><span class="p">)[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+<span class="n">datos</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">datos</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+<pre class="literal-block">/tmp/ipython-input-4028798923.py:33: FutureWarning: YF.download() has changed argument auto_adjust default to True
+  datos = yf.download(acciones + [indice], start='2020-07-01', end='2025-07-31', interval='1mo')['Close']
+[<strong>*******************100%*********************</strong>]  21 of 21 completed</pre>
+  <div id="df-31dad76e-2c8b-4a00-abff-15ed96add185" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Ticker</th>
+      <th>AAPL</th>
+      <th>AMD</th>
+      <th>AMZN</th>
+      <th>BA</th>
+      <th>CRM</th>
+      <th>GOOGL</th>
+      <th>JNJ</th>
+      <th>KO</th>
+      <th>MA</th>
+      <th>META</th>
+      <th>...</th>
+      <th>NFLX</th>
+      <th>NKE</th>
+      <th>NVDA</th>
+      <th>PEP</th>
+      <th>PG</th>
+      <th>TSLA</th>
+      <th>UNH</th>
+      <th>V</th>
+      <th>WMT</th>
+      <th>^GSPC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>...</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+      <td>61.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>168.308616</td>
+      <td>111.604426</td>
+      <td>157.696810</td>
+      <td>192.557214</td>
+      <td>234.247296</td>
+      <td>130.157315</td>
+      <td>149.466887</td>
+      <td>56.029760</td>
+      <td>398.977753</td>
+      <td>351.281434</td>
+      <td>...</td>
+      <td>555.438689</td>
+      <td>106.611315</td>
+      <td>53.068235</td>
+      <td>149.308492</td>
+      <td>141.179574</td>
+      <td>246.167060</td>
+      <td>444.539701</td>
+      <td>241.869443</td>
+      <td>56.422426</td>
+      <td>4591.564901</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>37.929744</td>
+      <td>32.599924</td>
+      <td>35.406763</td>
+      <td>31.330118</td>
+      <td>48.640247</td>
+      <td>32.428266</td>
+      <td>10.006478</td>
+      <td>8.197990</td>
+      <td>82.631451</td>
+      <td>165.833288</td>
+      <td>...</td>
+      <td>256.862147</td>
+      <td>26.270568</td>
+      <td>47.606693</td>
+      <td>17.191152</td>
+      <td>16.928581</td>
+      <td>67.619500</td>
+      <td>87.096887</td>
+      <td>50.515678</td>
+      <td>18.549609</td>
+      <td>813.091153</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>103.174965</td>
+      <td>60.060001</td>
+      <td>84.000000</td>
+      <td>121.080002</td>
+      <td>131.438278</td>
+      <td>72.843140</td>
+      <td>119.756920</td>
+      <td>40.592751</td>
+      <td>279.303253</td>
+      <td>92.651703</td>
+      <td>...</td>
+      <td>174.869995</td>
+      <td>56.027664</td>
+      <td>10.579876</td>
+      <td>112.904655</td>
+      <td>110.428230</td>
+      <td>95.384003</td>
+      <td>249.559998</td>
+      <td>173.635712</td>
+      <td>38.834503</td>
+      <td>3269.959961</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>138.524826</td>
+      <td>85.519997</td>
+      <td>133.089996</td>
+      <td>171.820007</td>
+      <td>201.018570</td>
+      <td>103.111610</td>
+      <td>144.014465</td>
+      <td>50.373859</td>
+      <td>346.991211</td>
+      <td>252.285950</td>
+      <td>...</td>
+      <td>394.519989</td>
+      <td>88.638329</td>
+      <td>16.206352</td>
+      <td>134.108490</td>
+      <td>127.865433</td>
+      <td>201.880005</td>
+      <td>386.012939</td>
+      <td>206.614456</td>
+      <td>44.324265</td>
+      <td>4076.600098</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>167.575729</td>
+      <td>102.900002</td>
+      <td>160.309998</td>
+      <td>194.190002</td>
+      <td>236.031769</td>
+      <td>131.928772</td>
+      <td>151.222519</td>
+      <td>56.363876</td>
+      <td>364.622650</td>
+      <td>316.861664</td>
+      <td>...</td>
+      <td>517.570007</td>
+      <td>105.146393</td>
+      <td>27.729065</td>
+      <td>153.950912</td>
+      <td>140.274200</td>
+      <td>240.080002</td>
+      <td>472.730469</td>
+      <td>225.511002</td>
+      <td>47.488289</td>
+      <td>4395.259766</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>191.829468</td>
+      <td>137.179993</td>
+      <td>176.759995</td>
+      <td>212.009995</td>
+      <td>267.514771</td>
+      <td>154.275345</td>
+      <td>155.431351</td>
+      <td>59.936264</td>
+      <td>447.335052</td>
+      <td>473.209686</td>
+      <td>...</td>
+      <td>641.619995</td>
+      <td>125.442963</td>
+      <td>90.315819</td>
+      <td>161.462906</td>
+      <td>155.858002</td>
+      <td>282.160004</td>
+      <td>498.170715</td>
+      <td>269.519684</td>
+      <td>59.013653</td>
+      <td>5254.350098</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>249.534180</td>
+      <td>192.529999</td>
+      <td>237.679993</td>
+      <td>260.660004</td>
+      <td>340.623810</td>
+      <td>203.538910</td>
+      <td>164.740005</td>
+      <td>72.037811</td>
+      <td>584.808716</td>
+      <td>773.440002</td>
+      <td>...</td>
+      <td>1339.130005</td>
+      <td>160.342422</td>
+      <td>177.869995</td>
+      <td>177.486206</td>
+      <td>175.867111</td>
+      <td>404.600006</td>
+      <td>601.015320</td>
+      <td>363.944122</td>
+      <td>98.252411</td>
+      <td>6339.390137</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 21 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-31dad76e-2c8b-4a00-abff-15ed96add185')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-31dad76e-2c8b-4a00-abff-15ed96add185 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-31dad76e-2c8b-4a00-abff-15ed96add185');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-1623351c-db7e-490c-98bc-79db7d593003">
+      <button class="colab-df-quickchart" onclick="quickchart('df-1623351c-db7e-490c-98bc-79db7d593003')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-1623351c-db7e-490c-98bc-79db7d593003 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+DatetimeIndex: 61 entries, 2020-07-01 to 2025-07-01
+Data columns (total 21 columns):
+ #   Column  Non-Null Count  Dtype
+---  ------  --------------  -----
+ 0   AAPL    61 non-null     float64
+ 1   AMD     61 non-null     float64
+ 2   AMZN    61 non-null     float64
+ 3   BA      61 non-null     float64
+ 4   CRM     61 non-null     float64
+ 5   GOOGL   61 non-null     float64
+ 6   JNJ     61 non-null     float64
+ 7   KO      61 non-null     float64
+ 8   MA      61 non-null     float64
+ 9   META    61 non-null     float64
+ 10  MSFT    61 non-null     float64
+ 11  NFLX    61 non-null     float64
+ 12  NKE     61 non-null     float64
+ 13  NVDA    61 non-null     float64
+ 14  PEP     61 non-null     float64
+ 15  PG      61 non-null     float64
+ 16  TSLA    61 non-null     float64
+ 17  UNH     61 non-null     float64
+ 18  V       61 non-null     float64
+ 19  WMT     61 non-null     float64
+ 20  ^GSPC   61 non-null     float64
+dtypes: float64(21)
+memory usage: 10.5 KB
+</pre></div>
+</div>
+<section id="variables">
+<h2>Variables:<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
+<p>Se usaran indicadores financieros para agrupar a las acciones:</p>
+<ul class="simple">
+<li><p>Rendimiento medio mensual.</p></li>
+<li><p>Volatilidad mensual.</p></li>
+<li><p>Asimetría (Skewness).</p></li>
+<li><p>Curtosis.</p></li>
+<li><p>Coeficiente Beta: mide la sensibilidad del rendimiento de una acción
+frente a los movimientos del mercado, indicando cuánto tiende a
+variar la acción en relación con el índice de referencia.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calcular_indicadores</span><span class="p">(</span><span class="n">serie_accion</span><span class="p">,</span> <span class="n">serie_indice</span><span class="p">):</span>
+    <span class="n">retornos</span> <span class="o">=</span> <span class="n">serie_accion</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+    <span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">retornos</span><span class="p">,</span> <span class="n">serie_indice</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">())[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">serie_indice</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;Retorno&#39;</span><span class="p">:</span> <span class="n">retornos</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+        <span class="s1">&#39;Volatilidad&#39;</span><span class="p">:</span> <span class="n">retornos</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span>
+        <span class="s1">&#39;Skewness&#39;</span><span class="p">:</span> <span class="n">retornos</span><span class="o">.</span><span class="n">skew</span><span class="p">(),</span>
+        <span class="s1">&#39;Kurtosis&#39;</span><span class="p">:</span> <span class="n">retornos</span><span class="o">.</span><span class="n">kurt</span><span class="p">(),</span>
+        <span class="s1">&#39;Beta&#39;</span><span class="p">:</span> <span class="n">beta</span>
+    <span class="p">}</span>
+
+<span class="n">caracteristicas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">accion</span> <span class="ow">in</span> <span class="n">acciones</span><span class="p">:</span>
+    <span class="n">caracteristicas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">calcular_indicadores</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="n">accion</span><span class="p">],</span> <span class="n">datos</span><span class="p">[</span><span class="n">indice</span><span class="p">]))</span>
+
+<span class="n">df_indicadores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">caracteristicas</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">acciones</span><span class="p">)</span>
+
+<span class="n">df_indicadores</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+  <div id="df-5bc117dd-3de6-4a71-8aaf-bffacb6cc209" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Retorno</th>
+      <th>Volatilidad</th>
+      <th>Skewness</th>
+      <th>Kurtosis</th>
+      <th>Beta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>20.000000</td>
+      <td>20.000000</td>
+      <td>20.000000</td>
+      <td>20.000000</td>
+      <td>20.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.016279</td>
+      <td>0.092425</td>
+      <td>0.051634</td>
+      <td>0.542927</td>
+      <td>1.153155</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.013544</td>
+      <td>0.041562</td>
+      <td>0.562000</td>
+      <td>1.361423</td>
+      <td>0.589540</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.001234</td>
+      <td>0.045147</td>
+      <td>-1.143828</td>
+      <td>-0.827875</td>
+      <td>0.392902</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.008797</td>
+      <td>0.062848</td>
+      <td>-0.288276</td>
+      <td>-0.358967</td>
+      <td>0.615434</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.012891</td>
+      <td>0.079984</td>
+      <td>0.123930</td>
+      <td>-0.230199</td>
+      <td>1.125789</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.020063</td>
+      <td>0.119030</td>
+      <td>0.306695</td>
+      <td>1.171873</td>
+      <td>1.420758</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>0.058650</td>
+      <td>0.203409</td>
+      <td>1.035206</td>
+      <td>4.428854</td>
+      <td>2.369970</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5bc117dd-3de6-4a71-8aaf-bffacb6cc209')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-5bc117dd-3de6-4a71-8aaf-bffacb6cc209 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-5bc117dd-3de6-4a71-8aaf-bffacb6cc209');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-0899c4d9-dad7-4f1a-a79a-7aa610094e1d">
+      <button class="colab-df-quickchart" onclick="quickchart('df-0899c4d9-dad7-4f1a-a79a-7aa610094e1d')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-0899c4d9-dad7-4f1a-a79a-7aa610094e1d button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div><p><strong>Matriz de correlación:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matriz de correlación entre las variables:</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_indicadores</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mapa de Calor de Correlaciones de Indicadores&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_9_03.png" src="../../../_images/output_9_03.png" />
+</section>
+<section id="pca">
+<h2>PCA:<a class="headerlink" href="#pca" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Escalado de datos:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_indicadores</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="c1"># Aplicación de PCA estándar</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+
+<span class="c1"># Cálculo de las varianzas explicadas</span>
+<span class="n">explained_variance</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Varianza explicada por cada componente principal:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">explained_variance</span><span class="p">)</span>
+
+<span class="c1"># Cálculo de la varianza explicada acumulada</span>
+<span class="n">explained_variance_cum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
+
+<span class="c1"># Visualización del gráfico de varianza explicada</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">explained_variance_cum</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">explained_variance_cum</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de Componentes Principales&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Varianza Explicada Acumulada&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Gráfico de Varianza Explicada Acumulada&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Varianza</span> <span class="n">explicada</span> <span class="n">por</span> <span class="n">cada</span> <span class="n">componente</span> <span class="n">principal</span><span class="p">:</span>
+<span class="p">[</span><span class="mf">0.54110569</span> <span class="mf">0.24154791</span> <span class="mf">0.16562457</span> <span class="mf">0.04064709</span> <span class="mf">0.01107474</span><span class="p">]</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_12_13.png" src="../../../_images/output_12_13.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aplicación de PCA estándar</span>
+<span class="n">num_components</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">num_components</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">)</span>
+
+<span class="c1"># Varianza explicada:</span>
+<span class="n">explained_variance_ratio</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+<span class="n">cumulative_variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">explained_variance_ratio</span><span class="p">)</span>
+<span class="n">cumulative_variance</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mf">0.54110569</span><span class="p">,</span> <span class="mf">0.7826536</span> <span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Matríz de rotación:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rotation_matrix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;PC</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_components</span><span class="p">)],</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">df_indicadores</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rotation_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                  <span class="n">PC1</span>       <span class="n">PC2</span>
+<span class="n">Retorno</span>      <span class="mf">0.507389</span>  <span class="mf">0.056271</span>
+<span class="n">Volatilidad</span>  <span class="mf">0.585304</span> <span class="o">-</span><span class="mf">0.046754</span>
+<span class="n">Skewness</span>     <span class="mf">0.125756</span>  <span class="mf">0.714526</span>
+<span class="n">Kurtosis</span>     <span class="mf">0.192013</span> <span class="o">-</span><span class="mf">0.692138</span>
+<span class="n">Beta</span>         <span class="mf">0.589315</span>  <span class="mf">0.071027</span>
+</pre></div>
+</div>
+<p><strong>Cargas de las variables:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loadings</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_</span><span class="p">)</span>
+<span class="n">loadings_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">loadings</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;PC</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_components</span><span class="p">)],</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">df_indicadores</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">loadings_df</span>
+</pre></div>
+</div>
+  <div id="df-6239502a-43b1-452b-8efc-3b042692b1b6" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PC1</th>
+      <th>PC2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Retorno</th>
+      <td>0.856260</td>
+      <td>0.063446</td>
+    </tr>
+    <tr>
+      <th>Volatilidad</th>
+      <td>0.987746</td>
+      <td>-0.052716</td>
+    </tr>
+    <tr>
+      <th>Skewness</th>
+      <td>0.212223</td>
+      <td>0.805643</td>
+    </tr>
+    <tr>
+      <th>Kurtosis</th>
+      <td>0.324036</td>
+      <td>-0.780401</td>
+    </tr>
+    <tr>
+      <th>Beta</th>
+      <td>0.994516</td>
+      <td>0.080084</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-6239502a-43b1-452b-8efc-3b042692b1b6')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-6239502a-43b1-452b-8efc-3b042692b1b6 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-6239502a-43b1-452b-8efc-3b042692b1b6');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-dff64312-a93a-4b92-b2bb-5232fba1047c">
+      <button class="colab-df-quickchart" onclick="quickchart('df-dff64312-a93a-4b92-b2bb-5232fba1047c')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-dff64312-a93a-4b92-b2bb-5232fba1047c button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_44b090e1-dcb4-46e2-b9b5-c31518f772c4">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('loadings_df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_44b090e1-dcb4-46e2-b9b5-c31518f772c4 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('loadings_df');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div><p><strong>Cálculo de la matriz de proyección:</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">projected_data</span> <span class="o">=</span> <span class="n">X_scaled</span> <span class="o">@</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">T</span>
+<span class="n">projected_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">projected_data</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;PC</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_components</span><span class="p">)],</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">df_indicadores</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">projected_df</span>
+</pre></div>
+</div>
+  <div id="df-4af15c34-bd91-4542-9537-80006f365817" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PC1</th>
+      <th>PC2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>JNJ</th>
+      <td>-2.009927</td>
+      <td>0.571025</td>
+    </tr>
+    <tr>
+      <th>PG</th>
+      <td>-1.862687</td>
+      <td>0.698474</td>
+    </tr>
+    <tr>
+      <th>KO</th>
+      <td>-1.628737</td>
+      <td>-0.195235</td>
+    </tr>
+    <tr>
+      <th>PEP</th>
+      <td>-1.904776</td>
+      <td>0.749386</td>
+    </tr>
+    <tr>
+      <th>WMT</th>
+      <td>-1.077136</td>
+      <td>-0.514358</td>
+    </tr>
+    <tr>
+      <th>AAPL</th>
+      <td>-0.340765</td>
+      <td>0.870145</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>-0.463062</td>
+      <td>0.726592</td>
+    </tr>
+    <tr>
+      <th>V</th>
+      <td>-0.846575</td>
+      <td>0.742175</td>
+    </tr>
+    <tr>
+      <th>MA</th>
+      <td>-0.636976</td>
+      <td>0.384739</td>
+    </tr>
+    <tr>
+      <th>UNH</th>
+      <td>-1.443074</td>
+      <td>-2.101113</td>
+    </tr>
+    <tr>
+      <th>TSLA</th>
+      <td>4.017180</td>
+      <td>0.810888</td>
+    </tr>
+    <tr>
+      <th>NVDA</th>
+      <td>3.314539</td>
+      <td>0.545675</td>
+    </tr>
+    <tr>
+      <th>META</th>
+      <td>0.854469</td>
+      <td>-1.035092</td>
+    </tr>
+    <tr>
+      <th>AMZN</th>
+      <td>-0.003152</td>
+      <td>0.022272</td>
+    </tr>
+    <tr>
+      <th>NFLX</th>
+      <td>1.473485</td>
+      <td>-3.536335</td>
+    </tr>
+    <tr>
+      <th>GOOGL</th>
+      <td>-0.469660</td>
+      <td>-0.278301</td>
+    </tr>
+    <tr>
+      <th>AMD</th>
+      <td>1.848918</td>
+      <td>1.107992</td>
+    </tr>
+    <tr>
+      <th>CRM</th>
+      <td>0.695679</td>
+      <td>0.488228</td>
+    </tr>
+    <tr>
+      <th>BA</th>
+      <td>1.065755</td>
+      <td>-0.027127</td>
+    </tr>
+    <tr>
+      <th>NKE</th>
+      <td>-0.583498</td>
+      <td>-0.030029</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4af15c34-bd91-4542-9537-80006f365817')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-4af15c34-bd91-4542-9537-80006f365817 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-4af15c34-bd91-4542-9537-80006f365817');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-13f2f85a-3c59-487b-8672-cf328014422c">
+      <button class="colab-df-quickchart" onclick="quickchart('df-13f2f85a-3c59-487b-8672-cf328014422c')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-13f2f85a-3c59-487b-8672-cf328014422c button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_db81ce94-1f4f-4c1b-9d3b-7e8a35ab7b5f">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('projected_df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_db81ce94-1f4f-4c1b-9d3b-7e8a35ab7b5f button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('projected_df');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_pca</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">2.00992725e+00</span><span class="p">,</span>  <span class="mf">5.71024994e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">1.86268747e+00</span><span class="p">,</span>  <span class="mf">6.98473820e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">1.62873685e+00</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.95235094e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">1.90477620e+00</span><span class="p">,</span>  <span class="mf">7.49386161e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">1.07713619e+00</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.14358028e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">3.40765458e-01</span><span class="p">,</span>  <span class="mf">8.70145271e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">4.63061861e-01</span><span class="p">,</span>  <span class="mf">7.26591854e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">8.46575376e-01</span><span class="p">,</span>  <span class="mf">7.42174812e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">6.36975722e-01</span><span class="p">,</span>  <span class="mf">3.84738999e-01</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">1.44307361e+00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.10111346e+00</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">4.01718024e+00</span><span class="p">,</span>  <span class="mf">8.10887861e-01</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">3.31453899e+00</span><span class="p">,</span>  <span class="mf">5.45675236e-01</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">8.54469187e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.03509218e+00</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">3.15200969e-03</span><span class="p">,</span>  <span class="mf">2.22724980e-02</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.47348491e+00</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.53633525e+00</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">4.69659577e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.78301421e-01</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.84891803e+00</span><span class="p">,</span>  <span class="mf">1.10799176e+00</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">6.95678665e-01</span><span class="p">,</span>  <span class="mf">4.88227956e-01</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.06575522e+00</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.71268635e-02</span><span class="p">],</span>
+       <span class="p">[</span><span class="o">-</span><span class="mf">5.83497659e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.00289131e-02</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Gráfico de las observaciones (acciones)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+
+<span class="c1"># Etiquetas de las observaciones (acciones)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_indicadores</span><span class="o">.</span><span class="n">index</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">(</span><span class="n">X_pca</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_pca</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Añadir las cargas (loadings) como flechas rojas</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_indicadores</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">loadings</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">loadings</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+              <span class="n">color</span><span class="o">=</span><span class="s1">&#39;crimson&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span>
+              <span class="n">head_width</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">loadings</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">1.4</span><span class="p">,</span> <span class="n">loadings</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;crimson&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Configuración del gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;PCA de Indicadores Financieros (Biplot)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Componente Principal 1 (</span><span class="si">{</span><span class="n">explained_variance_ratio</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">%)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Componente Principal 2 (</span><span class="si">{</span><span class="n">explained_variance_ratio</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">%)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_21_02.png" src="../../../_images/output_21_02.png" />
+</section>
+<section id="k-means">
+<h2>K-Means:<a class="headerlink" href="#k-means" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">DBSCAN</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span><span class="p">,</span> <span class="n">pairwise_distances_argmin_min</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.cluster.hierarchy</span><span class="w"> </span><span class="kn">import</span> <span class="n">dendrogram</span><span class="p">,</span> <span class="n">linkage</span><span class="p">,</span> <span class="n">fcluster</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular WCSS para diferentes valores de K:</span>
+<span class="n">wcss</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">K</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">)</span>
+    <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_pca</span><span class="p">)</span>
+    <span class="n">wcss</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+
+<span class="c1"># Visualizar el método del codo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">wcss</span><span class="p">,</span> <span class="s2">&quot;bo-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de clústeres (K)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;WCSS&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Método del Codo para determinar el número óptimo de clústeres&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_24_0.png" src="../../../_images/output_24_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular la puntuación de la silueta para diferentes valores de K:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">silhouette_score</span>
+
+<span class="n">silhouette_scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">K</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">)</span>
+    <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_pca</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+    <span class="n">silhouette_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+
+<span class="c1"># Visualizar la puntuación de la silueta</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">silhouette_scores</span><span class="p">,</span> <span class="s2">&quot;bo-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de clústeres (K)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Puntuación de la Silueta&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Método de la Silueta para determinar el número óptimo de clústeres&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_25_0.png" src="../../../_images/output_25_0.png" />
+<p><strong>Clusters = 3</strong></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k_base</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k_base</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">34</span><span class="p">)</span>
+<span class="n">df_indicadores_copy</span> <span class="o">=</span> <span class="n">df_indicadores</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_indicadores_copy</span><span class="p">[</span><span class="s1">&#39;Cluster_KMeans&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_pca</span><span class="p">)</span>
+
+<span class="c1"># Valores de Inercia y Silueta:</span>
+<span class="n">inercia</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">inertia_</span>
+<span class="n">silhouette</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">df_indicadores_copy</span><span class="p">[</span><span class="s1">&#39;Cluster_KMeans&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clusters: </span><span class="si">{</span><span class="n">k_base</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inercia: </span><span class="si">{</span><span class="n">inercia</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Puntuación de la Silueta: </span><span class="si">{</span><span class="n">silhouette</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Clusters</span><span class="p">:</span> <span class="mi">3</span>
+<span class="n">Inercia</span><span class="p">:</span> <span class="mf">25.062472276766986</span>
+<span class="n">Puntuación</span> <span class="n">de</span> <span class="n">la</span> <span class="n">Silueta</span><span class="p">:</span> <span class="mf">0.4597277766734301</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">graficar_clusters</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">metodo</span><span class="p">,</span> <span class="n">var_x</span><span class="o">=</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">,</span> <span class="n">var_y</span><span class="o">=</span><span class="s1">&#39;Retorno&#39;</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">var_x</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">var_y</span><span class="p">,</span>
+        <span class="n">hue</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cluster_</span><span class="si">{</span><span class="n">metodo</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;Set1&#39;</span><span class="p">,</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">120</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var_x</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.002</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="n">var_y</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Clustering por </span><span class="si">{</span><span class="n">metodo</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">var_y</span><span class="si">}</span><span class="s1"> vs </span><span class="si">{</span><span class="n">var_x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">var_x</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">var_y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Cluster&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Graficar cada método</span>
+<span class="n">graficar_clusters</span><span class="p">(</span><span class="n">df_indicadores_copy</span><span class="p">,</span> <span class="s1">&#39;KMeans&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_28_0.png" src="../../../_images/output_28_0.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clustering y variables en escala estandarizada:</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
+<span class="n">X_scaled_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">df_indicadores_copy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">X_scaled_df</span><span class="p">[</span><span class="s1">&#39;Cluster_KMeans&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+
+<span class="c1"># Columnas a usar</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Retorno&#39;</span><span class="p">,</span><span class="s1">&#39;Volatilidad&#39;</span><span class="p">,</span><span class="s1">&#39;Skewness&#39;</span><span class="p">,</span><span class="s1">&#39;Kurtosis&#39;</span><span class="p">,</span><span class="s1">&#39;Beta&#39;</span><span class="p">]</span>
+
+<span class="c1"># Preparar datos y calcular promedio por cluster</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">X_scaled_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">tmp</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+<span class="n">agg</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Cluster_KMeans&#39;</span><span class="p">)[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="c1"># Construir radar combinado</span>
+<span class="n">cats</span> <span class="o">=</span> <span class="n">cols</span> <span class="o">+</span> <span class="p">[</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">cl</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">agg</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatterpolar</span><span class="p">(</span>
+        <span class="n">r</span><span class="o">=</span><span class="n">vals</span> <span class="o">+</span> <span class="p">[</span><span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+        <span class="n">theta</span><span class="o">=</span><span class="n">cats</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cluster </span><span class="si">{</span><span class="n">cl</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;toself&#39;</span><span class="p">,</span>
+        <span class="n">opacity</span><span class="o">=</span><span class="mf">0.30</span>
+    <span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Radar combinado por cluster&#39;</span><span class="p">,</span>
+    <span class="n">template</span><span class="o">=</span><span class="s1">&#39;plotly_white&#39;</span><span class="p">,</span>
+    <span class="n">polar</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">radialaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">showline</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<html>
+<head><meta charset="utf-8" /></head>
+<body>
+    <div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="b04b7681-895a-4a93-8cc7-1cf11fd36966" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b04b7681-895a-4a93-8cc7-1cf11fd36966")) {                    Plotly.newPlot(                        "b04b7681-895a-4a93-8cc7-1cf11fd36966",                        [{"fill":"toself","name":"Cluster 0","opacity":0.3,"r":[-0.4094529483459443,-0.5660936757430431,0.13040019220982618,-0.37660628668386575,-0.44330868251500505,-0.4094529483459443],"theta":["Retorno","Volatilidad","Skewness","Kurtosis","Beta","Retorno"],"type":"scatterpolar"},{"fill":"toself","name":"Cluster 1","opacity":0.3,"r":[-0.040626554703725504,0.4554978758011847,-0.8705854277863769,1.4981544787950203,0.10772640267952949,-0.040626554703725504],"theta":["Retorno","Volatilidad","Skewness","Kurtosis","Beta","Retorno"],"type":"scatterpolar"},{"fill":"toself","name":"Cluster 2","opacity":0.3,"r":[1.8284648491040594,1.8457420938182725,0.5957130708059227,-0.3655787294299418,1.7773690873256494,1.8284648491040594],"theta":["Retorno","Volatilidad","Skewness","Kurtosis","Beta","Retorno"],"type":"scatterpolar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"polar":{"radialaxis":{"showline":false,"gridcolor":"lightgray"}},"title":{"text":"Radar combinado por cluster"}},                        {"responsive": true}                    ).then(function(){
+
+var gd = document.getElementById('b04b7681-895a-4a93-8cc7-1cf11fd36966');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                            </script>        </div>
+</body>
+</html></section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Ejemplo diferente tipo de escalado</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../EjerciReDim/Ejercicio%20reducci%C3%B3n%20de%20dimensionalidad.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ejercicio reducción de dimensionalidad</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca">PCA:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">K-Means:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Miguel Jiménez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Miguel Jiménez.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

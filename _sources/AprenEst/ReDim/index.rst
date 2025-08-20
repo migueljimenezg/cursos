@@ -14,6 +14,7 @@ A través de ejemplos prácticos, mostraremos cómo preprocesar los datos, aplic
    KernelPCA/Kernel PCA (kPCA)
    EjemReDim/Ejemplo reducción de dimensionalidad
    EjemEscalado/Ejemplo diferente tipo de escalado
+   EjerciPCAacciones/Ejemplo_PCA_acciones
    EjerciReDim/Ejercicio reducción de dimensionalidad
    TallerReDim/Taller reducción de dimensionalidad
 

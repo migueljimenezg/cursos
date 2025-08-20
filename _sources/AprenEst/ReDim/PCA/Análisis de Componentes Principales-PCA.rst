@@ -345,3 +345,150 @@ vectores es igual a cero:
 
 :math:`\sum{\lambda_i} = \sum{var_i}`: la suma de las varianzas de las
 variables es igual a la suma de los Eigenvalores.
+
+**Matriz de rotación vs. Cargas en PCA:**
+
+Cuando aplicamos PCA obtenemos dos resultados relacionados pero
+distintos: la **matriz de rotación** y las **cargas (loadings)**.
+
+**1. Matriz de rotación (o matriz de componentes):**
+
+-  Contiene los **autovectores** de la matriz de covarianzas o
+   correlaciones.
+
+-  Sus elementos son los **coeficientes** de las combinaciones lineales
+   que definen cada componente principal.
+
+-  Explican **cómo se construye cada componente** a partir de las
+   variables originales.
+
+-  Cada columna de esta matriz es un componente principal.
+
+Por ejemplo, si tenemos 3 variables y calculamos 2 componentes
+principales, la matriz podría verse así:
+
+== ===== =====
+\  PC1   PC2
+== ===== =====
+X1 0.70  -0.20
+X2 0.50  0.85
+X3 -0.45 0.47
+== ===== =====
+
+Esto significa que:
+
+:math:`PC1 = 0.70X_1 + 0.50X_2 − 0.45X_3`
+
+:math:`PC2 = −0.20X_1 + 0.85X_2 + 0.47X_3`
+
+**Cargas (loadings) y matriz de rotación en PCA**
+
+Cuando aplicamos PCA, no solo obtenemos las nuevas variables
+(componentes principales), sino también una matriz llamada **matriz de
+rotación** o **matriz de componentes**, que nos permite interpretar y
+transformar los datos.
+
+**1. Matriz de rotación (componentes de PCA)**
+
+La matriz de rotación contiene los **autovectores** de la matriz de
+covarianzas o correlaciones de los datos originales. Cada fila
+corresponde a una variable original, y cada columna a un componente
+principal.
+
+-  Si tenemos ``p`` variables originales y ``k`` componentes
+   principales, la matriz de rotación tiene dimensión ``p × k``.
+
+-  Los valores de esta matriz son los **coeficientes de la combinación
+   lineal** que define cada componente principal.
+
+Por ejemplo, si tenemos 3 variables y calculamos 2 componentes
+principales, la matriz podría verse así:
+
+== ===== =====
+\  PC1   PC2
+== ===== =====
+X1 0.70  -0.20
+X2 0.50  0.85
+X3 -0.45 0.47
+== ===== =====
+
+Esto significa que:
+
+:math:`PC1 = 0.70X_1 + 0.50X_2 − 0.45X_3`
+
+:math:`PC2 = −0.20X_1 + 0.85X_2 + 0.47X_3`
+
+**2. Cargas (loadings)**
+
+Las **cargas** son una forma de interpretar la matriz de rotación.
+Indican la **correlación** entre cada variable original y cada
+componente principal.
+
+Para obtener las cargas, se toma la **matriz de rotación** y se
+multiplica por la raíz cuadrada de la varianza (desviación estándar)
+explicada por cada componente:
+
+:math:`Cargas = Rotación × \sqrt{(Autovalores)}`
+
+-  Valores cercanos a ±1 indican fuerte relación entre la variable y el
+   componente.
+
+-  Valores cercanos a 0 indican poca relación.
+
+Ejemplo de cargas (continuando el ejemplo anterior):
+
+== ===== =====
+\  PC1   PC2
+== ===== =====
+X1 0.82  -0.10
+X2 0.60  0.92
+X3 -0.50 0.55
+== ===== =====
+
+Interpretación:
+
+-  :math:`X_1` está fuertemente correlacionada con PC1.
+
+-  :math:`X_2` se asocia más a PC2.
+
+-  :math:`X_3` influye en ambos, con signo opuesto en PC1.
+
+**3. Cómo usar la matriz de rotación**
+
+La matriz de rotación permite:
+
+-  **Transformar los datos originales** a los nuevos componentes
+   principales.
+
+   Matemáticamente:
+
+   :math:`Z = X × Rotación`
+
+   donde:
+
+   -  :math:`X` = matriz de datos originales estandarizados, de tamaño
+      :math:`(n × p)`.
+
+   -  :math:`Rotación` = matriz de componentes :math:`(p × k)`.
+
+   -  :math:`Z` = datos transformados en el espacio PCA :math:`(n × k)`.
+
+-  **Reconstruir los datos aproximados** a partir de los componentes
+   principales:
+
+   :math:`X_{aprox} ≈ Z × Rotaciónᵀ`
+
+   Esto se usa cuando reducimos la dimensionalidad y queremos volver a
+   aproximar los datos originales.
+
+**4. Interpretación práctica**
+
+-  La **matriz de rotación** nos dice **qué combinación de variables
+   forma cada componente**.
+
+-  Las **cargas** nos dicen **qué tan fuertemente cada variable original
+   está asociada con cada componente**.
+
+-  En la práctica, se usan ambas para **dar significado** a los
+   componentes y para entender qué miden en términos de las variables
+   originales.

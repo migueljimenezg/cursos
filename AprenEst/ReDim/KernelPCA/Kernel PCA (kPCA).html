@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/ReDim/KernelPCA/Kernel PCA (kPCA)';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Ejemplo diferente tipo de escalado" href="../EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html" />
+    <link rel="next" title="Ejemplo reducción de dimensionalidad" href="../EjemReDim/Ejemplo%20reducci%C3%B3n%20de%20dimensionalidad.html" />
     <link rel="prev" title="Análisis de Componentes Principales-PCA" href="../PCA/An%C3%A1lisis%20de%20Componentes%20Principales-PCA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -224,7 +224,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../Algebra/Repaso%20%C3%81lgebra%20Lineal.html">Repaso Álgebra Lineal</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../PCA/An%C3%A1lisis%20de%20Componentes%20Principales-PCA.html">Análisis de Componentes Principales-PCA</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Kernel PCA (kPCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemReDim/Ejemplo%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejemplo reducción de dimensionalidad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html">Ejemplo diferente tipo de escalado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjerciPCAacciones/Ejemplo_PCA_acciones.html">Ejercicio PCA - acciones</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjerciReDim/Ejercicio%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejercicio reducción de dimensionalidad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../TallerReDim/Taller%20reducci%C3%B3n%20de%20dimensionalidad.html">Taller reducción de dimensionalidad</a></li>
 </ul>
@@ -744,6 +746,33 @@ exactamente al conjunto de datos, lo que provocaría un ajuste excesivo
 <p><strong>Sigmoidal:</strong></p>
 <p><span class="math notranslate nohighlight">\(K(x, y) = \tanh(\alpha x^T y + c)\)</span></p>
 <p>Donde <span class="math notranslate nohighlight">\(alpha\)</span> y <span class="math notranslate nohighlight">\(c\)</span> son parámetros.</p>
+<p><strong>Parámetros:</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parámetro</p></th>
+<th class="head"><p>Explicación breve</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>n
+_components</strong></p></td>
+<td><p>Número de componentes principales a calcular (≤
+número de observaciones).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>kernel</strong></p></td>
+<td><p>Tipo de kernel: <code class="docutils literal notranslate"><span class="pre">'linear'</span></code>, <code class="docutils literal notranslate"><span class="pre">'poly'</span></code>, <code class="docutils literal notranslate"><span class="pre">'rbf'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'sigmoid'</span></code>, <code class="docutils literal notranslate"><span class="pre">'cosine'</span></code>, etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>gamma</strong></p></td>
+<td><p>Parámetro del kernel RBF, polinómico y sigmoide;
+controla la curvatura.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>degree</strong></p></td>
+<td><p>Grado del polinomio si <code class="docutils literal notranslate"><span class="pre">kernel='poly'</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 
@@ -768,11 +797,11 @@ exactamente al conjunto de datos, lo que provocaría un ajuste excesivo
       </div>
     </a>
     <a class="right-next"
-       href="../EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html"
+       href="../EjemReDim/Ejemplo%20reducci%C3%B3n%20de%20dimensionalidad.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ejemplo diferente tipo de escalado</p>
+        <p class="prev-next-title">Ejemplo reducción de dimensionalidad</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
