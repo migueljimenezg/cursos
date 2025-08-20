@@ -1,10 +1,141 @@
-.highlight .n {
-    color: #008000;  /* Cambia el color de las variables */
+/* ============================
+   ENTRADA (código ipython3)
+   .rst exportado desde Jupyter usa: .. code:: ipython3
+   ============================ */
+div.highlight-ipython3 {
+  border-left: 4px solid #0ea5e9;   /* azul = INPUT */
+  padding-left: .65rem;
+  margin: .55rem 0 .95rem 0;
+  border-radius: 4px;
+  background: #ffffff;
+}
+div.highlight-ipython3 pre {
+  line-height: 1.35;
+  /* Evita overflow feo en pantallas pequeñas */
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
-.output {
-    background-color: #f7f7f7;
-    padding: 10px;
-    border: 1px solid #ddd;
-    margin-top: 5px;
+/* Mantener visible el botón de copiar en ENTRADA */
+div.highlight-ipython3 .copybtn,
+div.highlight-ipython3 button.copybtn {
+  display: inline-block;
+}
+
+/* ============================
+   SALIDA (texto impreso por Python)
+   .rst usa normalmente: .. parsed-literal::
+   ============================ */
+div.literal-block,
+pre.literal-block {
+  background: #f9fafb;              /* gris claro */
+  border-left: 4px solid #22c55e;   /* verde = OUTPUT */
+  padding: .65rem .8rem;
+  margin: .5rem 0 .95rem 0;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: #1f2937;                   /* gris-900 */
+  position: relative;
+}
+
+/* Quitar el botón de copiar SOLO en la SALIDA */
+div.literal-block .copybtn,
+pre.literal-block .copybtn,
+div.literal-block button.copybtn,
+pre.literal-block button.copybtn {
+  display: none !important;
+}
+
+/* Etiqueta “Salida” (puedes quitar este bloque si no la quieres) */
+div.literal-block::before,
+pre.literal-block::before {
+  content: "Salida";
+  position: absolute;
+  top: -1.1em;
+  left: 0;
+  font-size: .75rem;
+  font-weight: 600;
+  color: #22c55e;
+  opacity: .9;
+}
+
+/* ============================
+   Consola / REPL (si alguna vez usas pycon/console)
+   - .gp = prompt (>>> ... $)
+   - .go = output
+   ============================ */
+.highlight-console .gp,
+.highlight-pycon .gp {
+  opacity: .75;
+  font-weight: 600;
+}
+.highlight-console .go,
+.highlight-pycon .go {
+  display: block;
+  background: rgba(0,0,0,0.035);
+  border-left: 3px solid rgba(0,0,0,0.15);
+  padding-left: .5rem;
+  margin-left: -.5rem;
+}
+
+/* ============================
+   Títulos de bloques (tema book)
+   Alinear el botón de copiar de forma agradable
+   ============================ */
+div.highlight > div.highlighted,
+div.highlight {
+  position: relative;
+}
+div.highlight .copybtn,
+div.highlight button.copybtn {
+  top: .35rem;
+  right: .35rem;
+  opacity: .85;
+}
+
+/* ============================
+   Compatibilidad con nbsphinx (si usas .ipynb directo)
+   ============================ */
+div.nbinput {
+  border-left: 4px solid #0ea5e9;   /* INPUT */
+  padding-left: .65rem;
+  margin: .55rem 0 .95rem 0;
+  border-radius: 4px;
+  background: #ffffff;
+}
+div.nboutput {
+  border-left: 4px solid #22c55e;   /* OUTPUT */
+  padding-left: .65rem;
+  margin: .5rem 0 .95rem 0;
+  border-radius: 4px;
+  background: #f9fafb;
+}
+div.nboutput .copybtn,
+div.nboutput button.copybtn {
+  display: none !important;         /* sin copiar en salida */
+}
+
+/* ============================
+   Ajustes finos para tema oscuro (si el lector activa dark mode)
+   ============================ */
+@media (prefers-color-scheme: dark) {
+  div.highlight-ipython3 {
+    background: #0b1220;            /* similar a sphinx-book-theme dark */
+    border-left-color: #38bdf8;     /* azul-cian */
+  }
+  div.literal-block,
+  pre.literal-block {
+    background: #0d1324;            /* gris-azul muy oscuro */
+    border-left-color: #34d399;     /* verde */
+    color: #e5e7eb;                 /* gris-200 */
+  }
+  .highlight-console .go,
+  .highlight-pycon .go {
+    background: rgba(255,255,255,0.06);
+    border-left-color: rgba(255,255,255,0.25);
+  }
+  div.nboutput {
+    background: #0d1324;
+    border-left-color: #34d399;
+  }
 }
