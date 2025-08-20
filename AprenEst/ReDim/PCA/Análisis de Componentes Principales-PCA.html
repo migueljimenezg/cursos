@@ -651,6 +651,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unidades-de-las-variables">Unidades de las variables:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elegir-el-numero-correcto-de-dimensiones">Elegir el número correcto de dimensiones:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas">Pruebas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-rotacion-vs-cargas-en-pca">Matriz de rotación vs. Cargas en PCA:</a></li>
 </ul>
             </nav>
         </div>
@@ -957,53 +958,9 @@ explicada.</p>
 vectores es igual a cero:</p>
 <p><span class="math notranslate nohighlight">\(\sum{\lambda_i} = \sum{var_i}\)</span>: la suma de las varianzas de las
 variables es igual a la suma de los Eigenvalores.</p>
-<p><strong>Matriz de rotación vs. Cargas en PCA:</strong></p>
-<p>Cuando aplicamos PCA obtenemos dos resultados relacionados pero
-distintos: la <strong>matriz de rotación</strong> y las <strong>cargas (loadings)</strong>.</p>
-<p><strong>1. Matriz de rotación (o matriz de componentes):</strong></p>
-<ul class="simple">
-<li><p>Contiene los <strong>autovectores</strong> de la matriz de covarianzas o
-correlaciones.</p></li>
-<li><p>Sus elementos son los <strong>coeficientes</strong> de las combinaciones lineales
-que definen cada componente principal.</p></li>
-<li><p>Explican <strong>cómo se construye cada componente</strong> a partir de las
-variables originales.</p></li>
-<li><p>Cada columna de esta matriz es un componente principal.</p></li>
-</ul>
-<p>Por ejemplo, si tenemos 3 variables y calculamos 2 componentes
-principales, la matriz podría verse así:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>PC1</p></th>
-<th class="head"><p>PC2</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>X1</p></td>
-<td><p>0.70</p></td>
-<td><p>-0.20</p></td>
-</tr>
-<tr class="row-odd"><td><p>X2</p></td>
-<td><p>0.50</p></td>
-<td><p>0.85</p></td>
-</tr>
-<tr class="row-even"><td><p>X3</p></td>
-<td><p>-0.45</p></td>
-<td><p>0.47</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Esto significa que:</p>
-<p><span class="math notranslate nohighlight">\(PC1 = 0.70X_1 + 0.50X_2 − 0.45X_3\)</span></p>
-<p><span class="math notranslate nohighlight">\(PC2 = −0.20X_1 + 0.85X_2 + 0.47X_3\)</span></p>
-<p><strong>Cargas (loadings) y matriz de rotación en PCA</strong></p>
-<p>Cuando aplicamos PCA, no solo obtenemos las nuevas variables
-(componentes principales), sino también una matriz llamada <strong>matriz de
-rotación</strong> o <strong>matriz de componentes</strong>, que nos permite interpretar y
-transformar los datos.</p>
-<p><strong>1. Matriz de rotación (componentes de PCA)</strong></p>
+</section>
+<section id="matriz-de-rotacion-vs-cargas-en-pca">
+<h2>Matriz de rotación vs. Cargas en PCA:<a class="headerlink" href="#matriz-de-rotacion-vs-cargas-en-pca" title="Link to this heading">#</a></h2>
 <p>La matriz de rotación contiene los <strong>autovectores</strong> de la matriz de
 covarianzas o correlaciones de los datos originales. Cada fila
 corresponde a una variable original, y cada columna a un componente
@@ -1042,7 +999,6 @@ principales, la matriz podría verse así:</p>
 <p>Esto significa que:</p>
 <p><span class="math notranslate nohighlight">\(PC1 = 0.70X_1 + 0.50X_2 − 0.45X_3\)</span></p>
 <p><span class="math notranslate nohighlight">\(PC2 = −0.20X_1 + 0.85X_2 + 0.47X_3\)</span></p>
-<p><strong>2. Cargas (loadings)</strong></p>
 <p>Las <strong>cargas</strong> son una forma de interpretar la matriz de rotación.
 Indican la <strong>correlación</strong> entre cada variable original y cada
 componente principal.</p>
@@ -1085,7 +1041,7 @@ componente.</p></li>
 <li><p><span class="math notranslate nohighlight">\(X_2\)</span> se asocia más a PC2.</p></li>
 <li><p><span class="math notranslate nohighlight">\(X_3\)</span> influye en ambos, con signo opuesto en PC1.</p></li>
 </ul>
-<p><strong>3. Cómo usar la matriz de rotación</strong></p>
+<p><strong>Cómo usar la matriz de rotación</strong></p>
 <p>La matriz de rotación permite:</p>
 <ul>
 <li><p><strong>Transformar los datos originales</strong> a los nuevos componentes
@@ -1107,7 +1063,7 @@ principales:</p>
 aproximar los datos originales.</p>
 </li>
 </ul>
-<p><strong>4. Interpretación práctica</strong></p>
+<p><strong>Interpretación práctica</strong></p>
 <ul class="simple">
 <li><p>La <strong>matriz de rotación</strong> nos dice <strong>qué combinación de variables
 forma cada componente</strong>.</p></li>
@@ -1173,6 +1129,7 @@ originales.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unidades-de-las-variables">Unidades de las variables:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elegir-el-numero-correcto-de-dimensiones">Elegir el número correcto de dimensiones:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pruebas">Pruebas:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-rotacion-vs-cargas-en-pca">Matriz de rotación vs. Cargas en PCA:</a></li>
 </ul>
   </nav></div>
 

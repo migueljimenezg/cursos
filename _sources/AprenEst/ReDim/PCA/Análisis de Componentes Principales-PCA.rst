@@ -346,49 +346,8 @@ vectores es igual a cero:
 :math:`\sum{\lambda_i} = \sum{var_i}`: la suma de las varianzas de las
 variables es igual a la suma de los Eigenvalores.
 
-**Matriz de rotación vs. Cargas en PCA:**
-
-Cuando aplicamos PCA obtenemos dos resultados relacionados pero
-distintos: la **matriz de rotación** y las **cargas (loadings)**.
-
-**1. Matriz de rotación (o matriz de componentes):**
-
--  Contiene los **autovectores** de la matriz de covarianzas o
-   correlaciones.
-
--  Sus elementos son los **coeficientes** de las combinaciones lineales
-   que definen cada componente principal.
-
--  Explican **cómo se construye cada componente** a partir de las
-   variables originales.
-
--  Cada columna de esta matriz es un componente principal.
-
-Por ejemplo, si tenemos 3 variables y calculamos 2 componentes
-principales, la matriz podría verse así:
-
-== ===== =====
-\  PC1   PC2
-== ===== =====
-X1 0.70  -0.20
-X2 0.50  0.85
-X3 -0.45 0.47
-== ===== =====
-
-Esto significa que:
-
-:math:`PC1 = 0.70X_1 + 0.50X_2 − 0.45X_3`
-
-:math:`PC2 = −0.20X_1 + 0.85X_2 + 0.47X_3`
-
-**Cargas (loadings) y matriz de rotación en PCA**
-
-Cuando aplicamos PCA, no solo obtenemos las nuevas variables
-(componentes principales), sino también una matriz llamada **matriz de
-rotación** o **matriz de componentes**, que nos permite interpretar y
-transformar los datos.
-
-**1. Matriz de rotación (componentes de PCA)**
+Matriz de rotación vs. Cargas en PCA:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 La matriz de rotación contiene los **autovectores** de la matriz de
 covarianzas o correlaciones de los datos originales. Cada fila
@@ -417,8 +376,6 @@ Esto significa que:
 :math:`PC1 = 0.70X_1 + 0.50X_2 − 0.45X_3`
 
 :math:`PC2 = −0.20X_1 + 0.85X_2 + 0.47X_3`
-
-**2. Cargas (loadings)**
 
 Las **cargas** son una forma de interpretar la matriz de rotación.
 Indican la **correlación** entre cada variable original y cada
@@ -453,7 +410,7 @@ Interpretación:
 
 -  :math:`X_3` influye en ambos, con signo opuesto en PC1.
 
-**3. Cómo usar la matriz de rotación**
+**Cómo usar la matriz de rotación**
 
 La matriz de rotación permite:
 
@@ -481,7 +438,7 @@ La matriz de rotación permite:
    Esto se usa cuando reducimos la dimensionalidad y queremos volver a
    aproximar los datos originales.
 
-**4. Interpretación práctica**
+**Interpretación práctica**
 
 -  La **matriz de rotación** nos dice **qué combinación de variables
    forma cada componente**.
