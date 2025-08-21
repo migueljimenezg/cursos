@@ -769,8 +769,8 @@ detectar morosos!</p>
 <section id="precision-precision">
 <h2>Precisión (Precision)<a class="headerlink" href="#precision-precision" title="Link to this heading">#</a></h2>
 <p>La <strong>precisión</strong> responde a:</p>
-<p>👉 “De todos los clientes que el modelo predijo como <strong>malos pagadores</strong>,
-¿cuántos realmente lo eran?”</p>
+<p>👉 “De todos los clientes que el modelo predijo como <strong>buenos
+pagadores</strong>, ¿cuántos realmente lo eran?”</p>
 <div class="math notranslate nohighlight">
 \[Precision = \frac{TP}{TP + FP}\]</div>
 <ul class="simple">
@@ -793,8 +793,8 @@ positivos (TPR).</p>
 <section id="recall-o-sensibilidad">
 <h2>Recall o Sensibilidad<a class="headerlink" href="#recall-o-sensibilidad" title="Link to this heading">#</a></h2>
 <p>El <strong>recall</strong> responde a:</p>
-<p>👉 “De todos los clientes que realmente no iban a pagar, ¿cuántos detectó
-el modelo?”</p>
+<p>👉 “De todos los clientes que realmente <strong>iban a pagar</strong>, ¿cuántos fueron
+detectados correctamente por el modelo?”</p>
 <div class="math notranslate nohighlight">
 \[Recall = \frac{TP}{TP + FN}\]</div>
 <ul class="simple">
@@ -901,8 +901,8 @@ entre precisión y recall.</p>
 <h2>Especificidad<a class="headerlink" href="#especificidad" title="Link to this heading">#</a></h2>
 <p>La <strong>especificidad</strong> es lo opuesto al recall, pero aplicada a la clase
 negativa.</p>
-<p>👉 “De todos los clientes que realmente sí pagaron, ¿cuántos fueron
-clasificados correctamente como buenos?”</p>
+<p>👉 “De todos los clientes que realmente <strong>no pagaron</strong>, ¿cuántos fueron
+clasificados correctamente como malos pagadores?”</p>
 <div class="math notranslate nohighlight">
 \[Specificity = \frac{TN}{TN + FP}\]</div>
 <ul class="simple">

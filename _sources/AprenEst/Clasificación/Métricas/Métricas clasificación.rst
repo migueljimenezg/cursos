@@ -109,8 +109,8 @@ Precisión (Precision)
 
 La **precisión** responde a:
 
-👉 “De todos los clientes que el modelo predijo como **malos pagadores**,
-¿cuántos realmente lo eran?”
+👉 “De todos los clientes que el modelo predijo como **buenos
+pagadores**, ¿cuántos realmente lo eran?”
 
 .. math::
 
@@ -144,8 +144,8 @@ Recall o Sensibilidad
 
 El **recall** responde a:
 
-👉 “De todos los clientes que realmente no iban a pagar, ¿cuántos detectó
-el modelo?”
+👉 “De todos los clientes que realmente **iban a pagar**, ¿cuántos fueron
+detectados correctamente por el modelo?”
 
 .. math::
 
@@ -276,8 +276,8 @@ Especificidad
 La **especificidad** es lo opuesto al recall, pero aplicada a la clase
 negativa.
 
-👉 “De todos los clientes que realmente sí pagaron, ¿cuántos fueron
-clasificados correctamente como buenos?”
+👉 “De todos los clientes que realmente **no pagaron**, ¿cuántos fueron
+clasificados correctamente como malos pagadores?”
 
 .. math::
 
