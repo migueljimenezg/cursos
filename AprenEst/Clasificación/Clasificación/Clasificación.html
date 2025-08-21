@@ -232,10 +232,12 @@
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Clasificación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Clasificación</a></li>
+
 <li class="toctree-l3"><a class="reference internal" href="../M%C3%A9tricas/M%C3%A9tricas%20clasificaci%C3%B3n.html">Métricas para Evaluación de Modelos de Clasificación</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Cross/Cross%20Validation.html">Cross Validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Teor%C3%ADaRL/Regresi%C3%B3n%20Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Teor%C3%ADaRL/Regresi%C3%B3n_Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemRL/Ejemplo_Regresi%C3%B3n_Log%C3%ADstica.html">Ejemplo Regresión Logística</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
@@ -642,9 +644,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-clasificacion">Tipos de clasificación:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmos-de-clasificacion">Algoritmos de Clasificación:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Clasificación</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-en-aprendizaje-estadistico">Clasificación en Aprendizaje Estadístico</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-clasificacion">Tipos de clasificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmos-de-clasificacion">Algoritmos de clasificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-algoritmos-de-clasificacion">Comparación de algoritmos de clasificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-evaluacion-en-clasificacion">Métricas de evaluación en clasificación</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -657,100 +666,224 @@ document.write(`
                   
   <section id="clasificacion">
 <h1>Clasificación<a class="headerlink" href="#clasificacion" title="Link to this heading">#</a></h1>
-<p>La clasificación es una de las tareas fundamentales en el campo del
-Machine Learning y la estadística, con aplicaciones extensas en
-finanzas. Su objetivo es predecir la clase o categoría a la que
-pertenece una observación dada, basada en sus características (variables
-o Features). Es un tipo de aprendizaje supervisado, donde el algoritmo
-aprende de un conjunto de datos etiquetados.</p>
+</section>
+<section id="clasificacion-en-aprendizaje-estadistico">
+<h1>Clasificación en Aprendizaje Estadístico<a class="headerlink" href="#clasificacion-en-aprendizaje-estadistico" title="Link to this heading">#</a></h1>
+<p>La <strong>clasificación</strong> es una de las tareas fundamentales en el campo del
+<em>Machine Learning</em> y la estadística, con aplicaciones directas en el
+ámbito financiero.</p>
+<p>Su objetivo es <strong>predecir la clase o categoría</strong> a la que pertenece una
+observación, en función de sus características (variables o <em>features</em>).</p>
+<p>Se enmarca dentro del <strong>aprendizaje supervisado</strong>, ya que el algoritmo
+aprende a partir de un conjunto de datos etiquetados.</p>
+<hr class="docutils" />
 <section id="tipos-de-clasificacion">
-<h2>Tipos de clasificación:<a class="headerlink" href="#tipos-de-clasificacion" title="Link to this heading">#</a></h2>
-<p><strong>1. Clasificación Binaria:</strong></p>
-<p>La clasificación binaria implica predecir una de dos clases posibles.
-Ejemplos en finanzas incluyen:</p>
+<h2>Tipos de clasificación<a class="headerlink" href="#tipos-de-clasificacion" title="Link to this heading">#</a></h2>
+<p><strong>1. Clasificación Binaria</strong></p>
 <ul class="simple">
-<li><p>Determinar si un préstamo será pagado o no (default/no default).</p></li>
+<li><p><strong>Definición:</strong> consiste en asignar una de dos posibles categorías.</p></li>
+<li><p><strong>Ejemplos en finanzas:</strong></p>
+<ul>
+<li><p>Determinar si un préstamo será pagado o caerá en <em>default</em>.</p></li>
 <li><p>Predecir si el precio de una acción subirá o bajará.</p></li>
 </ul>
-<p><strong>2. Clasificación Multiclase:</strong></p>
-<p>La clasificación multiclase involucra predecir una de tres o más clases
-posibles. Ejemplos en finanzas incluyen:</p>
-<ul class="simple">
-<li><p>Clasificar el riesgo crediticio en categorías (bajo, medio, alto).</p></li>
-<li><p>Identificar el sector de una empresa (tecnología, salud, finanzas).</p></li>
+</li>
 </ul>
-<p><strong>3. Clasificación Multietiqueta:</strong></p>
-<p>En la clasificación multietiqueta, cada observación puede pertenecer a
-múltiples clases. Ejemplos en finanzas incluyen:</p>
+<p><strong>2. Clasificación Multiclase</strong></p>
 <ul class="simple">
+<li><p><strong>Definición:</strong> el objetivo es predecir una clase entre tres o más
+categorías mutuamente excluyentes.</p></li>
+<li><p><strong>Ejemplos en finanzas:</strong></p>
+<ul>
+<li><p>Clasificar el riesgo crediticio en bajo, medio o alto.</p></li>
+<li><p>Identificar el sector económico de una empresa (tecnología, salud,
+energía, finanzas).</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Clasificación Multietiqueta</strong></p>
+<ul class="simple">
+<li><p><strong>Definición:</strong> cada observación puede pertenecer a varias clases
+simultáneamente.</p></li>
+<li><p><strong>Ejemplos en finanzas:</strong></p>
+<ul>
 <li><p>Etiquetar transacciones financieras con múltiples categorías de
 fraude.</p></li>
-<li><p>Asignar múltiples etiquetas de riesgo a un portafolio de inversión.</p></li>
+<li><p>Asignar diferentes tipos de riesgo a un portafolio (riesgo de
+mercado, liquidez, crédito).</p></li>
+</ul>
+</li>
 </ul>
 </section>
+<hr class="docutils" />
 <section id="algoritmos-de-clasificacion">
-<h2>Algoritmos de Clasificación:<a class="headerlink" href="#algoritmos-de-clasificacion" title="Link to this heading">#</a></h2>
+<h2>Algoritmos de clasificación<a class="headerlink" href="#algoritmos-de-clasificacion" title="Link to this heading">#</a></h2>
+<p>A continuación, se presentan los algoritmos más relevantes, con sus
+ventajas, limitaciones y aplicaciones en finanzas.</p>
 <p><strong>1. Regresión Logística</strong></p>
-<p>La regresión logística es un modelo estadístico que se utiliza para
-clasificar observaciones en dos categorías. Se basa en la función
-logística (sigmoide) para modelar la probabilidad de pertenencia a una
-clase.</p>
-<p><strong>Ventajas:</strong></p>
 <ul class="simple">
+<li><p><strong>Descripción:</strong> modelo estadístico que estima la probabilidad de
+pertenencia a una clase binaria utilizando la función logística
+(sigmoide).</p></li>
+<li><p><strong>Ventajas:</strong></p>
+<ul>
 <li><p>Simple y fácil de interpretar.</p></li>
 <li><p>Rápido de entrenar.</p></li>
-<li><p>Útil para problemas de clasificación binaria como predicción de
-impago de préstamos.</p></li>
+<li><p>Adecuado para <em>scoring</em> de riesgo crediticio o predicción de
+impago.</p></li>
 </ul>
-<p><strong>Desventajas:</strong></p>
-<ul class="simple">
-<li><p>Asume una relación lineal entre las variables independientes y el
+</li>
+<li><p><strong>Desventajas:</strong></p>
+<ul>
+<li><p>Supone relación lineal entre las variables independientes y el
 logit.</p></li>
-<li><p>No maneja bien relaciones no lineales complejas.</p></li>
+<li><p>Tiene dificultades para capturar relaciones no lineales complejas.</p></li>
 </ul>
-<p><strong>3. Árboles de Decisión:</strong></p>
-<p>Los árboles de decisión dividen los datos en subconjuntos basados en
-condiciones sobre las características, formando una estructura de árbol.</p>
-<p><strong>Ventajas:</strong></p>
-<ul class="simple">
-<li><p>Fácil de visualizar e interpretar.</p></li>
-<li><p>Maneja bien tanto variables categóricas como continuas.</p></li>
-<li><p>Útil para la evaluación de crédito y análisis de riesgo.</p></li>
+</li>
 </ul>
-<p><strong>Desventajas:</strong></p>
+<hr class="docutils" />
+<p><strong>2. Árboles de Decisión</strong></p>
 <ul class="simple">
-<li><p>Propenso al sobreajuste (overfitting).</p></li>
-<li><p>Sensible a pequeños cambios en los datos.</p></li>
+<li><p><strong>Descripción:</strong> dividen los datos en subconjuntos mediante reglas
+condicionales, formando una estructura de árbol.</p></li>
+<li><p><strong>Ventajas:</strong></p>
+<ul>
+<li><p>Muy interpretables y fáciles de visualizar.</p></li>
+<li><p>Manejan bien variables categóricas y continuas.</p></li>
+<li><p>Aplicables en evaluación crediticia o segmentación de clientes.</p></li>
 </ul>
-<p><strong>2. Support Vector Machines (SVM)</strong></p>
-<p>SVM encuentra el hiperplano que mejor separa las clases en el espacio de
-características.</p>
-<p><strong>Ventajas:</strong></p>
-<ul class="simple">
-<li><p>Efectivo en espacios de alta dimensión.</p></li>
-<li><p>Funciona bien con una clara separación entre clases.</p></li>
-<li><p>Útil para la detección de fraudes financieros.</p></li>
+</li>
+<li><p><strong>Desventajas:</strong></p>
+<ul>
+<li><p>Alta propensión al <em>overfitting</em>.</p></li>
+<li><p>Sensibles a pequeñas variaciones en los datos.</p></li>
 </ul>
-<p><strong>Desventajas:</strong></p>
-<ul class="simple">
-<li><p>No es intuitivo y puede ser difícil de interpretar.</p></li>
-<li><p>Sensible a la elección del kernel y los parámetros.</p></li>
+</li>
 </ul>
-<p><strong>4. Redes Neuronales Artificiales:</strong></p>
-<p>Las redes neuronales artificiales son modelos de aprendizaje profundo
-que pueden capturar relaciones complejas entre las características y la
-variable objetivo.</p>
-<p><strong>Ventajas:</strong></p>
+<hr class="docutils" />
+<p><strong>3. Máquinas de Vectores de Soporte (SVM)</strong></p>
 <ul class="simple">
-<li><p>Capaces de modelar relaciones no lineales complejas.</p></li>
-<li><p>Muy flexibles y potentes.</p></li>
-<li><p>Útil para la predicción de precios de acciones y análisis de series
-temporales financieras.</p></li>
+<li><p><strong>Descripción:</strong> buscan el hiperplano óptimo que maximiza la
+separación entre clases en el espacio de características.</p></li>
+<li><p><strong>Ventajas:</strong></p>
+<ul>
+<li><p>Eficaces en espacios de alta dimensión.</p></li>
+<li><p>Funcionan bien con una clara separación de clases.</p></li>
+<li><p>Útiles en la detección de fraudes financieros.</p></li>
 </ul>
-<p><strong>Desventajas:</strong></p>
+</li>
+<li><p><strong>Desventajas:</strong></p>
+<ul>
+<li><p>Poco intuitivos y difíciles de interpretar.</p></li>
+<li><p>Dependen fuertemente del kernel y de la correcta elección de
+parámetros.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>4. Redes Neuronales Artificiales (RNA)</strong></p>
 <ul class="simple">
-<li><p>Requieren grandes cantidades de datos y poder computacional.</p></li>
-<li><p>Difíciles de interpretar.</p></li>
+<li><p><strong>Descripción:</strong> modelos inspirados en el cerebro humano, capaces de
+aprender representaciones complejas de los datos.</p></li>
+<li><p><strong>Ventajas:</strong></p>
+<ul>
+<li><p>Capturan relaciones no lineales sofisticadas.</p></li>
+<li><p>Flexibles y muy potentes.</p></li>
+<li><p>Útiles en predicción de series financieras, clasificación de
+imágenes (cheques, facturas) o <em>trading algorítmico</em>.</p></li>
+</ul>
+</li>
+<li><p><strong>Desventajas:</strong></p>
+<ul>
+<li><p>Requieren gran cantidad de datos y recursos computacionales.</p></li>
+<li><p>Dificultad de interpretación (cajas negras).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="comparacion-de-algoritmos-de-clasificacion">
+<h2>Comparación de algoritmos de clasificación<a class="headerlink" href="#comparacion-de-algoritmos-de-clasificacion" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Algoritmo</p></th>
+<th class="head"><p>Int
+erpreta
+bilidad</p></th>
+<th class="head"><p>Complejidad
+C
+omputacional</p></th>
+<th class="head"><p>Capacidad para
+No Linealidades</p></th>
+<th class="head"><p>Ejemplo
+en
+Finanzas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Regresión
+Logística</strong></p></td>
+<td><p>Alta</p></td>
+<td><p>Baja</p></td>
+<td><p>Baja</p></td>
+<td><p>Scoring
+de
+riesgo
+cr
+editicio</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Árboles de
+Decisión</strong></p></td>
+<td><p>Alta</p></td>
+<td><p>Media</p></td>
+<td><p>Media</p></td>
+<td><p>Ev
+aluación
+de
+p
+réstamos</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>SVM</strong></p></td>
+<td><p>Media</p></td>
+<td><p>Alta</p></td>
+<td><p>Alta</p></td>
+<td><p>D
+etección
+de
+fraudes</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Redes
+Neuronales</strong></p></td>
+<td><p>Baja</p></td>
+<td><p>Muy alta</p></td>
+<td><p>Muy alta</p></td>
+<td><p>Pr
+edicción
+de
+precios
+de
+activos</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="metricas-de-evaluacion-en-clasificacion">
+<h2>Métricas de evaluación en clasificación<a class="headerlink" href="#metricas-de-evaluacion-en-clasificacion" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Exactitud (Accuracy):</strong> proporción de observaciones clasificadas
+correctamente.</p></li>
+<li><p><strong>Precisión (Precision):</strong> proporción de verdaderos positivos sobre
+los predichos como positivos.</p></li>
+<li><p><strong>Recall o Sensibilidad:</strong> proporción de verdaderos positivos sobre
+el total de positivos reales.</p></li>
+<li><p><strong>F1-Score:</strong> media armónica entre precisión y recall, útil en datos
+desbalanceados.</p></li>
+<li><p><strong>Matriz de confusión:</strong> tabla que resume los aciertos y errores de
+clasificación.</p></li>
+<li><p><strong>ROC y AUC:</strong> evalúan el desempeño del clasificador en diferentes
+umbrales de decisión.</p></li>
 </ul>
 </section>
 </section>
@@ -800,9 +933,16 @@ temporales financieras.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-clasificacion">Tipos de clasificación:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmos-de-clasificacion">Algoritmos de Clasificación:</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Clasificación</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#clasificacion-en-aprendizaje-estadistico">Clasificación en Aprendizaje Estadístico</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-clasificacion">Tipos de clasificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algoritmos-de-clasificacion">Algoritmos de clasificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparacion-de-algoritmos-de-clasificacion">Comparación de algoritmos de clasificación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-evaluacion-en-clasificacion">Métricas de evaluación en clasificación</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

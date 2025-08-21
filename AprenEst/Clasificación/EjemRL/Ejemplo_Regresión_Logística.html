@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Regresión Logística &#8212; Cursos  documentation</title>
+    <title>Ejemplo Regresión Logística &#8212; Cursos  documentation</title>
   
   
   
@@ -44,12 +44,11 @@
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=fd10adb8"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Clasificación/TeoríaRL/Regresión Logística';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Clasificación/EjemRL/Ejemplo_Regresión_Logística';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Análisis dataset riesgo de crédito" href="../DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html" />
-    <link rel="prev" title="Generalización" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html" />
+    <link rel="prev" title="Regresión Logística" href="../Teor%C3%ADaRL/Regresi%C3%B3n_Log%C3%ADstica.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -233,10 +232,12 @@
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Clasificación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Clasificaci%C3%B3n/Clasificaci%C3%B3n.html">Clasificación</a></li>
+
 <li class="toctree-l3"><a class="reference internal" href="../M%C3%A9tricas/M%C3%A9tricas%20clasificaci%C3%B3n.html">Métricas para Evaluación de Modelos de Clasificación</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Cross/Cross%20Validation.html">Cross Validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Teor%C3%ADaRL/Regresi%C3%B3n_Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ejemplo Regresión Logística</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
@@ -549,7 +550,7 @@
       
       
       
-      <li><a href="../../../_sources/AprenEst/Clasificación/TeoríaRL/Regresión Logística.rst" target="_blank"
+      <li><a href="../../../_sources/AprenEst/Clasificación/EjemRL/Ejemplo_Regresión_Logística.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -633,7 +634,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Regresión Logística</h1>
+    <h1>Ejemplo Regresión Logística</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -643,9 +644,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-en-los-coeficientes">Interpretación en los coeficientes:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-en-scikit-learn">Ajuste en scikit-learn:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas-de-la-regresion-logistica">Desventajas de la regresión logística:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-con-separacion-lineal">Datos con separación lineal:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-con-separacion-no-lineal">Datos con separación no lineal:</a></li>
 </ul>
             </nav>
         </div>
@@ -657,208 +657,165 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="regresion-logistica">
-<h1>Regresión Logística<a class="headerlink" href="#regresion-logistica" title="Link to this heading">#</a></h1>
-<p><strong>Un método de clasificación binaria:</strong></p>
-<p>La regresión logística, también conocida como Logit, es un clasificador
-binario utilizado para modelar variables categóricas, particularmente
-variables binarias o dicotómicas. La variable dependiente puede tener
-solo dos valores: 0 o 1, representando “sí” y “no”, “éxito” y “fracaso”,
-o “verdadero” y “falso”. Estas asignaciones son arbitrarias y se aplican
-a características cualitativas. La regresión logística clasifica las
-observaciones en estas dos categorías según la probabilidad estimada en
-el modelo. Por tanto, no se predice directamente si una observación es 1
-o 0, sino la probabilidad de que pertenezca a la categoría 1.</p>
-<p>La variable respuesta <span class="math notranslate nohighlight">\(𝑦\)</span> una variable aleatoria Bernoulli con la
-siguiente distribución de probabilidad:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(y=1\)</span> con una probabilidad <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(y=0\)</span> con una probabilidad <span class="math notranslate nohighlight">\(p-1\)</span></p></li>
-</ul>
-<p>El valor esperado de <span class="math notranslate nohighlight">\(y\)</span> es <span class="math notranslate nohighlight">\(p\)</span>, es decir, el valor esperado
-es la probabilidad de que la variable <span class="math notranslate nohighlight">\(y\)</span> tenga el valor de 1.</p>
-<p>Dado que la variable respuesta <span class="math notranslate nohighlight">\(y\)</span> es binaria, se utiliza una
-función no lineal que puede ser creciente o decreciente en forma de “S”
-o “S” invertida. La función más utilizada es la función logística:</p>
-<div class="math notranslate nohighlight">
-\[\sigma(z)= \frac{1}{1+e^z}\]</div>
-<p>​</p>
-<p>donde <span class="math notranslate nohighlight">\(z\)</span> es una combinación lineal de las características de
-entrada.</p>
-<p>La función sigmoide transforma cualquier valor real en un valor entre 0
-y 1, lo que puede interpretarse como una probabilidad.</p>
-<p>En el denominador de esta ecuación aparece la ecuación de regresión
-lineal, pero tiene una transformación. Con esta función se garantiza que
-los valores predichos ven entre cero y uno, tal como se supone que lo
-hacen las probabilidades.</p>
-<figure class="align-default" id="id1">
-<img alt="S" src="../../../_images/S.JPG" />
-<figcaption>
-<p><span class="caption-text">S</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>En la regresión logística, el umbral (threshold) es el valor que se
-utiliza para decidir a qué clase se asigna una observación basada en la
-probabilidad predicha. La regresión logística calcula la probabilidad de
-que una observación pertenezca a la clase positiva (por ejemplo, clase
-1). Por defecto, este umbral se establece en 0.5, lo que significa que:</p>
-<ul class="simple">
-<li><p>Si la probabilidad predicha es mayor o igual a 0,5, la observación se
-clasifica como clase 1.</p></li>
-<li><p>Si la probabilidad predicha es menor a 0,5, la observación se
-clasifica como clase 0.</p></li>
-</ul>
-<p>El valor predeterminado de 0,5 puede no ser óptimo para todos los
-problemas. Dependiendo del contexto, puede ser necesario ajustar el
-umbral para equilibrar mejor las tasas de falsos positivos y falsos
-negativos, especialmente si las clases están desbalanceadas o si las
-consecuencias de errores de clasificación son diferentes.</p>
-<figure class="align-default" id="id2">
-<img alt="Regression" src="../../../_images/Regression.JPG" />
-<figcaption>
-<p><span class="caption-text">Regression</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<section id="interpretacion-en-los-coeficientes">
-<h2>Interpretación en los coeficientes:<a class="headerlink" href="#interpretacion-en-los-coeficientes" title="Link to this heading">#</a></h2>
-<p>La interpretación de los coeficientes <span class="math notranslate nohighlight">\(\beta\)</span> en la regresión
-logística es diferente a la de los modelos de regresión lineal.</p>
-<p>Dado que:</p>
-<div class="math notranslate nohighlight">
-\[log \left(\frac{p}{1-p}\right) = \beta_0+\beta_1 \times X_1 + ... + \beta_n \times X_n\]</div>
-<p>Exponencial a ambos lados para obtener:</p>
-<div class="math notranslate nohighlight">
-\[\frac{p}{1-p} = e^{\beta_0+\beta_1 \times X_1 + ... + \beta_n \times X_n}\]</div>
-<p>Se deduca que, para el modelo de regresión:</p>
-<div class="math notranslate nohighlight">
-\[p = \frac{e^{\beta_0+\beta_1 \times X_1 + ... + \beta_n \times X_n}}{1+\beta_0+\beta_1 \times X_1 + ... + \beta_n \times X_n}\]</div>
-<p>La interpretación de los coeficientes se hace a través de los odds
-ratio, aplicando la exponencial a los resultados estimados. Para una
-variable regresora <span class="math notranslate nohighlight">\(𝑋_𝑗\)</span>, el odds ratio es igual a
-<span class="math notranslate nohighlight">\(e^{\beta_j}\)</span>. Este valor representa el aumento estimado de la
-probabilidad de “éxito” (<span class="math notranslate nohighlight">\(p\)</span>), asociado a un cambio unitario en el
-valor de la variable predictora <span class="math notranslate nohighlight">\(𝑋_𝑗\)</span>, suponiendo que las demás
-variables permanecen constantes.</p>
-<p><strong>Ejemplo de interpretación:</strong></p>
-<p>Supongamos que el coeficiente estimado <span class="math notranslate nohighlight">\(\beta_1=0,1\)</span>. Esto implica
-que un aumento unitario en la variable <span class="math notranslate nohighlight">\(𝑋_1\)</span> incrementa en un 10%
-la probabilidad de obtener “éxito”. Si <span class="math notranslate nohighlight">\(𝑋_1\)</span> aumenta en 20
-unidades, entonces <span class="math notranslate nohighlight">\(e^{0,1\times20}= 7,39\)</span>, lo que indica que las
-probabilidades aumentan aproximadamente 7,39 veces.</p>
-<p>Si en este ejemplo el coeficiente <span class="math notranslate nohighlight">\(\beta_1\)</span> fuera negativo, por
-ejemplo <span class="math notranslate nohighlight">\(\beta_1=−0,1\)</span>, entonces el odds ratio sería menor que 1,
-específicamente <span class="math notranslate nohighlight">\(e^{-0,1}= 0,91\)</span>. Esto se interpreta como que un
-aumento unitario en la variable <span class="math notranslate nohighlight">\(𝑋_1\)</span> reduce la probabilidad de
-éxito en aproximadamente un 9%.</p>
-<p><strong>Diferencia porcentual:</strong></p>
-<p>Otra forma de interpretar los coeficientes es a través de la diferencia
-porcentual. Con la ecuación anterior, podemos determinar el efecto que
-tienen los coeficientes <span class="math notranslate nohighlight">\(\beta\)</span> negativos sobre la variable
-resultado. Recuerde que a los coeficientes <span class="math notranslate nohighlight">\(\beta\)</span> se les aplica
-la función exponencial, que siempre toma valores positivos. Sin embargo,
-con valores negativos, el resultado de la exponencial es menor que la
-unidad.</p>
-<ul class="simple">
-<li><p>Si <span class="math notranslate nohighlight">\(\beta\)</span> es negativo, entonces <span class="math notranslate nohighlight">\(e^{\beta}\)</span> es menor que
-1. El resultado es el porcentaje en el que disminuye la variable
-resultado <span class="math notranslate nohighlight">\(𝑝\)</span> para un aumento unitario en la variable
-<span class="math notranslate nohighlight">\(𝑋_𝑗\)</span>.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(\beta\)</span> es positivo, entonces <span class="math notranslate nohighlight">\(e^{\beta}\)</span> es mayor que
-1. El resultado es el porcentaje en el que aumenta la variable
-resultado <span class="math notranslate nohighlight">\(𝑝\)</span> para un aumento unitario en la variable
-<span class="math notranslate nohighlight">\(𝑋_𝑗\)</span>.</p></li>
-</ul>
-<p>Por ejemplo, si <span class="math notranslate nohighlight">\(\beta_1=0,1\)</span>, entonces <span class="math notranslate nohighlight">\(e^{0,10}=1,105\)</span>.
-Esto indica que un aumento unitario en <span class="math notranslate nohighlight">\(𝑋_1\)</span> incrementa la
-probabilidad de éxito en aproximadamente un 10,5%. Si
-<span class="math notranslate nohighlight">\(\beta_1=-0,1\)</span>, entonces <span class="math notranslate nohighlight">\(e^{-0,10}=0,905\)</span>, lo que significa
-que un aumento unitario en <span class="math notranslate nohighlight">\(𝑋_1\)</span> reduce la probabilidad de éxito
-en aproximadamente un 9,5%.</p>
+  <section id="ejemplo-regresion-logistica">
+<h1>Ejemplo Regresión Logística<a class="headerlink" href="#ejemplo-regresion-logistica" title="Link to this heading">#</a></h1>
+<section id="datos-con-separacion-lineal">
+<h2>Datos con separación lineal:<a class="headerlink" href="#datos-con-separacion-lineal" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo didáctico: primero los datos, luego la clasificación con Regresión Logística</span>
+<span class="c1"># -----------------------------------------------------------------------------------</span>
+<span class="c1"># 1) Genera datos artificiales linealmente separables (2 variables)</span>
+<span class="c1"># 2) Grafica los datos (sin modelo)</span>
+<span class="c1"># 3) Ajusta Regresión Logística</span>
+<span class="c1"># 4) Grafica la clasificación del modelo (regiones)</span>
+<span class="c1"># -----------------------------------------------------------------------------------</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">lines</span> <span class="k">as</span> <span class="n">mlines</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span>
+
+<span class="c1"># 1) Datos ficticios con separación lineal clara</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>        <span class="c1"># dos variables para graficar en 2D</span>
+    <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>     <span class="c1"># ambas variables aportan información</span>
+    <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">class_sep</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>       <span class="c1"># separación clara entre clases</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="c1"># 2) Gráfica SOLO de los datos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Datos originales (2 variables)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Variable 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Variable 2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># 3) Ajustar Regresión Logística</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+
+<span class="c1"># 4) Malla para pintar la región de decisión</span>
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Probabilidad de clase 1 en cada punto de la malla</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="n">probs</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>  <span class="c1"># clasificación final para colorear regiones</span>
+
+<span class="c1"># 5) Gráfica de la CLASIFICACIÓN del modelo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Fondo: regiones de decisión (0/1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+
+<span class="c1"># Frontera p=0.5 (como contorno)</span>
+<span class="n">cont_p05</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Curvas extra de probabilidad (opcionales: 0.2 y 0.8)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Puntos originales</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clasificación con Regresión Logística (accuracy = </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Variable 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Variable 2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Leyenda robusta (compatible con distintas versiones de matplotlib)</span>
+<span class="n">boundary_handle</span> <span class="o">=</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Frontera p=0.5&#39;</span><span class="p">)</span>
+<span class="n">iso_handle</span> <span class="o">=</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;p=0.2 / p=0.8&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">boundary_handle</span><span class="p">,</span> <span class="n">iso_handle</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_2_01.png" src="../../../_images/output_2_01.png" />
+<img alt="../../../_images/output_2_1.png" src="../../../_images/output_2_1.png" />
 </section>
-<section id="ajuste-en-scikit-learn">
-<h2>Ajuste en scikit-learn:<a class="headerlink" href="#ajuste-en-scikit-learn" title="Link to this heading">#</a></h2>
-<p>Durante el ajuste de un modelo de regresión logística, se utiliza un
-algoritmo de optimización (como el método de máxima verosimilitud) para
-encontrar los coeficientes del modelo que minimicen la función de
-pérdida. Este proceso es iterativo y se repite hasta que se alcanza la
-convergencia (es decir, hasta que los cambios en los coeficientes sean
-muy pequeños entre una iteración y la siguiente) o hasta que se alcanza
-el número máximo de iteraciones especificado por <code class="docutils literal notranslate"><span class="pre">max_iter</span></code>.</p>
-<p>El valor predeterminado de <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> es 100, lo que significa que el
-algoritmo de optimización realizará como máximo 100 iteraciones para
-intentar encontrar la solución óptima. Si el algoritmo no ha convergido
-después de 100 iteraciones, puede ser necesario aumentar este valor.</p>
-<p>El objetivo es encontrar la curva que maximice la verosimilitud. En la
-práctica, usualmente encontramos la curva óptima utilizando Gradiente
-descendente.</p>
-</section>
-<section id="desventajas-de-la-regresion-logistica">
-<h2>Desventajas de la regresión logística:<a class="headerlink" href="#desventajas-de-la-regresion-logistica" title="Link to this heading">#</a></h2>
-<p>La regresión logística es una técnica popular y efectiva para problemas
-de clasificación binaria. Sin embargo, presenta varias desventajas y
-limitaciones que deben tenerse en cuenta:</p>
-<p><strong>1. Relación lineal entre las variables independientes y el Logit:</strong></p>
-<ul class="simple">
-<li><p>La regresión logística asume una relación lineal entre las variables
-independientes y el logit de la variable dependiente. Si la relación
-real entre las variables no es lineal, el modelo puede no ajustarse
-bien a los datos.</p></li>
-</ul>
-<p><strong>2. Limitada a problemas binarios:</strong></p>
-<ul class="simple">
-<li><p>La regresión logística básica se utiliza para problemas de
-clasificación binaria. Aunque existen extensiones como la regresión
-logística multinomial para más de dos clases, estas pueden ser más
-complejas y no siempre proporcionan los mejores resultados en
-comparación con otros métodos.</p></li>
-</ul>
-<p><strong>3. Sensibilidad a outliers:</strong></p>
-<ul class="simple">
-<li><p>La regresión logística puede ser sensible a los valores atípicos
-(outliers). Estos valores extremos pueden afectar significativamente
-la estimación de los coeficientes y, en consecuencia, el rendimiento
-del modelo.</p></li>
-</ul>
-<p><strong>4. Suposiciones sobre las variables independientes:</strong></p>
-<ul class="simple">
-<li><p>La regresión logística asume que las variables independientes no
-están fuertemente correlacionadas entre sí (no hay
-multicolinealidad). La presencia de multicolinealidad puede inflar
-las varianzas de los coeficientes estimados y hacer que el modelo sea
-inestable.</p></li>
-</ul>
-<p><strong>5. No captura relaciones complejas:</strong></p>
-<ul class="simple">
-<li><p>La regresión logística no es adecuada para capturar relaciones no
-lineales o interacciones complejas entre las variables. Métodos como
-los Árboles de Decisión, las Máquinas de Vectores de Soporte o las
-redes neuronales pueden manejar mejor estas relaciones.</p></li>
-</ul>
-<p><strong>6. Rendimiento en conjuntos de datos desbalanceados:</strong></p>
-<ul class="simple">
-<li><p>La regresión logística puede tener problemas al manejar conjuntos de
-datos desbalanceados, donde una clase es mucho más frecuente que la
-otra. En estos casos, el modelo puede sesgarse hacia la clase
-mayoritaria, ignorando la clase minoritaria.</p></li>
-</ul>
-<p><strong>7. Escalabilidad:</strong></p>
-<ul class="simple">
-<li><p>En conjuntos de datos muy grandes, la regresión logística puede
-volverse computacionalmente costosa y lenta, especialmente si se
-requiere un ajuste fino de hiperparámetros.</p></li>
-</ul>
-<p><strong>8. Interpretación de coeficientes en modelos complejos:</strong></p>
-<ul class="simple">
-<li><p>Aunque los coeficientes de la regresión logística son interpretables,
-en modelos con muchas variables independientes, la interpretación
-puede volverse complicada y menos intuitiva.</p></li>
-</ul>
-<figure class="align-default" id="id3">
-<img alt="No_S" src="../../../_images/No_S.JPG" />
-<figcaption>
-<p><span class="caption-text">No_S</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
+<section id="datos-con-separacion-no-lineal">
+<h2>Datos con separación no lineal:<a class="headerlink" href="#datos-con-separacion-no-lineal" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_circles</span>
+
+<span class="c1"># 1) Datos no linealmente separables</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_circles</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># 2) Gráfica SOLO de los datos</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Datos originales (NO linealmente separables)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Variable 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Variable 2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># 3) Ajustar Regresión Logística</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Accuracy sobre TODOS los datos</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy (todo el dataset): </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 4) Malla para pintar la región de decisión</span>
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="mi">350</span><span class="p">),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="mi">350</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">probs</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="n">probs</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># 5) Gráfica de la CLASIFICACIÓN del modelo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Fondo: regiones de decisión</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+
+<span class="c1"># Frontera p=0.5</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Líneas opcionales de probabilidad p=0.2 y p=0.8</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Puntos originales</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Clasificación con Regresión Logística lineal (accuracy = </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Variable 1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Variable 2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Leyenda manual</span>
+<span class="n">boundary_handle</span> <span class="o">=</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Frontera p=0.5&#39;</span><span class="p">)</span>
+<span class="n">iso_handle</span> <span class="o">=</span> <span class="n">mlines</span><span class="o">.</span><span class="n">Line2D</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;p=0.2 / p=0.8&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">boundary_handle</span><span class="p">,</span> <span class="n">iso_handle</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_4_03.png" src="../../../_images/output_4_03.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Accuracy</span> <span class="p">(</span><span class="n">todo</span> <span class="n">el</span> <span class="n">dataset</span><span class="p">):</span> <span class="mf">0.495</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_4_2.png" src="../../../_images/output_4_2.png" />
 </section>
 </section>
 
@@ -874,12 +831,12 @@ puede volverse complicada y menos intuitiva.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html"
+       href="../Teor%C3%ADaRL/Regresi%C3%B3n_Log%C3%ADstica.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Generalización</p>
+        <p class="prev-next-title">Regresión Logística</p>
       </div>
     </a>
     <a class="right-next"
@@ -907,9 +864,8 @@ puede volverse complicada y menos intuitiva.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-en-los-coeficientes">Interpretación en los coeficientes:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-en-scikit-learn">Ajuste en scikit-learn:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desventajas-de-la-regresion-logistica">Desventajas de la regresión logística:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-con-separacion-lineal">Datos con separación lineal:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos-con-separacion-no-lineal">Datos con separación no lineal:</a></li>
 </ul>
   </nav></div>
 

@@ -1,30 +1,48 @@
 Métricas para Evaluación de Modelos de Clasificación
 ----------------------------------------------------
 
-En la evaluación de modelos de clasificación, es fundamental utilizar
-métricas adecuadas que reflejen con precisión el rendimiento del modelo.
-A continuación, se presentan algunas de las métricas más importantes y
-comúnmente utilizadas para evaluar modelos de clasificación.
+Cuando entrenamos un modelo de clasificación, no basta con ver si
+“acierta” o “falla”.
 
-1. Matriz de Confusión (Confusion Matrix):
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Necesitamos métricas que nos digan **qué tan bueno es el modelo y en qué
+se equivoca**.
 
-La matriz de confusión es una tabla que muestra las predicciones del
-modelo frente a las clases reales, proporcionando una visión detallada
-del rendimiento del modelo.
+Estas métricas se basan en una tabla muy importante: la **matriz de
+confusión**.
 
-Para calcular la matriz de confusión, primero se necesita tener un
-conjunto de predicciones que puedan ser comparadas con los objetivos
-reales.
+--------------
 
-================= ================= =================
-\                 Predicho Positivo Predicho Negativo
-================= ================= =================
-**Real Positivo** TP                FN
-**Real Negativo** FP                TN
-================= ================= =================
+Matriz de Confusión
+~~~~~~~~~~~~~~~~~~~
 
-Donde:
+La **matriz de confusión** compara lo que el modelo predijo con la
+realidad.
+
+Imagina que queremos clasificar si un cliente pagará un préstamo (**sí =
+1**, **no = 0**).
+
+================= ======================= =======================
+\                 Predicho Positivo       Predicho Negativo
+================= ======================= =======================
+**Real Positivo** TP (Verdadero Positivo) FN (Falso Negativo)
+**Real Negativo** FP (Falso Positivo)     TN (Verdadero Negativo)
+================= ======================= =======================
+
+-  **TP:** el cliente realmente pagó, y el modelo predijo que sí.
+
+-  **TN:** el cliente no pagó, y el modelo predijo que no.
+
+-  **FP:** el cliente no pagó, pero el modelo predijo que sí (error
+   grave para el banco).
+
+-  **FN:** el cliente pagó, pero el modelo predijo que no.
+
+**Ejemplo intuitivo:**
+
+Un clasificador perfecto tendría solo TP y TN, es decir, solo valores en
+la diagonal de la matriz.
+
+--------------
 
 -  :math:`TP` son los verdaderos positivos (True Positives)
    **(correcto)**. La clase es positiva (clase 1) y el clasificador la
@@ -45,20 +63,6 @@ Donde:
 Cada fila en una matriz de confusión representa una clase real, mientras
 que cada columna representa una clase predicha.
 
-Un clasificador perfecto solo tendría verdaderos positivos y verdaderos
-negativos, por lo que su matriz de confusión tendría valores distintos
-de cero solo en su diagonal principal (de la esquina superior izquierda
-a la esquina inferior derecha).
-
-``confusion_matrix`` de ``scikit-learn``:
-
-================= ================= =================
-\                 Predicho Negativo Predicho Positivo
-================= ================= =================
-**Real Negativo** TN                FP
-**Real Positivo** FN                TP
-================= ================= =================
-
 .. figure:: MatrizConfusion.JPG
    :alt: MatrizConfusion
 
@@ -69,14 +73,22 @@ a la esquina inferior derecha).
 
    MatrizConfusion2
 
-1. Exactitud (Accuracy):
-~~~~~~~~~~~~~~~~~~~~~~~~
+--------------
 
-La exactitud es la proporción de predicciones correctas realizadas por
-el modelo sobre el total de predicciones. Es la métrica más sencilla,
-pero puede ser engañosa si las clases están desbalanceadas.
+Accuracy (Exactitud)
+~~~~~~~~~~~~~~~~~~~~
 
-.. math::  Accuracy = \frac{Número de predicciones correctas}{Número total de predicciones}=\frac{TP+TN}{TP+TN+FP + FN} 
+La **exactitud** es la métrica más conocida: mide qué porcentaje de
+veces acertó el modelo.
+
+.. math::
+
+
+   Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+
+-  Fácil de interpretar.
+
+-  Puede engañar si hay clases **desbalanceadas**.
 
 La **tasa de error de un clasificador (E)** es la frecuencia de errores
 cometidos por el clasificador sobre un conjunto dado, es decir, la tasa
@@ -84,46 +96,90 @@ de error es 1 menos Accuracy.
 
 .. math::  E = \frac{FP + FN}{TP+TN+FP + FN} = 1 - Accuracy 
 
-2. Precisión (Precision):
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**Ejemplo:**
+
+Si el 95% de los clientes paga el préstamo, un modelo que siempre
+predice “sí paga” tendrá **95% de accuracy**, ¡pero no sirve para
+detectar morosos!
+
+--------------
+
+Precisión (Precision)
+~~~~~~~~~~~~~~~~~~~~~
+
+La **precisión** responde a:
+
+👉 “De todos los clientes que el modelo predijo como **malos pagadores**,
+¿cuántos realmente lo eran?”
+
+.. math::
+
+
+   Precision = \frac{TP}{TP + FP}
+
+-  Evita dar “falsas alarmas”.
+
+-  Importante cuando los **falsos positivos** son costosos.
+
+**Ejemplo:**
+
+En recomendaciones de productos en un e-commerce, preferimos que las
+sugerencias sean pocas pero correctas.
+
+--------------
 
 La precisión es la proporción de verdaderos positivos entre el total de
 predicciones positivas. Indica qué tan preciso es el modelo al predecir
 la clase positiva. En otras palabras, la precisión mide la exactitud de
 las predicciones positivas realizadas por el modelo.
 
-.. math::  precision = \frac{TP}{TP + FP} 
-
-Donde:
-
--  :math:`TP` son los verdaderos positivos (True Positives)
-
--  :math:`FP` son los falsos positivos (False Positives)
-
 La precisión se utiliza típicamente junto con otra métrica llamada
 recall, también conocida como sensibilidad o tasa de verdaderos
 positivos (TPR).
 
-3. Recall (True Positive Rate) o Sensibilidad :
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------
 
-También es llamada Tasa de Verdaderos Positivos (TPR).
+Recall o Sensibilidad
+~~~~~~~~~~~~~~~~~~~~~
+
+El **recall** responde a:
+
+👉 “De todos los clientes que realmente no iban a pagar, ¿cuántos detectó
+el modelo?”
+
+.. math::
+
+
+   Recall = \frac{TP}{TP + FN}
+
+-  Evita “dejar pasar” casos importantes.
+
+-  Importante cuando los **falsos negativos** son costosos.
+
+**Ejemplo:**
+
+En fraude financiero, es mejor atrapar a casi todos los fraudes (alto
+recall), aunque algunas transacciones legítimas sean marcadas como
+sospechosas.
+
+--------------
+
+La tensión entre Precisión y Recall
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  **Bajar el umbral de decisión:** el modelo predice más positivos →
+   sube el recall pero baja la precisión.
+
+-  **Subir el umbral de decisión:** el modelo es más estricto → sube la
+   precisión pero baja el recall.
+
+Esto se llama **trade-off entre precisión y recall**.
+
+--------------
 
 La sensibilidad o recall es la proporción de verdaderos positivos entre
 el total de positivos reales. Mide la capacidad del modelo para
 identificar correctamente las instancias de la clase positiva.
-
-.. math::  recall = \frac{TP}{TP + FN} 
-
-Donde:
-
--  :math:`FN` son los falsos negativos (False Negatives)
-
-Ejemplo:
-
-:math:`Precision = 0,72` y :math:`recall = 0,75`, el modelo es correcto
-el 72% del tiempo, pero detecta solo el 75% de los valores de la
-clasificación.
 
 A menudo es conveniente combinar la precisión y el recall en una sola
 métrica llamada F score, especialmente si necesitas una forma sencilla
@@ -159,8 +215,28 @@ recomendaciones son inexactas o irrelevantes, los clientes las ignorarán
 en el futuro, disminuyendo la efectividad del sistema de
 recomendaciones.
 
-4. Puntuación F1 (F1 Score):
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+F1 Score
+~~~~~~~~
+
+El **F1 Score** combina precisión y recall en una sola métrica.
+
+Es la **media armónica** de ambas:
+
+.. math::
+
+
+   F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
+
+-  Útil cuando hay clases desbalanceadas.
+
+-  Solo será alto si **ambos** (precisión y recall) son altos.
+
+| **Ejemplo:**
+| En un diagnóstico médico, no basta con detectar muchos enfermos
+  (recall) si la mitad de los diagnosticados están sanos (precisión
+  baja). El F1 da una medida equilibrada.
+
+--------------
 
 La puntuación F1 es la media armónica de la precisión y la sensibilidad.
 Es útil cuando se necesita un equilibrio entre precisión y sensibilidad.
@@ -170,9 +246,7 @@ también asegurarse de que las predicciones positivas sean correctas
 (precisión).
 
 El clasificador solo obtendrá una alta F score si tanto el recall como
-la precisión son altos
-
-.. math::  F1 Score = 2 \times \frac{precision \times recall}{precision + recall} 
+la precisión son altos.
 
 El F score favorece a los clasificadores que tienen precisión y recall
 similares. Esto no siempre es lo que deseas: en algunos contextos te
@@ -196,52 +270,85 @@ Desafortunadamente, no puedes tener ambos al mismo tiempo: aumentar la
 precisión reduce el recall, y viceversa. Esto se llama la compensación
 entre precisión y recall.
 
-6. Curva precision/recall:
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Especificidad
+~~~~~~~~~~~~~
 
-La curva precision/recall es especialmente útil en conjuntos de datos
-desbalanceados. Muestra la relación entre la precisión y la sensibilidad
-a diferentes umbrales.
+La **especificidad** es lo opuesto al recall, pero aplicada a la clase
+negativa.
 
-Estas métricas a menudo están en conflicto, lo que significa que mejorar
-una puede conducir a la disminución de la otra. Entender este trade-off
-es crucial para ajustar el rendimiento de un modelo según las
-necesidades específicas de una aplicación.
+👉 “De todos los clientes que realmente sí pagaron, ¿cuántos fueron
+clasificados correctamente como buenos?”
 
-En una gráfica de precisión y recall en función del umbral, verás que al
-mover el umbral hacia un extremo, una métrica mejora mientras que la
-otra disminuye. La clave está en encontrar un umbral que logre un
-equilibrio adecuado según los requisitos del problema.
+.. math::
 
-Cuando se ajusta el umbral de decisión del modelo (el punto en el cual
-decide clasificar una instancia como positiva o negativa), puede afectar
-tanto la precisión como el recall:
 
-**Umbral Bajo:**
+   Specificity = \frac{TN}{TN + FP}
 
--  **Alta Recall:** Captura la mayoría de las instancias positivas, lo
-   que significa menos falsos negativos.
+-  Se usa mucho en medicina junto con el recall.
 
--  **Baja Precisión:** También puede capturar muchas instancias
-   negativas como positivas, lo que aumenta los falsos positivos.
+--------------
 
-**Umbral Alto:**
+Curva Precisión / Recall
+~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **Alta Precisión:** Las instancias clasificadas como positivas son
-   muy probablemente verdaderos positivos, lo que reduce los falsos
-   positivos.
+Si movemos el **umbral de decisión** del modelo, la precisión y el
+recall cambian.
 
--  **Baja Recall:** Puede perder muchas instancias positivas, lo que
-   aumenta los falsos negativos.
+-  **Umbral bajo:**
 
-7. Área Bajo la Curva ROC (AUC-ROC):
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   -  Alta recall (detecta casi todos los positivos).
 
-La curva ROC (receiver operating characteristic) evalúa el rendimiento
-de un clasificador binario al variar el umbral de decisión. En el
-gráfico, el eje Y muestra la tasa de verdaderos positivos (TPR o
-sensibilidad), mientras que el eje X muestra la tasa de falsos positivos
-(FPR).
+   -  Baja precisión (muchos falsos positivos).
+
+-  **Umbral alto:**
+
+   -  Alta precisión.
+
+   -  Baja recall (se escapan muchos positivos).
+
+**Visualización:** una curva que muestra la relación entre precisión y
+recall según el umbral.
+
+Muy útil cuando la clase positiva es rara (por ejemplo, fraude
+bancario).
+
+--------------
+
+.. figure:: Metricas.png
+   :alt: Metricas
+
+   Metricas
+
+.. figure:: Metricas_2.png
+   :alt: Metricas_2
+
+   Metricas_2
+
+.. figure:: Metricas_2_1.png
+   :alt: Metricas_2_1
+
+   Metricas_2_1
+
+Curva ROC y AUC-ROC
+~~~~~~~~~~~~~~~~~~~
+
+La **curva ROC** grafica:
+
+-  **Eje Y:** Recall (TPR).
+
+-  **Eje X:** Tasa de falsos positivos (FPR = 1 - Specificity).
+
+El **AUC (Área Bajo la Curva ROC)** mide la capacidad global del modelo
+para distinguir entre clases.
+
+-  **AUC = 1:** modelo perfecto.
+
+-  **AUC = 0.5:** modelo aleatorio.
+
+**Ejemplo financiero:** comparar diferentes modelos de scoring
+crediticio y elegir el que mejor separa buenos de malos pagadores.
+
+--------------
 
 La AUC-ROC mide la capacidad del modelo para distinguir entre clases,
 representando el área bajo la curva ROC. Esta curva grafica la tasa de
@@ -264,3 +371,150 @@ negativos; en otros casos, se usa la curva ROC.
    :alt: CurvaROC
 
    CurvaROC
+
+Resumen:
+~~~~~~~~
+
+-  **Matriz de confusión:** la base de todas las métricas.
+
+-  **Accuracy:** bueno si las clases están balanceadas.
+
+-  **Precisión:** importante cuando FP son costosos (ej. dar un préstamo
+   a alguien riesgoso).
+
+-  **Recall:** importante cuando FN son costosos (ej. no detectar un
+   fraude).
+
+-  **F1 Score:** balance entre precisión y recall.
+
+-  **Especificidad:** detección de la clase negativa.
+
+-  **Curva PR:** útil en clases desbalanceadas.
+
+-  **Curva ROC y AUC:** visión global de la capacidad del modelo.
+
+Ejemplo: cuando una métrica “alta” es engañosa (Fraude y Medicina)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+En problemas **desbalanceados** (pocos positivos), una métrica alta
+puede dar una falsa sensación de buen desempeño.
+
+A continuación, dos casos didácticos con **matrices de confusión**,
+**cálculo de métricas** y **conclusión práctica**.
+
+--------------
+
+Caso 1: Detección de fraudes (clase positiva = fraude)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Contexto:** 10 000 transacciones, solo 100 son fraude (1%).
+
+**Modelo A (ingenuo):** siempre predice “no fraude”.
+
+**Matriz de confusión (Modelo A):**
+
+================= ================= =================
+\                 Predicho Positivo Predicho Negativo
+================= ================= =================
+**Real Positivo** 0                 100
+**Real Negativo** 0                 9 900
+================= ================= =================
+
+-  **Accuracy:** ((0 + 9 900) / 10 000 = 0.990) (**99%**)
+
+-  **Precision:** indefinida (no predice positivos) → por convención
+   **0**
+
+-  **Recall (Sensibilidad):** (0 / (0 + 100) = 0) (**0%**)
+
+**Conclusión:** la **accuracy es altísima** (99%), pero el modelo **no
+detecta ningún fraude** (recall = 0%).
+
+**Métrica que importa aquí:** **Recall** (y también **PR-AUC**) porque
+perder fraudes (FN) es costoso.
+
+--------------
+
+**Modelo B (más útil):** detecta 80 de 100 fraudes, pero comete 200
+falsos positivos.
+
+**Matriz de confusión (Modelo B):**
+
+================= ================= =================
+\                 Predicho Positivo Predicho Negativo
+================= ================= =================
+**Real Positivo** 80                20
+**Real Negativo** 200               9 700
+================= ================= =================
+
+-  **Accuracy:** ((80 + 9 700) / 10 000 = 0.978) (**97.8%**) ← menor que
+   antes
+
+-  **Precision:** (80 / (80 + 200) = 0.286) (**28.6%**)
+
+-  **Recall:** (80 / (80 + 20) = 0.80) (**80%**)
+
+-  **F1:** (2·(0.286·0.80)/(0.286+0.80) ≈ 0.421) (**42.1%**)
+
+**Conclusión:** aunque la **accuracy bajó** (de 99% a 97.8%), el
+**modelo B es mucho mejor** para el objetivo: captura el 80% de los
+fraudes.
+
+**Qué mirar:** en fraude, prioriza **Recall** (no perder fraudes) y
+**F1** / **PR-AUC** sobre **Accuracy**.
+
+--------------
+
+Caso 2: Tamizaje en medicina (clase positiva = enfermedad)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Contexto:** 5 000 pacientes; 250 tienen la enfermedad (5%).
+
+**Modelo C (muy “conservador”):** solo marca positivos cuando está casi
+seguro.
+
+**Matriz de confusión (Modelo C):**
+
+================= ================= =================
+\                 Predicho Positivo Predicho Negativo
+================= ================= =================
+**Real Positivo** 100               150
+**Real Negativo** 50                4 700
+================= ================= =================
+
+-  **Accuracy:** ((100 + 4 700) / 5 000 = 0.96) (**96%**)
+
+-  **Precision:** (100 / (100 + 50) = 0.667) (**66.7%**) ← **alta**
+
+-  **Recall:** (100 / (100 + 150) = 0.40) (**40%**) ← **baja**
+
+**Conclusión:** la **precisión es alta**, pero el modelo **deja pasar
+60%** de los casos enfermos (**FN** altos).
+
+**Riesgo clínico:** pacientes no detectados pueden no recibir
+tratamiento oportuno.
+
+**Qué mirar:** en tamizaje, prioriza **Recall** (sensibilidad). Ajusta
+el **umbral** para incrementar recall, aunque baje la precisión, y
+compénsalo con **segunda prueba** (confirmatoria) para filtrar falsos
+positivos.
+
+--------------
+
+Lecciones clave (qué métrica usar según el objetivo)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  **Fraude, seguridad, salud pública, fallas críticas:** prioriza
+   **Recall** (evitar FN). Complementa con **F1** y **PR-AUC**.
+
+-  **Recomendadores, moderación estricta, contenido infantil:** prioriza
+   **Precision** (evitar FP). Ajusta **umbral** y considera **revisión
+   humana**.
+
+-  **Clases balanceadas y costo de error similar:** **Accuracy** puede
+   ser útil, pero siempre verifica la **matriz de confusión**.
+
+-  **Desbalance severo:** prefiere **PR-AUC** sobre **ROC-AUC** y
+   reporta **Precision/Recall** a múltiples umbrales.
+
+--------------

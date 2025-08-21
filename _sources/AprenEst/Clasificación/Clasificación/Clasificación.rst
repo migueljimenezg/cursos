@@ -1,125 +1,208 @@
 Clasificación
 -------------
 
-La clasificación es una de las tareas fundamentales en el campo del
-Machine Learning y la estadística, con aplicaciones extensas en
-finanzas. Su objetivo es predecir la clase o categoría a la que
-pertenece una observación dada, basada en sus características (variables
-o Features). Es un tipo de aprendizaje supervisado, donde el algoritmo
-aprende de un conjunto de datos etiquetados.
+Clasificación en Aprendizaje Estadístico
+----------------------------------------
 
-Tipos de clasificación:
-~~~~~~~~~~~~~~~~~~~~~~~
+La **clasificación** es una de las tareas fundamentales en el campo del
+*Machine Learning* y la estadística, con aplicaciones directas en el
+ámbito financiero.
 
-**1. Clasificación Binaria:**
+Su objetivo es **predecir la clase o categoría** a la que pertenece una
+observación, en función de sus características (variables o *features*).
 
-La clasificación binaria implica predecir una de dos clases posibles.
-Ejemplos en finanzas incluyen:
+Se enmarca dentro del **aprendizaje supervisado**, ya que el algoritmo
+aprende a partir de un conjunto de datos etiquetados.
 
--  Determinar si un préstamo será pagado o no (default/no default).
+--------------
 
--  Predecir si el precio de una acción subirá o bajará.
+Tipos de clasificación
+~~~~~~~~~~~~~~~~~~~~~~
 
-**2. Clasificación Multiclase:**
+**1. Clasificación Binaria**
 
-La clasificación multiclase involucra predecir una de tres o más clases
-posibles. Ejemplos en finanzas incluyen:
+-  **Definición:** consiste en asignar una de dos posibles categorías.
 
--  Clasificar el riesgo crediticio en categorías (bajo, medio, alto).
+-  **Ejemplos en finanzas:**
 
--  Identificar el sector de una empresa (tecnología, salud, finanzas).
+   -  Determinar si un préstamo será pagado o caerá en *default*.
 
-**3. Clasificación Multietiqueta:**
+   -  Predecir si el precio de una acción subirá o bajará.
 
-En la clasificación multietiqueta, cada observación puede pertenecer a
-múltiples clases. Ejemplos en finanzas incluyen:
+**2. Clasificación Multiclase**
 
--  Etiquetar transacciones financieras con múltiples categorías de
-   fraude.
+-  **Definición:** el objetivo es predecir una clase entre tres o más
+   categorías mutuamente excluyentes.
 
--  Asignar múltiples etiquetas de riesgo a un portafolio de inversión.
+-  **Ejemplos en finanzas:**
 
-Algoritmos de Clasificación:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   -  Clasificar el riesgo crediticio en bajo, medio o alto.
+
+   -  Identificar el sector económico de una empresa (tecnología, salud,
+      energía, finanzas).
+
+**3. Clasificación Multietiqueta**
+
+-  **Definición:** cada observación puede pertenecer a varias clases
+   simultáneamente.
+
+-  **Ejemplos en finanzas:**
+
+   -  Etiquetar transacciones financieras con múltiples categorías de
+      fraude.
+
+   -  Asignar diferentes tipos de riesgo a un portafolio (riesgo de
+      mercado, liquidez, crédito).
+
+--------------
+
+Algoritmos de clasificación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A continuación, se presentan los algoritmos más relevantes, con sus
+ventajas, limitaciones y aplicaciones en finanzas.
 
 **1. Regresión Logística**
 
-La regresión logística es un modelo estadístico que se utiliza para
-clasificar observaciones en dos categorías. Se basa en la función
-logística (sigmoide) para modelar la probabilidad de pertenencia a una
-clase.
+-  **Descripción:** modelo estadístico que estima la probabilidad de
+   pertenencia a una clase binaria utilizando la función logística
+   (sigmoide).
 
-**Ventajas:**
+-  **Ventajas:**
 
--  Simple y fácil de interpretar.
+   -  Simple y fácil de interpretar.
 
--  Rápido de entrenar.
+   -  Rápido de entrenar.
 
--  Útil para problemas de clasificación binaria como predicción de
-   impago de préstamos.
+   -  Adecuado para *scoring* de riesgo crediticio o predicción de
+      impago.
 
-**Desventajas:**
+-  **Desventajas:**
 
--  Asume una relación lineal entre las variables independientes y el
-   logit.
+   -  Supone relación lineal entre las variables independientes y el
+      logit.
 
--  No maneja bien relaciones no lineales complejas.
+   -  Tiene dificultades para capturar relaciones no lineales complejas.
 
-**3. Árboles de Decisión:**
+--------------
 
-Los árboles de decisión dividen los datos en subconjuntos basados en
-condiciones sobre las características, formando una estructura de árbol.
+**2. Árboles de Decisión**
 
-**Ventajas:**
+-  **Descripción:** dividen los datos en subconjuntos mediante reglas
+   condicionales, formando una estructura de árbol.
 
--  Fácil de visualizar e interpretar.
+-  **Ventajas:**
 
--  Maneja bien tanto variables categóricas como continuas.
+   -  Muy interpretables y fáciles de visualizar.
 
--  Útil para la evaluación de crédito y análisis de riesgo.
+   -  Manejan bien variables categóricas y continuas.
 
-**Desventajas:**
+   -  Aplicables en evaluación crediticia o segmentación de clientes.
 
--  Propenso al sobreajuste (overfitting).
+-  **Desventajas:**
 
--  Sensible a pequeños cambios en los datos.
+   -  Alta propensión al *overfitting*.
 
-**2. Support Vector Machines (SVM)**
+   -  Sensibles a pequeñas variaciones en los datos.
 
-SVM encuentra el hiperplano que mejor separa las clases en el espacio de
-características.
+--------------
 
-**Ventajas:**
+**3. Máquinas de Vectores de Soporte (SVM)**
 
--  Efectivo en espacios de alta dimensión.
+-  **Descripción:** buscan el hiperplano óptimo que maximiza la
+   separación entre clases en el espacio de características.
 
--  Funciona bien con una clara separación entre clases.
+-  **Ventajas:**
 
--  Útil para la detección de fraudes financieros.
+   -  Eficaces en espacios de alta dimensión.
 
-**Desventajas:**
+   -  Funcionan bien con una clara separación de clases.
 
--  No es intuitivo y puede ser difícil de interpretar.
+   -  Útiles en la detección de fraudes financieros.
 
--  Sensible a la elección del kernel y los parámetros.
+-  **Desventajas:**
 
-**4. Redes Neuronales Artificiales:**
+   -  Poco intuitivos y difíciles de interpretar.
 
-Las redes neuronales artificiales son modelos de aprendizaje profundo
-que pueden capturar relaciones complejas entre las características y la
-variable objetivo.
+   -  Dependen fuertemente del kernel y de la correcta elección de
+      parámetros.
 
-**Ventajas:**
+--------------
 
--  Capaces de modelar relaciones no lineales complejas.
+**4. Redes Neuronales Artificiales (RNA)**
 
--  Muy flexibles y potentes.
+-  **Descripción:** modelos inspirados en el cerebro humano, capaces de
+   aprender representaciones complejas de los datos.
 
--  Útil para la predicción de precios de acciones y análisis de series
-   temporales financieras.
+-  **Ventajas:**
 
-**Desventajas:**
+   -  Capturan relaciones no lineales sofisticadas.
 
--  Requieren grandes cantidades de datos y poder computacional.
+   -  Flexibles y muy potentes.
 
--  Difíciles de interpretar.
+   -  Útiles en predicción de series financieras, clasificación de
+      imágenes (cheques, facturas) o *trading algorítmico*.
+
+-  **Desventajas:**
+
+   -  Requieren gran cantidad de datos y recursos computacionales.
+
+   -  Dificultad de interpretación (cajas negras).
+
+--------------
+
+Comparación de algoritmos de clasificación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++---------------+---------+--------------+-----------------+----------+
+| Algoritmo     | Int     | Complejidad  | Capacidad para  | Ejemplo  |
+|               | erpreta | C            | No Linealidades | en       |
+|               | bilidad | omputacional |                 | Finanzas |
++===============+=========+==============+=================+==========+
+| **Regresión   | Alta    | Baja         | Baja            | Scoring  |
+| Logística**   |         |              |                 | de       |
+|               |         |              |                 | riesgo   |
+|               |         |              |                 | cr       |
+|               |         |              |                 | editicio |
++---------------+---------+--------------+-----------------+----------+
+| **Árboles de  | Alta    | Media        | Media           | Ev       |
+| Decisión**    |         |              |                 | aluación |
+|               |         |              |                 | de       |
+|               |         |              |                 | p        |
+|               |         |              |                 | réstamos |
++---------------+---------+--------------+-----------------+----------+
+| **SVM**       | Media   | Alta         | Alta            | D        |
+|               |         |              |                 | etección |
+|               |         |              |                 | de       |
+|               |         |              |                 | fraudes  |
++---------------+---------+--------------+-----------------+----------+
+| **Redes       | Baja    | Muy alta     | Muy alta        | Pr       |
+| Neuronales**  |         |              |                 | edicción |
+|               |         |              |                 | de       |
+|               |         |              |                 | precios  |
+|               |         |              |                 | de       |
+|               |         |              |                 | activos  |
++---------------+---------+--------------+-----------------+----------+
+
+--------------
+
+Métricas de evaluación en clasificación
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  **Exactitud (Accuracy):** proporción de observaciones clasificadas
+   correctamente.
+
+-  **Precisión (Precision):** proporción de verdaderos positivos sobre
+   los predichos como positivos.
+
+-  **Recall o Sensibilidad:** proporción de verdaderos positivos sobre
+   el total de positivos reales.
+
+-  **F1-Score:** media armónica entre precisión y recall, útil en datos
+   desbalanceados.
+
+-  **Matriz de confusión:** tabla que resume los aciertos y errores de
+   clasificación.
+
+-  **ROC y AUC:** evalúan el desempeño del clasificador en diferentes
+   umbrales de decisión.

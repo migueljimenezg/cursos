@@ -233,10 +233,12 @@
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Clasificación</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../Clasificaci%C3%B3n/Clasificaci%C3%B3n.html">Clasificación</a></li>
+
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Métricas para Evaluación de Modelos de Clasificación</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Cross/Cross%20Validation.html">Cross Validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../Teor%C3%ADaRL/Regresi%C3%B3n%20Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Teor%C3%ADaRL/Regresi%C3%B3n_Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemRL/Ejemplo_Regresi%C3%B3n_Log%C3%ADstica.html">Ejemplo Regresión Logística</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
@@ -643,13 +645,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-confusion-confusion-matrix">1. Matriz de Confusión (Confusion Matrix):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exactitud-accuracy">1. Exactitud (Accuracy):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-precision">2. Precisión (Precision):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-true-positive-rate-o-sensibilidad">3. Recall (True Positive Rate) o Sensibilidad :</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuacion-f1-f1-score">4. Puntuación F1 (F1 Score):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-precision-recall">6. Curva precision/recall:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-bajo-la-curva-roc-auc-roc">7. Área Bajo la Curva ROC (AUC-ROC):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-confusion">Matriz de Confusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-exactitud">Accuracy (Exactitud)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-precision">Precisión (Precision)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-o-sensibilidad">Recall o Sensibilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-tension-entre-precision-y-recall">La tensión entre Precisión y Recall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">F1 Score</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#especificidad">Especificidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-precision-recall">Curva Precisión / Recall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-roc-y-auc-roc">Curva ROC y AUC-ROC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-cuando-una-metrica-alta-es-enganosa-fraude-y-medicina">Ejemplo: cuando una métrica “alta” es engañosa (Fraude y Medicina)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-deteccion-de-fraudes-clase-positiva-fraude">Caso 1: Detección de fraudes (clase positiva = fraude)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2-tamizaje-en-medicina-clase-positiva-enfermedad">Caso 2: Tamizaje en medicina (clase positiva = enfermedad)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecciones-clave-que-metrica-usar-segun-el-objetivo">Lecciones clave (qué métrica usar según el objetivo)</a></li>
 </ul>
             </nav>
         </div>
@@ -663,18 +672,19 @@ document.write(`
                   
   <section id="metricas-para-evaluacion-de-modelos-de-clasificacion">
 <h1>Métricas para Evaluación de Modelos de Clasificación<a class="headerlink" href="#metricas-para-evaluacion-de-modelos-de-clasificacion" title="Link to this heading">#</a></h1>
-<p>En la evaluación de modelos de clasificación, es fundamental utilizar
-métricas adecuadas que reflejen con precisión el rendimiento del modelo.
-A continuación, se presentan algunas de las métricas más importantes y
-comúnmente utilizadas para evaluar modelos de clasificación.</p>
-<section id="matriz-de-confusion-confusion-matrix">
-<h2>1. Matriz de Confusión (Confusion Matrix):<a class="headerlink" href="#matriz-de-confusion-confusion-matrix" title="Link to this heading">#</a></h2>
-<p>La matriz de confusión es una tabla que muestra las predicciones del
-modelo frente a las clases reales, proporcionando una visión detallada
-del rendimiento del modelo.</p>
-<p>Para calcular la matriz de confusión, primero se necesita tener un
-conjunto de predicciones que puedan ser comparadas con los objetivos
-reales.</p>
+<p>Cuando entrenamos un modelo de clasificación, no basta con ver si
+“acierta” o “falla”.</p>
+<p>Necesitamos métricas que nos digan <strong>qué tan bueno es el modelo y en qué
+se equivoca</strong>.</p>
+<p>Estas métricas se basan en una tabla muy importante: la <strong>matriz de
+confusión</strong>.</p>
+<hr class="docutils" />
+<section id="matriz-de-confusion">
+<h2>Matriz de Confusión<a class="headerlink" href="#matriz-de-confusion" title="Link to this heading">#</a></h2>
+<p>La <strong>matriz de confusión</strong> compara lo que el modelo predijo con la
+realidad.</p>
+<p>Imagina que queremos clasificar si un cliente pagará un préstamo (<strong>sí =
+1</strong>, <strong>no = 0</strong>).</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
@@ -684,17 +694,27 @@ reales.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>Real Positivo</strong></p></td>
-<td><p>TP</p></td>
-<td><p>FN</p></td>
+<td><p>TP (Verdadero Positivo)</p></td>
+<td><p>FN (Falso Negativo)</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>Real Negativo</strong></p></td>
-<td><p>FP</p></td>
-<td><p>TN</p></td>
+<td><p>FP (Falso Positivo)</p></td>
+<td><p>TN (Verdadero Negativo)</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>Donde:</p>
+<ul class="simple">
+<li><p><strong>TP:</strong> el cliente realmente pagó, y el modelo predijo que sí.</p></li>
+<li><p><strong>TN:</strong> el cliente no pagó, y el modelo predijo que no.</p></li>
+<li><p><strong>FP:</strong> el cliente no pagó, pero el modelo predijo que sí (error
+grave para el banco).</p></li>
+<li><p><strong>FN:</strong> el cliente pagó, pero el modelo predijo que no.</p></li>
+</ul>
+<p><strong>Ejemplo intuitivo:</strong></p>
+<p>Un clasificador perfecto tendría solo TP y TN, es decir, solo valores en
+la diagonal de la matriz.</p>
+<hr class="docutils" />
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(TP\)</span> son los verdaderos positivos (True Positives)
 <strong>(correcto)</strong>. La clase es positiva (clase 1) y el clasificador la
@@ -711,30 +731,6 @@ etiqueta como negativa (falso negativo). Es un 1 clasificado como 0.</p></li>
 </ul>
 <p>Cada fila en una matriz de confusión representa una clase real, mientras
 que cada columna representa una clase predicha.</p>
-<p>Un clasificador perfecto solo tendría verdaderos positivos y verdaderos
-negativos, por lo que su matriz de confusión tendría valores distintos
-de cero solo en su diagonal principal (de la esquina superior izquierda
-a la esquina inferior derecha).</p>
-<p><code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> de <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>:</p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>Predicho Negativo</p></th>
-<th class="head"><p>Predicho Positivo</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Real Negativo</strong></p></td>
-<td><p>TN</p></td>
-<td><p>FP</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Real Positivo</strong></p></td>
-<td><p>FN</p></td>
-<td><p>TP</p></td>
-</tr>
-</tbody>
-</table>
-</div>
 <figure class="align-default" id="id1">
 <img alt="MatrizConfusion" src="../../../_images/MatrizConfusion.JPG" />
 <figcaption>
@@ -748,52 +744,82 @@ a la esquina inferior derecha).</p>
 </figcaption>
 </figure>
 </section>
-<section id="exactitud-accuracy">
-<h2>1. Exactitud (Accuracy):<a class="headerlink" href="#exactitud-accuracy" title="Link to this heading">#</a></h2>
-<p>La exactitud es la proporción de predicciones correctas realizadas por
-el modelo sobre el total de predicciones. Es la métrica más sencilla,
-pero puede ser engañosa si las clases están desbalanceadas.</p>
+<hr class="docutils" />
+<section id="accuracy-exactitud">
+<h2>Accuracy (Exactitud)<a class="headerlink" href="#accuracy-exactitud" title="Link to this heading">#</a></h2>
+<p>La <strong>exactitud</strong> es la métrica más conocida: mide qué porcentaje de
+veces acertó el modelo.</p>
 <div class="math notranslate nohighlight">
-\[Accuracy = \frac{Número de predicciones correctas}{Número total de predicciones}=\frac{TP+TN}{TP+TN+FP + FN}\]</div>
+\[Accuracy = \frac{TP + TN}{TP + TN + FP + FN}\]</div>
+<ul class="simple">
+<li><p>Fácil de interpretar.</p></li>
+<li><p>Puede engañar si hay clases <strong>desbalanceadas</strong>.</p></li>
+</ul>
 <p>La <strong>tasa de error de un clasificador (E)</strong> es la frecuencia de errores
 cometidos por el clasificador sobre un conjunto dado, es decir, la tasa
 de error es 1 menos Accuracy.</p>
 <div class="math notranslate nohighlight">
 \[E = \frac{FP + FN}{TP+TN+FP + FN} = 1 - Accuracy\]</div>
+<p><strong>Ejemplo:</strong></p>
+<p>Si el 95% de los clientes paga el préstamo, un modelo que siempre
+predice “sí paga” tendrá <strong>95% de accuracy</strong>, ¡pero no sirve para
+detectar morosos!</p>
 </section>
+<hr class="docutils" />
 <section id="precision-precision">
-<h2>2. Precisión (Precision):<a class="headerlink" href="#precision-precision" title="Link to this heading">#</a></h2>
+<h2>Precisión (Precision)<a class="headerlink" href="#precision-precision" title="Link to this heading">#</a></h2>
+<p>La <strong>precisión</strong> responde a:</p>
+<p>👉 “De todos los clientes que el modelo predijo como <strong>malos pagadores</strong>,
+¿cuántos realmente lo eran?”</p>
+<div class="math notranslate nohighlight">
+\[Precision = \frac{TP}{TP + FP}\]</div>
+<ul class="simple">
+<li><p>Evita dar “falsas alarmas”.</p></li>
+<li><p>Importante cuando los <strong>falsos positivos</strong> son costosos.</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<p>En recomendaciones de productos en un e-commerce, preferimos que las
+sugerencias sean pocas pero correctas.</p>
+<hr class="docutils" />
 <p>La precisión es la proporción de verdaderos positivos entre el total de
 predicciones positivas. Indica qué tan preciso es el modelo al predecir
 la clase positiva. En otras palabras, la precisión mide la exactitud de
 las predicciones positivas realizadas por el modelo.</p>
-<div class="math notranslate nohighlight">
-\[precision = \frac{TP}{TP + FP}\]</div>
-<p>Donde:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(TP\)</span> son los verdaderos positivos (True Positives)</p></li>
-<li><p><span class="math notranslate nohighlight">\(FP\)</span> son los falsos positivos (False Positives)</p></li>
-</ul>
 <p>La precisión se utiliza típicamente junto con otra métrica llamada
 recall, también conocida como sensibilidad o tasa de verdaderos
 positivos (TPR).</p>
 </section>
-<section id="recall-true-positive-rate-o-sensibilidad">
-<h2>3. Recall (True Positive Rate) o Sensibilidad :<a class="headerlink" href="#recall-true-positive-rate-o-sensibilidad" title="Link to this heading">#</a></h2>
-<p>También es llamada Tasa de Verdaderos Positivos (TPR).</p>
+<hr class="docutils" />
+<section id="recall-o-sensibilidad">
+<h2>Recall o Sensibilidad<a class="headerlink" href="#recall-o-sensibilidad" title="Link to this heading">#</a></h2>
+<p>El <strong>recall</strong> responde a:</p>
+<p>👉 “De todos los clientes que realmente no iban a pagar, ¿cuántos detectó
+el modelo?”</p>
+<div class="math notranslate nohighlight">
+\[Recall = \frac{TP}{TP + FN}\]</div>
+<ul class="simple">
+<li><p>Evita “dejar pasar” casos importantes.</p></li>
+<li><p>Importante cuando los <strong>falsos negativos</strong> son costosos.</p></li>
+</ul>
+<p><strong>Ejemplo:</strong></p>
+<p>En fraude financiero, es mejor atrapar a casi todos los fraudes (alto
+recall), aunque algunas transacciones legítimas sean marcadas como
+sospechosas.</p>
+</section>
+<hr class="docutils" />
+<section id="la-tension-entre-precision-y-recall">
+<h2>La tensión entre Precisión y Recall<a class="headerlink" href="#la-tension-entre-precision-y-recall" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Bajar el umbral de decisión:</strong> el modelo predice más positivos →
+sube el recall pero baja la precisión.</p></li>
+<li><p><strong>Subir el umbral de decisión:</strong> el modelo es más estricto → sube la
+precisión pero baja el recall.</p></li>
+</ul>
+<p>Esto se llama <strong>trade-off entre precisión y recall</strong>.</p>
+<hr class="docutils" />
 <p>La sensibilidad o recall es la proporción de verdaderos positivos entre
 el total de positivos reales. Mide la capacidad del modelo para
 identificar correctamente las instancias de la clase positiva.</p>
-<div class="math notranslate nohighlight">
-\[recall = \frac{TP}{TP + FN}\]</div>
-<p>Donde:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(FN\)</span> son los falsos negativos (False Negatives)</p></li>
-</ul>
-<p>Ejemplo:</p>
-<p><span class="math notranslate nohighlight">\(Precision = 0,72\)</span> y <span class="math notranslate nohighlight">\(recall = 0,75\)</span>, el modelo es correcto
-el 72% del tiempo, pero detecta solo el 75% de los valores de la
-clasificación.</p>
 <p>A menudo es conveniente combinar la precisión y el recall en una sola
 métrica llamada F score, especialmente si necesitas una forma sencilla
 de comparar dos clasificadores. El F score es la media armónica de la
@@ -826,8 +852,23 @@ recomendaciones son inexactas o irrelevantes, los clientes las ignorarán
 en el futuro, disminuyendo la efectividad del sistema de
 recomendaciones.</p>
 </section>
-<section id="puntuacion-f1-f1-score">
-<h2>4. Puntuación F1 (F1 Score):<a class="headerlink" href="#puntuacion-f1-f1-score" title="Link to this heading">#</a></h2>
+<section id="f1-score">
+<h2>F1 Score<a class="headerlink" href="#f1-score" title="Link to this heading">#</a></h2>
+<p>El <strong>F1 Score</strong> combina precisión y recall en una sola métrica.</p>
+<p>Es la <strong>media armónica</strong> de ambas:</p>
+<div class="math notranslate nohighlight">
+\[F1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}\]</div>
+<ul class="simple">
+<li><p>Útil cuando hay clases desbalanceadas.</p></li>
+<li><p>Solo será alto si <strong>ambos</strong> (precisión y recall) son altos.</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><strong>Ejemplo:</strong></div>
+<div class="line">En un diagnóstico médico, no basta con detectar muchos enfermos
+(recall) si la mitad de los diagnosticados están sanos (precisión
+baja). El F1 da una medida equilibrada.</div>
+</div>
+<hr class="docutils" />
 <p>La puntuación F1 es la media armónica de la precisión y la sensibilidad.
 Es útil cuando se necesita un equilibrio entre precisión y sensibilidad.
 Es especialmente útil en contextos donde no solo es importante capturar
@@ -835,9 +876,7 @@ la mayor cantidad de instancias positivas posibles (recall), sino
 también asegurarse de que las predicciones positivas sean correctas
 (precisión).</p>
 <p>El clasificador solo obtendrá una alta F score si tanto el recall como
-la precisión son altos</p>
-<div class="math notranslate nohighlight">
-\[F1 Score = 2 \times \frac{precision \times recall}{precision + recall}\]</div>
+la precisión son altos.</p>
 <p>El F score favorece a los clasificadores que tienen precisión y recall
 similares. Esto no siempre es lo que deseas: en algunos contextos te
 importa más la precisión, y en otros contextos realmente te importa el
@@ -858,45 +897,77 @@ alertas falsas, pero casi todos los ladrones serán atrapados).</p>
 precisión reduce el recall, y viceversa. Esto se llama la compensación
 entre precisión y recall.</p>
 </section>
-<section id="curva-precision-recall">
-<h2>6. Curva precision/recall:<a class="headerlink" href="#curva-precision-recall" title="Link to this heading">#</a></h2>
-<p>La curva precision/recall es especialmente útil en conjuntos de datos
-desbalanceados. Muestra la relación entre la precisión y la sensibilidad
-a diferentes umbrales.</p>
-<p>Estas métricas a menudo están en conflicto, lo que significa que mejorar
-una puede conducir a la disminución de la otra. Entender este trade-off
-es crucial para ajustar el rendimiento de un modelo según las
-necesidades específicas de una aplicación.</p>
-<p>En una gráfica de precisión y recall en función del umbral, verás que al
-mover el umbral hacia un extremo, una métrica mejora mientras que la
-otra disminuye. La clave está en encontrar un umbral que logre un
-equilibrio adecuado según los requisitos del problema.</p>
-<p>Cuando se ajusta el umbral de decisión del modelo (el punto en el cual
-decide clasificar una instancia como positiva o negativa), puede afectar
-tanto la precisión como el recall:</p>
-<p><strong>Umbral Bajo:</strong></p>
+<section id="especificidad">
+<h2>Especificidad<a class="headerlink" href="#especificidad" title="Link to this heading">#</a></h2>
+<p>La <strong>especificidad</strong> es lo opuesto al recall, pero aplicada a la clase
+negativa.</p>
+<p>👉 “De todos los clientes que realmente sí pagaron, ¿cuántos fueron
+clasificados correctamente como buenos?”</p>
+<div class="math notranslate nohighlight">
+\[Specificity = \frac{TN}{TN + FP}\]</div>
 <ul class="simple">
-<li><p><strong>Alta Recall:</strong> Captura la mayoría de las instancias positivas, lo
-que significa menos falsos negativos.</p></li>
-<li><p><strong>Baja Precisión:</strong> También puede capturar muchas instancias
-negativas como positivas, lo que aumenta los falsos positivos.</p></li>
-</ul>
-<p><strong>Umbral Alto:</strong></p>
-<ul class="simple">
-<li><p><strong>Alta Precisión:</strong> Las instancias clasificadas como positivas son
-muy probablemente verdaderos positivos, lo que reduce los falsos
-positivos.</p></li>
-<li><p><strong>Baja Recall:</strong> Puede perder muchas instancias positivas, lo que
-aumenta los falsos negativos.</p></li>
+<li><p>Se usa mucho en medicina junto con el recall.</p></li>
 </ul>
 </section>
-<section id="area-bajo-la-curva-roc-auc-roc">
-<h2>7. Área Bajo la Curva ROC (AUC-ROC):<a class="headerlink" href="#area-bajo-la-curva-roc-auc-roc" title="Link to this heading">#</a></h2>
-<p>La curva ROC (receiver operating characteristic) evalúa el rendimiento
-de un clasificador binario al variar el umbral de decisión. En el
-gráfico, el eje Y muestra la tasa de verdaderos positivos (TPR o
-sensibilidad), mientras que el eje X muestra la tasa de falsos positivos
-(FPR).</p>
+<hr class="docutils" />
+<section id="curva-precision-recall">
+<h2>Curva Precisión / Recall<a class="headerlink" href="#curva-precision-recall" title="Link to this heading">#</a></h2>
+<p>Si movemos el <strong>umbral de decisión</strong> del modelo, la precisión y el
+recall cambian.</p>
+<ul class="simple">
+<li><p><strong>Umbral bajo:</strong></p>
+<ul>
+<li><p>Alta recall (detecta casi todos los positivos).</p></li>
+<li><p>Baja precisión (muchos falsos positivos).</p></li>
+</ul>
+</li>
+<li><p><strong>Umbral alto:</strong></p>
+<ul>
+<li><p>Alta precisión.</p></li>
+<li><p>Baja recall (se escapan muchos positivos).</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Visualización:</strong> una curva que muestra la relación entre precisión y
+recall según el umbral.</p>
+<p>Muy útil cuando la clase positiva es rara (por ejemplo, fraude
+bancario).</p>
+<hr class="docutils" />
+<figure class="align-default" id="id3">
+<img alt="Metricas" src="../../../_images/Metricas.png" />
+<figcaption>
+<p><span class="caption-text">Metricas</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
+<img alt="Metricas_2" src="../../../_images/Metricas_2.png" />
+<figcaption>
+<p><span class="caption-text">Metricas_2</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
+<img alt="Metricas_2_1" src="../../../_images/Metricas_2_1.png" />
+<figcaption>
+<p><span class="caption-text">Metricas_2_1</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="curva-roc-y-auc-roc">
+<h2>Curva ROC y AUC-ROC<a class="headerlink" href="#curva-roc-y-auc-roc" title="Link to this heading">#</a></h2>
+<p>La <strong>curva ROC</strong> grafica:</p>
+<ul class="simple">
+<li><p><strong>Eje Y:</strong> Recall (TPR).</p></li>
+<li><p><strong>Eje X:</strong> Tasa de falsos positivos (FPR = 1 - Specificity).</p></li>
+</ul>
+<p>El <strong>AUC (Área Bajo la Curva ROC)</strong> mide la capacidad global del modelo
+para distinguir entre clases.</p>
+<ul class="simple">
+<li><p><strong>AUC = 1:</strong> modelo perfecto.</p></li>
+<li><p><strong>AUC = 0.5:</strong> modelo aleatorio.</p></li>
+</ul>
+<p><strong>Ejemplo financiero:</strong> comparar diferentes modelos de scoring
+crediticio y elegir el que mejor separa buenos de malos pagadores.</p>
+<hr class="docutils" />
 <p>La AUC-ROC mide la capacidad del modelo para distinguir entre clases,
 representando el área bajo la curva ROC. Esta curva grafica la tasa de
 verdaderos positivos contra la tasa de falsos positivos en diferentes
@@ -911,12 +982,161 @@ uno aleatorio tiene una AUC-ROC de 0.5.</p>
 contexto: se prefiere la curva precisión/recall cuando la clase positiva
 es rara o cuando los falsos positivos son más importantes que los falsos
 negativos; en otros casos, se usa la curva ROC.</p>
-<figure class="align-default" id="id3">
+<figure class="align-default" id="id6">
 <img alt="CurvaROC" src="../../../_images/CurvaROC.JPG" />
 <figcaption>
-<p><span class="caption-text">CurvaROC</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-text">CurvaROC</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+</section>
+<section id="resumen">
+<h2>Resumen:<a class="headerlink" href="#resumen" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Matriz de confusión:</strong> la base de todas las métricas.</p></li>
+<li><p><strong>Accuracy:</strong> bueno si las clases están balanceadas.</p></li>
+<li><p><strong>Precisión:</strong> importante cuando FP son costosos (ej. dar un préstamo
+a alguien riesgoso).</p></li>
+<li><p><strong>Recall:</strong> importante cuando FN son costosos (ej. no detectar un
+fraude).</p></li>
+<li><p><strong>F1 Score:</strong> balance entre precisión y recall.</p></li>
+<li><p><strong>Especificidad:</strong> detección de la clase negativa.</p></li>
+<li><p><strong>Curva PR:</strong> útil en clases desbalanceadas.</p></li>
+<li><p><strong>Curva ROC y AUC:</strong> visión global de la capacidad del modelo.</p></li>
+</ul>
+</section>
+<section id="ejemplo-cuando-una-metrica-alta-es-enganosa-fraude-y-medicina">
+<h2>Ejemplo: cuando una métrica “alta” es engañosa (Fraude y Medicina)<a class="headerlink" href="#ejemplo-cuando-una-metrica-alta-es-enganosa-fraude-y-medicina" title="Link to this heading">#</a></h2>
+<p>En problemas <strong>desbalanceados</strong> (pocos positivos), una métrica alta
+puede dar una falsa sensación de buen desempeño.</p>
+<p>A continuación, dos casos didácticos con <strong>matrices de confusión</strong>,
+<strong>cálculo de métricas</strong> y <strong>conclusión práctica</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="caso-1-deteccion-de-fraudes-clase-positiva-fraude">
+<h2>Caso 1: Detección de fraudes (clase positiva = fraude)<a class="headerlink" href="#caso-1-deteccion-de-fraudes-clase-positiva-fraude" title="Link to this heading">#</a></h2>
+<p><strong>Contexto:</strong> 10 000 transacciones, solo 100 son fraude (1%).</p>
+<p><strong>Modelo A (ingenuo):</strong> siempre predice “no fraude”.</p>
+<p><strong>Matriz de confusión (Modelo A):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Predicho Positivo</p></th>
+<th class="head"><p>Predicho Negativo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Real Positivo</strong></p></td>
+<td><p>0</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Real Negativo</strong></p></td>
+<td><p>0</p></td>
+<td><p>9 900</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>Accuracy:</strong> ((0 + 9 900) / 10 000 = 0.990) (<strong>99%</strong>)</p></li>
+<li><p><strong>Precision:</strong> indefinida (no predice positivos) → por convención
+<strong>0</strong></p></li>
+<li><p><strong>Recall (Sensibilidad):</strong> (0 / (0 + 100) = 0) (<strong>0%</strong>)</p></li>
+</ul>
+<p><strong>Conclusión:</strong> la <strong>accuracy es altísima</strong> (99%), pero el modelo <strong>no
+detecta ningún fraude</strong> (recall = 0%).</p>
+<p><strong>Métrica que importa aquí:</strong> <strong>Recall</strong> (y también <strong>PR-AUC</strong>) porque
+perder fraudes (FN) es costoso.</p>
+<hr class="docutils" />
+<p><strong>Modelo B (más útil):</strong> detecta 80 de 100 fraudes, pero comete 200
+falsos positivos.</p>
+<p><strong>Matriz de confusión (Modelo B):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Predicho Positivo</p></th>
+<th class="head"><p>Predicho Negativo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Real Positivo</strong></p></td>
+<td><p>80</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Real Negativo</strong></p></td>
+<td><p>200</p></td>
+<td><p>9 700</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>Accuracy:</strong> ((80 + 9 700) / 10 000 = 0.978) (<strong>97.8%</strong>) ← menor que
+antes</p></li>
+<li><p><strong>Precision:</strong> (80 / (80 + 200) = 0.286) (<strong>28.6%</strong>)</p></li>
+<li><p><strong>Recall:</strong> (80 / (80 + 20) = 0.80) (<strong>80%</strong>)</p></li>
+<li><p><strong>F1:</strong> (2·(0.286·0.80)/(0.286+0.80) ≈ 0.421) (<strong>42.1%</strong>)</p></li>
+</ul>
+<p><strong>Conclusión:</strong> aunque la <strong>accuracy bajó</strong> (de 99% a 97.8%), el
+<strong>modelo B es mucho mejor</strong> para el objetivo: captura el 80% de los
+fraudes.</p>
+<p><strong>Qué mirar:</strong> en fraude, prioriza <strong>Recall</strong> (no perder fraudes) y
+<strong>F1</strong> / <strong>PR-AUC</strong> sobre <strong>Accuracy</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="caso-2-tamizaje-en-medicina-clase-positiva-enfermedad">
+<h2>Caso 2: Tamizaje en medicina (clase positiva = enfermedad)<a class="headerlink" href="#caso-2-tamizaje-en-medicina-clase-positiva-enfermedad" title="Link to this heading">#</a></h2>
+<p><strong>Contexto:</strong> 5 000 pacientes; 250 tienen la enfermedad (5%).</p>
+<p><strong>Modelo C (muy “conservador”):</strong> solo marca positivos cuando está casi
+seguro.</p>
+<p><strong>Matriz de confusión (Modelo C):</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Predicho Positivo</p></th>
+<th class="head"><p>Predicho Negativo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Real Positivo</strong></p></td>
+<td><p>100</p></td>
+<td><p>150</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Real Negativo</strong></p></td>
+<td><p>50</p></td>
+<td><p>4 700</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p><strong>Accuracy:</strong> ((100 + 4 700) / 5 000 = 0.96) (<strong>96%</strong>)</p></li>
+<li><p><strong>Precision:</strong> (100 / (100 + 50) = 0.667) (<strong>66.7%</strong>) ← <strong>alta</strong></p></li>
+<li><p><strong>Recall:</strong> (100 / (100 + 150) = 0.40) (<strong>40%</strong>) ← <strong>baja</strong></p></li>
+</ul>
+<p><strong>Conclusión:</strong> la <strong>precisión es alta</strong>, pero el modelo <strong>deja pasar
+60%</strong> de los casos enfermos (<strong>FN</strong> altos).</p>
+<p><strong>Riesgo clínico:</strong> pacientes no detectados pueden no recibir
+tratamiento oportuno.</p>
+<p><strong>Qué mirar:</strong> en tamizaje, prioriza <strong>Recall</strong> (sensibilidad). Ajusta
+el <strong>umbral</strong> para incrementar recall, aunque baje la precisión, y
+compénsalo con <strong>segunda prueba</strong> (confirmatoria) para filtrar falsos
+positivos.</p>
+</section>
+<hr class="docutils" />
+<section id="lecciones-clave-que-metrica-usar-segun-el-objetivo">
+<h2>Lecciones clave (qué métrica usar según el objetivo)<a class="headerlink" href="#lecciones-clave-que-metrica-usar-segun-el-objetivo" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Fraude, seguridad, salud pública, fallas críticas:</strong> prioriza
+<strong>Recall</strong> (evitar FN). Complementa con <strong>F1</strong> y <strong>PR-AUC</strong>.</p></li>
+<li><p><strong>Recomendadores, moderación estricta, contenido infantil:</strong> prioriza
+<strong>Precision</strong> (evitar FP). Ajusta <strong>umbral</strong> y considera <strong>revisión
+humana</strong>.</p></li>
+<li><p><strong>Clases balanceadas y costo de error similar:</strong> <strong>Accuracy</strong> puede
+ser útil, pero siempre verifica la <strong>matriz de confusión</strong>.</p></li>
+<li><p><strong>Desbalance severo:</strong> prefiere <strong>PR-AUC</strong> sobre <strong>ROC-AUC</strong> y
+reporta <strong>Precision/Recall</strong> a múltiples umbrales.</p></li>
+</ul>
+<hr class="docutils" />
 </section>
 </section>
 
@@ -965,13 +1185,20 @@ negativos; en otros casos, se usa la curva ROC.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-confusion-confusion-matrix">1. Matriz de Confusión (Confusion Matrix):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exactitud-accuracy">1. Exactitud (Accuracy):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-precision">2. Precisión (Precision):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-true-positive-rate-o-sensibilidad">3. Recall (True Positive Rate) o Sensibilidad :</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#puntuacion-f1-f1-score">4. Puntuación F1 (F1 Score):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-precision-recall">6. Curva precision/recall:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-bajo-la-curva-roc-auc-roc">7. Área Bajo la Curva ROC (AUC-ROC):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriz-de-confusion">Matriz de Confusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accuracy-exactitud">Accuracy (Exactitud)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precision-precision">Precisión (Precision)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recall-o-sensibilidad">Recall o Sensibilidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-tension-entre-precision-y-recall">La tensión entre Precisión y Recall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#f1-score">F1 Score</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#especificidad">Especificidad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-precision-recall">Curva Precisión / Recall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-roc-y-auc-roc">Curva ROC y AUC-ROC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen">Resumen:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-cuando-una-metrica-alta-es-enganosa-fraude-y-medicina">Ejemplo: cuando una métrica “alta” es engañosa (Fraude y Medicina)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-deteccion-de-fraudes-clase-positiva-fraude">Caso 1: Detección de fraudes (clase positiva = fraude)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-2-tamizaje-en-medicina-clase-positiva-enfermedad">Caso 2: Tamizaje en medicina (clase positiva = enfermedad)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lecciones-clave-que-metrica-usar-segun-el-objetivo">Lecciones clave (qué métrica usar según el objetivo)</a></li>
 </ul>
   </nav></div>
 

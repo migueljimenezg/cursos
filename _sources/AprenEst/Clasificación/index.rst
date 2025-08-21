@@ -24,7 +24,8 @@ Regresión Logística:
    :maxdepth: 1
    :titlesonly:
 
-   TeoríaRL/Regresión Logística
+   TeoríaRL/Regresión_Logística
+   EjemRL/Ejemplo_Regresión_Logística
    DatasetCrédito/Análisis dataset riesgo de crédito
    RLCrédito/Regresión logística riesgo de crédito
    RegulaRL/Regularización regresión logística
