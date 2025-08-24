@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'AprenEst/Clasificación/RegulaRL/Regularización regresión logística';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Ejemplo regularización regresión logística" href="../EjemRegulaRL/Ejemplo%20regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html" />
+    <link rel="next" title="Clasificador de dígitos escritos a mano" href="../DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html" />
     <link rel="prev" title="Regresión logística riesgo de crédito" href="../RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -239,11 +239,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Teor%C3%ADaRL/Regresi%C3%B3n_Log%C3%ADstica.html">Regresión Logística</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjemRL/Ejemplo_Regresi%C3%B3n_Log%C3%ADstica.html">Ejemplo Regresión Logística</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Regularización regresión logística</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../EjemRegulaRL/Ejemplo%20regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Ejemplo regularización regresión logística</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemRLempresas/Ejemplo_regresi%C3%B3n_log%C3%ADstica_empresas_en_re_organizaci%C3%B3n.html">Ejemplo regresión logística empresas en re organización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
@@ -645,8 +644,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-regularizacion-en-regresion-logistica">Técnicas de regularización en regresión logística:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression-y-lasso-regression">Ridge Regression y Lasso Regression:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-regularizacion-en-regresion-logistica">Técnicas de regularización en regresión logística</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularizacion-l1-lasso">Regularización L1 (Lasso)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularizacion-l2-ridge">Regularización L2 (Ridge)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression-y-lasso-regression">Ridge Regression y Lasso Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-en-la-regresion-logistica-explicacion-matematica"><code class="docutils literal notranslate"><span class="pre">C</span></code> en la regresión logística: explicación matemática</a></li>
 </ul>
             </nav>
         </div>
@@ -660,84 +664,143 @@ document.write(`
                   
   <section id="regularizacion-regresion-logistica">
 <h1>Regularización regresión logística<a class="headerlink" href="#regularizacion-regresion-logistica" title="Link to this heading">#</a></h1>
-<p>Un modelo ideal es aquel que se encuentra justo en el punto intermedio
-entre la insuficiencia de ajuste y el sobreajuste. Sin embargo, para
-identificar este punto óptimo, es necesario primero cruzarlo, es decir,
-<strong>construir un modelo que se ajuste en exceso a los datos.</strong> Este
-fenómeno se conoce como sobreajuste (overfitting), y ocurre cuando el
-modelo logra un bajo error en el conjunto de entrenamiento, pero su
-rendimiento comienza a degradarse en los datos de validación (o prueba).</p>
-<p>Una vez que el modelo alcanza un nivel donde puede sobreajustarse, el
-siguiente objetivo es maximizar su capacidad de generalización. Este
-proceso implica modificar el modelo, volver a entrenarlo y evaluar su
-rendimiento en los datos de validación. Este ciclo se repite hasta que
-se obtiene el mejor modelo posible en términos de generalización. Es
-importante señalar que, si se dispone de tres conjuntos de datos
-(entrenamiento, validación y prueba), el proceso de ajuste nunca debe
-basarse en los datos de prueba.</p>
-<section id="tecnicas-de-regularizacion-en-regresion-logistica">
-<h2>Técnicas de regularización en regresión logística:<a class="headerlink" href="#tecnicas-de-regularizacion-en-regresion-logistica" title="Link to this heading">#</a></h2>
-<p>Una de las formas más efectivas de mitigar el sobreajuste es aplicar
-técnicas de regularización que imponen restricciones sobre la
-complejidad del modelo. Esto se logra limitando los valores de los
-coeficientes del modelo, lo que obliga a los pesos a ser pequeños y, por
-lo tanto, reduce la probabilidad de sobreajuste.</p>
-<p>La regularización se implementa añadiendo un término de penalización a
-la función de pérdida del modelo, asociado con tener coeficientes
-grandes. Existen dos métodos principales de regularización:</p>
-<p><strong>Regularización L1 (Lasso):</strong></p>
-<p>La regularización L1, también conocida como Lasso (Least Absolute
-Shrinkage and Selection Operator), agrega un término de penalización
-proporcional a la suma de los valores absolutos de los coeficientes del
-modelo:</p>
-<div class="math notranslate nohighlight">
-\[Loss = Error(\hat{y},y) + \lambda \sum{|w_i|}\]</div>
-<div class="math notranslate nohighlight">
-\[||w||_1 = \sum{|w_i|}\]</div>
-<p>Donde <span class="math notranslate nohighlight">\(\lambda\)</span> es el parámetro de regularización que controla la
-fuerza de la penalización.</p>
-<p>Lasso tiende a reducir a cero algunos de los coeficientes, lo que lleva
-a un modelo más simple y a menudo más interpretativo, ya que efectúa una
-selección de variables automática. Esto significa que Lasso no solo
-ajusta el modelo, sino que también selecciona las características más
-relevantes.</p>
-<p>Es especialmente útil cuando se cree que solo un subconjunto de las
-características son verdaderamente relevantes para la predicción.</p>
-<p><strong>Regularización L2 (Ridge):</strong></p>
-<p>La regularización L2, o Ridge, introduce una penalización proporcional
-al cuadrado de los coeficientes del modelo:</p>
-<div class="math notranslate nohighlight">
-\[Loss = Error(\hat{y},y) + \lambda \sum{(w_i)^2}\]</div>
-<div class="math notranslate nohighlight">
-\[||w||_2 = \sum{(w_i)^2}\]</div>
-<p>A diferencia de L1, L2 distribuye la penalización entre todos los
-coeficientes, reduciendo su magnitud pero sin llegar a eliminarlos. Esto
-implica que todas las características permanecen en el modelo, aunque
-sus impactos son atenuados.</p>
-<p>Ridge es ideal cuando todas las características del modelo tienen alguna
-relevancia para la predicción, aunque su contribución puede ser pequeña.</p>
-<p>Ten en cuenta que la regularización de pesos es más comúnmente utilizada
-en modelos de aprendizaje profundo de menor tamaño. En los modelos de
-aprendizaje profundo más grandes, que suelen estar altamente
-parametrizados, imponer restricciones a los valores de los pesos no
-suele tener un impacto significativo en la capacidad y la generalización
-del modelo. En estos casos, se prefieren otras técnicas de
-regularización.</p>
-</section>
-<section id="ridge-regression-y-lasso-regression">
-<h2>Ridge Regression y Lasso Regression:<a class="headerlink" href="#ridge-regression-y-lasso-regression" title="Link to this heading">#</a></h2>
+<p>Un modelo ideal es aquel que se encuentra en un punto intermedio entre
+la <strong>insuficiencia de ajuste</strong> (<em>underfitting</em>) y el <strong>sobreajuste</strong>
+(<em>overfitting</em>).</p>
 <ul class="simple">
-<li><p><strong>Ridge Regression:</strong> Específicamente, se refiere al uso de
-regularización L2 en un contexto de regresión. Es particularmente
-útil en situaciones donde existe multicolinealidad entre las
-características o cuando el número de características supera al
-número de observaciones.</p></li>
-<li><p><strong>Lasso Regression:</strong> Este término se refiere a la aplicación de
-regularización L1 en modelos de regresión. Además de ajustar el
-modelo, Lasso también realiza una selección de características, lo
-que puede ser beneficioso en escenarios donde se sospecha que solo
-algunas variables son realmente importantes.</p></li>
+<li><p><strong>Sobreajuste (overfitting):</strong> ocurre cuando el modelo aprende
+demasiado bien los datos de entrenamiento (bajo error en train), pero
+su rendimiento se degrada en los datos de validación o prueba.</p></li>
+<li><p><strong>Subajuste (underfitting):</strong> ocurre cuando el modelo es demasiado
+simple y no logra capturar los patrones reales, presentando errores
+altos tanto en entrenamiento como en prueba.</p></li>
 </ul>
+<p>El objetivo es encontrar el <strong>punto óptimo de generalización</strong>. Para
+lograrlo se aplica un ciclo de ajuste donde el modelo se entrena, se
+valida y se modifica hasta obtener el mejor desempeño posible en datos
+no vistos.</p>
+<p>⚠️ Importante: si se dispone de tres conjuntos de datos
+(<strong>entrenamiento, validación y prueba</strong>), el ajuste nunca debe basarse
+en los datos de prueba.</p>
+<hr class="docutils" />
+<section id="tecnicas-de-regularizacion-en-regresion-logistica">
+<h2>Técnicas de regularización en regresión logística<a class="headerlink" href="#tecnicas-de-regularizacion-en-regresion-logistica" title="Link to this heading">#</a></h2>
+<p>La <strong>regularización</strong> es una de las formas más efectivas de mitigar el
+sobreajuste.</p>
+<p>Consiste en añadir una penalización que <strong>limita los coeficientes</strong> del
+modelo, evitando que crezcan demasiado y obligando a que los pesos sean
+pequeños.</p>
+<p>De esta forma:</p>
+<ul class="simple">
+<li><p>El modelo se vuelve más <strong>estable</strong>.</p></li>
+<li><p>Disminuye el riesgo de que aprenda el <strong>ruido</strong> de los datos.</p></li>
+</ul>
+<hr class="docutils" />
+<section id="regularizacion-l1-lasso">
+<h3>Regularización L1 (Lasso)<a class="headerlink" href="#regularizacion-l1-lasso" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>También conocida como <strong>Least Absolute Shrinkage and Selection
+Operator</strong>.</p></li>
+<li><p>Agrega un término de penalización proporcional a la suma de los
+valores absolutos de los coeficientes:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[L(\beta) = \text{Log-Loss} + \lambda \sum_{j=1}^m |\beta_j|\]</div>
+<ul class="simple">
+<li><p>Tiende a reducir a <strong>cero</strong> algunos coeficientes → genera un modelo
+más simple.</p></li>
+<li><p>Realiza <strong>selección automática de variables</strong>, dejando solo las más
+relevantes.</p></li>
+<li><p>Útil cuando se sospecha que <strong>solo algunas variables</strong> son
+importantes para la predicción.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="regularizacion-l2-ridge">
+<h3>Regularización L2 (Ridge)<a class="headerlink" href="#regularizacion-l2-ridge" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Introduce una penalización proporcional al cuadrado de los
+coeficientes:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[L(\beta) = \text{Log-Loss} + \lambda \sum_{j=1}^m \beta_j^2\]</div>
+<ul class="simple">
+<li><p>No elimina variables, pero reduce la magnitud de todos los
+coeficientes.</p></li>
+<li><p>Útil cuando <strong>todas las variables aportan algo</strong>, aunque sea poco.</p></li>
+<li><p>Ayuda en casos de <strong>multicolinealidad</strong> o cuando el número de
+variables es grande.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ridge-regression-y-lasso-regression">
+<h2>Ridge Regression y Lasso Regression<a class="headerlink" href="#ridge-regression-y-lasso-regression" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Ridge Regression:</strong> uso de regularización L2 en regresión.
+Particularmente útil cuando hay multicolinealidad o muchas variables.</p></li>
+<li><p><strong>Lasso Regression:</strong> uso de regularización L1 en regresión. Además
+de ajustar el modelo, hace <strong>selección de características</strong>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="c-en-la-regresion-logistica-explicacion-matematica">
+<h2><code class="docutils literal notranslate"><span class="pre">C</span></code> en la regresión logística: explicación matemática<a class="headerlink" href="#c-en-la-regresion-logistica-explicacion-matematica" title="Link to this heading">#</a></h2>
+<p>En scikit-learn, el parámetro que controla la regularización es
+<strong>``C``</strong>, definido como:</p>
+<div class="math notranslate nohighlight">
+\[C = \frac{1}{\lambda}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\lambda\)</span> es la fuerza de la regularización.</p>
+<hr class="docutils" />
+<p><strong>1. Función de costo sin regularización</strong></p>
+<p>La regresión logística minimiza la función de pérdida (<em>log-loss</em>):</p>
+<div class="math notranslate nohighlight">
+\[L(\beta) = - \sum_{i=1}^n \Big[ y_i \log(p_i) + (1-y_i)\log(1-p_i) \Big]\]</div>
+<p>donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_i \in \{0,1\}\)</span> es la etiqueta real.</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_i = \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_{i1} + ... + \beta_m x_{im})}}\)</span>
+es la probabilidad predicha.</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>2. Con regularización</strong></p>
+<ul class="simple">
+<li><p>Con <strong>L2 (Ridge):</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[L(\beta) = \text{Log-Loss} + \lambda \sum_{j=1}^m \beta_j^2\]</div>
+<ul class="simple">
+<li><p>Con <strong>L1 (Lasso):</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[L(\beta) = \text{Log-Loss} + \lambda \sum_{j=1}^m |\beta_j|\]</div>
+<hr class="docutils" />
+<p><strong>3. Interpretación de</strong> <code class="docutils literal notranslate"><span class="pre">C</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code> <strong>grande ⇒ :math:`lambda` pequeño</strong> → poca regularización.</p>
+<ul>
+<li><p>El modelo puede ajustar muy bien los datos, pero corre riesgo de
+<strong>sobreajuste</strong>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code> <strong>pequeño ⇒ :math:`lambda` grande</strong> → mucha regularización.</p>
+<ul>
+<li><p>Los coeficientes se reducen hacia 0, el modelo se simplifica →
+riesgo de <strong>subajuste</strong>.</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<p><strong>4. Consecuencia práctica</strong></p>
+<ul class="simple">
+<li><p>Si los coeficientes <span class="math notranslate nohighlight">\(\beta_j\)</span> son muy <strong>grandes</strong> → el modelo
+memoriza y se sobreajusta.</p></li>
+<li><p>Si los coeficientes <span class="math notranslate nohighlight">\(\beta_j\)</span> son muy <strong>pequeños</strong> → el modelo
+ignora patrones y subajusta.</p></li>
+</ul>
+<p>Por eso, <code class="docutils literal notranslate"><span class="pre">C</span></code> debe ajustarse cuidadosamente (ej. con <strong>validación
+cruzada</strong>).</p>
+<hr class="docutils" />
 </section>
 </section>
 
@@ -762,11 +825,11 @@ algunas variables son realmente importantes.</p></li>
       </div>
     </a>
     <a class="right-next"
-       href="../EjemRegulaRL/Ejemplo%20regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html"
+       href="../DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ejemplo regularización regresión logística</p>
+        <p class="prev-next-title">Clasificador de dígitos escritos a mano</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -786,8 +849,13 @@ algunas variables son realmente importantes.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-regularizacion-en-regresion-logistica">Técnicas de regularización en regresión logística:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression-y-lasso-regression">Ridge Regression y Lasso Regression:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tecnicas-de-regularizacion-en-regresion-logistica">Técnicas de regularización en regresión logística</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularizacion-l1-lasso">Regularización L1 (Lasso)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regularizacion-l2-ridge">Regularización L2 (Ridge)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression-y-lasso-regression">Ridge Regression y Lasso Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-en-la-regresion-logistica-explicacion-matematica"><code class="docutils literal notranslate"><span class="pre">C</span></code> en la regresión logística: explicación matemática</a></li>
 </ul>
   </nav></div>
 

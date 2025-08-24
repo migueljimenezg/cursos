@@ -238,11 +238,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/Teor%C3%ADaRL/Regresi%C3%B3n_Log%C3%ADstica.html">Regresión Logística</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/EjemRL/Ejemplo_Regresi%C3%B3n_Log%C3%ADstica.html">Ejemplo Regresión Logística</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/DatasetCr%C3%A9dito/An%C3%A1lisis%20dataset%20riesgo%20de%20cr%C3%A9dito.html">Análisis dataset riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/EjemRegulaRL/Ejemplo%20regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Ejemplo regularización regresión logística</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/EjemRLempresas/Ejemplo_regresi%C3%B3n_log%C3%ADstica_empresas_en_re_organizaci%C3%B3n.html">Ejemplo regresión logística empresas en re organización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Clasificaci%C3%B3n/AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
@@ -905,7 +904,7 @@ Cantidad empresas pymes:  370
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_7_04.png" src="../../../_images/output_7_04.png" />
+<img alt="../../../_images/output_7_05.png" src="../../../_images/output_7_05.png" />
 <section id="ajuste-cluster-k-means">
 <h2>Ajuste Cluster K-Means:<a class="headerlink" href="#ajuste-cluster-k-means" title="Link to this heading">#</a></h2>
 <p>Optimizar el hiperparámetro de <code class="docutils literal notranslate"><span class="pre">n_clusters</span></code></p>
@@ -980,7 +979,7 @@ Cantidad empresas pymes:  370
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_13_01.png" src="../../../_images/output_13_01.png" />
+<img alt="../../../_images/output_13_0.png" src="../../../_images/output_13_0.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1050,7 +1049,7 @@ Cantidad empresas pymes:  370
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_19_01.png" src="../../../_images/output_19_01.png" />
+<img alt="../../../_images/output_19_02.png" src="../../../_images/output_19_02.png" />
 <p>La mejor cantidad de cluster son 2 y 3.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asignar clusters</span>
 <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># Definir el número de clusters</span>
@@ -1090,12 +1089,12 @@ Cantidad empresas pymes:  370
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_22_01.png" src="../../../_images/output_22_01.png" />
+<img alt="../../../_images/output_22_02.png" src="../../../_images/output_22_02.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_23_02.png" src="../../../_images/output_23_02.png" />
+<img alt="../../../_images/output_23_03.png" src="../../../_images/output_23_03.png" />
 </section>
 <section id="ajuste-cluster-dbscan">
 <h2>Ajuste Cluster DBSCAN:<a class="headerlink" href="#ajuste-cluster-dbscan" title="Link to this heading">#</a></h2>
@@ -1199,12 +1198,12 @@ Cantidad empresas pymes:  370
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_29_0.png" src="../../../_images/output_29_0.png" />
+<img alt="../../../_images/output_29_01.png" src="../../../_images/output_29_01.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;cluster&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;tab10&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_30_01.png" src="../../../_images/output_30_01.png" />
+<img alt="../../../_images/output_30_02.png" src="../../../_images/output_30_02.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Datos atípicos</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cluster&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
