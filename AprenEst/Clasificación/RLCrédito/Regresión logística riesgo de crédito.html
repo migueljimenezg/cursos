@@ -155,6 +155,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">SERIES DE TIEMPO:</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../Series%20de%20tiempo/index.html">Series de tiempo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/QueST/Qu%C3%A9%20es%20una%20serie%20de%20tiempo.html">¿Qué es una serie de tiempo?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/ExplorST/Exploraci%C3%B3n_visual_de_series_de_tiempo.html">Exploración visual de series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo.html">Características de las series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/ACF/ACF.html">ACF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Modelos%20Autorregresivos%20-%20AR/Modelos%20Autorregresivos%20-%20AR.html">Modelos Autorregresivos - AR</a></li>
@@ -243,9 +245,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjemRLempresas/Ejemplo_regresi%C3%B3n_log%C3%ADstica_empresas_en_re_organizaci%C3%B3n.html">Ejemplo regresión logística empresas en re organización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemSVMempresas/Ejemplo_SVM_empresas_en_re_organizaci%C3%B3n.html">Ejemplo SVM empresas en re organización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EjemploAD/Ejemplo%20%C3%A1rboles%20de%20decisi%C3%B3n.html">Ejemplo árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../EjemADempresas/Ejemplo_AD_empresas_en_re_organizaci%C3%B3n.html">Ejemplo árboles de decisión empresas en re organización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Bagging/Bagging.html">Bagging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../RandomForest/Random%20Forest.html">Random Forest</a></li>
@@ -905,7 +908,7 @@ otra.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_15_0.png" src="../../../_images/output_15_0.png" />
+<img alt="../../../_images/output_15_01.png" src="../../../_images/output_15_01.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Regresión Logística&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Recall&quot;</span><span class="p">)</span>
@@ -916,7 +919,7 @@ otra.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_16_01.png" src="../../../_images/output_16_01.png" />
+<img alt="../../../_images/output_16_03.png" src="../../../_images/output_16_03.png" />
 </section>
 <section id="auc-roc">
 <h2>AUC-ROC:<a class="headerlink" href="#auc-roc" title="Link to this heading">#</a></h2>
@@ -944,7 +947,7 @@ otra.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AUC</span><span class="p">:</span> <span class="mf">0.95</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_18_11.png" src="../../../_images/output_18_11.png" />
+<img alt="../../../_images/output_18_12.png" src="../../../_images/output_18_12.png" />
 </section>
 <section id="cambio-del-umbral">
 <h2>Cambio del umbral:<a class="headerlink" href="#cambio-del-umbral" title="Link to this heading">#</a></h2>

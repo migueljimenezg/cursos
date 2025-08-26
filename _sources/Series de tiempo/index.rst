@@ -1,13 +1,15 @@
 Series de tiempo
 ==========================================================
 
-En esta sesión se explicarán los métodos convencionales para modelar las series de tiempo.
+En este curso se explicarán los métodos convencionales para modelar las series de tiempo.
 
 
 .. toctree::
    :maxdepth: 1
    :titlesonly:
 
+   QueST/Qué es una serie de tiempo
+   ExplorST/Exploración_visual_de_series_de_tiempo
    Características de las series de tiempo/Características de las series de tiempo.rst
    ACF/ACF.rst
    Modelos Autorregresivos - AR/Modelos Autorregresivos - AR.rst
@@ -18,7 +20,9 @@ En esta sesión se explicarán los métodos convencionales para modelar las seri
    
 
 .. important::
-    Archivos para trabajar esta sesión:
+    Archivos para trabajar:
+
+    * **Descargue** :download:`Precio_electricidad.csv <Precio_electricidad.csv>`
 
     * **Descargue** :download:`Estacionalidad.csv <Estacionalidad.csv>`
 
@@ -39,7 +43,6 @@ En esta sesión se explicarán los métodos convencionales para modelar las seri
 Lecturas
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Esa sesión está basada en los siguientes libros:
 
 .. image:: Ruey-Tsay.JPG
    :width: 200px

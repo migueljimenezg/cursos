@@ -155,6 +155,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">SERIES DE TIEMPO:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Series de tiempo</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../QueST/Qu%C3%A9%20es%20una%20serie%20de%20tiempo.html">¿Qué es una serie de tiempo?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ExplorST/Exploraci%C3%B3n_visual_de_series_de_tiempo.html">Exploración visual de series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo.html">Características de las series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ACF/ACF.html">ACF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Modelos%20Autorregresivos%20-%20AR/Modelos%20Autorregresivos%20-%20AR.html">Modelos Autorregresivos - AR</a></li>
@@ -243,9 +245,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EjemRLempresas/Ejemplo_regresi%C3%B3n_log%C3%ADstica_empresas_en_re_organizaci%C3%B3n.html">Ejemplo regresión logística empresas en re organización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/SVMCr%C3%A9dito/SVM%20riesgo%20de%20cr%C3%A9dito.html">SVM riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EjemSVMempresas/Ejemplo_SVM_empresas_en_re_organizaci%C3%B3n.html">Ejemplo SVM empresas en re organización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EjemploAD/Ejemplo%20%C3%A1rboles%20de%20decisi%C3%B3n.html">Ejemplo árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EjemADempresas/Ejemplo_AD_empresas_en_re_organizaci%C3%B3n.html">Ejemplo árboles de decisión empresas en re organización</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/Bagging/Bagging.html">Bagging</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../AprenEst/Clasificaci%C3%B3n/RandomForest/Random%20Forest.html">Random Forest</a></li>
@@ -715,13 +718,13 @@ automáticamente se calculan las predicciones.</p>
 <span class="w">              </span><span class="n">axis.title.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rel</span><span class="p">(</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="n">vjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_15_09.png"><img alt="../../_images/output_15_09.png" src="../../_images/output_15_09.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_15_010.png"><img alt="../../_images/output_15_010.png" src="../../_images/output_15_010.png" style="width: 420px; height: 420px;" />
 </a>
 <p><strong>Gráfico serie de tiempo, ACF y PACF:</strong></p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggtsdisplay</span><span class="p">(</span><span class="n">timeserie</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_17_07.png"><img alt="../../_images/output_17_07.png" src="../../_images/output_17_07.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_17_08.png"><img alt="../../_images/output_17_08.png" src="../../_images/output_17_08.png" style="width: 420px; height: 420px;" />
 </a>
 <p><strong>Gráfico de la ACF:</strong></p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggAcf</span><span class="p">(</span><span class="n">timeserie</span><span class="p">)</span><span class="o">+</span>
@@ -732,7 +735,7 @@ automáticamente se calculan las predicciones.</p>
 <span class="w">              </span><span class="n">axis.title.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rel</span><span class="p">(</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="n">vjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_19_010.png"><img alt="../../_images/output_19_010.png" src="../../_images/output_19_010.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_19_011.png"><img alt="../../_images/output_19_011.png" src="../../_images/output_19_011.png" style="width: 420px; height: 420px;" />
 </a>
 <p><strong>Gráfico de la PACF:</strong></p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggPacf</span><span class="p">(</span><span class="n">timeserie</span><span class="p">)</span><span class="o">+</span>
@@ -743,7 +746,7 @@ automáticamente se calculan las predicciones.</p>
 <span class="w">              </span><span class="n">axis.title.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rel</span><span class="p">(</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="n">vjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_21_07.png"><img alt="../../_images/output_21_07.png" src="../../_images/output_21_07.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_21_08.png"><img alt="../../_images/output_21_08.png" src="../../_images/output_21_08.png" style="width: 420px; height: 420px;" />
 </a>
 </section>
 

@@ -42,7 +42,7 @@ Support Vector Machines - SVM:
    :titlesonly:
 
    SVM/Support Vector Machines
-   SVMCrédito/SVM riesgo de crédito
+   EjemSVMempresas/Ejemplo_SVM_empresas_en_re_organización
 
 
 Árboles de Decisión:
@@ -54,6 +54,7 @@ Support Vector Machines - SVM:
 
    AD/Árboles de decisión
    EjemploAD/Ejemplo árboles de decisión
+   EjemADempresas/Ejemplo_AD_empresas_en_re_organización
 
 
 Ensemble Learning:

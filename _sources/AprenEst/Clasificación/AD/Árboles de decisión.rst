@@ -63,11 +63,6 @@ La construcción de un árbol de decisión implica los siguientes pasos:
 
    DecisionTree
 
-.. figure:: DecisionTree-Ejemplo.png
-   :alt: DecisionTree-Ejemplo
-
-   DecisionTree-Ejemplo
-
 Metodología:
 ~~~~~~~~~~~~
 
@@ -123,6 +118,108 @@ datos. La entropía se calcula como:
 
 El objetivo es reducir la entropía después de la división, lo que se
 lleva a nodos más puros.
+
+**Ejemplo con 5 manzanas 🍎 y 5 naranjas 🍊**
+
+Tenemos una caja con **10 frutas**:
+
+-  5 manzanas
+
+-  5 naranjas
+
+Entonces, las probabilidades son:
+
+:math:`p(\text{manzana}) = 0.5`
+
+:math:`p(\text{naranja}) = 0.5`
+
+--------------
+
+**1. Índice de Gini**
+
+La fórmula es:
+
+.. math::
+
+
+   Gini = 1 - p(\text{manzana})^2 - p(\text{naranja})^2
+
+Sustituyendo:
+
+.. math::
+
+
+   Gini = 1 - 0.5^2 - 0.5^2 = 1 - 0.25 - 0.25 = 0.5
+
+👉 El Gini vale **0.5**, que es el valor máximo posible cuando hay dos
+clases (mezcla perfecta).
+
+--------------
+
+**2. Entropía**
+
+La fórmula es:
+
+.. math::
+
+
+   H = -\sum p_i \log_2(p_i)
+
+Sustituyendo:
+
+.. math::
+
+
+   H = -(0.5 \log_2 0.5 + 0.5 \log_2 0.5)
+
+.. math::
+
+
+   H = -(0.5 \cdot -1 + 0.5 \cdot -1) = 1
+
+👉 La entropía vale **1 bit**, que también representa la máxima
+incertidumbre (mezcla perfecta).
+
+--------------
+
+**3. Nodo puro**
+
+Si tuviéramos solo manzanas (10 de 10):
+
+-  :math:`p(\text{manzana}) = 1`
+
+-  :math:`p(\text{naranja}) = 0`
+
+Entonces:
+
+.. math::
+
+
+   Gini = 1 - 1^2 - 0^2 = 0
+
+.. math::
+
+
+   H = -(1 \cdot \log_2 1 + 0 \cdot \log_2 0) = 0
+
+👉 Tanto el Gini como la Entropía valen **0**, indicando que el grupo es
+completamente puro (sin mezcla).
+
+--------------
+
+**Resumen intuitivo 🎯**
+
+-  :math:`Gini` mide qué tan mezclado está el grupo:
+
+   -  0 = nada mezclado (puro).
+
+   -  0.5 = mezcla perfecta (50% – 50%).
+
+-  :math:`H` (entropía) mide el desorden o sorpresa:
+
+   -  0 = sin sorpresa (puro).
+
+   -  1 = máxima sorpresa (equilibrio perfecto).
 
 **Poda (Pruning):**
 
