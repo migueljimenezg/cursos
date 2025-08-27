@@ -107,10 +107,13 @@ detectar morosos!
 Precisión (Precision)
 ~~~~~~~~~~~~~~~~~~~~~
 
-La **precisión** responde a:
+👉 Mide qué proporción de los que el modelo predijo como positivos son
+realmente positivos.
 
-👉 “De todos los clientes que el modelo predijo como **buenos
-pagadores**, ¿cuántos realmente lo eran?”
+De todos los que el modelo “metió al grupo positivo” (predicción)
+¿cuántos eran verdaderos (gatos) y negativos (perros) (FP)? Se ve
+afectada por los Falsos Positivos: cuantos más Falsos Positivos haya,
+más baja será la precisión.
 
 .. math::
 
@@ -142,10 +145,13 @@ positivos (TPR).
 Recall o Sensibilidad
 ~~~~~~~~~~~~~~~~~~~~~
 
-El **recall** responde a:
+👉 Mide qué proporción de los positivos reales fueron identificados
+correctamente como positivos.
 
-👉 “De todos los clientes que realmente **iban a pagar**, ¿cuántos fueron
-detectados correctamente por el modelo?”
+De todos los gatos reales que había en la base de datos, ¿a cuántos
+logró encontrar el modelo y cuántos se le escaparon (FN)? Se ve afectado
+por los escapados (FN): cuantos más gatos se le escapen al modelo, más
+bajo será el recall.
 
 .. math::
 
@@ -276,8 +282,13 @@ Especificidad
 La **especificidad** es lo opuesto al recall, pero aplicada a la clase
 negativa.
 
-👉 “De todos los clientes que realmente **no pagaron**, ¿cuántos fueron
-clasificados correctamente como malos pagadores?”
+👉 Mide qué proporción de los negativos reales fueron identificados
+correctamente como negativos.
+
+De todos los perros reales que había en la base de datos, ¿a cuántos
+logró reconocer el modelo como perros y cuántos se le colaron en el
+grupo de gatos (FP)? Se ve afectada por los colados (FP): cuantos más
+perros se metan por error como gatos, más baja será la especificidad.
 
 .. math::
 
@@ -332,18 +343,32 @@ bancario).
 Curva ROC y AUC-ROC
 ~~~~~~~~~~~~~~~~~~~
 
-La **curva ROC** grafica:
+La **curva ROC** (Receiver Operating Characteristic) grafica:
 
--  **Eje Y:** Recall (TPR).
+-  **Eje Y:** Recall (TPR). Representa a los gatos encontrados
+   correctamente por el modelo, Verdaderos Positivos.
 
 -  **Eje X:** Tasa de falsos positivos (FPR = 1 - Specificity).
+   Representa a los Falsos Positivos (perros que el modelo metió por
+   error como gatos).
+
+Cada punto de la curva ROC muestra un umbral de decisión diferente. A
+medida que bajo el umbral, el modelo detecta más gatos (↑ Recall), pero
+también deja entrar más perros colados (FP) (↑ FPR).
 
 El **AUC (Área Bajo la Curva ROC)** mide la capacidad global del modelo
-para distinguir entre clases.
+para distinguir entre clases. Resume en un solo número qué tan bien el
+modelo separa gatos vs perros:
 
 -  **AUC = 1:** modelo perfecto.
 
 -  **AUC = 0.5:** modelo aleatorio.
+
+Un AUC de 0,80 significa que, si tomas un gato y un perro al azar, hay
+un 80% de probabilidad de que el modelo le asigne mayor score al gato
+que al perro. Significa que el modelo diferencia bastante bien entre
+gatos y perros, aunque todavía se le cuelan algunos perros y se le
+escapan algunos gatos en ciertos umbrales.
 
 **Ejemplo financiero:** comparar diferentes modelos de scoring
 crediticio y elegir el que mejor separa buenos de malos pagadores.

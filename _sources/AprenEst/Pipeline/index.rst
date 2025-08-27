@@ -7,7 +7,7 @@ Pipeline
    :titlesonly:
 
    Pipeline/Pipeline
-   Pipeline riesgo de crédito/Pipeline riesgo de crédito
+   EjemPipelineEmpresas/Ejemplo_pipeline_empresas_en_re_organización
 
 
 Archivos
