@@ -10,6 +10,7 @@ En este curso se explicarán los métodos convencionales para modelar las series
 
    QueST/Qué es una serie de tiempo
    ExplorST/Exploración_visual_de_series_de_tiempo
+   Msuavizado/Métodos_de_suavizado
    Características de las series de tiempo/Características de las series de tiempo.rst
    ACF/ACF.rst
    Modelos Autorregresivos - AR/Modelos Autorregresivos - AR.rst
