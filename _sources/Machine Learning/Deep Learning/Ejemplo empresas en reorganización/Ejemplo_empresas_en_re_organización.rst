@@ -1,3 +1,6 @@
+Ejemplo empresas en re organización
+-----------------------------------
+
 .. code:: ipython3
 
     import pandas as pd
@@ -702,7 +705,7 @@
 
 
 
-.. image:: output_9_0.png
+.. image:: output_10_0.png
 
 
 .. code:: ipython3
@@ -755,11 +758,11 @@
 
 
 
-.. image:: output_11_0.png
+.. image:: output_12_0.png
 
 
 
-.. image:: output_11_1.png
+.. image:: output_12_1.png
 
 
 .. parsed-literal::
@@ -885,7 +888,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_1.png
+.. image:: output_15_1.png
 
 
 .. parsed-literal::
@@ -899,7 +902,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_3.png
+.. image:: output_15_3.png
 
 
 .. parsed-literal::
@@ -913,7 +916,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_5.png
+.. image:: output_15_5.png
 
 
 .. parsed-literal::
@@ -927,7 +930,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_7.png
+.. image:: output_15_7.png
 
 
 .. parsed-literal::
@@ -941,7 +944,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_9.png
+.. image:: output_15_9.png
 
 
 .. parsed-literal::
@@ -955,7 +958,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_11.png
+.. image:: output_15_11.png
 
 
 .. parsed-literal::
@@ -969,7 +972,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_13.png
+.. image:: output_15_13.png
 
 
 .. parsed-literal::
@@ -983,7 +986,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_15.png
+.. image:: output_15_15.png
 
 
 .. parsed-literal::
@@ -997,7 +1000,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_17.png
+.. image:: output_15_17.png
 
 
 .. parsed-literal::
@@ -1011,7 +1014,7 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_14_19.png
+.. image:: output_15_19.png
 
 
 **Mejor modelo:**
@@ -1069,11 +1072,11 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_17_1.png
+.. image:: output_18_1.png
 
 
 
-.. image:: output_17_2.png
+.. image:: output_18_2.png
 
 
 .. parsed-literal::
@@ -1251,7 +1254,7 @@ Optimización de hiperparámetros:
 
 
 
-.. image:: output_24_0.png
+.. image:: output_25_0.png
 
 
 .. parsed-literal::
@@ -1261,11 +1264,11 @@ Optimización de hiperparámetros:
     
 
 
-.. image:: output_24_2.png
+.. image:: output_25_2.png
 
 
 
-.. image:: output_24_3.png
+.. image:: output_25_3.png
 
 
 .. parsed-literal::
