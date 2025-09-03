@@ -74,6 +74,7 @@ Optimización de Hiperparámetros:
    GridSearchCV/GridSearchCV
    RandomizedSearchCV/RandomizedSearchCV
    KerasTuner/KerasTuner
+   Ejemplo empresas en reorganización/Ejemplo_empresas_en_re_organización
 
 
 Regularización:
@@ -127,6 +128,8 @@ ______________________________________________
 
 .. important::
     Archivo para trabajar esta sesión:
+
+    * **Descargue** :download:`BD empresas en re organización.xlsx <BD empresas en re organización.xlsx>`
 
     * **Descargue** :download:`Irradiancia mensual.csv <Irradiance_mensual.csv>`
 
