@@ -45,7 +45,7 @@
     <script src="../../_static/copybutton.js?v=fd10adb8"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Msuavizado/Métodos_de_suavizado';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Msuavizado/Métodos_de_suavizado_v2';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Características de las series de tiempo" href="../Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo.html" />
@@ -554,7 +554,7 @@
       
       
       
-      <li><a href="../../_sources/Series de tiempo/Msuavizado/Métodos_de_suavizado.rst" target="_blank"
+      <li><a href="../../_sources/Series de tiempo/Msuavizado/Métodos_de_suavizado_v2.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -649,17 +649,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suavizado-exponencial-simple-ses">Suavizado Exponencial Simple (SES):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-recursiva-y-componentes">Fórmula recursiva y componentes:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-del-parametro-alpha">Interpretación del parámetro <span class="math notranslate nohighlight">\(\alpha\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pronostico-con-ses">Pronóstico con SES:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas-y-limitaciones">Ventajas y limitaciones:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-practicos-de-implementacion">Pasos prácticos de implementación:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo"><strong>Ejemplo:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-con-otros-metodos">Conexión con otros métodos:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpleexpsmoothing-ses-statsmodels">SimpleExpSmoothing (SES) — <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-holt-suavizado-exponencial-doble">Método de Holt (Suavizado Exponencial Doble):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-del-metodo-de-holt-suavizado-doble"><strong>Ejemplo del método de Holt (suavizado doble):</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pronostico"><strong>Pronóstico</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-holt-winters-suavizado-exponencial-triple">Método de Holt-Winters (Suavizado Exponencial Triple):</a></li>
 </ul>
             </nav>
@@ -674,134 +665,252 @@ document.write(`
                   
   <section id="metodos-de-suavizado">
 <h1>Métodos de suavizado<a class="headerlink" href="#metodos-de-suavizado" title="Link to this heading">#</a></h1>
+<p>En numerosos contextos de análisis y pronóstico, resulta esencial
+estimar la tendencia de una serie de tiempo. Este componente puede ser
+relevante en sí mismo —al reflejar la evolución de largo plazo de la
+variable— o bien constituir un paso previo para lograr la
+estacionariedad de la serie mediante la eliminación de dicha tendencia.</p>
+<p>Los métodos de suavizamiento se utilizan para reducir el ruido y las
+fluctuaciones de corto plazo, permitiendo así revelar el comportamiento
+subyacente y persistente de la serie. De esta manera, facilitan la
+identificación y el modelado de la tendencia.</p>
 <section id="suavizado-exponencial-simple-ses">
 <h2>Suavizado Exponencial Simple (SES):<a class="headerlink" href="#suavizado-exponencial-simple-ses" title="Link to this heading">#</a></h2>
-<p>El <strong>Suavizado Exponencial Simple (SES)</strong> es un método de pronóstico
-univariante para series de tiempo que combina el valor más reciente de
-la serie con el nivel suavizado anterior, asignando un peso decreciente
-a medida que los datos son más antiguos.</p>
-<p>Se utiliza principalmente cuando la serie no presenta tendencia ni
-estacionalidad marcada, o cuando buscamos un pronóstico muy “reactivo” a
-los cambios recientes.</p>
-</section>
-<section id="formula-recursiva-y-componentes">
-<h2>Fórmula recursiva y componentes:<a class="headerlink" href="#formula-recursiva-y-componentes" title="Link to this heading">#</a></h2>
-<p>Denotemos por:</p>
+<p>El <strong>suavizado exponencial simple (SES)</strong> fue propuesto a finales de los
+años 50 (Brown, 1959; Holt, 1957; Winters, 1960) y constituye la base de
+algunos de los métodos de pronóstico más utilizados en la práctica.</p>
+<p>La idea central es generar <strong>pronósticos como promedios ponderados de
+las observaciones pasadas</strong>, donde los pesos decrecen exponencialmente
+con el tiempo. Esto implica que:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(y_t\)</span>: valor observado de la serie en el período <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p>Las observaciones recientes tienen mayor influencia en el pronóstico.</p></li>
+<li><p>Las observaciones más lejanas tienen menor peso, aunque nunca
+desaparecen completamente.</p></li>
+</ul>
+<p>Este enfoque ofrece un procedimiento rápido, confiable y flexible para
+una amplia gama de series de tiempo, lo que explica su éxito en
+aplicaciones industriales y académicas.</p>
+<p><strong>Comparación con métodos básicos:</strong></p>
+<p>Antes de introducir SES, recordemos dos métodos simples:</p>
+<ul class="simple">
+<li><p><strong>Método naïve</strong>:</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{T+h|T} = y_T, \quad h \geq 1\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">El último valor observado se usa como pronóstico futuro. Todo el peso
+recae únicamente en la observación más reciente.</div>
+</div>
+<ul class="simple">
+<li><p><strong>Método del promedio</strong>:</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{T+h|T} = \frac{1}{T} \sum_{t=1}^T y_t, \quad h \geq 1\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Todos los datos pasados tienen el mismo peso.</div>
+</div>
+<p>El SES se ubica entre estos dos extremos: da más importancia a los datos
+recientes, pero no ignora por completo el pasado.</p>
+<p><strong>Forma de promedio ponderado:</strong></p>
+<p>El SES calcula un promedio ponderado donde los pesos decrecen
+geométricamente:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[S_t = \alpha y_t + (1-\alpha)y_{t-1} + (1-\alpha)^2 y_{t-2} + \cdots\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">con <span class="math notranslate nohighlight">\(0 &lt; \alpha &lt; 1\)</span>.</div>
+</div>
+<p>De aquí se deriva la <strong>forma recursiva</strong>:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[S_t = \alpha y_t + (1-\alpha)S_{t-1}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">donde:</div>
+</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_t\)</span>: valor observado en el período <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(S_t\)</span>: nivel suavizado en el período <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: parámetro de suavizado, con <span class="math notranslate nohighlight">\(0 &lt; \alpha &lt; 1\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: parámetro de suavizado.</p></li>
 </ul>
-<p>La ecuación recursiva del SES es:</p>
+<p>Los <strong>ajustes o valores suavizados</strong> (fitted values) se obtienen como:</p>
 <div class="math notranslate nohighlight">
-\[S_1 = y_1\]</div>
-<div class="math notranslate nohighlight">
-\[S_t = \alpha\,y_t\;+\;(1 - \alpha)\,S_{t-1}\]</div>
+\[\hat{y}_{t|t-1} = S_{t-1}\]</div>
+<p><strong>Interpretación de</strong> <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<p>El parámetro <span class="math notranslate nohighlight">\(\alpha\)</span> controla la rapidez con la que los pesos
+asignados a las observaciones pasadas decrecen:</p>
 <ul class="simple">
-<li><p><strong>Término de actualización</strong> <span class="math notranslate nohighlight">\(\alpha\,y_t\)</span>: incorpora el valor
-actual con peso <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
-<li><p><strong>Término de persistencia</strong> <span class="math notranslate nohighlight">\((1-\alpha)\,S_{t-1}\)</span>: conserva el
-nivel suavizado anterior con peso <span class="math notranslate nohighlight">\((1-\alpha)\)</span>.</p></li>
-</ul>
-</section>
-<section id="interpretacion-del-parametro-alpha">
-<h2>Interpretación del parámetro <span class="math notranslate nohighlight">\(\alpha\)</span><a class="headerlink" href="#interpretacion-del-parametro-alpha" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> cercano a 1:</p>
+<li><p><span class="math notranslate nohighlight">\(\alpha \approx 1\)</span>:</p>
 <ul>
-<li><p>Suavizado «ligero», el pronóstico responde rápidamente a cambios
-recientes.</p></li>
-<li><p>Mayor varianza en la serie suavizada.</p></li>
+<li><p>El modelo se parece al método naïve.</p></li>
+<li><p>El pronóstico reacciona rápido a cambios recientes.</p></li>
+<li><p>Mayor varianza en los valores suavizados.</p></li>
 </ul>
 </li>
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> cercano a 0:</p>
+<li><p><span class="math notranslate nohighlight">\(\alpha \approx 0\)</span>:</p>
 <ul>
-<li><p>Suavizado «fuerte», la serie suavizada es muy estable y reacciona
-lentamente.</p></li>
-<li><p>Menor varianza, pero tarda en reflejar cambios recientes.</p></li>
+<li><p>El modelo se acerca al método del promedio.</p></li>
+<li><p>La serie suavizada es estable pero lenta para reflejar cambios.</p></li>
+<li><p>Menor varianza, pero más rezago en la reacción.</p></li>
 </ul>
 </li>
 </ul>
-<p>En la práctica, <span class="math notranslate nohighlight">\(\alpha\)</span> se elige minimizando un criterio de error
-(por ejemplo, MSE) sobre los datos históricos, o bien probando varios
-valores y seleccionando el que ofrezca el mejor balance entre reaccionar
-a cambios y reducir ruido.</p>
-</section>
-<section id="pronostico-con-ses">
-<h2>Pronóstico con SES:<a class="headerlink" href="#pronostico-con-ses" title="Link to this heading">#</a></h2>
-<p>Una gran ventaja de SES es que el pronóstico a uno o más pasos se
-obtiene directamente del último nivel suavizado:</p>
+<p>Ejemplo de pesos decrecientes según <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rezago</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\a
+lpha = 0.2\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\a
+lpha = 0.4\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\a
+lpha = 0.6\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\a
+lpha = 0.8\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(y_t\)</span></p></td>
+<td><p>0.2000</p></td>
+<td><p>0.4000</p></td>
+<td><p>0.6000</p></td>
+<td><p>0.8000</p></td>
+</tr>
+<tr class="row-odd"><td><p>:mat
+h:<cite>y_{t-1}</cite></p></td>
+<td><p>0.1600</p></td>
+<td><p>0.2400</p></td>
+<td><p>0.2400</p></td>
+<td><p>0.1600</p></td>
+</tr>
+<tr class="row-even"><td><p>:mat
+h:<cite>y_{t-2}</cite></p></td>
+<td><p>0.1280</p></td>
+<td><p>0.1440</p></td>
+<td><p>0.0960</p></td>
+<td><p>0.0320</p></td>
+</tr>
+<tr class="row-odd"><td><p>:mat
+h:<cite>y_{t-3}</cite></p></td>
+<td><p>0.1024</p></td>
+<td><p>0.0864</p></td>
+<td><p>0.0384</p></td>
+<td><p>0.0064</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Los <strong>pesos del suavizado exponencial simple (SES)</strong> en la forma de
+promedio ponderado se calculan con la fórmula:</p>
 <div class="math notranslate nohighlight">
-\[\hat{y}_{t+h} = S_t
-\quad\forall\,h \ge 1\]</div>
-<p>Es decir, todos los pronósticos futuros son iguales al nivel suavizado
-más reciente.</p>
-</section>
-<section id="ventajas-y-limitaciones">
-<h2>Ventajas y limitaciones:<a class="headerlink" href="#ventajas-y-limitaciones" title="Link to this heading">#</a></h2>
-<p><strong>Ventajas</strong></p>
+\[\text{Peso en } y_{t-j} = \alpha (1-\alpha)^j, \quad j = 0,1,2,\dots\]</div>
+<p>donde:</p>
 <ul class="simple">
-<li><p>Muy sencillo de implementar y comprender.</p></li>
-<li><p>Pocos parámetros (<span class="math notranslate nohighlight">\(\alpha\)</span>).</p></li>
-<li><p>Requiere escaso almacenamiento (solo <span class="math notranslate nohighlight">\(S_{t-1}\)</span>).</p></li>
-<li><p>Óptimo para series sin tendencia ni estacionalidad.</p></li>
+<li><p><span class="math notranslate nohighlight">\(j\)</span> es el <strong>rezago</strong> (0 corresponde a <span class="math notranslate nohighlight">\(y_t\)</span>, 1 a
+<span class="math notranslate nohighlight">\(y_{t-1}\)</span>, etc.).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> es el parámetro de suavizamiento.</p></li>
 </ul>
-<p><strong>Limitaciones</strong></p>
+<p><strong>Ejemplo de cálculo para</strong> <span class="math notranslate nohighlight">\(\alpha = 0.2\)</span>:</p>
 <ul class="simple">
-<li><p>No capta tendencia ni patrones estacionales.</p></li>
-<li><p>Pronósticos convergen a un nivel constante.</p></li>
-<li><p>Sensible a la elección de <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+<li><p>Rezago <span class="math notranslate nohighlight">\(0\)</span>: <span class="math notranslate nohighlight">\(0.2 \cdot (1-0.2)^0 = 0.2000\)</span></p></li>
+<li><p>Rezago <span class="math notranslate nohighlight">\(1\)</span>: <span class="math notranslate nohighlight">\(0.2 \cdot (1-0.2)^1 = 0.1600\)</span></p></li>
+<li><p>Rezago <span class="math notranslate nohighlight">\(2\)</span>: <span class="math notranslate nohighlight">\(0.2 \cdot (1-0.2)^2 = 0.1280\)</span></p></li>
+<li><p>Rezago <span class="math notranslate nohighlight">\(3\)</span>: <span class="math notranslate nohighlight">\(0.2 \cdot (1-0.2)^3 = 0.1024\)</span></p></li>
 </ul>
-</section>
-<section id="pasos-practicos-de-implementacion">
-<h2>Pasos prácticos de implementación:<a class="headerlink" href="#pasos-practicos-de-implementacion" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="id1">
+<img alt="Decaimiento" src="../../_images/Decaimiento.png" />
+<figcaption>
+<p><span class="caption-text">Decaimiento</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<img alt="decaimiento_exponencial.gif" src="../../_images/decaimiento_exponencial.gif" />
+<figcaption>
+<p><span class="caption-text">decaimiento_exponencial.gif</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<img alt="suavizamiento_exponencial" src="../../_images/suavizamiento_exponencial.gif" />
+<figcaption>
+<p><span class="caption-text">suavizamiento_exponencial</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Pronóstico con SES:</strong></p>
+<p>Una característica clave es que los pronósticos son <strong>planos (flat
+forecasts)</strong>:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{T+h|T} = S_T, \quad h \geq 1\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Es decir, todos los valores futuros se predicen como el último nivel
+suavizado. Esto es apropiado únicamente si la serie no tiene tendencia
+ni estacionalidad.</div>
+</div>
+<p><strong>Pasos prácticos de implementación:</strong></p>
 <ol class="arabic simple">
-<li><p><strong>Inicialización</strong></p>
-<ul class="simple">
-<li><p>Tomar <span class="math notranslate nohighlight">\(S_1 = y_1\)</span>.</p></li>
-<li><p>Alternativamente, usar la media de los primeros <span class="math notranslate nohighlight">\(k\)</span> valores
-para <span class="math notranslate nohighlight">\(S_k\)</span>.</p></li>
-</ul>
-</li>
-<li><p><strong>Recursión</strong></p>
-<ul class="simple">
-<li><p>Para cada <span class="math notranslate nohighlight">\(t = 2, 3, \dots, T\)</span>, actualizar <span class="math notranslate nohighlight">\(S_t\)</span> con
-la fórmula recursiva.</p></li>
-</ul>
-</li>
-<li><p><strong>Cálculo del pronóstico</strong></p>
-<ul class="simple">
-<li><p>Para cada <span class="math notranslate nohighlight">\(h \ge 1\)</span>, fijar <span class="math notranslate nohighlight">\(\hat{y}_{T+h} = S_T\)</span>.</p></li>
-</ul>
-</li>
-<li><p><strong>Selección de :math:`alpha`</strong></p>
-<ul class="simple">
-<li><p>Fit manual: probar varios valores (por ejemplo, de 0.1 en 0.1) y
-calcular MSE.</p></li>
-<li><p>Fit automático: optimizar <span class="math notranslate nohighlight">\(\alpha\)</span> mediante minimización de
-MSE.</p></li>
-</ul>
-</li>
+<li><p><strong>Inicialización</strong>: elegir <span class="math notranslate nohighlight">\(S_1 = y_1\)</span> o bien la media de los
+primeros <span class="math notranslate nohighlight">\(k\)</span> valores.</p></li>
+<li><p><strong>Recursión</strong>: calcular <span class="math notranslate nohighlight">\(S_t = \alpha y_t + (1-\alpha)S_{t-1}\)</span>
+para <span class="math notranslate nohighlight">\(t=2,\dots,T\)</span>.</p></li>
+<li><p><strong>Pronóstico</strong>: fijar <span class="math notranslate nohighlight">\(\hat{y}_{T+h|T} = S_T\)</span> para
+<span class="math notranslate nohighlight">\(h \geq 1\)</span>.</p></li>
 </ol>
-</section>
-<section id="ejemplo">
-<h2><strong>Ejemplo:</strong><a class="headerlink" href="#ejemplo" title="Link to this heading">#</a></h2>
-<p>Supongamos la serie <span class="math notranslate nohighlight">\(\{y_t\} = [10,\;12,\;11,\;13,\;12]\)</span> y
-<span class="math notranslate nohighlight">\(\alpha = 0.5\)</span>:</p>
+<p><strong>Ejemplo:</strong></p>
+<p>Supongamos la serie <span class="math notranslate nohighlight">\(\{y_t\} = [10, 12, 11, 13, 12]\)</span> y
+<span class="math notranslate nohighlight">\(\alpha = 0.3\)</span>:</p>
 <ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(S_1 = 10\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_2 = 0.5\cdot12 + 0.5\cdot10 = 11\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_3 = 0.5\cdot11 + 0.5\cdot11 = 11\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_4 = 0.5\cdot13 + 0.5\cdot11 = 12\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_5 = 0.5\cdot12 + 0.5\cdot12 = 12\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_2 = 0.3 \cdot 12 + 0.7 \cdot 10 = 10.6\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_3 = 0.3 \cdot 11 + 0.7 \cdot 10.6 = 10.72\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_4 = 0.3 \cdot 13 + 0.7 \cdot 10.72 = 11.40\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_5 = 0.3 \cdot 12 + 0.7 \cdot 11.40 = 11.58\)</span></p></li>
 </ol>
-<p>El pronóstico a cualquier paso futuro será <span class="math notranslate nohighlight">\(\hat{y}_{6} = 12\)</span>.</p>
-</section>
-<section id="conexion-con-otros-metodos">
-<h2>Conexión con otros métodos:<a class="headerlink" href="#conexion-con-otros-metodos" title="Link to this heading">#</a></h2>
+<div class="line-block">
+<div class="line">El pronóstico será:</div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{6} = 11.58, \quad \hat{y}_{7} = 11.58, \quad \hat{y}_{8} = 11.58, \dots\]</div>
+</div></blockquote>
+<p><strong>Ventajas y limitaciones:</strong></p>
 <ul class="simple">
-<li><p><strong>Holt (doble suavizado)</strong>: agrega un componente de tendencia.</p></li>
-<li><p><strong>Holt–Winters</strong>: extiende SES a datos con estacionalidad.</p></li>
+<li><p><strong>Ventajas:</strong></p></li>
+<li><p>Fácil de implementar y comprender.</p></li>
+<li><p>Pocos parámetros a estimar.</p></li>
+<li><p>Requiere escaso almacenamiento.</p></li>
+<li><p>Útil para series sin tendencia ni estacionalidad.</p></li>
+<li><p><strong>Limitaciones:</strong></p></li>
+<li><p>No modela tendencias ni estacionalidad.</p></li>
+<li><p>Todos los pronósticos convergen a un nivel constante.</p></li>
+<li><p>Sensible a la elección de <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+</ul>
+<p><strong>Conexión con otros métodos:</strong></p>
+<ul class="simple">
+<li><p><strong>Holt (doble suavizado):</strong> incorpora un componente de tendencia.</p></li>
+<li><p><strong>Holt–Winters:</strong> extiende SES para incluir estacionalidad (aditiva o
+multiplicativa).</p></li>
 </ul>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -815,23 +924,10 @@ MSE.</p></li>
 <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">periods</span><span class="p">)</span>
 <span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">level</span> <span class="o">+</span> <span class="n">noise</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span>
 
-<span class="c1"># Función SES recursiva</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">ses</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">series</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="p">)):</span>
-        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">series</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="n">result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-
-<span class="c1"># Aplicar SES para distintos alpha</span>
-<span class="n">alphas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]</span>
-<span class="n">smoothed</span> <span class="o">=</span> <span class="p">{</span><span class="n">alpha</span><span class="p">:</span> <span class="n">ses</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">}</span>
-
-<span class="c1"># Graficar resultados</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># Graficar serie de tiempo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">smooth</span> <span class="ow">in</span> <span class="n">smoothed</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;α = </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;SES en serie sin tendencia ni estacionalidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Serie sin tendencia ni estacionalidad&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -840,7 +936,7 @@ MSE.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_3_05.png" src="../../_images/output_3_05.png" />
+<img alt="../../_images/output_12_09.png" src="../../_images/output_12_09.png" />
 </section>
 <section id="simpleexpsmoothing-ses-statsmodels">
 <h2>SimpleExpSmoothing (SES) — <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#simpleexpsmoothing-ses-statsmodels" title="Link to this heading">#</a></h2>
@@ -865,7 +961,7 @@ iguales al último valor suavizado.</p>
 <span class="n">alpha_opt</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_level&#39;</span><span class="p">]</span>
 
 <span class="c1"># Graficar resultados</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Suavizado SES (α optimizado = </span><span class="si">{</span><span class="n">alpha_opt</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ajuste con Suavizado Exponencial Simple (SES)&#39;</span><span class="p">)</span>
@@ -877,7 +973,7 @@ iguales al último valor suavizado.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_6_0.png" src="../../_images/output_6_0.png" />
+<img alt="../../_images/output_15_010.png" src="../../_images/output_15_010.png" />
 <p><code class="docutils literal notranslate"><span class="pre">optimized=True</span></code>: permite que el modelo escoja el mejor valor de
 <span class="math notranslate nohighlight">\(\alpha\)</span> minimizando el error cuadrático medio (MSE) en los datos.</p>
 <p><strong>Ajustar el modelo con un valor específico de alpha (por ejemplo,
@@ -904,7 +1000,7 @@ iguales al último valor suavizado.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_8_010.png" src="../../_images/output_8_010.png" />
+<img alt="../../_images/output_17_08.png" src="../../_images/output_17_08.png" />
 <p><strong>¿Qué significa que</strong> <span class="math notranslate nohighlight">\(\alpha = 1\)</span> <strong>en el Suavizado Exponencial
 Simple (SES)?</strong></p>
 <p>Cuando se aplica el método de <strong>Suavizado Exponencial Simple (SES)</strong> y
@@ -914,13 +1010,6 @@ comportamiento del modelo.</p>
 <p>El SES se define mediante la fórmula recursiva:</p>
 <div class="math notranslate nohighlight">
 \[S_t = \alpha\, y_t + (1 - \alpha)\, S_{t-1}\]</div>
-<p>Donde:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(y_t\)</span> es el valor observado en el tiempo <span class="math notranslate nohighlight">\(t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_t\)</span> es el valor suavizado en el tiempo <span class="math notranslate nohighlight">\(t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> es el parámetro de suavizado, con
-<span class="math notranslate nohighlight">\(0 &lt; \alpha &lt; 1\)</span></p></li>
-</ul>
 <p>Si <span class="math notranslate nohighlight">\(\alpha = 1\)</span>, la fórmula se simplifica a:</p>
 <div class="math notranslate nohighlight">
 \[S_t = y_t\]</div>
@@ -963,11 +1052,11 @@ serie.</p></li>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mdates</span>
 
 <span class="c1"># Descargar datos mensuales desde 2015</span>
-<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2020-01-01&quot;</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2021-01-01&quot;</span>
 <span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;2025-07-31&quot;</span>
 
 <span class="c1"># TRM de Colombia (USD/COP)</span>
-<span class="n">serie</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;ECOPETROL.CL&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_date</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s1">&#39;1mo&#39;</span><span class="p">,</span> <span class="n">auto_adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+<span class="n">serie</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;^GSPC&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_date</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s1">&#39;1mo&#39;</span><span class="p">,</span> <span class="n">auto_adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
 <span class="n">serie</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Serie de tiempo&#39;</span>
 
 <span class="c1"># Establecer frecuencia explícita para evitar el warning de statsmodels</span>
@@ -992,7 +1081,7 @@ serie.</p></li>
 </pre></div>
 </div>
 <pre class="literal-block">[<strong>*******************100%*********************</strong>]  1 of 1 completed</pre>
-<img alt="../../_images/output_10_16.png" src="../../_images/output_10_16.png" />
+<img alt="../../_images/output_19_13.png" src="../../_images/output_19_13.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajustar SES con alpha optimizado automáticamente</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">SimpleExpSmoothing</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fitted_values</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fittedvalues</span>
@@ -1011,72 +1100,208 @@ serie.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_11_014.png" src="../../_images/output_11_014.png" />
+<img alt="../../_images/output_20_08.png" src="../../_images/output_20_08.png" />
 </section>
 <section id="metodo-de-holt-suavizado-exponencial-doble">
 <h2>Método de Holt (Suavizado Exponencial Doble):<a class="headerlink" href="#metodo-de-holt-suavizado-exponencial-doble" title="Link to this heading">#</a></h2>
-<p>El <strong>método de Holt</strong>, también conocido como <strong>suavizado exponencial
-doble</strong>, es una extensión del Suavizado Exponencial Simple (SES) que
-permite modelar <strong>series de tiempo con tendencia</strong>, pero sin
-estacionalidad. Introduce un segundo componente llamado <strong>tendencia</strong>,
-que evoluciona en el tiempo y se ajusta junto al nivel de la serie.</p>
-<p><strong>Componentes del modelo:</strong></p>
-<p>El modelo de Holt tiene dos ecuaciones principales:</p>
+<p>El <strong>método de Holt</strong> (Holt, 1957), también conocido como <strong>suavizado
+exponencial doble</strong>, extiende el Suavizado Exponencial Simple (SES) para
+permitir el pronóstico de <strong>series de tiempo con tendencia</strong>, pero sin
+estacionalidad.</p>
+<p>La idea es incorporar un segundo componente —la <strong>tendencia</strong>— que
+evoluciona junto con el nivel de la serie. Así, el pronóstico no es
+plano como en SES, sino que sigue una trayectoria lineal en el tiempo.</p>
+<p><strong>Componentes del modelo</strong></p>
 <ul class="simple">
-<li><p><strong>Nivel</strong> <span class="math notranslate nohighlight">\(L_t\)</span>: representa el valor suavizado de la serie.</p></li>
-<li><p><strong>Tendencia</strong> <span class="math notranslate nohighlight">\(T_t\)</span>: representa el cambio esperado entre
-períodos.</p></li>
+<li><p><strong>Nivel</strong> <span class="math notranslate nohighlight">\(\ell_t\)</span>: representa el valor suavizado de la serie.</p></li>
+<li><p><strong>Tendencia</strong> <span class="math notranslate nohighlight">\(b_t\)</span>: representa la pendiente o cambio esperado
+entre períodos.</p></li>
 </ul>
-<p>La formulación del modelo es:</p>
-<div class="math notranslate nohighlight">
-\[L_t = \alpha y_t + (1 - \alpha)(L_{t-1} + T_{t-1})\]</div>
-<div class="math notranslate nohighlight">
-\[T_t = \beta (L_t - L_{t-1}) + (1 - \beta) T_{t-1}\]</div>
-<div class="math notranslate nohighlight">
-\[\hat{y}_{t+h} = L_t + h \cdot T_t\]</div>
-<p>Donde:</p>
+<p>Las ecuaciones del modelo son:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(y_t\)</span>: valor observado en el tiempo <span class="math notranslate nohighlight">\(t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(L_t\)</span>: nivel estimado en el tiempo <span class="math notranslate nohighlight">\(t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(T_t\)</span>: tendencia estimada en el tiempo <span class="math notranslate nohighlight">\(t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\hat{y}_{t+h}\)</span>: pronóstico a <span class="math notranslate nohighlight">\(h\)</span> pasos adelante</p></li>
+<li><p><strong>Ecuación de nivel:</strong></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\ell_t = \alpha y_t + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Ecuación de tendencia:</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[b_t = \beta (\ell_t - \ell_{t-1}) + (1-\beta)b_{t-1}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Ecuación de pronóstico:</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{t+h|t} = \ell_t + h b_t\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">donde:</div>
+</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_t\)</span>: valor observado en el período <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\ell_t\)</span>: nivel estimado en <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_t\)</span>: tendencia estimada en <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{y}_{t+h|t}\)</span>: pronóstico a <span class="math notranslate nohighlight">\(h\)</span> pasos adelante</p></li>
 <li><p><span class="math notranslate nohighlight">\(\alpha \in (0,1)\)</span>: parámetro de suavizado para el nivel</p></li>
 <li><p><span class="math notranslate nohighlight">\(\beta \in (0,1)\)</span>: parámetro de suavizado para la tendencia</p></li>
 </ul>
-<p><strong>Interpretación_</strong></p>
+<p><strong>Interpretación</strong></p>
+<p>El método de Holt utiliza <strong>dos parámetros de suavizamiento</strong>:</p>
 <ul class="simple">
-<li><p><strong>Nivel</strong> <span class="math notranslate nohighlight">\(L_t\)</span>: suaviza los valores observados, considerando
-el efecto de la tendencia.</p></li>
-<li><p><strong>Tendencia</strong> <span class="math notranslate nohighlight">\(T_t\)</span>: captura el cambio promedio entre períodos
-y se actualiza dinámicamente.</p></li>
-<li><p><strong>Pronóstico</strong>: se realiza extrapolando el último nivel más <span class="math notranslate nohighlight">\(h\)</span>
-veces la tendencia estimada.</p></li>
+<li><p><strong>Nivel</strong> <span class="math notranslate nohighlight">\(\ell_t\)</span>: ajusta el valor actual de la serie
+considerando la tendencia previa.</p></li>
+<li><p><strong>Tendencia</strong> <span class="math notranslate nohighlight">\(b_t\)</span>: captura el cambio promedio de la serie y
+se actualiza dinámicamente.</p></li>
+<li><p><strong>Pronóstico:</strong> se obtiene extrapolando el último nivel estimado más
+<span class="math notranslate nohighlight">\(h\)</span> veces la tendencia.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: controla la rapidez de actualización del <strong>nivel</strong>
+<span class="math notranslate nohighlight">\(\ell_t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span>: controla la rapidez de actualización de la
+<strong>tendencia</strong> <span class="math notranslate nohighlight">\(b_t\)</span>.</p></li>
+</ul>
+<p><strong>Cuando los parámetros se aproximan a 0:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha \to 0\)</span>:</p>
+<ul>
+<li><p>El nivel <span class="math notranslate nohighlight">\(\ell_t\)</span> cambia muy lentamente.</p></li>
+<li><p>El modelo se vuelve estable, pero tarda en reflejar cambios en la
+serie.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\beta \to 0\)</span>:</p>
+<ul>
+<li><p>La tendencia <span class="math notranslate nohighlight">\(b_t\)</span> casi no se actualiza.</p></li>
+<li><p>El modelo mantiene una pendiente casi constante, basada en el
+pasado lejano.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Cuando los parámetros se aproximan a 1:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha \to 1\)</span>:</p>
+<ul>
+<li><p>El nivel <span class="math notranslate nohighlight">\(\ell_t\)</span> se ajusta casi por completo al valor
+observado <span class="math notranslate nohighlight">\(y_t\)</span>.</p></li>
+<li><p>El modelo reacciona con fuerza a los cambios recientes, pero puede
+volverse muy sensible al ruido.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\beta \to 1\)</span>:</p>
+<ul>
+<li><p>La tendencia <span class="math notranslate nohighlight">\(b_t\)</span> se ajusta principalmente a la diferencia
+más reciente <span class="math notranslate nohighlight">\((\ell_t - \ell_{t-1})\)</span>.</p></li>
+<li><p>El modelo capta cambios bruscos en la pendiente, pero puede
+sobrerreaccionar y producir pronósticos inestables.</p></li>
+</ul>
+</li>
+<li><p>Valores <strong>cercanos a 0</strong> → efecto de suavizamiento fuerte: los
+cambios se incorporan lentamente.</p></li>
+<li><p>Valores <strong>cercanos a 1</strong> → efecto de suavizamiento débil: el modelo
+reacciona rápido, pero con riesgo de seguir el ruido en lugar de la
+señal.</p></li>
 </ul>
 <p><strong>¿Cuándo usar el modelo de Holt?</strong></p>
-<p>Usar cuando:</p>
-<p>La serie presenta una tendencia clara y sostenida.</p>
-<p>No hay estacionalidad (ni semanal, ni mensual).</p>
-<p>Se desea un modelo interpretable con componente de crecimiento o
-decrecimiento.</p>
-<p><strong>Ventajas del método de Holt:</strong></p>
 <ul class="simple">
-<li><p>Permite capturar <strong>tendencias crecientes o decrecientes</strong> de forma
-explícita.</p></li>
-<li><p>Es una extensión simple y eficiente del SES.</p></li>
-<li><p>Funciona bien con datos sin estacionalidad, pero con <strong>patrones
-lineales persistentes</strong>.</p></li>
+<li><p>Cuando la serie presenta una <strong>tendencia clara y sostenida</strong>.</p></li>
+<li><p>Cuando <strong>no existe estacionalidad</strong> en la serie.</p></li>
+<li><p>Cuando se desea un modelo simple, interpretable y capaz de reflejar
+crecimiento o decrecimiento lineal.</p></li>
 </ul>
-<p><strong>Limitaciones:</strong></p>
+<p><strong>Ventajas</strong></p>
 <ul class="simple">
-<li><p>No modela <strong>estacionalidad</strong>. Para eso, se debe usar Holt-Winters.</p></li>
-<li><p>Si la tendencia cambia bruscamente, el modelo puede
-<strong>sobrerreaccionar o subestimar</strong>.</p></li>
-<li><p>El modelo puede divergir en el tiempo si la tendencia estimada es
-inestable.</p></li>
+<li><p>Captura de manera explícita <strong>tendencias crecientes o decrecientes</strong>.</p></li>
+<li><p>Extiende el SES con una formulación sencilla y eficiente.</p></li>
+<li><p>Funciona bien en datos sin estacionalidad pero con patrones lineales
+persistentes.</p></li>
 </ul>
-</section>
-<section id="ejemplo-del-metodo-de-holt-suavizado-doble">
-<h2><strong>Ejemplo del método de Holt (suavizado doble):</strong><a class="headerlink" href="#ejemplo-del-metodo-de-holt-suavizado-doble" title="Link to this heading">#</a></h2>
+<p><strong>Limitaciones</strong></p>
+<ul class="simple">
+<li><p>No modela estacionalidad (para eso se requiere Holt–Winters).</p></li>
+<li><p>Puede sobrerreaccionar o subestimar si la tendencia cambia
+bruscamente.</p></li>
+<li><p>Tiende a <strong>sobreestimar en horizontes largos</strong>, ya que la tendencia
+se proyecta indefinidamente.</p></li>
+</ul>
+<p><strong>Ejemplo del método de Holt (suavizado doble):</strong></p>
+<p>Supongamos la serie:</p>
+<div class="math notranslate nohighlight">
+\[\{y_t\} = [10,\;12,\;11,\;13,\;12]\]</div>
+<p>con parámetros <span class="math notranslate nohighlight">\(\alpha = 0.4\)</span> y <span class="math notranslate nohighlight">\(\beta = 0.3\)</span>.</p>
+<p><strong>Inicialización:</strong></p>
+<ul class="simple">
+<li><p>Nivel inicial: <span class="math notranslate nohighlight">\(\ell_1 = y_1 = 10\)</span></p></li>
+<li><p>Tendencia inicial: <span class="math notranslate nohighlight">\(b_1 = y_2 - y_1 = 12 - 10 = 2\)</span></p></li>
+</ul>
+<p><strong>Ecuaciones del modelo_</strong></p>
+<ul class="simple">
+<li><p><strong>Ecuación de nivel:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\ell_t = \alpha y_t + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
+<ul class="simple">
+<li><p><strong>Ecuación de tendencia:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[b_t = \beta (\ell_t - \ell_{t-1}) + (1-\beta)b_{t-1}\]</div>
+<ul class="simple">
+<li><p><strong>Ecuación de pronóstico:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\hat{y}_{t+h|t} = \ell_t + h b_t\]</div>
+<p><strong>Cálculos paso a paso:</strong></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(t=2\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_2 = 0.4 \cdot 12 + 0.6 \cdot (10 + 2) = 12.0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_2 = 0.3 \cdot (12.0 - 10.0) + 0.7 \cdot 2.0 = 2.0\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(t=3\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_3 = 0.4 \cdot 11 + 0.6 \cdot (12.0 + 2.0) = 12.8\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_3 = 0.3 \cdot (12.8 - 12.0) + 0.7 \cdot 2.0 = 1.64\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(t=4\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_4 = 0.4 \cdot 13 + 0.6 \cdot (12.8 + 1.64) = 13.864\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_4 = 0.3 \cdot (13.864 - 12.8) + 0.7 \cdot 1.64 = 1.4672\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(t=5\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_5 = 0.4 \cdot 12 + 0.6 \cdot (13.864 + 1.4672) = 14.1997\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_5 = 0.3 \cdot (14.1997 - 13.864) + 0.7 \cdot 1.4672 = 1.1277\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Pronósticos fuera de la muestra:</strong></p>
+<p>Con <span class="math notranslate nohighlight">\(\ell_5 = 14.1997\)</span> y <span class="math notranslate nohighlight">\(b_5 = 1.1277\)</span>:</p>
+<ul class="simple">
+<li><p>Para <span class="math notranslate nohighlight">\(t=6\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\hat{y}_{6|5} = \ell_5 + 1 \cdot b_5 = 15.3274\]</div>
+<ul class="simple">
+<li><p>Para <span class="math notranslate nohighlight">\(t=7\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\hat{y}_{7|5} = \ell_5 + 2 \cdot b_5 = 16.4551\]</div>
+<p><strong>Ejemplo del método de Holt (suavizado doble):</strong></p>
 <div class="line-block">
 <div class="line">Supongamos la serie <span class="math notranslate nohighlight">\(\{y_t\} = [10,\;12,\;11,\;13,\;12]\)</span>, con
 parámetros <span class="math notranslate nohighlight">\(\alpha = 0.4\)</span> y <span class="math notranslate nohighlight">\(\beta = 0.3\)</span>.</div>
@@ -1093,50 +1318,30 @@ parámetros <span class="math notranslate nohighlight">\(\alpha = 0.4\)</span> y
 \[T_t = \beta (L_t - L_{t-1}) + (1 - \beta) T_{t-1}\]</div>
 <div class="math notranslate nohighlight">
 \[\hat{y}_{t+h} = L_t + h \cdot T_t\]</div>
-<hr class="docutils" />
 <ol class="arabic">
-<li><div class="line-block">
-<div class="line"><span class="math notranslate nohighlight">\(L_2 = 0.4 \cdot 12 + 0.6 \cdot (10 + 2) = 4.8 + 7.2 = 12.0\)</span></div>
-<div class="line"><span class="math notranslate nohighlight">\(T_2 = 0.3 \cdot (12.0 - 10.0) + 0.7 \cdot 2.0 = 0.6 + 1.4 = 2.0\)</span></div>
-</div>
+<li><p><span class="math notranslate nohighlight">\(L_2 = 0.4 \cdot 12 + 0.6 \cdot (10 + 2) = 4.8 + 7.2 = 12.0\)</span></p>
+<p><span class="math notranslate nohighlight">\(T_2 = 0.3 \cdot (12.0 - 10.0) + 0.7 \cdot 2.0 = 0.6 + 1.4 = 2.0\)</span></p>
 </li>
-<li><div class="line-block">
-<div class="line"><span class="math notranslate nohighlight">\(L_3 = 0.4 \cdot 11 + 0.6 \cdot (12.0 + 2.0) = 4.4 + 8.4 = 12.8\)</span></div>
-<div class="line"><span class="math notranslate nohighlight">\(T_3 = 0.3 \cdot (12.8 - 12.0) + 0.7 \cdot 2.0 = 0.24 + 1.4 = 1.64\)</span></div>
-</div>
+<li><p><span class="math notranslate nohighlight">\(L_3 = 0.4 \cdot 11 + 0.6 \cdot (12.0 + 2.0) = 4.4 + 8.4 = 12.8\)</span></p>
+<p><span class="math notranslate nohighlight">\(T_3 = 0.3 \cdot (12.8 - 12.0) + 0.7 \cdot 2.0 = 0.24 + 1.4 = 1.64\)</span></p>
 </li>
-<li><div class="line-block">
-<div class="line"><span class="math notranslate nohighlight">\(L_4 = 0.4 \cdot 13 + 0.6 \cdot (12.8 + 1.64) = 5.2 + 8.664 = 13.864\)</span></div>
-<div class="line"><span class="math notranslate nohighlight">\(T_4 = 0.3 \cdot (13.864 - 12.8) + 0.7 \cdot 1.64 = 0.3192 + 1.148 = 1.4672\)</span></div>
-</div>
+<li><p><span class="math notranslate nohighlight">\(L_4 = 0.4 \cdot 13 + 0.6 \cdot (12.8 + 1.64) = 5.2 + 8.664 = 13.864\)</span></p>
+<p><span class="math notranslate nohighlight">\(T_4 = 0.3 \cdot (13.864 - 12.8) + 0.7 \cdot 1.64 = 0.3192 + 1.148 = 1.4672\)</span></p>
 </li>
-<li><div class="line-block">
-<div class="line"><span class="math notranslate nohighlight">\(L_5 = 0.4 \cdot 12 + 0.6 \cdot (13.864 + 1.4672) = 4.8 + 9.3997 = 14.1997\)</span></div>
-<div class="line"><span class="math notranslate nohighlight">\(T_5 = 0.3 \cdot (14.1997 - 13.864) + 0.7 \cdot 1.4672 = 0.1007 + 1.027 = 1.1277\)</span></div>
-</div>
+<li><p><span class="math notranslate nohighlight">\(L_5 = 0.4 \cdot 12 + 0.6 \cdot (13.864 + 1.4672) = 4.8 + 9.3997 = 14.1997\)</span></p>
+<p><span class="math notranslate nohighlight">\(T_5 = 0.3 \cdot (14.1997 - 13.864) + 0.7 \cdot 1.4672 = 0.1007 + 1.027 = 1.1277\)</span></p>
 </li>
 </ol>
-</section>
-<hr class="docutils" />
-<section id="pronostico">
-<h2><strong>Pronóstico</strong><a class="headerlink" href="#pronostico" title="Link to this heading">#</a></h2>
+<p><strong>Pronóstico:</strong></p>
 <p>Usamos la fórmula <span class="math notranslate nohighlight">\(\hat{y}_{t+h} = L_t + h \cdot T_t\)</span>.</p>
 <ul>
-<li><div class="line-block">
-<div class="line">Pronóstico para <span class="math notranslate nohighlight">\(t = 6\)</span>:</div>
-<div class="line"><span class="math notranslate nohighlight">\(\hat{y}_6 = L_5 + 1 \cdot T_5 = 14.1997 + 1.1277 = 15.3274\)</span></div>
-</div>
+<li><p>Pronóstico para <span class="math notranslate nohighlight">\(t = 6\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\hat{y}_6 = L_5 + 1 \cdot T_5 = 14.1997 + 1.1277 = 15.3274\)</span></p>
 </li>
-<li><div class="line-block">
-<div class="line">Pronóstico para <span class="math notranslate nohighlight">\(t = 7\)</span>:</div>
-<div class="line"><span class="math notranslate nohighlight">\(\hat{y}_7 = L_5 + 2 \cdot T_5 = 14.1997 + 2 \cdot 1.1277 = 16.4551\)</span>
-—</div>
-</div>
+<li><p>Pronóstico para <span class="math notranslate nohighlight">\(t = 7\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\hat{y}_7 = L_5 + 2 \cdot T_5 = 14.1997 + 2 \cdot 1.1277 = 16.4551\)</span></p>
 </li>
 </ul>
-<p>El método de Holt permite capturar la tendencia de crecimiento o
-decrecimiento y extrapolarla hacia el futuro de forma más precisa que el
-SES.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.holtwinters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Holt</span>
 </pre></div>
 </div>
@@ -1160,159 +1365,217 @@ SES.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_15_010.png" src="../../_images/output_15_010.png" />
+<img alt="../../_images/output_27_07.png" src="../../_images/output_27_07.png" />
 </section>
 <section id="metodo-de-holt-winters-suavizado-exponencial-triple">
 <h2>Método de Holt-Winters (Suavizado Exponencial Triple):<a class="headerlink" href="#metodo-de-holt-winters-suavizado-exponencial-triple" title="Link to this heading">#</a></h2>
-<p>El <strong>método de Holt-Winters</strong>, también conocido como <strong>suavizado
-exponencial triple</strong>, es una extensión del método de Holt que incorpora
-<strong>estacionalidad</strong>. Es ideal para modelar series de tiempo con:</p>
+<p>El <strong>método de Holt-Winters</strong>, también llamado <strong>suavizado exponencial
+triple</strong>, extiende el método de Holt para capturar <strong>estacionalidad</strong>.</p>
+<p>Es apropiado para series con:</p>
 <ul class="simple">
-<li><p><strong>Tendencia</strong> (creciente o decreciente)</p></li>
-<li><p><strong>Estacionalidad</strong> (patrón cíclico recurrente)</p></li>
-<li><p><strong>Nivel base</strong> (valor promedio del proceso)</p></li>
+<li><p><strong>Nivel</strong>: valor central de la serie.</p></li>
+<li><p><strong>Tendencia</strong>: crecimiento o decrecimiento a lo largo del tiempo.</p></li>
+<li><p><strong>Estacionalidad</strong>: patrón recurrente cada <span class="math notranslate nohighlight">\(m\)</span> períodos.</p></li>
 </ul>
-<p><strong>Componentes del modelo:</strong></p>
-<p>El modelo tiene tres componentes principales:</p>
-<ol class="arabic simple">
-<li><p><strong>Nivel</strong> (<span class="math notranslate nohighlight">\(L_t\)</span>): valor suavizado central de la serie.</p></li>
-<li><p><strong>Tendencia</strong> (<span class="math notranslate nohighlight">\(T_t\)</span>): cambio esperado en el nivel entre
-períodos.</p></li>
-<li><p><strong>Estacionalidad</strong> (<span class="math notranslate nohighlight">\(S_t\)</span>): patrón estacional que se repite
-cada <span class="math notranslate nohighlight">\(m\)</span> períodos.</p></li>
-</ol>
-<p>Existen dos versiones del modelo: <strong>aditiva</strong> y <strong>multiplicativa</strong>,
-según cómo interactúa la estacionalidad con el nivel.</p>
-<p><strong>Versión aditiva (para estacionalidad constante en magnitud):</strong></p>
-<div class="math notranslate nohighlight">
-\[L_t = \alpha(y_t - S_{t-m}) + (1 - \alpha)(L_{t-1} + T_{t-1})\]</div>
-<div class="math notranslate nohighlight">
-\[T_t = \beta(L_t - L_{t-1}) + (1 - \beta)T_{t-1}\]</div>
-<div class="math notranslate nohighlight">
-\[S_t = \gamma(y_t - L_t) + (1 - \gamma)S_{t-m}\]</div>
-<div class="math notranslate nohighlight">
-\[\hat{y}_{t+h} = L_t + h \cdot T_t + S_{t+h-m(k)}\]</div>
+<p>Existen dos versiones: <strong>aditiva</strong> (cuando la amplitud estacional es
+constante) y <strong>multiplicativa</strong> (cuando la amplitud depende del nivel).</p>
+<p><strong>Versión aditiva</strong></p>
+<p>Forma de componentes:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(m\)</span>: número de períodos por ciclo estacional (ej. 12 para datos
-mensuales con estacionalidad anual)</p></li>
-<li><p><span class="math notranslate nohighlight">\(k = \left\lfloor \frac{h-1}{m} \right\rfloor\)</span>: ciclos
-completos transcurridos</p></li>
+<li><p><strong>Nivel</strong></p></li>
 </ul>
-<p><strong>Versión multiplicativa (para estacionalidad proporcional al nivel):</strong></p>
 <div class="math notranslate nohighlight">
-\[L_t = \alpha\left(\frac{y_t}{S_{t-m}}\right) + (1 - \alpha)(L_{t-1} + T_{t-1})\]</div>
-<div class="math notranslate nohighlight">
-\[T_t = \beta(L_t - L_{t-1}) + (1 - \beta)T_{t-1}\]</div>
-<div class="math notranslate nohighlight">
-\[S_t = \gamma\left(\frac{y_t}{L_t}\right) + (1 - \gamma)S_{t-m}\]</div>
-<div class="math notranslate nohighlight">
-\[\hat{y}_{t+h} = (L_t + h \cdot T_t) \cdot S_{t+h-m(k)}\]</div>
-<p><strong>Parámetros:</strong></p>
+\[\ell_t = \alpha (y_t - s_{t-m}) + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: parámetro de suavizado del nivel
-(<span class="math notranslate nohighlight">\(0 &lt; \alpha &lt; 1\)</span>)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\beta\)</span>: parámetro de suavizado de la tendencia</p></li>
-<li><p><span class="math notranslate nohighlight">\(\gamma\)</span>: parámetro de suavizado de la estacionalidad</p></li>
+<li><p><strong>Tendencia</strong></p></li>
 </ul>
-<p><strong>¿Cuándo usar aditivo vs multiplicativo?</strong></p>
+<div class="math notranslate nohighlight">
+\[b_t = \beta (\ell_t - \ell_{t-1}) + (1-\beta) b_{t-1}\]</div>
+<ul class="simple">
+<li><p><strong>Estacionalidad</strong></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[s_t = \gamma(y_t - \ell_{t-1} - b_{t-1}) + (1-\gamma)s_{t-m}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Pronóstico</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{t+h|t} = \ell_t + h b_t + s_{t+h-m(k+1)}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">donde <span class="math notranslate nohighlight">\(k = \lfloor (h-1)/m \rfloor\)</span> asegura que los índices
+estacionales usados provengan del último ciclo completo.</div>
+</div>
+<p>Los <span class="math notranslate nohighlight">\(s_t\)</span> son <strong>desviaciones absolutas</strong> respecto al nivel. En
+cada ciclo anual o completo suman aproximadamente cero.</p>
+<p><strong>Versión multiplicativa:</strong></p>
+<p>Forma de componentes:</p>
+<ul class="simple">
+<li><p><strong>Nivel</strong></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\ell_t = \alpha \left(\frac{y_t}{s_{t-m}}\right) + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Tendencia</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[b_t = \beta (\ell_t - \ell_{t-1}) + (1-\beta) b_{t-1}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Estacionalidad</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[s_t = \gamma\left(\frac{y_t}{\ell_{t-1}+b_{t-1}}\right) + (1-\gamma)s_{t-m}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Pronóstico</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{t+h|t} = (\ell_t + h b_t)\; s_{t+h-m(k+1)}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Los <span class="math notranslate nohighlight">\(s_t\)</span> son <strong>índices relativos</strong> (porcentuales). En cada
+ciclo completo promedian aproximadamente 1.</div>
+</div>
+<p><strong>Parámetros de suavizado:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: controla la actualización del <strong>nivel</strong>
+(<span class="math notranslate nohighlight">\(0 &lt; \alpha &lt; 1\)</span>).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span>: controla la <strong>suavización de la tendencia</strong>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span>: controla la <strong>suavización de la estacionalidad</strong>.</p></li>
+</ul>
+<p>**¿Cuándo usar cada versión?</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Tipo de estacionalidad</p></th>
-<th class="head"><p>Usar modelo</p></th>
+<tr class="row-odd"><th class="head"><p>Tipo de
+estacionalidad</p></th>
+<th class="head"><p>Modelo
+recomendado</p></th>
 <th class="head"><p>Ejemplo</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Constante en magnitud</p></td>
+<tr class="row-even"><td><p>Constante en
+magnitud</p></td>
 <td><p>Aditivo</p></td>
-<td><p>Demanda sube 100
-unidades cada diciembre</p></td>
+<td><p>La demanda aumenta 100 unidades
+cada diciembre</p></td>
 </tr>
-<tr class="row-odd"><td><p>Proporcional al nivel</p></td>
-<td><p>Multiplicativo</p></td>
-<td><p>Ventas suben 10% cada
+<tr class="row-odd"><td><p>Proporcional al
+nivel</p></td>
+<td><p>Mu
+ltiplicativo</p></td>
+<td><p>Las ventas suben un 10% cada
 diciembre</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>Ventajas del método de Holt-Winters:</strong></p>
+<p><strong>Ventajas y limitaciones:</strong></p>
 <ul class="simple">
-<li><p>Capta <strong>tendencia</strong> y <strong>estacionalidad</strong> simultáneamente.</p></li>
-<li><p>Genera pronósticos que reflejan el comportamiento cíclico de la
-serie.</p></li>
-<li><p>Es fácil de implementar y optimizar automáticamente.</p></li>
+<li><p><strong>Ventajas:</strong></p></li>
+<li><p>Captura <strong>nivel, tendencia y estacionalidad</strong> simultáneamente.</p></li>
+<li><p>Genera pronósticos consistentes con la estructura cíclica.</p></li>
+<li><p>Estimación automática de parámetros mediante optimización.</p></li>
+<li><p><strong>Limitaciones:</strong></p></li>
+<li><p>Requiere estacionalidad <strong>regular y estable</strong>.</p></li>
+<li><p>Supone que el patrón se repite exactamente cada <span class="math notranslate nohighlight">\(m\)</span> períodos.</p></li>
+<li><p>Menos adecuado para series financieras con alta volatilidad.</p></li>
 </ul>
-<p><strong>Limitaciones:</strong></p>
-<ul class="simple">
-<li><p>Puede fallar si la estacionalidad no es regular o cambia con el
-tiempo.</p></li>
-<li><p>Asume que el patrón estacional se repite exactamente cada <span class="math notranslate nohighlight">\(m\)</span>
-períodos.</p></li>
-<li><p>No es ideal para series financieras diarias con alta volatilidad.</p></li>
-</ul>
-<p><strong>Ejemplo del método de Holt-Winters (versión aditiva):</strong></p>
-<p>Supongamos una serie con <strong>estacionalidad anual mensual</strong> (<span class="math notranslate nohighlight">\(m = 3\)</span>
-para simplificar el ejemplo), con valores:</p>
-<p><span class="math notranslate nohighlight">\(\{y_t\} = [30,\; 40,\; 50,\; 35,\; 45,\; 55]\)</span></p>
-<p>Esta serie tiene estacionalidad de 3 meses (por simplicidad didáctica),
-y se repiten patrones como:</p>
+<p>**Ejemplo del método de Holt-Winters (versión aditiva):</p>
+<p>Supongamos una serie con <strong>estacionalidad trimestral</strong> (<span class="math notranslate nohighlight">\(m = 3\)</span>
+para simplificar), con valores:</p>
+<div class="math notranslate nohighlight">
+\[\{y_t\} = [30,\; 40,\; 50,\; 35,\; 45,\; 55]\]</div>
+<p>La serie tiene un ciclo estacional de 3 períodos, con patrones que se
+repiten:</p>
 <ul class="simple">
 <li><p>Mes 1: 30 → 35</p></li>
 <li><p>Mes 2: 40 → 45</p></li>
 <li><p>Mes 3: 50 → 55</p></li>
 </ul>
-<p>Usamos los parámetros:</p>
+<p>Parámetros de suavizado:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> (nivel)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\beta = 0.3\)</span> (tendencia)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\gamma = 0.2\)</span> (estacionalidad)</p></li>
 </ul>
-<p>Inicializamos:</p>
+<p><strong>Inicialización:</strong></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(L_3 = y_3 = 50\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(T_3 = \frac{y_3 - y_1}{2} = \frac{50 - 30}{2} = 10\)</span></p></li>
+<li><p>Nivel inicial: <span class="math notranslate nohighlight">\(\ell_3 = y_3 = 50\)</span></p></li>
+<li><p>Tendencia inicial:
+<span class="math notranslate nohighlight">\(b_3 = \dfrac{y_3 - y_1}{2} = \dfrac{50 - 30}{2} = 10\)</span></p></li>
 <li><p>Estacionalidad inicial:</p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(S_1 = y_1 - L_3 = 30 - 50 = -20\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_2 = y_2 - L_3 = 40 - 50 = -10\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_3 = y_3 - L_3 = 50 - 50 = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_1 = y_1 - \ell_3 = 30 - 50 = -20\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_2 = y_2 - \ell_3 = 40 - 50 = -10\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_3 = y_3 - \ell_3 = 50 - 50 = 0\)</span></p></li>
 </ul>
 </li>
 </ul>
-<p>Ahora aplicamos el modelo:</p>
 <p><strong>Paso 4:</strong> <span class="math notranslate nohighlight">\(y_4 = 35\)</span></p>
+<div class="math notranslate nohighlight">
+\[\ell_t = \alpha(y_t - s_{t-m}) + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
+<div class="math notranslate nohighlight">
+\[b_t = \beta(\ell_t - \ell_{t-1}) + (1-\beta) b_{t-1}\]</div>
+<div class="math notranslate nohighlight">
+\[s_t = \gamma(y_t - \ell_t) + (1-\gamma) s_{t-m}\]</div>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(L_4 = 0.5 \cdot (35 - S_1) + 0.5 \cdot (L_3 + T_3) = 0.5 \cdot (35 + 20) + 0.5 \cdot (50 + 10) = 27.5 + 30 = 57.5\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(T_4 = 0.3 \cdot (57.5 - 50) + 0.7 \cdot 10 = 2.25 + 7 = 9.25\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_4 = 0.2 \cdot (35 - 57.5) + 0.8 \cdot (-20) = -4.5 - 16 = -20.5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\ell_4 = 0.5(35 - s_1) + 0.5(\ell_3 + b_3) = 0.5(35+20) + 0.5(60) = 57.5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_4 = 0.3(57.5 - 50) + 0.7(10) = 9.25\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_4 = 0.2(35 - 57.5) + 0.8(-20) = -20.5\)</span></p></li>
 </ul>
 <p><strong>Paso 5:</strong> <span class="math notranslate nohighlight">\(y_5 = 45\)</span></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(L_5 = 0.5 \cdot (45 - S_2) + 0.5 \cdot (57.5 + 9.25) = 0.5 \cdot (45 + 10) + 0.5 \cdot 66.75 = 27.5 + 33.375 = 60.875\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(T_5 = 0.3 \cdot (60.875 - 57.5) + 0.7 \cdot 9.25 = 1.0125 + 6.475 = 7.4875\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_5 = 0.2 \cdot (45 - 60.875) + 0.8 \cdot (-10) = -3.175 - 8 = -11.175\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\ell_5 = 0.5(45 - s_2) + 0.5(\ell_4 + b_4) = 0.5(45+10) + 0.5(66.75) = 60.875\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_5 = 0.3(60.875 - 57.5) + 0.7(9.25) = 7.4875\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_5 = 0.2(45 - 60.875) + 0.8(-10) = -11.175\)</span></p></li>
 </ul>
 <p><strong>Paso 6:</strong> <span class="math notranslate nohighlight">\(y_6 = 55\)</span></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(L_6 = 0.5 \cdot (55 - S_3) + 0.5 \cdot (60.875 + 7.4875) = 0.5 \cdot 55 + 0.5 \cdot 68.3625 = 27.5 + 34.18125 = 61.68125\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(T_6 = 0.3 \cdot (61.68125 - 60.875) + 0.7 \cdot 7.4875 = 0.241875 + 5.24125 = 5.483125\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(S_6 = 0.2 \cdot (55 - 61.68125) + 0.8 \cdot 0 = -1.33625 + 0 = -1.33625\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\ell_6 = 0.5(55 - s_3) + 0.5(\ell_5 + b_5) = 0.5(55-0) + 0.5(68.3625) = 61.68125\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_6 = 0.3(61.68125 - 60.875) + 0.7(7.4875) = 5.4831\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_6 = 0.2(55 - 61.68125) + 0.8(0) = -1.33625\)</span></p></li>
 </ul>
-<p><strong>Pronóstico:</strong></p>
-<p>Usamos:</p>
+<p><strong>Pronósticos desde</strong> <span class="math notranslate nohighlight">\(t=6\)</span></p>
+<p>Usamos la fórmula:</p>
 <div class="math notranslate nohighlight">
-\[\hat{y}_{t+h} = L_t + h \cdot T_t + S_{t+h-m(k)}\]</div>
-<p>Para <span class="math notranslate nohighlight">\(t = 6\)</span>, queremos predecir <span class="math notranslate nohighlight">\(t = 7\)</span>, <span class="math notranslate nohighlight">\(t = 8\)</span> y
-<span class="math notranslate nohighlight">\(t = 9\)</span>:</p>
+\[\hat{y}_{t+h|t} = \ell_t + h b_t + s_{t+h-m(k+1)}\]</div>
+<p>Con <span class="math notranslate nohighlight">\(\ell_6 = 61.68125\)</span>, <span class="math notranslate nohighlight">\(b_6 = 5.4831\)</span>:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\hat{y}_7 = L_6 + 1 \cdot T_6 + S_4 = 61.68125 + 5.483125 + (-20.5) = 46.6644\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\hat{y}_8 = L_6 + 2 \cdot T_6 + S_5 = 61.68125 + 10.96625 + (-11.175) = 61.4725\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\hat{y}_9 = L_6 + 3 \cdot T_6 + S_6 = 61.68125 + 16.449375 + (-1.33625) = 76.7944\)</span>
-Este ejemplo muestra cómo Holt-Winters <strong>descompone</strong> una serie en
-nivel, tendencia y estacionalidad para generar pronósticos coherentes
-con su comportamiento cíclico.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{y}_{7|6} = \ell_6 + 1 \cdot b_6 + s_4 = 61.68125 + 5.4831 - 20.5 = 46.66\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{y}_{8|6} = \ell_6 + 2 \cdot b_6 + s_5 = 61.68125 + 10.9662 - 11.175 = 61.47\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{y}_{9|6} = \ell_6 + 3 \cdot b_6 + s_6 = 61.68125 + 16.4494 - 1.3363 = 76.79\)</span></p></li>
 </ul>
+<p>Este ejemplo muestra cómo Holt-Winters aditivo <strong>descompone la serie</strong>
+en nivel, tendencia y estacionalidad para producir pronósticos
+coherentes con el comportamiento cíclico.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.holtwinters</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExponentialSmoothing</span>
 </pre></div>
 </div>
@@ -1320,8 +1583,8 @@ con su comportamiento cíclico.</p></li>
 <span class="n">modelo</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span>
     <span class="n">serie</span><span class="p">,</span>
     <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
-    <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
-    <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">12</span>
+    <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;multiplicative&#39;</span><span class="p">,</span>
+    <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
 <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Pronóstico a 12 pasos</span>
@@ -1347,7 +1610,7 @@ con su comportamiento cíclico.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_19_011.png" src="../../_images/output_19_011.png" />
+<img alt="../../_images/output_32_09.png" src="../../_images/output_32_09.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.holtwinters</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleExpSmoothing</span><span class="p">,</span> <span class="n">Holt</span><span class="p">,</span> <span class="n">ExponentialSmoothing</span>
 
 <span class="c1"># Ajuste 1: Suavizado Exponencial Simple (SES)</span>
@@ -1378,7 +1641,7 @@ con su comportamiento cíclico.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_20_08.png" src="../../_images/output_20_08.png" />
+<img alt="../../_images/output_33_05.png" src="../../_images/output_33_05.png" />
 </section>
 </section>
 
@@ -1428,17 +1691,8 @@ con su comportamiento cíclico.</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suavizado-exponencial-simple-ses">Suavizado Exponencial Simple (SES):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formula-recursiva-y-componentes">Fórmula recursiva y componentes:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretacion-del-parametro-alpha">Interpretación del parámetro <span class="math notranslate nohighlight">\(\alpha\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pronostico-con-ses">Pronóstico con SES:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ventajas-y-limitaciones">Ventajas y limitaciones:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pasos-practicos-de-implementacion">Pasos prácticos de implementación:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo"><strong>Ejemplo:</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-con-otros-metodos">Conexión con otros métodos:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpleexpsmoothing-ses-statsmodels">SimpleExpSmoothing (SES) — <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-holt-suavizado-exponencial-doble">Método de Holt (Suavizado Exponencial Doble):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-del-metodo-de-holt-suavizado-doble"><strong>Ejemplo del método de Holt (suavizado doble):</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pronostico"><strong>Pronóstico</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-holt-winters-suavizado-exponencial-triple">Método de Holt-Winters (Suavizado Exponencial Triple):</a></li>
 </ul>
   </nav></div>
