@@ -1156,7 +1156,8 @@ Optimización de hiperparámetros:
         max_trials=10,
         executions_per_trial=3,
         directory='my_dir',
-        project_name='Optimización_empresas'
+        project_name='Optimización_empresas',
+        overwrite=True
     )
 
 
@@ -1182,7 +1183,7 @@ Optimización de hiperparámetros:
     print(best_hps.get("n_hidden"))
     print(best_hps.get("activation"))
     print(best_hps.get("learning_rate"))
-    print(best_hps.get("optimizers"))
+    print(best_hps.get("optimizer"))
     print(best_hps.get("batch_size"))
 
 

@@ -158,6 +158,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/QueST/Qu%C3%A9%20es%20una%20serie%20de%20tiempo.html">¿Qué es una serie de tiempo?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/ExplorST/Exploraci%C3%B3n_visual_de_series_de_tiempo.html">Exploración visual de series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Msuavizado/M%C3%A9todos_de_suavizado_v2.html">Métodos de suavizado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Ejem_suavizado%20desempleo/Ejemplo_m%C3%A9todos_suavizado_desempleo.html">Ejemplo métodos suavizado desempleo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo.html">Características de las series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/ACF/ACF.html">ACF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Series%20de%20tiempo/Modelos%20Autorregresivos%20-%20AR/Modelos%20Autorregresivos%20-%20AR.html">Modelos Autorregresivos - AR</a></li>
@@ -1637,7 +1638,8 @@ Precision train: 0.9875, Precision test: 0.9142857142857143
     <span class="n">max_trials</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">executions_per_trial</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
     <span class="n">directory</span><span class="o">=</span><span class="s1">&#39;my_dir&#39;</span><span class="p">,</span>
-    <span class="n">project_name</span><span class="o">=</span><span class="s1">&#39;Optimización_empresas&#39;</span>
+    <span class="n">project_name</span><span class="o">=</span><span class="s1">&#39;Optimización_empresas&#39;</span><span class="p">,</span>
+    <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1658,7 +1660,7 @@ Precision train: 0.9875, Precision test: 0.9142857142857143
 <span class="nb">print</span><span class="p">(</span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;n_hidden&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;activation&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;learning_rate&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;optimizers&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;optimizer&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;batch_size&quot;</span><span class="p">))</span>
 </pre></div>
 </div>

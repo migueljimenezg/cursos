@@ -11,6 +11,7 @@ En este curso se explicarán los métodos convencionales para modelar las series
    QueST/Qué es una serie de tiempo
    ExplorST/Exploración_visual_de_series_de_tiempo
    Msuavizado/Métodos_de_suavizado_v2
+   Ejem_suavizado desempleo/Ejemplo_métodos_suavizado_desempleo
    Características de las series de tiempo/Características de las series de tiempo.rst
    ACF/ACF.rst
    Modelos Autorregresivos - AR/Modelos Autorregresivos - AR.rst
@@ -27,7 +28,7 @@ En este curso se explicarán los métodos convencionales para modelar las series
 
     * **Descargue** :download:`Ejemplo ajuste métodos de suavizamiento.xlsx <Ejemplo ajuste métodos de suavizamiento.xlsx>`
 
-    * **Descargue** :download:`Desempleo_2019.xlsx <Desempleo_2019.xlsx>`
+    * **Descargue** :download:`Desempleo.xlsx <Desempleo.xlsx>`
 
 
 Lecturas
