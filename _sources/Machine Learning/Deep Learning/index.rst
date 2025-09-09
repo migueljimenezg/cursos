@@ -120,6 +120,7 @@ ______________________________________________
    :maxdepth: 1
    :titlesonly:
 
+   Métodos de Deep Learnign serie irradiancia/Métodos_de_Deep_Learnign_serie_irradiancia
    Taller redes neuronales artificiales/Taller redes neuronales artificiales
    Taller RNN/Taller RNN
 

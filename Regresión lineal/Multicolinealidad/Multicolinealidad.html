@@ -160,6 +160,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/ExplorST/Exploraci%C3%B3n_visual_de_series_de_tiempo.html">Exploración visual de series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/Msuavizado/M%C3%A9todos_de_suavizado_v2.html">Métodos de suavizado</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/Ejem_suavizado%20desempleo/Ejemplo_m%C3%A9todos_suavizado_desempleo.html">Ejemplo métodos suavizado desempleo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo.html">Características de las series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/ACF/ACF.html">ACF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20Autorregresivos%20-%20AR/Modelos%20Autorregresivos%20-%20AR.html">Modelos Autorregresivos - AR</a></li>
@@ -321,6 +322,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN/CNN.html">CNN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN%20para%20series%20de%20tiempo/CNN%20para%20series%20de%20tiempo.html">CNN para series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/M%C3%A9todos%20de%20Deep%20Learnign%20serie%20irradiancia/M%C3%A9todos_de_Deep_Learnign_serie_irradiancia.html">Métodos de Deep Learnign serie irradiancia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Taller%20RNN/Taller%20RNN.html">Taller RNN</a></li>
 </ul>
@@ -800,7 +802,7 @@ importante para el modelo.</p></li>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggpairs</span><span class="p">(</span><span class="n">datos</span><span class="p">[,</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;PrecioInterno&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PrecioInternacional&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Producción&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;TRM&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;EUR&quot;</span><span class="p">)])</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_12_07.png"><img alt="../../_images/output_12_07.png" src="../../_images/output_12_07.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_12_08.png"><img alt="../../_images/output_12_08.png" src="../../_images/output_12_08.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="s">&quot;corrplot&quot;</span><span class="p">)</span>
 </pre></div>
@@ -811,7 +813,7 @@ importante para el modelo.</p></li>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">corrplot</span><span class="p">(</span><span class="n">correlacion</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;circle&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;upper&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_14_08.png"><img alt="../../_images/output_14_08.png" src="../../_images/output_14_08.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_14_09.png"><img alt="../../_images/output_14_09.png" src="../../_images/output_14_09.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regression</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">Exportaciones</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Producción</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">PrecioInternacional</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">PrecioInterno</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TRM</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">EUR</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
 <span class="nf">summary</span><span class="p">(</span><span class="n">regression</span><span class="p">)</span>

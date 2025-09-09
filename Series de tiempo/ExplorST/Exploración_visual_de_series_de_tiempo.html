@@ -160,6 +160,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Exploración visual de series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Msuavizado/M%C3%A9todos_de_suavizado_v2.html">Métodos de suavizado</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejem_suavizado%20desempleo/Ejemplo_m%C3%A9todos_suavizado_desempleo.html">Ejemplo métodos suavizado desempleo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo/Caracter%C3%ADsticas%20de%20las%20series%20de%20tiempo.html">Características de las series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ACF/ACF.html">ACF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Modelos%20Autorregresivos%20-%20AR/Modelos%20Autorregresivos%20-%20AR.html">Modelos Autorregresivos - AR</a></li>
@@ -321,6 +322,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN/CNN.html">CNN</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN%20para%20series%20de%20tiempo/CNN%20para%20series%20de%20tiempo.html">CNN para series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/M%C3%A9todos%20de%20Deep%20Learnign%20serie%20irradiancia/M%C3%A9todos_de_Deep_Learnign_serie_irradiancia.html">Métodos de Deep Learnign serie irradiancia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Taller%20RNN/Taller%20RNN.html">Taller RNN</a></li>
 </ul>
@@ -733,7 +735,7 @@ sean claros.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_8_010.png" src="../../_images/output_8_010.png" />
+<img alt="../../_images/output_8_011.png" src="../../_images/output_8_011.png" />
 <p><strong>Estadísticas descriptivas:</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estadisticas_trm</span> <span class="o">=</span> <span class="n">trm</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 
@@ -768,7 +770,7 @@ rangos o si presenta colas largas (valores extremos).</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_12_09.png" src="../../_images/output_12_09.png" />
+<img alt="../../_images/output_12_010.png" src="../../_images/output_12_010.png" />
 <ul class="simple">
 <li><p>Un histograma muy disperso sugiere alta volatilidad.</p></li>
 <li><p>Picos y colas pueden asociarse a eventos económicos relevantes.</p></li>
@@ -789,7 +791,7 @@ rangos o si presenta colas largas (valores extremos).</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_16_011.png" src="../../_images/output_16_011.png" />
+<img alt="../../_images/output_16_012.png" src="../../_images/output_16_012.png" />
 <p>Otra forma de graficar:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graficar</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -841,7 +843,7 @@ rangos o si presenta colas largas (valores extremos).</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_19_010.png" src="../../_images/output_19_010.png" />
+<img alt="../../_images/output_19_011.png" src="../../_images/output_19_011.png" />
 <p>En este caso, la TRM presenta visualmente un comportamiento más acorde
 con un modelo aditivo, ya que la amplitud de la estacionalidad es
 prácticamente constante a lo largo del tiempo y no se incrementa con el
@@ -1011,7 +1013,7 @@ aditivo</strong> como:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_30_08.png" src="../../_images/output_30_08.png" />
+<img alt="../../_images/output_30_07.png" src="../../_images/output_30_07.png" />
 </section>
 <section id="precio-de-electricidad">
 <h2>Precio de electricidad:<a class="headerlink" href="#precio-de-electricidad" title="Link to this heading">#</a></h2>
@@ -1050,7 +1052,7 @@ aditivo</strong> como:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/output_32_08.png" src="../../_images/output_32_08.png" />
+<img alt="../../_images/output_32_09.png" src="../../_images/output_32_09.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadísticas</span> <span class="n">descriptivas</span> <span class="k">del</span> <span class="n">precio</span> <span class="n">de</span> <span class="n">electricidad</span><span class="p">:</span>
 <span class="n">count</span>     <span class="mf">291.000000</span>
 <span class="n">mean</span>      <span class="mf">167.581805</span>
