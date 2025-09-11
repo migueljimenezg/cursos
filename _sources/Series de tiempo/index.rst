@@ -15,6 +15,8 @@ En este curso se explicarán los métodos convencionales para modelar las series
    ../AprenEst/Regresión/MétricRegresión/Métricas de evaluación en regresión
    ../Machine Learning/Deep Learning/División del dataset/División del dataset
    Ejemplo métricas de desempeño Desempleo/Ejemplo_métricas_de_desempeño_Desempleo
+   Taller suavizamiento extracción petróleo/Taller suavizamiento extracción petróleo
+   Solución suavizamiento extracción petróleo/Solución suavizamiento extracción petróleo
    Características de las series de tiempo/Características de las series de tiempo.rst
    ACF/ACF.rst
    Modelos Autorregresivos - AR/Modelos Autorregresivos - AR.rst
