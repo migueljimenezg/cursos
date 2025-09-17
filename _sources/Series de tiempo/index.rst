@@ -8,24 +8,11 @@ En este curso se explicarán los métodos convencionales para modelar las series
    :maxdepth: 1
    :titlesonly:
 
-   QueST/Qué es una serie de tiempo
-   ExplorST/Exploración_visual_de_series_de_tiempo
-   Msuavizado/Métodos_de_suavizado_v2
-   Ejem_suavizado desempleo/Ejemplo_métodos_suavizado_desempleo
-   ../AprenEst/Regresión/MétricRegresión/Métricas de evaluación en regresión
-   ../Machine Learning/Deep Learning/División del dataset/División del dataset
-   Ejemplo métricas de desempeño Desempleo/Ejemplo_métricas_de_desempeño_Desempleo
-   Taller suavizamiento extracción petróleo/Taller suavizamiento extracción petróleo
-   Solución suavizamiento extracción petróleo/Solución suavizamiento extracción petróleo
-   Características de las series de tiempo/Características de las series de tiempo.rst
-   ACF/ACF.rst
-   Modelos Autorregresivos - AR/Modelos Autorregresivos - AR.rst
-   Pronóstico con AR/Pronóstico con AR.rst
-   autoplot para series de tiempo/autoplot para series de tiempo.rst
-   Modelos de promedio móvil - MA/Modelos de promedio móvil - MA.rst
-   Modelos ARMA/Modelos ARMA.rst
-   
+   Introducción series de tiempo/index
+   Métodos de suavizamiento/index
+   Procesos estacionarios/index
 
+ 
 .. important::
     Archivos para trabajar:
 
@@ -36,6 +23,10 @@ En este curso se explicarán los métodos convencionales para modelar las series
     * **Descargue** :download:`Desempleo.xlsx <Desempleo.xlsx>`
 
     * **Descargue** :download:`Extracción petróleo Ecopetrol.xlsx <Extracción petróleo Ecopetrol.xlsx>`
+
+    * **Descargue** :download:`Irradiancia Medellín.xlsx <Irradiancia Medellín.xlsx>`
+
+   * **Descargue** :download:`Temperatura Medellín.xlsx <Temperatura Medellín.xlsx>`
 
 
 

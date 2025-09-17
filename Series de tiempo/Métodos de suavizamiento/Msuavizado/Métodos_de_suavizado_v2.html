@@ -1,0 +1,1763 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Métodos de suavizado &#8212; Cursos  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=3ee1c6c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f9201bb0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=fd10adb8"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Métodos de suavizamiento/Msuavizado/Métodos_de_suavizado_v2';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Ejemplo métodos suavizado desempleo" href="../Ejem_suavizado%20desempleo/Ejemplo_m%C3%A9todos_suavizado_desempleo.html" />
+    <link rel="prev" title="Métodos de suavizamiento" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cursos  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">SERIES DE TIEMPO:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Series de tiempo</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Introducci%C3%B3n%20series%20de%20tiempo/index.html">Introducción series de tiempo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Introducci%C3%B3n%20series%20de%20tiempo/QueST/Qu%C3%A9%20es%20una%20serie%20de%20tiempo.html">¿Qué es una serie de tiempo?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Introducci%C3%B3n%20series%20de%20tiempo/ExplorST/Exploraci%C3%B3n_visual_de_series_de_tiempo.html">Exploración visual de series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Introducci%C3%B3n%20series%20de%20tiempo/Ejemplo%20m%C3%A9tricas%20de%20desempe%C3%B1o%20Desempleo/Ejemplo_m%C3%A9tricas_de_desempe%C3%B1o_Desempleo.html">Ejemplo métricas de desempeño Desempleo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Métodos de suavizamiento</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Métodos de suavizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Ejem_suavizado%20desempleo/Ejemplo_m%C3%A9todos_suavizado_desempleo.html">Ejemplo métodos suavizado desempleo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Taller%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo/Taller%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo.html">Taller suavizamiento extracción petróleo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Procesos%20estacionarios/index.html">Procesos estacionarios</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Procesos%20estacionarios/ProcessEstocas/Procesos%20estoc%C3%A1sticos.html">Procesos estocásticos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Procesos%20estacionarios/Estacionariedad/Estacionariedad.html">Estacionariedad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Procesos%20estacionarios/Prueba%20ADF/Prueba%20ADF%20%28Augmented%20Dickey-Fuller%29.html">Prueba ADF (Augmented Dickey-Fuller)</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APRENDIZAJE ESTADÍSTICO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../AprenEst/index.html">Aprendizaje Estadístico</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../AprenEst/Motivaci%C3%B3n/index.html">Motivación</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python.html">Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/Pandas/Pandas.html">Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/NumPy/NumPy.html">NumPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/Matplotlib/Matplotlib.html">Matplotlib</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Machine%20Learning/index.html">Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Machine%20Learning/ProcessML/Proceso%20de%20Machine%20Learning.html">Proceso de Machine Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AprenEst/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos.html">Preparación y preprocesamiento de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Clustering/index.html">Clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/Tclustering/Clustering.html">Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/K-Means/K-Means.html">K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EK-Means/Ejemplo%20K-Means.html">Ejemplo K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EK-MeansEF/Ejercicio%20K-Means%20Estados%20Financieros.html">Ejercicio K-Means Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/CJer%C3%A1rquico/Clustering%20Jer%C3%A1rquico.html">Clustering Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EclusteringJ/Ejemplo%20clustering%20jer%C3%A1rquico.html">Ejemplo clustering jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/DBSCAN/DBSCAN.html">DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EDBSCAN/Ejemplo%20DBSCAN.html">Ejemplo DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EDBSCANEF/Ejemplo%20clustering%20DBSCAN%20Estados%20Financieros.html">Ejemplo clustering DBSCAN Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html">Ejemplo DBSCAN precio electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/Ejemplo%20K-Means%20acciones/Ejemplo_K_Means_acciones.html">Ejemplo K-Means acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html">Ejercicio Clustering Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/ReDim/index.html">Reducción de dimensionalidad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/Algebra/Repaso%20%C3%81lgebra%20Lineal.html">Repaso Álgebra Lineal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/PCA/An%C3%A1lisis%20de%20Componentes%20Principales-PCA.html">Análisis de Componentes Principales-PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/KernelPCA/Kernel%20PCA%20%28kPCA%29.html">Kernel PCA (kPCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjemReDim/Ejemplo%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejemplo reducción de dimensionalidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html">Ejemplo diferente tipo de escalado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjerciPCAacciones/Ejemplo_PCA_acciones.html">Ejercicio PCA - acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjerciReDim/Ejercicio%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejercicio reducción de dimensionalidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/TallerReDim/Taller%20reducci%C3%B3n%20de%20dimensionalidad.html">Taller reducción de dimensionalidad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/index.html">Clasificación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Clasificaci%C3%B3n/Clasificaci%C3%B3n.html">Clasificación</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/M%C3%A9tricas/M%C3%A9tricas%20clasificaci%C3%B3n.html">Métricas para Evaluación de Modelos de Clasificación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Cross/Cross%20Validation.html">Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Teor%C3%ADaRL/Regresi%C3%B3n_Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemRL/Ejemplo_Regresi%C3%B3n_Log%C3%ADstica.html">Ejemplo Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemRLempresas/Ejemplo_regresi%C3%B3n_log%C3%ADstica_empresas_en_re_organizaci%C3%B3n.html">Ejemplo regresión logística empresas en re organización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemSVMempresas/Ejemplo_SVM_empresas_en_re_organizaci%C3%B3n.html">Ejemplo SVM empresas en re organización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemploAD/Ejemplo%20%C3%A1rboles%20de%20decisi%C3%B3n.html">Ejemplo árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemADempresas/Ejemplo_AD_empresas_en_re_organizaci%C3%B3n.html">Ejemplo árboles de decisión empresas en re organización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Bagging/Bagging.html">Bagging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/RandomForest/Random%20Forest.html">Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemRF/Ejemplo%20Random%20Forest.html">Ejemplo Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Boosting/Boosting%20%28AdaBoost%29.html">Boosting (AdaBoost)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/XGBoost/XGBoost.html">XGBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Stacking/Stacking.html">Stacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EclasEF/Ejemplo%20m%C3%A9todos%20de%20clasificaci%C3%B3n%20sobre%20Estados%20Financieros.html">Ejemplo métodos de clasificación sobre Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Pipeline/index.html">Pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Pipeline/Pipeline/Pipeline.html">Pipeline en Machine Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Pipeline/EjemPipelineEmpresas/Ejemplo_pipeline_empresas_en_re_organizaci%C3%B3n.html">Ejemplo pipeline empresas en re organización</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/index.html">Optimización de Hiperparámetros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/GridSearch/Grid%20Search.html">Grid Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/RandomizedSearch/Randomized%20Search.html">Randomized Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/index.html">Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html">SVM para Regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRst/SVR%20para%20series%20de%20tiempo.html">SVR para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html">SVR series de tiempo con lags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADst/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/DFst/Random%20Forest%20para%20series%20de%20tiempo.html">Random Forest para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/XGBoostst/XGBoost%20para%20series%20de%20tiempo.html">XGBoost para series de tiempo</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/index.html">Deep Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejercicio%20clasificaci%C3%B3n/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20para%20series%20de%20tiempo/RNA%20para%20series%20de%20tiempo.html">RNA para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo.html">Ejemplo pronóstico serie de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizadores/Optimizadores.html">Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/GridSearchCV/GridSearchCV.html">GridSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RandomizedSearchCV/RandomizedSearchCV.html">RandomizedSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/KerasTuner/KerasTuner.html">KerasTuner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20empresas%20en%20reorganizaci%C3%B3n/Ejemplo_empresas_en_re_organizaci%C3%B3n.html">Ejemplo empresas en re organización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNN/RNN.html">RNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/LSTM/LSTM.html">LSTM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/GRU/GRU.html">GRU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNN%20Bidireccional/RNN%20Bidireccional.html">RNN Bidireccional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN/CNN.html">CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN%20para%20series%20de%20tiempo/CNN%20para%20series%20de%20tiempo.html">CNN para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/M%C3%A9todos%20de%20Deep%20Learnign%20serie%20irradiancia/M%C3%A9todos_de_Deep_Learnign_serie_irradiancia.html">Métodos de Deep Learnign serie irradiancia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Taller%20RNN/Taller%20RNN.html">Taller RNN</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MERCADO DE VALORES:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/IntroMerFin/index.html">Introducción al Mercado Financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Derivados/index.html">Derivados Financieros</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Bonos/index.html">Bonos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Portafolios/index.html">Portafolios de inversión</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/Ejercicios%20matem%C3%A1ticas%20financieras.html">Ejercicios introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/F%C3%B3rmulas%20Examen%20Matem%C3%A1ticas%20Financieras%2001-2024.html">Examen semestre 01-2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20an%C3%A1lisis%20vertical%2C%20horizontal%20e%20indicadores%20de%20actividad.html">Ejercicios análisis vertical, horizontal e indicadores de actividad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20indicadores%20de%20liquidez%2C%20rentabilidad%20y%20endeudamiento.html">Ejercicios indicadores de liquidez, rentabilidad y endeudamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Resumen%20f%C3%B3rmulas%20Indicadores%20Financieros.html">Resumen fórmulas Indicadores Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/index.html">Análisis Financiero en Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Vertical/An%C3%A1lisis%20Vertical.html">Análisis Vertical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Horizontal/An%C3%A1lisis%20Horizontal.html">Análisis Horizontal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes.html">Análisis de los márgenes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Forward/Ejercicios%20valoraci%C3%B3n%20contratos%20Forward.html">Ejercicios valoración contratos Forward</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Swap/Ejercicios%20tasas%20FRA.html">Ejercicios tasas FRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Swap/Ejercicios%20swap.html">Ejercicios swap</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/Ejercicios%20operaciones%20con%20Futuros%20BVC.html">Ejercicios operaciones con Futuros BVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/Ejercicios%20coberturas%20con%20Futuros.html">Ejercicios coberturas con Futuros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html">Movimiento Browniano Geométrico (GBM) en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de Opciones Financieras por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20estrategia%20de%20cobertura/Simulaci%C3%B3n%20estrategia%20de%20cobertura.html">Simulación estrategia de cobertura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Ejercicios%20valoraci%C3%B3n%20de%20opciones.html">Ejercicios valoración de opciones</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">REGRESIÓN LINEAL:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/index.html">Regresión lineal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis/Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis.html">Taller Intervalos de Confianza y Pruebas de Hipótesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29/Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29.html">Regresión Lineal Simple (RLS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/An%C3%A1lisis%20de%20Normalidad%20en%20RLS/An%C3%A1lisis%20de%20Normalidad%20en%20RLS.html">Análisis de Normalidad en RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n/Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n.html">Prueba de significancia de la regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Intervalos%20de%20confianza%20-%20CI/Intervalos%20de%20confianza%20-%20CI.html">Intervalos de confianza - CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Medidas%20de%20desempe%C3%B1o%20RLS/Medidas%20de%20desempe%C3%B1o%20RLS.html">Medidas de desempeño RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/RLS%20con%20ggplot2/RLS%20con%20ggplot2.html">RLS con ggplot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29/Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29.html">Regresión Lineal Múltiple (RLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/ANOVA/ANOVA.html">ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Multicolinealidad/Multicolinealidad.html">Multicolinealidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Comparaci%C3%B3n%20de%20modelos/Comparaci%C3%B3n%20de%20modelos.html">Comparación de modelos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/An%C3%A1lisis%20de%20Normalidad%20en%20RLM/An%C3%A1lisis%20de%20Normalidad%20en%20RLM.html">Análisis de Normalidad en RLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Variables%20indicadoras/Variables%20indicadoras.html">Variables indicadoras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica/Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica.html">Teoría Regresión Logística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20en%20R.html">Regresión Logística en R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n.html">Regresión Logística para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R.html">Regresión Logística para clasificación en R</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Mercado%20financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/index.html">Teoría moderna de portafolios</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n.html">Introducción a portafolios de inversión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/CAPM/CAPM.html">CAPM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Indicadores%20de%20desempe%C3%B1o/Indicadores%20de%20desempe%C3%B1o.html">Indicadores de desempeño</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Frontera%20eficiente/Frontera%20Eficiente.html">Frontera Eficiente</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/index.html">Bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2.html">Ejercicios: valoración de bonos BVC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20bonos.html">Ejercicios Bonos</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la gestión del riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Estad%C3%ADstica/index.html">Conceptos básicos de estadística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Distribuciones%20de%20probabilidad/index.html">Distribuciones de probabilidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/An%C3%A1lisis%20de%20sensibilidad%20tradicional/index.html">Análisis de sensibilidad tradicional</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Distribuci%C3%B3n%20normal/Distribuci%C3%B3n%20normal.html">Distribución normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/VaR%20varianzas-covarianzas/VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Taller%201/Taller%20N%C2%B0%201%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 1: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Taller%202/Taller%20N%C2%B0%202%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 2: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal.html">Ejercicios: VaR Delta-Normal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/index.html">Volatilidades dinámicas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Volatilidad%20EWMA/Volatilidad%20EWMA.html">Volatilidad EWMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Volatilidad%20GARCH/Volatilidad%20GARCH.html">Volatilidad GARCH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Ejercicios-volatilidades%20din%C3%A1micas/Ejercicios%20volatilidades%20din%C3%A1micas.html">Ejercicios volatilidades dinámicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/index.html">VaR Simulación Histórica y CVaR</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/VaR-simulaci%C3%B3n-Hist%C3%B3rica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/CVaR/CVaR-Jupyter.html">CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Taller VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR.html">Análisis gráfico VaR y CVaR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/index.html">VaR Simulación Monte Carlo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR para un activo por Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR por el método de simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo.html">Taller VaR y CVaR método de simulación Monte Carlo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/index.html">Backtesting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Backtesting%20VaR%20Delta-Normal/Backtesting%20VaR%20Delta-Normal.html">Backtesting VaR Delta-Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Backtesting método VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Backtesting método VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal.html">Puntaje de López - VaR Delta-Normal</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Puntaje de López - VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Puntaje de López - VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Resumen%20Backtesting/Resumen%20Backtesting.html">Resumen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/index.html">VaR bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/Duraci%C3%B3n%20y%20Duraci%C3%B3n%20Modificada/Duraci%C3%B3n%20y%20duraci%C3%B3n%20modificada%20en%20bonos.html">Duración y duración modificada en bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/VaR%20bonos/VaR%20Bonos.html">VaR Bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/Ejercicios%20-%20VaR%20bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC.html">Ejercicios: valoración de bonos BVC</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/Extraer%20datos%20de%20Yahoo%20Finance/Extraer%20datos%20de%20Yahoo%20Finance.html">Extraer datos de Yahoo Finance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../ggplot2/Introducci%C3%B3n%20a%20ggplot2/ggplot2.html">ggplot2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles.html">Estadística aplicada a los activos bursátiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n.html">Volatilidad portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n.html">Conformación portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n.html">Ejercicios: Estadística y conformación de portafolios de inversión.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/Series de tiempo/Métodos de suavizamiento/Msuavizado/Métodos_de_suavizado_v2.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Métodos de suavizado</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suavizado-exponencial-simple-ses">Suavizado Exponencial Simple (SES):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpleexpsmoothing-ses-statsmodels">SimpleExpSmoothing (SES) — <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-holt-suavizado-exponencial-doble">Método de Holt (Suavizado Exponencial Doble):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-holt-winters-suavizado-exponencial-triple">Método de Holt-Winters (Suavizado Exponencial Triple):</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="metodos-de-suavizado">
+<h1>Métodos de suavizado<a class="headerlink" href="#metodos-de-suavizado" title="Link to this heading">#</a></h1>
+<p>En numerosos contextos de análisis y pronóstico, resulta esencial
+estimar la tendencia de una serie de tiempo. Este componente puede ser
+relevante en sí mismo —al reflejar la evolución de largo plazo de la
+variable— o bien constituir un paso previo para lograr la
+estacionariedad de la serie mediante la eliminación de dicha tendencia.</p>
+<p>Los métodos de suavizamiento se utilizan para reducir el ruido y las
+fluctuaciones de corto plazo, permitiendo así revelar el comportamiento
+subyacente y persistente de la serie. De esta manera, facilitan la
+identificación y el modelado de la tendencia.</p>
+<section id="suavizado-exponencial-simple-ses">
+<h2>Suavizado Exponencial Simple (SES):<a class="headerlink" href="#suavizado-exponencial-simple-ses" title="Link to this heading">#</a></h2>
+<p>El <strong>suavizado exponencial simple (SES)</strong> fue propuesto a finales de los
+años 50 (Brown, 1959; Holt, 1957; Winters, 1960) y constituye la base de
+algunos de los métodos de pronóstico más utilizados en la práctica.</p>
+<p>La idea central es generar <strong>pronósticos como promedios ponderados de
+las observaciones pasadas</strong>, donde los pesos decrecen exponencialmente
+con el tiempo. Esto implica que:</p>
+<ul class="simple">
+<li><p>Las observaciones recientes tienen mayor influencia en el pronóstico.</p></li>
+<li><p>Las observaciones más lejanas tienen menor peso, aunque nunca
+desaparecen completamente.</p></li>
+</ul>
+<p>Este enfoque ofrece un procedimiento rápido, confiable y flexible para
+una amplia gama de series de tiempo, lo que explica su éxito en
+aplicaciones industriales y académicas.</p>
+<p><strong>Comparación con métodos básicos:</strong></p>
+<p>Antes de introducir SES, recordemos dos métodos simples:</p>
+<ul class="simple">
+<li><p><strong>Método naïve</strong>:</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{T+h|T} = y_T, \quad h \geq 1\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">El último valor observado se usa como pronóstico futuro. Todo el peso
+recae únicamente en la observación más reciente.</div>
+</div>
+<ul class="simple">
+<li><p><strong>Método del promedio</strong>:</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{T+h|T} = \frac{1}{T} \sum_{t=1}^T y_t, \quad h \geq 1\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Todos los datos pasados tienen el mismo peso.</div>
+</div>
+<p>El SES se ubica entre estos dos extremos: da más importancia a los datos
+recientes, pero no ignora por completo el pasado.</p>
+<p><strong>Forma de promedio ponderado:</strong></p>
+<p>El SES calcula un promedio ponderado donde los pesos decrecen
+geométricamente:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[S_t = \alpha y_t + (1-\alpha)y_{t-1} + (1-\alpha)^2 y_{t-2} + \cdots\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">con <span class="math notranslate nohighlight">\(0 &lt; \alpha &lt; 1\)</span>.</div>
+</div>
+<p>De aquí se deriva la <strong>forma recursiva</strong>:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[S_t = \alpha y_t + (1-\alpha)S_{t-1}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">donde:</div>
+</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_t\)</span>: valor observado en el período <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(S_t\)</span>: nivel suavizado en el período <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: parámetro de suavizado.</p></li>
+</ul>
+<p>Los <strong>ajustes o valores suavizados</strong> (fitted values) se obtienen como:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y}_{t|t-1} = S_{t-1}\]</div>
+<p><strong>Interpretación de</strong> <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<p>El parámetro <span class="math notranslate nohighlight">\(\alpha\)</span> controla la rapidez con la que los pesos
+asignados a las observaciones pasadas decrecen:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha \approx 1\)</span>:</p>
+<ul>
+<li><p>El modelo se parece al método naïve.</p></li>
+<li><p>El pronóstico reacciona rápido a cambios recientes.</p></li>
+<li><p>Mayor varianza en los valores suavizados.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\alpha \approx 0\)</span>:</p>
+<ul>
+<li><p>El modelo se acerca al método del promedio.</p></li>
+<li><p>La serie suavizada es estable pero lenta para reflejar cambios.</p></li>
+<li><p>Menor varianza, pero más rezago en la reacción.</p></li>
+</ul>
+</li>
+</ul>
+<p>Ejemplo de pesos decrecientes según <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Rezago</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\a
+lpha = 0.2\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\a
+lpha = 0.4\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\a
+lpha = 0.6\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\a
+lpha = 0.8\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(y_t\)</span></p></td>
+<td><p>0.2000</p></td>
+<td><p>0.4000</p></td>
+<td><p>0.6000</p></td>
+<td><p>0.8000</p></td>
+</tr>
+<tr class="row-odd"><td><p>:mat
+h:<cite>y_{t-1}</cite></p></td>
+<td><p>0.1600</p></td>
+<td><p>0.2400</p></td>
+<td><p>0.2400</p></td>
+<td><p>0.1600</p></td>
+</tr>
+<tr class="row-even"><td><p>:mat
+h:<cite>y_{t-2}</cite></p></td>
+<td><p>0.1280</p></td>
+<td><p>0.1440</p></td>
+<td><p>0.0960</p></td>
+<td><p>0.0320</p></td>
+</tr>
+<tr class="row-odd"><td><p>:mat
+h:<cite>y_{t-3}</cite></p></td>
+<td><p>0.1024</p></td>
+<td><p>0.0864</p></td>
+<td><p>0.0384</p></td>
+<td><p>0.0064</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Los <strong>pesos del suavizado exponencial simple (SES)</strong> en la forma de
+promedio ponderado se calculan con la fórmula:</p>
+<div class="math notranslate nohighlight">
+\[\text{Peso en } y_{t-j} = \alpha (1-\alpha)^j, \quad j = 0,1,2,\dots\]</div>
+<p>donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(j\)</span> es el <strong>rezago</strong> (0 corresponde a <span class="math notranslate nohighlight">\(y_t\)</span>, 1 a
+<span class="math notranslate nohighlight">\(y_{t-1}\)</span>, etc.).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> es el parámetro de suavizamiento.</p></li>
+</ul>
+<p><strong>Ejemplo de cálculo para</strong> <span class="math notranslate nohighlight">\(\alpha = 0.2\)</span>:</p>
+<ul class="simple">
+<li><p>Rezago <span class="math notranslate nohighlight">\(0\)</span>: <span class="math notranslate nohighlight">\(0.2 \cdot (1-0.2)^0 = 0.2000\)</span></p></li>
+<li><p>Rezago <span class="math notranslate nohighlight">\(1\)</span>: <span class="math notranslate nohighlight">\(0.2 \cdot (1-0.2)^1 = 0.1600\)</span></p></li>
+<li><p>Rezago <span class="math notranslate nohighlight">\(2\)</span>: <span class="math notranslate nohighlight">\(0.2 \cdot (1-0.2)^2 = 0.1280\)</span></p></li>
+<li><p>Rezago <span class="math notranslate nohighlight">\(3\)</span>: <span class="math notranslate nohighlight">\(0.2 \cdot (1-0.2)^3 = 0.1024\)</span></p></li>
+</ul>
+<figure class="align-default" id="id1">
+<img alt="Decaimiento" src="../../../_images/Decaimiento.png" />
+<figcaption>
+<p><span class="caption-text">Decaimiento</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id2">
+<img alt="decaimiento_exponencial.gif" src="../../../_images/decaimiento_exponencial.gif" />
+<figcaption>
+<p><span class="caption-text">decaimiento_exponencial.gif</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<img alt="suavizamiento_exponencial" src="../../../_images/suavizamiento_exponencial.gif" />
+<figcaption>
+<p><span class="caption-text">suavizamiento_exponencial</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Pronóstico con SES:</strong></p>
+<p>Una característica clave es que los pronósticos son <strong>planos (flat
+forecasts)</strong>:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{T+h|T} = S_T, \quad h \geq 1\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Es decir, todos los valores futuros se predicen como el último nivel
+suavizado. Esto es apropiado únicamente si la serie no tiene tendencia
+ni estacionalidad.</div>
+</div>
+<p><strong>Pasos prácticos de implementación:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Inicialización</strong>: elegir <span class="math notranslate nohighlight">\(S_1 = y_1\)</span> o bien la media de los
+primeros <span class="math notranslate nohighlight">\(k\)</span> valores.</p></li>
+<li><p><strong>Recursión</strong>: calcular <span class="math notranslate nohighlight">\(S_t = \alpha y_t + (1-\alpha)S_{t-1}\)</span>
+para <span class="math notranslate nohighlight">\(t=2,\dots,T\)</span>.</p></li>
+<li><p><strong>Pronóstico</strong>: fijar <span class="math notranslate nohighlight">\(\hat{y}_{T+h|T} = S_T\)</span> para
+<span class="math notranslate nohighlight">\(h \geq 1\)</span>.</p></li>
+</ol>
+<p><strong>Ejemplo:</strong></p>
+<p>Supongamos la serie <span class="math notranslate nohighlight">\(\{y_t\} = [10, 12, 11, 13, 12]\)</span> y
+<span class="math notranslate nohighlight">\(\alpha = 0.3\)</span>:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(S_1 = 10\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_2 = 0.3 \cdot 12 + 0.7 \cdot 10 = 10.6\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_3 = 0.3 \cdot 11 + 0.7 \cdot 10.6 = 10.72\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_4 = 0.3 \cdot 13 + 0.7 \cdot 10.72 = 11.40\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S_5 = 0.3 \cdot 12 + 0.7 \cdot 11.40 = 11.58\)</span></p></li>
+</ol>
+<div class="line-block">
+<div class="line">El pronóstico será:</div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{6} = 11.58, \quad \hat{y}_{7} = 11.58, \quad \hat{y}_{8} = 11.58, \dots\]</div>
+</div></blockquote>
+<p><strong>Ventajas y limitaciones:</strong></p>
+<ul class="simple">
+<li><p><strong>Ventajas:</strong></p></li>
+<li><p>Fácil de implementar y comprender.</p></li>
+<li><p>Pocos parámetros a estimar.</p></li>
+<li><p>Requiere escaso almacenamiento.</p></li>
+<li><p>Útil para series sin tendencia ni estacionalidad.</p></li>
+<li><p><strong>Limitaciones:</strong></p></li>
+<li><p>No modela tendencias ni estacionalidad.</p></li>
+<li><p>Todos los pronósticos convergen a un nivel constante.</p></li>
+<li><p>Sensible a la elección de <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+</ul>
+<p><strong>Conexión con otros métodos:</strong></p>
+<ul class="simple">
+<li><p><strong>Holt (doble suavizado):</strong> incorpora un componente de tendencia.</p></li>
+<li><p><strong>Holt–Winters:</strong> extiende SES para incluir estacionalidad (aditiva o
+multiplicativa).</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Generar serie de tiempo sin tendencia ni estacionalidad (solo ruido alrededor de un nivel)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">periods</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021-01-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">periods</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">level</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">periods</span><span class="p">)</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">level</span> <span class="o">+</span> <span class="n">noise</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span>
+
+<span class="c1"># Graficar serie de tiempo</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Serie sin tendencia ni estacionalidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_12_011.png" src="../../../_images/output_12_011.png" />
+</section>
+<section id="simpleexpsmoothing-ses-statsmodels">
+<h2>SimpleExpSmoothing (SES) — <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code><a class="headerlink" href="#simpleexpsmoothing-ses-statsmodels" title="Link to this heading">#</a></h2>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">SimpleExpSmoothing</span></code> del módulo
+<code class="docutils literal notranslate"><span class="pre">statsmodels.tsa.holtwinters</span></code> implementa el método de <strong>Suavizado
+Exponencial Simple (SES)</strong>, una técnica de pronóstico para series de
+tiempo que no presentan tendencia ni estacionalidad.</p>
+<p>Este método suaviza la serie otorgando mayor peso a los valores más
+recientes, mediante un parámetro de suavizado <span class="math notranslate nohighlight">\(\alpha \in (0, 1)\)</span>.
+A diferencia de otros modelos, SES produce pronósticos constantes
+iguales al último valor suavizado.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SimpleExpSmoothing(endog,</span> <span class="pre">initialization_method=None,</span> <span class="pre">initial_level=None)</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">endog</span></code>: debe ser un objeto pd.Series con índice temporal.</p>
+<p><code class="docutils literal notranslate"><span class="pre">optimized=True</span></code>: permite que el modelo escoja el mejor valor de
+<span class="math notranslate nohighlight">\(\alpha\)</span> minimizando el error cuadrático medio (MSE) en los datos.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.holtwinters</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleExpSmoothing</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajustar SES con alpha optimizado automáticamente</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SimpleExpSmoothing</span><span class="p">(</span><span class="n">series</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fitted_values</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">alpha_opt</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_level&#39;</span><span class="p">]</span>
+
+<span class="c1"># Graficar resultados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Suavizado SES (α optimizado = </span><span class="si">{</span><span class="n">alpha_opt</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ajuste con Suavizado Exponencial Simple (SES)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_15_010.png" src="../../../_images/output_15_010.png" />
+<p><code class="docutils literal notranslate"><span class="pre">optimized=True</span></code>: permite que el modelo escoja el mejor valor de
+<span class="math notranslate nohighlight">\(\alpha\)</span> minimizando el error cuadrático medio (MSE) en los datos.</p>
+<p><strong>Ajustar el modelo con un valor específico de alpha (por ejemplo,
+0.3):</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">=</span> <span class="pre">0.3</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">SimpleExpSmoothing(series).fit(smoothing_level=alpha,</span> <span class="pre">optimized=False)</span></code></p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hacer pronóstico fuera de la muestra</span>
+<span class="n">horizon</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># número de pasos futuros a predecir</span>
+<span class="n">forecast_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">series</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">periods</span><span class="o">=</span><span class="n">horizon</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">forecast</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="n">horizon</span><span class="p">)</span>
+<span class="n">forecast</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">forecast</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">forecast_index</span><span class="p">)</span>
+
+<span class="c1"># Graficar serie, ajuste y pronóstico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Suavizado SES (α optimizado = </span><span class="si">{</span><span class="n">alpha_opt</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">forecast</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pronóstico&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ajuste y Pronóstico con Suavizado Exponencial Simple (SES)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_17_07.png" src="../../../_images/output_17_07.png" />
+<p><strong>¿Qué significa que</strong> <span class="math notranslate nohighlight">\(\alpha = 1\)</span> <strong>en el Suavizado Exponencial
+Simple (SES)?</strong></p>
+<p>Cuando se aplica el método de <strong>Suavizado Exponencial Simple (SES)</strong> y
+el valor óptimo de <span class="math notranslate nohighlight">\(\alpha\)</span> resulta ser igual a 1, esto tiene una
+interpretación específica y consecuencias importantes en el
+comportamiento del modelo.</p>
+<p>El SES se define mediante la fórmula recursiva:</p>
+<div class="math notranslate nohighlight">
+\[S_t = \alpha\, y_t + (1 - \alpha)\, S_{t-1}\]</div>
+<p>Si <span class="math notranslate nohighlight">\(\alpha = 1\)</span>, la fórmula se simplifica a:</p>
+<div class="math notranslate nohighlight">
+\[S_t = y_t\]</div>
+<p>Esto significa que:</p>
+<ul class="simple">
+<li><p>El valor suavizado en cada período es <strong>igual al valor observado
+actual</strong>.</p></li>
+<li><p><strong>No hay influencia del pasado</strong>: el modelo no retiene memoria.</p></li>
+<li><p>El modelo <strong>no suaviza nada</strong> — simplemente replica la serie original
+sin filtrarla.</p></li>
+</ul>
+<p><strong>Implicaciones prácticas:</strong></p>
+<ul>
+<li><p>No se produce ningún efecto de “suavizado”: se comporta como una
+<strong>copia directa</strong> de la serie.</p></li>
+<li><div class="line-block">
+<div class="line">El pronóstico será simplemente el <strong>último valor observado</strong>:</div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{t+h} = y_t\]</div>
+</div></blockquote>
+</li>
+<li><p><strong>No hay reducción de ruido</strong> ni modelado de dinámica subyacente.</p></li>
+</ul>
+<p><strong>¿Por qué puede suceder esto?</strong></p>
+<ul class="simple">
+<li><p>La serie puede ser <strong>muy volátil o errática</strong>, sin patrones claros
+que puedan ser capturados por un nivel suavizado.</p></li>
+<li><p>El modelo, al minimizar el error (ej. MSE), <strong>prefiere seguir
+exactamente los datos</strong> en lugar de suavizarlos.</p></li>
+<li><p>Podría indicar que el SES <strong>no es el método adecuado</strong> para esa
+serie.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mdates</span>
+
+<span class="c1"># Descargar datos mensuales desde 2015</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2021-01-01&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;2025-07-31&quot;</span>
+
+<span class="c1"># TRM de Colombia (USD/COP)</span>
+<span class="n">serie</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;^GSPC&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_date</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="s1">&#39;1mo&#39;</span><span class="p">,</span> <span class="n">auto_adjust</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span>
+<span class="n">serie</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Serie de tiempo&#39;</span>
+
+<span class="c1"># Establecer frecuencia explícita para evitar el warning de statsmodels</span>
+<span class="n">serie</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">inferred_freq</span>
+
+<span class="c1"># Crear figura</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">serie</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+
+<span class="c1"># Personalización del gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Serie de tiempo original&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;COP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># Formato de fechas en el eje X</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">YearLocator</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s1">&#39;%Y&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<pre class="literal-block">[<strong>*******************100%*********************</strong>]  1 of 1 completed</pre>
+<img alt="../../../_images/output_19_13.png" src="../../../_images/output_19_13.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajustar SES con alpha optimizado automáticamente</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SimpleExpSmoothing</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fitted_values</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">alpha_opt</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_level&#39;</span><span class="p">]</span>
+
+<span class="c1"># Graficar resultados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Suavizado SES (α optimizado = </span><span class="si">{</span><span class="n">alpha_opt</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ajuste con Suavizado Exponencial Simple (SES)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_20_08.png" src="../../../_images/output_20_08.png" />
+</section>
+<section id="metodo-de-holt-suavizado-exponencial-doble">
+<h2>Método de Holt (Suavizado Exponencial Doble):<a class="headerlink" href="#metodo-de-holt-suavizado-exponencial-doble" title="Link to this heading">#</a></h2>
+<p>El <strong>método de Holt</strong> (Holt, 1957), también conocido como <strong>suavizado
+exponencial doble</strong>, extiende el Suavizado Exponencial Simple (SES) para
+permitir el pronóstico de <strong>series de tiempo con tendencia</strong>, pero sin
+estacionalidad.</p>
+<p>La idea es incorporar un segundo componente —la <strong>tendencia</strong>— que
+evoluciona junto con el nivel de la serie. Así, el pronóstico no es
+plano como en SES, sino que sigue una trayectoria lineal en el tiempo.</p>
+<p><strong>Componentes del modelo</strong></p>
+<ul class="simple">
+<li><p><strong>Nivel</strong> <span class="math notranslate nohighlight">\(\ell_t\)</span>: representa el valor suavizado de la serie.</p></li>
+<li><p><strong>Tendencia</strong> <span class="math notranslate nohighlight">\(b_t\)</span>: representa la pendiente o cambio esperado
+entre períodos.</p></li>
+</ul>
+<p>Las ecuaciones del modelo son:</p>
+<ul class="simple">
+<li><p><strong>Ecuación de nivel:</strong></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\ell_t = \alpha y_t + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Ecuación de tendencia:</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[b_t = \beta (\ell_t - \ell_{t-1}) + (1-\beta)b_{t-1}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Ecuación de pronóstico:</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{t+h|t} = \ell_t + h b_t\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">donde:</div>
+</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y_t\)</span>: valor observado en el período <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\ell_t\)</span>: nivel estimado en <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_t\)</span>: tendencia estimada en <span class="math notranslate nohighlight">\(t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{y}_{t+h|t}\)</span>: pronóstico a <span class="math notranslate nohighlight">\(h\)</span> pasos adelante</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha \in (0,1)\)</span>: parámetro de suavizado para el nivel</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta \in (0,1)\)</span>: parámetro de suavizado para la tendencia</p></li>
+</ul>
+<p><strong>Interpretación</strong></p>
+<p>El método de Holt utiliza <strong>dos parámetros de suavizamiento</strong>:</p>
+<ul class="simple">
+<li><p><strong>Nivel</strong> <span class="math notranslate nohighlight">\(\ell_t\)</span>: ajusta el valor actual de la serie
+considerando la tendencia previa.</p></li>
+<li><p><strong>Tendencia</strong> <span class="math notranslate nohighlight">\(b_t\)</span>: captura el cambio promedio de la serie y
+se actualiza dinámicamente.</p></li>
+<li><p><strong>Pronóstico:</strong> se obtiene extrapolando el último nivel estimado más
+<span class="math notranslate nohighlight">\(h\)</span> veces la tendencia.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: controla la rapidez de actualización del <strong>nivel</strong>
+<span class="math notranslate nohighlight">\(\ell_t\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span>: controla la rapidez de actualización de la
+<strong>tendencia</strong> <span class="math notranslate nohighlight">\(b_t\)</span>.</p></li>
+</ul>
+<p><strong>Cuando los parámetros se aproximan a 0:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha \to 0\)</span>:</p>
+<ul>
+<li><p>El nivel <span class="math notranslate nohighlight">\(\ell_t\)</span> cambia muy lentamente.</p></li>
+<li><p>El modelo se vuelve estable, pero tarda en reflejar cambios en la
+serie.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\beta \to 0\)</span>:</p>
+<ul>
+<li><p>La tendencia <span class="math notranslate nohighlight">\(b_t\)</span> casi no se actualiza.</p></li>
+<li><p>El modelo mantiene una pendiente casi constante, basada en el
+pasado lejano.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Cuando los parámetros se aproximan a 1:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha \to 1\)</span>:</p>
+<ul>
+<li><p>El nivel <span class="math notranslate nohighlight">\(\ell_t\)</span> se ajusta casi por completo al valor
+observado <span class="math notranslate nohighlight">\(y_t\)</span>.</p></li>
+<li><p>El modelo reacciona con fuerza a los cambios recientes, pero puede
+volverse muy sensible al ruido.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\beta \to 1\)</span>:</p>
+<ul>
+<li><p>La tendencia <span class="math notranslate nohighlight">\(b_t\)</span> se ajusta principalmente a la diferencia
+más reciente <span class="math notranslate nohighlight">\((\ell_t - \ell_{t-1})\)</span>.</p></li>
+<li><p>El modelo capta cambios bruscos en la pendiente, pero puede
+sobrerreaccionar y producir pronósticos inestables.</p></li>
+</ul>
+</li>
+<li><p>Valores <strong>cercanos a 0</strong> → efecto de suavizamiento fuerte: los
+cambios se incorporan lentamente.</p></li>
+<li><p>Valores <strong>cercanos a 1</strong> → efecto de suavizamiento débil: el modelo
+reacciona rápido, pero con riesgo de seguir el ruido en lugar de la
+señal.</p></li>
+</ul>
+<p><strong>¿Cuándo usar el modelo de Holt?</strong></p>
+<ul class="simple">
+<li><p>Cuando la serie presenta una <strong>tendencia clara y sostenida</strong>.</p></li>
+<li><p>Cuando <strong>no existe estacionalidad</strong> en la serie.</p></li>
+<li><p>Cuando se desea un modelo simple, interpretable y capaz de reflejar
+crecimiento o decrecimiento lineal.</p></li>
+</ul>
+<p><strong>Ventajas</strong></p>
+<ul class="simple">
+<li><p>Captura de manera explícita <strong>tendencias crecientes o decrecientes</strong>.</p></li>
+<li><p>Extiende el SES con una formulación sencilla y eficiente.</p></li>
+<li><p>Funciona bien en datos sin estacionalidad pero con patrones lineales
+persistentes.</p></li>
+</ul>
+<p><strong>Limitaciones</strong></p>
+<ul class="simple">
+<li><p>No modela estacionalidad (para eso se requiere Holt–Winters).</p></li>
+<li><p>Puede sobrerreaccionar o subestimar si la tendencia cambia
+bruscamente.</p></li>
+<li><p>Tiende a <strong>sobreestimar en horizontes largos</strong>, ya que la tendencia
+se proyecta indefinidamente.</p></li>
+</ul>
+<p><strong>Ejemplo del método de Holt (suavizado doble):</strong></p>
+<p>Supongamos la serie:</p>
+<div class="math notranslate nohighlight">
+\[\{y_t\} = [10,\;12,\;11,\;13,\;12]\]</div>
+<p>con parámetros <span class="math notranslate nohighlight">\(\alpha = 0.4\)</span> y <span class="math notranslate nohighlight">\(\beta = 0.3\)</span>.</p>
+<p><strong>Inicialización:</strong></p>
+<ul class="simple">
+<li><p>Nivel inicial: <span class="math notranslate nohighlight">\(\ell_1 = y_1 = 10\)</span></p></li>
+<li><p>Tendencia inicial: <span class="math notranslate nohighlight">\(b_1 = y_2 - y_1 = 12 - 10 = 2\)</span></p></li>
+</ul>
+<p><strong>Ecuaciones del modelo_</strong></p>
+<ul class="simple">
+<li><p><strong>Ecuación de nivel:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\ell_t = \alpha y_t + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
+<ul class="simple">
+<li><p><strong>Ecuación de tendencia:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[b_t = \beta (\ell_t - \ell_{t-1}) + (1-\beta)b_{t-1}\]</div>
+<ul class="simple">
+<li><p><strong>Ecuación de pronóstico:</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\hat{y}_{t+h|t} = \ell_t + h b_t\]</div>
+<p><strong>Cálculos paso a paso:</strong></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(t=2\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_2 = 0.4 \cdot 12 + 0.6 \cdot (10 + 2) = 12.0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_2 = 0.3 \cdot (12.0 - 10.0) + 0.7 \cdot 2.0 = 2.0\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(t=3\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_3 = 0.4 \cdot 11 + 0.6 \cdot (12.0 + 2.0) = 12.8\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_3 = 0.3 \cdot (12.8 - 12.0) + 0.7 \cdot 2.0 = 1.64\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(t=4\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_4 = 0.4 \cdot 13 + 0.6 \cdot (12.8 + 1.64) = 13.864\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_4 = 0.3 \cdot (13.864 - 12.8) + 0.7 \cdot 1.64 = 1.4672\)</span></p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(t=5\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_5 = 0.4 \cdot 12 + 0.6 \cdot (13.864 + 1.4672) = 14.1997\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_5 = 0.3 \cdot (14.1997 - 13.864) + 0.7 \cdot 1.4672 = 1.1277\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Pronósticos fuera de la muestra:</strong></p>
+<p>Con <span class="math notranslate nohighlight">\(\ell_5 = 14.1997\)</span> y <span class="math notranslate nohighlight">\(b_5 = 1.1277\)</span>:</p>
+<ul class="simple">
+<li><p>Para <span class="math notranslate nohighlight">\(t=6\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\hat{y}_{6|5} = \ell_5 + 1 \cdot b_5 = 15.3274\]</div>
+<ul class="simple">
+<li><p>Para <span class="math notranslate nohighlight">\(t=7\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\hat{y}_{7|5} = \ell_5 + 2 \cdot b_5 = 16.4551\]</div>
+<p><strong>Ejemplo del método de Holt (suavizado doble):</strong></p>
+<div class="line-block">
+<div class="line">Supongamos la serie <span class="math notranslate nohighlight">\(\{y_t\} = [10,\;12,\;11,\;13,\;12]\)</span>, con
+parámetros <span class="math notranslate nohighlight">\(\alpha = 0.4\)</span> y <span class="math notranslate nohighlight">\(\beta = 0.3\)</span>.</div>
+<div class="line">Inicializamos:</div>
+</div>
+<ul class="simple">
+<li><p>Nivel inicial: <span class="math notranslate nohighlight">\(L_1 = y_1 = 10\)</span></p></li>
+<li><p>Tendencia inicial: <span class="math notranslate nohighlight">\(T_1 = y_2 - y_1 = 12 - 10 = 2\)</span></p></li>
+</ul>
+<p>Aplicamos las fórmulas de Holt:</p>
+<div class="math notranslate nohighlight">
+\[L_t = \alpha y_t + (1 - \alpha)(L_{t-1} + T_{t-1})\]</div>
+<div class="math notranslate nohighlight">
+\[T_t = \beta (L_t - L_{t-1}) + (1 - \beta) T_{t-1}\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{y}_{t+h} = L_t + h \cdot T_t\]</div>
+<ol class="arabic">
+<li><p><span class="math notranslate nohighlight">\(L_2 = 0.4 \cdot 12 + 0.6 \cdot (10 + 2) = 4.8 + 7.2 = 12.0\)</span></p>
+<p><span class="math notranslate nohighlight">\(T_2 = 0.3 \cdot (12.0 - 10.0) + 0.7 \cdot 2.0 = 0.6 + 1.4 = 2.0\)</span></p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(L_3 = 0.4 \cdot 11 + 0.6 \cdot (12.0 + 2.0) = 4.4 + 8.4 = 12.8\)</span></p>
+<p><span class="math notranslate nohighlight">\(T_3 = 0.3 \cdot (12.8 - 12.0) + 0.7 \cdot 2.0 = 0.24 + 1.4 = 1.64\)</span></p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(L_4 = 0.4 \cdot 13 + 0.6 \cdot (12.8 + 1.64) = 5.2 + 8.664 = 13.864\)</span></p>
+<p><span class="math notranslate nohighlight">\(T_4 = 0.3 \cdot (13.864 - 12.8) + 0.7 \cdot 1.64 = 0.3192 + 1.148 = 1.4672\)</span></p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(L_5 = 0.4 \cdot 12 + 0.6 \cdot (13.864 + 1.4672) = 4.8 + 9.3997 = 14.1997\)</span></p>
+<p><span class="math notranslate nohighlight">\(T_5 = 0.3 \cdot (14.1997 - 13.864) + 0.7 \cdot 1.4672 = 0.1007 + 1.027 = 1.1277\)</span></p>
+</li>
+</ol>
+<p><strong>Pronóstico:</strong></p>
+<p>Usamos la fórmula <span class="math notranslate nohighlight">\(\hat{y}_{t+h} = L_t + h \cdot T_t\)</span>.</p>
+<ul>
+<li><p>Pronóstico para <span class="math notranslate nohighlight">\(t = 6\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\hat{y}_6 = L_5 + 1 \cdot T_5 = 14.1997 + 1.1277 = 15.3274\)</span></p>
+</li>
+<li><p>Pronóstico para <span class="math notranslate nohighlight">\(t = 7\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\hat{y}_7 = L_5 + 2 \cdot T_5 = 14.1997 + 2 \cdot 1.1277 = 16.4551\)</span></p>
+</li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.holtwinters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Holt</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajuste del modelo de Holt (suavizado doble)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Holt</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fitted_values</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="c1"># Extraer parámetros optimizados</span>
+<span class="n">alpha_opt</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_level&#39;</span><span class="p">]</span>
+<span class="n">beta_opt</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_trend&#39;</span><span class="p">]</span>
+
+<span class="c1"># Graficar resultados</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Holt: α = </span><span class="si">{</span><span class="n">alpha_opt</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">, β = </span><span class="si">{</span><span class="n">beta_opt</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkgreen&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ajuste con Suavizado Exponencial Doble (Holt)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_27_07.png" src="../../../_images/output_27_07.png" />
+</section>
+<section id="metodo-de-holt-winters-suavizado-exponencial-triple">
+<h2>Método de Holt-Winters (Suavizado Exponencial Triple):<a class="headerlink" href="#metodo-de-holt-winters-suavizado-exponencial-triple" title="Link to this heading">#</a></h2>
+<p>El <strong>método de Holt-Winters</strong>, también llamado <strong>suavizado exponencial
+triple</strong>, extiende el método de Holt para capturar <strong>estacionalidad</strong>.</p>
+<p>Es apropiado para series con:</p>
+<ul class="simple">
+<li><p><strong>Nivel</strong>: valor central de la serie.</p></li>
+<li><p><strong>Tendencia</strong>: crecimiento o decrecimiento a lo largo del tiempo.</p></li>
+<li><p><strong>Estacionalidad</strong>: patrón recurrente cada <span class="math notranslate nohighlight">\(m\)</span> períodos.</p></li>
+</ul>
+<p>Existen dos versiones: <strong>aditiva</strong> (cuando la amplitud estacional es
+constante) y <strong>multiplicativa</strong> (cuando la amplitud depende del nivel).</p>
+<p><strong>Versión aditiva</strong></p>
+<p>Forma de componentes:</p>
+<ul class="simple">
+<li><p><strong>Nivel</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\ell_t = \alpha (y_t - s_{t-m}) + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
+<ul class="simple">
+<li><p><strong>Tendencia</strong></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[b_t = \beta (\ell_t - \ell_{t-1}) + (1-\beta) b_{t-1}\]</div>
+<ul class="simple">
+<li><p><strong>Estacionalidad</strong></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[s_t = \gamma(y_t - \ell_{t-1} - b_{t-1}) + (1-\gamma)s_{t-m}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Pronóstico</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{t+h|t} = \ell_t + h b_t + s_{t+h-m(k+1)}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">donde <span class="math notranslate nohighlight">\(k = \lfloor (h-1)/m \rfloor\)</span> asegura que los índices
+estacionales usados provengan del último ciclo completo.</div>
+</div>
+<p>Los <span class="math notranslate nohighlight">\(s_t\)</span> son <strong>desviaciones absolutas</strong> respecto al nivel. En
+cada ciclo anual o completo suman aproximadamente cero.</p>
+<p><strong>Versión multiplicativa:</strong></p>
+<p>Forma de componentes:</p>
+<ul class="simple">
+<li><p><strong>Nivel</strong></p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\ell_t = \alpha \left(\frac{y_t}{s_{t-m}}\right) + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Tendencia</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[b_t = \beta (\ell_t - \ell_{t-1}) + (1-\beta) b_{t-1}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Estacionalidad</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[s_t = \gamma\left(\frac{y_t}{\ell_{t-1}+b_{t-1}}\right) + (1-\gamma)s_{t-m}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">- <strong>Pronóstico</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math notranslate nohighlight">
+\[\hat{y}_{t+h|t} = (\ell_t + h b_t)\; s_{t+h-m(k+1)}\]</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">Los <span class="math notranslate nohighlight">\(s_t\)</span> son <strong>índices relativos</strong> (porcentuales). En cada
+ciclo completo promedian aproximadamente 1.</div>
+</div>
+<p><strong>Parámetros de suavizado:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: controla la actualización del <strong>nivel</strong>
+(<span class="math notranslate nohighlight">\(0 &lt; \alpha &lt; 1\)</span>).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span>: controla la <strong>suavización de la tendencia</strong>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span>: controla la <strong>suavización de la estacionalidad</strong>.</p></li>
+</ul>
+<p>**¿Cuándo usar cada versión?</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de
+estacionalidad</p></th>
+<th class="head"><p>Modelo
+recomendado</p></th>
+<th class="head"><p>Ejemplo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Constante en
+magnitud</p></td>
+<td><p>Aditivo</p></td>
+<td><p>La demanda aumenta 100 unidades
+cada diciembre</p></td>
+</tr>
+<tr class="row-odd"><td><p>Proporcional al
+nivel</p></td>
+<td><p>Mu
+ltiplicativo</p></td>
+<td><p>Las ventas suben un 10% cada
+diciembre</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Ventajas y limitaciones:</strong></p>
+<ul class="simple">
+<li><p><strong>Ventajas:</strong></p></li>
+<li><p>Captura <strong>nivel, tendencia y estacionalidad</strong> simultáneamente.</p></li>
+<li><p>Genera pronósticos consistentes con la estructura cíclica.</p></li>
+<li><p>Estimación automática de parámetros mediante optimización.</p></li>
+<li><p><strong>Limitaciones:</strong></p></li>
+<li><p>Requiere estacionalidad <strong>regular y estable</strong>.</p></li>
+<li><p>Supone que el patrón se repite exactamente cada <span class="math notranslate nohighlight">\(m\)</span> períodos.</p></li>
+<li><p>Menos adecuado para series financieras con alta volatilidad.</p></li>
+</ul>
+<p>**Ejemplo del método de Holt-Winters (versión aditiva):</p>
+<p>Supongamos una serie con <strong>estacionalidad trimestral</strong> (<span class="math notranslate nohighlight">\(m = 3\)</span>
+para simplificar), con valores:</p>
+<div class="math notranslate nohighlight">
+\[\{y_t\} = [30,\; 40,\; 50,\; 35,\; 45,\; 55]\]</div>
+<p>La serie tiene un ciclo estacional de 3 períodos, con patrones que se
+repiten:</p>
+<ul class="simple">
+<li><p>Mes 1: 30 → 35</p></li>
+<li><p>Mes 2: 40 → 45</p></li>
+<li><p>Mes 3: 50 → 55</p></li>
+</ul>
+<p>Parámetros de suavizado:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha = 0.5\)</span> (nivel)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta = 0.3\)</span> (tendencia)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma = 0.2\)</span> (estacionalidad)</p></li>
+</ul>
+<p><strong>Inicialización:</strong></p>
+<ul class="simple">
+<li><p>Nivel inicial: <span class="math notranslate nohighlight">\(\ell_3 = y_3 = 50\)</span></p></li>
+<li><p>Tendencia inicial:
+<span class="math notranslate nohighlight">\(b_3 = \dfrac{y_3 - y_1}{2} = \dfrac{50 - 30}{2} = 10\)</span></p></li>
+<li><p>Estacionalidad inicial:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(s_1 = y_1 - \ell_3 = 30 - 50 = -20\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_2 = y_2 - \ell_3 = 40 - 50 = -10\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_3 = y_3 - \ell_3 = 50 - 50 = 0\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Paso 4:</strong> <span class="math notranslate nohighlight">\(y_4 = 35\)</span></p>
+<div class="math notranslate nohighlight">
+\[\ell_t = \alpha(y_t - s_{t-m}) + (1-\alpha)(\ell_{t-1} + b_{t-1})\]</div>
+<div class="math notranslate nohighlight">
+\[b_t = \beta(\ell_t - \ell_{t-1}) + (1-\beta) b_{t-1}\]</div>
+<div class="math notranslate nohighlight">
+\[s_t = \gamma(y_t - \ell_t) + (1-\gamma) s_{t-m}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_4 = 0.5(35 - s_1) + 0.5(\ell_3 + b_3) = 0.5(35+20) + 0.5(60) = 57.5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_4 = 0.3(57.5 - 50) + 0.7(10) = 9.25\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_4 = 0.2(35 - 57.5) + 0.8(-20) = -20.5\)</span></p></li>
+</ul>
+<p><strong>Paso 5:</strong> <span class="math notranslate nohighlight">\(y_5 = 45\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_5 = 0.5(45 - s_2) + 0.5(\ell_4 + b_4) = 0.5(45+10) + 0.5(66.75) = 60.875\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_5 = 0.3(60.875 - 57.5) + 0.7(9.25) = 7.4875\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_5 = 0.2(45 - 60.875) + 0.8(-10) = -11.175\)</span></p></li>
+</ul>
+<p><strong>Paso 6:</strong> <span class="math notranslate nohighlight">\(y_6 = 55\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_6 = 0.5(55 - s_3) + 0.5(\ell_5 + b_5) = 0.5(55-0) + 0.5(68.3625) = 61.68125\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b_6 = 0.3(61.68125 - 60.875) + 0.7(7.4875) = 5.4831\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(s_6 = 0.2(55 - 61.68125) + 0.8(0) = -1.33625\)</span></p></li>
+</ul>
+<p><strong>Pronósticos desde</strong> <span class="math notranslate nohighlight">\(t=6\)</span></p>
+<p>Usamos la fórmula:</p>
+<div class="math notranslate nohighlight">
+\[\hat{y}_{t+h|t} = \ell_t + h b_t + s_{t+h-m(k+1)}\]</div>
+<p>Con <span class="math notranslate nohighlight">\(\ell_6 = 61.68125\)</span>, <span class="math notranslate nohighlight">\(b_6 = 5.4831\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\hat{y}_{7|6} = \ell_6 + 1 \cdot b_6 + s_4 = 61.68125 + 5.4831 - 20.5 = 46.66\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{y}_{8|6} = \ell_6 + 2 \cdot b_6 + s_5 = 61.68125 + 10.9662 - 11.175 = 61.47\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat{y}_{9|6} = \ell_6 + 3 \cdot b_6 + s_6 = 61.68125 + 16.4494 - 1.3363 = 76.79\)</span></p></li>
+</ul>
+<p>Este ejemplo muestra cómo Holt-Winters aditivo <strong>descompone la serie</strong>
+en nivel, tendencia y estacionalidad para producir pronósticos
+coherentes con el comportamiento cíclico.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.holtwinters</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExponentialSmoothing</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajustar modelo Holt-Winters aditivo</span>
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span>
+    <span class="n">serie</span><span class="p">,</span>
+    <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
+    <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;multiplicative&#39;</span><span class="p">,</span>
+    <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Pronóstico a 12 pasos</span>
+<span class="n">pronostico</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Extraer parámetros</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">params</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_level&#39;</span><span class="p">]</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_trend&#39;</span><span class="p">]</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;smoothing_seasonal&#39;</span><span class="p">]</span>
+
+<span class="c1"># Graficar serie original, ajuste y pronóstico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">modelo</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Ajuste HW (α=</span><span class="si">{</span><span class="n">alpha</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, β=</span><span class="si">{</span><span class="n">beta</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, γ=</span><span class="si">{</span><span class="n">gamma</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pronostico</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pronóstico 12 meses&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ajuste y Pronóstico con Holt-Winters (Aditivo)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_32_010.png" src="../../../_images/output_32_010.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.holtwinters</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleExpSmoothing</span><span class="p">,</span> <span class="n">Holt</span><span class="p">,</span> <span class="n">ExponentialSmoothing</span>
+
+<span class="c1"># Ajuste 1: Suavizado Exponencial Simple (SES)</span>
+<span class="n">ses_model</span> <span class="o">=</span> <span class="n">SimpleExpSmoothing</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ses_fit</span> <span class="o">=</span> <span class="n">ses_model</span><span class="o">.</span><span class="n">fittedvalues</span>
+
+<span class="c1"># Ajuste 2: Holt (nivel + tendencia)</span>
+<span class="n">holt_model</span> <span class="o">=</span> <span class="n">Holt</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">holt_fit</span> <span class="o">=</span> <span class="n">holt_model</span><span class="o">.</span><span class="n">fittedvalues</span>
+
+<span class="c1"># Ajuste 3: Holt-Winters (nivel + tendencia + estacionalidad)</span>
+<span class="n">hw_model</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">hw_fit</span> <span class="o">=</span> <span class="n">hw_model</span><span class="o">.</span><span class="n">fittedvalues</span>
+
+<span class="c1"># Graficar los tres ajustes sobre la serie original</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ses_fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SES (nivel)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">holt_fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Holt (nivel + tendencia)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hw_fit</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Holt-Winters (nivel + tendencia + estacionalidad)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Comparación de métodos de suavizado: SES, Holt y Holt-Winters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_33_05.png" src="../../../_images/output_33_05.png" />
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Métodos de suavizamiento</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Ejem_suavizado%20desempleo/Ejemplo_m%C3%A9todos_suavizado_desempleo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ejemplo métodos suavizado desempleo</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#suavizado-exponencial-simple-ses">Suavizado Exponencial Simple (SES):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simpleexpsmoothing-ses-statsmodels">SimpleExpSmoothing (SES) — <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-holt-suavizado-exponencial-doble">Método de Holt (Suavizado Exponencial Doble):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodo-de-holt-winters-suavizado-exponencial-triple">Método de Holt-Winters (Suavizado Exponencial Triple):</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Miguel Jiménez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Miguel Jiménez.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

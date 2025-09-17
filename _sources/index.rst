@@ -15,13 +15,9 @@ lumjimenezgo@unal.edu.co
     :maxdepth: 1
     :caption: SERIES DE TIEMPO:
 
-    Series de tiempo/index 
+    Series de tiempo/index
 
-.. toctree::
-    :maxdepth: 1
-    :caption: REGRESIÓN LINEAL:
 
-    Regresión lineal/index 
 
 
 .. toctree::
@@ -78,6 +74,11 @@ lumjimenezgo@unal.edu.co
     Derivados financieros/Opciones/index
 
 
+.. toctree::
+    :maxdepth: 1
+    :caption: REGRESIÓN LINEAL:
+
+    Regresión lineal/index 
 
 .. toctree::
     :maxdepth: 1

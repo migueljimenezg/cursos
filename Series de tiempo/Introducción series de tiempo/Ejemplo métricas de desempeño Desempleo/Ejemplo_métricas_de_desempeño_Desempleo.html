@@ -1,0 +1,1911 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ejemplo métricas de desempeño Desempleo &#8212; Cursos  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=3ee1c6c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=f9201bb0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=fd10adb8"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Introducción series de tiempo/Ejemplo métricas de desempeño Desempleo/Ejemplo_métricas_de_desempeño_Desempleo';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Métodos de suavizamiento" href="../../M%C3%A9todos%20de%20suavizamiento/index.html" />
+    <link rel="prev" title="Métricas de evaluación en regresión" href="../../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cursos  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">SERIES DE TIEMPO:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">Series de tiempo</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Introducción series de tiempo</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../QueST/Qu%C3%A9%20es%20una%20serie%20de%20tiempo.html">¿Qué es una serie de tiempo?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ExplorST/Exploraci%C3%B3n_visual_de_series_de_tiempo.html">Exploración visual de series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ejemplo métricas de desempeño Desempleo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../M%C3%A9todos%20de%20suavizamiento/index.html">Métodos de suavizamiento</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../M%C3%A9todos%20de%20suavizamiento/Msuavizado/M%C3%A9todos_de_suavizado_v2.html">Métodos de suavizado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../M%C3%A9todos%20de%20suavizamiento/Ejem_suavizado%20desempleo/Ejemplo_m%C3%A9todos_suavizado_desempleo.html">Ejemplo métodos suavizado desempleo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../M%C3%A9todos%20de%20suavizamiento/Taller%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo/Taller%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo.html">Taller suavizamiento extracción petróleo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Procesos%20estacionarios/index.html">Procesos estacionarios</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Procesos%20estacionarios/ProcessEstocas/Procesos%20estoc%C3%A1sticos.html">Procesos estocásticos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Procesos%20estacionarios/Estacionariedad/Estacionariedad.html">Estacionariedad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Procesos%20estacionarios/Prueba%20ADF/Prueba%20ADF%20%28Augmented%20Dickey-Fuller%29.html">Prueba ADF (Augmented Dickey-Fuller)</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">APRENDIZAJE ESTADÍSTICO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../AprenEst/index.html">Aprendizaje Estadístico</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../AprenEst/Motivaci%C3%B3n/index.html">Motivación</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/index.html">Introducción a Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python/Introducci%C3%B3n%20a%20Python.html">Introducción a Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/Pandas/Pandas.html">Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/NumPy/NumPy.html">NumPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Introducci%C3%B3n%20a%20Python/Matplotlib/Matplotlib.html">Matplotlib</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Machine%20Learning/index.html">Machine Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Machine%20Learning/ProcessML/Proceso%20de%20Machine%20Learning.html">Proceso de Machine Learning</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AprenEst/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos/Preparaci%C3%B3n%20y%20preprocesamiento%20de%20datos.html">Preparación y preprocesamiento de datos</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Clustering/index.html">Clustering</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/Tclustering/Clustering.html">Clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/K-Means/K-Means.html">K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EK-Means/Ejemplo%20K-Means.html">Ejemplo K-Means</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EK-MeansEF/Ejercicio%20K-Means%20Estados%20Financieros.html">Ejercicio K-Means Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/CJer%C3%A1rquico/Clustering%20Jer%C3%A1rquico.html">Clustering Jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EclusteringJ/Ejemplo%20clustering%20jer%C3%A1rquico.html">Ejemplo clustering jerárquico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/DBSCAN/DBSCAN.html">DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EDBSCAN/Ejemplo%20DBSCAN.html">Ejemplo DBSCAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EDBSCANEF/Ejemplo%20clustering%20DBSCAN%20Estados%20Financieros.html">Ejemplo clustering DBSCAN Estados Financieros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EDBSCANElectricidad/Ejemplo%20DBSCAN%20precio%20electricidad.html">Ejemplo DBSCAN precio electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/Ejemplo%20K-Means%20acciones/Ejemplo_K_Means_acciones.html">Ejemplo K-Means acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clustering/EjercicioClusterEF/Ejercicio%20Clustering%20Estados%20Financieros.html">Ejercicio Clustering Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/ReDim/index.html">Reducción de dimensionalidad</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/Algebra/Repaso%20%C3%81lgebra%20Lineal.html">Repaso Álgebra Lineal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/PCA/An%C3%A1lisis%20de%20Componentes%20Principales-PCA.html">Análisis de Componentes Principales-PCA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/KernelPCA/Kernel%20PCA%20%28kPCA%29.html">Kernel PCA (kPCA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjemReDim/Ejemplo%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejemplo reducción de dimensionalidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjemEscalado/Ejemplo%20diferente%20tipo%20de%20escalado.html">Ejemplo diferente tipo de escalado</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjerciPCAacciones/Ejemplo_PCA_acciones.html">Ejercicio PCA - acciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/EjerciReDim/Ejercicio%20reducci%C3%B3n%20de%20dimensionalidad.html">Ejercicio reducción de dimensionalidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/ReDim/TallerReDim/Taller%20reducci%C3%B3n%20de%20dimensionalidad.html">Taller reducción de dimensionalidad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/index.html">Clasificación</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Clasificaci%C3%B3n/Clasificaci%C3%B3n.html">Clasificación</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/M%C3%A9tricas/M%C3%A9tricas%20clasificaci%C3%B3n.html">Métricas para Evaluación de Modelos de Clasificación</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Cross/Cross%20Validation.html">Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Teor%C3%ADaRL/Regresi%C3%B3n_Log%C3%ADstica.html">Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemRL/Ejemplo_Regresi%C3%B3n_Log%C3%ADstica.html">Ejemplo Regresión Logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/RLCr%C3%A9dito/Regresi%C3%B3n%20log%C3%ADstica%20riesgo%20de%20cr%C3%A9dito.html">Regresión logística riesgo de crédito</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/RegulaRL/Regularizaci%C3%B3n%20regresi%C3%B3n%20log%C3%ADstica.html">Regularización regresión logística</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/DigitosMano/Clasificador%20de%20d%C3%ADgitos%20escritos%20a%20mano.html">Clasificador de dígitos escritos a mano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemRLempresas/Ejemplo_regresi%C3%B3n_log%C3%ADstica_empresas_en_re_organizaci%C3%B3n.html">Ejemplo regresión logística empresas en re organización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/SVM/Support%20Vector%20Machines.html">Support Vector Machines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemSVMempresas/Ejemplo_SVM_empresas_en_re_organizaci%C3%B3n.html">Ejemplo SVM empresas en re organización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/AD/%C3%81rboles%20de%20decisi%C3%B3n.html">Árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemploAD/Ejemplo%20%C3%A1rboles%20de%20decisi%C3%B3n.html">Ejemplo árboles de decisión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemADempresas/Ejemplo_AD_empresas_en_re_organizaci%C3%B3n.html">Ejemplo árboles de decisión empresas en re organización</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EL/Ensemble%20Learning.html">Ensemble Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Bagging/Bagging.html">Bagging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/RandomForest/Random%20Forest.html">Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EjemRF/Ejemplo%20Random%20Forest.html">Ejemplo Random Forest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Boosting/Boosting%20%28AdaBoost%29.html">Boosting (AdaBoost)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/XGBoost/XGBoost.html">XGBoost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/Stacking/Stacking.html">Stacking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Clasificaci%C3%B3n/EclasEF/Ejemplo%20m%C3%A9todos%20de%20clasificaci%C3%B3n%20sobre%20Estados%20Financieros.html">Ejemplo métodos de clasificación sobre Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Pipeline/index.html">Pipeline</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Pipeline/Pipeline/Pipeline.html">Pipeline en Machine Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Pipeline/EjemPipelineEmpresas/Ejemplo_pipeline_empresas_en_re_organizaci%C3%B3n.html">Ejemplo pipeline empresas en re organización</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/index.html">Optimización de Hiperparámetros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/GridSearch/Grid%20Search.html">Grid Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros/RandomizedSearch/Randomized%20Search.html">Randomized Search</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/index.html">Regresión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html">Métricas de evaluación en regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVMRegresi%C3%B3n/SVM%20para%20Regresi%C3%B3n.html">SVM para Regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRst/SVR%20para%20series%20de%20tiempo.html">SVR para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/SVRstLags/SVR%20series%20de%20tiempo%20con%20lags.html">SVR series de tiempo con lags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADregresi%C3%B3n/%C3%81rboles%20de%20decisi%C3%B3n%20para%20regresi%C3%B3n.html">Árboles de decisión para regresión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/ADst/%C3%81rboles%20de%20decisi%C3%B3n%20para%20series%20de%20tiempo.html">Árboles de decisión para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/DFst/Random%20Forest%20para%20series%20de%20tiempo.html">Random Forest para series de tiempo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../AprenEst/Regresi%C3%B3n/XGBoostst/XGBoost%20para%20series%20de%20tiempo.html">XGBoost para series de tiempo</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MACHINE LEARNING:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/index.html">Deep Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Gradiente%20descendente/Gradiente%20descendente.html">Gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Perceptr%C3%B3n%20multicapa/Perceptr%C3%B3n%20multicapa.html">Perceptrón multicapa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n/RNA%20en%20Keras%20para%20clasificaci%C3%B3n.html">RNA en Keras para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase/RNA%20en%20Keras%20para%20clasificaci%C3%B3n%20multiclase.html">RNA en Keras para clasificación multiclase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20en%20Keras%20para%20regresi%C3%B3n/RNA%20en%20Keras%20para%20regresi%C3%B3n.html">RNA en Keras para regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejercicio%20clasificaci%C3%B3n/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNA%20para%20series%20de%20tiempo/RNA%20para%20series%20de%20tiempo.html">RNA para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo.html">Ejemplo pronóstico serie de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizadores/Optimizadores.html">Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/GridSearchCV/GridSearchCV.html">GridSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RandomizedSearchCV/RandomizedSearchCV.html">RandomizedSearchCV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/KerasTuner/KerasTuner.html">KerasTuner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20empresas%20en%20reorganizaci%C3%B3n/Ejemplo_empresas_en_re_organizaci%C3%B3n.html">Ejemplo empresas en re organización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Generalizaci%C3%B3n/Generalizaci%C3%B3n.html">Generalización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Regularizaci%C3%B3n/Regularizaci%C3%B3n.html">Regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Ejemplo%20regularizaci%C3%B3n/Ejemplo%20regularizaci%C3%B3n.html">Ejemplo regularización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNN/RNN.html">RNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/LSTM/LSTM.html">LSTM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/GRU/GRU.html">GRU</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/RNN%20Bidireccional/RNN%20Bidireccional.html">RNN Bidireccional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN/CNN.html">CNN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN%20para%20series%20de%20tiempo/CNN%20para%20series%20de%20tiempo.html">CNN para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/M%C3%A9todos%20de%20Deep%20Learnign%20serie%20irradiancia/M%C3%A9todos_de_Deep_Learnign_serie_irradiancia.html">Métodos de Deep Learnign serie irradiancia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Taller%20redes%20neuronales%20artificiales/Taller%20redes%20neuronales%20artificiales.html">Taller redes neuronales artificiales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Taller%20RNN/Taller%20RNN.html">Taller RNN</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MERCADO DE VALORES:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/IntroMerFin/index.html">Introducción al Mercado Financiero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Derivados/index.html">Derivados Financieros</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Bonos/index.html">Bonos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../MerVal/Portafolios/index.html">Portafolios de inversión</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ADMINISTRACIÓN FINANCIERA:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html">Introducción a las Matemáticas Financieras</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/Ejercicios%20matem%C3%A1ticas%20financieras.html">Ejercicios introducción a las Matemáticas Financieras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/F%C3%B3rmulas%20Examen%20Matem%C3%A1ticas%20Financieras%2001-2024.html">Examen semestre 01-2024</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/KTNO/index.html">KTNO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20vertical%20y%20horizontal/index.html">Análisis vertical y horizontal</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/index.html">Indicadores Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20an%C3%A1lisis%20vertical%2C%20horizontal%20e%20indicadores%20de%20actividad.html">Ejercicios análisis vertical, horizontal e indicadores de actividad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Ejercicios%20indicadores%20de%20liquidez%2C%20rentabilidad%20y%20endeudamiento.html">Ejercicios indicadores de liquidez, rentabilidad y endeudamiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Indicadores%20Financieros/Resumen%20f%C3%B3rmulas%20Indicadores%20Financieros.html">Resumen fórmulas Indicadores Financieros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/index.html">Análisis Financiero en Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Vertical/An%C3%A1lisis%20Vertical.html">Análisis Vertical</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20Horizontal/An%C3%A1lisis%20Horizontal.html">Análisis Horizontal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/An%C3%A1lisis%20Financiero%20en%20Python/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes/An%C3%A1lisis%20de%20los%20m%C3%A1rgenes.html">Análisis de los márgenes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Flujo%20de%20Efectivo/index.html">Flujo de Efectivo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/index.html">Estados Financieros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Administraci%C3%B3n%20financiera/Estados%20de%20financieros/Ejercicios%20an%C3%A1lisis%20de%20los%20Estados%20Financieros.html">Ejercicios análisis de los Estados Financieros</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DERIVADOS FINANCIEROS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Forward/index.html">Forward</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Forward/Ejercicios%20valoraci%C3%B3n%20contratos%20Forward.html">Ejercicios valoración contratos Forward</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Swap/index.html">Swap</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Swap/Ejercicios%20tasas%20FRA.html">Ejercicios tasas FRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Swap/Ejercicios%20swap.html">Ejercicios swap</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/index.html">Futuros</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/Ejercicios%20operaciones%20con%20Futuros%20BVC.html">Ejercicios operaciones con Futuros BVC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Futuros/Ejercicios%20coberturas%20con%20Futuros.html">Ejercicios coberturas con Futuros</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/index.html">Opciones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20opciones%20por%20el%20m%C3%A9todo%20de%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de opciones por el método de Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones/Simulaci%C3%B3n%20de%20cobertura%20con%20opciones.html">Simulación de cobertura con opciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python/Movimiento%20Browniano%20Geom%C3%A9trico%20%28GBM%29%20en%20Python.html">Movimiento Browniano Geométrico (GBM) en Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo/Valoraci%C3%B3n%20de%20Opciones%20Financieras%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">Valoración de Opciones Financieras por Simulación Monte Carlo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Simulaci%C3%B3n%20estrategia%20de%20cobertura/Simulaci%C3%B3n%20estrategia%20de%20cobertura.html">Simulación estrategia de cobertura</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Ejercicios%20propiedades%2C%20coberturas%20y%20valoraci%C3%B3n%20de%20opciones%20por%20SMC.html">Ejercicios propiedades, coberturas y valoración de opciones por SMC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Derivados%20financieros/Opciones/Ejercicios%20valoraci%C3%B3n%20de%20opciones.html">Ejercicios valoración de opciones</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">REGRESIÓN LINEAL:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/index.html">Regresión lineal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis/Taller%20Intervalos%20de%20Confianza%20y%20Pruebas%20de%20Hip%C3%B3tesis.html">Taller Intervalos de Confianza y Pruebas de Hipótesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29/Regresi%C3%B3n%20Lineal%20Simple%20%28RLS%29.html">Regresión Lineal Simple (RLS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/An%C3%A1lisis%20de%20Normalidad%20en%20RLS/An%C3%A1lisis%20de%20Normalidad%20en%20RLS.html">Análisis de Normalidad en RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n/Prueba%20de%20significancia%20de%20la%20regresi%C3%B3n.html">Prueba de significancia de la regresión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Intervalos%20de%20confianza%20-%20CI/Intervalos%20de%20confianza%20-%20CI.html">Intervalos de confianza - CI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Medidas%20de%20desempe%C3%B1o%20RLS/Medidas%20de%20desempe%C3%B1o%20RLS.html">Medidas de desempeño RLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/RLS%20con%20ggplot2/RLS%20con%20ggplot2.html">RLS con ggplot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29/Regresi%C3%B3n%20Lineal%20M%C3%BAltiple%20%28RLM%29.html">Regresión Lineal Múltiple (RLM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/ANOVA/ANOVA.html">ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Multicolinealidad/Multicolinealidad.html">Multicolinealidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Comparaci%C3%B3n%20de%20modelos/Comparaci%C3%B3n%20de%20modelos.html">Comparación de modelos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/An%C3%A1lisis%20de%20Normalidad%20en%20RLM/An%C3%A1lisis%20de%20Normalidad%20en%20RLM.html">Análisis de Normalidad en RLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Variables%20indicadoras/Variables%20indicadoras.html">Variables indicadoras</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica/Teor%C3%ADa%20Regresi%C3%B3n%20Log%C3%ADstica.html">Teoría Regresión Logística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20en%20R.html">Regresión Logística en R</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n.html">Regresión Logística para clasificación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Regresi%C3%B3n%20lineal/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R/Regresi%C3%B3n%20Log%C3%ADstica%20para%20clasificaci%C3%B3n%20en%20R.html">Regresión Logística para clasificación en R</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PORTAFOLIOS DE INVERSIÓN:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/index.html">Portafolios de Inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Mercado%20financiero/index.html">Mercado financiero</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/index.html">Teoría moderna de portafolios</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n/Introducci%C3%B3n%20a%20portafolios%20de%20inversi%C3%B3n.html">Introducción a portafolios de inversión</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/CAPM/CAPM.html">CAPM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Indicadores%20de%20desempe%C3%B1o/Indicadores%20de%20desempe%C3%B1o.html">Indicadores de desempeño</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Teor%C3%ADa%20de%20portafolios/Frontera%20eficiente/Frontera%20Eficiente.html">Frontera Eficiente</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../MerVal/Trading/index.html">Trading</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../MerVal/Trading/Ninja%20Trader/Ninja%20Trader.html">Ninja Trader</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/index.html">Bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC%20V2.html">Ejercicios: valoración de bonos BVC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n2/Bonos/Ejercicios%20bonos.html">Ejercicios Bonos</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ANÁLISIS DE RIESGO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/index.html">Análisis de Riesgo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la gestión del riesgo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Estad%C3%ADstica/index.html">Conceptos básicos de estadística</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/Distribuciones%20de%20probabilidad/index.html">Distribuciones de probabilidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../An%C3%A1lisis%20de%20riesgo/An%C3%A1lisis%20de%20sensibilidad%20tradicional/index.html">Análisis de sensibilidad tradicional</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">RIESGO DE MERCADO:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/index.html">Riesgo de Mercado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Introducci%C3%B3n%20Gesti%C3%B3n%20del%20Riesgo/index.html">Introducción a la Gestión del Riesgo</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/index.html">VaR varianzas-covarianzas o Delta-Normal</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Distribuci%C3%B3n%20normal/Distribuci%C3%B3n%20normal.html">Distribución normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/VaR%20varianzas-covarianzas/VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Taller%201/Taller%20N%C2%B0%201%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 1: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Taller%202/Taller%20N%C2%B0%202%20-%20VaR%20m%C3%A9todo%20Delta-Normal%20o%20varianzas-covarianzas.html">Taller N° 2: VaR método Delta-Normal o varianzas-covarianzas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal/Ejercicios%20-%20VaR%20Delta-Normal.html">Ejercicios: VaR Delta-Normal</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/index.html">Volatilidades dinámicas</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Volatilidad%20EWMA/Volatilidad%20EWMA.html">Volatilidad EWMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Volatilidad%20GARCH/Volatilidad%20GARCH.html">Volatilidad GARCH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Volatilidad%20no%20constante/Ejercicios-volatilidades%20din%C3%A1micas/Ejercicios%20volatilidades%20din%C3%A1micas.html">Ejercicios volatilidades dinámicas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/index.html">VaR Simulación Histórica y CVaR</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Funciones%20para%20calcular%20el%20VaR%20por%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Funciones para calcular el VaR por Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/VaR-simulaci%C3%B3n-Hist%C3%B3rica-Jupyter.html">VaR Simulación Histórica - Método no paramétrico</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/CVaR/CVaR-Jupyter.html">CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR/Taller%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica%20y%20CVaR.html">Taller VaR Simulación Histórica y CVaR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SH/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR/An%C3%A1lisis%20gr%C3%A1fico%20VaR%20y%20CVaR.html">Análisis gráfico VaR y CVaR</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/index.html">VaR Simulación Monte Carlo</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/MBG/Movimiento%20Browniano%20Geom%C3%A9trico.html">Método de simulación: Movimiento Browniano Geométrico (MBG)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20para%20un%20activo%20por%20Simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR para un activo por Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo/VaR%20y%20CVaR%20por%20el%20m%C3%A9todo%20de%20simulaci%C3%B3n%20Monte%20Carlo.html">VaR y CVaR por el método de simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20SM/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo/Taller%20VaR%20y%20CVaR%20m%C3%A9todo%20simulaci%C3%B3n%20Monte%20Carlo.html">Taller VaR y CVaR método de simulación Monte Carlo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/index.html">Backtesting</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Backtesting%20VaR%20Delta-Normal/Backtesting%20VaR%20Delta-Normal.html">Backtesting VaR Delta-Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Backtesting método VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Backtesting%20m%C3%A9todo%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Backtesting método VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Delta-Normal.html">Puntaje de López - VaR Delta-Normal</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Hist%C3%B3rica.html">Puntaje de López - VaR Simulación Histórica</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo/Puntaje%20de%20L%C3%B3pez%20-%20VaR%20Simulaci%C3%B3n%20Monte%20Carlo.html">Puntaje de López - VaR Simulación Monte Carlo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/Backtesting/Resumen%20Backtesting/Resumen%20Backtesting.html">Resumen</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/index.html">VaR bonos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/Duraci%C3%B3n%20y%20Duraci%C3%B3n%20Modificada/Duraci%C3%B3n%20y%20duraci%C3%B3n%20modificada%20en%20bonos.html">Duración y duración modificada en bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/VaR%20bonos/VaR%20Bonos.html">VaR Bonos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../Riesgo%20de%20mercado/VaR%20bonos/Ejercicios%20-%20VaR%20bonos/Ejercicios%20-%20valoraci%C3%B3n%20de%20bonos%20BVC.html">Ejercicios: valoración de bonos BVC</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CONCEPTOS PREVIOS:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/index.html">Introducción a R</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Introducci%C3%B3n%20a%20R/Extraer%20datos%20de%20Yahoo%20Finance/Extraer%20datos%20de%20Yahoo%20Finance.html">Extraer datos de Yahoo Finance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ggplot2/index.html">ggplot2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../ggplot2/Introducci%C3%B3n%20a%20ggplot2/ggplot2.html">ggplot2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/index.html">Análisis y conformación de portafolios de inversión</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles/Estad%C3%ADstica%20aplicada%20a%20los%20activos%20burs%C3%A1tiles.html">Estadística aplicada a los activos bursátiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n/Volatilidad%20portafolio%20de%20inversi%C3%B3n.html">Volatilidad portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n/Conformaci%C3%B3n%20portafolio%20de%20inversi%C3%B3n.html">Conformación portafolio de inversión</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n/Ejercicios%20-%20Estad%C3%ADstica%20y%20conformaci%C3%B3n%20de%20portafolios%20de%20inversi%C3%B3n.html">Ejercicios: Estadística y conformación de portafolios de inversión.</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Tasas%20de%20inter%C3%A9s/index.html">Tasas de interés</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/Series de tiempo/Introducción series de tiempo/Ejemplo métricas de desempeño Desempleo/Ejemplo_métricas_de_desempeño_Desempleo.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ejemplo métricas de desempeño Desempleo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-de-train-y-test">Conjunto de train y test:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-metodos-de-suavizamiento">Ajuste métodos de suavizamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-desempeno">Métricas de desempeño:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="ejemplo-metricas-de-desempeno-desempleo">
+<h1>Ejemplo métricas de desempeño Desempleo<a class="headerlink" href="#ejemplo-metricas-de-desempeno-desempleo" title="Link to this heading">#</a></h1>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargar el archivo xlsx:</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Desempleo.xlsx&#39;</span><span class="p">)</span>
+
+<span class="c1"># Corregir nombres de columnas si tienen espacios</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+  <div id="df-98236c6d-598a-4923-95ec-e6aca77c6294" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Desempleo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2001-01-01</td>
+      <td>16.622326</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2001-02-01</td>
+      <td>17.434206</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2001-03-01</td>
+      <td>15.811933</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2001-04-01</td>
+      <td>14.515078</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2001-05-01</td>
+      <td>14.035833</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-98236c6d-598a-4923-95ec-e6aca77c6294')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-98236c6d-598a-4923-95ec-e6aca77c6294 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-98236c6d-598a-4923-95ec-e6aca77c6294');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-e5ec620c-77b1-47bb-91fc-117e659ed9cb">
+      <button class="colab-df-quickchart" onclick="quickchart('df-e5ec620c-77b1-47bb-91fc-117e659ed9cb')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-e5ec620c-77b1-47bb-91fc-117e659ed9cb button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convertir &#39;Fecha&#39; a datetime y usar como índice</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Ordenar por fecha por si acaso</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+
+<span class="c1"># Establecer frecuencia explícita para evitar el warning de statsmodels</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">inferred_freq</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Serie de tiempo: Desempleo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_4_010.png" src="../../../_images/output_4_010.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s1">&#39;2019-12-31&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Serie de tiempo: Desempleo hasta 2019&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_5_05.png" src="../../../_images/output_5_05.png" />
+<section id="conjunto-de-train-y-test">
+<h2>Conjunto de train y test:<a class="headerlink" href="#conjunto-de-train-y-test" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dividir en train y test (por ejemplo, 80% train, 20% test)</span>
+<span class="n">split</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
+<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">serie</span><span class="p">[:</span><span class="n">split</span><span class="p">],</span> <span class="n">serie</span><span class="p">[</span><span class="n">split</span><span class="p">:]</span>
+
+<span class="c1"># Graficar train y test:</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Conjunto de train y test&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_7_011.png" src="../../../_images/output_7_011.png" />
+</section>
+<section id="ajuste-metodos-de-suavizamiento">
+<h2>Ajuste métodos de suavizamiento:<a class="headerlink" href="#ajuste-metodos-de-suavizamiento" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.holtwinters</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleExpSmoothing</span><span class="p">,</span> <span class="n">Holt</span><span class="p">,</span> <span class="n">ExponentialSmoothing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">max_error</span><span class="p">,</span> <span class="n">explained_variance_score</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajustar modelos de suavizamiento</span>
+<span class="c1"># a) Simple Exponential Smoothing</span>
+<span class="n">model_ses</span> <span class="o">=</span> <span class="n">SimpleExpSmoothing</span><span class="p">(</span><span class="n">train</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y_train_pred_ses</span> <span class="o">=</span> <span class="n">model_ses</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">y_pred_test_ses</span> <span class="o">=</span> <span class="n">model_ses</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+
+<span class="c1"># b) Holt (Doble suavizamiento)</span>
+<span class="n">model_holt</span> <span class="o">=</span> <span class="n">Holt</span><span class="p">(</span><span class="n">train</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y_train_pred_holt</span> <span class="o">=</span> <span class="n">model_holt</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">y_pred_test_holt</span> <span class="o">=</span> <span class="n">model_holt</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+
+<span class="c1"># c) Holt-Winters (Triple suavizamiento, aditivo, estacionalidad anual si mensual)</span>
+<span class="n">estacionalidad</span> <span class="o">=</span> <span class="mi">12</span> <span class="k">if</span> <span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freqstr</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;MS&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="n">model_hw</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="n">seasonal_periods</span><span class="o">=</span><span class="n">estacionalidad</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">optimized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y_train_pred_hw</span> <span class="o">=</span> <span class="n">model_hw</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">y_pred_test_hw</span> <span class="o">=</span> <span class="n">model_hw</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
+
+<span class="c1"># Graficar los ajustes y predicciones</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_train_pred_ses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SES - Ajuste&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;dodgerblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_train_pred_holt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Holt - Ajuste&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_train_pred_holt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;HW - Ajuste&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y_pred_test_ses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SES - Pronóstico&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y_pred_test_holt</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Holt - Pronóstico&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y_pred_test_hw</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;HW - Pronóstico&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ajuste y Pronóstico con Métodos de Suavizamiento&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_10_012.png" src="../../../_images/output_10_012.png" />
+</section>
+<section id="metricas-de-desempeno">
+<h2>Métricas de desempeño:<a class="headerlink" href="#metricas-de-desempeno" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span>
+    <span class="n">max_error</span><span class="p">,</span> <span class="n">mean_absolute_percentage_error</span><span class="p">,</span> <span class="n">explained_variance_score</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Función para calcular todas las métricas</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calcular_metricas</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;R2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;MAE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;MSE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;RMSE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;MSE&#39;</span><span class="p">])</span>
+    <span class="c1"># Evitar división por cero en MAPE:</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;MAPE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean_absolute_percentage_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y_true</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;Max Error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;Explained Variance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">explained_variance_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">metrics</span>
+
+<span class="c1"># Calcular métricas en train para cada modelo</span>
+<span class="n">metrics_ses_train</span> <span class="o">=</span> <span class="n">calcular_metricas</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">y_train_pred_ses</span><span class="p">)</span>
+<span class="n">metrics_holt_train</span> <span class="o">=</span> <span class="n">calcular_metricas</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">y_train_pred_holt</span><span class="p">)</span>
+<span class="n">metrics_hw_train</span> <span class="o">=</span> <span class="n">calcular_metricas</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">y_train_pred_hw</span><span class="p">)</span>
+
+<span class="c1"># Calcular métricas en Test para cada modelo</span>
+<span class="n">metrics_ses</span> <span class="o">=</span> <span class="n">calcular_metricas</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">y_pred_test_ses</span><span class="p">)</span>
+<span class="n">metrics_holt</span> <span class="o">=</span> <span class="n">calcular_metricas</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">y_pred_test_holt</span><span class="p">)</span>
+<span class="n">metrics_hw</span> <span class="o">=</span> <span class="n">calcular_metricas</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">y_pred_test_hw</span><span class="p">)</span>
+
+<span class="c1"># Mostrar resultados en tabla para train:</span>
+<span class="n">resultados_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;SES&quot;</span><span class="p">:</span> <span class="n">metrics_ses_train</span><span class="p">,</span>
+    <span class="s2">&quot;Holt&quot;</span><span class="p">:</span> <span class="n">metrics_holt_train</span><span class="p">,</span>
+    <span class="s2">&quot;Holt-Winters&quot;</span><span class="p">:</span> <span class="n">metrics_hw_train</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Métricas de desempeño en el conjunto de train:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">resultados_train</span><span class="p">)</span>
+
+<span class="c1"># Mostrar resultados en tabla para test:</span>
+<span class="n">resultados</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;SES&quot;</span><span class="p">:</span> <span class="n">metrics_ses</span><span class="p">,</span>
+    <span class="s2">&quot;Holt&quot;</span><span class="p">:</span> <span class="n">metrics_holt</span><span class="p">,</span>
+    <span class="s2">&quot;Holt-Winters&quot;</span><span class="p">:</span> <span class="n">metrics_hw</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Métricas de desempeño en el conjunto de test:&quot;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Métricas</span> <span class="n">de</span> <span class="n">desempeño</span> <span class="n">en</span> <span class="n">el</span> <span class="n">conjunto</span> <span class="n">de</span> <span class="n">train</span><span class="p">:</span>
+</pre></div>
+</div>
+  <div id="df-8fabd9d8-9819-4784-a1d7-eaaa7d518051" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SES</th>
+      <th>Holt</th>
+      <th>Holt-Winters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>R2</th>
+      <td>0.714503</td>
+      <td>0.668827</td>
+      <td>0.928334</td>
+    </tr>
+    <tr>
+      <th>MAE</th>
+      <td>0.849031</td>
+      <td>0.870869</td>
+      <td>0.443224</td>
+    </tr>
+    <tr>
+      <th>MSE</th>
+      <td>1.320914</td>
+      <td>1.532241</td>
+      <td>0.331577</td>
+    </tr>
+    <tr>
+      <th>RMSE</th>
+      <td>1.149310</td>
+      <td>1.237837</td>
+      <td>0.575828</td>
+    </tr>
+    <tr>
+      <th>MAPE</th>
+      <td>0.071564</td>
+      <td>0.071801</td>
+      <td>0.036452</td>
+    </tr>
+    <tr>
+      <th>Max Error</th>
+      <td>3.944624</td>
+      <td>4.603243</td>
+      <td>1.776734</td>
+    </tr>
+    <tr>
+      <th>Explained Variance</th>
+      <td>0.717751</td>
+      <td>0.671016</td>
+      <td>0.928334</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8fabd9d8-9819-4784-a1d7-eaaa7d518051')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-8fabd9d8-9819-4784-a1d7-eaaa7d518051 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-8fabd9d8-9819-4784-a1d7-eaaa7d518051');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-0e980fe9-62d0-4380-b16c-fc933592e8b0">
+      <button class="colab-df-quickchart" onclick="quickchart('df-0e980fe9-62d0-4380-b16c-fc933592e8b0')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-0e980fe9-62d0-4380-b16c-fc933592e8b0 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_64def078-16b9-42ee-85d7-f7bdda392dce">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('resultados_train')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_64def078-16b9-42ee-85d7-f7bdda392dce button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('resultados_train');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Métricas</span> <span class="n">de</span> <span class="n">desempeño</span> <span class="n">en</span> <span class="n">el</span> <span class="n">conjunto</span> <span class="n">de</span> <span class="n">test</span><span class="p">:</span>
+</pre></div>
+</div>
+  <div id="df-bb47fd05-c77c-4401-b5dc-b75796dbe97b" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SES</th>
+      <th>Holt</th>
+      <th>Holt-Winters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>R2</th>
+      <td>-0.003979</td>
+      <td>-4.633574</td>
+      <td>-1.857950</td>
+    </tr>
+    <tr>
+      <th>MAE</th>
+      <td>0.808906</td>
+      <td>2.287011</td>
+      <td>1.491747</td>
+    </tr>
+    <tr>
+      <th>MSE</th>
+      <td>1.125912</td>
+      <td>6.317770</td>
+      <td>3.205047</td>
+    </tr>
+    <tr>
+      <th>RMSE</th>
+      <td>1.061090</td>
+      <td>2.513518</td>
+      <td>1.790265</td>
+    </tr>
+    <tr>
+      <th>MAPE</th>
+      <td>0.079579</td>
+      <td>0.238254</td>
+      <td>0.145455</td>
+    </tr>
+    <tr>
+      <th>Max Error</th>
+      <td>3.177836</td>
+      <td>4.111111</td>
+      <td>3.333760</td>
+    </tr>
+    <tr>
+      <th>Explained Variance</th>
+      <td>0.000000</td>
+      <td>-0.085371</td>
+      <td>0.101232</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-bb47fd05-c77c-4401-b5dc-b75796dbe97b')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-bb47fd05-c77c-4401-b5dc-b75796dbe97b button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-bb47fd05-c77c-4401-b5dc-b75796dbe97b');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-b90ac681-ddb9-425a-9622-cdae09c421c2">
+      <button class="colab-df-quickchart" onclick="quickchart('df-b90ac681-ddb9-425a-9622-cdae09c421c2')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-b90ac681-ddb9-425a-9622-cdae09c421c2 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_a6848efa-3ebb-4a60-816b-7290cd31330f">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('resultados')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_a6848efa-3ebb-4a60-816b-7290cd31330f button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('resultados');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div><p><strong>Interpretación y análisis</strong></p>
+<ul class="simple">
+<li><p><strong>Holt-Winters</strong> logra el mejor ajuste en el conjunto de
+entrenamiento, con un <span class="math notranslate nohighlight">\(R^2 = 0.928\)</span> y los valores más bajos de
+<strong>MAE</strong> y <strong>RMSE</strong>. Esto indica que el modelo capta muy bien la
+tendencia y estacionalidad de la serie en los datos históricos.</p></li>
+<li><p><strong>SES</strong> y <strong>Holt</strong> tienen un <span class="math notranslate nohighlight">\(R^2\)</span> menor (<span class="math notranslate nohighlight">\(\approx 0.71\)</span>
+y <span class="math notranslate nohighlight">\(\approx 0.67\)</span> respectivamente) y errores más altos, lo que
+sugiere que capturan menos estructura, especialmente la
+estacionalidad.</p></li>
+</ul>
+<p>En el conjunto de prueba (<strong>test</strong>), el desempeño de todos los modelos
+cae significativamente:</p>
+<ul class="simple">
+<li><p>Todos los modelos presentan valores negativos de <span class="math notranslate nohighlight">\(R^2\)</span>, lo cual
+significa que son peores que simplemente predecir la media de la
+serie.</p></li>
+<li><p>El <strong>SES</strong>, aunque es el modelo más simple, presenta el menor <strong>MAE</strong>
+(<span class="math notranslate nohighlight">\(0.81\)</span>) y el menor <strong>MAPE</strong> (<span class="math notranslate nohighlight">\(0.079\)</span>) en test.</p></li>
+<li><p><strong>Holt-Winters</strong>, a pesar de ser el mejor en entrenamiento,
+incrementa sus errores en test (<strong>MAE</strong> de <span class="math notranslate nohighlight">\(1.49\)</span>, <strong>MAPE</strong> de
+<span class="math notranslate nohighlight">\(0.145\)</span>), reflejando un posible <strong>sobreajuste</strong>
+(<em>overfitting</em>).</p></li>
+<li><p><strong>Holt</strong> tiene el peor desempeño en test, con un <strong>MAE</strong> de
+<span class="math notranslate nohighlight">\(2.28\)</span> y un <strong>MAPE</strong> de <span class="math notranslate nohighlight">\(0.238\)</span>.</p></li>
+<li><p>El <strong>Max Error</strong> es alto en todos los modelos en test, lo cual
+evidencia que pueden cometer errores grandes en ciertos puntos.</p></li>
+<li><p>El <strong>Explained Variance</strong> también cae a valores cercanos o inferiores
+a cero, mostrando poca capacidad explicativa fuera de la muestra.</p></li>
+</ul>
+<p><strong>Conclusión</strong></p>
+<p>Estos resultados muestran que los modelos de suavizamiento pueden
+ajustar muy bien los datos históricos, pero su capacidad para predecir
+fuera de muestra puede ser limitada, especialmente si la serie de tiempo
+presenta cambios de comportamiento, shocks o alta variabilidad.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../../AprenEst/Regresi%C3%B3n/M%C3%A9tricRegresi%C3%B3n/M%C3%A9tricas%20de%20evaluaci%C3%B3n%20en%20regresi%C3%B3n.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Métricas de evaluación en regresión</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../M%C3%A9todos%20de%20suavizamiento/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Métodos de suavizamiento</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-de-train-y-test">Conjunto de train y test:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-metodos-de-suavizamiento">Ajuste métodos de suavizamiento:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-desempeno">Métricas de desempeño:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Miguel Jiménez
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Miguel Jiménez.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
