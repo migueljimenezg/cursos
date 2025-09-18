@@ -14,11 +14,9 @@ En este curso se explicarán los métodos convencionales para modelar las series
 
  
 .. important::
-    Archivos para trabajar:
-
+   Series de tiempo usadas en los ejemplos y ejercicios:
+   
     * **Descargue** :download:`Precio_electricidad.csv <Precio_electricidad.csv>`
-
-    * **Descargue** :download:`Ejemplo ajuste métodos de suavizamiento.xlsx <Ejemplo ajuste métodos de suavizamiento.xlsx>`
 
     * **Descargue** :download:`Desempleo.xlsx <Desempleo.xlsx>`
 
@@ -26,7 +24,7 @@ En este curso se explicarán los métodos convencionales para modelar las series
 
     * **Descargue** :download:`Irradiancia Medellín.xlsx <Irradiancia Medellín.xlsx>`
 
-   * **Descargue** :download:`Temperatura Medellín.xlsx <Temperatura Medellín.xlsx>`
+    * **Descargue** :download:`Temperatura Medellín.xlsx <Temperatura Medellín.xlsx>`
 
 
 

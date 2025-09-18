@@ -11,3 +11,6 @@ Métodos de suavizamiento
    Taller suavizamiento extracción petróleo/Taller suavizamiento extracción petróleo
    Solución suavizamiento extracción petróleo/Solución_suavizamiento_extracción_petróleo
    
+.. important::
+
+    * **Descargue** :download:`Ejemplo ajuste métodos de suavizamiento.xlsx <Ejemplo ajuste métodos de suavizamiento.xlsx>`

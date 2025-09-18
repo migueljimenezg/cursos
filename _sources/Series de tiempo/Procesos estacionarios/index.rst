@@ -8,4 +8,9 @@ Procesos estacionarios
    ProcessEstocas/Procesos estocásticos
    Estacionariedad/Estacionariedad
    Prueba ADF/Prueba ADF (Augmented Dickey-Fuller)
-   
+   Transformaciones/Transformaciones
+
+.. important::
+
+    * **Descargue** :download:`Prueba ADF Temperatura Medellín.xlsx <Prueba ADF Temperatura Medellín.xlsx>`
+

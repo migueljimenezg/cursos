@@ -167,12 +167,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../M%C3%A9todos%20de%20suavizamiento/Msuavizado/M%C3%A9todos_de_suavizado_v2.html">Métodos de suavizado</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../M%C3%A9todos%20de%20suavizamiento/Ejem_suavizado%20desempleo/Ejemplo_m%C3%A9todos_suavizado_desempleo.html">Ejemplo métodos suavizado desempleo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../M%C3%A9todos%20de%20suavizamiento/Taller%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo/Taller%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo.html">Taller suavizamiento extracción petróleo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../M%C3%A9todos%20de%20suavizamiento/Soluci%C3%B3n%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo/Soluci%C3%B3n_suavizamiento_extracci%C3%B3n_petr%C3%B3leo.html">Solución suavizamiento extracción petróleo</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../Procesos%20estacionarios/index.html">Procesos estacionarios</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Procesos%20estacionarios/ProcessEstocas/Procesos%20estoc%C3%A1sticos.html">Procesos estocásticos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Procesos%20estacionarios/Estacionariedad/Estacionariedad.html">Estacionariedad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Procesos%20estacionarios/Prueba%20ADF/Prueba%20ADF%20%28Augmented%20Dickey-Fuller%29.html">Prueba ADF (Augmented Dickey-Fuller)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Procesos%20estacionarios/Transformaciones/Transformaciones.html">Transformaciones</a></li>
 </ul>
 </details></li>
 </ul>
@@ -719,7 +721,7 @@ automáticamente la serie de tiempo original y el pronóstico.</p>
 <span class="w">              </span><span class="n">axis.title.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rel</span><span class="p">(</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="n">vjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_13_08.png"><img alt="../../_images/output_13_08.png" src="../../_images/output_13_08.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_13_09.png"><img alt="../../_images/output_13_09.png" src="../../_images/output_13_09.png" style="width: 420px; height: 420px;" />
 </a>
 <p>En forma alternativa se puede utilizar <code class="docutils literal notranslate"><span class="pre">geom_forecast(h</span> <span class="pre">=</span> <span class="pre">)</span></code> y
 automáticamente se calculan las predicciones.</p>
@@ -737,7 +739,7 @@ automáticamente se calculan las predicciones.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggtsdisplay</span><span class="p">(</span><span class="n">timeserie</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_17_08.png"><img alt="../../_images/output_17_08.png" src="../../_images/output_17_08.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_17_09.png"><img alt="../../_images/output_17_09.png" src="../../_images/output_17_09.png" style="width: 420px; height: 420px;" />
 </a>
 <p><strong>Gráfico de la ACF:</strong></p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggAcf</span><span class="p">(</span><span class="n">timeserie</span><span class="p">)</span><span class="o">+</span>
@@ -759,7 +761,7 @@ automáticamente se calculan las predicciones.</p>
 <span class="w">              </span><span class="n">axis.title.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">element_text</span><span class="p">(</span><span class="n">face</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bold&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rel</span><span class="p">(</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="n">vjust</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_21_08.png"><img alt="../../_images/output_21_08.png" src="../../_images/output_21_08.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_21_09.png"><img alt="../../_images/output_21_09.png" src="../../_images/output_21_09.png" style="width: 420px; height: 420px;" />
 </a>
 </section>
 

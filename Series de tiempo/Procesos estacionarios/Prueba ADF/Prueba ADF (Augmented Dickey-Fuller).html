@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Procesos estacionarios/Prueba ADF/Prueba ADF (Augmented Dickey-Fuller)';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Aprendizaje Estadístico" href="../../../AprenEst/index.html" />
+    <link rel="next" title="Transformaciones" href="../Transformaciones/Transformaciones.html" />
     <link rel="prev" title="Estacionariedad" href="../Estacionariedad/Estacionariedad.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -168,12 +168,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../../M%C3%A9todos%20de%20suavizamiento/Msuavizado/M%C3%A9todos_de_suavizado_v2.html">Métodos de suavizado</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../M%C3%A9todos%20de%20suavizamiento/Ejem_suavizado%20desempleo/Ejemplo_m%C3%A9todos_suavizado_desempleo.html">Ejemplo métodos suavizado desempleo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../M%C3%A9todos%20de%20suavizamiento/Taller%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo/Taller%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo.html">Taller suavizamiento extracción petróleo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../M%C3%A9todos%20de%20suavizamiento/Soluci%C3%B3n%20suavizamiento%20extracci%C3%B3n%20petr%C3%B3leo/Soluci%C3%B3n_suavizamiento_extracci%C3%B3n_petr%C3%B3leo.html">Solución suavizamiento extracción petróleo</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Procesos estacionarios</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../ProcessEstocas/Procesos%20estoc%C3%A1sticos.html">Procesos estocásticos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Estacionariedad/Estacionariedad.html">Estacionariedad</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Prueba ADF (Augmented Dickey-Fuller)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Transformaciones/Transformaciones.html">Transformaciones</a></li>
 </ul>
 </details></li>
 </ul>
@@ -993,7 +995,7 @@ reducir la potencia del test.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_12_012.png" src="../../../_images/output_12_012.png" />
+<img alt="../../../_images/output_12_013.png" src="../../../_images/output_12_013.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estadístico ADF: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor p: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1158,11 +1160,11 @@ reducir la potencia del test.</p></li>
       </div>
     </a>
     <a class="right-next"
-       href="../../../AprenEst/index.html"
+       href="../Transformaciones/Transformaciones.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aprendizaje Estadístico</p>
+        <p class="prev-next-title">Transformaciones</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
