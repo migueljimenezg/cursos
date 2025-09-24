@@ -102,6 +102,11 @@ ________________________________________________________________________________
 
     * **3. Estados financieros consolidados:** son los que presenta una entidad controladora y sus subsidiarias, como si se tratara de una sola entidad contable.
 
+    * **Ver video:** --- `Ejemplo Estados Financieros SuperSociedades <https://youtu.be/eL4zrCvMrVI>`_.
+
+    * **Descargue** :download:`Excel ejemplo empresa GRIFFITH FOODS <Estados Financieros GRIFFITH FOODS.xlsx>`
+
+
 
 
 6. Análisis de la industria del comercio de vehículos automotores nuevos

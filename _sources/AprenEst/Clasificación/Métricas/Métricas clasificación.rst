@@ -115,6 +115,8 @@ De todos los que el modelo “metió al grupo positivo” (predicción)
 afectada por los Falsos Positivos: cuantos más Falsos Positivos haya,
 más baja será la precisión.
 
+👉 Prefiero acusar poco, pero casi siempre con razón.
+
 .. math::
 
 
@@ -152,6 +154,10 @@ De todos los gatos reales que había en la base de datos, ¿a cuántos
 logró encontrar el modelo y cuántos se le escaparon (FN)? Se ve afectado
 por los escapados (FN): cuantos más gatos se le escapen al modelo, más
 bajo será el recall.
+
+👉 Prefiero casi no perder ningún gato (pocos FN), aunque me equivoque más marcando perros cómo gatos (FP).  
+
+Un FN puede encarecer crédito; un FN puede dejar sin ayuda a quien la necesita.
 
 .. math::
 
