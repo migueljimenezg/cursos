@@ -176,6 +176,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../Estacionariedad/Estacionariedad.html">Estacionariedad</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Prueba ADF (Augmented Dickey-Fuller)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Transformaciones/Transformaciones.html">Transformaciones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Estacionariedad%20precio%20del%20Caf%C3%A9/Estacionariedad_precio_del_Caf%C3%A9.html">Estacionariedad precio del Café</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1042,7 +1043,7 @@ reducir la potencia del test.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_15_011.png" src="../../../_images/output_15_011.png" />
+<img alt="../../../_images/output_15_012.png" src="../../../_images/output_15_012.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;ct&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estadístico ADF: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor p: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>

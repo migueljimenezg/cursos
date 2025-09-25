@@ -26,6 +26,7 @@ En este curso se explicarán los métodos convencionales para modelar las series
 
     * **Descargue** :download:`Temperatura Medellín.xlsx <Temperatura Medellín.xlsx>`
 
+    * **Descargue** :download:`Precio_interno_cafe.xlsx <Precio_interno_cafe.xlsx>`
 
 
 Lecturas

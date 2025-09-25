@@ -9,6 +9,7 @@ Procesos estacionarios
    Estacionariedad/Estacionariedad
    Prueba ADF/Prueba ADF (Augmented Dickey-Fuller)
    Transformaciones/Transformaciones
+   Estacionariedad precio del Café/Estacionariedad_precio_del_Café
 
 .. important::
 
