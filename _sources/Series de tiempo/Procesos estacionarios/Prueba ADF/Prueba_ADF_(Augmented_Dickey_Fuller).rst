@@ -189,6 +189,7 @@ Irradiancia Medellín:
     import pandas as pd
     import numpy as np
     from matplotlib import pyplot as plt
+    import matplotlib.dates as mdates
     
     # Cargar el archivo xlsx:
     df = pd.read_excel('Irradiancia Medellín.xlsx')
@@ -294,8 +295,8 @@ auxiliar. Las opciones disponibles son:
 
 .. parsed-literal::
 
-    Estadístico ADF: -5.629217000672
-    Valor p: 1.0992990513356142e-06
+    Estadístico ADF: -5.62921700067201
+    Valor p: 1.0992990513355553e-06
     Rechazamos la hipótesis nula: La serie es estacionaria.
     
 
@@ -351,50 +352,56 @@ Temperatura Medellín:
 
 .. parsed-literal::
 
-    Estadístico ADF: -3.8256858465908485
-    Valor p: 0.002655181395794914
+    Estadístico ADF: -3.825685846590857
+    Valor p: 0.002655181395794833
     Rechazamos la hipótesis nula: La serie es estacionaria.
     
 
-Desempleo:
-~~~~~~~~~~
+TRM:
+~~~~
 
 .. code:: ipython3
 
-    # Cargar el archivo xlsx:
-    df = pd.read_excel('Desempleo.xlsx')
+    import yfinance as yf
     
-    # Corregir nombres de columnas si tienen espacios
-    df.columns = df.columns.str.strip()
+    # Descargar datos mensuales desde 2015
+    start_date = "2015-01-01"
+    end_date = "2025-07-31"
     
-    # Convertir 'Fecha' a datetime y usar como índice
-    df['Fecha'] = pd.to_datetime(df['Fecha'])
-    df.set_index('Fecha', inplace=True)
+    # TRM de Colombia (USD/COP)
+    trm = yf.download("USDCOP=X", start=start_date, end=end_date, interval='1mo', auto_adjust=False)['Close']
+    trm.name = 'TRM (USD/COP)'
     
-    # Ordenar por fecha por si acaso
-    df = df.sort_index()
+    # Crear figura
+    plt.figure(figsize=(10, 5))
+    plt.plot(trm.index, trm, linestyle='-', color='navy')
     
-    # Establecer frecuencia explícita para evitar el warning de statsmodels
-    df.index.freq = df.index.inferred_freq
-    
-    plt.figure(figsize=(18, 5))
-    plt.plot(df, color='navy')
-    plt.title("Serie de tiempo: Desempleo")
+    # Personalización del gráfico
+    plt.title("Evolución de la TRM (USD/COP)", fontsize=14)
     plt.xlabel("Fecha")
-    plt.ylabel("Valor")
+    plt.ylabel("TRM (Pesos por USD)")
     plt.grid(True, alpha=0.3)
+    
+    # Formato de fechas en el eje X
+    plt.gca().xaxis.set_major_locator(mdates.YearLocator())
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+    
     plt.tight_layout()
     plt.show()
+
+
+.. parsed-literal::
+
+    [*********************100%***********************]  1 of 1 completed
     
 
 
-
-.. image:: output_15_0.png
+.. image:: output_15_1.png
 
 
 .. code:: ipython3
 
-    adf_result = adfuller(df, regression='ct')
+    adf_result = adfuller(trm, regression='ct')
     print(f'Estadístico ADF: {adf_result[0]}')
     print(f'Valor p: {adf_result[1]}')
     
@@ -408,85 +415,43 @@ Desempleo:
 
 .. parsed-literal::
 
-    Estadístico ADF: -2.9263028640679423
-    Valor p: 0.15386331938006542
+    Estadístico ADF: -2.941854349451379
+    Valor p: 0.14906916064463072
     No podemos rechazar la hipótesis nula: La serie no es estacionaria.
     
 
-Extracción de petróleo Ecopetrol:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Primera diferencia de la TRM:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
-    # Cargar el archivo xlsx:
-    df = pd.read_excel('Extracción petróleo Ecopetrol.xlsx')
+    diff_trm = trm.diff().dropna()
     
-    # Corregir nombres de columnas si tienen espacios
-    df.columns = df.columns.str.strip()
+    # Crear figura
+    plt.figure(figsize=(10, 5))
+    plt.plot(diff_trm.index, diff_trm, linestyle='-', color='navy')
     
-    # Convertir 'Fecha' a datetime y usar como índice
-    df['Fecha'] = pd.to_datetime(df['Fecha'])
-    df.set_index('Fecha', inplace=True)
-    
-    # Ordenar por fecha por si acaso
-    df = df.sort_index()
-    
-    # Establecer frecuencia explícita para evitar el warning de statsmodels
-    df.index.freq = df.index.inferred_freq
-    
-    plt.figure(figsize=(18, 5))
-    plt.plot(df, color='navy')
-    plt.title("Serie de tiempo: Extracción de petróleo Ecopetrol")
+    # Personalización del gráfico
+    plt.title("Primera diferencia de la TRM", fontsize=14)
     plt.xlabel("Fecha")
     plt.ylabel("Valor")
     plt.grid(True, alpha=0.3)
+    
+    # Formato de fechas en el eje X
+    plt.gca().xaxis.set_major_locator(mdates.YearLocator())
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+    
     plt.tight_layout()
     plt.show()
-    
-    adf_result = adfuller(df['Serie'], regression='ct')
-    print(f'Estadístico ADF: {adf_result[0]}')
-    print(f'Valor p: {adf_result[1]}')
-    
-    # Interpretación del resultado
-    alpha = 0.05
-    if adf_result[1] < alpha:
-        print("Rechazamos la hipótesis nula: La serie es estacionaria.")
-    else:
-        print("No podemos rechazar la hipótesis nula: La serie no es estacionaria.")
 
 
 
 .. image:: output_18_0.png
 
 
-.. parsed-literal::
-
-    Estadístico ADF: -2.489906943558834
-    Valor p: 0.33302669558659626
-    No podemos rechazar la hipótesis nula: La serie no es estacionaria.
-    
-
 .. code:: ipython3
 
-    serie = df.loc['2017-01-01':]
-    
-    plt.figure(figsize=(12, 5))
-    plt.plot(serie, color='navy')
-    plt.title("Serie de tiempo: Extracción desde enero 2022")
-    plt.xlabel("Fecha")
-    plt.ylabel("Valor")
-    plt.grid(True, alpha=0.3)
-    plt.tight_layout()
-    plt.show()
-
-
-
-.. image:: output_19_0.png
-
-
-.. code:: ipython3
-
-    adf_result = adfuller(serie, regression='ct')
+    adf_result = adfuller(diff_trm, regression='c')
     print(f'Estadístico ADF: {adf_result[0]}')
     print(f'Valor p: {adf_result[1]}')
     
@@ -500,7 +465,7 @@ Extracción de petróleo Ecopetrol:
 
 .. parsed-literal::
 
-    Estadístico ADF: -1.8216329355610603
-    Valor p: 0.6942348070095631
-    No podemos rechazar la hipótesis nula: La serie no es estacionaria.
+    Estadístico ADF: -5.131705099077063
+    Valor p: 1.2100634062755294e-05
+    Rechazamos la hipótesis nula: La serie es estacionaria.
     

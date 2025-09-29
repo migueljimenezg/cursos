@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Prueba ADF (Augmented Dickey-Fuller) &#8212; Cursos  documentation</title>
+    <title>Autocorrelación Parcial-PACF &#8212; Cursos  documentation</title>
   
   
   
@@ -45,11 +45,11 @@
     <script src="../../../_static/copybutton.js?v=fd10adb8"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Procesos estacionarios/Prueba ADF/Prueba ADF (Augmented Dickey-Fuller)';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Procesos estacionarios/Autocorrelación Parcial-PACF/Autocorrelación Parcial - PACF';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Transformaciones" href="../Transformaciones/Transformaciones.html" />
-    <link rel="prev" title="Estacionariedad" href="../Estacionariedad/Estacionariedad.html" />
+    <link rel="next" title="Aprendizaje Estadístico" href="../../../AprenEst/index.html" />
+    <link rel="prev" title="Autocorrelación-ACF" href="../Autocorrelaci%C3%B3n-ACF/Autocorrelaci%C3%B3n-ACF.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,9 +174,10 @@
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Procesos estacionarios</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../ProcessEstocas/Procesos%20estoc%C3%A1sticos.html">Procesos estocásticos</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Estacionariedad/Estacionariedad.html">Estacionariedad</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Prueba ADF (Augmented Dickey-Fuller)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Transformaciones/Transformaciones.html">Transformaciones</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Estacionariedad%20precio%20del%20Caf%C3%A9/Estacionariedad_precio_del_Caf%C3%A9.html">Estacionariedad precio del Café</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Autocorrelaci%C3%B3n-ACF/Autocorrelaci%C3%B3n-ACF.html">Autocorrelación-ACF</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Autocorrelación Parcial-PACF</a></li>
 </ul>
 </details></li>
 </ul>
@@ -569,7 +570,7 @@
       
       
       
-      <li><a href="../../../_sources/Series de tiempo/Procesos estacionarios/Prueba ADF/Prueba ADF (Augmented Dickey-Fuller).rst" target="_blank"
+      <li><a href="../../../_sources/Series de tiempo/Procesos estacionarios/Autocorrelación Parcial-PACF/Autocorrelación Parcial - PACF.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -640,9 +641,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -653,23 +652,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Prueba ADF (Augmented Dickey-Fuller)</h1>
+    <h1>Autocorrelación Parcial-PACF</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-pyhton-para-prueba-adf">Código Pyhton para prueba ADF:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#irradiancia-medellin">Irradiancia Medellín:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperatura-medellin">Temperatura Medellín:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desempleo">Desempleo:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extraccion-de-petroleo-ecopetrol">Extracción de petróleo Ecopetrol:</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -679,465 +666,259 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="prueba-adf-augmented-dickey-fuller">
-<h1>Prueba ADF (Augmented Dickey-Fuller)<a class="headerlink" href="#prueba-adf-augmented-dickey-fuller" title="Link to this heading">#</a></h1>
-<p>La prueba <strong>ADF</strong> es una de las herramientas más utilizadas para
-determinar si una <strong>serie de tiempo es estacionaria</strong>. Su propósito es
-verificar si la serie tiene una <strong>raíz unitaria</strong>, lo que implicaría
-<strong>no estacionariedad</strong>.</p>
-<p><strong>Hipótesis de la prueba</strong></p>
-<ul class="simple">
-<li><p><strong>Hipótesis nula</strong> (<span class="math notranslate nohighlight">\(H_0\)</span>): La serie tiene una raíz unitaria →
-<strong>no estacionaria</strong></p></li>
-<li><p><strong>Hipótesis alternativa</strong> (<span class="math notranslate nohighlight">\(H_1\)</span>): La serie no tiene raíz
-unitaria → <strong>estacionaria</strong></p></li>
-</ul>
-<p><strong>Modelo base</strong></p>
-<p>La prueba ADF se basa en estimar la siguiente regresión:</p>
-<div class="math notranslate nohighlight">
-\[\Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \sum_{i=1}^p \delta_i \Delta y_{t-i} + \varepsilon_t\]</div>
-<p>donde:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Delta y_t = y_t - y_{t-1}\)</span> es la primera diferencia de la
-serie</p></li>
-<li><p><span class="math notranslate nohighlight">\(t\)</span> es una tendencia determinista (opcional)</p></li>
-<li><p><span class="math notranslate nohighlight">\(p\)</span> es el número de rezagos incluidos (para controlar
-autocorrelación)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> es el parámetro clave para evaluar la presencia de una
-raíz unitaria</p></li>
-<li><p><span class="math notranslate nohighlight">\(\varepsilon_t\)</span> es un término de error (ruido blanco)</p></li>
-</ul>
-<p><strong>¿Qué evalúa la prueba?</strong></p>
-<p>El valor clave es el coeficiente <span class="math notranslate nohighlight">\(\gamma\)</span> asociado a
-<span class="math notranslate nohighlight">\(y_{t-1}\)</span> en la regresión.</p>
-<ul>
-<li><p>Si <span class="math notranslate nohighlight">\(\gamma = 0\)</span>, entonces la ecuación se convierte en:</p>
-<div class="math notranslate nohighlight">
-\[\Delta y_t = \alpha + \beta t + \sum \delta_i \Delta y_{t-i} + \varepsilon_t\]</div>
-<p>→ Lo que implica que la serie <strong>tiene una raíz unitaria</strong> (es un
-random walk), y por tanto <strong>no es estacionaria</strong>.</p>
-</li>
-<li><p>Si <span class="math notranslate nohighlight">\(\gamma &lt; 0\)</span>, entonces el término <span class="math notranslate nohighlight">\(y_{t-1}\)</span> <strong>fuerza
-un retorno al promedio</strong>, lo cual es consistente con una <strong>serie
-estacionaria</strong>.</p></li>
-</ul>
-<p><strong>¿Por qué el estadístico ADF da negativo?</strong></p>
-<p>Cuando se estima <span class="math notranslate nohighlight">\(\gamma\)</span> y se calcula el estadístico de prueba
-ADF, este suele ser <strong>negativo</strong> porque estamos evaluando si
-<span class="math notranslate nohighlight">\(\gamma &lt; 0\)</span>.</p>
-<p>Cuanto <strong>más negativo sea el valor</strong>, más evidencia existe contra la
-hipótesis nula (no estacionaria).</p>
-<p><strong>Valor p y decisión estadística</strong></p>
-<p>La prueba devuelve un <strong>valor p</strong> que indica la probabilidad de obtener
-un estadístico como el observado, <strong>asumiendo que la hipótesis nula es
-cierta</strong>.</p>
-<ul class="simple">
-<li><p>Si <span class="math notranslate nohighlight">\(p &lt; 0.05\)</span>, se <strong>rechaza</strong> <span class="math notranslate nohighlight">\(H_0\)</span> → no hay raíz
-unitaria → la serie <strong>es estacionaria</strong>.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(p \geq 0.05\)</span>, <strong>no se rechaza</strong> <span class="math notranslate nohighlight">\(H_0\)</span> → no hay
-evidencia suficiente para afirmar estacionariedad → la serie <strong>podría
-no ser estacionaria</strong>.</p></li>
-</ul>
-<p><strong>Tipos de modelos en la prueba ADF</strong></p>
-<p>Dependiendo de la naturaleza de la serie, se pueden evaluar diferentes
-variantes del modelo ADF:</p>
-<ol class="arabic">
-<li><p><strong>Sin constante ni tendencia</strong>:</p>
-<div class="math notranslate nohighlight">
-\[\Delta y_t = \gamma y_{t-1} + \sum \delta_i \Delta y_{t-i} + \varepsilon_t\]</div>
-</li>
-<li><p><strong>Con constante</strong>:</p>
-<div class="math notranslate nohighlight">
-\[\Delta y_t = \alpha + \gamma y_{t-1} + \sum \delta_i \Delta y_{t-i} + \varepsilon_t\]</div>
-</li>
-<li><p><strong>Con constante y tendencia</strong>:</p>
-<div class="math notranslate nohighlight">
-\[\Delta y_t = \alpha + \beta t + \gamma y_{t-1} + \sum \delta_i \Delta y_{t-i} + \varepsilon_t\]</div>
-</li>
-</ol>
-<p>La elección depende de si se sospecha que la serie tiene <strong>tendencia
-determinista</strong> o simplemente <strong>nivel constante</strong>.</p>
-<p><strong>Resumen:</strong></p>
-<ul class="simple">
-<li><p>Se estima una regresión en primeras diferencias con <span class="math notranslate nohighlight">\(y_{t-1}\)</span>
-como regresor.</p></li>
-<li><p>Se evalúa si <span class="math notranslate nohighlight">\(\gamma &lt; 0\)</span> de forma significativa.</p></li>
-<li><p>El <strong>estadístico ADF</strong> negativo refleja el valor estimado de
-<span class="math notranslate nohighlight">\(\gamma\)</span>.</p></li>
-<li><p>El <strong>valor p</strong> indica si ese resultado es estadísticamente
-significativo.</p></li>
-</ul>
-<p><strong>Criterios de interpretación</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Resultado ADF</p></th>
-<th class="head"><p>Valor p</p></th>
-<th class="head"><p>Conclusión</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Muy negativo</p></td>
-<td><p><span class="math notranslate nohighlight">\(&lt; 0.05\)</span></p></td>
-<td><p>Rechazar <span class="math notranslate nohighlight">\(H_0\)</span> →
-<strong>Estacionaria</strong></p></td>
-</tr>
-<tr class="row-odd"><td><p>Cercano a 0</p></td>
-<td><p><span class="math notranslate nohighlight">\(\geq 0.05\)</span></p></td>
-<td><p>No rechazar <span class="math notranslate nohighlight">\(H_0\)</span> → <strong>No
-estacionaria</strong></p></td>
-</tr>
-</tbody>
-</table>
-</div>
+  <section id="autocorrelacion-parcial-pacf">
+<h1>Autocorrelación Parcial-PACF<a class="headerlink" href="#autocorrelacion-parcial-pacf" title="Link to this heading">#</a></h1>
+<p>La <strong>Función de Autocorrelación Parcial (PACF)</strong> mide la <strong>correlación
+directa</strong> entre los valores de una serie de tiempo separados por
+<span class="math notranslate nohighlight">\(k\)</span> periodos, <strong>eliminando el efecto de los rezagos intermedios</strong>.</p>
+<p>Mientras que la ACF muestra la relación total (directa e indirecta)
+entre <span class="math notranslate nohighlight">\(y_t\)</span> y <span class="math notranslate nohighlight">\(y_{t-k}\)</span>, la <strong>PACF muestra sólo la parte
+directa</strong> entre esos dos puntos.</p>
 <figure class="align-default" id="id1">
-<img alt="Analog_resorte" src="../../../_images/Analog_resorte.png" />
+<img alt="PACFvsACF" src="../../../_images/PACFvsACF1.png" />
 <figcaption>
-<p><span class="caption-text">Analog_resorte</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-text">PACFvsACF</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Se podría afirmar que una serie es estacionaria si <span class="math notranslate nohighlight">\(y_{t-1}\)</span> ayuda
-a predecir la variación siguiente de la serie de tiempo
-(<span class="math notranslate nohighlight">\(\Delta y_t\)</span>).</p>
-<p>Lo que hace la prueba es verificar si <span class="math notranslate nohighlight">\(y_{t-1}\)</span> aporta información
-significativa para predecir <span class="math notranslate nohighlight">\(\Delta y_t\)</span>.</p>
-<p>Si <span class="math notranslate nohighlight">\(y_{t-1}\)</span> no tiene ningún efecto sobre <span class="math notranslate nohighlight">\(\Delta y_t\)</span> (es
-decir, <span class="math notranslate nohighlight">\(\gamma = 0\)</span>), la serie tiene una raíz unitaria → no es
-estacionaria.</p>
-<p>Si <span class="math notranslate nohighlight">\(y_{t-1}\)</span> sí tiene un efecto negativo (es decir,
-<span class="math notranslate nohighlight">\(\gamma &lt; 0\)</span> y significativo), la serie tiende a corregirse, lo
-que indica estacionariedad.</p>
-<p><strong>Interpretación económica</strong></p>
-<p>Cuando <span class="math notranslate nohighlight">\(y_{t-1}\)</span> ayuda a predecir la dirección y magnitud del
-cambio futuro:</p>
+<p><strong>Motivación: ¿Por qué necesitamos la PACF?</strong></p>
 <ul class="simple">
-<li><p>Si <span class="math notranslate nohighlight">\(y_{t-1}\)</span> es alto, <span class="math notranslate nohighlight">\(\Delta y_t\)</span> tiende a ser negativo
-→ la serie baja.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(y_{t-1}\)</span> es bajo, <span class="math notranslate nohighlight">\(\Delta y_t\)</span> tiende a ser positivo
-→ la serie sube.</p></li>
+<li><p>En procesos autorregresivos (AR), los valores pasados afectan al
+presente, pero también entre sí.</p></li>
+<li><p>La <strong>ACF</strong> no distingue entre la influencia <strong>directa</strong> y la
+<strong>indirecta</strong>: por ejemplo, la correlación entre <span class="math notranslate nohighlight">\(y_t\)</span> y
+<span class="math notranslate nohighlight">\(y_{t-2}\)</span> incluye la influencia de <span class="math notranslate nohighlight">\(y_{t-1}\)</span> como
+“puente”.</p></li>
+<li><p>La <strong>PACF</strong> elimina ese “efecto puente” y mide la correlación neta
+entre <span class="math notranslate nohighlight">\(y_t\)</span> y <span class="math notranslate nohighlight">\(y_{t-k}\)</span>.</p></li>
 </ul>
-<p>Esto indica que la serie tiene fuerza de retorno al promedio → propiedad
-típica de una serie estacionaria.</p>
-<p><strong>Observación:</strong></p>
-<p>Que <span class="math notranslate nohighlight">\(y_{t-1}\)</span> ayude a predecir <span class="math notranslate nohighlight">\(\Delta y_t\)</span> no es una
-definición general de estacionariedad, sino una forma práctica de
-evaluarla bajo el modelo autorregresivo en primera diferencia.</p>
-<figure class="align-default" id="id2">
-<img alt="series_adf_visual_examples" src="../../../_images/series_adf_visual_examples.png" />
-<figcaption>
-<p><span class="caption-text">series_adf_visual_examples</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<section id="codigo-pyhton-para-prueba-adf">
-<h2>Código Pyhton para prueba ADF:<a class="headerlink" href="#codigo-pyhton-para-prueba-adf" title="Link to this heading">#</a></h2>
-</section>
-<section id="irradiancia-medellin">
-<h2>Irradiancia Medellín:<a class="headerlink" href="#irradiancia-medellin" title="Link to this heading">#</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
-<span class="c1"># Cargar el archivo xlsx:</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Irradiancia Medellín.xlsx&#39;</span><span class="p">)</span>
-
-<span class="c1"># Corregir nombres de columnas si tienen espacios</span>
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
-<span class="c1"># Convertir &#39;Fecha&#39; a datetime y usar como índice</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Ordenar por fecha por si acaso</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-
-<span class="c1"># Establecer frecuencia explícita para evitar el warning de statsmodels</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">inferred_freq</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Serie de tiempo: Irradiancia Medellín&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_7_014.png" src="../../../_images/output_7_014.png" />
-<p><strong>Opción</strong> <code class="docutils literal notranslate"><span class="pre">regression</span></code> <strong>en la prueba ADF</strong></p>
-<p>Cuando aplicamos la prueba ADF en Python con <code class="docutils literal notranslate"><span class="pre">adfuller</span></code>, el argumento
-<code class="docutils literal notranslate"><span class="pre">regression</span></code> nos permite indicar qué términos incluir en la regresión
-auxiliar. Las opciones disponibles son:</p>
+<p><strong>Definición formal:</strong></p>
+<ul class="simple">
+<li><p>El coeficiente de autocorrelación parcial en el lag <span class="math notranslate nohighlight">\(k\)</span>
+(<span class="math notranslate nohighlight">\(\phi_{kk}\)</span>) es la correlación entre <span class="math notranslate nohighlight">\(y_t\)</span> y
+<span class="math notranslate nohighlight">\(y_{t-k}\)</span> <strong>condicionada</strong> a los valores intermedios
+<span class="math notranslate nohighlight">\(y_{t-1}, y_{t-2}, ..., z_{t-k+1}\)</span>.</p></li>
+<li><p>Es el <strong>último coeficiente</strong> del modelo AR(<span class="math notranslate nohighlight">\(k\)</span>) estimado por
+regresión múltiple.</p></li>
+</ul>
+<p><strong>¿Cómo se interpreta la PACF?</strong></p>
+<ul class="simple">
+<li><p>En un proceso <strong>AR(p)</strong>, la <strong>PACF es significativa solo hasta el
+rezago :math:`p`</strong> y para lags mayores cae rápidamente a cero.</p></li>
+<li><p>Por eso, <strong>el número de rezagos significativos en la PACF indica el
+orden :math:`p` de un modelo AR(p)</strong>.</p></li>
+<li><p>La <strong>ACF</strong> es mejor para identificar el orden <span class="math notranslate nohighlight">\(q\)</span> de un MA(q),
+la <strong>PACF</strong> es clave para determinar el <span class="math notranslate nohighlight">\(p\)</span> de un AR(p).</p></li>
+</ul>
+<p><strong>Comparación ACF vs PACF</strong></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>O
-p
-c
-i
-ó
-n</p></th>
-<th class="head"><p>Componentes
-incluidos</p></th>
-<th class="head"><p>Descripción</p></th>
-<th class="head"><p>Cuándo usarla</p></th>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>ACF</p></th>
+<th class="head"><p>PACF</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>n</p></td>
-<td><p>Ninguno</p></td>
-<td><p>No incluye constante
-ni tendencia</p></td>
-<td><p>Cuando se espera que
-la serie fluctúe
-alrededor de cero</p></td>
+<tr class="row-even"><td><p>Mide</p></td>
+<td><p>Correlación total
+(directa + indirecta)</p></td>
+<td><p>Correlación directa</p></td>
 </tr>
-<tr class="row-odd"><td><p>c</p></td>
-<td><p>Constante
-<strong>(por
-defecto)</strong></p></td>
-<td><p>Incluye solo el
-intercepto (media
-distinta de cero)</p></td>
-<td><p>Cuando la serie no
-tiene tendencia, pero
-sí una media estable</p></td>
+<tr class="row-odd"><td><p>Útil para</p></td>
+<td><p>Identificar orden MA(q)</p></td>
+<td><p>Identificar orden AR(p)</p></td>
 </tr>
-<tr class="row-even"><td><p>c
-t</p></td>
-<td><p>Constante +
-tendencia
-lineal</p></td>
-<td><p>Incluye intercepto y
-pendiente lineal</p></td>
-<td><p>Cuando la serie
-muestra una tendencia
-lineal creciente o
-decreciente</p></td>
-</tr>
-<tr class="row-odd"><td><p>c
-t
-t</p></td>
-<td><p>Constante +
-tendencia
-lineal +
-cuadrática</p></td>
-<td><p>Intercepto, pendiente
-y curvatura (forma
-parabólica)</p></td>
-<td><p>Cuando la serie
-presenta una
-aceleración o
-desaceleración clara</p></td>
+<tr class="row-even"><td><p>Patrón AR</p></td>
+<td><p>Caída exponencial o lenta</p></td>
+<td><p>Corte brusco después de
+lag p</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<ul class="simple">
-<li><p><strong>Regresión</strong> <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code>: Ruido blanco sin media ni tendencia</p></li>
-<li><p><strong>Regresión</strong> <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code>: Serie con media distinta de cero</p></li>
-<li><p><strong>Regresión</strong> <code class="docutils literal notranslate"><span class="pre">&quot;ct&quot;</span></code>: Serie con tendencia lineal clara</p></li>
-<li><p><strong>Regresión</strong> <code class="docutils literal notranslate"><span class="pre">&quot;ctt&quot;</span></code>: Serie con tendencia cuadrática (curvatura)</p></li>
-</ul>
-<p><strong>Recomendaciones prácticas:</strong></p>
-<ul class="simple">
-<li><p>Siempre <strong>inspecciona visualmente</strong> la serie antes de elegir la
-opción de regresión.</p></li>
-<li><p>Si tienes dudas, compara resultados con <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code> y <code class="docutils literal notranslate"><span class="pre">&quot;ct&quot;</span></code>.</p></li>
-<li><p>Incluir <strong>pocos términos</strong> cuando hay una tendencia puede llevar a
-errores tipo II (falsos negativos).</p></li>
-<li><p>Incluir <strong>demasiados términos</strong> cuando no son necesarios puede
-reducir la potencia del test.</p></li>
-</ul>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.stattools</span><span class="w"> </span><span class="kn">import</span> <span class="n">adfuller</span>
-</pre></div>
+<figure class="align-default" id="id2">
+<img alt="acf_pacf_series" src="../../../_images/acf_pacf_series.png" />
+<figcaption>
+<p><span class="caption-text">acf_pacf_series</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id3">
+<img alt="Diagrama_ACF_PACF" src="../../../_images/Diagrama_ACF_PACF.png" />
+<figcaption>
+<p><span class="caption-text">Diagrama_ACF_PACF</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>**
+Serie
+/
+Mod
+elo**</p></th>
+<th class="head"><p><strong>ACF</strong></p></th>
+<th class="head"><p><strong>PACF</strong></p></th>
+<th class="head"><p><strong>Mo
+delo
+Su
+geri
+do</strong></p></th>
+<th class="head"><p><strong>Patrón visual
+clave</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ruido
+b
+lanco</p></td>
+<td><p>Todos los
+rezagos dentro
+de la franja,
+no
+significativos</p></td>
+<td><p>Todos los
+rezagos
+dentro de la
+franja, no
+si
+gnificativos</p></td>
+<td><p>Nin
+guno
+/
+P
+aseo
+a
+leat
+orio</p></td>
+<td><p>No hay
+correlaciones, ni
+en ACF ni en PACF</p></td>
+</tr>
+<tr class="row-odd"><td><p>AR(p)</p></td>
+<td><p>Decae
+gradualmente
+(exponencial u
+oscilante)</p></td>
+<td><p>Corte brusco
+en lag p
+(s
+ignificativo
+hasta p,
+luego cero)</p></td>
+<td><p>A
+R(p)</p></td>
+<td><p>PACF con corte
+brusco; ACF decae
+lento</p></td>
+</tr>
+<tr class="row-even"><td><p>MA(q)</p></td>
+<td><p>Corte brusco
+en lag q
+(significativo
+hasta q, luego
+cero)</p></td>
+<td><p>Decae
+gradualmente</p></td>
+<td><p>M
+A(q)</p></td>
+<td><p>ACF con corte
+brusco; PACF decae
+lento</p></td>
+</tr>
+<tr class="row-odd"><td><p>ARMA
+(p,q)</p></td>
+<td><p>Ambas decaen
+gradualmente
+(sin cortes
+bruscos)</p></td>
+<td><p>Ambas decaen
+gradualmente</p></td>
+<td><p>A
+RMA(
+p,q)</p></td>
+<td><p>Tanto ACF como PACF
+decaen
+lento/oscilar sin
+corte claro</p></td>
+</tr>
+<tr class="row-even"><td><p>Esta
+ciona
+lidad
+pura</p></td>
+<td><p>Picos
+periódicos en
+múltiplos del
+periodo</p></td>
+<td><p>Picos o
+patrones
+oscilantes
+en múltiplos
+del periodo</p></td>
+<td><p>SA
+RIMA</p></td>
+<td><p>ACF y PACF con
+picos fijos (ej.
+cada 12 lags si
+mensual)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tend
+encia</p></td>
+<td><p>ACF decae muy
+lentamente,
+rara vez cerca
+de cero</p></td>
+<td><p>PACF
+s
+ignificativa
+solo en
+primeros
+lags, luego
+dispersión</p></td>
+<td><p>Apl
+icar
+di
+fere
+ncia</p></td>
+<td><p>ACF con caída
+lenta; indica no
+estacionariedad</p></td>
+</tr>
+<tr class="row-even"><td><p>Tend
+encia
+y
+Esta
+ciona
+lidad</p></td>
+<td><p>ACF con caída
+lenta y picos
+periódicos</p></td>
+<td><p>PACF con
+corte brusco
+y patrones
+oscilantes</p></td>
+<td><p>Dif
+eren
+ciar
+y
+mod
+elar
+es
+taci
+onal
+idad</p></td>
+<td><p>Combinación de
+patrones de
+tendencia y
+estacionalidad en
+ACF y PACF</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estadístico ADF: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor p: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># Interpretación del resultado</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="k">if</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rechazamos la hipótesis nula: La serie es estacionaria.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No podemos rechazar la hipótesis nula: La serie no es estacionaria.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadístico</span> <span class="n">ADF</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.629217000672</span>
-<span class="n">Valor</span> <span class="n">p</span><span class="p">:</span> <span class="mf">1.0992990513356142e-06</span>
-<span class="n">Rechazamos</span> <span class="n">la</span> <span class="n">hipótesis</span> <span class="n">nula</span><span class="p">:</span> <span class="n">La</span> <span class="n">serie</span> <span class="n">es</span> <span class="n">estacionaria</span><span class="o">.</span>
-</pre></div>
-</div>
-</section>
-<section id="temperatura-medellin">
-<h2>Temperatura Medellín:<a class="headerlink" href="#temperatura-medellin" title="Link to this heading">#</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargar el archivo xlsx:</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Temperatura Medellín.xlsx&#39;</span><span class="p">)</span>
-
-<span class="c1"># Corregir nombres de columnas si tienen espacios</span>
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
-<span class="c1"># Convertir &#39;Fecha&#39; a datetime y usar como índice</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Ordenar por fecha por si acaso</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-
-<span class="c1"># Establecer frecuencia explícita para evitar el warning de statsmodels</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">inferred_freq</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Serie de tiempo: Temperatura Medellín&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_12_013.png" src="../../../_images/output_12_013.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estadístico ADF: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor p: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># Interpretación del resultado</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="k">if</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rechazamos la hipótesis nula: La serie es estacionaria.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No podemos rechazar la hipótesis nula: La serie no es estacionaria.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadístico</span> <span class="n">ADF</span><span class="p">:</span> <span class="o">-</span><span class="mf">3.8256858465908485</span>
-<span class="n">Valor</span> <span class="n">p</span><span class="p">:</span> <span class="mf">0.002655181395794914</span>
-<span class="n">Rechazamos</span> <span class="n">la</span> <span class="n">hipótesis</span> <span class="n">nula</span><span class="p">:</span> <span class="n">La</span> <span class="n">serie</span> <span class="n">es</span> <span class="n">estacionaria</span><span class="o">.</span>
-</pre></div>
-</div>
-</section>
-<section id="desempleo">
-<h2>Desempleo:<a class="headerlink" href="#desempleo" title="Link to this heading">#</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargar el archivo xlsx:</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Desempleo.xlsx&#39;</span><span class="p">)</span>
-
-<span class="c1"># Corregir nombres de columnas si tienen espacios</span>
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
-<span class="c1"># Convertir &#39;Fecha&#39; a datetime y usar como índice</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Ordenar por fecha por si acaso</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-
-<span class="c1"># Establecer frecuencia explícita para evitar el warning de statsmodels</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">inferred_freq</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Serie de tiempo: Desempleo&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_15_012.png" src="../../../_images/output_15_012.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;ct&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estadístico ADF: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor p: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># Interpretación del resultado</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="k">if</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rechazamos la hipótesis nula: La serie es estacionaria.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No podemos rechazar la hipótesis nula: La serie no es estacionaria.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadístico</span> <span class="n">ADF</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.9263028640679423</span>
-<span class="n">Valor</span> <span class="n">p</span><span class="p">:</span> <span class="mf">0.15386331938006542</span>
-<span class="n">No</span> <span class="n">podemos</span> <span class="n">rechazar</span> <span class="n">la</span> <span class="n">hipótesis</span> <span class="n">nula</span><span class="p">:</span> <span class="n">La</span> <span class="n">serie</span> <span class="n">no</span> <span class="n">es</span> <span class="n">estacionaria</span><span class="o">.</span>
-</pre></div>
-</div>
-</section>
-<section id="extraccion-de-petroleo-ecopetrol">
-<h2>Extracción de petróleo Ecopetrol:<a class="headerlink" href="#extraccion-de-petroleo-ecopetrol" title="Link to this heading">#</a></h2>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargar el archivo xlsx:</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Extracción petróleo Ecopetrol.xlsx&#39;</span><span class="p">)</span>
-
-<span class="c1"># Corregir nombres de columnas si tienen espacios</span>
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
-<span class="c1"># Convertir &#39;Fecha&#39; a datetime y usar como índice</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="c1"># Ordenar por fecha por si acaso</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-
-<span class="c1"># Establecer frecuencia explícita para evitar el warning de statsmodels</span>
-<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">inferred_freq</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Serie de tiempo: Extracción de petróleo Ecopetrol&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Serie&#39;</span><span class="p">],</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;ct&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estadístico ADF: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor p: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># Interpretación del resultado</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="k">if</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rechazamos la hipótesis nula: La serie es estacionaria.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No podemos rechazar la hipótesis nula: La serie no es estacionaria.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_18_010.png" src="../../../_images/output_18_010.png" />
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadístico</span> <span class="n">ADF</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.489906943558834</span>
-<span class="n">Valor</span> <span class="n">p</span><span class="p">:</span> <span class="mf">0.33302669558659626</span>
-<span class="n">No</span> <span class="n">podemos</span> <span class="n">rechazar</span> <span class="n">la</span> <span class="n">hipótesis</span> <span class="n">nula</span><span class="p">:</span> <span class="n">La</span> <span class="n">serie</span> <span class="n">no</span> <span class="n">es</span> <span class="n">estacionaria</span><span class="o">.</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serie</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2017-01-01&#39;</span><span class="p">:]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Serie de tiempo: Extracción desde enero 2022&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valor&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_19_012.png" src="../../../_images/output_19_012.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;ct&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estadístico ADF: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Valor p: </span><span class="si">{</span><span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="c1"># Interpretación del resultado</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-<span class="k">if</span> <span class="n">adf_result</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rechazamos la hipótesis nula: La serie es estacionaria.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No podemos rechazar la hipótesis nula: La serie no es estacionaria.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadístico</span> <span class="n">ADF</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.8216329355610603</span>
-<span class="n">Valor</span> <span class="n">p</span><span class="p">:</span> <span class="mf">0.6942348070095631</span>
-<span class="n">No</span> <span class="n">podemos</span> <span class="n">rechazar</span> <span class="n">la</span> <span class="n">hipótesis</span> <span class="n">nula</span><span class="p">:</span> <span class="n">La</span> <span class="n">serie</span> <span class="n">no</span> <span class="n">es</span> <span class="n">estacionaria</span><span class="o">.</span>
-</pre></div>
-</div>
-</section>
+<figure class="align-default" id="id4">
+<img alt="Gráficos_ACF_PACF" src="../../../_images/Gr%C3%A1ficos_ACF_PACF.png" />
+<figcaption>
+<p><span class="caption-text">Gráficos_ACF_PACF</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 
 
@@ -1152,20 +933,20 @@ reducir la potencia del test.</p></li>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Estacionariedad/Estacionariedad.html"
+       href="../Autocorrelaci%C3%B3n-ACF/Autocorrelaci%C3%B3n-ACF.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Estacionariedad</p>
+        <p class="prev-next-title">Autocorrelación-ACF</p>
       </div>
     </a>
     <a class="right-next"
-       href="../Transformaciones/Transformaciones.html"
+       href="../../../AprenEst/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Transformaciones</p>
+        <p class="prev-next-title">Aprendizaje Estadístico</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1175,25 +956,6 @@ reducir la potencia del test.</p></li>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#codigo-pyhton-para-prueba-adf">Código Pyhton para prueba ADF:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#irradiancia-medellin">Irradiancia Medellín:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperatura-medellin">Temperatura Medellín:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#desempleo">Desempleo:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extraccion-de-petroleo-ecopetrol">Extracción de petróleo Ecopetrol:</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
