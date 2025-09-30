@@ -178,6 +178,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../Estacionariedad%20precio%20del%20Caf%C3%A9/Estacionariedad_precio_del_Caf%C3%A9.html">Estacionariedad precio del Café</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Autocorrelaci%C3%B3n-ACF/Autocorrelaci%C3%B3n-ACF.html">Autocorrelación-ACF</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Autocorrelaci%C3%B3n%20Parcial-PACF/Autocorrelaci%C3%B3n%20Parcial%20-%20PACF.html">Autocorrelación Parcial-PACF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ACF%20y%20PACF%20temperatura%20Medell%C3%ADn/ACF_y_PACF_temperatura_Medell%C3%ADn.html">ACF y PACF temperatura Medellín</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Transformaciones%20y%20an%C3%A1lisis%20de%20estacionariedad/Transformaciones_y_an%C3%A1lisis_de_estacionariedad.html">Transformaciones y análisis de estacionariedad</a></li>
 </ul>
 </details></li>
 </ul>
@@ -796,7 +798,7 @@ fuertes</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_12_014.png" src="../../../_images/output_12_014.png" />
+<img alt="../../../_images/output_12_015.png" src="../../../_images/output_12_015.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transformación: diferenciación:</span>
 <span class="n">df_diff</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
@@ -810,7 +812,7 @@ fuertes</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_13_08.png" src="../../../_images/output_13_08.png" />
+<img alt="../../../_images/output_13_09.png" src="../../../_images/output_13_09.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.stattools</span><span class="w"> </span><span class="kn">import</span> <span class="n">adfuller</span>
 
 <span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">df_diff</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">)</span> <span class="c1"># &#39;n&#39; para no incluir constante ni tendencia</span>
