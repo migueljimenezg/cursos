@@ -14,6 +14,7 @@ Procesos estacionarios
    Autocorrelación Parcial-PACF/Autocorrelación Parcial - PACF
    ACF y PACF temperatura Medellín/ACF_y_PACF_temperatura_Medellín
    Transformaciones y análisis de estacionariedad/Transformaciones_y_análisis_de_estacionariedad
+   Análisis serie de tiempo precio de electricidad Colombia/Análisis serie de tiempo precio de electricidad Colombia
 
 .. important::
 
