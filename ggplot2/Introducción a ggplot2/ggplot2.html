@@ -183,6 +183,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Procesos%20estacionarios/An%C3%A1lisis%20serie%20de%20tiempo%20precio%20de%20electricidad%20Colombia/An%C3%A1lisis%20serie%20de%20tiempo%20precio%20de%20electricidad%20Colombia.html">Análisis serie de tiempo precio de electricidad Colombia</a></li>
 </ul>
 </details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20Autorregresivos-AR/index.html">Modelos Autorregresivos - MA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20Autorregresivos-AR/AR/AR.html">AR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20Autorregresivos-AR/Ajuste%20modelo%20AR%20al%20precio%20de%20electricidad/Ajuste_modelo_AR_al_precio_de_electricidad.html">Ajuste modelo AR al precio de electricidad</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 </ul>
@@ -778,7 +783,7 @@ se corre el código no se hace un gráfico.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_13_012.png"><img alt="../../_images/output_13_012.png" src="../../_images/output_13_012.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_13_013.png"><img alt="../../_images/output_13_013.png" src="../../_images/output_13_013.png" style="width: 420px; height: 420px;" />
 </a>
 <p>Es común en esta librería crear un objeto <code class="docutils literal notranslate"><span class="pre">p</span></code> que almacene todas las
 capas anteriores y que permita agregar más capas con el signo <code class="docutils literal notranslate"><span class="pre">+</span></code></p>
@@ -853,12 +858,12 @@ qué debe graficar con los datos ingresados y las estéticas definidas.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_point</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_25_09.png"><img alt="../../_images/output_25_09.png" src="../../_images/output_25_09.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_25_08.png"><img alt="../../_images/output_25_08.png" src="../../_images/output_25_08.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_line</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_26_09.png"><img alt="../../_images/output_26_09.png" src="../../_images/output_26_09.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_26_07.png"><img alt="../../_images/output_26_07.png" src="../../_images/output_26_07.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_area</span><span class="p">()</span>
 </pre></div>
@@ -889,12 +894,12 @@ qué debe graficar con los datos ingresados y las estéticas definidas.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_boxplot</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_33_06.png"><img alt="../../_images/output_33_06.png" src="../../_images/output_33_06.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_33_07.png"><img alt="../../_images/output_33_07.png" src="../../_images/output_33_07.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_bar</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_34_06.png"><img alt="../../_images/output_34_06.png" src="../../_images/output_34_06.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_34_05.png"><img alt="../../_images/output_34_05.png" src="../../_images/output_34_05.png" style="width: 420px; height: 420px;" />
 </a>
 <p>Para cambiar la orientación se hace en <code class="docutils literal notranslate"><span class="pre">aes()</span></code> indicando solo <code class="docutils literal notranslate"><span class="pre">y</span></code></p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Estrato</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
@@ -917,7 +922,7 @@ mismo tiempo si se agrega este argumento por fuera de la función
 <span class="w">    </span><span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edad</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Peso</span><span class="p">),</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_41_03.png"><img alt="../../_images/output_41_03.png" src="../../_images/output_41_03.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_41_02.png"><img alt="../../_images/output_41_02.png" src="../../_images/output_41_02.png" style="width: 420px; height: 420px;" />
 </a>
 <p>Si se agrega la función <code class="docutils literal notranslate"><span class="pre">size</span></code>por dentro de <code class="docutils literal notranslate"><span class="pre">aes()</span></code> se pueden
 hacer una clasificación de los datos en función de una variable. Esta
@@ -947,7 +952,7 @@ solo cambian de color todos los puntos o líneas.</p>
 <span class="w">    </span><span class="nf">geom_point</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_47_04.png"><img alt="../../_images/output_47_04.png" src="../../_images/output_47_04.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_47_03.png"><img alt="../../_images/output_47_03.png" src="../../_images/output_47_03.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
 <span class="w">    </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edad</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Peso</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nombre</span><span class="p">)</span><span class="w">  </span><span class="o">+</span>
@@ -966,7 +971,7 @@ solo cambian de color todos los puntos o líneas.</p>
 <span class="w">    </span><span class="nf">geom_bar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Estrato</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Género</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_50_04.png"><img alt="../../_images/output_50_04.png" src="../../_images/output_50_04.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_50_03.png"><img alt="../../_images/output_50_03.png" src="../../_images/output_50_03.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
 <span class="w">    </span><span class="nf">geom_bar</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Estrato</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Género</span><span class="p">))</span>
@@ -1000,7 +1005,7 @@ que la librería muestra por defecto.</p>
 <span class="w">    </span><span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edad</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Peso</span><span class="p">),</span><span class="w"> </span><span class="n">linetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_56_03.png"><img alt="../../_images/output_56_03.png" src="../../_images/output_56_03.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_56_02.png"><img alt="../../_images/output_56_02.png" src="../../_images/output_56_02.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
 <span class="w">    </span><span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edad</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Peso</span><span class="p">),</span><span class="w"> </span><span class="n">linetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
@@ -1015,7 +1020,7 @@ agrega este argumento por fuera de la función <code class="docutils literal not
 <span class="w">    </span><span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edad</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Peso</span><span class="p">),</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_60_04.png"><img alt="../../_images/output_60_04.png" src="../../_images/output_60_04.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_60_03.png"><img alt="../../_images/output_60_03.png" src="../../_images/output_60_03.png" style="width: 420px; height: 420px;" />
 </a>
 <p>Si se agrega la función <code class="docutils literal notranslate"><span class="pre">shape</span></code>por dentro de <code class="docutils literal notranslate"><span class="pre">aes()</span></code> se pueden
 hacer una clasificación de los datos en función de una variable
@@ -1073,7 +1078,7 @@ gráficos para clasificar los datos.</p>
 <span class="w">    </span><span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="w"> </span><span class="n">Género</span><span class="p">)</span><span class="w">   </span><span class="c1"># Divide el gráfico en función del Género</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_71_03.png"><img alt="../../_images/output_71_03.png" src="../../_images/output_71_03.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_71_02.png"><img alt="../../_images/output_71_02.png" src="../../_images/output_71_02.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
 <span class="w">    </span><span class="nf">geom_point</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edad</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Peso</span><span class="p">),</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span>
@@ -1094,7 +1099,7 @@ gráficos para clasificar los datos.</p>
 <span class="w">    </span><span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="w"> </span><span class="n">Estrato</span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="c1"># ncol = para cantidad de columnas</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_74_02.png"><img alt="../../_images/output_74_02.png" src="../../_images/output_74_02.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_74_01.png"><img alt="../../_images/output_74_01.png" src="../../_images/output_74_01.png" style="width: 420px; height: 420px;" />
 </a>
 <p>En el siguiente gráfico se usa <code class="docutils literal notranslate"><span class="pre">facet_wrap()</span></code> para clasificar los
 datos por Estrato en cada subplot y al mismo tiempo se clasifican por

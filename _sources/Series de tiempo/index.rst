@@ -11,6 +11,7 @@ En este curso se explicarán los métodos convencionales para modelar las series
    Introducción series de tiempo/index
    Métodos de suavizamiento/index
    Procesos estacionarios/index
+   Modelos Autorregresivos-AR/index
 
  
 .. important::
