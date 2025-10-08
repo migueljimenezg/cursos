@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Modelos Autorregresivos-AR/Ajuste modelo AR al precio de electricidad/Ajuste_modelo_AR_al_precio_de_electricidad';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Aprendizaje Estadístico" href="../../../AprenEst/index.html" />
+    <link rel="next" title="Taller AR-TRM semanal" href="../Taller%20AR-TRM%20semanal/Taller_AR_TRM_semanal.html" />
     <link rel="prev" title="AR" href="../AR/AR.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -186,6 +186,8 @@
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Modelos Autorregresivos - MA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../AR/AR.html">AR</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Ajuste modelo AR al precio de electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Taller%20AR-TRM%20semanal/Taller_AR_TRM_semanal.html">Taller AR-TRM semanal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Soluci%C3%B3n%20taller%20AR-TRM%20semanal/Soluci%C3%B3n%20taller_AR_TRM_semanal.html">Solución taller AR-TRM semanal</a></li>
 </ul>
 </details></li>
 </ul>
@@ -965,7 +967,7 @@ document.write(`
 <span class="n">precio_electricidad</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-  <div id="df-a67fa5da-f3c7-475b-a056-03de2b212dca" class="colab-df-container">
+  <div id="df-d995097a-c610-47bb-b5f1-57dd18c21812" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1018,7 +1020,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a67fa5da-f3c7-475b-a056-03de2b212dca')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d995097a-c610-47bb-b5f1-57dd18c21812')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1070,12 +1072,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a67fa5da-f3c7-475b-a056-03de2b212dca button.colab-df-convert');
+        document.querySelector('#df-d995097a-c610-47bb-b5f1-57dd18c21812 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a67fa5da-f3c7-475b-a056-03de2b212dca');
+        const element = document.querySelector('#df-d995097a-c610-47bb-b5f1-57dd18c21812');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1095,8 +1097,8 @@ document.write(`
   </div>
 
 
-    <div id="df-e4bcc34d-424a-42bd-844f-e20d173a3151">
-      <button class="colab-df-quickchart" onclick="quickchart('df-e4bcc34d-424a-42bd-844f-e20d173a3151')"
+    <div id="df-8ae3e002-17b0-485e-aa4c-3f7289152ddb">
+      <button class="colab-df-quickchart" onclick="quickchart('df-8ae3e002-17b0-485e-aa4c-3f7289152ddb')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1215,7 +1217,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-e4bcc34d-424a-42bd-844f-e20d173a3151 button');
+            document.querySelector('#df-8ae3e002-17b0-485e-aa4c-3f7289152ddb button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -1379,7 +1381,7 @@ sin nivel promedio fijo.</p></li>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>                 <span class="n">Precio</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                  <span class="o">-</span><span class="mf">7.218</span>
 <span class="n">Date</span><span class="p">:</span>                <span class="n">Mon</span><span class="p">,</span> <span class="mi">06</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                             <span class="mf">22.436</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">03</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">58</span>   <span class="n">BIC</span>                             <span class="mf">36.223</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">23</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">19</span>   <span class="n">BIC</span>                             <span class="mf">36.223</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                            <span class="mf">27.996</span>
                          <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
@@ -1446,13 +1448,13 @@ sin nivel promedio fijo.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># Train y fitted</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
 
 <span class="c1"># Banda de confianza en train</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">conf_int_train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
-                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">conf_int_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">],</span>
+                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">],</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IC 95% - train&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ajuste y pronóstico&#39;</span><span class="p">)</span>
@@ -1497,13 +1499,13 @@ sin nivel promedio fijo.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># Train y fitted</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
 
 <span class="c1"># Banda de confianza en train</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">conf_int_train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
-                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">conf_int_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">],</span>
+                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">],</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IC 95% - train&#39;</span><span class="p">)</span>
 
 <span class="c1"># Test y forecast</span>
@@ -1566,13 +1568,13 @@ sin nivel promedio fijo.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># Train y fitted</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
 
 <span class="c1"># Banda de confianza en train</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">conf_int_train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
-                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">conf_int_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">],</span>
+                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">],</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IC 95% - train&#39;</span><span class="p">)</span>
 
 <span class="c1"># Test y forecast</span>
@@ -1673,13 +1675,13 @@ sin nivel promedio fijo.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># Train y fitted</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fitted_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en Train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
 
 <span class="c1"># Banda de confianza en train</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">conf_int_train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
-                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">conf_int_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">],</span>
+                 <span class="n">conf_int_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">],</span>
                  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IC 95% - train&#39;</span><span class="p">)</span>
 
 <span class="c1"># Test y forecast</span>
@@ -1757,10 +1759,10 @@ R²   (Test) : 0.6963
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># Serie original</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">precio_electricidad</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Precio de electricidad&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">precio_electricidad</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Precio de electricidad&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 
 <span class="c1"># Ajuste en train</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred_train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
 
 <span class="c1"># Ajuste en test</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred_test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pronóstico en test&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:green&#39;</span><span class="p">)</span>
@@ -1801,7 +1803,7 @@ aplicar luego la diferenciación solo es indicar <strong>d=1.</strong></p>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>                 <span class="n">Precio</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                 <span class="o">-</span><span class="mf">17.542</span>
 <span class="n">Date</span><span class="p">:</span>                <span class="n">Mon</span><span class="p">,</span> <span class="mi">06</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                             <span class="mf">39.085</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">03</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span><span class="mi">13</span>   <span class="n">BIC</span>                             <span class="mf">45.970</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">23</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">27</span>   <span class="n">BIC</span>                             <span class="mf">45.970</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                            <span class="mf">41.862</span>
                          <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
@@ -1906,10 +1908,10 @@ aplicar luego la diferenciación solo es indicar <strong>d=1.</strong></p>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># Serie original</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">precio_electricidad</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Precio de electricidad&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">precio_electricidad</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Precio de electricidad&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 
 <span class="c1"># Ajuste en train</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred_train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Ajuste en train&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
 
 <span class="c1"># Ajuste en test</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y_pred_test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Pronóstico en test&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:green&#39;</span><span class="p">)</span>
@@ -1951,11 +1953,11 @@ aplicar luego la diferenciación solo es indicar <strong>d=1.</strong></p>
       </div>
     </a>
     <a class="right-next"
-       href="../../../AprenEst/index.html"
+       href="../Taller%20AR-TRM%20semanal/Taller_AR_TRM_semanal.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aprendizaje Estadístico</p>
+        <p class="prev-next-title">Taller AR-TRM semanal</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

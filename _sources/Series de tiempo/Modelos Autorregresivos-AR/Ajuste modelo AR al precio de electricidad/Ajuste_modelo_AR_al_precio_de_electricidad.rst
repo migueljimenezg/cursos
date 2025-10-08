@@ -279,7 +279,7 @@ Precio de electricidad
 .. raw:: html
 
     
-      <div id="df-a67fa5da-f3c7-475b-a056-03de2b212dca" class="colab-df-container">
+      <div id="df-d995097a-c610-47bb-b5f1-57dd18c21812" class="colab-df-container">
         <div>
     <style scoped>
         .dataframe tbody tr th:only-of-type {
@@ -332,7 +332,7 @@ Precio de electricidad
         <div class="colab-df-buttons">
     
       <div class="colab-df-container">
-        <button class="colab-df-convert" onclick="convertToInteractive('df-a67fa5da-f3c7-475b-a056-03de2b212dca')"
+        <button class="colab-df-convert" onclick="convertToInteractive('df-d995097a-c610-47bb-b5f1-57dd18c21812')"
                 title="Convert this dataframe to an interactive table."
                 style="display:none;">
     
@@ -384,12 +384,12 @@ Precio de electricidad
     
         <script>
           const buttonEl =
-            document.querySelector('#df-a67fa5da-f3c7-475b-a056-03de2b212dca button.colab-df-convert');
+            document.querySelector('#df-d995097a-c610-47bb-b5f1-57dd18c21812 button.colab-df-convert');
           buttonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
     
           async function convertToInteractive(key) {
-            const element = document.querySelector('#df-a67fa5da-f3c7-475b-a056-03de2b212dca');
+            const element = document.querySelector('#df-d995097a-c610-47bb-b5f1-57dd18c21812');
             const dataTable =
               await google.colab.kernel.invokeFunction('convertToInteractive',
                                                         [key], {});
@@ -409,8 +409,8 @@ Precio de electricidad
       </div>
     
     
-        <div id="df-e4bcc34d-424a-42bd-844f-e20d173a3151">
-          <button class="colab-df-quickchart" onclick="quickchart('df-e4bcc34d-424a-42bd-844f-e20d173a3151')"
+        <div id="df-8ae3e002-17b0-485e-aa4c-3f7289152ddb">
+          <button class="colab-df-quickchart" onclick="quickchart('df-8ae3e002-17b0-485e-aa4c-3f7289152ddb')"
                     title="Suggest charts"
                     style="display:none;">
     
@@ -529,7 +529,7 @@ Precio de electricidad
             }
             (() => {
               let quickchartButtonEl =
-                document.querySelector('#df-e4bcc34d-424a-42bd-844f-e20d173a3151 button');
+                document.querySelector('#df-8ae3e002-17b0-485e-aa4c-3f7289152ddb button');
               quickchartButtonEl.style.display =
                 google.colab.kernel.accessAllowed ? 'block' : 'none';
             })();
@@ -724,7 +724,7 @@ Ajuste modelo AR
     Dep. Variable:                 Precio   No. Observations:                  232
     Model:               SARIMAX(1, 0, 0)   Log Likelihood                  -7.218
     Date:                Mon, 06 Oct 2025   AIC                             22.436
-    Time:                        03:31:58   BIC                             36.223
+    Time:                        23:14:19   BIC                             36.223
     Sample:                    01-01-2000   HQIC                            27.996
                              - 04-01-2019                                         
     Covariance Type:                  opg                                         
@@ -792,13 +792,13 @@ Ajuste en train
     plt.figure(figsize=(12, 6))
     
     # Train y fitted
-    plt.plot(train, label='Train', color='black')
-    plt.plot(fitted_values, label='Ajuste en Train', color='tab:blue')
+    plt.plot(train[1:], label='Train', color='black')
+    plt.plot(fitted_values[1:], label='Ajuste en Train', color='tab:blue')
     
     # Banda de confianza en train
-    plt.fill_between(conf_int_train.index,
-                     conf_int_train.iloc[:, 0],
-                     conf_int_train.iloc[:, 1],
+    plt.fill_between(conf_int_train[1:].index,
+                     conf_int_train.iloc[1:, 0],
+                     conf_int_train.iloc[1:, 1],
                      color='tab:blue', alpha=0.2, label='IC 95% - train')
     
     plt.title('Ajuste y pronóstico')
@@ -850,13 +850,13 @@ Pronóstico en test
     plt.figure(figsize=(12, 6))
     
     # Train y fitted
-    plt.plot(train, label='Train', color='black')
-    plt.plot(fitted_values, label='Ajuste en Train', color='tab:blue')
+    plt.plot(train[1:], label='Train', color='black')
+    plt.plot(fitted_values[1:], label='Ajuste en Train', color='tab:blue')
     
     # Banda de confianza en train
-    plt.fill_between(conf_int_train.index,
-                     conf_int_train.iloc[:, 0],
-                     conf_int_train.iloc[:, 1],
+    plt.fill_between(conf_int_train[1:].index,
+                     conf_int_train.iloc[1:, 0],
+                     conf_int_train.iloc[1:, 1],
                      color='tab:blue', alpha=0.2, label='IC 95% - train')
     
     # Test y forecast
@@ -925,13 +925,13 @@ Pronóstico fuera de la muestra
     plt.figure(figsize=(12, 6))
     
     # Train y fitted
-    plt.plot(train, label='Train', color='black')
-    plt.plot(fitted_values, label='Ajuste en Train', color='tab:blue')
+    plt.plot(train[1:], label='Train', color='black')
+    plt.plot(fitted_values[1:], label='Ajuste en Train', color='tab:blue')
     
     # Banda de confianza en train
-    plt.fill_between(conf_int_train.index,
-                     conf_int_train.iloc[:, 0],
-                     conf_int_train.iloc[:, 1],
+    plt.fill_between(conf_int_train[1:].index,
+                     conf_int_train.iloc[1:, 0],
+                     conf_int_train.iloc[1:, 1],
                      color='tab:blue', alpha=0.2, label='IC 95% - train')
     
     # Test y forecast
@@ -1038,13 +1038,13 @@ Resumen código ajuste y pronóstico
     plt.figure(figsize=(12, 6))
     
     # Train y fitted
-    plt.plot(train, label='Train', color='black')
-    plt.plot(fitted_values, label='Ajuste en Train', color='tab:blue')
+    plt.plot(train[1:], label='Train', color='black')
+    plt.plot(fitted_values[1:], label='Ajuste en Train', color='tab:blue')
     
     # Banda de confianza en train
-    plt.fill_between(conf_int_train.index,
-                     conf_int_train.iloc[:, 0],
-                     conf_int_train.iloc[:, 1],
+    plt.fill_between(conf_int_train[1:].index,
+                     conf_int_train.iloc[1:, 0],
+                     conf_int_train.iloc[1:, 1],
                      color='tab:blue', alpha=0.2, label='IC 95% - train')
     
     # Test y forecast
@@ -1134,10 +1134,10 @@ Resultados sobre la serie original:
     plt.figure(figsize=(12,6))
     
     # Serie original
-    plt.plot(precio_electricidad, label='Precio de electricidad', color='black')
+    plt.plot(precio_electricidad[1:], label='Precio de electricidad', color='black')
     
     # Ajuste en train
-    plt.plot(y_pred_train, label='Ajuste en train', color='tab:blue')
+    plt.plot(y_pred_train[1:], label='Ajuste en train', color='tab:blue')
     
     # Ajuste en test
     plt.plot(y_pred_test, label='Pronóstico en test', color='tab:green')
@@ -1187,7 +1187,7 @@ aplicar luego la diferenciación solo es indicar **d=1.**
     Dep. Variable:                 Precio   No. Observations:                  232
     Model:               SARIMAX(1, 1, 0)   Log Likelihood                 -17.542
     Date:                Mon, 06 Oct 2025   AIC                             39.085
-    Time:                        03:32:13   BIC                             45.970
+    Time:                        23:14:27   BIC                             45.970
     Sample:                    01-01-2000   HQIC                            41.862
                              - 04-01-2019                                         
     Covariance Type:                  opg                                         
@@ -1297,10 +1297,10 @@ aplicar luego la diferenciación solo es indicar **d=1.**
     plt.figure(figsize=(12,6))
     
     # Serie original
-    plt.plot(precio_electricidad, label='Precio de electricidad', color='black')
+    plt.plot(precio_electricidad[1:], label='Precio de electricidad', color='black')
     
     # Ajuste en train
-    plt.plot(y_pred_train, label='Ajuste en train', color='tab:blue')
+    plt.plot(y_pred_train[1:], label='Ajuste en train', color='tab:blue')
     
     # Ajuste en test
     plt.plot(y_pred_test, label='Pronóstico en test', color='tab:green')
