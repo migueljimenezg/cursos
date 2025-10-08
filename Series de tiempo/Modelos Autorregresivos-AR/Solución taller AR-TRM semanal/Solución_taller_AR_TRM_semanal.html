@@ -45,7 +45,7 @@
     <script src="../../../_static/copybutton.js?v=fd10adb8"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Modelos Autorregresivos-AR/Solución taller AR-TRM semanal/Solución taller_AR_TRM_semanal';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Modelos Autorregresivos-AR/Solución taller AR-TRM semanal/Solución_taller_AR_TRM_semanal';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Aprendizaje Estadístico" href="../../../AprenEst/index.html" />
@@ -580,7 +580,7 @@
       
       
       
-      <li><a href="../../../_sources/Series de tiempo/Modelos Autorregresivos-AR/Solución taller AR-TRM semanal/Solución taller_AR_TRM_semanal.rst" target="_blank"
+      <li><a href="../../../_sources/Series de tiempo/Modelos Autorregresivos-AR/Solución taller AR-TRM semanal/Solución_taller_AR_TRM_semanal.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -788,9 +788,9 @@ significativo</strong>, ya que su valor <span class="math notranslate nohighligh
 intercepto <span class="math notranslate nohighlight">\(\alpha\)</span> y la tendencia <span class="math notranslate nohighlight">\(\beta_t\)</span>, los cuales
 <strong>no se evalúan cuando se aplica la transformación por diferencias</strong>.</p>
 <p>En este tipo de transformación, la serie resultante queda centrada, por
-lo que <strong>no se debe incluir</strong> <span class="math notranslate nohighlight">\(\beta_t\)</span>, y además inicia en un
-valor cercano a cero, motivo por el cual <strong>no se debe considerar</strong>
-<span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+lo que <strong>no se debe incluir :math:`beta_t`</strong>, y además inicia en un
+valor cercano a cero, motivo por el cual <strong>no se debe considerar
+:math:`alpha`</strong>.</p>
 <p><strong>5. Luego de ajustar un modelo AR(2) a la serie transformada en su
 primera diferencia, seleccione la respuesta correcta:</strong></p>
 <ul class="simple">
@@ -1008,7 +1008,7 @@ cero.</p></li>
 <img alt="../../../_images/output_11_14.png" src="../../../_images/output_11_14.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_resultados</span> <span class="o">=</span> <span class="n">analisis_estacionariedad</span><span class="p">(</span>
     <span class="n">trm</span><span class="p">[</span><span class="s1">&#39;USDCOP=X&#39;</span><span class="p">],</span>
-    <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
+    <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;TRM semanal&quot;</span><span class="p">,</span>
     <span class="n">lags</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span>
     <span class="n">xtick_interval</span><span class="o">=</span><span class="mi">3</span>
 <span class="p">)</span>
@@ -1067,7 +1067,7 @@ transformación en primera diferencia.</p>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>               <span class="n">USDCOP</span><span class="o">=</span><span class="n">X</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">358</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>               <span class="o">-</span><span class="mf">2078.750</span>
 <span class="n">Date</span><span class="p">:</span>                <span class="n">Wed</span><span class="p">,</span> <span class="mi">08</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="mf">4161.499</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">16</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">34</span>   <span class="n">BIC</span>                           <span class="mf">4169.255</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">19</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">59</span>   <span class="n">BIC</span>                           <span class="mf">4169.255</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2017</span>   <span class="n">HQIC</span>                          <span class="mf">4164.584</span>
                          <span class="o">-</span> <span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">2023</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
@@ -1107,7 +1107,7 @@ transformación en primera diferencia.</p>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>               <span class="n">USDCOP</span><span class="o">=</span><span class="n">X</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">358</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>               <span class="o">-</span><span class="mf">2076.234</span>
 <span class="n">Date</span><span class="p">:</span>                <span class="n">Wed</span><span class="p">,</span> <span class="mi">08</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="mf">4158.469</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">16</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">35</span>   <span class="n">BIC</span>                           <span class="mf">4170.102</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">19</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span>   <span class="n">BIC</span>                           <span class="mf">4170.102</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2017</span>   <span class="n">HQIC</span>                          <span class="mf">4163.096</span>
                          <span class="o">-</span> <span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">2023</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
@@ -1148,7 +1148,7 @@ transformación en primera diferencia.</p>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>               <span class="n">USDCOP</span><span class="o">=</span><span class="n">X</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">358</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>               <span class="o">-</span><span class="mf">2073.134</span>
 <span class="n">Date</span><span class="p">:</span>                <span class="n">Wed</span><span class="p">,</span> <span class="mi">08</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="mf">4154.267</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">16</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">35</span>   <span class="n">BIC</span>                           <span class="mf">4169.778</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">19</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span>   <span class="n">BIC</span>                           <span class="mf">4169.778</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2017</span>   <span class="n">HQIC</span>                          <span class="mf">4160.437</span>
                          <span class="o">-</span> <span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">2023</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
@@ -1190,7 +1190,7 @@ transformación en primera diferencia.</p>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>               <span class="n">USDCOP</span><span class="o">=</span><span class="n">X</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">358</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>               <span class="o">-</span><span class="mf">2069.186</span>
 <span class="n">Date</span><span class="p">:</span>                <span class="n">Wed</span><span class="p">,</span> <span class="mi">08</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="mf">4148.373</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">16</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">36</span>   <span class="n">BIC</span>                           <span class="mf">4167.761</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">19</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">03</span>   <span class="n">BIC</span>                           <span class="mf">4167.761</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2017</span>   <span class="n">HQIC</span>                          <span class="mf">4156.084</span>
                          <span class="o">-</span> <span class="mi">11</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">2023</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>

@@ -120,9 +120,9 @@ intercepto :math:`\alpha` y la tendencia :math:`\beta_t`, los cuales
 **no se evalúan cuando se aplica la transformación por diferencias**.
 
 En este tipo de transformación, la serie resultante queda centrada, por
-lo que **no se debe incluir** :math:`\beta_t`, y además inicia en un
-valor cercano a cero, motivo por el cual **no se debe considerar**
-:math:`\alpha`.
+lo que **no se debe incluir :math:`\beta_t`**, y además inicia en un
+valor cercano a cero, motivo por el cual **no se debe considerar
+:math:`\alpha`**.
 
 **5. Luego de ajustar un modelo AR(2) a la serie transformada en su
 primera diferencia, seleccione la respuesta correcta:**
@@ -367,7 +367,7 @@ primera diferencia, responda lo siguiente:**
 
     adf_resultados = analisis_estacionariedad(
         trm['USDCOP=X'],
-        nombre="Precio de electricidad",
+        nombre="TRM semanal",
         lags=24,
         xtick_interval=3
     )
@@ -442,7 +442,7 @@ transformación en primera diferencia.
     Dep. Variable:               USDCOP=X   No. Observations:                  358
     Model:               SARIMAX(1, 1, 0)   Log Likelihood               -2078.750
     Date:                Wed, 08 Oct 2025   AIC                           4161.499
-    Time:                        16:50:34   BIC                           4169.255
+    Time:                        19:11:59   BIC                           4169.255
     Sample:                    01-01-2017   HQIC                          4164.584
                              - 11-05-2023                                         
     Covariance Type:                  opg                                         
@@ -486,7 +486,7 @@ Ajuste AR(2)
     Dep. Variable:               USDCOP=X   No. Observations:                  358
     Model:               SARIMAX(2, 1, 0)   Log Likelihood               -2076.234
     Date:                Wed, 08 Oct 2025   AIC                           4158.469
-    Time:                        16:50:35   BIC                           4170.102
+    Time:                        19:12:00   BIC                           4170.102
     Sample:                    01-01-2017   HQIC                          4163.096
                              - 11-05-2023                                         
     Covariance Type:                  opg                                         
@@ -531,7 +531,7 @@ Ajuste AR(3)
     Dep. Variable:               USDCOP=X   No. Observations:                  358
     Model:               SARIMAX(3, 1, 0)   Log Likelihood               -2073.134
     Date:                Wed, 08 Oct 2025   AIC                           4154.267
-    Time:                        16:50:35   BIC                           4169.778
+    Time:                        19:12:00   BIC                           4169.778
     Sample:                    01-01-2017   HQIC                          4160.437
                              - 11-05-2023                                         
     Covariance Type:                  opg                                         
@@ -577,7 +577,7 @@ Ajuste AR(4)
     Dep. Variable:               USDCOP=X   No. Observations:                  358
     Model:               SARIMAX(4, 1, 0)   Log Likelihood               -2069.186
     Date:                Wed, 08 Oct 2025   AIC                           4148.373
-    Time:                        16:50:36   BIC                           4167.761
+    Time:                        19:12:03   BIC                           4167.761
     Sample:                    01-01-2017   HQIC                          4156.084
                              - 11-05-2023                                         
     Covariance Type:                  opg                                         
