@@ -968,7 +968,7 @@ document.write(`
 <span class="n">precio_electricidad</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-  <div id="df-d995097a-c610-47bb-b5f1-57dd18c21812" class="colab-df-container">
+  <div id="df-3c941cb6-b5f6-46bc-95b5-e6b9c2941bfc" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1021,7 +1021,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d995097a-c610-47bb-b5f1-57dd18c21812')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3c941cb6-b5f6-46bc-95b5-e6b9c2941bfc')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1073,12 +1073,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d995097a-c610-47bb-b5f1-57dd18c21812 button.colab-df-convert');
+        document.querySelector('#df-3c941cb6-b5f6-46bc-95b5-e6b9c2941bfc button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d995097a-c610-47bb-b5f1-57dd18c21812');
+        const element = document.querySelector('#df-3c941cb6-b5f6-46bc-95b5-e6b9c2941bfc');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1098,8 +1098,8 @@ document.write(`
   </div>
 
 
-    <div id="df-8ae3e002-17b0-485e-aa4c-3f7289152ddb">
-      <button class="colab-df-quickchart" onclick="quickchart('df-8ae3e002-17b0-485e-aa4c-3f7289152ddb')"
+    <div id="df-71c46fb8-c09e-417b-9657-3f1e6b8fd3fc">
+      <button class="colab-df-quickchart" onclick="quickchart('df-71c46fb8-c09e-417b-9657-3f1e6b8fd3fc')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1218,7 +1218,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-8ae3e002-17b0-485e-aa4c-3f7289152ddb button');
+            document.querySelector('#df-71c46fb8-c09e-417b-9657-3f1e6b8fd3fc button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -1381,8 +1381,8 @@ sin nivel promedio fijo.</p></li>
 <span class="o">==============================================================================</span>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>                 <span class="n">Precio</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                  <span class="o">-</span><span class="mf">7.218</span>
-<span class="n">Date</span><span class="p">:</span>                <span class="n">Mon</span><span class="p">,</span> <span class="mi">06</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                             <span class="mf">22.436</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">23</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">19</span>   <span class="n">BIC</span>                             <span class="mf">36.223</span>
+<span class="n">Date</span><span class="p">:</span>                <span class="n">Fri</span><span class="p">,</span> <span class="mi">17</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                             <span class="mf">22.436</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">14</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">03</span>   <span class="n">BIC</span>                             <span class="mf">36.223</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                            <span class="mf">27.996</span>
                          <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
@@ -1536,8 +1536,8 @@ sin nivel promedio fijo.</p></li>
 
 <span class="n">n_forecast</span> <span class="o">=</span> <span class="mi">12</span>  <span class="c1"># Pronóstico para 12 meses</span>
 
-<span class="c1"># Actualiza el estado con el último valor real de test</span>
-<span class="n">current_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="p">[</span><span class="n">test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Actualiza el estado con el dataset de test</span>
+<span class="n">current_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">forecasting</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">lower_ci</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1643,8 +1643,8 @@ sin nivel promedio fijo.</p></li>
 
 <span class="n">n_forecast</span> <span class="o">=</span> <span class="mi">12</span>  <span class="c1"># Pronóstico para 12 meses</span>
 
-<span class="c1"># Actualiza el estado con el último valor real de test</span>
-<span class="n">current_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="p">[</span><span class="n">test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Actualiza el estado con el dataset de test</span>
+<span class="n">current_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">forecasting</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">lower_ci</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1803,8 +1803,8 @@ aplicar luego la diferenciación solo es indicar <strong>d=1.</strong></p>
 <span class="o">==============================================================================</span>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>                 <span class="n">Precio</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                 <span class="o">-</span><span class="mf">17.542</span>
-<span class="n">Date</span><span class="p">:</span>                <span class="n">Mon</span><span class="p">,</span> <span class="mi">06</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                             <span class="mf">39.085</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">23</span><span class="p">:</span><span class="mi">14</span><span class="p">:</span><span class="mi">27</span>   <span class="n">BIC</span>                             <span class="mf">45.970</span>
+<span class="n">Date</span><span class="p">:</span>                <span class="n">Fri</span><span class="p">,</span> <span class="mi">17</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                             <span class="mf">39.085</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">14</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">19</span>   <span class="n">BIC</span>                             <span class="mf">45.970</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                            <span class="mf">41.862</span>
                          <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
@@ -1867,8 +1867,8 @@ aplicar luego la diferenciación solo es indicar <strong>d=1.</strong></p>
 
 <span class="n">n_forecast</span> <span class="o">=</span> <span class="mi">12</span>  <span class="c1"># Pronóstico para 12 meses</span>
 
-<span class="c1"># Actualiza el estado con el último valor real de test</span>
-<span class="n">current_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="p">[</span><span class="n">test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Actualiza el estado con el dataset de test</span>
+<span class="n">current_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">forecasting</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">lower_ci</span> <span class="o">=</span> <span class="p">[]</span>

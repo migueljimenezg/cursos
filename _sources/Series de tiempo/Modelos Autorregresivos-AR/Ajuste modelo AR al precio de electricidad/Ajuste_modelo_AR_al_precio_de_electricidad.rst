@@ -279,7 +279,7 @@ Precio de electricidad
 .. raw:: html
 
     
-      <div id="df-d995097a-c610-47bb-b5f1-57dd18c21812" class="colab-df-container">
+      <div id="df-3c941cb6-b5f6-46bc-95b5-e6b9c2941bfc" class="colab-df-container">
         <div>
     <style scoped>
         .dataframe tbody tr th:only-of-type {
@@ -332,7 +332,7 @@ Precio de electricidad
         <div class="colab-df-buttons">
     
       <div class="colab-df-container">
-        <button class="colab-df-convert" onclick="convertToInteractive('df-d995097a-c610-47bb-b5f1-57dd18c21812')"
+        <button class="colab-df-convert" onclick="convertToInteractive('df-3c941cb6-b5f6-46bc-95b5-e6b9c2941bfc')"
                 title="Convert this dataframe to an interactive table."
                 style="display:none;">
     
@@ -384,12 +384,12 @@ Precio de electricidad
     
         <script>
           const buttonEl =
-            document.querySelector('#df-d995097a-c610-47bb-b5f1-57dd18c21812 button.colab-df-convert');
+            document.querySelector('#df-3c941cb6-b5f6-46bc-95b5-e6b9c2941bfc button.colab-df-convert');
           buttonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
     
           async function convertToInteractive(key) {
-            const element = document.querySelector('#df-d995097a-c610-47bb-b5f1-57dd18c21812');
+            const element = document.querySelector('#df-3c941cb6-b5f6-46bc-95b5-e6b9c2941bfc');
             const dataTable =
               await google.colab.kernel.invokeFunction('convertToInteractive',
                                                         [key], {});
@@ -409,8 +409,8 @@ Precio de electricidad
       </div>
     
     
-        <div id="df-8ae3e002-17b0-485e-aa4c-3f7289152ddb">
-          <button class="colab-df-quickchart" onclick="quickchart('df-8ae3e002-17b0-485e-aa4c-3f7289152ddb')"
+        <div id="df-71c46fb8-c09e-417b-9657-3f1e6b8fd3fc">
+          <button class="colab-df-quickchart" onclick="quickchart('df-71c46fb8-c09e-417b-9657-3f1e6b8fd3fc')"
                     title="Suggest charts"
                     style="display:none;">
     
@@ -529,7 +529,7 @@ Precio de electricidad
             }
             (() => {
               let quickchartButtonEl =
-                document.querySelector('#df-8ae3e002-17b0-485e-aa4c-3f7289152ddb button');
+                document.querySelector('#df-71c46fb8-c09e-417b-9657-3f1e6b8fd3fc button');
               quickchartButtonEl.style.display =
                 google.colab.kernel.accessAllowed ? 'block' : 'none';
             })();
@@ -723,8 +723,8 @@ Ajuste modelo AR
     ==============================================================================
     Dep. Variable:                 Precio   No. Observations:                  232
     Model:               SARIMAX(1, 0, 0)   Log Likelihood                  -7.218
-    Date:                Mon, 06 Oct 2025   AIC                             22.436
-    Time:                        23:14:19   BIC                             36.223
+    Date:                Fri, 17 Oct 2025   AIC                             22.436
+    Time:                        14:03:03   BIC                             36.223
     Sample:                    01-01-2000   HQIC                            27.996
                              - 04-01-2019                                         
     Covariance Type:                  opg                                         
@@ -892,8 +892,8 @@ Pronóstico fuera de la muestra
     
     n_forecast = 12  # Pronóstico para 12 meses
     
-    # Actualiza el estado con el último valor real de test
-    current_results = results.append(endog=[test.iloc[-1]], refit=False)
+    # Actualiza el estado con el dataset de test
+    current_results = results.append(endog=test, refit=False)
     
     forecasting = []
     lower_ci = []
@@ -1005,8 +1005,8 @@ Resumen código ajuste y pronóstico
     
     n_forecast = 12  # Pronóstico para 12 meses
     
-    # Actualiza el estado con el último valor real de test
-    current_results = results.append(endog=[test.iloc[-1]], refit=False)
+    # Actualiza el estado con el dataset de test
+    current_results = results.append(endog=test, refit=False)
     
     forecasting = []
     lower_ci = []
@@ -1186,8 +1186,8 @@ aplicar luego la diferenciación solo es indicar **d=1.**
     ==============================================================================
     Dep. Variable:                 Precio   No. Observations:                  232
     Model:               SARIMAX(1, 1, 0)   Log Likelihood                 -17.542
-    Date:                Mon, 06 Oct 2025   AIC                             39.085
-    Time:                        23:14:27   BIC                             45.970
+    Date:                Fri, 17 Oct 2025   AIC                             39.085
+    Time:                        14:03:19   BIC                             45.970
     Sample:                    01-01-2000   HQIC                            41.862
                              - 04-01-2019                                         
     Covariance Type:                  opg                                         
@@ -1255,8 +1255,8 @@ aplicar luego la diferenciación solo es indicar **d=1.**
     
     n_forecast = 12  # Pronóstico para 12 meses
     
-    # Actualiza el estado con el último valor real de test
-    current_results = results.append(endog=[test.iloc[-1]], refit=False)
+    # Actualiza el estado con el dataset de test
+    current_results = results.append(endog=test, refit=False)
     
     forecasting = []
     lower_ci = []
