@@ -59,25 +59,20 @@ Estos indicadores se enfocan en las cuentas del Activo corriente y los Ingresos 
 .. important::
 
     :download:`[PDF] Análisis indicadores Actividad cervezas-Santa Elena <18.1. Análisis indicadores Actividad cervezas-Santa Elena.pdf>`
-
  
     :download:`Indicadores de Actividad Pastelería Santa Elena 2018-2023 <Indicadores de Actividad Santa Elena 2018-2023.xlsx>`
-
   
     :download:`Indicadores de Actividad 20 Mission 2018-2022 <Indicadores de Actividad-20 Mission 2019-2022.xlsx>`
-
     
     :download:`Indicadores de Actividad cervecería BBC 2018-2022 <Indicadores de Actividad BBC 2018-2023.xlsx>`
 
-
     :download:`Indicadores de Actividad Cervecería Union 2018-2023 <Indicadores de Actividad Cervecería Union 2018-2023.xlsx>`
-
 
     :download:`Indicadores de Actividad Justo y Bueno 2017-2021 <Indicadores de Actividad Justo y Bueno 2017-2021.xlsx>`
 
-
     :download:`Indicadores de Actividad Grupo Luz y Fuerza 2018-2023 <Indicadores de Actividad Grupo Luz y Fuerza 2018-2023.xlsx>` (Generadora de energía).
 
+    :download:`Indicadores de Actividad Dislicores 2021-2024 <Indicadores de Actividad Dislicores 2021-2024.xlsx>`
 
 
 
