@@ -423,7 +423,7 @@ transformación en primera diferencia.
 
 .. code:: ipython3
 
-    # Definir los parámetros del modelo AR (p, 0, 0)
+    # Definir los parámetros del modelo AR (p, d, 0)
     order = (1, 1, 0)  # Puedes ajustar según el análisis de ACF y PACF
     trend = 'n'        # 'c' = constante, 't' = tendencia, 'ct' = constante + tendencia, 'n' = sin tendencia
     
@@ -441,8 +441,8 @@ transformación en primera diferencia.
     ==============================================================================
     Dep. Variable:               USDCOP=X   No. Observations:                  358
     Model:               SARIMAX(1, 1, 0)   Log Likelihood               -2078.750
-    Date:                Fri, 17 Oct 2025   AIC                           4161.499
-    Time:                        14:11:51   BIC                           4169.255
+    Date:                Wed, 22 Oct 2025   AIC                           4161.499
+    Time:                        16:18:56   BIC                           4169.255
     Sample:                    01-01-2017   HQIC                          4164.584
                              - 11-05-2023                                         
     Covariance Type:                  opg                                         
@@ -467,7 +467,7 @@ Ajuste AR(2)
 
 .. code:: ipython3
 
-    # Definir los parámetros del modelo AR (p, 0, 0)
+    # Definir los parámetros del modelo AR (p, d, 0)
     order = (2, 1, 0)  # Puedes ajustar según el análisis de ACF y PACF
     trend = 'n'        # 'c' = constante, 't' = tendencia, 'ct' = constante + tendencia, 'n' = sin tendencia
     
@@ -485,8 +485,8 @@ Ajuste AR(2)
     ==============================================================================
     Dep. Variable:               USDCOP=X   No. Observations:                  358
     Model:               SARIMAX(2, 1, 0)   Log Likelihood               -2076.234
-    Date:                Fri, 17 Oct 2025   AIC                           4158.469
-    Time:                        14:11:51   BIC                           4170.102
+    Date:                Wed, 22 Oct 2025   AIC                           4158.469
+    Time:                        16:18:56   BIC                           4170.102
     Sample:                    01-01-2017   HQIC                          4163.096
                              - 11-05-2023                                         
     Covariance Type:                  opg                                         
@@ -512,7 +512,7 @@ Ajuste AR(3)
 
 .. code:: ipython3
 
-    # Definir los parámetros del modelo AR (p, 0, 0)
+    # Definir los parámetros del modelo AR (p, d, 0)
     order = (3, 1, 0)  # Puedes ajustar según el análisis de ACF y PACF
     trend = 'n'        # 'c' = constante, 't' = tendencia, 'ct' = constante + tendencia, 'n' = sin tendencia
     
@@ -530,8 +530,8 @@ Ajuste AR(3)
     ==============================================================================
     Dep. Variable:               USDCOP=X   No. Observations:                  358
     Model:               SARIMAX(3, 1, 0)   Log Likelihood               -2073.134
-    Date:                Fri, 17 Oct 2025   AIC                           4154.267
-    Time:                        14:11:52   BIC                           4169.778
+    Date:                Wed, 22 Oct 2025   AIC                           4154.267
+    Time:                        16:18:57   BIC                           4169.778
     Sample:                    01-01-2017   HQIC                          4160.437
                              - 11-05-2023                                         
     Covariance Type:                  opg                                         
@@ -558,7 +558,7 @@ Ajuste AR(4)
 
 .. code:: ipython3
 
-    # Definir los parámetros del modelo AR (p, 0, 0)
+    # Definir los parámetros del modelo AR (p, d, 0)
     order = (4, 1, 0)  # Puedes ajustar según el análisis de ACF y PACF
     trend = 'n'        # 'c' = constante, 't' = tendencia, 'ct' = constante + tendencia, 'n' = sin tendencia
     
@@ -576,8 +576,8 @@ Ajuste AR(4)
     ==============================================================================
     Dep. Variable:               USDCOP=X   No. Observations:                  358
     Model:               SARIMAX(4, 1, 0)   Log Likelihood               -2069.186
-    Date:                Fri, 17 Oct 2025   AIC                           4148.373
-    Time:                        14:11:53   BIC                           4167.761
+    Date:                Wed, 22 Oct 2025   AIC                           4148.373
+    Time:                        16:18:58   BIC                           4167.761
     Sample:                    01-01-2017   HQIC                          4156.084
                              - 11-05-2023                                         
     Covariance Type:                  opg                                         
@@ -699,7 +699,7 @@ Ajuste AR(4)
     
     plt.title('Ajuste y pronóstico')
     plt.xlabel('Tiempo')
-    plt.ylabel('Log(Valor)')
+    plt.ylabel('Valor')
     plt.legend()
     plt.tight_layout()
     plt.show()
