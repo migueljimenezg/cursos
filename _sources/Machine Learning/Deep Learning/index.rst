@@ -23,7 +23,7 @@ Redes Neuronales Artificiales (RNA):
 
    Introducción Redes Neuronales Artificiales/Introducción Redes Neuronales Artificiales
    Perceptrón multicapa/Perceptrón multicapa
-   Funciones de activación/Funciones de activación
+   Funciones de activación_v2/Funciones de activación
    RNA para clasificación y regresión/RNA para clasificación y regresión
 
 Preprocesamiento de datos:
@@ -59,7 +59,7 @@ Optimizadores:
    :maxdepth: 1
    :titlesonly:
 
-   Optimizadores/Optimizadores
+   Optimizadores_v2/Optimizadores
    Ejemplo Optimizadores/Ejemplo Optimizadores
 
 

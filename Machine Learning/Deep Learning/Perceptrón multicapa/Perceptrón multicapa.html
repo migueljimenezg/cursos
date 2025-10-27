@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Machine Learning/Deep Learning/Perceptrón multicapa/Perceptrón multicapa';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Funciones de activación" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html" />
+    <link rel="next" title="Funciones de activación" href="../Funciones%20de%20activaci%C3%B3n_v2/Funciones%20de%20activaci%C3%B3n.html" />
     <link rel="prev" title="Introducción Redes Neuronales Artificiales" href="../Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -310,7 +310,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20gradiente%20descendente/Ejemplo%20gradiente%20descendente.html">Ejemplo gradiente descendente</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales/Introducci%C3%B3n%20Redes%20Neuronales%20Artificiales.html">Introducción Redes Neuronales Artificiales</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Perceptrón multicapa</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Funciones%20de%20activaci%C3%B3n_v2/Funciones%20de%20activaci%C3%B3n.html">Funciones de activación</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html">RNA para clasificación y regresión</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Divisi%C3%B3n%20del%20dataset/Divisi%C3%B3n%20del%20dataset.html">División del dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Escalado%20de%20variables/Escalado%20de%20variables.html">Escalado de variables</a></li>
@@ -320,7 +320,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Ejercicio%20clasificaci%C3%B3n/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RNA%20para%20series%20de%20tiempo/RNA%20para%20series%20de%20tiempo.html">RNA para series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo.html">Ejemplo pronóstico serie de tiempo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Optimizadores/Optimizadores.html">Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimizadores_v2/Optimizadores.html">Optimizadores</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../GridSearchCV/GridSearchCV.html">GridSearchCV</a></li>
@@ -836,7 +836,7 @@ nuerona 1 y 2, y para bias.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Aporte de la neurona 2 a la clasificación&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_29_06.png" src="../../../_images/output_29_06.png" />
+<img alt="../../../_images/output_29_05.png" src="../../../_images/output_29_05.png" />
 <p><strong>Neurona 3:</strong></p>
 <div class="math notranslate nohighlight">
 \[neurona_3 = \frac{1}{1+exp^{\left(-\left(X_1 w_{31}+X_2 w_{32}+w_{30}\right)\right)}}\]</div>
@@ -853,7 +853,7 @@ nuerona 1 y 2, y para bias.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Aporte de la neurona 3 a la clasificación&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_34_03.png" src="../../../_images/output_34_03.png" />
+<img alt="../../../_images/output_34_04.png" src="../../../_images/output_34_04.png" />
 <p><strong>Neurona output:</strong></p>
 <div class="math notranslate nohighlight">
 \[output = neurona_1 w_1 + neurona_2 w_2 + neurona_3 w_3 + w_0\]</div>
@@ -885,7 +885,7 @@ neurona 3.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Resultado final&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_42_02.png" src="../../../_images/output_42_02.png" />
+<img alt="../../../_images/output_42_03.png" src="../../../_images/output_42_03.png" />
 <p><strong>Predicción:</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_new</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">neuron_1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">X_new</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">X_new</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">W_1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">W_1</span><span class="p">[</span><span class="mi">2</span><span class="p">])))</span>
@@ -960,7 +960,7 @@ Learning).</p></li>
       </div>
     </a>
     <a class="right-next"
-       href="../Funciones%20de%20activaci%C3%B3n/Funciones%20de%20activaci%C3%B3n.html"
+       href="../Funciones%20de%20activaci%C3%B3n_v2/Funciones%20de%20activaci%C3%B3n.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>

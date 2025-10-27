@@ -45,7 +45,7 @@
     <script src="../../../_static/copybutton.js?v=fd10adb8"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Machine Learning/Deep Learning/Funciones de activación/Funciones de activación';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Machine Learning/Deep Learning/Funciones de activación_v2/Funciones de activación';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="RNA para clasificación y regresión" href="../RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n/RNA%20para%20clasificaci%C3%B3n%20y%20regresi%C3%B3n.html" />
@@ -320,7 +320,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../Ejercicio%20clasificaci%C3%B3n/Ejercicio%20clasificaci%C3%B3n.html">Ejercicio clasificación</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../RNA%20para%20series%20de%20tiempo/RNA%20para%20series%20de%20tiempo.html">RNA para series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo/Ejemplo%20pron%C3%B3stico%20serie%20de%20tiempo.html">Ejemplo pronóstico serie de tiempo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Optimizadores/Optimizadores.html">Optimizadores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimizadores_v2/Optimizadores.html">Optimizadores</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Ejemplo%20Optimizadores/Ejemplo%20Optimizadores.html">Ejemplo Optimizadores</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Optimizaci%C3%B3n%20de%20hiperpar%C3%A1metros/Optimizaci%C3%B3n%20de%20Hiperpar%C3%A1metros.html">Optimización de Hiperparámetros</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../GridSearchCV/GridSearchCV.html">GridSearchCV</a></li>
@@ -596,7 +596,7 @@
       
       
       
-      <li><a href="../../../_sources/Machine Learning/Deep Learning/Funciones de activación/Funciones de activación.rst" target="_blank"
+      <li><a href="../../../_sources/Machine Learning/Deep Learning/Funciones de activación_v2/Funciones de activación.rst" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -696,9 +696,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elu">4. ELU:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selu">5. SELU:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#softmax">6. Softmax:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#softsing">7.Softsing:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#softplus">8. Softplus:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponencial">9. Exponencial:</a></li>
 </ul>
             </nav>
         </div>
@@ -712,6 +709,44 @@ document.write(`
                   
   <section id="funciones-de-activacion">
 <h1>Funciones de activación<a class="headerlink" href="#funciones-de-activacion" title="Link to this heading">#</a></h1>
+<p>En una red neuronal, las <strong>funciones de activación</strong> determinan cómo se
+combinan y transforman las señales que llegan a cada neurona.</p>
+<p>Son las encargadas de introducir <strong>no linealidad</strong> en el modelo,
+permitiendo que la red aprenda relaciones complejas entre las variables
+de entrada y salida.</p>
+<div class="line-block">
+<div class="line">Sin funciones de activación, la red se comportaría como una simple
+combinación lineal de las entradas,</div>
+<div class="line">sin importar cuántas capas tuviera.</div>
+</div>
+<p>Esto limitaría su capacidad de representación, ya que una secuencia de
+transformaciones lineales sigue siendo lineal.</p>
+<p><strong>Propósito principal:</strong></p>
+<ul class="simple">
+<li><p>Introducir <strong>no linealidad</strong> para que la red pueda aprender patrones
+más complejos.</p></li>
+<li><p>Controlar la <strong>escala y la dirección</strong> de la señal que se propaga.</p></li>
+<li><p>Afectar el <strong>flujo del gradiente</strong> durante el entrenamiento,
+influyendo en la velocidad y estabilidad del aprendizaje.</p></li>
+</ul>
+<p><strong>Ejemplo general:</strong></p>
+<p>La salida de una neurona se calcula como:</p>
+<p><span class="math notranslate nohighlight">\(y = f(Wx + b)\)</span></p>
+<p>donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(W\)</span> son los pesos,</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> es el vector de entradas,</p></li>
+<li><p><span class="math notranslate nohighlight">\(b\)</span> es el sesgo (<em>bias</em>),</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> es la función de activación.</p></li>
+</ul>
+<p><strong>Intuición:</strong></p>
+<p>Las funciones de activación actúan como “filtros” que deciden qué
+señales pasan y cuáles no.</p>
+<div class="line-block">
+<div class="line">Su elección afecta directamente la capacidad de la red para aprender,
+la rapidez del entrenamiento</div>
+<div class="line">y la estabilidad del descenso del gradiente.</div>
+</div>
 <p>Las funciones de activación controlan la información que pasa a través
 de la red (forward pass).</p>
 <p>Las redes neuronales artificiales son capaces de aprender relaciones no
@@ -720,25 +755,89 @@ en las múltiples capas.</p>
 <p>Las funciones de activación más usadas son sigmoide, ReLU y tangente
 hiperbólica (tanh), pero existen muchas más y cada vez aparecen nuevas
 variaciones.</p>
+<p><strong>Importancia de la Derivada en las Funciones de Activación</strong></p>
+<div class="line-block">
+<div class="line">Las funciones de activación no solo transforman las salidas de las
+neuronas,</div>
+<div class="line">también determinan <strong>cómo fluye el gradiente</strong> durante el
+entrenamiento.</div>
+</div>
+<p>En el <strong>descenso del gradiente</strong>, los pesos se actualizan según:</p>
+<p><span class="math notranslate nohighlight">\(W^{(nextStep)} = W - \eta \times \frac{\partial}{\partial W} MSE(W)\)</span></p>
+<p>Aquí, la derivada de la función de activación forma parte de la cadena
+de derivadas que se calculan en la retropropagación del error
+(<em>backpropagation</em>).</p>
+<p><strong>Por qué la derivada es importante:</strong></p>
+<ul class="simple">
+<li><p>Si la derivada es <strong>grande</strong>, los pesos cambian bruscamente → el
+aprendizaje puede volverse inestable (<em>explosión del gradiente</em>).</p></li>
+<li><p>Si la derivada es <strong>muy pequeña</strong>, los pesos apenas cambian → el
+modelo deja de aprender (<em>desvanecimiento del gradiente</em>).</p></li>
+</ul>
+<p><strong>Explosión del gradiente:</strong></p>
+<p>Ocurre cuando las derivadas se multiplican y crecen exponencialmente al
+retropropagar el error.</p>
+<p>Esto hace que los pesos aumenten sin control, generando oscilaciones o
+pérdida de convergencia.</p>
+<p><strong>Desvanecimiento del gradiente:</strong></p>
+<div class="line-block">
+<div class="line">Sucede cuando las derivadas son menores que 1 y se multiplican muchas
+veces hacia atrás,</div>
+<div class="line">volviéndose casi cero en capas profundas.</div>
+<div class="line">El resultado es que las capas iniciales dejan de actualizarse.</div>
+</div>
+<p><strong>Ejemplos:</strong></p>
+<ul class="simple">
+<li><p>Funciones como <strong>sigmoide</strong> o <strong>tanh</strong> pueden causar <em>desvanecimiento
+del gradiente</em> porque su pendiente se aplana en los extremos.</p></li>
+<li><p>Funciones como <strong>ReLU</strong> o <strong>SELU</strong> reducen este problema al mantener
+derivadas más grandes y estables.</p></li>
+</ul>
 <p><a class="reference external" href="https://keras.io/api/layers/activations/">Funciones de Activación en
 Keras</a></p>
 <section id="sigmoide">
 <h2>1. Sigmoide:<a class="headerlink" href="#sigmoide" title="Link to this heading">#</a></h2>
-<p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code></p>
-<div class="math notranslate nohighlight">
-\[\sigma(z) = \frac{1}{1+exp^{-z}}\]</div>
+<p>La <strong>función sigmoide</strong> convierte cualquier valor real en un número
+entre 0 y 1, lo que la hace útil para representar probabilidades en
+modelos de clasificación.</p>
+<p><strong>Definición:</strong></p>
+<p><span class="math notranslate nohighlight">\(\sigma(x) = \frac{1}{1 + e^{-x}}\)</span></p>
+<p>Su forma es una curva en “S”, donde los valores grandes de <span class="math notranslate nohighlight">\(x\)</span> se
+acercan a 1 y los valores muy negativos se acercan a 0.</p>
+<p>En la sigmoide todas las activaciones son positivas. Entonces, cuando
+las neuronas de una capa alimentan a la siguiente, todas las entradas
+siguientes son del mismo signo (positivas).</p>
+<p>Esto genera dos efectos negativos:</p>
 <ul class="simple">
-<li><p>Función en forma de S.</p></li>
-<li><p>Salida en el rango entre 0 y 1, centrada en 0.5.</p></li>
-<li><p>Comúnmente usada en la capa de salida para problemas de clasificación
-binaria.</p></li>
+<li><p>Desbalance en los gradientes: el promedio de las salidas nunca es 0,
+lo que provoca un sesgo en la retropropagación.</p></li>
+<li><p>Gradientes más pequeños: al no haber cancelaciones entre positivos y
+negativos, los gradientes se acumulan con un mismo signo y tienden a
+disminuir rápidamente en magnitud.</p></li>
 </ul>
-<p><strong>Desventaja:</strong></p>
-<p>Cuando las entradas se vuelven pequeñas o grandes la función se
-concentra en 0 o en 1, llegando a una derivada cercana a 0. Esto
-conlleva que no tenga gradiente a propagarse en estas zonas a través de
-la red, por lo que no queda casi nada para las capas inferiores. Esto se
-conoce como fuga del gradiente.</p>
+<p><strong>Derivada:</strong></p>
+<p><span class="math notranslate nohighlight">\(\sigma'(x) = \sigma(x) \times (1 - \sigma(x))\)</span></p>
+<p>La derivada indica <strong>qué tanto cambia la salida</strong> cuando cambia la
+entrada.</p>
+<p>En la sigmoide, la pendiente es mayor alrededor de 0 y casi nula en los
+extremos, lo que puede causar el <strong>problema del desvanecimiento del
+gradiente</strong>.</p>
+<p><strong>Relación con el descenso del gradiente:</strong></p>
+<p>En el proceso de entrenamiento, los pesos se actualizan según:</p>
+<p><span class="math notranslate nohighlight">\(W^{(nextStep)} = W - \eta \times \frac{\partial}{\partial W} MSE(W)\)</span></p>
+<div class="line-block">
+<div class="line">Cuando se usa la sigmoide, la derivada <span class="math notranslate nohighlight">\(\sigma'(x)\)</span> forma parte
+de ese gradiente.</div>
+<div class="line">Si la pendiente es muy pequeña (valores saturados), el gradiente se
+vuelve casi cero y el aprendizaje se vuelve lento.</div>
+</div>
+<p><strong>Intuición:</strong></p>
+<div class="line-block">
+<div class="line">La sigmoide “suaviza” la salida y ayuda a representar probabilidades,</div>
+<div class="line">pero si las activaciones son muy altas o bajas, el modelo aprende más
+despacio porque el gradiente deja de propagarse eficazmente.</div>
+</div>
+<p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
@@ -752,7 +851,7 @@ conoce como fuga del gradiente.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_10_07.png" src="../../../_images/output_10_07.png" />
+<img alt="../../../_images/output_11_010.png" src="../../../_images/output_11_010.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \sigma(z)}{\partial z} = \sigma(z)(1-\sigma(z))\]</div>
@@ -763,20 +862,46 @@ conoce como fuga del gradiente.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsigmoid</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_13_07.png" src="../../../_images/output_13_07.png" />
+<img alt="../../../_images/output_14_06.png" src="../../../_images/output_14_06.png" />
 </section>
 <section id="tangente-hiperbolica">
 <h2>2. Tangente hiperbólica:<a class="headerlink" href="#tangente-hiperbolica" title="Link to this heading">#</a></h2>
+<p>La <strong>tangente hiperbólica (tanh)</strong> es una función de activación que
+transforma los valores reales en un rango entre <strong>-1 y 1</strong>.</p>
+<p><strong>Definición:</strong></p>
+<p><span class="math notranslate nohighlight">\(tanh(x) = \frac{e^{x} - e^{-x}}{e^{x} + e^{-x}}\)</span></p>
+<div class="line-block">
+<div class="line">Su forma es una curva en “S”, similar a la sigmoide, pero centrada en
+cero.</div>
+<div class="line">Esto permite que las salidas puedan ser negativas o positivas, lo cual
+mejora la propagación del gradiente en redes profundas.</div>
+</div>
+<p>En tanh las neuronas pueden tener activaciones positivas o negativas. El
+resultado es que las entradas a la siguiente capa están centradas
+alrededor de 0, es decir, la red tiene valores tanto positivos como
+negativos balanceados. Las derivadas (que se multiplican durante el
+backpropagation) tienen valores más equilibrados.</p>
+<p><strong>Derivada:</strong></p>
+<p><span class="math notranslate nohighlight">\(tanh'(x) = 1 - tanh^2(x)\)</span></p>
+<p>La derivada es máxima en el centro (cuando <span class="math notranslate nohighlight">\(x \approx 0\)</span>) y
+disminuye hacia los extremos, donde la función se satura.</p>
+<p><strong>Relación con el descenso del gradiente:</strong></p>
+<p>En el proceso de actualización de los pesos:</p>
+<p><span class="math notranslate nohighlight">\(W^{(nextStep)} = W - \eta \times \frac{\partial}{\partial W} MSE(W)\)</span></p>
+<div class="line-block">
+<div class="line">la derivada de la función de activación forma parte del gradiente.</div>
+<div class="line">Cuando <span class="math notranslate nohighlight">\(tanh(x)\)</span> está saturada (muy cerca de -1 o 1), su
+derivada es pequeña y el gradiente se atenúa, ralentizando el
+aprendizaje.</div>
+</div>
+<p><strong>Intuición:</strong></p>
+<p>La función <strong>tanh</strong> suele ser preferida frente a la sigmoide porque su
+salida está centrada en cero, lo que hace que el descenso del gradiente
+sea más eficiente y estable, aunque también puede sufrir el problema del
+desvanecimiento del gradiente en valores extremos.</p>
 <p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;tanh&quot;</span></code></p>
 <div class="math notranslate nohighlight">
 \[tanh(z) = \frac{sinh(z)}{cosh(z)}=\frac{exp^z-exp^{-z}}{exp^z+exp^{-z}}\]</div>
-<ul class="simple">
-<li><p>Función en forma de S, similar a la función sigmoide.</p></li>
-<li><p>Salida en el rango entre -1 y 1, centrada en 0.</p></li>
-</ul>
-<p><strong>Desventaja:</strong></p>
-<p>Simular a la función sigmoide. Con entradas pequeñas o grandes la
-función tiene una derivada muy pequeña con tendencia a cero.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tanh</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -784,7 +909,7 @@ función tiene una derivada muy pequeña con tendencia a cero.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">tanh</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_19_05.png" src="../../../_images/output_19_05.png" />
+<img alt="../../../_images/output_20_04.png" src="../../../_images/output_20_04.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \tanh(z)}{\partial z} = 1-tan(z)^2\]</div>
@@ -795,10 +920,40 @@ función tiene una derivada muy pequeña con tendencia a cero.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dtanh</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_22_010.png" src="../../../_images/output_22_010.png" />
+<img alt="../../../_images/output_23_04.png" src="../../../_images/output_23_04.png" />
 </section>
 <section id="relu">
 <h2>3. ReLU:<a class="headerlink" href="#relu" title="Link to this heading">#</a></h2>
+<p>La <strong>ReLU</strong> es la función de activación más usada en redes neuronales
+profundas por su sencillez y eficiencia.</p>
+<p><strong>Definición:</strong></p>
+<p><span class="math notranslate nohighlight">\(ReLU(x) = \begin{cases} 0, &amp; \text{si } x &lt; 0 \\ x, &amp; \text{si } x \ge 0 \end{cases}\)</span></p>
+<div class="line-block">
+<div class="line">La ReLU deja pasar los valores positivos tal como son y anula los
+negativos.</div>
+<div class="line">Esto introduce <strong>no linealidad</strong> sin saturar los gradientes como la
+sigmoide o la tanh.</div>
+</div>
+<p><strong>Derivada:</strong></p>
+<p><span class="math notranslate nohighlight">\(ReLU'(x) = \begin{cases} 0, &amp; \text{si } x &lt; 0 \\ 1, &amp; \text{si } x \ge 0 \end{cases}\)</span></p>
+<p>Durante el <strong>descenso del gradiente</strong>, la derivada determina cómo se
+ajustan los pesos:</p>
+<p><span class="math notranslate nohighlight">\(W^{(nextStep)} = W - \eta \times \frac{\partial}{\partial W} MSE(W)\)</span></p>
+<div class="line-block">
+<div class="line">Con ReLU, los gradientes se mantienen grandes cuando <span class="math notranslate nohighlight">\(x &gt; 0\)</span>,
+acelerando el aprendizaje,</div>
+<div class="line">mientras que en <span class="math notranslate nohighlight">\(x &lt; 0\)</span> se detiene la actualización (gradiente
+cero).</div>
+</div>
+<p><strong>Intuición:</strong></p>
+<div class="line-block">
+<div class="line">ReLU actúa como un “interruptor” que activa solo las neuronas con
+salidas positivas,</div>
+<div class="line">haciendo el modelo más eficiente y reduciendo el riesgo de
+desvanecimiento del gradiente,</div>
+<div class="line">aunque puede causar el problema de las <strong>neuronas muertas</strong> cuando
+muchas entradas son negativas.</div>
+</div>
 <p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;relu&quot;</span></code></p>
 <div class="math notranslate nohighlight">
 \[ReLU(z) = max(z,0)\]</div>
@@ -829,7 +984,7 @@ nodos inutilizables.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">relu</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_29_05.png" src="../../../_images/output_29_05.png" />
+<img alt="../../../_images/output_31_01.png" src="../../../_images/output_31_01.png" />
 <p><strong>Derivada:</strong></p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(z&lt;0\)</span>:</p></li>
@@ -848,10 +1003,41 @@ nodos inutilizables.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">drelu</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_32_03.png" src="../../../_images/output_32_03.png" />
+<img alt="../../../_images/output_34_02.png" src="../../../_images/output_34_02.png" />
 </section>
 <section id="elu">
 <h2>4. ELU:<a class="headerlink" href="#elu" title="Link to this heading">#</a></h2>
+<div class="line-block">
+<div class="line">La <strong>ELU</strong> es una mejora de la ReLU que permite valores negativos
+suaves en lugar de ceros,</div>
+<div class="line">lo que ayuda a mantener activas más neuronas y reduce el problema del
+gradiente desapareciente.</div>
+</div>
+<p><strong>Definición:</strong></p>
+<p><span class="math notranslate nohighlight">\(ELU(x, \alpha) = \begin{cases} x, &amp; \text{si } x \ge 0 \\ \alpha \left(e^{x} - 1\right), &amp; \text{si } x &lt; 0 \end{cases}\)</span></p>
+<p>donde <span class="math notranslate nohighlight">\(\alpha\)</span> controla cuánto se extiende la parte negativa
+(típicamente <span class="math notranslate nohighlight">\(\alpha = 1\)</span>).</p>
+<p><strong>Derivada:</strong></p>
+<p><span class="math notranslate nohighlight">\(ELU'(x, \alpha) = \begin{cases} 1, &amp; \text{si } x \ge 0 \\ ELU(x, \alpha) + \alpha, &amp; \text{si } x &lt; 0 \end{cases}\)</span></p>
+<p>Durante el <strong>descenso del gradiente</strong>, los pesos se actualizan con:</p>
+<p><span class="math notranslate nohighlight">\(W^{(nextStep)} = W - \eta \times \frac{\partial}{\partial W} MSE(W)\)</span></p>
+<div class="line-block">
+<div class="line">En este proceso, la derivada de ELU mantiene un flujo continuo del
+gradiente,</div>
+<div class="line">permitiendo que las neuronas con valores negativos sigan ajustando sus
+pesos,</div>
+<div class="line">a diferencia de ReLU, donde el gradiente se anula por completo en
+<span class="math notranslate nohighlight">\(x &lt; 0\)</span>.</div>
+</div>
+<p><strong>Intuición:</strong></p>
+<p>ELU actúa como una ReLU suavizada:</p>
+<ul class="simple">
+<li><p>Para <span class="math notranslate nohighlight">\(x &gt; 0\)</span>, se comporta igual que ReLU (lineal).</p></li>
+<li><p>Para <span class="math notranslate nohighlight">\(x &lt; 0\)</span>, usa una curva exponencial que evita que las
+neuronas mueran.</p></li>
+</ul>
+<p>El resultado es un aprendizaje más estable y rápido gracias a una
+propagación de gradientes más fluida.</p>
 <p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;elu&quot;</span></code></p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(z&gt;0\)</span>:</p></li>
@@ -863,21 +1049,6 @@ nodos inutilizables.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[ELU(z) = \alpha(exp^z-1)\]</div>
-<p>ELU (Exponencial Linear Units) es una variación de la función ReLU.
-Modifica la pendiente de la parte negativa de la función ReLU. Usa una
-curva logarítmica para definir los valores negativos.</p>
-<p>El hiperparámetro <span class="math notranslate nohighlight">\(\alpha\)</span> controla el valor al que se satura una
-ELU para entradas netas negativas. Los ELU disminuyen el efecto de
-gradiente de fuga.</p>
-<p>Los ELU tienen valores negativos que empujan la media de las
-activaciones más cerca de cero. Las activaciones medias que están más
-cerca de cero permiten un aprendizaje más rápido ya que acercan el
-gradiente al gradiente natural. Los ELU se saturan a un valor negativo
-cuando el argumento se hace más pequeño. Saturación significa una
-pequeña derivada que disminuye la variación y la información que se
-propaga a la siguiente capa.</p>
-<p><strong>Desventaja:</strong></p>
-<p>Es más lento de calcular que ReLU y sus variantes.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.5</span>
 </pre></div>
 </div>
@@ -895,7 +1066,7 @@ propaga a la siguiente capa.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">elu</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_40_01.png" src="../../../_images/output_40_01.png" />
+<img alt="../../../_images/output_42_0.png" src="../../../_images/output_42_0.png" />
 <p><strong>Derivada:</strong></p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(z&gt;0\)</span>:</p></li>
@@ -921,10 +1092,37 @@ propaga a la siguiente capa.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">delu</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_44_0.png" src="../../../_images/output_44_0.png" />
+<img alt="../../../_images/output_46_0.png" src="../../../_images/output_46_0.png" />
 </section>
 <section id="selu">
 <h2>5. SELU:<a class="headerlink" href="#selu" title="Link to this heading">#</a></h2>
+<div class="line-block">
+<div class="line">La <strong>SELU</strong> es una función de activación autorreguladora que mantiene
+automáticamente la media y la varianza de las activaciones,</div>
+<div class="line">lo que ayuda a que la red se mantenga estable durante el
+entrenamiento.</div>
+</div>
+<p><strong>Definición:</strong></p>
+<p><span class="math notranslate nohighlight">\(SELU(x) = \lambda \begin{cases} x, &amp; \text{si } x \ge 0 \\ \alpha (e^{x} - 1), &amp; \text{si } x &lt; 0 \end{cases}\)</span></p>
+<p>donde los valores típicos son <span class="math notranslate nohighlight">\(\lambda = 1.0507\)</span> y
+<span class="math notranslate nohighlight">\(\alpha = 1.67326\)</span>.</p>
+<p><strong>Derivada:</strong></p>
+<p><span class="math notranslate nohighlight">\(SELU'(x) = \lambda \begin{cases} 1, &amp; \text{si } x \ge 0 \\ \alpha e^{x}, &amp; \text{si } x &lt; 0 \end{cases}\)</span></p>
+<p>Durante el <strong>descenso del gradiente</strong>, la actualización de los pesos
+sigue la regla:</p>
+<p><span class="math notranslate nohighlight">\(W^{(nextStep)} = W - \eta \times \frac{\partial}{\partial W} MSE(W)\)</span></p>
+<div class="line-block">
+<div class="line">Gracias a sus constantes <span class="math notranslate nohighlight">\(\lambda\)</span> y <span class="math notranslate nohighlight">\(\alpha\)</span>,</div>
+<div class="line">SELU normaliza las activaciones internamente, reduciendo la necesidad
+de técnicas adicionales como <em>batch normalization</em>.</div>
+</div>
+<p><strong>Intuición:</strong></p>
+<p>SELU combina las ventajas de ELU y la normalización automática:</p>
+<ul class="simple">
+<li><p>Aumenta la estabilidad del entrenamiento.</p></li>
+<li><p>Evita que los gradientes desaparezcan o exploten.</p></li>
+<li><p>Mantiene la media cercana a 0 y la varianza alrededor de 1.</p></li>
+</ul>
 <p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;selu&quot;</span></code></p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(z&gt;0\)</span>:</p></li>
@@ -970,7 +1168,7 @@ inicialización normal de LeCun.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">selu</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_53_0.png" src="../../../_images/output_53_0.png" />
+<img alt="../../../_images/output_56_0.png" src="../../../_images/output_56_0.png" />
 <p><strong>Derivada:</strong></p>
 <ul class="simple">
 <li><p>Si <span class="math notranslate nohighlight">\(z&gt;0\)</span>:</p></li>
@@ -996,22 +1194,49 @@ inicialización normal de LeCun.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dselu</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_57_0.png" src="../../../_images/output_57_0.png" />
+<img alt="../../../_images/output_60_01.png" src="../../../_images/output_60_01.png" />
 </section>
 <section id="softmax">
 <h2>6. Softmax:<a class="headerlink" href="#softmax" title="Link to this heading">#</a></h2>
+<p>La <strong>Softmax</strong> se utiliza principalmente en la <strong>capa de salida</strong> de
+redes neuronales de clasificación multiclase.</p>
+<p>Convierte un vector de valores reales en un vector de <strong>probabilidades</strong>
+que suman 1.</p>
+<p><strong>Definición:</strong></p>
+<p><span class="math notranslate nohighlight">\(Softmax(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}\)</span></p>
+<p>donde <span class="math notranslate nohighlight">\(z_i\)</span> es la salida del modelo para la clase <span class="math notranslate nohighlight">\(i\)</span> y
+<span class="math notranslate nohighlight">\(K\)</span> es el número total de clases.</p>
+<div class="line-block">
+<div class="line">Cada valor <span class="math notranslate nohighlight">\(e^{z_i}\)</span> se normaliza dividiéndolo entre la suma de
+todas las exponenciales,</div>
+<div class="line">haciendo que el resultado esté entre 0 y 1 y se interprete como una
+probabilidad.</div>
+</div>
+<p><strong>Derivada:</strong></p>
+<p>La derivada de Softmax es una matriz (Jacobiano) que refleja cómo cambia
+cada probabilidad con respecto a cada entrada:</p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial Softmax(z_i)}{\partial z_j} = Softmax(z_i) \times (\delta_{ij} - Softmax(z_j))\)</span></p>
+<p>donde <span class="math notranslate nohighlight">\(\delta_{ij}\)</span> es 1 si <span class="math notranslate nohighlight">\(i = j\)</span> y 0 en caso contrario.</p>
+<p><strong>Relación con el descenso del gradiente:</strong></p>
+<p>En la etapa de entrenamiento, los pesos se actualizan según:</p>
+<p><span class="math notranslate nohighlight">\(W^{(nextStep)} = W - \eta \times \frac{\partial}{\partial W} MSE(W)\)</span></p>
+<div class="line-block">
+<div class="line">Cuando se usa <strong>Softmax</strong> junto con la <strong>entropía cruzada</strong> como
+función de pérdida,</div>
+<div class="line">la derivada se simplifica, lo que acelera y estabiliza el descenso del
+gradiente.</div>
+</div>
+<p><strong>Intuición:</strong></p>
+<div class="line-block">
+<div class="line">Softmax convierte las salidas del modelo en probabilidades
+interpretables.</div>
+<div class="line">Resalta la clase más probable y atenúa las demás,</div>
+<div class="line">permitiendo que el modelo aprenda distribuciones de probabilidad en
+lugar de valores arbitrarios.</div>
+</div>
 <p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;softmax&quot;</span></code></p>
 <div class="math notranslate nohighlight">
 \[s(z) = \frac{exp^z}{\sum{exp^z}}\]</div>
-<p>Es la forma más generalizada de la función de activación sigmoide. Se
-utiliza en problemas de clasificación de múltiples clases. Similar a la
-sigmoide, los elementos del vector de salida están en el rango 0-1, la
-diferencia es que su suma es igual a 1.</p>
-<p>Se utiliza como capa final en los modelos de clasificación porque
-extraer la probabilidad según los datos de pertenecer a las distintas
-clases posibles.</p>
-<p>Para esta versión de la Softmax, las categorías son excluyentes, es
-decir, si se asigna una categoría, ya no se puede pertenecer a otra.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">softmax</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1019,7 +1244,7 @@ decir, si se asigna una categoría, ya no se puede pertenecer a otra.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softmax</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_63_0.png" src="../../../_images/output_63_0.png" />
+<img alt="../../../_images/output_66_0.png" src="../../../_images/output_66_0.png" />
 <p><strong>Derivada:</strong></p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial s(z)}{\partial z} = s(z)(1-s(z))\]</div>
@@ -1030,143 +1255,7 @@ decir, si se asigna una categoría, ya no se puede pertenecer a otra.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsoftmax</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_66_0.png" src="../../../_images/output_66_0.png" />
-</section>
-<section id="softsing">
-<h2>7.Softsing:<a class="headerlink" href="#softsing" title="Link to this heading">#</a></h2>
-<p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;softsign&quot;</span></code></p>
-<div class="math notranslate nohighlight">
-\[f(z) = \frac{z}{|z|+1}\]</div>
-<p>Es parecida a la tangente hiperbólica, sus valores van de -1 a 1, tiene
-media 0 y su desviación típica es 1. Es más suavizada que la tangente
-hiperbólica.</p>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">softsing</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span> <span class="o">/</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softsing</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_72_0.png" src="../../../_images/output_72_0.png" />
-<p><strong>Derivada:</strong></p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial f(z)}{\partial z} = \frac{z}{(|z|+1)^2}\]</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsoftsing</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsoftsing</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_75_0.png" src="../../../_images/output_75_0.png" />
-</section>
-<section id="softplus">
-<h2>8. Softplus:<a class="headerlink" href="#softplus" title="Link to this heading">#</a></h2>
-<p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;softplus&quot;</span></code></p>
-<p>Es la función continua y derivable de la función RELU. Esto se consigue
-mediante el logaritmo. Su gráfica es parecida a la RELU, pero más
-suavizada.</p>
-<div class="math notranslate nohighlight">
-\[f(z) = ln(exp^z+1)\]</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">softplus</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softplus</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_81_0.png" src="../../../_images/output_81_0.png" />
-<p><strong>Derivada:</strong></p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial f(z)}{\partial z} = \frac{exp(z)}{exp(z)+1} = \frac{1}{exp(-z)+1}\]</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsoftplus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsoftplus</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_84_0.png" src="../../../_images/output_84_0.png" />
-</section>
-<section id="exponencial">
-<h2>9. Exponencial:<a class="headerlink" href="#exponencial" title="Link to this heading">#</a></h2>
-<p>En Keras: <code class="docutils literal notranslate"><span class="pre">&quot;exponential&quot;</span></code></p>
-<div class="math notranslate nohighlight">
-\[f(z) = exp^z\]</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exponential</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">exponential</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_89_0.png" src="../../../_images/output_89_0.png" />
-<p><strong>Derivada:</strong></p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial f(z)}{\partial z} = exp(z)\]</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dexponential</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dexponential</span><span class="p">,</span> <span class="s2">&quot;r-&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_92_01.png" src="../../../_images/output_92_01.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">tanh</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">relu</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ReLU&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softsing</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Softsing&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgray&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">softplus</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Softplus&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_93_0.png" src="../../../_images/output_93_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsigmoid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dtanh</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;tanh&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">drelu</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ReLU&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsoftsing</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Softsing&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgray&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dsoftplus</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Softplus&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Derivadas&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_94_0.png" src="../../../_images/output_94_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">relu</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ReLU&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">elu</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ELU&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">selu</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;SELU&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_95_0.png" src="../../../_images/output_95_0.png" />
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">drelu</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ReLU&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">delu</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ELU&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">dselu</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;SELU&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkgreen&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Derivadas&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-<img alt="../../../_images/output_96_0.png" src="../../../_images/output_96_0.png" />
+<img alt="../../../_images/output_69_0.png" src="../../../_images/output_69_0.png" />
 </section>
 </section>
 
@@ -1221,9 +1310,6 @@ suavizada.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elu">4. ELU:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selu">5. SELU:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#softmax">6. Softmax:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#softsing">7.Softsing:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#softplus">8. Softplus:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exponencial">9. Exponencial:</a></li>
 </ul>
   </nav></div>
 
