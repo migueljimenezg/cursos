@@ -12,6 +12,7 @@ En este curso se explicarán los métodos convencionales para modelar las series
    Métodos de suavizamiento/index
    Procesos estacionarios/index
    Modelos Autorregresivos-AR/index
+   Modelos de Media Móvil-MA/index
    Selección de modelos/index
    Evaluación del modelo seleccionado/index
    Transformaciones Box-Cox y raíz cuadrada/index
