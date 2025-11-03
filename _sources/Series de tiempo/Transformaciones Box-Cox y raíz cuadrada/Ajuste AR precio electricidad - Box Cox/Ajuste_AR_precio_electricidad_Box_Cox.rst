@@ -376,7 +376,7 @@ Precio de electricidad
 .. raw:: html
 
     
-      <div id="df-2a39bbcc-81eb-4183-b207-67319b84c5fc" class="colab-df-container">
+      <div id="df-b0d52877-644d-42a0-8495-a9525da83243" class="colab-df-container">
         <div>
     <style scoped>
         .dataframe tbody tr th:only-of-type {
@@ -429,7 +429,7 @@ Precio de electricidad
         <div class="colab-df-buttons">
     
       <div class="colab-df-container">
-        <button class="colab-df-convert" onclick="convertToInteractive('df-2a39bbcc-81eb-4183-b207-67319b84c5fc')"
+        <button class="colab-df-convert" onclick="convertToInteractive('df-b0d52877-644d-42a0-8495-a9525da83243')"
                 title="Convert this dataframe to an interactive table."
                 style="display:none;">
     
@@ -481,12 +481,12 @@ Precio de electricidad
     
         <script>
           const buttonEl =
-            document.querySelector('#df-2a39bbcc-81eb-4183-b207-67319b84c5fc button.colab-df-convert');
+            document.querySelector('#df-b0d52877-644d-42a0-8495-a9525da83243 button.colab-df-convert');
           buttonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
     
           async function convertToInteractive(key) {
-            const element = document.querySelector('#df-2a39bbcc-81eb-4183-b207-67319b84c5fc');
+            const element = document.querySelector('#df-b0d52877-644d-42a0-8495-a9525da83243');
             const dataTable =
               await google.colab.kernel.invokeFunction('convertToInteractive',
                                                         [key], {});
@@ -506,8 +506,8 @@ Precio de electricidad
       </div>
     
     
-        <div id="df-2ec109da-4a66-4069-a0dd-5abd35857960">
-          <button class="colab-df-quickchart" onclick="quickchart('df-2ec109da-4a66-4069-a0dd-5abd35857960')"
+        <div id="df-8db797fc-8dbe-497a-b5f5-6fa6e8a01253">
+          <button class="colab-df-quickchart" onclick="quickchart('df-8db797fc-8dbe-497a-b5f5-6fa6e8a01253')"
                     title="Suggest charts"
                     style="display:none;">
     
@@ -626,7 +626,7 @@ Precio de electricidad
             }
             (() => {
               let quickchartButtonEl =
-                document.querySelector('#df-2ec109da-4a66-4069-a0dd-5abd35857960 button');
+                document.querySelector('#df-8db797fc-8dbe-497a-b5f5-6fa6e8a01253 button');
               quickchartButtonEl.style.display =
                 google.colab.kernel.accessAllowed ? 'block' : 'none';
             })();
@@ -765,8 +765,8 @@ Ajuste modelo AR
     ==============================================================================
     Dep. Variable:          Precio_boxcox   No. Observations:                  232
     Model:               SARIMAX(1, 0, 0)   Log Likelihood                 408.211
-    Date:                Fri, 24 Oct 2025   AIC                           -808.422
-    Time:                        16:19:00   BIC                           -794.635
+    Date:                Mon, 03 Nov 2025   AIC                           -808.422
+    Time:                        04:31:42   BIC                           -794.635
     Sample:                    01-01-2000   HQIC                          -802.862
                              - 04-01-2019                                         
     Covariance Type:                  opg                                         
@@ -818,7 +818,6 @@ Ajuste y pronóstico en la serie original:
 
     ###### Pronóstico dentro de la muestra (train) ######
     fitted_values = results.fittedvalues
-    conf_int_train = results.get_prediction().conf_int(alpha=0.05)  # Intervalo de confianza del 95%
     
     # Alinear por si el índice de train y fitted_values difieren en los primeros p rezagos
     fitted_values = fitted_values.reindex(train.index)
@@ -850,7 +849,7 @@ Ajuste y pronóstico en la serie original:
     
     ###### Pronóstico fuera de la muestra: futuro #####
     
-    n_forecast = 5  # Pronóstico para 12 meses
+    n_forecast = 6  # Pronóstico para 6 meses
     
     # Actualiza el estado con el dataset de test
     current_results = results.append(endog=test, refit=False)
@@ -886,9 +885,10 @@ Ajuste y pronóstico en la serie original:
     y_pred_test = np.power((lambda_bc * forecasted_test + 1), 1 / lambda_bc)
     forcasting_orig = np.power((lambda_bc * forecasting + 1), 1 / lambda_bc) # pronóstico futuro
     
+    
     # Intervalos de confianza
-    lower_bt      = np.exp(lower_ci)
-    upper_bt      = np.exp(upper_ci)
+    lower_bt      = np.power((lambda_bc * lower_ci + 1), 1 / lambda_bc)
+    upper_bt      = np.power((lambda_bc * upper_ci + 1), 1 / lambda_bc)
     
     # Graficar sobre la serie original
     plt.figure(figsize=(12,6))
@@ -922,7 +922,7 @@ Ajuste y pronóstico en la serie original:
 
     ### Análisis de residuales
     y_pred = y_pred_train[1:]
-    y_real = precio_electricidad[1:split]
+    y_real = precio_electricidad['Precio'][1:split]
     plt.figure(figsize=(20,6))
     
     # Serie real
@@ -939,7 +939,7 @@ Ajuste y pronóstico en la serie original:
     plt.tight_layout()
     plt.show()
     # Extraer residuales
-    residuals = results.resid
+    residuals = results.resid[1:]
     
     print(residuals.head())
     ### Gráfico de residuales en el tiempo
@@ -1004,8 +1004,8 @@ Ajuste y pronóstico en la serie original:
     plt.scatter(y_real, y_pred, color='blue', alpha=0.6, edgecolor='k')
     
     # Línea de identidad (y = x)
-    min_val = min(y_real.min().values, y_pred.min())
-    max_val = max(y_real.max().values, y_pred.max())
+    min_val = min(y_real.min(), y_pred.min())
+    max_val = max(y_real.max(), y_pred.max())
     plt.plot([min_val, max_val], [min_val, max_val], color='black', lw=2)
     
     plt.title("Valores predichos vs. valores reales", fontsize=12)
@@ -1024,11 +1024,11 @@ Ajuste y pronóstico en la serie original:
 .. parsed-literal::
 
     Fecha
-    2000-01-01   -0.084859
     2000-02-01    0.006613
     2000-03-01   -0.042085
     2000-04-01    0.041991
     2000-05-01   -0.080201
+    2000-06-01    0.010729
     Freq: MS, dtype: float64
     
 

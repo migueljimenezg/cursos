@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Transformaciones Box-Cox y raíz cuadrada/Ajuste AR precio electricidad - Box Cox/Ajuste_AR_precio_electricidad_Box_Cox';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Aprendizaje Estadístico" href="../../../AprenEst/index.html" />
+    <link rel="next" title="Ajuste modelos AR y MA al precio electricidad" href="../Ajuste%20modelos%20AR%20y%20MA%20al%20precio%20electricidad/Ajuste_modelos_AR_y_MA_al_precio_electricidad.html" />
     <link rel="prev" title="Transformaciones al precio de electricidad" href="../Transformaciones%20al%20precio%20de%20electricidad/Transformaciones_al_precio_de_electricidad.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -208,6 +208,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../Transformaciones%20Box-Cox%20y%20ra%C3%ADz%20cuadrada/Transformaciones_Box_Cox_y_ra%C3%ADz_cuadrada.html">Transformaciones Box-Cox y raíz cuadrada</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Transformaciones%20al%20precio%20de%20electricidad/Transformaciones_al_precio_de_electricidad.html">Transformaciones al precio de electricidad</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Ajuste AR precio electricidad - Box Cox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Ajuste%20modelos%20AR%20y%20MA%20al%20precio%20electricidad/Ajuste_modelos_AR_y_MA_al_precio_electricidad.html">Ajuste modelos AR y MA al precio electricidad</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1077,7 +1078,7 @@ document.write(`
 <span class="n">precio_electricidad</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-  <div id="df-2a39bbcc-81eb-4183-b207-67319b84c5fc" class="colab-df-container">
+  <div id="df-b0d52877-644d-42a0-8495-a9525da83243" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1130,7 +1131,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-2a39bbcc-81eb-4183-b207-67319b84c5fc')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b0d52877-644d-42a0-8495-a9525da83243')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1182,12 +1183,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-2a39bbcc-81eb-4183-b207-67319b84c5fc button.colab-df-convert');
+        document.querySelector('#df-b0d52877-644d-42a0-8495-a9525da83243 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-2a39bbcc-81eb-4183-b207-67319b84c5fc');
+        const element = document.querySelector('#df-b0d52877-644d-42a0-8495-a9525da83243');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1207,8 +1208,8 @@ document.write(`
   </div>
 
 
-    <div id="df-2ec109da-4a66-4069-a0dd-5abd35857960">
-      <button class="colab-df-quickchart" onclick="quickchart('df-2ec109da-4a66-4069-a0dd-5abd35857960')"
+    <div id="df-8db797fc-8dbe-497a-b5f5-6fa6e8a01253">
+      <button class="colab-df-quickchart" onclick="quickchart('df-8db797fc-8dbe-497a-b5f5-6fa6e8a01253')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1327,7 +1328,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-2ec109da-4a66-4069-a0dd-5abd35857960 button');
+            document.querySelector('#df-8db797fc-8dbe-497a-b5f5-6fa6e8a01253 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -1432,8 +1433,8 @@ Fecha
 <span class="o">==============================================================================</span>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>          <span class="n">Precio_boxcox</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                 <span class="mf">408.211</span>
-<span class="n">Date</span><span class="p">:</span>                <span class="n">Fri</span><span class="p">,</span> <span class="mi">24</span> <span class="n">Oct</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">808.422</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">16</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">00</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">794.635</span>
+<span class="n">Date</span><span class="p">:</span>                <span class="n">Mon</span><span class="p">,</span> <span class="mi">03</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">808.422</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">04</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">42</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">794.635</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                          <span class="o">-</span><span class="mf">802.862</span>
                          <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
@@ -1480,7 +1481,6 @@ constante en el tiempo.</p>
 <h2>Ajuste y pronóstico en la serie original:<a class="headerlink" href="#ajuste-y-pronostico-en-la-serie-original" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###### Pronóstico dentro de la muestra (train) ######</span>
 <span class="n">fitted_values</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">fittedvalues</span>
-<span class="n">conf_int_train</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">()</span><span class="o">.</span><span class="n">conf_int</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># Intervalo de confianza del 95%</span>
 
 <span class="c1"># Alinear por si el índice de train y fitted_values difieren en los primeros p rezagos</span>
 <span class="n">fitted_values</span> <span class="o">=</span> <span class="n">fitted_values</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -1512,7 +1512,7 @@ constante en el tiempo.</p>
 
 <span class="c1">###### Pronóstico fuera de la muestra: futuro #####</span>
 
-<span class="n">n_forecast</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Pronóstico para 12 meses</span>
+<span class="n">n_forecast</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># Pronóstico para 6 meses</span>
 
 <span class="c1"># Actualiza el estado con el dataset de test</span>
 <span class="n">current_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">test</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1548,9 +1548,10 @@ constante en el tiempo.</p>
 <span class="n">y_pred_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">lambda_bc</span> <span class="o">*</span> <span class="n">forecasted_test</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">lambda_bc</span><span class="p">)</span>
 <span class="n">forcasting_orig</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">lambda_bc</span> <span class="o">*</span> <span class="n">forecasting</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">lambda_bc</span><span class="p">)</span> <span class="c1"># pronóstico futuro</span>
 
+
 <span class="c1"># Intervalos de confianza</span>
-<span class="n">lower_bt</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lower_ci</span><span class="p">)</span>
-<span class="n">upper_bt</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">upper_ci</span><span class="p">)</span>
+<span class="n">lower_bt</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">lambda_bc</span> <span class="o">*</span> <span class="n">lower_ci</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">lambda_bc</span><span class="p">)</span>
+<span class="n">upper_bt</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">lambda_bc</span> <span class="o">*</span> <span class="n">upper_ci</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">lambda_bc</span><span class="p">)</span>
 
 <span class="c1"># Graficar sobre la serie original</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -1579,7 +1580,7 @@ constante en el tiempo.</p>
 <img alt="../../../_images/output_19_012.png" src="../../../_images/output_19_012.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Análisis de residuales</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-<span class="n">y_real</span> <span class="o">=</span> <span class="n">precio_electricidad</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">split</span><span class="p">]</span>
+<span class="n">y_real</span> <span class="o">=</span> <span class="n">precio_electricidad</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">split</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="c1"># Serie real</span>
@@ -1596,7 +1597,7 @@ constante en el tiempo.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1"># Extraer residuales</span>
-<span class="n">residuals</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">resid</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">resid</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">residuals</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 <span class="c1">### Gráfico de residuales en el tiempo</span>
@@ -1661,8 +1662,8 @@ constante en el tiempo.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 
 <span class="c1"># Línea de identidad (y = x)</span>
-<span class="n">min_val</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">y_real</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-<span class="n">max_val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_real</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">min_val</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">y_real</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">max_val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_real</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">],</span> <span class="p">[</span><span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Valores predichos vs. valores reales&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
@@ -1676,11 +1677,11 @@ constante en el tiempo.</p>
 </div>
 <img alt="../../../_images/output_20_013.png" src="../../../_images/output_20_013.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fecha</span>
-<span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>   <span class="o">-</span><span class="mf">0.084859</span>
 <span class="mi">2000</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span>    <span class="mf">0.006613</span>
 <span class="mi">2000</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span>   <span class="o">-</span><span class="mf">0.042085</span>
 <span class="mi">2000</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>    <span class="mf">0.041991</span>
 <span class="mi">2000</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">01</span>   <span class="o">-</span><span class="mf">0.080201</span>
+<span class="mi">2000</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">01</span>    <span class="mf">0.010729</span>
 <span class="n">Freq</span><span class="p">:</span> <span class="n">MS</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 </pre></div>
 </div>
@@ -1733,11 +1734,11 @@ estructura temporal residual.</p>
       </div>
     </a>
     <a class="right-next"
-       href="../../../AprenEst/index.html"
+       href="../Ajuste%20modelos%20AR%20y%20MA%20al%20precio%20electricidad/Ajuste_modelos_AR_y_MA_al_precio_electricidad.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aprendizaje Estadístico</p>
+        <p class="prev-next-title">Ajuste modelos AR y MA al precio electricidad</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
