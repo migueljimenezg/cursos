@@ -194,10 +194,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../Modelos%20de%20Media%20M%C3%B3vil-MA/Ajuste%20modelo%20MA%20al%20precio%20interno%20del%20Caf%C3%A9/Ajuste_modelo_MA_al_precio_interno_del_Caf%C3%A9.html">Ajuste modelo MA al precio interno del Café</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../Selecci%C3%B3n%20de%20modelos/index.html">Selección de modelos</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../Selecci%C3%B3n%20de%20modelos/Selecci%C3%B3n%20de%20modelos/Selecci%C3%B3n%20de%20modelos.html">Selección de modelos</a></li>
-</ul>
-</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Selecci%C3%B3n%20de%20modelos/Selecci%C3%B3n%20de%20modelos.html">Selección de modelos</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../Evaluaci%C3%B3n%20del%20modelo%20seleccionado/index.html">Evaluación del modelo seleccionado</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Evaluaci%C3%B3n%20del%20modelo%20seleccionado/An%C3%A1lisis%20de%20los%20residuales/An%C3%A1lisis%20de%20los%20residuales.html">Análisis de los residuales</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Evaluaci%C3%B3n%20del%20modelo%20seleccionado/An%C3%A1lisis%20residuales%20ajuste%20MA%20al%20precio%20interno%20del%20Caf%C3%A9/An%C3%A1lisis_residuales_ajuste_MA_al_precio_interno_del_Caf%C3%A9.html">Análisis residuales ajuste MA al precio interno del Café</a></li>
@@ -209,6 +206,18 @@
 <li class="toctree-l3"><a class="reference internal" href="../Transformaciones%20al%20precio%20de%20electricidad/Transformaciones_al_precio_de_electricidad.html">Transformaciones al precio de electricidad</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Ajuste AR precio electricidad - Box Cox</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Ajuste%20modelos%20AR%20y%20MA%20al%20precio%20electricidad/Ajuste_modelos_AR_y_MA_al_precio_electricidad.html">Ajuste modelos AR y MA al precio electricidad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Modelos%20ARMA/Modelos%20ARMA.html">Modelos ARMA</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Modelos%20ARIMA/index.html">Modelos ARIMA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Modelos%20ARIMA/Modelos%20ARIMA/Modelos%20ARIMA.html">Modelos ARIMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Modelos%20ARIMA/Auto-ARIMA%20precio%20de%20electricidad/Auto_ARIMA_precio_de_electricidad.html">Auto-ARIMA precio de electricidad</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../Modelos%20SARIMA/index.html">Modelos SARIMA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../Modelos%20SARIMA/SARIMA/Modelos%20SARIMA.html">Modelos SARIMA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Modelos%20SARIMA/Ajuste%20SARIMA%20precio%20de%20electricidad/Ajuste_SARIMA_precio_de_electricidad.html">Ajuste SARIMA precio de electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Modelos%20SARIMA/Comparaci%C3%B3n%20de%20modelos%20precio%20de%20electricidad/Comparaci%C3%B3n_de_modelos_precio_de_electricidad.html">Comparación de modelos precio de electricidad</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1347,7 +1356,7 @@ document.write(`
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_7_019.png" src="../../../_images/output_7_019.png" />
+<img alt="../../../_images/output_7_022.png" src="../../../_images/output_7_022.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_resultados</span> <span class="o">=</span> <span class="n">analisis_estacionariedad_full</span><span class="p">(</span>
       <span class="n">precio_electricidad</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">],</span>
       <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
@@ -1356,7 +1365,7 @@ document.write(`
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_8_013.png" src="../../../_images/output_8_013.png" />
+<img alt="../../../_images/output_8_014.png" src="../../../_images/output_8_014.png" />
 </section>
 <section id="transformacion-boxcox">
 <h2>Transformación Box–Cox<a class="headerlink" href="#transformacion-boxcox" title="Link to this heading">#</a></h2>
@@ -1394,7 +1403,7 @@ Fecha
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_12_019.png" src="../../../_images/output_12_019.png" />
+<img alt="../../../_images/output_12_020.png" src="../../../_images/output_12_020.png" />
 <p><strong>Conjunto de train y test:</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dividir en train y test (por ejemplo, 80% train, 20% test)</span>
 <span class="n">split</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_boxcox</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
@@ -1675,7 +1684,7 @@ constante en el tiempo.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_20_013.png" src="../../../_images/output_20_013.png" />
+<img alt="../../../_images/output_20_014.png" src="../../../_images/output_20_014.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fecha</span>
 <span class="mi">2000</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span>    <span class="mf">0.006613</span>
 <span class="mi">2000</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span>   <span class="o">-</span><span class="mf">0.042085</span>
