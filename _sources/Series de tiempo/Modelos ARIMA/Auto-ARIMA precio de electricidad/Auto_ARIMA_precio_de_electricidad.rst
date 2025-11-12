@@ -594,7 +594,7 @@ Precio de electricidad
 .. raw:: html
 
     
-      <div id="df-96645258-a0ab-43c9-a767-2b5cdcf0c567" class="colab-df-container">
+      <div id="df-dafcbce0-3c20-4186-b6ab-09d3d3a620fe" class="colab-df-container">
         <div>
     <style scoped>
         .dataframe tbody tr th:only-of-type {
@@ -647,7 +647,7 @@ Precio de electricidad
         <div class="colab-df-buttons">
     
       <div class="colab-df-container">
-        <button class="colab-df-convert" onclick="convertToInteractive('df-96645258-a0ab-43c9-a767-2b5cdcf0c567')"
+        <button class="colab-df-convert" onclick="convertToInteractive('df-dafcbce0-3c20-4186-b6ab-09d3d3a620fe')"
                 title="Convert this dataframe to an interactive table."
                 style="display:none;">
     
@@ -699,12 +699,12 @@ Precio de electricidad
     
         <script>
           const buttonEl =
-            document.querySelector('#df-96645258-a0ab-43c9-a767-2b5cdcf0c567 button.colab-df-convert');
+            document.querySelector('#df-dafcbce0-3c20-4186-b6ab-09d3d3a620fe button.colab-df-convert');
           buttonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
     
           async function convertToInteractive(key) {
-            const element = document.querySelector('#df-96645258-a0ab-43c9-a767-2b5cdcf0c567');
+            const element = document.querySelector('#df-dafcbce0-3c20-4186-b6ab-09d3d3a620fe');
             const dataTable =
               await google.colab.kernel.invokeFunction('convertToInteractive',
                                                         [key], {});
@@ -724,8 +724,8 @@ Precio de electricidad
       </div>
     
     
-        <div id="df-7ffda5ce-3e8c-4fd3-bd5f-0638ec0f2f4c">
-          <button class="colab-df-quickchart" onclick="quickchart('df-7ffda5ce-3e8c-4fd3-bd5f-0638ec0f2f4c')"
+        <div id="df-bdf7202b-28d8-4d20-b4af-91cbc205cb7e">
+          <button class="colab-df-quickchart" onclick="quickchart('df-bdf7202b-28d8-4d20-b4af-91cbc205cb7e')"
                     title="Suggest charts"
                     style="display:none;">
     
@@ -844,7 +844,7 @@ Precio de electricidad
             }
             (() => {
               let quickchartButtonEl =
-                document.querySelector('#df-7ffda5ce-3e8c-4fd3-bd5f-0638ec0f2f4c button');
+                document.querySelector('#df-bdf7202b-28d8-4d20-b4af-91cbc205cb7e button');
               quickchartButtonEl.style.display =
                 google.colab.kernel.accessAllowed ? 'block' : 'none';
             })();
@@ -961,7 +961,7 @@ entre 0 y 13, es decir, hasta un ARIMA(13,1,13).
 **La aplicación del método auto-ARIMA con órdenes de rezago altos puede
 implicar un tiempo de ejecución considerable, ya que el número de
 combinaciones de parámetros a evaluar crece de forma exponencial con los
-valores de p y q. El siguiente ajuste puede tardar 15 minutos.**
+valores de p y q. El siguiente ajuste puede tardar varios minutos.**
 
 .. code:: ipython3
 
@@ -987,7 +987,8 @@ valores de p y q. El siguiente ajuste puede tardar 15 minutos.**
 .. code:: ipython3
 
     p = q = range(0, 14) # range no toma el último, por tanto se debe indicar un valor adicional.
-    d = [0, 1]
+    q = range(0, 14)
+    d = [1]              # para evaluar d = 0 poner d = [0, 1]
     pdq = list(itertools.product(p, d, q))  # Todas las combinaciones posibles
     trend = 'n'        # 'c' = constante, 't' = tendencia, 'ct' = constante + tendencia, 'n' = sin tendencia
     
@@ -1036,8 +1037,8 @@ Modelo seleccionado
     ==============================================================================
     Dep. Variable:          Precio_boxcox   No. Observations:                  232
     Model:               SARIMAX(3, 1, 3)   Log Likelihood                 411.791
-    Date:                Fri, 07 Nov 2025   AIC                           -809.582
-    Time:                        20:07:21   BIC                           -785.485
+    Date:                Wed, 12 Nov 2025   AIC                           -809.582
+    Time:                        16:20:12   BIC                           -785.485
     Sample:                    01-01-2000   HQIC                          -799.863
                              - 04-01-2019                                         
     Covariance Type:                  opg                                         

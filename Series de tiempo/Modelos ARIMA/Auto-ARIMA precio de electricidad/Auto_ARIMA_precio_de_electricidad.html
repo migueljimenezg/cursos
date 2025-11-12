@@ -1308,7 +1308,7 @@ document.write(`
 <span class="n">precio_electricidad</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-  <div id="df-96645258-a0ab-43c9-a767-2b5cdcf0c567" class="colab-df-container">
+  <div id="df-dafcbce0-3c20-4186-b6ab-09d3d3a620fe" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1361,7 +1361,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-96645258-a0ab-43c9-a767-2b5cdcf0c567')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-dafcbce0-3c20-4186-b6ab-09d3d3a620fe')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1413,12 +1413,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-96645258-a0ab-43c9-a767-2b5cdcf0c567 button.colab-df-convert');
+        document.querySelector('#df-dafcbce0-3c20-4186-b6ab-09d3d3a620fe button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-96645258-a0ab-43c9-a767-2b5cdcf0c567');
+        const element = document.querySelector('#df-dafcbce0-3c20-4186-b6ab-09d3d3a620fe');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1438,8 +1438,8 @@ document.write(`
   </div>
 
 
-    <div id="df-7ffda5ce-3e8c-4fd3-bd5f-0638ec0f2f4c">
-      <button class="colab-df-quickchart" onclick="quickchart('df-7ffda5ce-3e8c-4fd3-bd5f-0638ec0f2f4c')"
+    <div id="df-bdf7202b-28d8-4d20-b4af-91cbc205cb7e">
+      <button class="colab-df-quickchart" onclick="quickchart('df-bdf7202b-28d8-4d20-b4af-91cbc205cb7e')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1558,7 +1558,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-7ffda5ce-3e8c-4fd3-bd5f-0638ec0f2f4c button');
+            document.querySelector('#df-bdf7202b-28d8-4d20-b4af-91cbc205cb7e button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -1648,7 +1648,7 @@ entre 0 y 13, es decir, hasta un ARIMA(13,1,13).</p>
 <p><strong>La aplicación del método auto-ARIMA con órdenes de rezago altos puede
 implicar un tiempo de ejecución considerable, ya que el número de
 combinaciones de parámetros a evaluar crece de forma exponencial con los
-valores de p y q. El siguiente ajuste puede tardar 15 minutos.</strong></p>
+valores de p y q. El siguiente ajuste puede tardar varios minutos.</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.statespace.sarimax</span><span class="w"> </span><span class="kn">import</span> <span class="n">SARIMAX</span>
 </pre></div>
@@ -1667,7 +1667,8 @@ valores de p y q. El siguiente ajuste puede tardar 15 minutos.</strong></p>
 </pre></div>
 </div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">q</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span> <span class="c1"># range no toma el último, por tanto se debe indicar un valor adicional.</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">q</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>              <span class="c1"># para evaluar d = 0 poner d = [0, 1]</span>
 <span class="n">pdq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">q</span><span class="p">))</span>  <span class="c1"># Todas las combinaciones posibles</span>
 <span class="n">trend</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>        <span class="c1"># &#39;c&#39; = constante, &#39;t&#39; = tendencia, &#39;ct&#39; = constante + tendencia, &#39;n&#39; = sin tendencia</span>
 
@@ -1709,8 +1710,8 @@ valores de p y q. El siguiente ajuste puede tardar 15 minutos.</strong></p>
 <span class="o">==============================================================================</span>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>          <span class="n">Precio_boxcox</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
 <span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                 <span class="mf">411.791</span>
-<span class="n">Date</span><span class="p">:</span>                <span class="n">Fri</span><span class="p">,</span> <span class="mi">07</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">809.582</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">20</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">21</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">785.485</span>
+<span class="n">Date</span><span class="p">:</span>                <span class="n">Wed</span><span class="p">,</span> <span class="mi">12</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">809.582</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">16</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">12</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">785.485</span>
 <span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                          <span class="o">-</span><span class="mf">799.863</span>
                          <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
