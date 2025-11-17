@@ -48,7 +48,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Series de tiempo/Modelos SARIMA/Comparación de modelos precio de electricidad/Comparación_de_modelos_precio_de_electricidad';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Aprendizaje Estadístico" href="../../../AprenEst/index.html" />
+    <link rel="next" title="Ajuste SARIMA Irradiancia" href="../Ajuste%20SARIMA%20Irradiancia/Ajuste_SARIMA_Irradiancia.html" />
     <link rel="prev" title="Ajuste SARIMA precio de electricidad" href="../Ajuste%20SARIMA%20precio%20de%20electricidad/Ajuste_SARIMA_precio_de_electricidad.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -213,12 +213,14 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../Modelos%20ARIMA/index.html">Modelos ARIMA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Modelos%20ARIMA/Modelos%20ARIMA/Modelos%20ARIMA.html">Modelos ARIMA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Modelos%20ARIMA/Auto-ARIMA%20precio%20de%20electricidad/Auto_ARIMA_precio_de_electricidad.html">Auto-ARIMA precio de electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Modelos%20ARIMA/Auto-ARIMA%20precio%20del%20Caf%C3%A9/Auto_ARIMA_precio_del_Caf%C3%A9.html">Auto-ARIMA precio del Café</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">Modelos SARIMA</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../SARIMA/Modelos%20SARIMA.html">Modelos SARIMA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../Ajuste%20SARIMA%20precio%20de%20electricidad/Ajuste_SARIMA_precio_de_electricidad.html">Ajuste SARIMA precio de electricidad</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Comparación de modelos precio de electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Ajuste%20SARIMA%20Irradiancia/Ajuste_SARIMA_Irradiancia.html">Ajuste SARIMA Irradiancia</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1719,7 +1721,7 @@ document.write(`
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_7_016.png" src="../../../_images/output_7_016.png" />
+<img alt="../../../_images/output_7_018.png" src="../../../_images/output_7_018.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_resultados</span> <span class="o">=</span> <span class="n">analisis_estacionariedad_full</span><span class="p">(</span>
       <span class="n">precio_electricidad</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">],</span>
       <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
@@ -1772,7 +1774,7 @@ Fecha
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_12_013.png" src="../../../_images/output_12_013.png" />
+<img alt="../../../_images/output_12_014.png" src="../../../_images/output_12_014.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.statespace.sarimax</span><span class="w"> </span><span class="kn">import</span> <span class="n">SARIMAX</span>
 </pre></div>
@@ -2365,11 +2367,11 @@ predictiva del modelo.</p>
       </div>
     </a>
     <a class="right-next"
-       href="../../../AprenEst/index.html"
+       href="../Ajuste%20SARIMA%20Irradiancia/Ajuste_SARIMA_Irradiancia.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Aprendizaje Estadístico</p>
+        <p class="prev-next-title">Ajuste SARIMA Irradiancia</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

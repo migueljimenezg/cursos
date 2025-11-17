@@ -212,12 +212,14 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../Modelos%20ARIMA/index.html">Modelos ARIMA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Modelos%20ARIMA/Modelos%20ARIMA/Modelos%20ARIMA.html">Modelos ARIMA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Modelos%20ARIMA/Auto-ARIMA%20precio%20de%20electricidad/Auto_ARIMA_precio_de_electricidad.html">Auto-ARIMA precio de electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Modelos%20ARIMA/Auto-ARIMA%20precio%20del%20Caf%C3%A9/Auto_ARIMA_precio_del_Caf%C3%A9.html">Auto-ARIMA precio del Café</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../Modelos%20SARIMA/index.html">Modelos SARIMA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Modelos%20SARIMA/SARIMA/Modelos%20SARIMA.html">Modelos SARIMA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Modelos%20SARIMA/Ajuste%20SARIMA%20precio%20de%20electricidad/Ajuste_SARIMA_precio_de_electricidad.html">Ajuste SARIMA precio de electricidad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Modelos%20SARIMA/Comparaci%C3%B3n%20de%20modelos%20precio%20de%20electricidad/Comparaci%C3%B3n_de_modelos_precio_de_electricidad.html">Comparación de modelos precio de electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Modelos%20SARIMA/Ajuste%20SARIMA%20Irradiancia/Ajuste_SARIMA_Irradiancia.html">Ajuste SARIMA Irradiancia</a></li>
 </ul>
 </details></li>
 </ul>
@@ -1580,7 +1582,7 @@ document.write(`
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_7_023.png" src="../../../_images/output_7_023.png" />
+<img alt="../../../_images/output_7_025.png" src="../../../_images/output_7_025.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_resultados</span> <span class="o">=</span> <span class="n">analisis_estacionariedad_full</span><span class="p">(</span>
       <span class="n">precio_electricidad</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">],</span>
       <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
@@ -1627,7 +1629,7 @@ Fecha
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_12_021.png" src="../../../_images/output_12_021.png" />
+<img alt="../../../_images/output_12_022.png" src="../../../_images/output_12_022.png" />
 <p><strong>Conjunto de train y test:</strong></p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dividir en train y test (por ejemplo, 80% train, 20% test)</span>
 <span class="n">split</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_boxcox</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>

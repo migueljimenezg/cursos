@@ -213,12 +213,14 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20ARIMA/index.html">Modelos ARIMA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20ARIMA/Modelos%20ARIMA/Modelos%20ARIMA.html">Modelos ARIMA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20ARIMA/Auto-ARIMA%20precio%20de%20electricidad/Auto_ARIMA_precio_de_electricidad.html">Auto-ARIMA precio de electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20ARIMA/Auto-ARIMA%20precio%20del%20Caf%C3%A9/Auto_ARIMA_precio_del_Caf%C3%A9.html">Auto-ARIMA precio del Café</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20SARIMA/index.html">Modelos SARIMA</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20SARIMA/SARIMA/Modelos%20SARIMA.html">Modelos SARIMA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20SARIMA/Ajuste%20SARIMA%20precio%20de%20electricidad/Ajuste_SARIMA_precio_de_electricidad.html">Ajuste SARIMA precio de electricidad</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20SARIMA/Comparaci%C3%B3n%20de%20modelos%20precio%20de%20electricidad/Comparaci%C3%B3n_de_modelos_precio_de_electricidad.html">Comparación de modelos precio de electricidad</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../Series%20de%20tiempo/Modelos%20SARIMA/Ajuste%20SARIMA%20Irradiancia/Ajuste_SARIMA_Irradiancia.html">Ajuste SARIMA Irradiancia</a></li>
 </ul>
 </details></li>
 </ul>
@@ -891,17 +893,17 @@ qué debe graficar con los datos ingresados y las estéticas definidas.</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_point</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_25_010.png"><img alt="../../_images/output_25_010.png" src="../../_images/output_25_010.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_25_012.png"><img alt="../../_images/output_25_012.png" src="../../_images/output_25_012.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_line</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_26_09.png"><img alt="../../_images/output_26_09.png" src="../../_images/output_26_09.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_26_010.png"><img alt="../../_images/output_26_010.png" src="../../_images/output_26_010.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">geom_area</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_27_09.png"><img alt="../../_images/output_27_09.png" src="../../_images/output_27_09.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_27_010.png"><img alt="../../_images/output_27_010.png" src="../../_images/output_27_010.png" style="width: 420px; height: 420px;" />
 </a>
 <p><strong>Gráficos de una variable:</strong></p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">datos</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Estrato</span><span class="p">)</span>
