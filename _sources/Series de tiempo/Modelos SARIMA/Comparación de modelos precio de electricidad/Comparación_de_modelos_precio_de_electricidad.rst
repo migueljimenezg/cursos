@@ -1,6 +1,73 @@
 Comparación de modelos precio de electricidad
 ---------------------------------------------
 
+Métricas de desempeño
+~~~~~~~~~~~~~~~~~~~~~
+
+**Raíz del Error Cuadrático Medio (RMSE)**
+
+Mide la magnitud promedio del error cuadrático entre los valores
+observados y los valores predichos. Penaliza fuertemente los errores
+grandes.
+
+.. math::  RMSE = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t - \hat{y}_t)^2 } 
+
+**Error Porcentual Absoluto Medio (MAPE)**
+
+Indica el error promedio en términos porcentuales. Es útil para
+interpretar el error relativo con respecto al valor real.
+
+.. math::  MAPE = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t - \hat{y}_t}{y_t} \right| 
+
+**Error Máximo (Max Error)**
+
+Representa la mayor desviación absoluta entre las predicciones y los
+valores reales. Evalúa el peor caso de error del modelo.
+
+.. math::  Max\ Error = \max_{t} \left| y_t - \hat{y}_t \right| 
+
+**Coeficiente de Determinación Ajustado (R² ajustado)**
+
+Evalúa qué tan bien el modelo explica la variabilidad de los datos,
+ajustando por el número de parámetros estimados. A diferencia del R²
+tradicional, penaliza la complejidad excesiva del modelo.
+
+.. math::  R^2_{ajustado} = 1 - (1 - R^2)\frac{n - 1}{n - k - 1} 
+
+donde:
+
+.. math::  R^2 = 1 - \frac{\sum_{t=1}^{n}(y_t - \hat{y}t)^2}{\sum{t=1}^{n}(y_t - \bar{y})^2} 
+
+:math:`n` es el número de observaciones y :math:`k` el número de
+parámetros estimados en el modelo.
+
+**Rangos sugeridos de calidad del ajuste**
+
+**R² ajustado (escala 0–1)**
+
+==================== ==========================================
+Categoría            Rango
+==================== ==========================================
+Excelente            :math:`R^2_{ajustado} \ge 0{,}90`
+Bueno                :math:`0{,}75 \le R^2_{ajustado} < 0{,}90`
+Moderado / Aceptable :math:`0{,}50 \le R^2_{ajustado} < 0{,}75`
+Deficiente           :math:`R^2_{ajustado} < 0{,}50`
+==================== ==========================================
+
+**MAPE (porcentaje)**
+
+==================== ============================
+Categoría            Rango
+==================== ============================
+Excelente            :math:`MAPE < 10\%`
+Bueno                :math:`10\% \le MAPE < 20\%`
+Moderado / Aceptable :math:`20\% \le MAPE < 50\%`
+Deficiente           :math:`MAPE \ge 50\%`
+==================== ============================
+
+Estas categorías permiten interpretar de manera cualitativa la capacidad
+predictiva del modelo.
+
 .. code:: ipython3
 
     import numpy as np
@@ -728,7 +795,7 @@ Precio de electricidad
 .. raw:: html
 
     
-      <div id="df-26d556a9-78f5-4b38-90c6-df8681586a45" class="colab-df-container">
+      <div id="df-e116b928-9186-4d1f-9831-82a51b90170b" class="colab-df-container">
         <div>
     <style scoped>
         .dataframe tbody tr th:only-of-type {
@@ -781,7 +848,7 @@ Precio de electricidad
         <div class="colab-df-buttons">
     
       <div class="colab-df-container">
-        <button class="colab-df-convert" onclick="convertToInteractive('df-26d556a9-78f5-4b38-90c6-df8681586a45')"
+        <button class="colab-df-convert" onclick="convertToInteractive('df-e116b928-9186-4d1f-9831-82a51b90170b')"
                 title="Convert this dataframe to an interactive table."
                 style="display:none;">
     
@@ -833,12 +900,12 @@ Precio de electricidad
     
         <script>
           const buttonEl =
-            document.querySelector('#df-26d556a9-78f5-4b38-90c6-df8681586a45 button.colab-df-convert');
+            document.querySelector('#df-e116b928-9186-4d1f-9831-82a51b90170b button.colab-df-convert');
           buttonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
     
           async function convertToInteractive(key) {
-            const element = document.querySelector('#df-26d556a9-78f5-4b38-90c6-df8681586a45');
+            const element = document.querySelector('#df-e116b928-9186-4d1f-9831-82a51b90170b');
             const dataTable =
               await google.colab.kernel.invokeFunction('convertToInteractive',
                                                         [key], {});
@@ -856,134 +923,6 @@ Precio de electricidad
           }
         </script>
       </div>
-    
-    
-        <div id="df-684a0e09-1fa2-4182-86df-2dce744ae18b">
-          <button class="colab-df-quickchart" onclick="quickchart('df-684a0e09-1fa2-4182-86df-2dce744ae18b')"
-                    title="Suggest charts"
-                    style="display:none;">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-         width="24px">
-        <g>
-            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-        </g>
-    </svg>
-          </button>
-    
-    <style>
-      .colab-df-quickchart {
-          --bg-color: #E8F0FE;
-          --fill-color: #1967D2;
-          --hover-bg-color: #E2EBFA;
-          --hover-fill-color: #174EA6;
-          --disabled-fill-color: #AAA;
-          --disabled-bg-color: #DDD;
-      }
-    
-      [theme=dark] .colab-df-quickchart {
-          --bg-color: #3B4455;
-          --fill-color: #D2E3FC;
-          --hover-bg-color: #434B5C;
-          --hover-fill-color: #FFFFFF;
-          --disabled-bg-color: #3B4455;
-          --disabled-fill-color: #666;
-      }
-    
-      .colab-df-quickchart {
-        background-color: var(--bg-color);
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        fill: var(--fill-color);
-        height: 32px;
-        padding: 0;
-        width: 32px;
-      }
-    
-      .colab-df-quickchart:hover {
-        background-color: var(--hover-bg-color);
-        box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-        fill: var(--button-hover-fill-color);
-      }
-    
-      .colab-df-quickchart-complete:disabled,
-      .colab-df-quickchart-complete:disabled:hover {
-        background-color: var(--disabled-bg-color);
-        fill: var(--disabled-fill-color);
-        box-shadow: none;
-      }
-    
-      .colab-df-spinner {
-        border: 2px solid var(--fill-color);
-        border-color: transparent;
-        border-bottom-color: var(--fill-color);
-        animation:
-          spin 1s steps(1) infinite;
-      }
-    
-      @keyframes spin {
-        0% {
-          border-color: transparent;
-          border-bottom-color: var(--fill-color);
-          border-left-color: var(--fill-color);
-        }
-        20% {
-          border-color: transparent;
-          border-left-color: var(--fill-color);
-          border-top-color: var(--fill-color);
-        }
-        30% {
-          border-color: transparent;
-          border-left-color: var(--fill-color);
-          border-top-color: var(--fill-color);
-          border-right-color: var(--fill-color);
-        }
-        40% {
-          border-color: transparent;
-          border-right-color: var(--fill-color);
-          border-top-color: var(--fill-color);
-        }
-        60% {
-          border-color: transparent;
-          border-right-color: var(--fill-color);
-        }
-        80% {
-          border-color: transparent;
-          border-right-color: var(--fill-color);
-          border-bottom-color: var(--fill-color);
-        }
-        90% {
-          border-color: transparent;
-          border-bottom-color: var(--fill-color);
-        }
-      }
-    </style>
-    
-          <script>
-            async function quickchart(key) {
-              const quickchartButtonEl =
-                document.querySelector('#' + key + ' button');
-              quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-              quickchartButtonEl.classList.add('colab-df-spinner');
-              try {
-                const charts = await google.colab.kernel.invokeFunction(
-                    'suggestCharts', [key], {});
-              } catch (error) {
-                console.error('Error during call to suggestCharts:', error);
-              }
-              quickchartButtonEl.classList.remove('colab-df-spinner');
-              quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-            }
-            (() => {
-              let quickchartButtonEl =
-                document.querySelector('#df-684a0e09-1fa2-4182-86df-2dce744ae18b button');
-              quickchartButtonEl.style.display =
-                google.colab.kernel.accessAllowed ? 'block' : 'none';
-            })();
-          </script>
-        </div>
     
         </div>
       </div>
@@ -1005,7 +944,7 @@ Precio de electricidad
 
 
 
-.. image:: output_7_0.png
+.. image:: output_10_0.png
 
 
 .. code:: ipython3
@@ -1019,7 +958,7 @@ Precio de electricidad
 
 
 
-.. image:: output_8_0.png
+.. image:: output_11_0.png
 
 
 Transformación Box–Cox
@@ -1072,7 +1011,7 @@ Conjunto de train y test:
 
 
 
-.. image:: output_12_0.png
+.. image:: output_15_0.png
 
 
 .. code:: ipython3
@@ -1095,6 +1034,195 @@ Conjunto de train y test:
         category=UserWarning)
     warnings.filterwarnings("ignore", category=ConvergenceWarning)
     
+
+MA(3)
+~~~~~
+
+.. code:: ipython3
+
+    # Definir los parámetros del modelo ARIMA (p, d, q)
+    order = (0, 1, 3)  # Puedes ajustar según el análisis de ACF y PACF
+    trend = 'n'        # 'c' = constante, 't' = tendencia, 'ct' = constante + tendencia, 'n' = sin tendencia
+    seasonal_order = (0, 0, 0, 0)  # Parámetros de la estacionalidad (P, D, Q, s)
+    
+    # Ajustar el modelo con los datos de entrenamiento
+    model = SARIMAX(train, order=order, seasonal_order=seasonal_order, trend=trend)
+    results = model.fit()
+    
+    # Mostrar resumen del modelo
+    print(results.summary())
+
+
+.. parsed-literal::
+
+                                   SARIMAX Results                                
+    ==============================================================================
+    Dep. Variable:          Precio_boxcox   No. Observations:                  232
+    Model:               SARIMAX(0, 1, 3)   Log Likelihood                 403.688
+    Date:                Mon, 24 Nov 2025   AIC                           -799.377
+    Time:                        19:08:01   BIC                           -785.607
+    Sample:                    01-01-2000   HQIC                          -793.823
+                             - 04-01-2019                                         
+    Covariance Type:                  opg                                         
+    ==============================================================================
+                     coef    std err          z      P>|z|      [0.025      0.975]
+    ------------------------------------------------------------------------------
+    ma.L1         -0.1016      0.060     -1.680      0.093      -0.220       0.017
+    ma.L2         -0.1952      0.059     -3.299      0.001      -0.311      -0.079
+    ma.L3         -0.1692      0.066     -2.581      0.010      -0.298      -0.041
+    sigma2         0.0018      0.000     11.255      0.000       0.001       0.002
+    ===================================================================================
+    Ljung-Box (L1) (Q):                   0.00   Jarque-Bera (JB):                 0.85
+    Prob(Q):                              0.97   Prob(JB):                         0.65
+    Heteroskedasticity (H):               1.58   Skew:                             0.09
+    Prob(H) (two-sided):                  0.05   Kurtosis:                         3.24
+    ===================================================================================
+    
+    Warnings:
+    [1] Covariance matrix calculated using the outer product of gradients (complex-step).
+    
+
+Ajuste y pronóstico en la serie original
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    fitted_values = results.fittedvalues
+    y_pred_train = np.power((lambda_bc * fitted_values + 1), 1 / lambda_bc)
+    y_pred = y_pred_train[1:]
+    y_real = precio_electricidad["Precio"][1:split]
+
+.. code:: ipython3
+
+    resultados = analizar_ajuste_serie(
+        precio_electricidad,      # Serie original (sin transformar)
+        fitted_values,            # Ajuste en train
+        results,                  # Modelo ajustado
+        test,                     # Datos test
+        n_forecast=12,            # Periodos futuros
+        transformacion='boxcox',  # 'log', 'boxcox', 'sqrt' o None
+        lambda_bc=lambda_bc,            # Solo si es boxcox
+        nombre="Precio de electricidad"
+    )
+
+
+
+.. image:: output_23_0.png
+
+
+.. code:: ipython3
+
+    ### Gráfico de valores predichos vs. valores reales
+    plt.figure(figsize=(6,6))
+    plt.scatter(y_real, y_pred, color='blue', alpha=0.6, edgecolor='k')
+    
+    # Línea de identidad (y = x)
+    min_val = min(y_real.min(), y_pred.min())
+    max_val = max(y_real.max(), y_pred.max())
+    plt.plot([min_val, max_val], [min_val, max_val], color='black', lw=2)
+    
+    plt.title("Valores predichos vs. valores reales", fontsize=12)
+    plt.xlabel("Valores reales")
+    plt.ylabel("Valores predichos")
+    plt.axis("equal")  # asegura proporciones iguales para la diagonal
+    plt.grid(alpha=0.3)
+    plt.tight_layout()
+    plt.show()
+
+
+
+.. image:: output_24_0.png
+
+
+Análisis de los residuales
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    analisis_residuales(
+        results.resid,      # Agregar los residuales
+        nombre="Precio de electricidad",
+    )
+
+
+
+.. image:: output_26_0.png
+
+
+Métricas de desempeño
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    from sklearn.metrics import (
+        r2_score,
+        mean_squared_error,
+        mean_absolute_percentage_error,
+        max_error
+    )
+
+.. code:: ipython3
+
+    metricas = evaluar_metricas_desempeno(
+        train=train,
+        test=test,
+        results=results,
+        transformacion='boxcox',  # 'log', 'boxcox', 'sqrt' o None
+        lambda_bc=lambda_bc,      # Solo si es boxcox
+        nombre="MA(0,1,3) Precio de electricidad"
+    )
+
+
+.. parsed-literal::
+
+    
+    Métricas de desempeño - MA(0,1,3) Precio de electricidad
+    --------------------------------------------------------
+    
+
+
+.. raw:: html
+
+    <style type="text/css">
+    </style>
+    <table id="T_d7f16" class="dataframe">
+      <thead>
+        <tr>
+          <th class="blank level0" >&nbsp;</th>
+          <th id="T_d7f16_level0_col0" class="col_heading level0 col0" >Train</th>
+          <th id="T_d7f16_level0_col1" class="col_heading level0 col1" >Test</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th id="T_d7f16_level0_row0" class="row_heading level0 row0" >RMSE</th>
+          <td id="T_d7f16_row0_col0" class="data row0 col0" >70.2417</td>
+          <td id="T_d7f16_row0_col1" class="data row0 col1" >124.5009</td>
+        </tr>
+        <tr>
+          <th id="T_d7f16_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
+          <td id="T_d7f16_row1_col0" class="data row1 col0" >18.9839</td>
+          <td id="T_d7f16_row1_col1" class="data row1 col1" >25.7196</td>
+        </tr>
+        <tr>
+          <th id="T_d7f16_level0_row2" class="row_heading level0 row2" >Max Error</th>
+          <td id="T_d7f16_row2_col0" class="data row2 col0" >713.0117</td>
+          <td id="T_d7f16_row2_col1" class="data row2 col1" >487.2253</td>
+        </tr>
+        <tr>
+          <th id="T_d7f16_level0_row3" class="row_heading level0 row3" >R2</th>
+          <td id="T_d7f16_row3_col0" class="data row3 col0" >0.7107</td>
+          <td id="T_d7f16_row3_col1" class="data row3 col1" >0.6452</td>
+        </tr>
+        <tr>
+          <th id="T_d7f16_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
+          <td id="T_d7f16_row4_col0" class="data row4 col0" >0.7095</td>
+          <td id="T_d7f16_row4_col1" class="data row4 col1" >0.6390</td>
+        </tr>
+      </tbody>
+    </table>
+    
+
 
 ARIMA(3,1,3)
 ~~~~~~~~~~~~
@@ -1120,8 +1248,8 @@ ARIMA(3,1,3)
     ==============================================================================
     Dep. Variable:          Precio_boxcox   No. Observations:                  232
     Model:               SARIMAX(3, 1, 3)   Log Likelihood                 411.791
-    Date:                Fri, 07 Nov 2025   AIC                           -809.582
-    Time:                        21:59:44   BIC                           -785.485
+    Date:                Mon, 24 Nov 2025   AIC                           -809.582
+    Time:                        19:08:20   BIC                           -785.485
     Sample:                    01-01-2000   HQIC                          -799.863
                              - 04-01-2019                                         
     Covariance Type:                  opg                                         
@@ -1171,7 +1299,7 @@ Ajuste y pronóstico en la serie original
 
 
 
-.. image:: output_20_0.png
+.. image:: output_34_0.png
 
 
 .. code:: ipython3
@@ -1195,7 +1323,7 @@ Ajuste y pronóstico en la serie original
 
 
 
-.. image:: output_21_0.png
+.. image:: output_35_0.png
 
 
 Análisis de los residuales
@@ -1210,84 +1338,11 @@ Análisis de los residuales
 
 
 
-.. image:: output_23_0.png
+.. image:: output_37_0.png
 
 
 Métricas de desempeño
 ~~~~~~~~~~~~~~~~~~~~~
-
-**Raíz del Error Cuadrático Medio (RMSE)**
-
-Mide la magnitud promedio del error cuadrático entre los valores
-observados y los valores predichos. Penaliza fuertemente los errores
-grandes.
-
-.. math::  RMSE = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t - \hat{y}_t)^2 } 
-
-**Error Porcentual Absoluto Medio (MAPE)**
-
-Indica el error promedio en términos porcentuales. Es útil para
-interpretar el error relativo con respecto al valor real.
-
-.. math::  MAPE = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t - \hat{y}_t}{y_t} \right| 
-
-**Error Máximo (Max Error)**
-
-Representa la mayor desviación absoluta entre las predicciones y los
-valores reales. Evalúa el peor caso de error del modelo.
-
-.. math::  Max\ Error = \max_{t} \left| y_t - \hat{y}_t \right| 
-
-**Coeficiente de Determinación Ajustado (R² ajustado)**
-
-Evalúa qué tan bien el modelo explica la variabilidad de los datos,
-ajustando por el número de parámetros estimados. A diferencia del R²
-tradicional, penaliza la complejidad excesiva del modelo.
-
-.. math::  R^2_{ajustado} = 1 - (1 - R^2)\frac{n - 1}{n - k - 1} 
-
-donde:
-
-.. math::  R^2 = 1 - \frac{\sum_{t=1}^{n}(y_t - \hat{y}t)^2}{\sum{t=1}^{n}(y_t - \bar{y})^2} 
-
-:math:`n` es el número de observaciones y :math:`k` el número de
-parámetros estimados en el modelo.
-
-**Rangos sugeridos de calidad del ajuste**
-
-**R² ajustado (escala 0–1)**
-
-==================== ==========================================
-Categoría            Rango
-==================== ==========================================
-Excelente            :math:`R^2_{ajustado} \ge 0{,}90`
-Bueno                :math:`0{,}75 \le R^2_{ajustado} < 0{,}90`
-Moderado / Aceptable :math:`0{,}50 \le R^2_{ajustado} < 0{,}75`
-Deficiente           :math:`R^2_{ajustado} < 0{,}50`
-==================== ==========================================
-
-**MAPE (porcentaje)**
-
-==================== ============================
-Categoría            Rango
-==================== ============================
-Excelente            :math:`MAPE < 10\%`
-Bueno                :math:`10\% \le MAPE < 20\%`
-Moderado / Aceptable :math:`20\% \le MAPE < 50\%`
-Deficiente           :math:`MAPE \ge 50\%`
-==================== ============================
-
-Estas categorías permiten interpretar de manera cualitativa la capacidad
-predictiva del modelo.
-
-.. code:: ipython3
-
-    from sklearn.metrics import (
-        r2_score,
-        mean_squared_error,
-        mean_absolute_percentage_error,
-        max_error
-    )
 
 .. code:: ipython3
 
@@ -1313,39 +1368,39 @@ predictiva del modelo.
 
     <style type="text/css">
     </style>
-    <table id="T_8a81d" class="dataframe">
+    <table id="T_60463" class="dataframe">
       <thead>
         <tr>
           <th class="blank level0" >&nbsp;</th>
-          <th id="T_8a81d_level0_col0" class="col_heading level0 col0" >Train</th>
-          <th id="T_8a81d_level0_col1" class="col_heading level0 col1" >Test</th>
+          <th id="T_60463_level0_col0" class="col_heading level0 col0" >Train</th>
+          <th id="T_60463_level0_col1" class="col_heading level0 col1" >Test</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th id="T_8a81d_level0_row0" class="row_heading level0 row0" >RMSE</th>
-          <td id="T_8a81d_row0_col0" class="data row0 col0" >68.3017</td>
-          <td id="T_8a81d_row0_col1" class="data row0 col1" >130.4160</td>
+          <th id="T_60463_level0_row0" class="row_heading level0 row0" >RMSE</th>
+          <td id="T_60463_row0_col0" class="data row0 col0" >68.3017</td>
+          <td id="T_60463_row0_col1" class="data row0 col1" >130.4160</td>
         </tr>
         <tr>
-          <th id="T_8a81d_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
-          <td id="T_8a81d_row1_col0" class="data row1 col0" >18.1770</td>
-          <td id="T_8a81d_row1_col1" class="data row1 col1" >24.8115</td>
+          <th id="T_60463_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
+          <td id="T_60463_row1_col0" class="data row1 col0" >18.1770</td>
+          <td id="T_60463_row1_col1" class="data row1 col1" >24.8115</td>
         </tr>
         <tr>
-          <th id="T_8a81d_level0_row2" class="row_heading level0 row2" >Max Error</th>
-          <td id="T_8a81d_row2_col0" class="data row2 col0" >688.9788</td>
-          <td id="T_8a81d_row2_col1" class="data row2 col1" >565.0481</td>
+          <th id="T_60463_level0_row2" class="row_heading level0 row2" >Max Error</th>
+          <td id="T_60463_row2_col0" class="data row2 col0" >688.9788</td>
+          <td id="T_60463_row2_col1" class="data row2 col1" >565.0481</td>
         </tr>
         <tr>
-          <th id="T_8a81d_level0_row3" class="row_heading level0 row3" >R2</th>
-          <td id="T_8a81d_row3_col0" class="data row3 col0" >0.7265</td>
-          <td id="T_8a81d_row3_col1" class="data row3 col1" >0.6107</td>
+          <th id="T_60463_level0_row3" class="row_heading level0 row3" >R2</th>
+          <td id="T_60463_row3_col0" class="data row3 col0" >0.7265</td>
+          <td id="T_60463_row3_col1" class="data row3 col1" >0.6107</td>
         </tr>
         <tr>
-          <th id="T_8a81d_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
-          <td id="T_8a81d_row4_col0" class="data row4 col0" >0.7253</td>
-          <td id="T_8a81d_row4_col1" class="data row4 col1" >0.6038</td>
+          <th id="T_60463_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
+          <td id="T_60463_row4_col0" class="data row4 col0" >0.7253</td>
+          <td id="T_60463_row4_col1" class="data row4 col1" >0.6038</td>
         </tr>
       </tbody>
     </table>
@@ -1376,8 +1431,8 @@ SARIMA(3,1,3)(1,0,1,12)
     ============================================================================================
     Dep. Variable:                        Precio_boxcox   No. Observations:                  232
     Model:             SARIMAX(3, 1, 3)x(1, 0, [1], 12)   Log Likelihood                 411.734
-    Date:                              Fri, 07 Nov 2025   AIC                           -805.469
-    Time:                                      22:00:06   BIC                           -774.487
+    Date:                              Mon, 24 Nov 2025   AIC                           -805.469
+    Time:                                      19:08:30   BIC                           -774.487
     Sample:                                  01-01-2000   HQIC                          -792.973
                                            - 04-01-2019                                         
     Covariance Type:                                opg                                         
@@ -1429,7 +1484,7 @@ Ajuste y pronóstico en la serie original
 
 
 
-.. image:: output_33_0.png
+.. image:: output_44_0.png
 
 
 .. code:: ipython3
@@ -1453,7 +1508,7 @@ Ajuste y pronóstico en la serie original
 
 
 
-.. image:: output_34_0.png
+.. image:: output_45_0.png
 
 
 Análisis de los residuales
@@ -1468,7 +1523,7 @@ Análisis de los residuales
 
 
 
-.. image:: output_36_0.png
+.. image:: output_47_0.png
 
 
 Métricas de desempeño
@@ -1498,44 +1553,49 @@ Métricas de desempeño
 
     <style type="text/css">
     </style>
-    <table id="T_52f81" class="dataframe">
+    <table id="T_daf84" class="dataframe">
       <thead>
         <tr>
           <th class="blank level0" >&nbsp;</th>
-          <th id="T_52f81_level0_col0" class="col_heading level0 col0" >Train</th>
-          <th id="T_52f81_level0_col1" class="col_heading level0 col1" >Test</th>
+          <th id="T_daf84_level0_col0" class="col_heading level0 col0" >Train</th>
+          <th id="T_daf84_level0_col1" class="col_heading level0 col1" >Test</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th id="T_52f81_level0_row0" class="row_heading level0 row0" >RMSE</th>
-          <td id="T_52f81_row0_col0" class="data row0 col0" >68.4205</td>
-          <td id="T_52f81_row0_col1" class="data row0 col1" >130.0571</td>
+          <th id="T_daf84_level0_row0" class="row_heading level0 row0" >RMSE</th>
+          <td id="T_daf84_row0_col0" class="data row0 col0" >68.4205</td>
+          <td id="T_daf84_row0_col1" class="data row0 col1" >130.0571</td>
         </tr>
         <tr>
-          <th id="T_52f81_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
-          <td id="T_52f81_row1_col0" class="data row1 col0" >18.2000</td>
-          <td id="T_52f81_row1_col1" class="data row1 col1" >24.8158</td>
+          <th id="T_daf84_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
+          <td id="T_daf84_row1_col0" class="data row1 col0" >18.2000</td>
+          <td id="T_daf84_row1_col1" class="data row1 col1" >24.8158</td>
         </tr>
         <tr>
-          <th id="T_52f81_level0_row2" class="row_heading level0 row2" >Max Error</th>
-          <td id="T_52f81_row2_col0" class="data row2 col0" >692.8142</td>
-          <td id="T_52f81_row2_col1" class="data row2 col1" >566.1221</td>
+          <th id="T_daf84_level0_row2" class="row_heading level0 row2" >Max Error</th>
+          <td id="T_daf84_row2_col0" class="data row2 col0" >692.8142</td>
+          <td id="T_daf84_row2_col1" class="data row2 col1" >566.1221</td>
         </tr>
         <tr>
-          <th id="T_52f81_level0_row3" class="row_heading level0 row3" >R2</th>
-          <td id="T_52f81_row3_col0" class="data row3 col0" >0.7256</td>
-          <td id="T_52f81_row3_col1" class="data row3 col1" >0.6128</td>
+          <th id="T_daf84_level0_row3" class="row_heading level0 row3" >R2</th>
+          <td id="T_daf84_row3_col0" class="data row3 col0" >0.7256</td>
+          <td id="T_daf84_row3_col1" class="data row3 col1" >0.6128</td>
         </tr>
         <tr>
-          <th id="T_52f81_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
-          <td id="T_52f81_row4_col0" class="data row4 col0" >0.7244</td>
-          <td id="T_52f81_row4_col1" class="data row4 col1" >0.6060</td>
+          <th id="T_daf84_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
+          <td id="T_daf84_row4_col0" class="data row4 col0" >0.7244</td>
+          <td id="T_daf84_row4_col1" class="data row4 col1" >0.6060</td>
         </tr>
       </tbody>
     </table>
     
 
+
+\**Dado que el rezago 13 sigue presentándose como ligeramente
+significativo, se evaluaron varios modelos SARIMA con rezagos mayores al
+del modelo previo. Como resultado, se determinó que el modelo
+SARIMA(8,1,8)(1,0,1)_{12} satisface este requisito en los residuales.*\*
 
 SARIMA(8,1,8)(1,0,1,12)
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -1561,8 +1621,8 @@ SARIMA(8,1,8)(1,0,1,12)
     ============================================================================================
     Dep. Variable:                        Precio_boxcox   No. Observations:                  232
     Model:             SARIMAX(8, 1, 8)x(1, 0, [1], 12)   Log Likelihood                 414.788
-    Date:                              Fri, 07 Nov 2025   AIC                           -791.577
-    Time:                                      22:00:33   BIC                           -726.171
+    Date:                              Mon, 24 Nov 2025   AIC                           -791.577
+    Time:                                      19:09:03   BIC                           -726.171
     Sample:                                  01-01-2000   HQIC                          -765.196
                                            - 04-01-2019                                         
     Covariance Type:                                opg                                         
@@ -1624,7 +1684,7 @@ Ajuste y pronóstico en la serie original
 
 
 
-.. image:: output_43_0.png
+.. image:: output_55_0.png
 
 
 .. code:: ipython3
@@ -1648,7 +1708,7 @@ Ajuste y pronóstico en la serie original
 
 
 
-.. image:: output_44_0.png
+.. image:: output_56_0.png
 
 
 Análisis de los residuales
@@ -1663,7 +1723,7 @@ Análisis de los residuales
 
 
 
-.. image:: output_46_0.png
+.. image:: output_58_0.png
 
 
 Métricas de desempeño:
@@ -1693,39 +1753,39 @@ Métricas de desempeño:
 
     <style type="text/css">
     </style>
-    <table id="T_a374b" class="dataframe">
+    <table id="T_89853" class="dataframe">
       <thead>
         <tr>
           <th class="blank level0" >&nbsp;</th>
-          <th id="T_a374b_level0_col0" class="col_heading level0 col0" >Train</th>
-          <th id="T_a374b_level0_col1" class="col_heading level0 col1" >Test</th>
+          <th id="T_89853_level0_col0" class="col_heading level0 col0" >Train</th>
+          <th id="T_89853_level0_col1" class="col_heading level0 col1" >Test</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th id="T_a374b_level0_row0" class="row_heading level0 row0" >RMSE</th>
-          <td id="T_a374b_row0_col0" class="data row0 col0" >66.2993</td>
-          <td id="T_a374b_row0_col1" class="data row0 col1" >130.5171</td>
+          <th id="T_89853_level0_row0" class="row_heading level0 row0" >RMSE</th>
+          <td id="T_89853_row0_col0" class="data row0 col0" >66.2993</td>
+          <td id="T_89853_row0_col1" class="data row0 col1" >130.5171</td>
         </tr>
         <tr>
-          <th id="T_a374b_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
-          <td id="T_a374b_row1_col0" class="data row1 col0" >18.0797</td>
-          <td id="T_a374b_row1_col1" class="data row1 col1" >25.6725</td>
+          <th id="T_89853_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
+          <td id="T_89853_row1_col0" class="data row1 col0" >18.0797</td>
+          <td id="T_89853_row1_col1" class="data row1 col1" >25.6725</td>
         </tr>
         <tr>
-          <th id="T_a374b_level0_row2" class="row_heading level0 row2" >Max Error</th>
-          <td id="T_a374b_row2_col0" class="data row2 col0" >691.2980</td>
-          <td id="T_a374b_row2_col1" class="data row2 col1" >502.5409</td>
+          <th id="T_89853_level0_row2" class="row_heading level0 row2" >Max Error</th>
+          <td id="T_89853_row2_col0" class="data row2 col0" >691.2980</td>
+          <td id="T_89853_row2_col1" class="data row2 col1" >502.5409</td>
         </tr>
         <tr>
-          <th id="T_a374b_level0_row3" class="row_heading level0 row3" >R2</th>
-          <td id="T_a374b_row3_col0" class="data row3 col0" >0.7423</td>
-          <td id="T_a374b_row3_col1" class="data row3 col1" >0.6101</td>
+          <th id="T_89853_level0_row3" class="row_heading level0 row3" >R2</th>
+          <td id="T_89853_row3_col0" class="data row3 col0" >0.7423</td>
+          <td id="T_89853_row3_col1" class="data row3 col1" >0.6101</td>
         </tr>
         <tr>
-          <th id="T_a374b_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
-          <td id="T_a374b_row4_col0" class="data row4 col0" >0.7412</td>
-          <td id="T_a374b_row4_col1" class="data row4 col1" >0.6032</td>
+          <th id="T_89853_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
+          <td id="T_89853_row4_col0" class="data row4 col0" >0.7412</td>
+          <td id="T_89853_row4_col1" class="data row4 col1" >0.6032</td>
         </tr>
       </tbody>
     </table>

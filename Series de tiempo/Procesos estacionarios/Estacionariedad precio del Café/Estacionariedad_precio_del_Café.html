@@ -1119,7 +1119,7 @@ cosecha de mitaca (o traviesa) entre septiembre y diciembre.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_8_013.png" src="../../../_images/output_8_013.png" />
+<img alt="../../../_images/output_8_012.png" src="../../../_images/output_8_012.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Calcular la tendencia con media móvil centrada de 12 meses</span>
 <span class="n">tendencia</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
@@ -1199,7 +1199,7 @@ cosecha de mitaca (o traviesa) entre septiembre y diciembre.</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No podemos rechazar la hipótesis nula: La serie no es estacionaria.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_15_013.png" src="../../../_images/output_15_013.png" />
+<img alt="../../../_images/output_15_014.png" src="../../../_images/output_15_014.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadístico</span> <span class="n">ADF</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.573149232135553</span>
 <span class="n">Valor</span> <span class="n">p</span><span class="p">:</span> <span class="mf">7.412548013102314e-08</span>
 <span class="n">Rechazamos</span> <span class="n">la</span> <span class="n">hipótesis</span> <span class="n">nula</span><span class="p">:</span> <span class="n">La</span> <span class="n">serie</span> <span class="n">es</span> <span class="n">estacionaria</span><span class="o">.</span>
@@ -1261,7 +1261,7 @@ cosecha de mitaca (o traviesa) entre septiembre y diciembre.</p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No podemos rechazar la hipótesis nula: La serie no es estacionaria.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_20_012.png" src="../../../_images/output_20_012.png" />
+<img alt="../../../_images/output_20_011.png" src="../../../_images/output_20_011.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Estadístico</span> <span class="n">ADF</span><span class="p">:</span> <span class="o">-</span><span class="mf">4.476002005356018</span>
 <span class="n">Valor</span> <span class="n">p</span><span class="p">:</span> <span class="mf">1.0454734547411791e-05</span>
 <span class="n">Rechazamos</span> <span class="n">la</span> <span class="n">hipótesis</span> <span class="n">nula</span><span class="p">:</span> <span class="n">La</span> <span class="n">serie</span> <span class="n">es</span> <span class="n">estacionaria</span><span class="o">.</span>
@@ -1321,7 +1321,7 @@ para poder recuperar toda la serie.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_24_015.png" src="../../../_images/output_24_015.png" />
+<img alt="../../../_images/output_24_016.png" src="../../../_images/output_24_016.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recuperar la serie logarítmica original</span>
 <span class="n">inverse_log</span> <span class="o">=</span> <span class="n">df_log_diff</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span> <span class="o">+</span> <span class="n">df_log</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1"># Recuperar la serie original (deshacer el log)</span>

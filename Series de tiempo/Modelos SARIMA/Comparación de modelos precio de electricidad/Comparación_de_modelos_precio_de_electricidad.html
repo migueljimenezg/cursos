@@ -707,22 +707,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-desempeno">Métricas de desempeño</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-de-electricidad">Precio de electricidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-boxcox">Transformación Box–Cox</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-de-train-y-test">Conjunto de train y test:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-3-1-3">ARIMA(3,1,3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ma-3">MA(3)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-y-pronostico-en-la-serie-original">Ajuste y pronóstico en la serie original</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-residuales">Análisis de los residuales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-desempeno">Métricas de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Métricas de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-3-1-3">ARIMA(3,1,3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ajuste y pronóstico en la serie original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Análisis de los residuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Métricas de desempeño</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima-3-1-3-1-0-1-12">SARIMA(3,1,3)(1,0,1,12)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ajuste y pronóstico en la serie original</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Análisis de los residuales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Métricas de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Ajuste y pronóstico en la serie original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Análisis de los residuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Métricas de desempeño</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima-8-1-8-1-0-1-12">SARIMA(8,1,8)(1,0,1,12)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ajuste y pronóstico en la serie original</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Análisis de los residuales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métricas de desempeño:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Ajuste y pronóstico en la serie original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Análisis de los residuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Métricas de desempeño:</a></li>
 </ul>
             </nav>
         </div>
@@ -736,6 +741,84 @@ document.write(`
                   
   <section id="comparacion-de-modelos-precio-de-electricidad">
 <h1>Comparación de modelos precio de electricidad<a class="headerlink" href="#comparacion-de-modelos-precio-de-electricidad" title="Link to this heading">#</a></h1>
+<section id="metricas-de-desempeno">
+<h2>Métricas de desempeño<a class="headerlink" href="#metricas-de-desempeno" title="Link to this heading">#</a></h2>
+<p><strong>Raíz del Error Cuadrático Medio (RMSE)</strong></p>
+<p>Mide la magnitud promedio del error cuadrático entre los valores
+observados y los valores predichos. Penaliza fuertemente los errores
+grandes.</p>
+<div class="math notranslate nohighlight">
+\[RMSE = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t - \hat{y}_t)^2 }\]</div>
+<p><strong>Error Porcentual Absoluto Medio (MAPE)</strong></p>
+<p>Indica el error promedio en términos porcentuales. Es útil para
+interpretar el error relativo con respecto al valor real.</p>
+<div class="math notranslate nohighlight">
+\[MAPE = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t - \hat{y}_t}{y_t} \right|\]</div>
+<p><strong>Error Máximo (Max Error)</strong></p>
+<p>Representa la mayor desviación absoluta entre las predicciones y los
+valores reales. Evalúa el peor caso de error del modelo.</p>
+<div class="math notranslate nohighlight">
+\[Max\ Error = \max_{t} \left| y_t - \hat{y}_t \right|\]</div>
+<p><strong>Coeficiente de Determinación Ajustado (R² ajustado)</strong></p>
+<p>Evalúa qué tan bien el modelo explica la variabilidad de los datos,
+ajustando por el número de parámetros estimados. A diferencia del R²
+tradicional, penaliza la complejidad excesiva del modelo.</p>
+<div class="math notranslate nohighlight">
+\[R^2_{ajustado} = 1 - (1 - R^2)\frac{n - 1}{n - k - 1}\]</div>
+<p>donde:</p>
+<div class="math notranslate nohighlight">
+\[R^2 = 1 - \frac{\sum_{t=1}^{n}(y_t - \hat{y}t)^2}{\sum{t=1}^{n}(y_t - \bar{y})^2}\]</div>
+<p><span class="math notranslate nohighlight">\(n\)</span> es el número de observaciones y <span class="math notranslate nohighlight">\(k\)</span> el número de
+parámetros estimados en el modelo.</p>
+<p><strong>Rangos sugeridos de calidad del ajuste</strong></p>
+<p><strong>R² ajustado (escala 0–1)</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Categoría</p></th>
+<th class="head"><p>Rango</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Excelente</p></td>
+<td><p><span class="math notranslate nohighlight">\(R^2_{ajustado} \ge 0{,}90\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Bueno</p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}75 \le R^2_{ajustado} &lt; 0{,}90\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Moderado / Aceptable</p></td>
+<td><p><span class="math notranslate nohighlight">\(0{,}50 \le R^2_{ajustado} &lt; 0{,}75\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Deficiente</p></td>
+<td><p><span class="math notranslate nohighlight">\(R^2_{ajustado} &lt; 0{,}50\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>MAPE (porcentaje)</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Categoría</p></th>
+<th class="head"><p>Rango</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Excelente</p></td>
+<td><p><span class="math notranslate nohighlight">\(MAPE &lt; 10\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Bueno</p></td>
+<td><p><span class="math notranslate nohighlight">\(10\% \le MAPE &lt; 20\%\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Moderado / Aceptable</p></td>
+<td><p><span class="math notranslate nohighlight">\(20\% \le MAPE &lt; 50\%\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Deficiente</p></td>
+<td><p><span class="math notranslate nohighlight">\(MAPE \ge 50\%\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Estas categorías permiten interpretar de manera cualitativa la capacidad
+predictiva del modelo.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -748,6 +831,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
 </pre></div>
 </div>
+</section>
 <section id="funciones">
 <h2>Funciones<a class="headerlink" href="#funciones" title="Link to this heading">#</a></h2>
 <p>Nueva función <code class="docutils literal notranslate"><span class="pre">evaluar_metricas_desempeno</span></code></p>
@@ -1452,7 +1536,7 @@ document.write(`
 <span class="n">precio_electricidad</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-  <div id="df-26d556a9-78f5-4b38-90c6-df8681586a45" class="colab-df-container">
+  <div id="df-e116b928-9186-4d1f-9831-82a51b90170b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1505,7 +1589,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-26d556a9-78f5-4b38-90c6-df8681586a45')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e116b928-9186-4d1f-9831-82a51b90170b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1557,12 +1641,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-26d556a9-78f5-4b38-90c6-df8681586a45 button.colab-df-convert');
+        document.querySelector('#df-e116b928-9186-4d1f-9831-82a51b90170b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-26d556a9-78f5-4b38-90c6-df8681586a45');
+        const element = document.querySelector('#df-e116b928-9186-4d1f-9831-82a51b90170b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1581,134 +1665,6 @@ document.write(`
     </script>
   </div>
 
-
-    <div id="df-684a0e09-1fa2-4182-86df-2dce744ae18b">
-      <button class="colab-df-quickchart" onclick="quickchart('df-684a0e09-1fa2-4182-86df-2dce744ae18b')"
-                title="Suggest charts"
-                style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-      </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-      <script>
-        async function quickchart(key) {
-          const quickchartButtonEl =
-            document.querySelector('#' + key + ' button');
-          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-          quickchartButtonEl.classList.add('colab-df-spinner');
-          try {
-            const charts = await google.colab.kernel.invokeFunction(
-                'suggestCharts', [key], {});
-          } catch (error) {
-            console.error('Error during call to suggestCharts:', error);
-          }
-          quickchartButtonEl.classList.remove('colab-df-spinner');
-          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-        }
-        (() => {
-          let quickchartButtonEl =
-            document.querySelector('#df-684a0e09-1fa2-4182-86df-2dce744ae18b button');
-          quickchartButtonEl.style.display =
-            google.colab.kernel.accessAllowed ? 'block' : 'none';
-        })();
-      </script>
-    </div>
-
     </div>
   </div><div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_serie_tiempo</span><span class="p">(</span>
     <span class="n">precio_electricidad</span><span class="p">,</span>
@@ -1721,7 +1677,7 @@ document.write(`
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_7_018.png" src="../../../_images/output_7_018.png" />
+<img alt="../../../_images/output_10_013.png" src="../../../_images/output_10_013.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adf_resultados</span> <span class="o">=</span> <span class="n">analisis_estacionariedad_full</span><span class="p">(</span>
       <span class="n">precio_electricidad</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">],</span>
       <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
@@ -1730,7 +1686,7 @@ document.write(`
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_8_011.png" src="../../../_images/output_8_011.png" />
+<img alt="../../../_images/output_11_019.png" src="../../../_images/output_11_019.png" />
 </section>
 <section id="transformacion-boxcox">
 <h2>Transformación Box–Cox<a class="headerlink" href="#transformacion-boxcox" title="Link to this heading">#</a></h2>
@@ -1774,7 +1730,7 @@ Fecha
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_12_014.png" src="../../../_images/output_12_014.png" />
+<img alt="../../../_images/output_15_011.png" src="../../../_images/output_15_011.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.statespace.sarimax</span><span class="w"> </span><span class="kn">import</span> <span class="n">SARIMAX</span>
 </pre></div>
@@ -1793,10 +1749,10 @@ Fecha
 </pre></div>
 </div>
 </section>
-<section id="arima-3-1-3">
-<h2>ARIMA(3,1,3)<a class="headerlink" href="#arima-3-1-3" title="Link to this heading">#</a></h2>
+<section id="ma-3">
+<h2>MA(3)<a class="headerlink" href="#ma-3" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir los parámetros del modelo ARIMA (p, d, q)</span>
-<span class="n">order</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Puedes ajustar según el análisis de ACF y PACF</span>
+<span class="n">order</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Puedes ajustar según el análisis de ACF y PACF</span>
 <span class="n">trend</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>        <span class="c1"># &#39;c&#39; = constante, &#39;t&#39; = tendencia, &#39;ct&#39; = constante + tendencia, &#39;n&#39; = sin tendencia</span>
 <span class="n">seasonal_order</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Parámetros de la estacionalidad (P, D, Q, s)</span>
 
@@ -1811,27 +1767,24 @@ Fecha
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                               <span class="n">SARIMAX</span> <span class="n">Results</span>
 <span class="o">==============================================================================</span>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>          <span class="n">Precio_boxcox</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
-<span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                 <span class="mf">411.791</span>
-<span class="n">Date</span><span class="p">:</span>                <span class="n">Fri</span><span class="p">,</span> <span class="mi">07</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">809.582</span>
-<span class="n">Time</span><span class="p">:</span>                        <span class="mi">21</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">44</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">785.485</span>
-<span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                          <span class="o">-</span><span class="mf">799.863</span>
+<span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                 <span class="mf">403.688</span>
+<span class="n">Date</span><span class="p">:</span>                <span class="n">Mon</span><span class="p">,</span> <span class="mi">24</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">799.377</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">19</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">01</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">785.607</span>
+<span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                          <span class="o">-</span><span class="mf">793.823</span>
                          <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
 <span class="o">==============================================================================</span>
                  <span class="n">coef</span>    <span class="n">std</span> <span class="n">err</span>          <span class="n">z</span>      <span class="n">P</span><span class="o">&gt;|</span><span class="n">z</span><span class="o">|</span>      <span class="p">[</span><span class="mf">0.025</span>      <span class="mf">0.975</span><span class="p">]</span>
 <span class="o">------------------------------------------------------------------------------</span>
-<span class="n">ar</span><span class="o">.</span><span class="n">L1</span>          <span class="mf">1.8312</span>      <span class="mf">0.078</span>     <span class="mf">23.456</span>      <span class="mf">0.000</span>       <span class="mf">1.678</span>       <span class="mf">1.984</span>
-<span class="n">ar</span><span class="o">.</span><span class="n">L2</span>         <span class="o">-</span><span class="mf">1.7993</span>      <span class="mf">0.080</span>    <span class="o">-</span><span class="mf">22.546</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">1.956</span>      <span class="o">-</span><span class="mf">1.643</span>
-<span class="n">ar</span><span class="o">.</span><span class="n">L3</span>          <span class="mf">0.8285</span>      <span class="mf">0.066</span>     <span class="mf">12.556</span>      <span class="mf">0.000</span>       <span class="mf">0.699</span>       <span class="mf">0.958</span>
-<span class="n">ma</span><span class="o">.</span><span class="n">L1</span>         <span class="o">-</span><span class="mf">1.9453</span>      <span class="mf">0.078</span>    <span class="o">-</span><span class="mf">25.071</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">2.097</span>      <span class="o">-</span><span class="mf">1.793</span>
-<span class="n">ma</span><span class="o">.</span><span class="n">L2</span>          <span class="mf">1.8455</span>      <span class="mf">0.112</span>     <span class="mf">16.538</span>      <span class="mf">0.000</span>       <span class="mf">1.627</span>       <span class="mf">2.064</span>
-<span class="n">ma</span><span class="o">.</span><span class="n">L3</span>         <span class="o">-</span><span class="mf">0.8616</span>      <span class="mf">0.061</span>    <span class="o">-</span><span class="mf">14.227</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.980</span>      <span class="o">-</span><span class="mf">0.743</span>
-<span class="n">sigma2</span>         <span class="mf">0.0016</span>      <span class="mf">0.000</span>     <span class="mf">10.728</span>      <span class="mf">0.000</span>       <span class="mf">0.001</span>       <span class="mf">0.002</span>
+<span class="n">ma</span><span class="o">.</span><span class="n">L1</span>         <span class="o">-</span><span class="mf">0.1016</span>      <span class="mf">0.060</span>     <span class="o">-</span><span class="mf">1.680</span>      <span class="mf">0.093</span>      <span class="o">-</span><span class="mf">0.220</span>       <span class="mf">0.017</span>
+<span class="n">ma</span><span class="o">.</span><span class="n">L2</span>         <span class="o">-</span><span class="mf">0.1952</span>      <span class="mf">0.059</span>     <span class="o">-</span><span class="mf">3.299</span>      <span class="mf">0.001</span>      <span class="o">-</span><span class="mf">0.311</span>      <span class="o">-</span><span class="mf">0.079</span>
+<span class="n">ma</span><span class="o">.</span><span class="n">L3</span>         <span class="o">-</span><span class="mf">0.1692</span>      <span class="mf">0.066</span>     <span class="o">-</span><span class="mf">2.581</span>      <span class="mf">0.010</span>      <span class="o">-</span><span class="mf">0.298</span>      <span class="o">-</span><span class="mf">0.041</span>
+<span class="n">sigma2</span>         <span class="mf">0.0018</span>      <span class="mf">0.000</span>     <span class="mf">11.255</span>      <span class="mf">0.000</span>       <span class="mf">0.001</span>       <span class="mf">0.002</span>
 <span class="o">===================================================================================</span>
-<span class="n">Ljung</span><span class="o">-</span><span class="n">Box</span> <span class="p">(</span><span class="n">L1</span><span class="p">)</span> <span class="p">(</span><span class="n">Q</span><span class="p">):</span>                   <span class="mf">0.27</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                 <span class="mf">2.15</span>
-<span class="n">Prob</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>                              <span class="mf">0.60</span>   <span class="n">Prob</span><span class="p">(</span><span class="n">JB</span><span class="p">):</span>                         <span class="mf">0.34</span>
-<span class="n">Heteroskedasticity</span> <span class="p">(</span><span class="n">H</span><span class="p">):</span>               <span class="mf">1.61</span>   <span class="n">Skew</span><span class="p">:</span>                             <span class="mf">0.19</span>
-<span class="n">Prob</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="p">(</span><span class="n">two</span><span class="o">-</span><span class="n">sided</span><span class="p">):</span>                  <span class="mf">0.04</span>   <span class="n">Kurtosis</span><span class="p">:</span>                         <span class="mf">3.27</span>
+<span class="n">Ljung</span><span class="o">-</span><span class="n">Box</span> <span class="p">(</span><span class="n">L1</span><span class="p">)</span> <span class="p">(</span><span class="n">Q</span><span class="p">):</span>                   <span class="mf">0.00</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                 <span class="mf">0.85</span>
+<span class="n">Prob</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>                              <span class="mf">0.97</span>   <span class="n">Prob</span><span class="p">(</span><span class="n">JB</span><span class="p">):</span>                         <span class="mf">0.65</span>
+<span class="n">Heteroskedasticity</span> <span class="p">(</span><span class="n">H</span><span class="p">):</span>               <span class="mf">1.58</span>   <span class="n">Skew</span><span class="p">:</span>                             <span class="mf">0.09</span>
+<span class="n">Prob</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="p">(</span><span class="n">two</span><span class="o">-</span><span class="n">sided</span><span class="p">):</span>                  <span class="mf">0.05</span>   <span class="n">Kurtosis</span><span class="p">:</span>                         <span class="mf">3.24</span>
 <span class="o">===================================================================================</span>
 
 <span class="n">Warnings</span><span class="p">:</span>
@@ -1859,7 +1812,7 @@ Fecha
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_20_09.png" src="../../../_images/output_20_09.png" />
+<img alt="../../../_images/output_23_08.png" src="../../../_images/output_23_08.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Gráfico de valores predichos vs. valores reales</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
@@ -1878,7 +1831,7 @@ Fecha
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_21_010.png" src="../../../_images/output_21_010.png" />
+<img alt="../../../_images/output_24_015.png" src="../../../_images/output_24_015.png" />
 </section>
 <section id="analisis-de-los-residuales">
 <h2>Análisis de los residuales<a class="headerlink" href="#analisis-de-los-residuales" title="Link to this heading">#</a></h2>
@@ -1888,86 +1841,10 @@ Fecha
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_23_08.png" src="../../../_images/output_23_08.png" />
+<img alt="../../../_images/output_26_010.png" src="../../../_images/output_26_010.png" />
 </section>
-<section id="metricas-de-desempeno">
-<h2>Métricas de desempeño<a class="headerlink" href="#metricas-de-desempeno" title="Link to this heading">#</a></h2>
-<p><strong>Raíz del Error Cuadrático Medio (RMSE)</strong></p>
-<p>Mide la magnitud promedio del error cuadrático entre los valores
-observados y los valores predichos. Penaliza fuertemente los errores
-grandes.</p>
-<div class="math notranslate nohighlight">
-\[RMSE = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t - \hat{y}_t)^2 }\]</div>
-<p><strong>Error Porcentual Absoluto Medio (MAPE)</strong></p>
-<p>Indica el error promedio en términos porcentuales. Es útil para
-interpretar el error relativo con respecto al valor real.</p>
-<div class="math notranslate nohighlight">
-\[MAPE = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t - \hat{y}_t}{y_t} \right|\]</div>
-<p><strong>Error Máximo (Max Error)</strong></p>
-<p>Representa la mayor desviación absoluta entre las predicciones y los
-valores reales. Evalúa el peor caso de error del modelo.</p>
-<div class="math notranslate nohighlight">
-\[Max\ Error = \max_{t} \left| y_t - \hat{y}_t \right|\]</div>
-<p><strong>Coeficiente de Determinación Ajustado (R² ajustado)</strong></p>
-<p>Evalúa qué tan bien el modelo explica la variabilidad de los datos,
-ajustando por el número de parámetros estimados. A diferencia del R²
-tradicional, penaliza la complejidad excesiva del modelo.</p>
-<div class="math notranslate nohighlight">
-\[R^2_{ajustado} = 1 - (1 - R^2)\frac{n - 1}{n - k - 1}\]</div>
-<p>donde:</p>
-<div class="math notranslate nohighlight">
-\[R^2 = 1 - \frac{\sum_{t=1}^{n}(y_t - \hat{y}t)^2}{\sum{t=1}^{n}(y_t - \bar{y})^2}\]</div>
-<p><span class="math notranslate nohighlight">\(n\)</span> es el número de observaciones y <span class="math notranslate nohighlight">\(k\)</span> el número de
-parámetros estimados en el modelo.</p>
-<p><strong>Rangos sugeridos de calidad del ajuste</strong></p>
-<p><strong>R² ajustado (escala 0–1)</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Categoría</p></th>
-<th class="head"><p>Rango</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Excelente</p></td>
-<td><p><span class="math notranslate nohighlight">\(R^2_{ajustado} \ge 0{,}90\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>Bueno</p></td>
-<td><p><span class="math notranslate nohighlight">\(0{,}75 \le R^2_{ajustado} &lt; 0{,}90\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p>Moderado / Aceptable</p></td>
-<td><p><span class="math notranslate nohighlight">\(0{,}50 \le R^2_{ajustado} &lt; 0{,}75\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>Deficiente</p></td>
-<td><p><span class="math notranslate nohighlight">\(R^2_{ajustado} &lt; 0{,}50\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>MAPE (porcentaje)</strong></p>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Categoría</p></th>
-<th class="head"><p>Rango</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Excelente</p></td>
-<td><p><span class="math notranslate nohighlight">\(MAPE &lt; 10\%\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>Bueno</p></td>
-<td><p><span class="math notranslate nohighlight">\(10\% \le MAPE &lt; 20\%\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p>Moderado / Aceptable</p></td>
-<td><p><span class="math notranslate nohighlight">\(20\% \le MAPE &lt; 50\%\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>Deficiente</p></td>
-<td><p><span class="math notranslate nohighlight">\(MAPE \ge 50\%\)</span></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Estas categorías permiten interpretar de manera cualitativa la capacidad
-predictiva del modelo.</p>
+<section id="id1">
+<h2>Métricas de desempeño<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">r2_score</span><span class="p">,</span>
     <span class="n">mean_squared_error</span><span class="p">,</span>
@@ -1976,6 +1853,157 @@ predictiva del modelo.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metricas</span> <span class="o">=</span> <span class="n">evaluar_metricas_desempeno</span><span class="p">(</span>
+    <span class="n">train</span><span class="o">=</span><span class="n">train</span><span class="p">,</span>
+    <span class="n">test</span><span class="o">=</span><span class="n">test</span><span class="p">,</span>
+    <span class="n">results</span><span class="o">=</span><span class="n">results</span><span class="p">,</span>
+    <span class="n">transformacion</span><span class="o">=</span><span class="s1">&#39;boxcox&#39;</span><span class="p">,</span>  <span class="c1"># &#39;log&#39;, &#39;boxcox&#39;, &#39;sqrt&#39; o None</span>
+    <span class="n">lambda_bc</span><span class="o">=</span><span class="n">lambda_bc</span><span class="p">,</span>      <span class="c1"># Solo si es boxcox</span>
+    <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;MA(0,1,3) Precio de electricidad&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Métricas</span> <span class="n">de</span> <span class="n">desempeño</span> <span class="o">-</span> <span class="n">MA</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="n">Precio</span> <span class="n">de</span> <span class="n">electricidad</span>
+<span class="o">--------------------------------------------------------</span>
+</pre></div>
+</div>
+<style type="text/css">
+</style>
+<table id="T_d7f16" class="dataframe">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_d7f16_level0_col0" class="col_heading level0 col0" >Train</th>
+      <th id="T_d7f16_level0_col1" class="col_heading level0 col1" >Test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_d7f16_level0_row0" class="row_heading level0 row0" >RMSE</th>
+      <td id="T_d7f16_row0_col0" class="data row0 col0" >70.2417</td>
+      <td id="T_d7f16_row0_col1" class="data row0 col1" >124.5009</td>
+    </tr>
+    <tr>
+      <th id="T_d7f16_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
+      <td id="T_d7f16_row1_col0" class="data row1 col0" >18.9839</td>
+      <td id="T_d7f16_row1_col1" class="data row1 col1" >25.7196</td>
+    </tr>
+    <tr>
+      <th id="T_d7f16_level0_row2" class="row_heading level0 row2" >Max Error</th>
+      <td id="T_d7f16_row2_col0" class="data row2 col0" >713.0117</td>
+      <td id="T_d7f16_row2_col1" class="data row2 col1" >487.2253</td>
+    </tr>
+    <tr>
+      <th id="T_d7f16_level0_row3" class="row_heading level0 row3" >R2</th>
+      <td id="T_d7f16_row3_col0" class="data row3 col0" >0.7107</td>
+      <td id="T_d7f16_row3_col1" class="data row3 col1" >0.6452</td>
+    </tr>
+    <tr>
+      <th id="T_d7f16_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
+      <td id="T_d7f16_row4_col0" class="data row4 col0" >0.7095</td>
+      <td id="T_d7f16_row4_col1" class="data row4 col1" >0.6390</td>
+    </tr>
+  </tbody>
+</table></section>
+<section id="arima-3-1-3">
+<h2>ARIMA(3,1,3)<a class="headerlink" href="#arima-3-1-3" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir los parámetros del modelo ARIMA (p, d, q)</span>
+<span class="n">order</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Puedes ajustar según el análisis de ACF y PACF</span>
+<span class="n">trend</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span>        <span class="c1"># &#39;c&#39; = constante, &#39;t&#39; = tendencia, &#39;ct&#39; = constante + tendencia, &#39;n&#39; = sin tendencia</span>
+<span class="n">seasonal_order</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Parámetros de la estacionalidad (P, D, Q, s)</span>
+
+<span class="c1"># Ajustar el modelo con los datos de entrenamiento</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SARIMAX</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">seasonal_order</span><span class="o">=</span><span class="n">seasonal_order</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="n">trend</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Mostrar resumen del modelo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                               <span class="n">SARIMAX</span> <span class="n">Results</span>
+<span class="o">==============================================================================</span>
+<span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>          <span class="n">Precio_boxcox</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
+<span class="n">Model</span><span class="p">:</span>               <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                 <span class="mf">411.791</span>
+<span class="n">Date</span><span class="p">:</span>                <span class="n">Mon</span><span class="p">,</span> <span class="mi">24</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">809.582</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">19</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">20</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">785.485</span>
+<span class="n">Sample</span><span class="p">:</span>                    <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                          <span class="o">-</span><span class="mf">799.863</span>
+                         <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
+<span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                  <span class="n">opg</span>
+<span class="o">==============================================================================</span>
+                 <span class="n">coef</span>    <span class="n">std</span> <span class="n">err</span>          <span class="n">z</span>      <span class="n">P</span><span class="o">&gt;|</span><span class="n">z</span><span class="o">|</span>      <span class="p">[</span><span class="mf">0.025</span>      <span class="mf">0.975</span><span class="p">]</span>
+<span class="o">------------------------------------------------------------------------------</span>
+<span class="n">ar</span><span class="o">.</span><span class="n">L1</span>          <span class="mf">1.8312</span>      <span class="mf">0.078</span>     <span class="mf">23.456</span>      <span class="mf">0.000</span>       <span class="mf">1.678</span>       <span class="mf">1.984</span>
+<span class="n">ar</span><span class="o">.</span><span class="n">L2</span>         <span class="o">-</span><span class="mf">1.7993</span>      <span class="mf">0.080</span>    <span class="o">-</span><span class="mf">22.546</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">1.956</span>      <span class="o">-</span><span class="mf">1.643</span>
+<span class="n">ar</span><span class="o">.</span><span class="n">L3</span>          <span class="mf">0.8285</span>      <span class="mf">0.066</span>     <span class="mf">12.556</span>      <span class="mf">0.000</span>       <span class="mf">0.699</span>       <span class="mf">0.958</span>
+<span class="n">ma</span><span class="o">.</span><span class="n">L1</span>         <span class="o">-</span><span class="mf">1.9453</span>      <span class="mf">0.078</span>    <span class="o">-</span><span class="mf">25.071</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">2.097</span>      <span class="o">-</span><span class="mf">1.793</span>
+<span class="n">ma</span><span class="o">.</span><span class="n">L2</span>          <span class="mf">1.8455</span>      <span class="mf">0.112</span>     <span class="mf">16.538</span>      <span class="mf">0.000</span>       <span class="mf">1.627</span>       <span class="mf">2.064</span>
+<span class="n">ma</span><span class="o">.</span><span class="n">L3</span>         <span class="o">-</span><span class="mf">0.8616</span>      <span class="mf">0.061</span>    <span class="o">-</span><span class="mf">14.227</span>      <span class="mf">0.000</span>      <span class="o">-</span><span class="mf">0.980</span>      <span class="o">-</span><span class="mf">0.743</span>
+<span class="n">sigma2</span>         <span class="mf">0.0016</span>      <span class="mf">0.000</span>     <span class="mf">10.728</span>      <span class="mf">0.000</span>       <span class="mf">0.001</span>       <span class="mf">0.002</span>
+<span class="o">===================================================================================</span>
+<span class="n">Ljung</span><span class="o">-</span><span class="n">Box</span> <span class="p">(</span><span class="n">L1</span><span class="p">)</span> <span class="p">(</span><span class="n">Q</span><span class="p">):</span>                   <span class="mf">0.27</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>                 <span class="mf">2.15</span>
+<span class="n">Prob</span><span class="p">(</span><span class="n">Q</span><span class="p">):</span>                              <span class="mf">0.60</span>   <span class="n">Prob</span><span class="p">(</span><span class="n">JB</span><span class="p">):</span>                         <span class="mf">0.34</span>
+<span class="n">Heteroskedasticity</span> <span class="p">(</span><span class="n">H</span><span class="p">):</span>               <span class="mf">1.61</span>   <span class="n">Skew</span><span class="p">:</span>                             <span class="mf">0.19</span>
+<span class="n">Prob</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="p">(</span><span class="n">two</span><span class="o">-</span><span class="n">sided</span><span class="p">):</span>                  <span class="mf">0.04</span>   <span class="n">Kurtosis</span><span class="p">:</span>                         <span class="mf">3.27</span>
+<span class="o">===================================================================================</span>
+
+<span class="n">Warnings</span><span class="p">:</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">Covariance</span> <span class="n">matrix</span> <span class="n">calculated</span> <span class="n">using</span> <span class="n">the</span> <span class="n">outer</span> <span class="n">product</span> <span class="n">of</span> <span class="n">gradients</span> <span class="p">(</span><span class="nb">complex</span><span class="o">-</span><span class="n">step</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2>Ajuste y pronóstico en la serie original<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fitted_values</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">fittedvalues</span>
+<span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">lambda_bc</span> <span class="o">*</span> <span class="n">fitted_values</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">lambda_bc</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">y_real</span> <span class="o">=</span> <span class="n">precio_electricidad</span><span class="p">[</span><span class="s2">&quot;Precio&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">split</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados</span> <span class="o">=</span> <span class="n">analizar_ajuste_serie</span><span class="p">(</span>
+    <span class="n">precio_electricidad</span><span class="p">,</span>      <span class="c1"># Serie original (sin transformar)</span>
+    <span class="n">fitted_values</span><span class="p">,</span>            <span class="c1"># Ajuste en train</span>
+    <span class="n">results</span><span class="p">,</span>                  <span class="c1"># Modelo ajustado</span>
+    <span class="n">test</span><span class="p">,</span>                     <span class="c1"># Datos test</span>
+    <span class="n">n_forecast</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>            <span class="c1"># Periodos futuros</span>
+    <span class="n">transformacion</span><span class="o">=</span><span class="s1">&#39;boxcox&#39;</span><span class="p">,</span>  <span class="c1"># &#39;log&#39;, &#39;boxcox&#39;, &#39;sqrt&#39; o None</span>
+    <span class="n">lambda_bc</span><span class="o">=</span><span class="n">lambda_bc</span><span class="p">,</span>            <span class="c1"># Solo si es boxcox</span>
+    <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_34_07.png" src="../../../_images/output_34_07.png" />
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Gráfico de valores predichos vs. valores reales</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="c1"># Línea de identidad (y = x)</span>
+<span class="n">min_val</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">y_real</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">max_val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_real</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">y_pred</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">],</span> <span class="p">[</span><span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Valores predichos vs. valores reales&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Valores reales&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Valores predichos&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>  <span class="c1"># asegura proporciones iguales para la diagonal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_35_06.png" src="../../../_images/output_35_06.png" />
+</section>
+<section id="id3">
+<h2>Análisis de los residuales<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analisis_residuales</span><span class="p">(</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span>      <span class="c1"># Agregar los residuales</span>
+    <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_37_07.png" src="../../../_images/output_37_07.png" />
+</section>
+<section id="id4">
+<h2>Métricas de desempeño<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metricas</span> <span class="o">=</span> <span class="n">evaluar_metricas_desempeno</span><span class="p">(</span>
     <span class="n">train</span><span class="o">=</span><span class="n">train</span><span class="p">,</span>
     <span class="n">test</span><span class="o">=</span><span class="n">test</span><span class="p">,</span>
@@ -1992,39 +2020,39 @@ predictiva del modelo.</p>
 </div>
 <style type="text/css">
 </style>
-<table id="T_8a81d" class="dataframe">
+<table id="T_60463" class="dataframe">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_8a81d_level0_col0" class="col_heading level0 col0" >Train</th>
-      <th id="T_8a81d_level0_col1" class="col_heading level0 col1" >Test</th>
+      <th id="T_60463_level0_col0" class="col_heading level0 col0" >Train</th>
+      <th id="T_60463_level0_col1" class="col_heading level0 col1" >Test</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_8a81d_level0_row0" class="row_heading level0 row0" >RMSE</th>
-      <td id="T_8a81d_row0_col0" class="data row0 col0" >68.3017</td>
-      <td id="T_8a81d_row0_col1" class="data row0 col1" >130.4160</td>
+      <th id="T_60463_level0_row0" class="row_heading level0 row0" >RMSE</th>
+      <td id="T_60463_row0_col0" class="data row0 col0" >68.3017</td>
+      <td id="T_60463_row0_col1" class="data row0 col1" >130.4160</td>
     </tr>
     <tr>
-      <th id="T_8a81d_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
-      <td id="T_8a81d_row1_col0" class="data row1 col0" >18.1770</td>
-      <td id="T_8a81d_row1_col1" class="data row1 col1" >24.8115</td>
+      <th id="T_60463_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
+      <td id="T_60463_row1_col0" class="data row1 col0" >18.1770</td>
+      <td id="T_60463_row1_col1" class="data row1 col1" >24.8115</td>
     </tr>
     <tr>
-      <th id="T_8a81d_level0_row2" class="row_heading level0 row2" >Max Error</th>
-      <td id="T_8a81d_row2_col0" class="data row2 col0" >688.9788</td>
-      <td id="T_8a81d_row2_col1" class="data row2 col1" >565.0481</td>
+      <th id="T_60463_level0_row2" class="row_heading level0 row2" >Max Error</th>
+      <td id="T_60463_row2_col0" class="data row2 col0" >688.9788</td>
+      <td id="T_60463_row2_col1" class="data row2 col1" >565.0481</td>
     </tr>
     <tr>
-      <th id="T_8a81d_level0_row3" class="row_heading level0 row3" >R2</th>
-      <td id="T_8a81d_row3_col0" class="data row3 col0" >0.7265</td>
-      <td id="T_8a81d_row3_col1" class="data row3 col1" >0.6107</td>
+      <th id="T_60463_level0_row3" class="row_heading level0 row3" >R2</th>
+      <td id="T_60463_row3_col0" class="data row3 col0" >0.7265</td>
+      <td id="T_60463_row3_col1" class="data row3 col1" >0.6107</td>
     </tr>
     <tr>
-      <th id="T_8a81d_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
-      <td id="T_8a81d_row4_col0" class="data row4 col0" >0.7253</td>
-      <td id="T_8a81d_row4_col1" class="data row4 col1" >0.6038</td>
+      <th id="T_60463_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
+      <td id="T_60463_row4_col0" class="data row4 col0" >0.7253</td>
+      <td id="T_60463_row4_col1" class="data row4 col1" >0.6038</td>
     </tr>
   </tbody>
 </table></section>
@@ -2047,8 +2075,8 @@ predictiva del modelo.</p>
 <span class="o">============================================================================================</span>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>                        <span class="n">Precio_boxcox</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
 <span class="n">Model</span><span class="p">:</span>             <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">12</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                 <span class="mf">411.734</span>
-<span class="n">Date</span><span class="p">:</span>                              <span class="n">Fri</span><span class="p">,</span> <span class="mi">07</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">805.469</span>
-<span class="n">Time</span><span class="p">:</span>                                      <span class="mi">22</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">06</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">774.487</span>
+<span class="n">Date</span><span class="p">:</span>                              <span class="n">Mon</span><span class="p">,</span> <span class="mi">24</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">805.469</span>
+<span class="n">Time</span><span class="p">:</span>                                      <span class="mi">19</span><span class="p">:</span><span class="mi">08</span><span class="p">:</span><span class="mi">30</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">774.487</span>
 <span class="n">Sample</span><span class="p">:</span>                                  <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                          <span class="o">-</span><span class="mf">792.973</span>
                                        <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                                <span class="n">opg</span>
@@ -2076,8 +2104,8 @@ predictiva del modelo.</p>
 </pre></div>
 </div>
 </section>
-<section id="id1">
-<h2>Ajuste y pronóstico en la serie original<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id5">
+<h2>Ajuste y pronóstico en la serie original<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fitted_values</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">fittedvalues</span>
 <span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">lambda_bc</span> <span class="o">*</span> <span class="n">fitted_values</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">lambda_bc</span><span class="p">)</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
@@ -2096,7 +2124,7 @@ predictiva del modelo.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_33_07.png" src="../../../_images/output_33_07.png" />
+<img alt="../../../_images/output_44_0.png" src="../../../_images/output_44_0.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Gráfico de valores predichos vs. valores reales</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
@@ -2115,20 +2143,20 @@ predictiva del modelo.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_34_07.png" src="../../../_images/output_34_07.png" />
+<img alt="../../../_images/output_45_02.png" src="../../../_images/output_45_02.png" />
 </section>
-<section id="id2">
-<h2>Análisis de los residuales<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h2>Análisis de los residuales<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analisis_residuales</span><span class="p">(</span>
     <span class="n">results</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span>      <span class="c1"># Agregar los residuales</span>
     <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_36_07.png" src="../../../_images/output_36_07.png" />
+<img alt="../../../_images/output_47_03.png" src="../../../_images/output_47_03.png" />
 </section>
-<section id="id3">
-<h2>Métricas de desempeño<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id7">
+<h2>Métricas de desempeño<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metricas</span> <span class="o">=</span> <span class="n">evaluar_metricas_desempeno</span><span class="p">(</span>
     <span class="n">train</span><span class="o">=</span><span class="n">train</span><span class="p">,</span>
     <span class="n">test</span><span class="o">=</span><span class="n">test</span><span class="p">,</span>
@@ -2145,42 +2173,46 @@ predictiva del modelo.</p>
 </div>
 <style type="text/css">
 </style>
-<table id="T_52f81" class="dataframe">
+<table id="T_daf84" class="dataframe">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_52f81_level0_col0" class="col_heading level0 col0" >Train</th>
-      <th id="T_52f81_level0_col1" class="col_heading level0 col1" >Test</th>
+      <th id="T_daf84_level0_col0" class="col_heading level0 col0" >Train</th>
+      <th id="T_daf84_level0_col1" class="col_heading level0 col1" >Test</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_52f81_level0_row0" class="row_heading level0 row0" >RMSE</th>
-      <td id="T_52f81_row0_col0" class="data row0 col0" >68.4205</td>
-      <td id="T_52f81_row0_col1" class="data row0 col1" >130.0571</td>
+      <th id="T_daf84_level0_row0" class="row_heading level0 row0" >RMSE</th>
+      <td id="T_daf84_row0_col0" class="data row0 col0" >68.4205</td>
+      <td id="T_daf84_row0_col1" class="data row0 col1" >130.0571</td>
     </tr>
     <tr>
-      <th id="T_52f81_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
-      <td id="T_52f81_row1_col0" class="data row1 col0" >18.2000</td>
-      <td id="T_52f81_row1_col1" class="data row1 col1" >24.8158</td>
+      <th id="T_daf84_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
+      <td id="T_daf84_row1_col0" class="data row1 col0" >18.2000</td>
+      <td id="T_daf84_row1_col1" class="data row1 col1" >24.8158</td>
     </tr>
     <tr>
-      <th id="T_52f81_level0_row2" class="row_heading level0 row2" >Max Error</th>
-      <td id="T_52f81_row2_col0" class="data row2 col0" >692.8142</td>
-      <td id="T_52f81_row2_col1" class="data row2 col1" >566.1221</td>
+      <th id="T_daf84_level0_row2" class="row_heading level0 row2" >Max Error</th>
+      <td id="T_daf84_row2_col0" class="data row2 col0" >692.8142</td>
+      <td id="T_daf84_row2_col1" class="data row2 col1" >566.1221</td>
     </tr>
     <tr>
-      <th id="T_52f81_level0_row3" class="row_heading level0 row3" >R2</th>
-      <td id="T_52f81_row3_col0" class="data row3 col0" >0.7256</td>
-      <td id="T_52f81_row3_col1" class="data row3 col1" >0.6128</td>
+      <th id="T_daf84_level0_row3" class="row_heading level0 row3" >R2</th>
+      <td id="T_daf84_row3_col0" class="data row3 col0" >0.7256</td>
+      <td id="T_daf84_row3_col1" class="data row3 col1" >0.6128</td>
     </tr>
     <tr>
-      <th id="T_52f81_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
-      <td id="T_52f81_row4_col0" class="data row4 col0" >0.7244</td>
-      <td id="T_52f81_row4_col1" class="data row4 col1" >0.6060</td>
+      <th id="T_daf84_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
+      <td id="T_daf84_row4_col0" class="data row4 col0" >0.7244</td>
+      <td id="T_daf84_row4_col1" class="data row4 col1" >0.6060</td>
     </tr>
   </tbody>
-</table></section>
+</table><p>**Dado que el rezago 13 sigue presentándose como ligeramente
+significativo, se evaluaron varios modelos SARIMA con rezagos mayores al
+del modelo previo. Como resultado, se determinó que el modelo
+SARIMA(8,1,8)(1,0,1)_{12} satisface este requisito en los residuales.**</p>
+</section>
 <section id="sarima-8-1-8-1-0-1-12">
 <h2>SARIMA(8,1,8)(1,0,1,12)<a class="headerlink" href="#sarima-8-1-8-1-0-1-12" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definir los parámetros del modelo ARIMA (p, d, q)</span>
@@ -2200,8 +2232,8 @@ predictiva del modelo.</p>
 <span class="o">============================================================================================</span>
 <span class="n">Dep</span><span class="o">.</span> <span class="n">Variable</span><span class="p">:</span>                        <span class="n">Precio_boxcox</span>   <span class="n">No</span><span class="o">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">232</span>
 <span class="n">Model</span><span class="p">:</span>             <span class="n">SARIMAX</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">12</span><span class="p">)</span>   <span class="n">Log</span> <span class="n">Likelihood</span>                 <span class="mf">414.788</span>
-<span class="n">Date</span><span class="p">:</span>                              <span class="n">Fri</span><span class="p">,</span> <span class="mi">07</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">791.577</span>
-<span class="n">Time</span><span class="p">:</span>                                      <span class="mi">22</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">33</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">726.171</span>
+<span class="n">Date</span><span class="p">:</span>                              <span class="n">Mon</span><span class="p">,</span> <span class="mi">24</span> <span class="n">Nov</span> <span class="mi">2025</span>   <span class="n">AIC</span>                           <span class="o">-</span><span class="mf">791.577</span>
+<span class="n">Time</span><span class="p">:</span>                                      <span class="mi">19</span><span class="p">:</span><span class="mi">09</span><span class="p">:</span><span class="mi">03</span>   <span class="n">BIC</span>                           <span class="o">-</span><span class="mf">726.171</span>
 <span class="n">Sample</span><span class="p">:</span>                                  <span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2000</span>   <span class="n">HQIC</span>                          <span class="o">-</span><span class="mf">765.196</span>
                                        <span class="o">-</span> <span class="mi">04</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">2019</span>
 <span class="n">Covariance</span> <span class="n">Type</span><span class="p">:</span>                                <span class="n">opg</span>
@@ -2239,8 +2271,8 @@ predictiva del modelo.</p>
 </pre></div>
 </div>
 </section>
-<section id="id4">
-<h2>Ajuste y pronóstico en la serie original<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<section id="id8">
+<h2>Ajuste y pronóstico en la serie original<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fitted_values</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">fittedvalues</span>
 <span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">((</span><span class="n">lambda_bc</span> <span class="o">*</span> <span class="n">fitted_values</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">lambda_bc</span><span class="p">)</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">y_pred_train</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
@@ -2259,7 +2291,7 @@ predictiva del modelo.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_43_03.png" src="../../../_images/output_43_03.png" />
+<img alt="../../../_images/output_55_02.png" src="../../../_images/output_55_02.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Gráfico de valores predichos vs. valores reales</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
@@ -2278,20 +2310,20 @@ predictiva del modelo.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_44_0.png" src="../../../_images/output_44_0.png" />
+<img alt="../../../_images/output_56_03.png" src="../../../_images/output_56_03.png" />
 </section>
-<section id="id5">
-<h2>Análisis de los residuales<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<section id="id9">
+<h2>Análisis de los residuales<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analisis_residuales</span><span class="p">(</span>
     <span class="n">results</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span>      <span class="c1"># Agregar los residuales</span>
     <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_46_04.png" src="../../../_images/output_46_04.png" />
+<img alt="../../../_images/output_58_01.png" src="../../../_images/output_58_01.png" />
 </section>
-<section id="id6">
-<h2>Métricas de desempeño:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<section id="id10">
+<h2>Métricas de desempeño:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metricas</span> <span class="o">=</span> <span class="n">evaluar_metricas_desempeno</span><span class="p">(</span>
     <span class="n">train</span><span class="o">=</span><span class="n">train</span><span class="p">,</span>
     <span class="n">test</span><span class="o">=</span><span class="n">test</span><span class="p">,</span>
@@ -2308,39 +2340,39 @@ predictiva del modelo.</p>
 </div>
 <style type="text/css">
 </style>
-<table id="T_a374b" class="dataframe">
+<table id="T_89853" class="dataframe">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_a374b_level0_col0" class="col_heading level0 col0" >Train</th>
-      <th id="T_a374b_level0_col1" class="col_heading level0 col1" >Test</th>
+      <th id="T_89853_level0_col0" class="col_heading level0 col0" >Train</th>
+      <th id="T_89853_level0_col1" class="col_heading level0 col1" >Test</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_a374b_level0_row0" class="row_heading level0 row0" >RMSE</th>
-      <td id="T_a374b_row0_col0" class="data row0 col0" >66.2993</td>
-      <td id="T_a374b_row0_col1" class="data row0 col1" >130.5171</td>
+      <th id="T_89853_level0_row0" class="row_heading level0 row0" >RMSE</th>
+      <td id="T_89853_row0_col0" class="data row0 col0" >66.2993</td>
+      <td id="T_89853_row0_col1" class="data row0 col1" >130.5171</td>
     </tr>
     <tr>
-      <th id="T_a374b_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
-      <td id="T_a374b_row1_col0" class="data row1 col0" >18.0797</td>
-      <td id="T_a374b_row1_col1" class="data row1 col1" >25.6725</td>
+      <th id="T_89853_level0_row1" class="row_heading level0 row1" >MAPE (%)</th>
+      <td id="T_89853_row1_col0" class="data row1 col0" >18.0797</td>
+      <td id="T_89853_row1_col1" class="data row1 col1" >25.6725</td>
     </tr>
     <tr>
-      <th id="T_a374b_level0_row2" class="row_heading level0 row2" >Max Error</th>
-      <td id="T_a374b_row2_col0" class="data row2 col0" >691.2980</td>
-      <td id="T_a374b_row2_col1" class="data row2 col1" >502.5409</td>
+      <th id="T_89853_level0_row2" class="row_heading level0 row2" >Max Error</th>
+      <td id="T_89853_row2_col0" class="data row2 col0" >691.2980</td>
+      <td id="T_89853_row2_col1" class="data row2 col1" >502.5409</td>
     </tr>
     <tr>
-      <th id="T_a374b_level0_row3" class="row_heading level0 row3" >R2</th>
-      <td id="T_a374b_row3_col0" class="data row3 col0" >0.7423</td>
-      <td id="T_a374b_row3_col1" class="data row3 col1" >0.6101</td>
+      <th id="T_89853_level0_row3" class="row_heading level0 row3" >R2</th>
+      <td id="T_89853_row3_col0" class="data row3 col0" >0.7423</td>
+      <td id="T_89853_row3_col1" class="data row3 col1" >0.6101</td>
     </tr>
     <tr>
-      <th id="T_a374b_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
-      <td id="T_a374b_row4_col0" class="data row4 col0" >0.7412</td>
-      <td id="T_a374b_row4_col1" class="data row4 col1" >0.6032</td>
+      <th id="T_89853_level0_row4" class="row_heading level0 row4" >R2 Ajustado</th>
+      <td id="T_89853_row4_col0" class="data row4 col0" >0.7412</td>
+      <td id="T_89853_row4_col1" class="data row4 col1" >0.6032</td>
     </tr>
   </tbody>
 </table></section>
@@ -2391,22 +2423,27 @@ predictiva del modelo.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-desempeno">Métricas de desempeño</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funciones">Funciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#precio-de-electricidad">Precio de electricidad</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-boxcox">Transformación Box–Cox</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-de-train-y-test">Conjunto de train y test:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-3-1-3">ARIMA(3,1,3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ma-3">MA(3)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ajuste-y-pronostico-en-la-serie-original">Ajuste y pronóstico en la serie original</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-residuales">Análisis de los residuales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-desempeno">Métricas de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Métricas de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arima-3-1-3">ARIMA(3,1,3)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Ajuste y pronóstico en la serie original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Análisis de los residuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Métricas de desempeño</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima-3-1-3-1-0-1-12">SARIMA(3,1,3)(1,0,1,12)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ajuste y pronóstico en la serie original</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Análisis de los residuales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Métricas de desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Ajuste y pronóstico en la serie original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Análisis de los residuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Métricas de desempeño</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima-8-1-8-1-0-1-12">SARIMA(8,1,8)(1,0,1,12)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Ajuste y pronóstico en la serie original</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Análisis de los residuales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Métricas de desempeño:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Ajuste y pronóstico en la serie original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Análisis de los residuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Métricas de desempeño:</a></li>
 </ul>
   </nav></div>
 
