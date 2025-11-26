@@ -102,6 +102,11 @@ Este método de valoración sólo aplica para las opciones europeas. Se modela e
         * **Ver video 3** --- `aquí <https://youtu.be/uljKsFMHTV4>`_.
 
 
+.. important::
+
+    :download:`[Excel] Simulación Monte Carlo precio TRM 2025.xlsx <Simulación Monte Carlo precio TRM 2025.xlsx>`
+ 
+
 3.2. Método de Simulación Monte Carlo para valorar opciones europeas
 ------------------------------------------------------------------------------
 
