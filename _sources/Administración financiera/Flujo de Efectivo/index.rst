@@ -75,7 +75,3 @@ Examen semestre 02-2024
 
     * **Descargue** :download:`Solución examen Flujo de Efectivo-Santa Elena-02-2024 <Flujo de Efectivo Santa Elena 2018-2023-SOLUCIÓN.xlsx>`
 
-.. important::
-
-    :download:`[Excel] Análisis completo Crepes and Waffles 2019-2024 <Análisis completo Crepes and Waffles 2019-2024.xlsx>`
- 
