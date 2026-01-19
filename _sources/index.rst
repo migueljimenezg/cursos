@@ -1,15 +1,26 @@
 Material de apoyo
 =======================================
 
-Profesor: Luis Miguel Jiménez.
+Profesor: Luis Miguel Jiménez Gómez
 
-Departamento de Ingeniería de la Organización
+* Doctor en Ingeniería — modelado de series de tiempo con Deep Learning, valoración financiera de proyectos y sistema eléctrico colombiano.
 
-Facultad de Minas
+* Ingeniero Industrial; Especialista en Ingeniería Financiera; Magíster en Ingeniería Administrativa.
 
-Universidad Nacional de Colombia
+* Profesor por 14 años en Derivados Financieros, Mercados Financieros y Finanzas Corporativas.
+
+* Profesor por 4 años en Ciencia de Datos y Deep Learning.
+
+* Profesor de planta (tiempo parcial) — Universidad Nacional de Colombia.
+
+* Profesor de tiempo completo — Universidad de Antioquia.
+
+* Trabajo actual: predicción multivariada de series de tiempo con Deep Learning.
+
 
 lumjimenezgo@unal.edu.co
+
+lmiguel.jimenez@udea.edu.co
 
 .. toctree::
     :maxdepth: 1
@@ -35,20 +46,6 @@ lumjimenezgo@unal.edu.co
     Machine Learning/Deep Learning/index
 
 
-
-.. toctree::
-    :maxdepth: 1
-    :caption: MERCADO DE VALORES:
-
-     
-    MerVal/IntroMerFin/index
-    MerVal/Derivados/index
-    MerVal/Trading/index
-    MerVal/Bonos/index
-    MerVal/Portafolios/index
-  
-
-
 .. toctree::
     :maxdepth: 1
     :caption: ADMINISTRACIÓN FINANCIERA:
@@ -72,6 +69,19 @@ lumjimenezgo@unal.edu.co
     Derivados financieros/Swap/index
     Derivados financieros/Futuros/index
     Derivados financieros/Opciones/index
+
+
+.. toctree::
+    :maxdepth: 1
+    :caption: MERCADO DE VALORES:
+
+     
+    MerVal/IntroMerFin/index
+    MerVal/Derivados/index
+    MerVal/Trading/index
+    MerVal/Bonos/index
+    MerVal/Portafolios/index
+
 
 
 .. toctree::
