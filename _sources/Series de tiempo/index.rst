@@ -15,7 +15,6 @@ En este curso se explicarán los métodos convencionales para modelar las series
    Modelos de Media Móvil-MA/index
    Selección de modelos/Selección de modelos
    Evaluación del modelo seleccionado/index
-   Transformaciones Box-Cox y raíz cuadrada/index
    Modelos ARMA/Modelos ARMA
    Modelos ARIMA/index
    Modelos SARIMA/index

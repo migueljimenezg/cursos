@@ -7,14 +7,12 @@ Procesos estacionarios
 
    ProcessEstocas/Procesos estocásticos
    Estacionariedad/Estacionariedad
+   Transformaciones/Transformaciones v2
    Prueba ADF/Prueba ADF (Augmented Dickey-Fuller)
-   Transformaciones/Transformaciones
-   Estacionariedad precio del Café/Estacionariedad_precio_del_Café
    Autocorrelación-ACF/Autocorrelación-ACF
    Autocorrelación Parcial-PACF/Autocorrelación Parcial - PACF
    ACF y PACF temperatura Medellín/ACF_y_PACF_temperatura_Medellín
-   Transformaciones y análisis de estacionariedad/Transformaciones_y_análisis_de_estacionariedad
-   Análisis serie de tiempo precio de electricidad Colombia/Análisis serie de tiempo precio de electricidad Colombia
+   Análisis serie de tiempo precio de electricidad Colombia/Análisis serie de tiempo precio de electricidad Colombia v2
 
 .. important::
 

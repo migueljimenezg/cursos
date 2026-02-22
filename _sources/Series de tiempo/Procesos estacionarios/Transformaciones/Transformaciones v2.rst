@@ -50,6 +50,25 @@ pueden aplicar diferencias adicionales (segunda diferencia, etc.).
 Transformaciones para estabilizar la varianza:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+En muchos modelos de series de tiempo o de regresión, se asume que la
+varianza de los errores es constante (homocedasticidad).
+
+Sin embargo, cuando la variabilidad de la serie aumenta con el nivel de
+la media, se presenta heterocedasticidad, lo que viola esa suposición y
+puede afectar el desempeño del modelo.
+
+Para corregirlo, se aplican transformaciones no lineales a la serie
+original, con el objetivo de:
+
+-  Reducir la variabilidad relativa de los datos.
+
+-  Mejorar la normalidad de los errores.
+
+-  Facilitar la identificación de patrones de tendencia y
+   estacionalidad.
+
+**Raíz cuadrada:**
+
 **Logaritmo:**
 
 .. math::
@@ -59,33 +78,107 @@ Transformaciones para estabilizar la varianza:
 
 **Raíz cuadrada:**
 
+La transformación de raíz cuadrada se define como:
+
 .. math::
 
 
    y_t' = \sqrt{y_t}
 
+Se utiliza cuando los valores de la serie son **positivos** y la
+varianza crece aproximadamente de forma proporcional a la media.
+
+Cuando los valores de la serie aumentan, también suele aumentar su
+variabilidad.
+
+Aplicar la raíz cuadrada reduce la dispersión relativa de los valores
+grandes y tiende a estabilizar la varianza.
+
+**Ventajas**
+
+-  Es sencilla de aplicar e interpretar.
+
+-  No requiere estimar parámetros.
+
+-  Siempre produce valores positivos si :math:`y_t > 0`.
+
+**Desventajas**
+
+-  No siempre corrige completamente la heterocedasticidad.
+
+-  Puede no ser suficiente si la serie tiene alta asimetría.
+
+**Reversión de la transformación**
+
+Para volver a la escala original:
+
+.. math::
+
+
+   y_t = (y_t')^2
+
 **Transformación Box-Cox:**
 
-Es una familia flexible que incluye al logaritmo y las potencias. Está
-definida como:
+La transformación Box–Cox (Box & Cox, 1964) es una familia de
+transformaciones paramétricas que incluye a la logarítmica y la raíz
+cuadrada como casos particulares.
 
 .. math::
 
 
    y_t' =
    \begin{cases}
-   \log(y_t), & \text{si } \lambda = 0 \\
-   \frac{y_t^\lambda - 1}{\lambda}, & \text{si } \lambda \neq 0
+   \dfrac{y_t^{\lambda} - 1}{\lambda}, & \text{si } \lambda \neq 0, \\[8pt]
+   \log(y_t), & \text{si } \lambda = 0
    \end{cases}
 
-**¿Cuándo usar?**
+Donde:
 
--  Cuando la **varianza aumenta con el nivel de la serie**
+-  :math:`y_t > 0` **(la serie debe ser estrictamente positiva).**
 
--  Cuando se observa que los picos y valles aumentan proporcionalmente a
-   la magnitud de los datos
+-  :math:`\lambda` es el parámetro de transformación que controla el
+   grado de compresión o expansión de la escala.
 
--  Cuando se requiere que los modelos generen **valores positivos**
+**Interpretación de** :math:`\lambda`
+
+-  :math:`\lambda = 1`: no se aplica transformación (identidad).
+
+-  :math:`\lambda = 0.5`: equivale a una transformación de raíz
+   cuadrada.
+
+-  :math:`\lambda = 0`: equivale a una transformación logarítmica.
+
+El valor óptimo de :math:`\lambda` se estima maximizando la
+verosimilitud, de manera que la serie transformada sea lo más cercana
+posible a una distribución normal con varianza constante.
+
+**Reversión de la transformación**
+
+Para volver a la escala original:
+
+.. math::
+
+
+   y_t =
+   \begin{cases}
+   (\lambda y_t' + 1)^{1/\lambda}, & \text{si } \lambda \neq 0, \\[8pt]
+   e^{y_t'}, & \text{si } \lambda = 0
+   \end{cases}
+
+**Ventajas**
+
+-  Permite ajustar la transformación a la forma de la serie.
+
+-  Puede mejorar la normalidad y estabilizar la varianza
+   simultáneamente.
+
+-  Es más flexible que aplicar logaritmos o raíces fijas.
+
+**Desventajas**
+
+-  Solo se puede aplicar a valores positivos.
+
+-  Requiere estimar el parámetro :math:`\lambda`.
 
 **Combinación de Transformaciones:**
 
@@ -103,6 +196,54 @@ estacionariedad completa:
    :alt: Combinación_transf
 
    Combinación_transf
+
+Devolver transformaciones:
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**1. Diferenciación (primera diferencia):**
+
+**Transformación:**
+
+.. math::
+
+
+   y_t' = y_t - y_{t-1}
+
+**Para revertir (recuperar la serie original):**
+
+.. math::
+
+
+   y_t = y_t' + y_{t-1}
+
+Donde :math:`y_{t-1}` es el valor original (sin transformar) del periodo
+anterior.
+
+**2. Transformación logarítmica:**
+
+**Transformación:**
+
+.. math::
+
+
+   y_t' = \log(y_t)
+
+**Para revertir (recuperar la serie original):**
+
+.. math::
+
+
+   y_t = \exp(y_t')
+
+-  Cuando se combinan transformaciones (ejemplo: primero log, luego
+   diferencia), debes **revertir en el orden inverso**:
+
+   1. Primero “deshaces” la diferencia,
+
+   2. luego “deshaces” el logaritmo.
+
+-  Siempre asegúrate de conservar el primer valor original (:math:`y_0`)
+   para poder recuperar toda la serie.
 
 Código en Python para transformaciones:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -143,7 +284,7 @@ Desempleo:
 
 
 
-.. image:: output_12_0.png
+.. image:: output_14_0.png
 
 
 .. code:: ipython3
@@ -162,7 +303,7 @@ Desempleo:
 
 
 
-.. image:: output_13_0.png
+.. image:: output_15_0.png
 
 
 .. code:: ipython3
@@ -183,81 +324,8 @@ Desempleo:
 
 .. parsed-literal::
 
-    Estadístico ADF: -4.717438227528668
-    Valor p: 3.7030290244776624e-06
-    Rechazamos la hipótesis nula: La serie es estacionaria.
-    
-
-Extracción de petróleo Ecopetrol:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: ipython3
-
-    # Cargar el archivo xlsx:
-    df = pd.read_excel('Extracción petróleo Ecopetrol.xlsx')
-    
-    # Corregir nombres de columnas si tienen espacios
-    df.columns = df.columns.str.strip()
-    
-    # Convertir 'Fecha' a datetime y usar como índice
-    df['Fecha'] = pd.to_datetime(df['Fecha'])
-    df.set_index('Fecha', inplace=True)
-    
-    # Ordenar por fecha por si acaso
-    df = df.sort_index()
-    
-    # Establecer frecuencia explícita para evitar el warning de statsmodels
-    df.index.freq = df.index.inferred_freq
-    
-    plt.figure(figsize=(18, 5))
-    plt.plot(df, color='navy')
-    plt.title("Serie de tiempo: Extracción de petróleo Ecopetrol")
-    plt.xlabel("Fecha")
-    plt.ylabel("Valor")
-    plt.grid(True, alpha=0.3)
-    plt.tight_layout()
-    plt.show()
-    
-
-
-
-.. image:: output_16_0.png
-
-
-.. code:: ipython3
-
-    # Transformación: diferenciación:
-    df_diff = df.diff().dropna()
-    
-    plt.figure(figsize=(18, 5))
-    plt.plot(df_diff, color='darkgreen')
-    plt.title("Serie de tiempo: Extracción de petróleo Ecopetrol (Diferenciada)")
-    plt.xlabel("Fecha")
-    plt.ylabel("Valor Diferenciado")
-    plt.grid(True, alpha=0.3)
-    plt.tight_layout()
-    plt.show()
-    
-    adf_result = adfuller(df_diff, regression='n') # 'n' para no incluir constante ni tendencia
-    print(f'Estadístico ADF: {adf_result[0]}')
-    print(f'Valor p: {adf_result[1]}')
-    
-    # Interpretación del resultado
-    alpha = 0.05
-    if adf_result[1] < alpha:
-        print("Rechazamos la hipótesis nula: La serie es estacionaria.")
-    else:
-        print("No podemos rechazar la hipótesis nula: La serie no es estacionaria.")
-
-
-
-.. image:: output_17_0.png
-
-
-.. parsed-literal::
-
-    Estadístico ADF: -12.533198791264146
-    Valor p: 7.230183385773031e-23
+    Estadístico ADF: -4.717438227528676
+    Valor p: 3.703029024477552e-06
     Rechazamos la hipótesis nula: La serie es estacionaria.
     
 
@@ -301,7 +369,7 @@ TRM:
     
 
 
-.. image:: output_19_1.png
+.. image:: output_18_1.png
 
 
 .. code:: ipython3
@@ -331,7 +399,7 @@ TRM:
 
 
 
-.. image:: output_20_0.png
+.. image:: output_19_0.png
 
 
 .. parsed-literal::
@@ -357,7 +425,7 @@ TRM:
 
 
 
-.. image:: output_21_0.png
+.. image:: output_20_0.png
 
 
 .. code:: ipython3
@@ -386,12 +454,12 @@ TRM:
 
 
 
-.. image:: output_22_0.png
+.. image:: output_21_0.png
 
 
 .. parsed-literal::
 
-    Estadístico ADF: -4.993827752170626
-    Valor p: 1.0868579718262527e-06
+    Estadístico ADF: -4.993827752170621
+    Valor p: 1.086857971826269e-06
     Rechazamos la hipótesis nula: La serie es estacionaria.
     

@@ -10,6 +10,7 @@ Análisis serie de tiempo precio de electricidad Colombia
     from statsmodels.tsa.seasonal import seasonal_decompose
     from statsmodels.tsa.stattools import adfuller
     from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+    from scipy.stats import boxcox
 
 Funciones:
 ~~~~~~~~~~
@@ -20,15 +21,15 @@ plot_estacionalidad_aditiva_multiplicativa
 
 plot_estacionalidad_mensual
 
-tabla_descriptiva_serie
+.. raw:: html
+
+   <!-- tabla_descriptiva_serie -->
 
 histograma_serie
 
-histogramas_transformaciones
-
 graficar_descomposicion_serie
 
-analisis_estacionariedad
+analisis_estacionariedad_full
 
 .. code:: ipython3
 
@@ -597,127 +598,218 @@ analisis_estacionariedad
     
     ##################################################################################
     
-    def analisis_estacionariedad(
-        serie: pd.Series,
-        nombre: str = None,
-        lags: int = 24,
-        xtick_interval: int = 3
+    def analisis_estacionariedad_full(
+          serie: pd.Series,
+          nombre: str = None,
+          lags: int = 24,
+          xtick_interval: int = 3
     ):
         """
-        Gráfica y análisis de estacionariedad para una serie de tiempo:
-        - Serie original, diferencia, logaritmo y diferencia del logaritmo.
-        - Muestra la ACF, PACF y resultado ADF en subplots.
+        Gráfica y análisis de estacionariedad para una serie de tiempo con múltiples transformaciones:
+        - Serie original
+        - Diferenciación
+        - Logaritmo
+        - Diferenciación del Logaritmo
+        - Raíz cuadrada
+        - Diferenciación de la raíz cuadrada
+        - Box-Cox (con corrimiento si hay valores <= 0)
+        - Diferenciación del Box-Cox
+    
+        Para cada transformación se grafica:
+        - Serie transformada en el tiempo
+        - ACF
+        - PACF
+        - Resultado de la prueba ADF con interpretación
     
         Args:
             serie: Serie de tiempo (índice datetime, pandas.Series)
             nombre: Nombre de la serie (para títulos)
             lags: Número de rezagos para ACF/PACF
             xtick_interval: Mostrar ticks en X cada este número de lags, incluyendo siempre el lag 1
+    
+        Return:
+            dict con los resultados de la ADF para cada transformación
         """
+    
         if nombre is None:
             nombre = serie.name if serie.name is not None else "Serie"
     
-        # Transformaciones
-        serie_1 = serie.copy()
-        serie_2 = serie_1.diff().dropna()
-        serie_3 = np.log(serie_1)
-        serie_4 = serie_3.diff().dropna()
+        serie = serie.astype(float).copy()
     
+        serie_orig = serie.copy()
+        serie_diff = serie_orig.diff().dropna()
+    
+        # Logaritmo
+        if (serie_orig <= 0).any():
+            log_ok = False
+            serie_log = pd.Series([np.nan]*len(serie_orig), index=serie_orig.index)
+            serie_log_diff = pd.Series([np.nan]*len(serie_orig), index=serie_orig.index)
+        else:
+            log_ok = True
+            serie_log = np.log(serie_orig)
+            serie_log_diff = serie_log.diff().dropna()
+    
+        # Raíz cuadrada
+        if (serie_orig < 0).any():
+            sqrt_ok = False
+            serie_sqrt = pd.Series([np.nan]*len(serie_orig), index=serie_orig.index)
+            serie_sqrt_diff = pd.Series([np.nan]*len(serie_orig), index=serie_orig.index)
+        else:
+            sqrt_ok = True
+            serie_sqrt = np.sqrt(serie_orig)
+            serie_sqrt_diff = serie_sqrt.diff().dropna()
+    
+        # Box–Cox
+        if (serie_orig <= 0).any():
+            shift_bc = 1 - serie_orig.min()
+        else:
+            shift_bc = 0.0
+    
+        serie_bc_input = serie_orig + shift_bc
+    
+        if (serie_bc_input <= 0).any():
+            bc_ok = False
+            serie_boxcox = pd.Series([np.nan]*len(serie_orig), index=serie_orig.index)
+            serie_boxcox_diff = pd.Series([np.nan]*len(serie_orig), index=serie_orig.index)
+            lambda_bc = np.nan
+        else:
+            bc_ok = True
+            bc_vals, lambda_bc = boxcox(serie_bc_input.values)
+            serie_boxcox = pd.Series(bc_vals, index=serie_orig.index)
+            serie_boxcox_diff = serie_boxcox.diff().dropna()
+    
+        # --- Títulos actualizados ---
         titulos = [
             f"Serie original: {nombre}",
             "Diferenciación",
-            "Logaritmo",
-            "Diferenciación del Logaritmo"
+            "Logaritmo" + ("" if log_ok else " (no aplicable)"),
+            "Diferenciación del Logaritmo" + ("" if log_ok else " (no aplicable)"),
+            "Raíz cuadrada" + ("" if sqrt_ok else " (no aplicable)"),
+            "Diferenciación de la raíz cuadrada" + ("" if sqrt_ok else " (no aplicable)"),
+            "Box-Cox" + (f" (λ = {lambda_bc:.4f})" if bc_ok else " (no aplicable)"),
+            "Diferenciación del Box-Cox" + ("" if bc_ok else " (no aplicable)")
         ]
-        series = [serie_1, serie_2, serie_3, serie_4]
     
+        series = [
+            serie_orig,
+            serie_diff,
+            serie_log,
+            serie_log_diff,
+            serie_sqrt,
+            serie_sqrt_diff,
+            serie_boxcox,
+            serie_boxcox_diff
+        ]
+    
+        # --- ADF ---
         resultados_adf = []
         interpretaciones = []
     
-        for i, serie_i in enumerate(series):
-            serie_ = serie_i.dropna()
-            # Selección de regresión en ADF
-            if i in [0, 2]:
-                adf = adfuller(serie_, regression='ct')
-            else:
-                adf = adfuller(serie_, regression='c')
-            estadistico = adf[0]
-            pvalue = adf[1]
+        for i, s in enumerate(series):
+            s_ = s.dropna()
+    
+            if len(s_) < 5:
+                resultados_adf.append((np.nan, np.nan))
+                interpretaciones.append("No evaluable")
+                continue
+    
+            regression_type = 'ct' if i in [0, 2, 4, 6] else 'c'
+    
+            try:
+                adf_res = adfuller(s_, regression=regression_type, autolag='AIC')
+                estadistico = adf_res[0]
+                pvalue = adf_res[1]
+            except Exception:
+                estadistico = np.nan
+                pvalue = np.nan
+    
             resultados_adf.append((estadistico, pvalue))
-            interpretaciones.append("Estacionaria" if pvalue < 0.05 else "No estacionaria")
+            interpretaciones.append("Estacionaria" if (pvalue is not None and pvalue < 0.05) else "No estacionaria")
     
-        fig, axes = plt.subplots(4, 3, figsize=(18, 16))
-        colores = ['black', 'black', 'black', 'black']
+        # --- Gráficos ---
+        filas = len(series)
+        fig, axes = plt.subplots(filas, 3, figsize=(18, 4*filas), squeeze=False)
+        colores = ['black'] * filas
     
-        for fila in range(4):
-            # Serie y etiquetas
-            axes[fila, 0].plot(series[fila], color=colores[fila])
+        for fila in range(filas):
+            serie_fila = series[fila]
+    
+            # Serie temporal
+            axes[fila, 0].plot(serie_fila, color=colores[fila], lw=1)
             axes[fila, 0].set_title(titulos[fila], color='black')
             axes[fila, 0].set_xlabel("Fecha", color='black')
+    
             if fila == 0:
-                axes[fila, 0].set_ylabel("Valor", color='black')
+                ylabel = "Valor"
             elif fila == 1:
-                axes[fila, 0].set_ylabel("Δ Valor", color='black')
+                ylabel = "Δ Valor"
             elif fila == 2:
-                axes[fila, 0].set_ylabel("Log(Valor)", color='black')
+                ylabel = "Log(Valor)"
+            elif fila == 3:
+                ylabel = "Δ Log(Valor)"
+            elif fila == 4:
+                ylabel = "√Valor"
+            elif fila == 5:
+                ylabel = "Δ √Valor"
+            elif fila == 6:
+                ylabel = "Box-Cox"
             else:
-                axes[fila, 0].set_ylabel("Δ Log(Valor)", color='black')
+                ylabel = "Δ Box-Cox"
+    
+            axes[fila, 0].set_ylabel(ylabel, color='black')
             axes[fila, 0].grid(True, alpha=0.3)
             axes[fila, 0].tick_params(axis='both', labelsize=11, colors='black')
     
-            # ACF
-            plot_acf(
-                series[fila].dropna(),
-                lags=lags,
-                ax=axes[fila, 1],
-                zero=False,
-                color=colores[fila]
-            )
-            axes[fila, 1].set_title("ACF", color='black')
-            # xticks: incluir lag 1 y luego cada xtick_interval (ej: 1, 3, 6, ...)
-            xticks = [1] + list(range(xtick_interval, lags + 1, xtick_interval))
-            xticks = sorted(set(xticks))  # asegura que no haya duplicados
-            axes[fila, 1].set_xticks(xticks)
-            axes[fila, 1].tick_params(axis='both', labelsize=11, colors='black')
-            axes[fila, 1].set_xlabel("Lag", color='black')
-            axes[fila, 1].set_ylabel("Autocorrelación", color='black')
-    
-            # PACF
-            plot_pacf(
-                series[fila].dropna(),
-                lags=lags,
-                ax=axes[fila, 2],
-                zero=False,
-                color=colores[fila]
-            )
-            axes[fila, 2].set_title("PACF", color='black')
-            axes[fila, 2].set_xticks(xticks)
-            axes[fila, 2].tick_params(axis='both', labelsize=11, colors='black')
-            axes[fila, 2].set_xlabel("Lag", color='black')
-            axes[fila, 2].set_ylabel("Autocorrelación parcial", color='black')
-    
-            # Indicador estacionariedad (más abajo)
+            adf_est, adf_p = resultados_adf[fila]
             axes[fila, 0].text(
                 0.02, 0.85,
-                f"ADF: {resultados_adf[fila][0]:.2f}\np-valor: {resultados_adf[fila][1]:.4f}\n{interpretaciones[fila]}",
+                f"ADF: {adf_est:.2f}\np-valor: {adf_p:.4f}\n{interpretaciones[fila]}",
                 transform=axes[fila, 0].transAxes,
-                fontsize=11, bbox=dict(facecolor='white', alpha=0.85), color='black'
+                fontsize=11,
+                bbox=dict(facecolor='white', alpha=0.85),
+                color='black'
             )
+    
+            # ACF
+            try:
+                plot_acf(serie_fila.dropna(), lags=lags, ax=axes[fila, 1], zero=False, color=colores[fila])
+            except Exception:
+                axes[fila, 1].text(0.5, 0.5, "ACF no disponible", ha='center', va='center')
+            axes[fila, 1].set_title("ACF", color='black')
+            xticks = [1] + list(range(xtick_interval, lags + 1, xtick_interval))
+            axes[fila, 1].set_xticks(sorted(set(xticks)))
+            axes[fila, 1].tick_params(axis='both', labelsize=11, colors='black')
+            axes[fila, 1].set_xlabel("Lag", color='black')
+    
+            # PACF
+            try:
+                plot_pacf(serie_fila.dropna(), lags=lags, ax=axes[fila, 2], zero=False, color=colores[fila])
+            except Exception:
+                axes[fila, 2].text(0.5, 0.5, "PACF no disponible", ha='center', va='center')
+            axes[fila, 2].set_title("PACF", color='black')
+            axes[fila, 2].set_xticks(sorted(set(xticks)))
+            axes[fila, 2].tick_params(axis='both', labelsize=11, colors='black')
+            axes[fila, 2].set_xlabel("Lag", color='black')
     
         plt.tight_layout()
         plt.show()
-        
-        # Devuelve los resultados en un dict (opcional)
+    
+        # --- Resumen ADF ---
         adf_dict = {
             titulos[i]: {
                 "estadístico ADF": resultados_adf[i][0],
                 "p-valor": resultados_adf[i][1],
-                "interpretación": interpretaciones[i]
+                "interpretación": interpretaciones[i],
+                "nota_boxcox": (
+                    f"lambda Box-Cox = {lambda_bc:.4f}, shift aplicado = {shift_bc:.4f}"
+                    if ("Box-Cox" in titulos[i] and bc_ok)
+                    else ("Box-Cox no aplicable" if "Box-Cox" in titulos[i] and not bc_ok else None)
+                )
             }
-            for i in range(4)
+            for i in range(filas)
         }
-        return adf_dict
     
+        return adf_dict
     
 
 Precio de electricidad:
@@ -941,22 +1033,6 @@ Estadística descriptiva:
 
 
 
-Histograma de la serie de tiempo:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: ipython3
-
-    histograma_serie(precio_electricidad, 
-                    columna='Precio', 
-                    nombre="Precio de electricidad", 
-                    color='navy', 
-                    alpha=0.82)
-
-
-
-.. image:: output_11_0.png
-
-
 Descomposición:
 ~~~~~~~~~~~~~~~
 
@@ -969,7 +1045,7 @@ Descomposición:
 
 
 
-.. image:: output_13_0.png
+.. image:: output_11_0.png
 
 
 Estacionalidad:
@@ -984,27 +1060,27 @@ Estacionalidad:
 
 
 
-.. image:: output_15_0.png
+.. image:: output_13_0.png
 
 
 .. code:: ipython3
 
     # Estacionalidad aditiva
     plot_estacionalidad_mensual(precio_electricidad, tipo="aditiva", 
-    nombre="Precio de electricidad")
+                                nombre="Precio de electricidad")
     
     # Estacionalidad multiplicativa
     plot_estacionalidad_mensual(precio_electricidad, tipo="multiplicativa", 
-    nombre="Precio de electricidad")
+                                nombre="Precio de electricidad")
     
 
 
 
-.. image:: output_16_0.png
+.. image:: output_14_0.png
 
 
 
-.. image:: output_16_1.png
+.. image:: output_14_1.png
 
 
 Transformaciones y prueba ADF:
@@ -1012,7 +1088,7 @@ Transformaciones y prueba ADF:
 
 .. code:: ipython3
 
-    adf_resultados = analisis_estacionariedad(
+    adf_resultados = analisis_estacionariedad_full(
         precio_electricidad['Precio'],
         nombre="Precio de electricidad",
         lags=24,
@@ -1021,19 +1097,5 @@ Transformaciones y prueba ADF:
 
 
 
-.. image:: output_18_0.png
-
-
-Histograma de las transformaciones:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code:: ipython3
-
-    histogramas_transformaciones(precio_electricidad, 
-                                columna='Precio', 
-                                nombre="Precio de electricidad")
-
-
-
-.. image:: output_20_0.png
+.. image:: output_16_0.png
 
