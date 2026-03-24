@@ -50,6 +50,7 @@ Keras:
    Ejercicio clasificación/Ejercicio clasificación
    RNA para series de tiempo/RNA para series de tiempo
    Ejemplo pronóstico serie de tiempo/Ejemplo pronóstico serie de tiempo
+   Ejemplo empresas en Reorganización/Ejemplo_empresas_en_Reorganización
 
 
 Optimizadores:
@@ -63,19 +64,6 @@ Optimizadores:
    Ejemplo Optimizadores/Ejemplo Optimizadores
 
 
-Optimización de Hiperparámetros:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
-
-   Optimización de hiperparámetros/Optimización de Hiperparámetros
-   GridSearchCV/GridSearchCV
-   RandomizedSearchCV/RandomizedSearchCV
-   KerasTuner/KerasTuner
-   Ejemplo empresas en reorganización/Ejemplo_empresas_en_re_organización
-
 
 Regularización:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -87,6 +75,23 @@ Regularización:
    Generalización/Generalización
    Regularización/Regularización
    Ejemplo regularización/Ejemplo regularización
+   Ejemplo empresas - Regularización/Ejemplo empresas - Regularización
+
+
+Optimización de Hiperparámetros:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
+   Optimización de hiperparámetros/Optimización de Hiperparámetros
+   GridSearchCV/GridSearchCV
+   RandomizedSearchCV/RandomizedSearchCV
+   KerasTuner/KerasTuner
+   Optimización de Hp - Empresas en Reorganización/Optimización de Hp - Empresas en Reorganización
+   Optimización de Hp- Empresas en Reorganización - variables/Optimización de Hp- Empresas en Reorganización - variables
+   
 
 
 Redes Neuronales Recurrentes:
