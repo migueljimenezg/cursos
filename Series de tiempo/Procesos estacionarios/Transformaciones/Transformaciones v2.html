@@ -943,7 +943,7 @@ para poder recuperar toda la serie.</p></li>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_15_013.png" src="../../../_images/output_15_013.png" />
+<img alt="../../../_images/output_15_014.png" src="../../../_images/output_15_014.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.stattools</span><span class="w"> </span><span class="kn">import</span> <span class="n">adfuller</span>
 
 <span class="n">adf_result</span> <span class="o">=</span> <span class="n">adfuller</span><span class="p">(</span><span class="n">df_diff</span><span class="p">,</span> <span class="n">regression</span><span class="o">=</span><span class="s1">&#39;n&#39;</span><span class="p">)</span> <span class="c1"># &#39;n&#39; para no incluir constante ni tendencia</span>
@@ -996,7 +996,7 @@ para poder recuperar toda la serie.</p></li>
 </pre></div>
 </div>
 <pre class="literal-block">[<strong>*******************100%*********************</strong>]  1 of 1 completed</pre>
-<img alt="../../../_images/output_18_15.png" src="../../../_images/output_18_15.png" />
+<img alt="../../../_images/output_18_14.png" src="../../../_images/output_18_14.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transformación: diferenciación</span>
 
 <span class="n">df_diff</span> <span class="o">=</span> <span class="n">trm</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>

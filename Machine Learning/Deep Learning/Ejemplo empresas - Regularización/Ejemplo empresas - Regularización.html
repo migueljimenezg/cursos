@@ -44,6 +44,7 @@
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=fd10adb8"></script>
     <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Machine Learning/Deep Learning/Ejemplo empresas - Regularización/Ejemplo empresas - Regularización';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -702,6 +703,11 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#red-neuronal-artificial">Red Neuronal Artificial:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularizacion">Regularización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion">Predicción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-roc">Curva ROC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-precision-recall">Curva Precisión / Recall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-positivos-por-decil">Tasa de positivos por decil</a></li>
 </ul>
             </nav>
         </div>
@@ -742,7 +748,7 @@ document.write(`
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
-  <div id="df-0c8a090c-3ab9-4e78-adbd-db17d2a1b524" class="colab-df-container">
+  <div id="df-fae34be2-dcf0-44e2-9aab-94894b47429c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -839,7 +845,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0c8a090c-3ab9-4e78-adbd-db17d2a1b524')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fae34be2-dcf0-44e2-9aab-94894b47429c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -891,12 +897,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0c8a090c-3ab9-4e78-adbd-db17d2a1b524 button.colab-df-convert');
+        document.querySelector('#df-fae34be2-dcf0-44e2-9aab-94894b47429c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0c8a090c-3ab9-4e78-adbd-db17d2a1b524');
+        const element = document.querySelector('#df-fae34be2-dcf0-44e2-9aab-94894b47429c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1000,27 +1006,6 @@ memory usage: 44.4+ KB
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">((</span><span class="mi">440</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">189</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">440</span><span class="p">,),</span> <span class="p">(</span><span class="mi">189</span><span class="p">,))</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y_train</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
- <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
- <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span>
- <span class="n">pandas</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">series</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span>
-</pre></div>
-</div>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
 
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">InputLayer</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],)))</span>
@@ -1036,9 +1021,8 @@ memory usage: 44.4+ KB
                     <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
                     <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span>
                     <span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graficar Loss y Val Loss:</span>
+
+<span class="c1"># Graficar Loss y Val Loss:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;val_loss&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
@@ -1047,7 +1031,7 @@ memory usage: 44.4+ KB
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_12_05.png" src="../../../_images/output_12_05.png" />
+<img alt="../../../_images/output_8_06.png" src="../../../_images/output_8_06.png" />
 </section>
 <section id="regularizacion">
 <h2>Regularización<a class="headerlink" href="#regularizacion" title="Link to this heading">#</a></h2>
@@ -1075,9 +1059,8 @@ memory usage: 44.4+ KB
                     <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">callback</span><span class="p">],</span>
                     <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span>
                     <span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graficar Loss y Val Loss:</span>
+
+<span class="c1"># Graficar Loss y Val Loss:</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;loss&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s2">&quot;val_loss&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
@@ -1086,7 +1069,10 @@ memory usage: 44.4+ KB
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_16_08.png" src="../../../_images/output_16_08.png" />
+<img alt="../../../_images/output_11_010.png" src="../../../_images/output_11_010.png" />
+</section>
+<section id="prediccion">
+<h2>Predicción<a class="headerlink" href="#prediccion" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_prob_train</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="n">y_prob_test</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
@@ -1096,6 +1082,9 @@ memory usage: 44.4+ KB
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_prob_test</span> <span class="o">&gt;=</span> <span class="n">umbral</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="evaluacion-del-modelo">
+<h2>Evaluación del modelo<a class="headerlink" href="#evaluacion-del-modelo" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------</span>
 <span class="c1"># Evaluación del modelo</span>
 <span class="c1"># ------------------------</span>
@@ -1120,8 +1109,8 @@ memory usage: 44.4+ KB
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_18_06.png" src="../../../_images/output_18_06.png" />
-<img alt="../../../_images/output_18_14.png" src="../../../_images/output_18_14.png" />
+<img alt="../../../_images/output_15_06.png" src="../../../_images/output_15_06.png" />
+<img alt="../../../_images/output_15_12.png" src="../../../_images/output_15_12.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Reporte de Clasificación - train ===&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train</span><span class="p">))</span>
 
@@ -1132,31 +1121,136 @@ memory usage: 44.4+ KB
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">===</span> <span class="n">Reporte</span> <span class="n">de</span> <span class="n">Clasificación</span> <span class="o">-</span> <span class="n">train</span> <span class="o">===</span>
               <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
 
-           <span class="mi">0</span>       <span class="mf">0.72</span>      <span class="mf">0.90</span>      <span class="mf">0.80</span>       <span class="mi">201</span>
-           <span class="mi">1</span>       <span class="mf">0.89</span>      <span class="mf">0.71</span>      <span class="mf">0.79</span>       <span class="mi">239</span>
+           <span class="mi">0</span>       <span class="mf">0.71</span>      <span class="mf">0.92</span>      <span class="mf">0.80</span>       <span class="mi">201</span>
+           <span class="mi">1</span>       <span class="mf">0.91</span>      <span class="mf">0.68</span>      <span class="mf">0.78</span>       <span class="mi">239</span>
 
-    <span class="n">accuracy</span>                           <span class="mf">0.80</span>       <span class="mi">440</span>
-   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.81</span>      <span class="mf">0.81</span>      <span class="mf">0.80</span>       <span class="mi">440</span>
-<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.82</span>      <span class="mf">0.80</span>      <span class="mf">0.80</span>       <span class="mi">440</span>
+    <span class="n">accuracy</span>                           <span class="mf">0.79</span>       <span class="mi">440</span>
+   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.81</span>      <span class="mf">0.80</span>      <span class="mf">0.79</span>       <span class="mi">440</span>
+<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.82</span>      <span class="mf">0.79</span>      <span class="mf">0.79</span>       <span class="mi">440</span>
 
 
 <span class="o">===</span> <span class="n">Reporte</span> <span class="n">de</span> <span class="n">Clasificación</span> <span class="o">-</span> <span class="n">test</span> <span class="o">===</span>
               <span class="n">precision</span>    <span class="n">recall</span>  <span class="n">f1</span><span class="o">-</span><span class="n">score</span>   <span class="n">support</span>
 
-           <span class="mi">0</span>       <span class="mf">0.69</span>      <span class="mf">0.83</span>      <span class="mf">0.75</span>        <span class="mi">86</span>
-           <span class="mi">1</span>       <span class="mf">0.83</span>      <span class="mf">0.69</span>      <span class="mf">0.75</span>       <span class="mi">103</span>
+           <span class="mi">0</span>       <span class="mf">0.68</span>      <span class="mf">0.87</span>      <span class="mf">0.76</span>        <span class="mi">86</span>
+           <span class="mi">1</span>       <span class="mf">0.86</span>      <span class="mf">0.65</span>      <span class="mf">0.74</span>       <span class="mi">103</span>
 
     <span class="n">accuracy</span>                           <span class="mf">0.75</span>       <span class="mi">189</span>
-   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.76</span>      <span class="mf">0.76</span>      <span class="mf">0.75</span>       <span class="mi">189</span>
-<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.76</span>      <span class="mf">0.75</span>      <span class="mf">0.75</span>       <span class="mi">189</span>
+   <span class="n">macro</span> <span class="n">avg</span>       <span class="mf">0.77</span>      <span class="mf">0.76</span>      <span class="mf">0.75</span>       <span class="mi">189</span>
+<span class="n">weighted</span> <span class="n">avg</span>       <span class="mf">0.78</span>      <span class="mf">0.75</span>      <span class="mf">0.75</span>       <span class="mi">189</span>
 </pre></div>
 </div>
+</section>
+<section id="curva-roc">
+<h2>Curva ROC<a class="headerlink" href="#curva-roc" title="Link to this heading">#</a></h2>
+<p>La curva ROC (Receiver Operating Characteristic) muestra el desempeño de
+un modelo de clasificación para todos los posibles umbrales.</p>
+<ul class="simple">
+<li><p>Eje X: FPR (False Positive Rate)</p></li>
+<li><p>Eje Y: TPR (True Positive Rate o Recall) - Sensibilidad</p></li>
+</ul>
+<p>Cada punto de la curva = un umbral diferente</p>
+<p>La curva muestra el trade-off entre:</p>
+<ul class="simple">
+<li><p>Sensibilidad (TPR) - Recall</p></li>
+<li><p>Falsos positivos (FPR)</p></li>
+</ul>
+<p>El AUC (Area Under the Curve) mide el área bajo la curva ROC, no depende
+del umbral</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ============================</span>
+<span class="c1"># ROC AUC Score</span>
+<span class="c1"># ============================</span>
+<span class="n">auc_train</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_prob_train</span><span class="p">)</span>
+<span class="n">auc_test</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ROC AUC - Train: </span><span class="si">{</span><span class="n">auc_train</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ROC AUC - Test : </span><span class="si">{</span><span class="n">auc_test</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># ============================</span>
+<span class="c1"># Curva ROC (Train y Test)</span>
+<span class="c1"># ============================</span>
+<span class="n">fpr_train</span><span class="p">,</span> <span class="n">tpr_train</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_prob_train</span><span class="p">)</span>
+<span class="n">fpr_test</span><span class="p">,</span> <span class="n">tpr_test</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob_test</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr_train</span><span class="p">,</span> <span class="n">tpr_train</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Train (AUC = </span><span class="si">{</span><span class="n">auc_train</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr_test</span><span class="p">,</span> <span class="n">tpr_test</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Test  (AUC = </span><span class="si">{</span><span class="n">auc_test</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Azar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;False Positive Rate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;True Positive Rate&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Curva ROC - Train y Test&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ROC</span> <span class="n">AUC</span> <span class="o">-</span> <span class="n">Train</span><span class="p">:</span> <span class="mf">0.873</span>
+<span class="n">ROC</span> <span class="n">AUC</span> <span class="o">-</span> <span class="n">Test</span> <span class="p">:</span> <span class="mf">0.847</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_19_13.png" src="../../../_images/output_19_13.png" />
+</section>
+<section id="curva-precision-recall">
+<h2>Curva Precisión / Recall<a class="headerlink" href="#curva-precision-recall" title="Link to this heading">#</a></h2>
+<p>La curva Precision–Recall (PR) muestra el desempeño del modelo para
+distintos umbrales, enfocándose en la clase positiva.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calcular precisión y recall para diferentes umbrales</span>
+<span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_prob_test</span><span class="p">)</span>
+
+<span class="c1"># Agregar el umbral 0 para completar el array de thresholds</span>
+<span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thresholds</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Graficar precisión y recall en función del umbral</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thresholds</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Precisión&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">thresholds</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Recall&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Umbral&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Precisión/Recall&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Precisión y Recall en función del umbral&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_22_010.png" src="../../../_images/output_22_010.png" />
+</section>
+<section id="tasa-de-positivos-por-decil">
+<h2>Tasa de positivos por decil<a class="headerlink" href="#tasa-de-positivos-por-decil" title="Link to this heading">#</a></h2>
+<p>El gráfico se construye ordenando las observaciones según la
+probabilidad estimada por el modelo de mayor a menor. Luego, estas
+observaciones se dividen en deciles (grupos del mismo tamaño) y, para
+cada decil, se calcula la proporción de la clase positiva real respecto
+al total de observaciones en ese grupo. Esto permite evaluar si el
+modelo concentra los casos positivos en los deciles de mayor riesgo.</p>
+<ul class="simple">
+<li><p><strong>Decil 1</strong> → mayor probabilidad predicha</p></li>
+<li><p><strong>Decil 10</strong> → menor probabilidad predicha</p></li>
+</ul>
+<p>Muestra qué tan bien el modelo concentra los positivos en los primeros
+deciles.</p>
+<p>El gráfico responde: Entre los casos que el modelo considera más
+riesgosos (según probabilidad), qué proporción realmente es positiva.</p>
+<p>Curva decreciente = buen modelo</p>
+<p>Si el modelo ordena bien el riesgo, entonces:</p>
+<ul class="simple">
+<li><p>el decil 1 debe tener la tasa más alta de positivos</p></li>
+<li><p>los siguientes deciles deben ir bajando</p></li>
+<li><p>el decil 10 debe tener la tasa más baja</p></li>
+</ul>
+<p>Es decir, una curva descendente indica que el modelo sí está separando
+bien los casos.</p>
+<p><strong>Tasa de positivos por decil:</strong></p>
+<div class="math notranslate nohighlight">
+\[Tasa_d = \frac{Positivos_d}{Total_d}\]</div>
+<p>Esto significa: De todas las observaciones que quedaron en ese decil,
+qué proporción realmente pertenece a la clase positiva.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DataFrame con probas y clase real</span>
 <span class="n">df_deciles</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;y_real&#39;</span><span class="p">:</span> <span class="n">y_test</span><span class="p">,</span> <span class="s1">&#39;y_proba&#39;</span><span class="p">:</span> <span class="n">y_prob_test</span><span class="p">})</span>
 
 <span class="c1"># Crear deciles (1 = más alto riesgo, 10 = más bajo)</span>
 <span class="n">df_deciles</span><span class="p">[</span><span class="s1">&#39;Decil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">df_deciles</span><span class="p">[</span><span class="s1">&#39;y_proba&#39;</span><span class="p">],</span> <span class="mi">10</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">duplicates</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="n">df_deciles</span><span class="p">[</span><span class="s1">&#39;Decil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11</span> <span class="o">-</span> <span class="n">df_deciles</span><span class="p">[</span><span class="s1">&#39;Decil&#39;</span><span class="p">]</span>   <span class="c1"># invertir para que el decil 1 sea el de mayor riesgo</span>
+<span class="n">df_deciles</span><span class="p">[</span><span class="s1">&#39;Decil&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">11</span> <span class="o">-</span> <span class="n">df_deciles</span><span class="p">[</span><span class="s1">&#39;Decil&#39;</span><span class="p">]</span>   <span class="c1"># invertir para que el decil 1 sea el de mayor probabilidad</span>
 
 <span class="c1"># Calcular tasa por decil</span>
 <span class="n">tabla_deciles</span> <span class="o">=</span> <span class="n">df_deciles</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Decil&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
@@ -1164,8 +1258,6 @@ memory usage: 44.4+ KB
     <span class="n">Positivos</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;y_real&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">tabla_deciles</span><span class="p">[</span><span class="s1">&#39;Tasa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla_deciles</span><span class="p">[</span><span class="s1">&#39;Positivos&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">tabla_deciles</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span>
-<span class="n">tabla_deciles</span><span class="p">[</span><span class="s1">&#39;Lift&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla_deciles</span><span class="p">[</span><span class="s1">&#39;Tasa&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_deciles</span><span class="p">[</span><span class="s1">&#39;y_real&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">tabla_deciles</span><span class="p">[</span><span class="s1">&#39;Captura_Acum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tabla_deciles</span><span class="p">[</span><span class="s1">&#39;Positivos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span> <span class="o">/</span> <span class="n">df_deciles</span><span class="p">[</span><span class="s1">&#39;y_real&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tasa de positivos reales en test: </span><span class="si">{</span><span class="n">df_deciles</span><span class="p">[</span><span class="s1">&#39;y_real&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -1182,21 +1274,21 @@ memory usage: 44.4+ KB
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Tasa</span> <span class="n">de</span> <span class="n">positivos</span> <span class="n">reales</span> <span class="n">en</span> <span class="n">test</span><span class="p">:</span> <span class="mf">0.54</span>
-       <span class="n">Total</span>  <span class="n">Positivos</span>      <span class="n">Tasa</span>      <span class="n">Lift</span>  <span class="n">Captura_Acum</span>
+       <span class="n">Total</span>  <span class="n">Positivos</span>      <span class="n">Tasa</span>
 <span class="n">Decil</span>
-<span class="mi">1</span>         <span class="mi">19</span>         <span class="mi">19</span>  <span class="mf">1.000000</span>  <span class="mf">1.834951</span>      <span class="mf">0.184466</span>
-<span class="mi">2</span>         <span class="mi">19</span>         <span class="mi">19</span>  <span class="mf">1.000000</span>  <span class="mf">1.834951</span>      <span class="mf">0.368932</span>
-<span class="mi">3</span>         <span class="mi">19</span>         <span class="mi">17</span>  <span class="mf">0.894737</span>  <span class="mf">1.641799</span>      <span class="mf">0.533981</span>
-<span class="mi">4</span>         <span class="mi">19</span>         <span class="mi">11</span>  <span class="mf">0.578947</span>  <span class="mf">1.062340</span>      <span class="mf">0.640777</span>
-<span class="mi">5</span>         <span class="mi">18</span>          <span class="mi">9</span>  <span class="mf">0.500000</span>  <span class="mf">0.917476</span>      <span class="mf">0.728155</span>
-<span class="mi">6</span>         <span class="mi">19</span>         <span class="mi">11</span>  <span class="mf">0.578947</span>  <span class="mf">1.062340</span>      <span class="mf">0.834951</span>
-<span class="mi">7</span>         <span class="mi">19</span>          <span class="mi">3</span>  <span class="mf">0.157895</span>  <span class="mf">0.289729</span>      <span class="mf">0.864078</span>
-<span class="mi">8</span>         <span class="mi">19</span>          <span class="mi">7</span>  <span class="mf">0.368421</span>  <span class="mf">0.676035</span>      <span class="mf">0.932039</span>
-<span class="mi">9</span>         <span class="mi">19</span>          <span class="mi">5</span>  <span class="mf">0.263158</span>  <span class="mf">0.482882</span>      <span class="mf">0.980583</span>
-<span class="mi">10</span>        <span class="mi">19</span>          <span class="mi">2</span>  <span class="mf">0.105263</span>  <span class="mf">0.193153</span>      <span class="mf">1.000000</span>
+<span class="mi">1</span>         <span class="mi">19</span>         <span class="mi">19</span>  <span class="mf">1.000000</span>
+<span class="mi">2</span>         <span class="mi">19</span>         <span class="mi">18</span>  <span class="mf">0.947368</span>
+<span class="mi">3</span>         <span class="mi">19</span>         <span class="mi">18</span>  <span class="mf">0.947368</span>
+<span class="mi">4</span>         <span class="mi">19</span>         <span class="mi">11</span>  <span class="mf">0.578947</span>
+<span class="mi">5</span>         <span class="mi">18</span>          <span class="mi">9</span>  <span class="mf">0.500000</span>
+<span class="mi">6</span>         <span class="mi">19</span>         <span class="mi">10</span>  <span class="mf">0.526316</span>
+<span class="mi">7</span>         <span class="mi">19</span>          <span class="mi">6</span>  <span class="mf">0.315789</span>
+<span class="mi">8</span>         <span class="mi">19</span>          <span class="mi">4</span>  <span class="mf">0.210526</span>
+<span class="mi">9</span>         <span class="mi">19</span>          <span class="mi">5</span>  <span class="mf">0.263158</span>
+<span class="mi">10</span>        <span class="mi">19</span>          <span class="mi">3</span>  <span class="mf">0.157895</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_20_13.png" src="../../../_images/output_20_13.png" />
+<img alt="../../../_images/output_25_12.png" src="../../../_images/output_25_12.png" />
 </section>
 </section>
 
@@ -1247,6 +1339,11 @@ memory usage: 44.4+ KB
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#red-neuronal-artificial">Red Neuronal Artificial:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularizacion">Regularización</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediccion">Predicción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-roc">Curva ROC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curva-precision-recall">Curva Precisión / Recall</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tasa-de-positivos-por-decil">Tasa de positivos por decil</a></li>
 </ul>
   </nav></div>
 

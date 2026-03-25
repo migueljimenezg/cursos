@@ -36,7 +36,7 @@ Ejemplo empresas en Reorganización - Regularización
 .. raw:: html
 
     
-      <div id="df-0c8a090c-3ab9-4e78-adbd-db17d2a1b524" class="colab-df-container">
+      <div id="df-fae34be2-dcf0-44e2-9aab-94894b47429c" class="colab-df-container">
         <div>
     <style scoped>
         .dataframe tbody tr th:only-of-type {
@@ -133,7 +133,7 @@ Ejemplo empresas en Reorganización - Regularización
         <div class="colab-df-buttons">
     
       <div class="colab-df-container">
-        <button class="colab-df-convert" onclick="convertToInteractive('df-0c8a090c-3ab9-4e78-adbd-db17d2a1b524')"
+        <button class="colab-df-convert" onclick="convertToInteractive('df-fae34be2-dcf0-44e2-9aab-94894b47429c')"
                 title="Convert this dataframe to an interactive table."
                 style="display:none;">
     
@@ -185,12 +185,12 @@ Ejemplo empresas en Reorganización - Regularización
     
         <script>
           const buttonEl =
-            document.querySelector('#df-0c8a090c-3ab9-4e78-adbd-db17d2a1b524 button.colab-df-convert');
+            document.querySelector('#df-fae34be2-dcf0-44e2-9aab-94894b47429c button.colab-df-convert');
           buttonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
     
           async function convertToInteractive(key) {
-            const element = document.querySelector('#df-0c8a090c-3ab9-4e78-adbd-db17d2a1b524');
+            const element = document.querySelector('#df-fae34be2-dcf0-44e2-9aab-94894b47429c');
             const dataTable =
               await google.colab.kernel.invokeFunction('convertToInteractive',
                                                         [key], {});
@@ -318,48 +318,6 @@ Red Neuronal Artificial:
 
 .. code:: ipython3
 
-    X_train.shape, X_test.shape, y_train.shape, y_test.shape
-
-
-
-
-.. parsed-literal::
-
-    ((440, 7), (189, 7), (440,), (189,))
-
-
-
-.. code:: ipython3
-
-    type(X_train), type(X_test), type(y_train), type(y_test)
-
-
-
-
-.. parsed-literal::
-
-    (numpy.ndarray,
-     numpy.ndarray,
-     pandas.core.series.Series,
-     pandas.core.series.Series)
-
-
-
-.. code:: ipython3
-
-    X_train.shape[1]
-
-
-
-
-.. parsed-literal::
-
-    7
-
-
-
-.. code:: ipython3
-
     model = Sequential()
     
     model.add(InputLayer(shape=(X_train.shape[1],)))
@@ -375,9 +333,7 @@ Red Neuronal Artificial:
                         batch_size=32,
                         verbose=0
                         )
-
-.. code:: ipython3
-
+    
     # Graficar Loss y Val Loss:
     plt.figure(figsize=(5, 5))
     plt.plot(history.history["loss"], color="blue")
@@ -388,7 +344,7 @@ Red Neuronal Artificial:
 
 
 
-.. image:: output_12_0.png
+.. image:: output_8_0.png
 
 
 Regularización
@@ -420,9 +376,7 @@ Regularización
                         callbacks=[callback],
                         verbose=0
                         )
-
-.. code:: ipython3
-
+    
     # Graficar Loss y Val Loss:
     plt.figure(figsize=(5, 5))
     plt.plot(history.history["loss"], color="blue")
@@ -433,8 +387,11 @@ Regularización
 
 
 
-.. image:: output_16_0.png
+.. image:: output_11_0.png
 
+
+Predicción
+~~~~~~~~~~
 
 .. code:: ipython3
 
@@ -445,6 +402,9 @@ Regularización
     umbral = 0.5
     y_pred_train = np.where(y_prob_train >= umbral, 1, 0)
     y_pred = np.where(y_prob_test >= umbral, 1, 0)
+
+Evaluación del modelo
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
@@ -473,11 +433,11 @@ Regularización
 
 
 
-.. image:: output_18_0.png
+.. image:: output_15_0.png
 
 
 
-.. image:: output_18_1.png
+.. image:: output_15_1.png
 
 
 .. code:: ipython3
@@ -495,25 +455,156 @@ Regularización
     === Reporte de Clasificación - train ===
                   precision    recall  f1-score   support
     
-               0       0.72      0.90      0.80       201
-               1       0.89      0.71      0.79       239
+               0       0.71      0.92      0.80       201
+               1       0.91      0.68      0.78       239
     
-        accuracy                           0.80       440
-       macro avg       0.81      0.81      0.80       440
-    weighted avg       0.82      0.80      0.80       440
+        accuracy                           0.79       440
+       macro avg       0.81      0.80      0.79       440
+    weighted avg       0.82      0.79      0.79       440
     
     
     === Reporte de Clasificación - test ===
                   precision    recall  f1-score   support
     
-               0       0.69      0.83      0.75        86
-               1       0.83      0.69      0.75       103
+               0       0.68      0.87      0.76        86
+               1       0.86      0.65      0.74       103
     
         accuracy                           0.75       189
-       macro avg       0.76      0.76      0.75       189
-    weighted avg       0.76      0.75      0.75       189
+       macro avg       0.77      0.76      0.75       189
+    weighted avg       0.78      0.75      0.75       189
     
     
+
+Curva ROC
+~~~~~~~~~
+
+La curva ROC (Receiver Operating Characteristic) muestra el desempeño de
+un modelo de clasificación para todos los posibles umbrales.
+
+-  Eje X: FPR (False Positive Rate)
+
+-  Eje Y: TPR (True Positive Rate o Recall) - Sensibilidad
+
+Cada punto de la curva = un umbral diferente
+
+La curva muestra el trade-off entre:
+
+-  Sensibilidad (TPR) - Recall
+
+-  Falsos positivos (FPR)
+
+El AUC (Area Under the Curve) mide el área bajo la curva ROC, no depende
+del umbral
+
+.. code:: ipython3
+
+    # ============================
+    # ROC AUC Score
+    # ============================
+    auc_train = roc_auc_score(y_train, y_prob_train)
+    auc_test = roc_auc_score(y_test, y_prob_test)
+    
+    print(f"ROC AUC - Train: {auc_train:.3f}")
+    print(f"ROC AUC - Test : {auc_test:.3f}")
+    
+    # ============================
+    # Curva ROC (Train y Test)
+    # ============================
+    fpr_train, tpr_train, _ = roc_curve(y_train, y_prob_train)
+    fpr_test, tpr_test, _ = roc_curve(y_test, y_prob_test)
+    
+    plt.figure(figsize=(8, 6))
+    plt.plot(fpr_train, tpr_train, label=f'Train (AUC = {auc_train:.2f})', color='blue')
+    plt.plot(fpr_test, tpr_test, label=f'Test  (AUC = {auc_test:.2f})', color='orange')
+    plt.plot([0, 1], [0, 1], 'k--', label='Azar')
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.title("Curva ROC - Train y Test")
+    plt.legend(loc="lower right")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+
+.. parsed-literal::
+
+    ROC AUC - Train: 0.873
+    ROC AUC - Test : 0.847
+    
+
+
+.. image:: output_19_1.png
+
+
+Curva Precisión / Recall
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+La curva Precision–Recall (PR) muestra el desempeño del modelo para
+distintos umbrales, enfocándose en la clase positiva.
+
+.. code:: ipython3
+
+    # Calcular precisión y recall para diferentes umbrales
+    precision, recall, thresholds = precision_recall_curve(y_test, y_prob_test)
+    
+    # Agregar el umbral 0 para completar el array de thresholds
+    thresholds = np.append(thresholds, 1)
+    
+    # Graficar precisión y recall en función del umbral
+    plt.figure(figsize=(10, 6))
+    plt.plot(thresholds, precision, label="Precisión")
+    plt.plot(thresholds, recall, label="Recall")
+    plt.xlabel("Umbral")
+    plt.ylabel("Precisión/Recall")
+    plt.title("Precisión y Recall en función del umbral")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+
+
+.. image:: output_22_0.png
+
+
+Tasa de positivos por decil
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+El gráfico se construye ordenando las observaciones según la
+probabilidad estimada por el modelo de mayor a menor. Luego, estas
+observaciones se dividen en deciles (grupos del mismo tamaño) y, para
+cada decil, se calcula la proporción de la clase positiva real respecto
+al total de observaciones en ese grupo. Esto permite evaluar si el
+modelo concentra los casos positivos en los deciles de mayor riesgo.
+
+-  **Decil 1** → mayor probabilidad predicha
+
+-  **Decil 10** → menor probabilidad predicha
+
+Muestra qué tan bien el modelo concentra los positivos en los primeros
+deciles.
+
+El gráfico responde: Entre los casos que el modelo considera más
+riesgosos (según probabilidad), qué proporción realmente es positiva.
+
+Curva decreciente = buen modelo
+
+Si el modelo ordena bien el riesgo, entonces:
+
+-  el decil 1 debe tener la tasa más alta de positivos
+
+-  los siguientes deciles deben ir bajando
+
+-  el decil 10 debe tener la tasa más baja
+
+Es decir, una curva descendente indica que el modelo sí está separando
+bien los casos.
+
+**Tasa de positivos por decil:**
+
+.. math::  Tasa_d = \frac{Positivos_d}{Total_d} 
+
+Esto significa: De todas las observaciones que quedaron en ese decil,
+qué proporción realmente pertenece a la clase positiva.
 
 .. code:: ipython3
 
@@ -522,7 +613,7 @@ Regularización
     
     # Crear deciles (1 = más alto riesgo, 10 = más bajo)
     df_deciles['Decil'] = pd.qcut(df_deciles['y_proba'], 10, labels=False, duplicates='drop') + 1
-    df_deciles['Decil'] = 11 - df_deciles['Decil']   # invertir para que el decil 1 sea el de mayor riesgo
+    df_deciles['Decil'] = 11 - df_deciles['Decil']   # invertir para que el decil 1 sea el de mayor probabilidad
     
     # Calcular tasa por decil
     tabla_deciles = df_deciles.groupby('Decil').agg(
@@ -530,8 +621,6 @@ Regularización
         Positivos=('y_real','sum')
     )
     tabla_deciles['Tasa'] = tabla_deciles['Positivos'] / tabla_deciles['Total']
-    tabla_deciles['Lift'] = tabla_deciles['Tasa'] / df_deciles['y_real'].mean()
-    tabla_deciles['Captura_Acum'] = tabla_deciles['Positivos'].cumsum() / df_deciles['y_real'].sum()
     
     print(f"Tasa de positivos reales en test: {df_deciles['y_real'].mean():.2f}")
     
@@ -550,20 +639,20 @@ Regularización
 .. parsed-literal::
 
     Tasa de positivos reales en test: 0.54
-           Total  Positivos      Tasa      Lift  Captura_Acum
-    Decil                                                    
-    1         19         19  1.000000  1.834951      0.184466
-    2         19         19  1.000000  1.834951      0.368932
-    3         19         17  0.894737  1.641799      0.533981
-    4         19         11  0.578947  1.062340      0.640777
-    5         18          9  0.500000  0.917476      0.728155
-    6         19         11  0.578947  1.062340      0.834951
-    7         19          3  0.157895  0.289729      0.864078
-    8         19          7  0.368421  0.676035      0.932039
-    9         19          5  0.263158  0.482882      0.980583
-    10        19          2  0.105263  0.193153      1.000000
+           Total  Positivos      Tasa
+    Decil                            
+    1         19         19  1.000000
+    2         19         18  0.947368
+    3         19         18  0.947368
+    4         19         11  0.578947
+    5         18          9  0.500000
+    6         19         10  0.526316
+    7         19          6  0.315789
+    8         19          4  0.210526
+    9         19          5  0.263158
+    10        19          3  0.157895
     
 
 
-.. image:: output_20_1.png
+.. image:: output_25_1.png
 
