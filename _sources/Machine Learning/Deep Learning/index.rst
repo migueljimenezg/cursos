@@ -119,15 +119,20 @@ Redes Neuronales Convolucionales:
    CNN-LSTM para series de tiempo/CNN-LSTM para series de tiempo
 
 
-______________________________________________
+Aplicaciones en series de tiempo:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 .. toctree::
    :maxdepth: 1
    :titlesonly:
 
    Métodos de Deep Learnign serie irradiancia/Métodos_de_Deep_Learnign_serie_irradiancia
-   Taller redes neuronales artificiales/Taller redes neuronales artificiales
-   Taller RNN/Taller RNN
+   Optimización de Hp - precio electricidad/Optimización_Hiperparámetros_Precio_electricidad
+   Mejor modelo - Precio electricidad/Mejor_modelo_Precio_electricidad
+
+
+
 
 ______________________________________________
 
@@ -138,6 +143,8 @@ ______________________________________________
     * **Descargue** :download:`BD empresas en re organización.xlsx <BD empresas en re organización.xlsx>`
 
     * **Descargue** :download:`Irradiancia mensual.csv <Irradiance_mensual.csv>`
+
+    * **Descargue** :download:`Precio_diario.xlsx <Precio_diario.xlsx>`
 
     * **Descargue** :download:`DatosCafe.csv <DatosCafe.csv>`
 
