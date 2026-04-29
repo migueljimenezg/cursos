@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Machine Learning/Deep Learning/Optimización de Hp - precio electricidad/Optimización_Hiperparámetros_Precio_electricidad';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Mejor modelo - Precio electricidad" href="../Mejor%20modelo%20-%20Precio%20electricidad/Mejor_modelo_Precio_electricidad.html" />
+    <link rel="next" title="Optimización de Hp - CNN - precio electricidad" href="../Optimizaci%C3%B3n%20de%20Hp%20-%20CNN%20-%20precio%20electricidad/Optimizaci%C3%B3n_de_Hp_CNN_precio_electricidad.html" />
     <link rel="prev" title="Métodos de Deep Learnign serie irradiancia" href="../M%C3%A9todos%20de%20Deep%20Learnign%20serie%20irradiancia/M%C3%A9todos_de_Deep_Learnign_serie_irradiancia.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -349,6 +349,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../M%C3%A9todos%20de%20Deep%20Learnign%20serie%20irradiancia/M%C3%A9todos_de_Deep_Learnign_serie_irradiancia.html">Métodos de Deep Learnign serie irradiancia</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Optimización Hiperparámetros - Precio electricidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimizaci%C3%B3n%20de%20Hp%20-%20CNN%20-%20precio%20electricidad/Optimizaci%C3%B3n_de_Hp_CNN_precio_electricidad.html">Optimización de Hp - CNN - precio electricidad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Mejor%20modelo%20-%20Precio%20electricidad/Mejor_modelo_Precio_electricidad.html">Mejor modelo - Precio electricidad</a></li>
 </ul>
 </details></li>
@@ -1338,7 +1339,7 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_9_09.png" src="../../../_images/output_9_09.png" />
+<img alt="../../../_images/output_9_010.png" src="../../../_images/output_9_010.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graficar serie_bc</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">serie_bc</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Transformación Box-Cox&quot;</span><span class="p">)</span>
@@ -1346,7 +1347,7 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_10_06.png" src="../../../_images/output_10_06.png" />
+<img alt="../../../_images/output_10_07.png" src="../../../_images/output_10_07.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Conjunto de Train y Test:</span>
 <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data_bc</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.30</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># Escalado de variables:</span>
@@ -1364,7 +1365,7 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_12_08.png" src="../../../_images/output_12_08.png" />
+<img alt="../../../_images/output_12_09.png" src="../../../_images/output_12_09.png" />
 </section>
 <section id="optimizacion-de-hiperparametros">
 <h2>Optimización de Hiperparámetros<a class="headerlink" href="#optimizacion-de-hiperparametros" title="Link to this heading">#</a></h2>
@@ -1409,9 +1410,9 @@ Modelo 1/3 — Tipo: LSTM
   R²    Train: 0.947879  |  Test: 0.896604
 </pre></div>
 </div>
-<img alt="../../../_images/output_14_15.png" src="../../../_images/output_14_15.png" />
-<img alt="../../../_images/output_14_22.png" src="../../../_images/output_14_22.png" />
-<img alt="../../../_images/output_14_31.png" src="../../../_images/output_14_31.png" />
+<img alt="../../../_images/output_14_16.png" src="../../../_images/output_14_16.png" />
+<img alt="../../../_images/output_14_23.png" src="../../../_images/output_14_23.png" />
+<img alt="../../../_images/output_14_32.png" src="../../../_images/output_14_32.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  Modelo guardado: modelo_1_LSTM_lags_50.keras
 
 ============================================================
@@ -1431,9 +1432,9 @@ Modelo 2/3 — Tipo: GRU
   R²    Train: 0.956445  |  Test: 0.920795
 </pre></div>
 </div>
-<img alt="../../../_images/output_14_5.png" src="../../../_images/output_14_5.png" />
-<img alt="../../../_images/output_14_6.png" src="../../../_images/output_14_6.png" />
-<img alt="../../../_images/output_14_7.png" src="../../../_images/output_14_7.png" />
+<img alt="../../../_images/output_14_51.png" src="../../../_images/output_14_51.png" />
+<img alt="../../../_images/output_14_61.png" src="../../../_images/output_14_61.png" />
+<img alt="../../../_images/output_14_71.png" src="../../../_images/output_14_71.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  Modelo guardado: modelo_2_GRU_lags_60.keras
 
 ============================================================
@@ -1453,9 +1454,9 @@ Modelo 3/3 — Tipo: LSTM
   R²    Train: 0.835963  |  Test: 0.703071
 </pre></div>
 </div>
-<img alt="../../../_images/output_14_9.png" src="../../../_images/output_14_9.png" />
-<img alt="../../../_images/output_14_10.png" src="../../../_images/output_14_10.png" />
-<img alt="../../../_images/output_14_111.png" src="../../../_images/output_14_111.png" />
+<img alt="../../../_images/output_14_91.png" src="../../../_images/output_14_91.png" />
+<img alt="../../../_images/output_14_101.png" src="../../../_images/output_14_101.png" />
+<img alt="../../../_images/output_14_112.png" src="../../../_images/output_14_112.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Modelo</span> <span class="n">guardado</span><span class="p">:</span> <span class="n">modelo_3_LSTM_lags_12</span><span class="o">.</span><span class="n">keras</span>
 </pre></div>
 </div>
@@ -1483,11 +1484,11 @@ Modelo 3/3 — Tipo: LSTM
       </div>
     </a>
     <a class="right-next"
-       href="../Mejor%20modelo%20-%20Precio%20electricidad/Mejor_modelo_Precio_electricidad.html"
+       href="../Optimizaci%C3%B3n%20de%20Hp%20-%20CNN%20-%20precio%20electricidad/Optimizaci%C3%B3n_de_Hp_CNN_precio_electricidad.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Mejor modelo - Precio electricidad</p>
+        <p class="prev-next-title">Optimización de Hp - CNN - precio electricidad</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

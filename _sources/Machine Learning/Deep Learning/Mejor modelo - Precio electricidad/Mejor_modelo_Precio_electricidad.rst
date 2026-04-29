@@ -16,6 +16,7 @@ Mejor modelo - Precio electricidad
     from keras.models import load_model
     import statsmodels.api as sm
     from scipy.stats import norm
+    from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
     
     # warning
     import warnings
@@ -41,7 +42,7 @@ Función para evaluar el modelo
     ):
         """
         Evalúa un modelo de series de tiempo ya entrenado.
-        Muestra métricas de desempeño y un gráfico elegante de ajuste
+        Muestra métricas de desempeño y un gráfico de ajuste
         en train y test.
     
         Parámetros
@@ -92,14 +93,6 @@ Función para evaluar el modelo
                 resultado = np.exp(resultado)
             elif transformacion == "boxcox":
                 resultado = inv_boxcox(resultado, lambda_bc)
-            return resultado
-    
-        def invertir_solo_scaler(valores):
-            resultado = valores.copy().flatten()
-            if scaler is not None:
-                resultado = scaler.inverse_transform(
-                    resultado.reshape(-1, 1)
-                ).flatten()
             return resultado
     
         # -------------------------------------------------
@@ -199,121 +192,127 @@ Función para evaluar el modelo
         print(f"{'═'*62}\n")
     
         # -------------------------------------------------
-        # Gráfico elegante de ajuste
+        # Gráfico de ajuste (estilo ggplot)
         # -------------------------------------------------
-        # Colores
-        c_train = "#1a5276"
-        c_train_pred = "#e74c3c"
-        c_test = "#148f77"
-        c_test_pred = "#e67e22"
-        c_bg = "#fafafa"
-        c_grid = "#d5d8dc"
-        c_sep = "#aab7b8"
-    
-        fig, axes = plt.subplots(
-            2, 1, figsize=(16, 9),
-            gridspec_kw={"height_ratios": [3, 1], "hspace": 0.08},
-            sharex=True,
-        )
-        fig.patch.set_facecolor(c_bg)
-    
-        # --- Panel superior: Ajuste ---
-        ax1 = axes[0]
-        ax1.set_facecolor(c_bg)
-    
-        ax1.plot(idx_train, y_tr_inv, color=c_train, linewidth=1.3,
-                 label="Real Train", zorder=3)
-        ax1.plot(idx_train, y_tr_pred_inv, color=c_train_pred, linewidth=1.1,
-                 label="Pred Train", linestyle="--", alpha=0.85, zorder=4)
-        ax1.plot(idx_test, y_te_inv, color=c_test, linewidth=1.3,
-                 label="Real Test", zorder=3)
-        ax1.plot(idx_test, y_te_pred_inv, color=c_test_pred, linewidth=1.1,
-                 label="Pred Test", linestyle="--", alpha=0.85, zorder=4)
-    
-        # Línea separadora train/test
-        sep_x = idx_test[0]
-        ax1.axvline(x=sep_x, color=c_sep, linestyle=":", linewidth=1, zorder=2)
-        ymin_ax, ymax_ax = ax1.get_ylim()
-        ax1.text(sep_x, ymax_ax, "  Train │ Test", fontsize=8,
-                 color=c_sep, va="top", ha="left", style="italic")
-    
-        # Sombrear zona de test
-        ax1.axvspan(idx_test[0], idx_test[-1], alpha=0.04,
-                    color="#2ecc71", zorder=1)
-    
-        ax1.set_ylabel(nombre_serie, fontsize=11, fontweight="bold",
-                       color="#2c3e50")
-        ax1.set_title(
-            f"{nombre_modelo}  —  "
-            f"R² Train: {r2_train_o:.4f}  |  R² Test: {r2_test_o:.4f}  |  "
-            f"RMSE Test: {rmse_test_o:.4f}",
-            fontsize=12, fontweight="bold", color="#2c3e50", pad=12,
-        )
-        ax1.legend(loc="upper left", frameon=True, fancybox=True,
-                   shadow=False, fontsize=9, framealpha=0.9,
-                   edgecolor=c_grid)
-        ax1.grid(True, alpha=0.35, color=c_grid, linewidth=0.5)
-        ax1.tick_params(colors="#5d6d7e", labelsize=9)
-        for spine in ax1.spines.values():
-            spine.set_color(c_grid)
-    
-        # --- Panel inferior: Residuales ---
-        ax2 = axes[1]
-        ax2.set_facecolor(c_bg)
-    
-        # Residuales en escala transformada (solo inv. scaler)
-        if scaler is not None:
-            y_tr_scl = invertir_solo_scaler(y_train)
-            y_tr_pred_scl = invertir_solo_scaler(y_train_pred)
-            y_te_scl = invertir_solo_scaler(y_test)
-            y_te_pred_scl = invertir_solo_scaler(y_test_pred)
-            res_train = y_tr_scl - y_tr_pred_scl
-            res_test = y_te_scl - y_te_pred_scl
-            if transformacion is not None:
-                res_ylabel = f"Residual ({transformacion})"
-            else:
-                res_ylabel = "Residual (inv. scaler)"
-        else:
-            res_train = y_train - y_train_pred
-            res_test = y_test - y_test_pred
-            if transformacion is not None:
-                res_ylabel = f"Residual ({transformacion})"
-            else:
-                res_ylabel = "Residual"
-    
-        ax2.scatter(idx_train, res_train, color=c_train, alpha=0.45,
-                    s=8, zorder=3, label="Train")
-        ax2.scatter(idx_test, res_test, color=c_test, alpha=0.45,
-                    s=8, zorder=3, label="Test")
-        ax2.axhline(y=0, color=c_train_pred, linestyle="-",
-                    linewidth=0.8, zorder=2)
-        ax2.axvline(x=sep_x, color=c_sep, linestyle=":", linewidth=1, zorder=2)
-        ax2.axvspan(idx_test[0], idx_test[-1], alpha=0.04,
-                    color="#2ecc71", zorder=1)
-    
-        ax2.set_ylabel(res_ylabel, fontsize=10, fontweight="bold",
-                       color="#2c3e50")
-        ax2.set_xlabel("Tiempo", fontsize=11, fontweight="bold",
-                       color="#2c3e50")
-        ax2.legend(loc="upper left", frameon=True, fancybox=True,
-                   fontsize=8, framealpha=0.9, edgecolor=c_grid)
-        ax2.grid(True, alpha=0.35, color=c_grid, linewidth=0.5)
-        ax2.tick_params(colors="#5d6d7e", labelsize=9)
-        for spine in ax2.spines.values():
-            spine.set_color(c_grid)
-    
-        # Formato de fechas
-        try:
-            ax2.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
-            ax2.xaxis.set_major_locator(mdates.AutoDateLocator())
-            fig.autofmt_xdate(rotation=30, ha="right")
-        except Exception:
-            pass
-    
-        plt.tight_layout()
-        plt.show()
+        with plt.style.context("ggplot"):
+            plt.figure(figsize=(12, 6))
+            plt.plot(idx_train, y_tr_inv, label="Real Train", color="black")
+            plt.plot(
+                idx_train, y_tr_pred_inv,
+                label="Ajuste Train", color="tab:blue",
+            )
+            plt.plot(idx_test, y_te_inv, label="Real Test", color="black")
+            plt.plot(
+                idx_test, y_te_pred_inv,
+                label="Pronóstico Test", color="tab:green",
+            )
+            plt.title(f"Ajuste y pronóstico - {nombre_modelo}")
+            plt.xlabel("Tiempo")
+            plt.ylabel(nombre_serie)
+            plt.legend()
+            plt.tight_layout()
+            plt.show()
     
         return metricas
+
+Función para analizar los residuales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    def analisis_residuales(
+        residuals,
+        nombre: str = "Serie de tiempo",
+        lags: int = 24,
+        color_resid: str = "navy",
+        color_qq: str = "navy",
+        color_acf_pacf: str = "navy"
+    ):
+        """
+        Análisis gráfico de residuales:
+        - Residuales en el tiempo (toda la fila superior)
+        - Histograma + curva normal (izq), QQ-plot (der)
+        - ACF (izq), PACF (der) con bandas y barras color navy
+        """
+        residuals = residuals[1:].dropna()
+    
+        # Ensure mu and sigma are scalar values
+        if isinstance(residuals, pd.DataFrame) and 'Precio' in residuals.columns:
+            mu = residuals['Precio'].mean()
+            sigma = residuals['Precio'].std(ddof=1)
+        elif isinstance(residuals, pd.Series):
+            mu = residuals.mean()
+            sigma = residuals.std(ddof=1)
+        else:
+            mu = residuals.mean().iloc[0] if hasattr(residuals.mean(), 'iloc') else residuals.mean()
+            sigma = residuals.std(ddof=1).iloc[0] if hasattr(residuals.std(ddof=1), 'iloc') else residuals.std(ddof=1)
+    
+        x = np.linspace(residuals.min().min() if isinstance(residuals, pd.DataFrame) else residuals.min(),
+                        residuals.max().max() if isinstance(residuals, pd.DataFrame) else residuals.max(),
+                        400)
+        pdf = norm.pdf(x, loc=mu, scale=sigma)
+    
+        with plt.style.context("ggplot"):
+            fig = plt.figure(constrained_layout=True, figsize=(14, 11))
+            gs = fig.add_gridspec(3, 2, height_ratios=[1, 1, 1])
+    
+            # 1. Residuales en el tiempo
+            ax_time = fig.add_subplot(gs[0, :])
+            ax_time.scatter(residuals.index, residuals, color=color_resid, alpha=0.7, s=20)
+            ax_time.axhline(0, ls="--", color="black")
+            ax_time.set_title(f"Residuales en el tiempo: {nombre}", color='black')
+            ax_time.set_xlabel("Tiempo", color='black')
+            ax_time.set_ylabel("Residual", color='black')
+            ax_time.tick_params(axis='both', labelsize=11, colors='black')
+    
+            # 2. Histograma + curva Normal
+            ax_hist = fig.add_subplot(gs[1, 0])
+            ax_hist.hist(residuals, bins="auto", density=True, alpha=0.6, edgecolor="k", color="royalblue")
+            ax_hist.plot(x, pdf, lw=2, label=f"N({mu:.3f}, {sigma:.3f}²)", color="darkred")
+            ax_hist.set_title("Histograma residuales y ajuste Normal", color='black')
+            ax_hist.set_xlabel("Residual", color='black')
+            ax_hist.set_ylabel("Densidad", color='black')
+            ax_hist.legend(fontsize=9)
+            ax_hist.grid(alpha=0.18)
+            ax_hist.tick_params(axis='both', labelsize=10, colors='black')
+    
+            # 3. QQ-plot
+            ax_qq = fig.add_subplot(gs[1, 1])
+            qq = sm.qqplot(residuals.iloc[:, 0] if isinstance(residuals, pd.DataFrame) else residuals, line='45', fit=True, ax=ax_qq, markerfacecolor=color_qq, markeredgecolor=color_qq, marker='o')
+            lines = ax_qq.get_lines()
+            if len(lines) >= 1:
+                lines[0].set_color(color_qq)
+                lines[0].set_marker('o')
+                lines[0].set_linestyle('None')
+            if len(lines) >= 2:
+                lines[1].set_color("black")
+                lines[1].set_linestyle("--")
+            ax_qq.set_title("Q-Q Plot de los residuales", color='black')
+            ax_qq.set_xlabel("Cuantiles teóricos (Normal)", color='black')
+            ax_qq.set_ylabel("Cuantiles de los residuales", color='black')
+            ax_qq.tick_params(axis='both', labelsize=10, colors='black')
+            for l in ax_qq.get_xticklabels() + ax_qq.get_yticklabels():
+                l.set_color('black')
+    
+            # 4. ACF
+            ax_acf = fig.add_subplot(gs[2, 0])
+            sm.graphics.tsa.plot_acf(residuals.iloc[:, 0] if isinstance(residuals, pd.DataFrame) else residuals, lags=lags, ax=ax_acf, zero=False, color=color_acf_pacf)
+            ax_acf.set_title("ACF de los residuales", color='black')
+            ax_acf.set_xlabel("Rezagos", color='black')
+            ax_acf.set_ylabel("Autocorrelación", color='black')
+            ax_acf.tick_params(axis='both', labelsize=10, colors='black')
+    
+            # 5. PACF
+            ax_pacf = fig.add_subplot(gs[2, 1])
+            sm.graphics.tsa.plot_pacf(residuals.iloc[:, 0] if isinstance(residuals, pd.DataFrame) else residuals, lags=lags, ax=ax_pacf, zero=False, color=color_acf_pacf)
+            ax_pacf.set_title("PACF de los residuales", color='black')
+            ax_pacf.set_xlabel("Rezagos", color='black')
+            ax_pacf.set_ylabel("Autocorrelación parcial", color='black')
+            ax_pacf.tick_params(axis='both', labelsize=10, colors='black')
+    
+            plt.show()
+    
+        return
 
 Datos:
 ~~~~~~
@@ -343,7 +342,7 @@ Datos:
     
 
 
-.. image:: output_5_1.png
+.. image:: output_7_1.png
 
 
 .. code:: ipython3
@@ -406,8 +405,8 @@ Transformaciones serie de tiempo:
     train_scaled = scaler.transform(train)
     test_scaled = scaler.transform(test)
 
-Cargar modelo:
-~~~~~~~~~~~~~~
+Cargar mejor modelo: Redes Neuronales
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: ipython3
 
@@ -464,5 +463,116 @@ Evaluación del modelo
     
 
 
-.. image:: output_13_1.png
+.. image:: output_15_1.png
+
+
+Análisis de residuales
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    # Ajuste en train
+    y_train_pred = model.predict(X_train, verbose=0).flatten()
+    
+    # Devolver scaler
+    y_train_pred_inv = scaler.inverse_transform(y_train_pred.reshape(-1, 1)).flatten()
+    y_train_pred_inv = pd.Series(y_train_pred_inv, index=train.index[lags:])
+    residuales = train['Precio'][lags:] - y_train_pred_inv
+
+.. code:: ipython3
+
+    analisis_residuales(
+        residuales,      # Agregar los residuales
+        nombre="Precio de electricidad",
+    )
+
+
+
+.. image:: output_18_0.png
+
+
+Cargar mejor modelo: CNN
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    # Cargar modelo keras
+    model = load_model('modelo_1_CNN_Dense_lags_40.keras')
+    # Creación de lags:
+    lags = 40
+    X_train, y_train = prepare_data_rnn(train_scaled, lags)
+    X_test, y_test = prepare_data_rnn(test_scaled, lags)
+    
+
+Evaluación del modelo
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    metricas = evaluar_modelo_ts(
+        model=model,
+        X_train=X_train, y_train=y_train,
+        X_test=X_test, y_test=y_test,
+        train_index=train.index,
+        test_index=test.index,
+        lags=lags,
+        scaler=scaler,
+        transformacion="boxcox",       # o "log" o None
+        lambda_bc=lambda_bc,
+        nombre_modelo="CNN + Dense — Mejor Modelo",
+        nombre_serie="Precio",
+    )
+
+
+.. parsed-literal::
+
+    
+    ══════════════════════════════════════════════════════════════
+      CNN + Dense — Mejor Modelo
+    ══════════════════════════════════════════════════════════════
+    
+      ▸ Espacio escalado/transformado:
+        Métrica             Train         Test
+        ────────────────────────────────────
+        RMSE             0.044422     0.050793
+        MAE              0.033612     0.041175
+        R²               0.930954     0.876672
+    
+      ▸ Escala original:
+        Métrica             Train         Test
+        ────────────────────────────────────
+        RMSE              65.0409     175.0175
+        MAE               21.4667      87.4161
+        R²               0.789722     0.638411
+    ══════════════════════════════════════════════════════════════
+    
+    
+
+
+.. image:: output_22_1.png
+
+
+Análisis de residuales
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: ipython3
+
+    # Ajuste en train
+    y_train_pred = model.predict(X_train, verbose=0).flatten()
+    
+    # Devolver scaler
+    y_train_pred_inv = scaler.inverse_transform(y_train_pred.reshape(-1, 1)).flatten()
+    y_train_pred_inv = pd.Series(y_train_pred_inv, index=train.index[lags:])
+    residuales = train['Precio'][lags:] - y_train_pred_inv
+
+.. code:: ipython3
+
+    analisis_residuales(
+        residuales,      # Agregar los residuales
+        nombre="Precio de electricidad",
+    )
+
+
+
+.. image:: output_25_0.png
 

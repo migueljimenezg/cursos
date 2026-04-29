@@ -129,6 +129,7 @@ Aplicaciones en series de tiempo:
 
    Métodos de Deep Learnign serie irradiancia/Métodos_de_Deep_Learnign_serie_irradiancia
    Optimización de Hp - precio electricidad/Optimización_Hiperparámetros_Precio_electricidad
+   Optimización de Hp - CNN - precio electricidad/Optimización_de_Hp_CNN_precio_electricidad
    Mejor modelo - Precio electricidad/Mejor_modelo_Precio_electricidad
 
 

@@ -350,6 +350,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/M%C3%A9todos%20de%20Deep%20Learnign%20serie%20irradiancia/M%C3%A9todos_de_Deep_Learnign_serie_irradiancia.html">Métodos de Deep Learnign serie irradiancia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizaci%C3%B3n%20de%20Hp%20-%20precio%20electricidad/Optimizaci%C3%B3n_Hiperpar%C3%A1metros_Precio_electricidad.html">Optimización Hiperparámetros - Precio electricidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Optimizaci%C3%B3n%20de%20Hp%20-%20CNN%20-%20precio%20electricidad/Optimizaci%C3%B3n_de_Hp_CNN_precio_electricidad.html">Optimización de Hp - CNN - precio electricidad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../Machine%20Learning/Deep%20Learning/Mejor%20modelo%20-%20Precio%20electricidad/Mejor_modelo_Precio_electricidad.html">Mejor modelo - Precio electricidad</a></li>
 </ul>
 </details></li>
@@ -1619,7 +1620,7 @@ ligeramente significativo.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_12_013.png" src="../../../_images/output_12_013.png" />
+<img alt="../../../_images/output_12_014.png" src="../../../_images/output_12_014.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.tsa.statespace.sarimax</span><span class="w"> </span><span class="kn">import</span> <span class="n">SARIMAX</span>
 </pre></div>
@@ -1769,7 +1770,7 @@ logarítmica.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_25_08.png" src="../../../_images/output_25_08.png" />
+<img alt="../../../_images/output_25_09.png" src="../../../_images/output_25_09.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Gráfico de valores predichos vs. valores reales</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_real</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>

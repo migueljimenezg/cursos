@@ -350,6 +350,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/M%C3%A9todos%20de%20Deep%20Learnign%20serie%20irradiancia/M%C3%A9todos_de_Deep_Learnign_serie_irradiancia.html">Métodos de Deep Learnign serie irradiancia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Optimizaci%C3%B3n%20de%20Hp%20-%20precio%20electricidad/Optimizaci%C3%B3n_Hiperpar%C3%A1metros_Precio_electricidad.html">Optimización Hiperparámetros - Precio electricidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Optimizaci%C3%B3n%20de%20Hp%20-%20CNN%20-%20precio%20electricidad/Optimizaci%C3%B3n_de_Hp_CNN_precio_electricidad.html">Optimización de Hp - CNN - precio electricidad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../Machine%20Learning/Deep%20Learning/Mejor%20modelo%20-%20Precio%20electricidad/Mejor_modelo_Precio_electricidad.html">Mejor modelo - Precio electricidad</a></li>
 </ul>
 </details></li>
@@ -784,7 +785,7 @@ Es el error estándar de <span class="math notranslate nohighlight">\(\hat{\beta
 <span class="w">                         </span><span class="s">&quot; Valor - p =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">signif</span><span class="p">(</span><span class="nf">summary</span><span class="p">(</span><span class="n">regression</span><span class="p">)</span><span class="o">$</span><span class="n">coef</span><span class="p">[</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="m">2</span><span class="p">)))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_10_09.png"><img alt="../../_images/output_10_09.png" src="../../_images/output_10_09.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_10_010.png"><img alt="../../_images/output_10_010.png" src="../../_images/output_10_010.png" style="width: 420px; height: 420px;" />
 </a>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regression</span><span class="o">$</span><span class="n">fitted.values</span>
 <span class="nf">print</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="n">y_pred</span><span class="p">))</span>
@@ -854,7 +855,7 @@ por vectores y los números dentro de cada vector serán los gráficos.</p>
 <span class="w">             </span><span class="n">layout_matrix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">cbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../../_images/output_18_07.png"><img alt="../../_images/output_18_07.png" src="../../_images/output_18_07.png" style="width: 420px; height: 420px;" />
+<a class="reference internal image-reference" href="../../_images/output_18_08.png"><img alt="../../_images/output_18_08.png" src="../../_images/output_18_08.png" style="width: 420px; height: 420px;" />
 </a>
 </section>
 <section id="parametros-de-la-regresion">

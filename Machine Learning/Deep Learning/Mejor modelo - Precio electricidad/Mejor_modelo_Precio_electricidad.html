@@ -48,7 +48,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Introducción a las Matemáticas Financieras" href="../../../Administraci%C3%B3n%20financiera/Introducci%C3%B3n%20matem%C3%A1ticas%20financieras/index.html" />
-    <link rel="prev" title="Optimización Hiperparámetros - Precio electricidad" href="../Optimizaci%C3%B3n%20de%20Hp%20-%20precio%20electricidad/Optimizaci%C3%B3n_Hiperpar%C3%A1metros_Precio_electricidad.html" />
+    <link rel="prev" title="Optimización de Hp - CNN - precio electricidad" href="../Optimizaci%C3%B3n%20de%20Hp%20-%20CNN%20-%20precio%20electricidad/Optimizaci%C3%B3n_de_Hp_CNN_precio_electricidad.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -349,6 +349,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../CNN-LSTM%20para%20series%20de%20tiempo/CNN-LSTM%20para%20series%20de%20tiempo.html">CNN-LSTM para series de tiempo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../M%C3%A9todos%20de%20Deep%20Learnign%20serie%20irradiancia/M%C3%A9todos_de_Deep_Learnign_serie_irradiancia.html">Métodos de Deep Learnign serie irradiancia</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Optimizaci%C3%B3n%20de%20Hp%20-%20precio%20electricidad/Optimizaci%C3%B3n_Hiperpar%C3%A1metros_Precio_electricidad.html">Optimización Hiperparámetros - Precio electricidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Optimizaci%C3%B3n%20de%20Hp%20-%20CNN%20-%20precio%20electricidad/Optimizaci%C3%B3n_de_Hp_CNN_precio_electricidad.html">Optimización de Hp - CNN - precio electricidad</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Mejor modelo - Precio electricidad</a></li>
 </ul>
 </details></li>
@@ -701,10 +702,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-para-evaluar-el-modelo">Función para evaluar el modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-para-analizar-los-residuales">Función para analizar los residuales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-serie-de-tiempo">Transformaciones serie de tiempo:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-modelo">Cargar modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-mejor-modelo-redes-neuronales">Cargar mejor modelo: Redes Neuronales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-residuales">Análisis de residuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-mejor-modelo-cnn">Cargar mejor modelo: CNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Evaluación del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Análisis de residuales</a></li>
 </ul>
             </nav>
         </div>
@@ -731,6 +737,7 @@ document.write(`
 <span class="kn">from</span><span class="w"> </span><span class="nn">keras.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_model</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.graphics.tsaplots</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
 
 <span class="c1"># warning</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
@@ -754,7 +761,7 @@ document.write(`
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Evalúa un modelo de series de tiempo ya entrenado.</span>
-<span class="sd">    Muestra métricas de desempeño y un gráfico elegante de ajuste</span>
+<span class="sd">    Muestra métricas de desempeño y un gráfico de ajuste</span>
 <span class="sd">    en train y test.</span>
 
 <span class="sd">    Parámetros</span>
@@ -805,14 +812,6 @@ document.write(`
             <span class="n">resultado</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">transformacion</span> <span class="o">==</span> <span class="s2">&quot;boxcox&quot;</span><span class="p">:</span>
             <span class="n">resultado</span> <span class="o">=</span> <span class="n">inv_boxcox</span><span class="p">(</span><span class="n">resultado</span><span class="p">,</span> <span class="n">lambda_bc</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">resultado</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">invertir_solo_scaler</span><span class="p">(</span><span class="n">valores</span><span class="p">):</span>
-        <span class="n">resultado</span> <span class="o">=</span> <span class="n">valores</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">scaler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">resultado</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span>
-                <span class="n">resultado</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">resultado</span>
 
     <span class="c1"># -------------------------------------------------</span>
@@ -912,121 +911,126 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;═&#39;</span><span class="o">*</span><span class="mi">62</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="c1"># -------------------------------------------------</span>
-    <span class="c1"># Gráfico elegante de ajuste</span>
+    <span class="c1"># Gráfico de ajuste (estilo ggplot)</span>
     <span class="c1"># -------------------------------------------------</span>
-    <span class="c1"># Colores</span>
-    <span class="n">c_train</span> <span class="o">=</span> <span class="s2">&quot;#1a5276&quot;</span>
-    <span class="n">c_train_pred</span> <span class="o">=</span> <span class="s2">&quot;#e74c3c&quot;</span>
-    <span class="n">c_test</span> <span class="o">=</span> <span class="s2">&quot;#148f77&quot;</span>
-    <span class="n">c_test_pred</span> <span class="o">=</span> <span class="s2">&quot;#e67e22&quot;</span>
-    <span class="n">c_bg</span> <span class="o">=</span> <span class="s2">&quot;#fafafa&quot;</span>
-    <span class="n">c_grid</span> <span class="o">=</span> <span class="s2">&quot;#d5d8dc&quot;</span>
-    <span class="n">c_sep</span> <span class="o">=</span> <span class="s2">&quot;#aab7b8&quot;</span>
-
-    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
-        <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
-        <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;height_ratios&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;hspace&quot;</span><span class="p">:</span> <span class="mf">0.08</span><span class="p">},</span>
-        <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">c_bg</span><span class="p">)</span>
-
-    <span class="c1"># --- Panel superior: Ajuste ---</span>
-    <span class="n">ax1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">c_bg</span><span class="p">)</span>
-
-    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">idx_train</span><span class="p">,</span> <span class="n">y_tr_inv</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_train</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span>
-             <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Real Train&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">idx_train</span><span class="p">,</span> <span class="n">y_tr_pred_inv</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_train_pred</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>
-             <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Pred Train&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">idx_test</span><span class="p">,</span> <span class="n">y_te_inv</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_test</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span>
-             <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Real Test&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">idx_test</span><span class="p">,</span> <span class="n">y_te_pred_inv</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_test_pred</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span>
-             <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Pred Test&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-
-    <span class="c1"># Línea separadora train/test</span>
-    <span class="n">sep_x</span> <span class="o">=</span> <span class="n">idx_test</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">sep_x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_sep</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ymin_ax</span><span class="p">,</span> <span class="n">ymax_ax</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">sep_x</span><span class="p">,</span> <span class="n">ymax_ax</span><span class="p">,</span> <span class="s2">&quot;  Train │ Test&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
-             <span class="n">color</span><span class="o">=</span><span class="n">c_sep</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;italic&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Sombrear zona de test</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">idx_test</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">idx_test</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span>
-                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#2ecc71&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">nombre_serie</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span>
-                   <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#2c3e50&quot;</span><span class="p">)</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nombre_modelo</span><span class="si">}</span><span class="s2">  —  &quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;R² Train: </span><span class="si">{</span><span class="n">r2_train_o</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">  |  R² Test: </span><span class="si">{</span><span class="n">r2_test_o</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">  |  &quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;RMSE Test: </span><span class="si">{</span><span class="n">rmse_test_o</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-        <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#2c3e50&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fancybox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-               <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-               <span class="n">edgecolor</span><span class="o">=</span><span class="n">c_grid</span><span class="p">)</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_grid</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s2">&quot;#5d6d7e&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax1</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-        <span class="n">spine</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">c_grid</span><span class="p">)</span>
-
-    <span class="c1"># --- Panel inferior: Residuales ---</span>
-    <span class="n">ax2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">c_bg</span><span class="p">)</span>
-
-    <span class="c1"># Residuales en escala transformada (solo inv. scaler)</span>
-    <span class="k">if</span> <span class="n">scaler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">y_tr_scl</span> <span class="o">=</span> <span class="n">invertir_solo_scaler</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
-        <span class="n">y_tr_pred_scl</span> <span class="o">=</span> <span class="n">invertir_solo_scaler</span><span class="p">(</span><span class="n">y_train_pred</span><span class="p">)</span>
-        <span class="n">y_te_scl</span> <span class="o">=</span> <span class="n">invertir_solo_scaler</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
-        <span class="n">y_te_pred_scl</span> <span class="o">=</span> <span class="n">invertir_solo_scaler</span><span class="p">(</span><span class="n">y_test_pred</span><span class="p">)</span>
-        <span class="n">res_train</span> <span class="o">=</span> <span class="n">y_tr_scl</span> <span class="o">-</span> <span class="n">y_tr_pred_scl</span>
-        <span class="n">res_test</span> <span class="o">=</span> <span class="n">y_te_scl</span> <span class="o">-</span> <span class="n">y_te_pred_scl</span>
-        <span class="k">if</span> <span class="n">transformacion</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">res_ylabel</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Residual (</span><span class="si">{</span><span class="n">transformacion</span><span class="si">}</span><span class="s2">)&quot;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">res_ylabel</span> <span class="o">=</span> <span class="s2">&quot;Residual (inv. scaler)&quot;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">res_train</span> <span class="o">=</span> <span class="n">y_train</span> <span class="o">-</span> <span class="n">y_train_pred</span>
-        <span class="n">res_test</span> <span class="o">=</span> <span class="n">y_test</span> <span class="o">-</span> <span class="n">y_test_pred</span>
-        <span class="k">if</span> <span class="n">transformacion</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">res_ylabel</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Residual (</span><span class="si">{</span><span class="n">transformacion</span><span class="si">}</span><span class="s2">)&quot;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">res_ylabel</span> <span class="o">=</span> <span class="s2">&quot;Residual&quot;</span>
-
-    <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">idx_train</span><span class="p">,</span> <span class="n">res_train</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_train</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span>
-                <span class="n">s</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Train&quot;</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">idx_test</span><span class="p">,</span> <span class="n">res_test</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_test</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span>
-                <span class="n">s</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Test&quot;</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_train_pred</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span>
-                <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">sep_x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_sep</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">idx_test</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">idx_test</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span>
-                <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#2ecc71&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">res_ylabel</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span>
-                   <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#2c3e50&quot;</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span>
-                   <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#2c3e50&quot;</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fancybox</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-               <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="n">c_grid</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c_grid</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s2">&quot;#5d6d7e&quot;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax2</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-        <span class="n">spine</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">c_grid</span><span class="p">)</span>
-
-    <span class="c1"># Formato de fechas</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s2">&quot;%Y-%m&quot;</span><span class="p">))</span>
-        <span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">AutoDateLocator</span><span class="p">())</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-        <span class="k">pass</span>
-
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">idx_train</span><span class="p">,</span> <span class="n">y_tr_inv</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Real Train&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+            <span class="n">idx_train</span><span class="p">,</span> <span class="n">y_tr_pred_inv</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ajuste Train&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:blue&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">idx_test</span><span class="p">,</span> <span class="n">y_te_inv</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Real Test&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+            <span class="n">idx_test</span><span class="p">,</span> <span class="n">y_te_pred_inv</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Pronóstico Test&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tab:green&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ajuste y pronóstico - </span><span class="si">{</span><span class="n">nombre_modelo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">nombre_serie</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">metricas</span>
+</pre></div>
+</div>
+</section>
+<section id="funcion-para-analizar-los-residuales">
+<h2>Función para analizar los residuales<a class="headerlink" href="#funcion-para-analizar-los-residuales" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">analisis_residuales</span><span class="p">(</span>
+    <span class="n">residuals</span><span class="p">,</span>
+    <span class="n">nombre</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Serie de tiempo&quot;</span><span class="p">,</span>
+    <span class="n">lags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span>
+    <span class="n">color_resid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;navy&quot;</span><span class="p">,</span>
+    <span class="n">color_qq</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;navy&quot;</span><span class="p">,</span>
+    <span class="n">color_acf_pacf</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;navy&quot;</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Análisis gráfico de residuales:</span>
+<span class="sd">    - Residuales en el tiempo (toda la fila superior)</span>
+<span class="sd">    - Histograma + curva normal (izq), QQ-plot (der)</span>
+<span class="sd">    - ACF (izq), PACF (der) con bandas y barras color navy</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">residuals</span> <span class="o">=</span> <span class="n">residuals</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+    <span class="c1"># Ensure mu and sigma are scalar values</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;Precio&#39;</span> <span class="ow">in</span> <span class="n">residuals</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="n">residuals</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">residuals</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="n">residuals</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">residuals</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="n">residuals</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">residuals</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="s1">&#39;iloc&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">residuals</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">residuals</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">residuals</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;iloc&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">residuals</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">residuals</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="n">residuals</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                    <span class="n">residuals</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="n">residuals</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+                    <span class="mi">400</span><span class="p">)</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">):</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+        <span class="n">gs</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_gridspec</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="c1"># 1. Residuales en el tiempo</span>
+        <span class="n">ax_time</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="n">ax_time</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">residuals</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_resid</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+        <span class="n">ax_time</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+        <span class="n">ax_time</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Residuales en el tiempo: </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_time</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Tiempo&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_time</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Residual&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_time</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+        <span class="c1"># 2. Histograma + curva Normal</span>
+        <span class="n">ax_hist</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">ax_hist</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span><span class="p">)</span>
+        <span class="n">ax_hist</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;N(</span><span class="si">{</span><span class="n">mu</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">sigma</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">²)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkred&quot;</span><span class="p">)</span>
+        <span class="n">ax_hist</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Histograma residuales y ajuste Normal&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_hist</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Residual&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_hist</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Densidad&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_hist</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+        <span class="n">ax_hist</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.18</span><span class="p">)</span>
+        <span class="n">ax_hist</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+        <span class="c1"># 3. QQ-plot</span>
+        <span class="n">ax_qq</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">qq</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">residuals</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s1">&#39;45&#39;</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_qq</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="n">color_qq</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="n">color_qq</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">ax_qq</span><span class="o">.</span><span class="n">get_lines</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">color_qq</span><span class="p">)</span>
+            <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_marker</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_linestyle</span><span class="p">(</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+            <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_linestyle</span><span class="p">(</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+        <span class="n">ax_qq</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Q-Q Plot de los residuales&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_qq</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Cuantiles teóricos (Normal)&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_qq</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Cuantiles de los residuales&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_qq</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">ax_qq</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">ax_qq</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">():</span>
+            <span class="n">l</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+        <span class="c1"># 4. ACF</span>
+        <span class="n">ax_acf</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">plot_acf</span><span class="p">(</span><span class="n">residuals</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">lags</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_acf</span><span class="p">,</span> <span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_acf_pacf</span><span class="p">)</span>
+        <span class="n">ax_acf</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;ACF de los residuales&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_acf</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Rezagos&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_acf</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Autocorrelación&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_acf</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+        <span class="c1"># 5. PACF</span>
+        <span class="n">ax_pacf</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">sm</span><span class="o">.</span><span class="n">graphics</span><span class="o">.</span><span class="n">tsa</span><span class="o">.</span><span class="n">plot_pacf</span><span class="p">(</span><span class="n">residuals</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="k">else</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">lags</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_pacf</span><span class="p">,</span> <span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_acf_pacf</span><span class="p">)</span>
+        <span class="n">ax_pacf</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;PACF de los residuales&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_pacf</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Rezagos&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_pacf</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Autocorrelación parcial&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">ax_pacf</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">return</span>
 </pre></div>
 </div>
 </section>
@@ -1052,7 +1056,7 @@ document.write(`
 <span class="mi">2002</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">05</span>  <span class="mf">36.266849</span>
 </pre></div>
 </div>
-<img alt="../../../_images/output_5_13.png" src="../../../_images/output_5_13.png" />
+<img alt="../../../_images/output_7_11.png" src="../../../_images/output_7_11.png" />
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Función para crear los lags para RNA</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">prepare_data</span><span class="p">(</span><span class="n">precio</span><span class="p">,</span> <span class="n">n_lags</span><span class="p">):</span>
     <span class="n">X</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1111,8 +1115,8 @@ document.write(`
 </pre></div>
 </div>
 </section>
-<section id="cargar-modelo">
-<h2>Cargar modelo:<a class="headerlink" href="#cargar-modelo" title="Link to this heading">#</a></h2>
+<section id="cargar-mejor-modelo-redes-neuronales">
+<h2>Cargar mejor modelo: Redes Neuronales<a class="headerlink" href="#cargar-mejor-modelo-redes-neuronales" title="Link to this heading">#</a></h2>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargar modelo keras</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;modelo_2_GRU_lags_60.keras&#39;</span><span class="p">)</span>
 <span class="c1"># Creación de lags:</span>
@@ -1159,7 +1163,95 @@ document.write(`
 ══════════════════════════════════════════════════════════════
 </pre></div>
 </div>
-<img alt="../../../_images/output_13_17.png" src="../../../_images/output_13_17.png" />
+<img alt="../../../_images/output_15_14.png" src="../../../_images/output_15_14.png" />
+</section>
+<section id="analisis-de-residuales">
+<h2>Análisis de residuales<a class="headerlink" href="#analisis-de-residuales" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajuste en train</span>
+<span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># Devolver scaler</span>
+<span class="n">y_train_pred_inv</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_train_pred</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">y_train_pred_inv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_train_pred_inv</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">lags</span><span class="p">:])</span>
+<span class="n">residuales</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">][</span><span class="n">lags</span><span class="p">:]</span> <span class="o">-</span> <span class="n">y_train_pred_inv</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analisis_residuales</span><span class="p">(</span>
+    <span class="n">residuales</span><span class="p">,</span>      <span class="c1"># Agregar los residuales</span>
+    <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_18_06.png" src="../../../_images/output_18_06.png" />
+</section>
+<section id="cargar-mejor-modelo-cnn">
+<h2>Cargar mejor modelo: CNN<a class="headerlink" href="#cargar-mejor-modelo-cnn" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cargar modelo keras</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;modelo_1_CNN_Dense_lags_40.keras&#39;</span><span class="p">)</span>
+<span class="c1"># Creación de lags:</span>
+<span class="n">lags</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">prepare_data_rnn</span><span class="p">(</span><span class="n">train_scaled</span><span class="p">,</span> <span class="n">lags</span><span class="p">)</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">prepare_data_rnn</span><span class="p">(</span><span class="n">test_scaled</span><span class="p">,</span> <span class="n">lags</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h2>Evaluación del modelo<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metricas</span> <span class="o">=</span> <span class="n">evaluar_modelo_ts</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">X_train</span><span class="o">=</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="o">=</span><span class="n">y_train</span><span class="p">,</span>
+    <span class="n">X_test</span><span class="o">=</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span>
+    <span class="n">train_index</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">test_index</span><span class="o">=</span><span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">lags</span><span class="o">=</span><span class="n">lags</span><span class="p">,</span>
+    <span class="n">scaler</span><span class="o">=</span><span class="n">scaler</span><span class="p">,</span>
+    <span class="n">transformacion</span><span class="o">=</span><span class="s2">&quot;boxcox&quot;</span><span class="p">,</span>       <span class="c1"># o &quot;log&quot; o None</span>
+    <span class="n">lambda_bc</span><span class="o">=</span><span class="n">lambda_bc</span><span class="p">,</span>
+    <span class="n">nombre_modelo</span><span class="o">=</span><span class="s2">&quot;CNN + Dense — Mejor Modelo&quot;</span><span class="p">,</span>
+    <span class="n">nombre_serie</span><span class="o">=</span><span class="s2">&quot;Precio&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>══════════════════════════════════════════════════════════════
+  CNN + Dense — Mejor Modelo
+══════════════════════════════════════════════════════════════
+
+  ▸ Espacio escalado/transformado:
+    Métrica             Train         Test
+    ────────────────────────────────────
+    RMSE             0.044422     0.050793
+    MAE              0.033612     0.041175
+    R²               0.930954     0.876672
+
+  ▸ Escala original:
+    Métrica             Train         Test
+    ────────────────────────────────────
+    RMSE              65.0409     175.0175
+    MAE               21.4667      87.4161
+    R²               0.789722     0.638411
+══════════════════════════════════════════════════════════════
+</pre></div>
+</div>
+<img alt="../../../_images/output_22_17.png" src="../../../_images/output_22_17.png" />
+</section>
+<section id="id2">
+<h2>Análisis de residuales<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ajuste en train</span>
+<span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># Devolver scaler</span>
+<span class="n">y_train_pred_inv</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_train_pred</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">y_train_pred_inv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y_train_pred_inv</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">train</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">lags</span><span class="p">:])</span>
+<span class="n">residuales</span> <span class="o">=</span> <span class="n">train</span><span class="p">[</span><span class="s1">&#39;Precio&#39;</span><span class="p">][</span><span class="n">lags</span><span class="p">:]</span> <span class="o">-</span> <span class="n">y_train_pred_inv</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analisis_residuales</span><span class="p">(</span>
+    <span class="n">residuales</span><span class="p">,</span>      <span class="c1"># Agregar los residuales</span>
+    <span class="n">nombre</span><span class="o">=</span><span class="s2">&quot;Precio de electricidad&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../../_images/output_25_03.png" src="../../../_images/output_25_03.png" />
 </section>
 </section>
 
@@ -1175,12 +1267,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Optimizaci%C3%B3n%20de%20Hp%20-%20precio%20electricidad/Optimizaci%C3%B3n_Hiperpar%C3%A1metros_Precio_electricidad.html"
+       href="../Optimizaci%C3%B3n%20de%20Hp%20-%20CNN%20-%20precio%20electricidad/Optimizaci%C3%B3n_de_Hp_CNN_precio_electricidad.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Optimización Hiperparámetros - Precio electricidad</p>
+        <p class="prev-next-title">Optimización de Hp - CNN - precio electricidad</p>
       </div>
     </a>
     <a class="right-next"
@@ -1209,10 +1301,15 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-para-evaluar-el-modelo">Función para evaluar el modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-para-analizar-los-residuales">Función para analizar los residuales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datos">Datos:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformaciones-serie-de-tiempo">Transformaciones serie de tiempo:</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-modelo">Cargar modelo:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-mejor-modelo-redes-neuronales">Cargar mejor modelo: Redes Neuronales</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-del-modelo">Evaluación del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-residuales">Análisis de residuales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cargar-mejor-modelo-cnn">Cargar mejor modelo: CNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Evaluación del modelo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Análisis de residuales</a></li>
 </ul>
   </nav></div>
 
